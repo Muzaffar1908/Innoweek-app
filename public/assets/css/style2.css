@@ -1,0 +1,72 @@
+#filter-btn {
+    position: fixed;
+    bottom: 0px;
+    right: 30px;
+    z-index: 99;
+    font-size: 18px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    background: red;
+    color: #fff;
+    cursor: pointer;
+    width: 45px;
+    height: 45px;
+    line-height: 45px;
+    text-align: center;
+    box-shadow: 0 3px 24px rgb(0 0 0/10%);
+    transition: all .5s ease-in-out
+}
+
+.filter {
+    width: 380px;
+    position: fixed;
+    top: 0px;
+    overflow: auto;
+    left: -390px;
+    padding: 5px;
+    padding-top: 25px;
+    background: #031f42;
+    z-index: 555555;
+    transition: all 0.8s ease-in-out;
+    height: 100vh;
+    -webkit-transition: all 0.8s ease-in-out;
+    -moz-transition: all 0.8s ease-in-out;
+    -ms-transition: all 0.8s ease-in-out;
+    -o-transition: all 0.8s ease-in-out;
+}
+
+.filter::-webkit-scrollbar {
+    width: 5px;
+    height: 8px;
+    background: #031f42;
+    /* or add it to the track */
+}
+
+
+/* Add a thumb */
+
+.filter::-webkit-scrollbar-thumb {
+    background: #00af92;
+}
+
+.scroll-top2 {
+    display: none;
+    position: fixed;
+    bottom: 80px;
+    right: 30px;
+    z-index: 99;
+    font-size: 20px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    background: #00af92;
+    color: #fff;
+    cursor: pointer;
+    width: 45px;
+    height: 45px;
+    line-height: 45px;
+    text-align: center;
+    box-shadow: 0 3px 24px rgb(0 0 0/10%);
+    transition: all .5s ease-in-out
+}
