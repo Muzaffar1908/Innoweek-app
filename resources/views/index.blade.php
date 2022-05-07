@@ -777,9 +777,9 @@
                 <div class="row">
                     <div class="mx-auto col-lg-6">
                         <div class="text-center site-heading">
-                            <h2 class="site-title">What Our <span>Students Say's</span></h2>
+                            <h2 class="site-title">{{ __('till.students-h2-1') }} <span> {{ __('till.students-h2-2') }}</span></h2>
                             <p>
-                                It is a long established fact that a reader will be distracted by the readable.
+                                {{ __('till.student-h-t') }}
                             </p>
                         </div>
                     </div>

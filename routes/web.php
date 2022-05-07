@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EduHubController;
 use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,6 +39,10 @@ Route::get("/teams", [EduHubController::class, "teams"]);
 Route::get("/police", [EduHubController::class, "police"]);
 Route::get("/", [EduHubController::class, "index"]);
 Route::get("/eduhub", [EduHubController::class, "index"]);
+Route::get("/home", [EduHubController::class, "index"]);
 Route::get('/', function () {
     return view('/index');
 });
+
+Auth::routes();
+

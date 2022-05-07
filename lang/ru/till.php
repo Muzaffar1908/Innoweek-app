@@ -1,7 +1,11 @@
 <?
 return[
-    'h-email'=>'[email protected_ru]',
-    'follow'=>'Follow Us2',
+
+
+    //app.php
+
+    'h-email'=>'[email protected]',
+    'follow'=>'Follow Us',
     'category'=>'Category',
     'home'=>"Home",
     'course'=>'Courses',
@@ -9,10 +13,29 @@ return[
     'contact'=>'Contact',
     'about'=>"About",
     'sign-in'=>'Sign-in',
-    'h-t-plhdr'=>'Search Your Cource Today...',
-    'home-s-btn'=>'Search',
+    'get-started'=>'Get-started',
+    'search-plc'=>'Search Here ...',
+    'quick-links'=>'Quick Links',
+    'sales'=>'Sales',
+    'support'=>'Support',
+    'terms'=>'Terms Of Service',
+    'privacy'=>'Privacy policy',
+    'newsletter'=>'Newsletter',
+    'newsletter-text'=>'Subscribe Our Newsletter To Get Latest Update And News',
+    'home-email-plc'=>'Your Email',
+    'download'=>'Download',
+    'footer1'=>' Copyright',
+    'footer2'=>'eduhub',
+    'footer3'=>'All Rights Reserved.',
+
+    //index.php
+
+    'h-t-plhc'=>'Search Your Cource Today...',
+    'search'=>'Search',
     'cat-h2-1'=>'Browse With',
     'cat-h2-2'=>'Top Category',
+    'course-cat'=>'Courses',
+    'course-cat-btn'=>'Browse All Courses',
     'courses-h2-1'=>'Explore Our',
     'courses-h2-2'=>'Courses',
     'courses-h-t'=>'It is a long established fact that a reader will be distracted by the readable.',
@@ -20,21 +43,12 @@ return[
     'instructor-h2-2'=>'Instructor',
     'instructor-h-t'=>'It is a long established fact that a reader will be distracted by the readable.',
     'instructor_count'=>'k Students Enrolled',
+    'instructor-sharx'=>'Reviews',
     'students-h2-1'=>'What Our',
     'students-h2-2'=>"Students Say's",
     'students-h-t'=>'It is a long established fact that a reader will be distracted by the readable.',
-    'shior'=>"Get started now and take advantage of our 30 day free trial today.",
-    'quick Links'=>'Quick Links',
-    'sales'=>'Sales',
-    'terms'=>'Terms Of Service',
-    'privacy'=>'Privacy policy',
-    'newsletter'=>'Newsletter',
-    'newsletter-text'=>'Subscribe Our Newsletter To Get Latest Update And News',
-    'home-email-plc'=>'Your Email',
-    'download'=>'Download',
-    'footer1'=>' Copyright 2022 eduhub All Rights Reserved.',
-    'footer2'=>'eduhub',
-    'footer3'=>'All Rights Reserved.'
+
+
 ]
 
 ?>
