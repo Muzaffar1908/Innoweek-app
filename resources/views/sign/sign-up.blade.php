@@ -51,21 +51,60 @@
 
                         <p>create your eduhub account</p>
                     </div>
-                    <form action="#">
+                    <form method="POST" action="{{ route('register') }}"">
+                        @csrf
                         <div class="form-group">
-                            <label>Full Name</label>
-                            <input type="text" class="form-control" placeholder="Your Name">
+                            <label>Name</label>
+                            <input type="text" class="form-control @error('name') is-invalid @enderror" placeholder="Your Name" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                            @error('name')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
                         </div>
                         <div class="form-group">
-                            <label>Email Address</label>
-                            <input type="email" class="form-control" placeholder="Your Email">
+                            <label for="uroven">Kim sifatida ro'yhatdan otmoqchisiz</label>
+                            <select name="uroven" id="uroven" class="form-control  @error('uroven') is-invalid @enderror" name="uroven" value="{{ old('uroven') }}" required autocomplete="uroven" autofocus>
+                                <option value="student">Student</option>
+                                <option value="teacher">Teacher</option>
+                            </select>
+                            @error('uroven')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                        </div>
+                        <div class="form-group">
+                            <label a>Email Address</label>
+                            <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="Your Email">
+                            @error('email')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
                         </div>
                         <div class="form-group">
                             <label>Password</label>
-                            <input type="password" class="form-control" placeholder="Your Password">
+                            <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" placeholder="Your Password">
+                            @error('password')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
                         </div>
+
+                        <div class="form-group">
+                            <label>{{ __('Confirm Password') }}</label>
+                            <input id="password-confirm" type="password" class="form-control" placeholder="Confirm Password" name="password_confirmation" required autocomplete="new-password">
+                            @error('password')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                        </div>
+
                         <div class="form-check form-group">
-                            <input class="form-check-input" type="checkbox" value="" id="agree">
+                            <input class="form-check-input" type="checkbox" value="" id="agree" required>
                             <label class="form-check-label" for="agree">
 I agree with the <a href="#">Terms Of Service.</a>
 </label>

@@ -12,10 +12,20 @@
     <title>Eduhub - Education And LMS HTML5 Template</title>
 
     @yield("links")
+
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <script src="{{ asset('js/app.js') }}" defer></script>
     <style>
-        .form{
-            width: 100px; display:flex; flex-direction:row; align-items:center; color:#fff; font-size:20px
+        .form {
+            width: 100px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            color: #fff;
+            font-size: 20px
         }
+
         .lang {
             background-color: rgba(255, 255, 255, 0);
             border: none;
@@ -30,15 +40,45 @@
             padding: 10px;
         }
 
-    </style>
-    <link rel="stylesheet" href="assets/css/style.css">
+        .user_name {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+        }
 
+        .user_name .img {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            color: #00af92;
+            font-size: 26px;
+            border: 2px solid #00af92;
+            margin-top: -5px;
+            margin-right: 5px;
+        }
+
+        .user_name .img i {
+            margin-top: -10px;
+        }
+
+        .user_drop {}
+
+        .user_drop h5 {
+            text-align: center;
+        }
+
+
+
+    </style>
 </head>
 
 <body>
     <div class="preloader">
         <div class="loader"></div>
     </div>
+
+
 
 
     <header class="home-3 header">
@@ -63,12 +103,15 @@
                                 <i class="far fa-globe-americas"></i>
                                 <Select class="lang" id="til">
 
-                                    <option value="uz" {{ session()->get('lang')=='uz'?
-                                        'selected':''}}>Uzbek</option>
-                                    <option value="en" {{ session()->get('lang')=='en'?
-                                        'selected':''}}>English</option>
-                                    <option value="ru" {{ session()->get('lang')=='ru'?
-                                        'selected':''}}>Rus</option>
+                                    <option value="uz"
+                                        {{                                         session()->get('lang') == 'uz' ? 'selected' : '' }}>
+                                        Uzbek</option>
+                                    <option value="en"
+                                        {{                                         session()->get('lang') == 'en' ? 'selected' : '' }}>
+                                        English</option>
+                                    <option value="ru"
+                                        {{                                         session()->get('lang') == 'ru' ? 'selected' : '' }}>
+                                        Rus</option>
                                 </Select>
                             </form>
 
@@ -128,8 +171,10 @@
                                 <a class="nav-link " href="/instructor">{{ __('till.instructors') }}</a>
                             </li>
 
-                            <li class="nav-item"><a class="nav-link" href="/contact">{{ __('till.contact') }}</a></li>
-                            <li class="nav-item"><a class="nav-link" href="/about">{{ __('till.about') }}</a></li>
+                            <li class="nav-item"><a class="nav-link"
+                                    href="/contact">{{ __('till.contact') }}</a></li>
+                            <li class="nav-item"><a class="nav-link"
+                                    href="/about">{{ __('till.about') }}</a></li>
 
                         </ul>
                         <div class="header-nav-right">
@@ -137,11 +182,49 @@
                                 <a href="#" class="search-box-outer"><i class="far fa-search"></i></a>
                             </div>
                             <div class="header-cart">
-                                <a href="/card"><i class="far fa-shopping-cart"></i> <span>2</span> </a>
+                                <a href="/card" style="margin-right: 6px"><i class="far fa-shopping-cart"></i>
+                                    <span>2</span> </a>
                             </div>
                             <div class="header-btn-area">
-                                <a href="/signin" class="header-btn-text">{{ __('till.sign-in') }}</a>
-                                <a href="#" class="header-btn">{{ __('till.get-started') }}</a>
+
+                                @guest
+
+                                    @if (Route::has('register'))
+                                        <a href="/signin" class="header-btn">{{ __('till.sign-in') }}</a>
+                                    @endif
+                                @else
+                                <div class="nav-item dropdown">
+
+                                    <a class="nav-link user_name dropdown-toggle " href="#" data-bs-toggle="dropdown">
+                                        <i class="fas fa-user-circle img" s></i>
+
+                                        <h6>
+                                            {{ Auth::user()->name }}
+                                        </h6>
+                                    </a>
+                                    <ul class="dropdown-menu fade-up">
+
+                                        <li>
+                                            <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                            document.getElementById('logout-form').submit();">
+                                             {{ __('Logout') }}
+                                            </a>
+                                            <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                        class="d-none">
+                                        @csrf
+                                    </form>
+                                        </li>
+                                        <li><a class="dropdown-item" href="index-2.html">Home Page 02</a></li>
+                                        <li><a class="dropdown-item" href="index-3.html">Home Page 03</a></li>
+
+                                    </ul>
+                                </div>
+
+
+                                @endguest
+
+
+
                             </div>
                         </div>
                     </div>
@@ -218,7 +301,8 @@
                                 <p>{{ __('till.newsletter-text') }}</p>
                                 <div class="subscribe-form">
                                     <form action="#">
-                                        <input type="email" class="form-control" placeholder="{{ __('till.home-email-plc') }}">
+                                        <input type="email" class="form-control"
+                                            placeholder="{{ __('till.home-email-plc') }}">
                                         <button type="submit"><span class="far fa-envelope"></span></button>
                                     </form>
                                 </div>
@@ -228,7 +312,8 @@
                                 <a href="#"> <img src="{{ asset('storage/img/download-icon/google-play.png') }}"
                                         alt="">
                                 </a>
-                                <a href="#"> <img src="{{ asset('storage/img/download-icon/app-store.png') }}" alt="">
+                                <a href="#"> <img src="{{ asset('storage/img/download-icon/app-store.png') }}"
+                                        alt="">
                                 </a>
                             </div>
                         </div>
@@ -241,7 +326,8 @@
                 <div class="row">
                     <div class="col-lg-6 align-self-center">
                         <p class="copyright-text">
-                            &copy;{{ __('till.footer1') }}  <span id="date"></span> <a href="#"> {{ __('till.footer2') }}</a> {{ __('till.footer3') }}
+                            &copy;{{ __('till.footer1') }} <span id="date"></span> <a href="#">
+                                {{ __('till.footer2') }}</a> {{ __('till.footer3') }}
                         </p>
                     </div>
                     <div class="col-lg-6 align-self-center">
@@ -258,11 +344,11 @@
 
     @yield("scripts")
     <script>
-          $(function(){
-            var url="eduhub";
-            $('#til').change(function(){
-                a=$(this).val();
-                window.location.href=url+"/"+a;
+        $(function() {
+            var url = "eduhub";
+            $('#til').change(function() {
+                a = $(this).val();
+                window.location.href = url + "/" + a;
             })
         })
     </script>

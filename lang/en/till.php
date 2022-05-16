@@ -4,7 +4,7 @@ return[
 
     //app.php
 
-    'h-email'=>'[email protected]',
+    'h-email'=>'[email protected_enn]',
     'follow'=>'Follow Us',
     'category'=>'Category',
     'home'=>"Home",

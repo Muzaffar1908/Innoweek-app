@@ -2,8 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EduHubController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\App;
-use Illuminate\Support\Facades\HomeController;
+use App\Http\Controllers\AdminController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -19,7 +21,29 @@ Route::get("eduhub/{lang}", function($lang) {
     App::setLocale($lang);
     session()->put('lang', $lang);
     return redirect()->back();
-});
+Route::get("/admin/negaEduHub", [AdminController::class, "nega"]);
+Route::post("/admin/category/update/{id}", [AdminController::class, "category_update"]);
+Route::get("/admin/category/edit/{id}", [AdminController::class, "category_edit"]);
+Route::get("/admin/category/dell/{id}", [AdminController::class, "category_dell"]);
+Route::post("/admin/category/save", [AdminController::class, "category_save"]);
+Route::get("/admin/category/add", [AdminController::class, "category_add"]);
+Route::get("/admin/category", [AdminController::class, "category"]);
+Route::get("/admin/eduhub/dell/{id}", [AdminController::class, "eduhub_dell"]);
+Route::get("/admin/eduhub/update/{id}", [AdminController::class, "eduhub_update"]);
+Route::get("/admin/eduhub/edit/{id}", [AdminController::class, "eduhub_edit"]);
+Route::get("/admin/eduhub/addsave", [AdminController::class, "eduhub_addsave"]);
+Route::get("/admin/eduhub/add", [AdminController::class, "eduhub_add"]);
+Route::get("/admin", [AdminController::class, "index"]);
+Route::get("/adminpanel", [AdminController::class, "index"]);
+Route::get("/admin/eduhub", [AdminController::class, "index"]);
+
+
+
+
+
+
+
+
 Route::view("/eduhub","eduhub");
 Route::get("/course-category", [EduHubController::class, "course_category"]);
 Route::get("/course-search", [EduHubController::class, "course_search"]);
@@ -40,6 +64,7 @@ Route::get("/police", [EduHubController::class, "police"]);
 Route::get("/", [EduHubController::class, "index"]);
 Route::get("/eduhub", [EduHubController::class, "index"]);
 Route::get("/home", [EduHubController::class, "index"]);
+
 Route::get('/', function () {
     return view('/index');
 });

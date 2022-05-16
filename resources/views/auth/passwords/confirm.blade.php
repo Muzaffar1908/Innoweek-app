@@ -12,7 +12,7 @@
 
                     <form method="POST" action="{{ route('password.confirm') }}">
                         @csrf
-
+<H2>Lorem ipsum dolor sit amet consectetur.</H2>
                         <div class="row mb-3">
                             <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
 

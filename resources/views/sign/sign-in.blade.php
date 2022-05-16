@@ -50,27 +50,47 @@
 
                         <p>sign in to your eduhub account</p>
                     </div>
-                    <form action="#">
+                    <form  method="POST" action="{{ route('login') }}">
+                        @csrf
                         <div class="form-group">
                             <label>Email Address</label>
-                            <input type="email" class="form-control" placeholder="Your Email">
+                            <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+
+                            @error('email')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
                         </div>
                         <div class="form-group">
                             <label>Password</label>
-                            <input type="password" class="form-control" placeholder="Your Password">
+                            <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                            @error('password')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
                         </div>
                         <div class="d-flex justify-content-between mb-4">
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="remember">
+                                <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
                                 <label class="form-check-label" for="remember">
                                     Remember Me
                                 </label>
                             </div>
-                            <a href="/forgotPassword" class="forgot-pass">Forgot Password?</a>
+
+                            @if (Route::has('password.request'))
+                            <a class="forgot-pass" href="/forgotPassword">
+                                {{ __('Forgot Your Password?') }}
+                            </a>
+                        @endif
+
+
                         </div>
                         <div class="d-flex align-items-center">
                             <button type="submit" class="login-btn"><i class="far fa-sign-in"></i> Sign
                                 In</button>
+
                         </div>
                     </form>
                     <div class="other-login-signup my-4">

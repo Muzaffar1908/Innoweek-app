@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->string('facebook');
             $table->string('telegram');
-            $table->string('you-tube');
+            $table->string('you_tube');
             $table->string('instagram');
             $table->string('google_play');
             $table->string('app_story');
