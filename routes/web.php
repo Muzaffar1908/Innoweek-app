@@ -21,7 +21,18 @@ Route::get("eduhub/{lang}", function($lang) {
     App::setLocale($lang);
     session()->put('lang', $lang);
     return redirect()->back();
+});
+Route::get("/admin/qadam/edit/{id}", [AdminController::class, "steps_edit"]);
+Route::post("/admin/qadam/save", [AdminController::class, "steps_save"]);
+Route::get("/admin/qadam/add", [AdminController::class, "steps_add"]);
+Route::get("/admin/qadam", [AdminController::class, "steps"]);
+Route::get("/admin/nega/dell/{id}", [AdminController::class, "nega_dell"]);
+Route::post("/admin/nega/update/{id}", [AdminController::class, "nega_updete"]);
+Route::get("/admin/nega/edit/{id}", [AdminController::class, "nega_edit"]);
+Route::post("/admin/nega/save", [AdminController::class, "nega_save"]);
+Route::get("/admin/nega/add", [AdminController::class, "nega_add"]);
 Route::get("/admin/negaEduHub", [AdminController::class, "nega"]);
+Route::get("/admin/category/edit/{id}", [AdminController::class, "category_edit"]);
 Route::post("/admin/category/update/{id}", [AdminController::class, "category_update"]);
 Route::get("/admin/category/edit/{id}", [AdminController::class, "category_edit"]);
 Route::get("/admin/category/dell/{id}", [AdminController::class, "category_dell"]);

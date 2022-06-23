@@ -17,12 +17,12 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->string('img');
-            $table->string('link_youtube');
-            $table->string('title1');
+            $table->text('link_youtube');
+            $table->text('title1');
             $table->text('text1');
-            $table->string('title2');
+            $table->text('title2');
             $table->text('text2');
-            $table->string('title3');
+            $table->text('title3');
             $table->text('text3');
             $table->timestamps();
         });

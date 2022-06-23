@@ -16,6 +16,15 @@
           <div class="card-body">
             <h4 class="card-title">Category</h4>
             <p class="card-description">Yangi categoriya qo'shing.</p>
+            @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
             <form class="forms-sample" action="/admin/category/save" method="POST">
                 @csrf
                 <div class="form-group row">

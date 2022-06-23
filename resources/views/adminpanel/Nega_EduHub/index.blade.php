@@ -22,7 +22,7 @@
                                 </p>
                             </div>
                             <div>
-                                <a href="/admin/naga/add" class="btn btn-success btn-fw">Add</a>
+                                <a href="/admin/nega/add" class="btn btn-success btn-fw">Add</a>
 
                             </div>
                         </div>
@@ -32,8 +32,8 @@
                                     <tr>
                                         <th> # </th>
                                         <th> Title </th>
-                                        <th> Icon </th>
                                         <th> Text </th>
+                                        <th>  Icon</th>
                                         <th>
                                             Settings
                                         </th>
@@ -44,22 +44,14 @@
                                         <tr>
                                             <th>{{ $loop->index + 1 }}</th>
                                             <td>
-                                                <h4>{{ $cat->title }}
+                                                <h4>{{ substr($cat->title,0, 20 )}}...
                                                 </h4>
                                             </td>
                                             <td>
-                                                <p class="btn-icon"><i
-                                                        class="{{ $cat->icon }}"></i></p>
+                                                <p class="">  {{ substr($cat->text,0, 30 )}}...</p>
                                             </td>
-                                            <td rowspan="2">
-
-                                                <span class="btn btn-info">
-                                                    <p>
-                                                        {{ $cat->text }}
-                                                    </p>
-
-                                                </span>
-
+                                            <td rowspan="">
+                                                        <p><i class="{{ $cat->icon }}   btn btn-icon btn-danger btn-rounded" style="font-size:20px; padding-top:8px"></i></p>
                                             </td>
 
                                             <td

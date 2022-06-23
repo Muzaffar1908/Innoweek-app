@@ -108,9 +108,9 @@
             <div class="collapse" id="ui-basic">
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item"> <a class="nav-link" href="/admin/category">Categories</a></li>
-                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/dropdowns.html">Courses</a></li>
+                <li class="nav-item"> <a class="nav-link" href="/admin/qadam">EduHub Qadamlar</a></li>
                 <li class="nav-item"> <a class="nav-link" href="/admin/eduhub">EduHub</a></li>
-                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/dropdowns.html">Nega EhuHub</a></li>
+                <li class="nav-item"> <a class="nav-link" href="/admin/negaEduHub">Nega EhuHub</a></li>
                 <li class="nav-item"> <a class="nav-link" href="pages/ui-features/dropdowns.html">EduHub Qadamlar</a></li>
                 <li class="nav-item"> <a class="nav-link" href="pages/ui-features/dropdowns.html">EduHub jamoasi</a></li>
                 <li class="nav-item"> <a class="nav-link" href="pages/ui-features/dropdowns.html">Teams of Services</a></li>
