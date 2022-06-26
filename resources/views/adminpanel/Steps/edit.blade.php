@@ -23,7 +23,7 @@
                 </ul>
             </div>
         @endif
-        <form  action="/admin/qadam/save" method="Post" enctype="multipart/form-data" class="forms-sample" style="margin:10px 0px;">
+        <form  action="/admin/qadam/update/{{$nu->id}}" method="Post" enctype="multipart/form-data" class="forms-sample" style="margin:10px 0px;">
             @csrf
             <hr style="background-color: rgb(157, 152, 152); margin:0px 0px 50px 0px; ">
             <div class="form-group">
@@ -54,77 +54,77 @@
             </div>
             <div class="form-group" style="margin:20px 0;">
               <label for="exampleTextarea1" >Text uz</label>
-              <textarea class="form-control" value="{{$nu->text1}}" name="text1_uz"  id="exampleTextarea1" rows="4"></textarea>
+              <input type="text" class="form-control" value="{{$nu->text1}}" name="text1_uz"  id="exampleTextarea1" rows="4"></textarea>
             </div>
             <div class="form-group" style="margin:20px 0;">
                 <label for="exampleInputCity1">Title en </label>
-                <input type="text" name="title1_en" class="form-control" id="exampleInputCity1" placeholder="Title">
+                <input type="text" name="title1_en" value="{{$ne->title1}}"  class="form-control" id="exampleInputCity1" placeholder="Title">
               </div>
               <div class="form-group" style="margin:20px 0;">
                 <label for="exampleTextarea1" >Text en</label>
-                <textarea class="form-control" name="text1_en"  id="exampleTextarea1" rows="4"></textarea>
+                <input type="text" class="form-control"  value="{{$ne->text1}}" name="text1_en"  id="exampleTextarea1" rows="4"></textarea>
               </div>
               <div class="form-group" style="margin:20px 0;">
                 <label for="exampleInputCity1">Title ru </label>
-                <input type="text" name="title1_ru" class="form-control" id="exampleInputCity1" placeholder="Title">
+                <input type="text" name="title1_ru" value="{{$nr->title1}}" class="form-control" id="exampleInputCity1" placeholder="Title">
               </div>
               <div class="form-group" style="margin:20px 0;">
                 <label for="exampleTextarea1" >Text ru</label>
-                <textarea class="form-control" name="text1_ru"  id="exampleTextarea1" rows="4"></textarea>
+                <input type="text" class="form-control"  value="{{$nr->text1}}" name="text1_ru"  id="exampleTextarea1" rows="4"></textarea>
               </div>
               <hr style="background-color: rgb(157, 152, 152); margin:50px 0px;">
 
               <h6 style="margin:30px 0;">Ikkinchi  qadam</h4>
                 <div class="form-group">
                   <label for="exampleInputCity1">Title uz </label>
-                  <input type="text" name="title2_uz" class="form-control" id="exampleInputCity1" placeholder="Title">
+                  <input type="text" value="{{$nu->title2}}" name="title2_uz" class="form-control" id="exampleInputCity1" placeholder="Title">
                 </div>
                 <div class="form-group" style="margin:20px 0;">
                   <label for="exampleTextarea1" >Text uz</label>
-                  <textarea class="form-control" name="text2_uz"  id="exampleTextarea1" rows="4"></textarea>
+                  <input type="text" value="{{$nu->text2}}" class="form-control" name="text2_uz"  id="exampleTextarea1" rows="4"></textarea>
                 </div>
                 <div class="form-group" style="margin:20px 0;">
                     <label for="exampleInputCity1">Title en </label>
-                    <input type="text" name="title2_en" class="form-control" id="exampleInputCity1" placeholder="Title">
+                    <input type="text" value="{{$ne->title2}}" name="title2_en" class="form-control" id="exampleInputCity1" placeholder="Title">
                   </div>
                   <div class="form-group" style="margin:20px 0;">
                     <label for="exampleTextarea1" >Text en</label>
-                    <textarea class="form-control" name="text2_en"  id="exampleTextarea1" rows="4"></textarea>
+                    <input type="text" value="{{$ne->text2}}" class="form-control" name="text2_en"  id="exampleTextarea1" rows="4"></textarea>
                   </div>
                   <div class="form-group" style="margin:20px 0;">
                     <label for="exampleInputCity1">Title ru </label>
-                    <input type="text" name="title2_ru" class="form-control" id="exampleInputCity1" placeholder="Title">
+                    <input type="text" value="{{$nr->title2}}" name="title2_ru" class="form-control" id="exampleInputCity1" placeholder="Title">
                   </div>
                   <div class="form-group" style="margin:20px 0;">
                     <label for="exampleTextarea1" >Text ru</label>
-                    <textarea class="form-control" name="text2_ru"  id="exampleTextarea1" rows="4"></textarea>
+                    <input type="text" value="{{$nr->text2}}" class="form-control" name="text2_ru"  id="exampleTextarea1" rows="4"></textarea>
                   </div>
 
                   <hr style="background-color: rgb(157, 152, 152); margin:50px 0px;">
                   <h6 style="margin:30px 0;">Uchunchi  qadam</h4>
                     <div class="form-group">
                       <label for="exampleInputCity1">Title uz </label>
-                      <input type="text" name="title3_uz" class="form-control" id="exampleInputCity1" placeholder="Title">
+                      <input type="text" value="{{$nu->title3}}" name="title3_uz" class="form-control" id="exampleInputCity1" placeholder="Title">
                     </div>
                     <div class="form-group" style="margin:20px 0;">
                       <label for="exampleTextarea1" >Text uz</label>
-                      <textarea class="form-control" name="text3_uz"  id="exampleTextarea1" rows="4"></textarea>
+                      <input type="text" value="{{$nu->text3}}" class="form-control" name="text3_uz"  id="exampleTextarea1" rows="4"></textarea>
                     </div>
                     <div class="form-group" style="margin:20px 0;">
                         <label for="exampleInputCity1">Title en </label>
-                        <input type="text" name="title3_en" class="form-control" id="exampleInputCity1" placeholder="Title">
+                        <input type="text" value="{{$ne->text3}}" name="title3_en" class="form-control" id="exampleInputCity1" placeholder="Title">
                       </div>
                       <div class="form-group" style="margin:20px 0;">
                         <label for="exampleTextarea1" >Text en</label>
-                        <textarea class="form-control" name="text3_en"  id="exampleTextarea1" rows="4"></textarea>
+                        <input type="text" value="{{$ne->text3}}" class="form-control" name="text3_en"  id="exampleTextarea1" rows="4"></textarea>
                       </div>
                       <div class="form-group" style="margin:20px 0;">
                         <label for="exampleInputCity1">Title ru </label>
-                        <input type="text" name="title3_ru" class="form-control" id="exampleInputCity1" placeholder="Title">
+                        <input type="text" value="{{$nr->title3}}" name="title3_ru" class="form-control" id="exampleInputCity1" placeholder="Title">
                       </div>
                       <div class="form-group" style="margin:20px 0;">
                         <label for="exampleTextarea1" >Text ru</label>
-                        <textarea class="form-control" name="text3_ru"  id="exampleTextarea1" rows="4"></textarea>
+                        <input type="text" value="{{$nr->text3}}" class="form-control" name="text3_ru"  id="exampleTextarea1" rows="4"></textarea>
                       </div>
 
             <button type="submit" class="btn btn-primary mr-2">Save</button>

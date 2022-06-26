@@ -22,6 +22,51 @@ Route::get("eduhub/{lang}", function($lang) {
     session()->put('lang', $lang);
     return redirect()->back();
 });
+
+Route::get("/admin/jamoa/dell/{id}", [AdminController::class, "jamoa_dell"]);
+Route::post("/admin/jamoa/update/{id}", [AdminController::class, "jamoa_update"]);
+Route::get("/admin/jamoa/edit/{id}", [AdminController::class, "jamoa_edit"]);
+Route::post("/admin/jamoa/save", [AdminController::class, "jamoa_save"]);
+Route::get("/admin/jamoa/add", [AdminController::class, "jamoa_add"]);
+Route::get("/admin/jamoa", [AdminController::class, "jamoa"]);
+
+
+
+
+
+Route::get("/admin/about_b/dell/{id}", [AdminController::class, "about_b_dell"]);
+Route::post("/admin/about_b/update/{id}", [AdminController::class, "about_b_update"]);
+Route::get("/admin/about_b/edit/{id}", [AdminController::class, "about_b_edit"]);
+Route::post("/admin/about_b/save", [AdminController::class, "about_b_save"]);
+Route::get("/admin/about_b/add", [AdminController::class, "about_b_add"]);
+
+
+Route::get("/admin/about/dell/{id}", [AdminController::class, "about_dell"]);
+Route::post("/admin/about/update/{id}", [AdminController::class, "about_update"]);
+Route::get("/admin/about/edit/{id}", [AdminController::class, "about_edit"]);
+Route::post("/admin/about/save", [AdminController::class, "about_save"]);
+Route::get("/admin/about/add", [AdminController::class, "about_add"]);
+Route::get("/admin/about", [AdminController::class, "about"]);
+
+
+
+
+Route::get("/admin/services/dell/{id}", [AdminController::class, "services_dell"]);
+Route::post("/admin/services/update/{id}", [AdminController::class, "services_update"]);
+Route::get("/admin/services/edit/{id}", [AdminController::class, "services_edit"]);
+Route::post("/admin/services/save", [AdminController::class, "services_save"]);
+Route::get("/admin/services/add", [AdminController::class, "services_add"]);
+Route::get("/admin/services", [AdminController::class, "services"]);
+
+
+Route::get("/admin/policy/dell/{id}", [AdminController::class, "policy_dell"]);
+Route::post("/admin/policy/update/{id}", [AdminController::class, "policy_update"]);
+Route::get("/admin/policy/edit/{id}", [AdminController::class, "policy_edit"]);
+Route::post("/admin/policy/save", [AdminController::class, "policy_save"]);
+Route::get("/admin/policy/add", [AdminController::class, "policy_add"]);
+Route::get("/admin/policy", [AdminController::class, "policy"]);
+Route::get("/admin/qadam/dell/{id}", [AdminController::class, "qadam_dell"]);
+Route::post("/admin/qadam/update/{id}", [AdminController::class, "qadam_update"]);
 Route::get("/admin/qadam/edit/{id}", [AdminController::class, "steps_edit"]);
 Route::post("/admin/qadam/save", [AdminController::class, "steps_save"]);
 Route::get("/admin/qadam/add", [AdminController::class, "steps_add"]);

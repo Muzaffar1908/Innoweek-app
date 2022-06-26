@@ -111,10 +111,10 @@
                 <li class="nav-item"> <a class="nav-link" href="/admin/qadam">EduHub Qadamlar</a></li>
                 <li class="nav-item"> <a class="nav-link" href="/admin/eduhub">EduHub</a></li>
                 <li class="nav-item"> <a class="nav-link" href="/admin/negaEduHub">Nega EhuHub</a></li>
-                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/dropdowns.html">EduHub Qadamlar</a></li>
-                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/dropdowns.html">EduHub jamoasi</a></li>
-                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/dropdowns.html">Teams of Services</a></li>
-                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/dropdowns.html">Privacy-Policy</a></li>
+                <li class="nav-item"> <a class="nav-link" href="/admin/jamoa">EduHub Jamoasi</a></li>
+                <li class="nav-item"> <a class="nav-link" href="/admin/services">Teams of Services</a></li>
+                <li class="nav-item"> <a class="nav-link" href="/admin/policy">Privacy-Policy</a></li>
+                <li class="nav-item"> <a class="nav-link" href="/admin/about">About</a></li>
               </ul>
             </div>
           </li>

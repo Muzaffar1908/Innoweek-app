@@ -22,12 +22,11 @@
                             <div>
                                 <h4 class="card-title">Eduhub</h4>
                                 <p class="card-description">
-                                    Eduhub saytining asosiy qismlari link email va shu kabi malumotlar shu yerda
-                                    to'ldiriladi.
+                                    Teams of Services bo'limi malumotlar shu yerda  to'ldiriladi. Bu Malumotlarni hamasidan foydalaniladi yani ekranga chiqarilasi iloji boricha ortiqcha maulumotlarni o'chiring. Malummotlar ketma ketligiga etibor bering,  Update funksiyasidan kengroq foydalaning.
                                 </p>
                             </div>
                             <div>
-                                <a href="/admin/qadam/add" class="btn btn-success btn-fw">Add</a>
+                                <a href="/admin/services/add" class="btn btn-success btn-fw">Add</a>
 
                             </div>
                         </div>
@@ -36,12 +35,8 @@
                                 <thead>
                                     <tr>
                                         <th> # </th>
-                                        <th> Qadam title </th>
-                                        <th> Link you-tube </th>
-                                        <th> 1-qadam title va text </th>
-                                        <th> 2-qadam title va text </th>
-                                        <th> 3-qadam title va text </th>
-                                        <th>Images</th>
+                                        <th>Title </th>
+                                        <th>Text </th>
                                         <th>
                                             Settings
                                         </th>
@@ -57,58 +52,23 @@
                                                 </p>
 
                                             </td>
-
                                             <td>
                                                 <p>
-                                                    <i class="mdi mdi-youtube"
-                                                        style="color:aliceblue; padding-right:8px;"></i>
-                                                    {{ substr($eduhub->link_youtube, 0, 26) }}...
-                                                </p>
-                                            </td>
-                                            <td>
-
-                                                <p>
-                                                    {{ substr($eduhub->title1, 0, 50) }}...
-                                                </p>
-
-
-                                                <p>
-                                                    {{ substr($eduhub->text1, 0, 50) }}...
+                                                    {{ substr($eduhub->title, 0, 50) }}...
                                                 </p>
 
                                             </td>
-                                            <td>
-                                                <p>
-                                                    {{ substr($eduhub->title2, 0, 50) }}...
-                                                </p>
-                                                <p>
-                                                    {{ substr($eduhub->text2, 0, 50) }}...
-                                                </p>
-                                            </td>
-                                            <td>
 
-                                                <p>
-                                                    {{ substr($eduhub->title3, 0, 50) }}...
-                                                </p>
-                                                <p>
-                                                    {{ substr($eduhub->text3, 0, 50) }}...
-                                                </p>
-                                            </td>
-                                            <td>
-                                                <p>
-                                                    <img src="{{asset('storage/steps/'.$eduhub->img)}}" alt=""
-                                                        style="width:120px; height:100px; border:2px solid #fff">
-                                                </p>
-                                            </td>
+
                                             <td>
                                                 <p
                                                     style="display:flex; flex-direction:column; text-align:center; justify-content:space-around; align-items:center;">
-                                                    <a href="/admin/qadam/edit/{{ $eduhub->id }}"
+                                                    <a href="/admin/services/edit/{{ $eduhub->id }}"
                                                         style="margin-bottom: 20px; " type="button"
                                                         class="btn btn-outline-secondary btn-icon-text"> Edit <i
                                                             class="mdi mdi-file-check btn-icon-append"></i>
                                                     </a>
-                                                    <a href="/admin/qadam/dell/{{ $eduhub->id }}"
+                                                    <a href="/admin/services/dell/{{ $eduhub->id }}"
                                                         class="btn btn-outline-danger btn-icon-text">
                                                         <i class="mdi mdi-delete"></i> delete </a>
                                                 </p>
@@ -121,6 +81,8 @@
                                 </tbody>
                             </table>
                         </div>
+
+
                     </div>
                 </div>
             </div>
