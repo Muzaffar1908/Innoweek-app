@@ -1,16 +1,5 @@
 @extends("layauts.app")
-@section('links')
-    <title>Eduhub - Education And LMS HTML5 Template</title>
 
-    <link rel="icon" type="image/x-icon" href="assets/img/logo/favicon.png">
-
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/all-fontawesome.min.css">
-    <link rel="stylesheet" href="assets/css/animate.min.css">
-    <link rel="stylesheet" href="assets/css/magnific-popup.min.css">
-    <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
-    <link rel="stylesheet" href="assets/css/style.css">
-@endsection("links")
 @section("content")
 <div class="search-popup">
     <button class="close-search"><span class="far fa-times"></span></button>
@@ -73,7 +62,7 @@
                         </div>
                         <div class="d-flex justify-content-between mb-4">
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+                                <input class="form-check-input" type="checkbox"  name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
                                 <label class="form-check-label" for="remember">
                                     Remember Me
                                 </label>
@@ -118,19 +107,4 @@
 
 <a href="#" id="scroll-top"><i class="far fa-angle-double-up"></i></a>
 @endsection("content")
-@section("scripts")
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
-<script src="assets/js/jquery-3.6.0.min.js"></script>
-<script src="assets/js/modernizr.min.js"></script>
-<script src="assets/js/bootstrap.bundle.min.js"></script>
-<script src="assets/js/imagesloaded.pkgd.min.js"></script>
-<script src="assets/js/jquery.magnific-popup.min.js"></script>
-<script src="assets/js/isotope.pkgd.min.js"></script>
-<script src="assets/js/jquery.appear.min.js"></script>
-<script src="assets/js/jquery.easing.min.js"></script>
-<script src="assets/js/owl.carousel.min.js"></script>
-<script src="assets/js/counter-up.js"></script>
-<script src="assets/js/masonry.pkgd.min.js"></script>
-<script src="assets/js/wow.min.js"></script>
-<script src="assets/js/main.js"></script>
-@endsection("scripts")
+

@@ -3,9 +3,164 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User;
+use App\Models\User_link;
+
+use Illuminate\Support\Facades\Hash;
+
 
 class EduHubController extends Controller
 {
+    public function user_profil($id)
+    {
+        $user = User::find($id);
+
+        $url = User_link::find($id);
+        return view('sign.profil', ['nu' => $user, "url" => $url]);
+    }
+    public function user_update(Request $req, $id)
+    {
+        $n = User::find($id);
+        $user = User::find($id);
+        $user_link = User_link::find($id);
+        if (isset($user_link)) {
+            $url = $user_link;
+        } else {
+            $url = new User_link();
+        }
+
+        $data = $req->validate([
+            'name' => ['required', 'string', 'max:255'],
+        ]);
+
+
+        if ($user->email === $req->email) {
+            $data = $req->validate([
+                'email' => ['required', 'string', 'email', 'max:255'],
+            ]);
+            $n->email = $req->email;
+        } else {
+            $data = $req->validate([
+                'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            ]);
+            $n->email = $req->email;
+        }
+        if (strlen($req->sname) >= 1) {
+            $data = $req->validate([
+                'sname' => ['required', 'string', 'max:255'],
+            ]);
+            $n->sname = $req->sname;
+        }
+        if (strlen($req->tell) >= 1) {
+            $data = $req->validate([
+                'tell' => 'required|min:9|numeric'
+            ]);
+            $n->tell = $req->tell;
+        }
+        if (strlen($req->instagram) >= 1) {
+            $data = $req->validate([
+                'instagram' => ['required', 'string', 'max:255'],
+            ]);
+            $url->instagram = $req->instagram;
+            $url->user_id = $id;
+        }
+        if (strlen($req->telegram) >= 1) {
+            $data = $req->validate([
+                'telegram' => ['required', 'string', 'max:255'],
+            ]);
+            $url->telegram = $req->telegram;
+            $url->user_id = $id;
+        }
+        if (strlen($req->facebook) >= 1) {
+            $data = $req->validate([
+                'facebook' => ['required', 'string', 'max:255'],
+            ]);
+            $url->facebook = $req->facebook;
+            $url->user_id = $id;
+        }
+        if (strlen($req->youtube) >= 1) {
+            $data = $req->validate([
+                'youtube' => ['required', 'string', 'max:255'],
+            ]);
+            $url->youtube = $req->youtube;
+            $url->user_id = $id;
+        }
+
+
+        if ($req->has("img")) {
+            $data = $req->validate([
+                'img' => 'image|mimes:jpeg,png,jpg,gif,svg|max:5048',
+            ]);
+            $filemodel = $req->file('img');
+            $fileNameWithExt = $filemodel->getClientOriginalName();
+            $filename = pathinfo($fileNameWithExt, PATHINFO_FILENAME);
+            $ext = $filemodel->getClientOriginalExtension();
+            $fileNameToStory = $filename . '_' . time() . "." . $ext;
+            $path = $filemodel->storeAs('public/user/', $fileNameToStory);
+            $n->img = $fileNameToStory;
+        } else {
+            $fileNameToStory = "user.png";
+            $n->img = $fileNameToStory;
+        }
+
+        if (strlen($req->oldpassword) >= 1  and (!Hash::check($req->oldpassword, $user->password))) {
+
+            $data = $req->validate([
+                'oldpassword' => ['required', 'string', 'min:8'],
+            ]);
+            $pass = "Eski parolni hato kiritdingiz";
+            return redirect()->back()->withErrors($pass)->withInput();
+        } else {
+            if (strlen($req->newpassword) >= 1 and (!strlen($req->resetpassword) >= 1)) {
+                $pass = "Reset Password bo'limini toldiring";
+                $data = $req->validate([
+                    'oldpassword' => ['required', 'string', 'min:8',],
+                    'newpassword' => ['required', 'string', 'min:8',],
+                    'resetpassword' => ['required', 'string', 'min:8',],
+                ]);
+                return redirect()->back()->withErrors($pass)->withInput();
+            }
+            if (strlen($req->resetpassword) >= 1 and (!strlen($req->newpassword) >= 1)) {
+                $pass = "New Password bo'limini toldiring";
+                $data = $req->validate([
+                    'resetpassword' => ['required', 'string', 'min:8'],
+                ]);
+                return redirect()->back()->withErrors($pass)->withInput();
+            }
+            if ($req->newpassword === $req->oldpassword and strlen($req->newpassword) >= 1) {
+                $pass = "Yangi parolni qayta kiriting. Eski parolingizni takrorladingiz.";
+                return redirect()->back()->withErrors($pass)->withInput();
+            }
+            if ((strlen($req->resetpassword) >= 1  and strlen($req->newpassword) >= 1) and (!$req->newpassword === $req->resetpassword)) {
+                $pass = "Yangi parollar bir xil emas";
+                $data = $req->validate([
+                    'resetpassword' => ['required', 'string', 'min:8', 'confirmed'],
+                    'newpassword' => ['required', 'string', 'min:8', 'confirmed'],
+                ]);
+                return redirect()->back()->withErrors($pass)->withInput();
+            }
+            if ((strlen($req->newpassword) >= 1  and strlen($req->resetpassword) >= 1) and $req->newpassword === $req->resetpassword) {
+                $data = $req->validate([
+                    'resetpassword' => ['required', 'string', 'min:8',],
+                    'newpassword' => ['required', 'string', 'min:8'],
+                ]);
+                $password = Hash::make($data['newpassword']);
+                $n->password = $password;
+            }
+        }
+
+        $n->name = $req->name;
+        if (strlen($req->youtube) >= 1 or  (strlen($req->telegram) >= 1) or  (strlen($req->instagram) >= 1) or (strlen($req->facebook) >= 1)) {
+            $url->save();
+        }
+
+        $n->save();
+        return redirect('home');
+    }
+
+
+
+
     /**
      * Display a listing of the resource.
      *
@@ -24,18 +179,18 @@ class EduHubController extends Controller
         return view("course.course");
     }
 
-public function course_single()
-{
-    return view("course.course_single");
-}
-public function course_search()
-{
-    return view("course.course_search");
-}
-public function course_category()
-{
-    return view("course.course_category");
-}
+    public function course_single()
+    {
+        return view("course.course_single");
+    }
+    public function course_search()
+    {
+        return view("course.course_search");
+    }
+    public function course_category()
+    {
+        return view("course.course_category");
+    }
     public function instructor()
     {
         return view("inctructor.instructor");
@@ -79,71 +234,5 @@ public function course_category()
     public function signup()
     {
         return view("sign.sign-up");
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
     }
 }

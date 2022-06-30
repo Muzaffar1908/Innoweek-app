@@ -22,14 +22,210 @@ use App\Models\Servise_uz;
 use App\Models\Servise_ru;
 use App\Models\About_en;
 use App\Models\About_ru;
+use Illuminate\Support\Facades\Hash;
 use App\Models\About_uz;
 use App\Models\About_bolim_ru;
 use App\Models\About_bolim_uz;
 use Illuminate\Support\Facades\DB;
 use App\Models\Eduhub_jamoasi;
+use App\Models\User;
 
 class AdminController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('isAdmin');
+    }
+/*
+umumiy student va teacher   profil.
+*/
+
+
+
+    /*
+profil settings
+
+*/
+    public function admin($id)
+    {
+        $user = User::find($id);
+        return view('adminpanel/admin/index', ['nu' => $user]);
+    }
+    public function admin_update(Request $req, $id)
+    {
+        $n = User::find($id);
+        $user = User::find($id);
+        $data = $req->validate([
+            'name' => ['required', 'string', 'max:255'],
+        ]);
+
+
+        if ($user->email === $req->email) {
+            $data = $req->validate([
+                'email' => ['required', 'string', 'email', 'max:255'],
+            ]);
+            $n->email=$req->email;
+
+
+        } else {
+            $data = $req->validate([
+                'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            ]);
+            $n->email=$req->email;
+        }
+
+        if (strlen($req->sname) >= 1) {
+            $data = $req->validate([
+                'sname' => ['required', 'string', 'max:255'],
+            ]);
+            $n->sname=$req->sname;
+
+        }
+        if (strlen($req->tell) >= 1) {
+            $data = $req->validate([
+                'tell' => 'required|min:9|numeric'
+            ]);
+            $n->tell=$req->tell;
+
+        }
+        if ($req->has("img")) {
+            $data = $req->validate([
+                'img' => 'image|mimes:jpeg,png,jpg,gif,svg|max:5048',
+            ]);
+            $filemodel = $req->file('img');
+            $fileNameWithExt = $filemodel->getClientOriginalName();
+            $filename = pathinfo($fileNameWithExt, PATHINFO_FILENAME);
+            $ext = $filemodel->getClientOriginalExtension();
+            $fileNameToStory = $filename . '_' . time() . "." . $ext;
+            $path = $filemodel->storeAs('public/user/', $fileNameToStory);
+            $n->img = $fileNameToStory;
+        } else {
+            $fileNameToStory = "user.png";
+            $n->img = $fileNameToStory;
+        }
+
+
+
+        if (strlen($req->oldpassword) >= 1  and (!Hash::check($req->oldpassword, $user->password))) {
+
+            $data = $req->validate([
+                'oldpassword' => ['required', 'string', 'min:8'],
+            ]);
+            $pass = "Eski parolni hato kiritdingiz";
+            return redirect()->back()->withErrors($pass)->withInput();
+        } else {
+            if (strlen($req->newpassword) >= 1 and (!strlen($req->resetpassword) >= 1)) {
+                $pass = "Reset Password bo'limini toldiring";
+                $data = $req->validate([
+                    'oldpassword' => ['required', 'string', 'min:8',],
+                    'newpassword' => ['required', 'string', 'min:8',],
+                    'resetpassword' => ['required', 'string', 'min:8',],
+                ]);
+                return redirect()->back()->withErrors($pass)->withInput();
+            }
+            if (strlen($req->resetpassword) >= 1 and (!strlen($req->newpassword) >= 1)) {
+                $pass = "New Password bo'limini toldiring";
+                $data = $req->validate([
+                    'resetpassword' => ['required', 'string', 'min:8'],
+                ]);
+                return redirect()->back()->withErrors($pass)->withInput();
+            }
+            if ($req->newpassword === $req->oldpassword and strlen($req->newpassword) >= 1) {
+                $pass = "Yangi parolni qayta kiriting. Eski parolingizni takrorladingiz.";
+                return redirect()->back()->withErrors($pass)->withInput();
+            }
+            if ((strlen($req->resetpassword) >= 1  and strlen($req->newpassword) >= 1) and (!$req->newpassword === $req->resetpassword)) {
+                $pass = "Yangi parollar bir xil emas";
+                $data = $req->validate([
+                    'resetpassword' => ['required', 'string', 'min:8', 'confirmed'],
+                    'newpassword' => ['required', 'string', 'min:8', 'confirmed'],
+                ]);
+                return redirect()->back()->withErrors($pass)->withInput();
+            }
+            if ((strlen($req->newpassword) >= 1  and strlen($req->resetpassword) >= 1) and $req->newpassword === $req->resetpassword) {
+                $data = $req->validate([
+                    'resetpassword' => ['required', 'string', 'min:8',],
+                    'newpassword' => ['required', 'string', 'min:8'],
+                ]);
+                $password = Hash::make($data['newpassword']);
+                $n->password = $password;
+            }
+        }
+        $n->name=$req->name;
+
+
+        $n->save();
+        return redirect('adminpanel');
+    }
+
+    public function admin_add()
+    {
+        return view("adminpanel.admin.add");
+
+    }
+
+    public function admin_save(Request $req)
+    {
+
+        $n = new User();
+
+        $data = $req->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'resetpassword' => ['required', 'string', 'min:8',],
+            'newpassword' => ['required', 'string', 'min:8',],
+        ]);
+
+        if (strlen($req->sname) >= 1) {
+            $data = $req->validate([
+                'sname' => ['required', 'string', 'max:255'],
+            ]);
+            $n->sname = $data['sname'];
+        }
+        if (strlen($req->tell) >= 1) {
+            $data = $req->validate([
+                'tell' => 'required|min:9|numeric'
+            ]);
+            $n->tell = $data['tell'];
+        }
+        if ($req->has("img")) {
+            $data = $req->validate([
+                'img' => 'image|mimes:jpeg,png,jpg,gif,svg|max:5048',
+            ]);
+            $filemodel = $req->file('img');
+            $fileNameWithExt = $filemodel->getClientOriginalName();
+            $filename = pathinfo($fileNameWithExt, PATHINFO_FILENAME);
+            $ext = $filemodel->getClientOriginalExtension();
+            $fileNameToStory = $filename . '_' . time() . "." . $ext;
+            $path = $filemodel->storeAs('public/user/', $fileNameToStory);
+            $n->img = $fileNameToStory;
+        } else {
+            $fileNameToStory = "user.png";
+            $n->img = $fileNameToStory;
+        }
+
+        if ( $req->newpassword === $req->resetpassword) {
+            $password = Hash::make($data['newpassword']);
+            $n->password = $password;
+        }else{
+            $pass = "Yangi parollar bir xil emas";
+            return redirect()->back()->withErrors($pass)->withInput();
+
+        }
+
+        $n->name = $data['name'];
+        $n->email = $data['email'];
+        $n->uroven ="admin";
+        $n->level = 'oddiy';
+        $n->save();
+        return redirect('adminpanel');
+    }
+
+
+
+
+
 
     /*
     EduHub Jamoasi

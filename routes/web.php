@@ -23,15 +23,23 @@ Route::get("eduhub/{lang}", function($lang) {
     return redirect()->back();
 });
 
+
+Route::post("/user/update/{id}", [EduHubController::class, "user_update"]);
+Route::get("/user/edit/{id}",[EduHubController::class,'user_profil']);
+
+
+Route::post("/admin/admin/update/{id}", [AdminController::class, "admin_update"]);
+Route::get("/admin/admin/{id}", [AdminController::class, "admin"]);
+Route::post("/admin/admin/save", [AdminController::class, "admin_save"]);
+Route::get("/admin/admins/add", [AdminController::class, "admin_add"]);
+
+
 Route::get("/admin/jamoa/dell/{id}", [AdminController::class, "jamoa_dell"]);
 Route::post("/admin/jamoa/update/{id}", [AdminController::class, "jamoa_update"]);
 Route::get("/admin/jamoa/edit/{id}", [AdminController::class, "jamoa_edit"]);
 Route::post("/admin/jamoa/save", [AdminController::class, "jamoa_save"]);
 Route::get("/admin/jamoa/add", [AdminController::class, "jamoa_add"]);
 Route::get("/admin/jamoa", [AdminController::class, "jamoa"]);
-
-
-
 
 
 Route::get("/admin/about_b/dell/{id}", [AdminController::class, "about_b_dell"]);

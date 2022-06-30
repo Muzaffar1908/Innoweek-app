@@ -14,6 +14,15 @@
     @yield("links")
 
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="icon" type="image/x-icon" href="assets/img/logo/favicon.png">
+
+
+    <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/all-fontawesome.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/animate.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/magnific-popup.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/owl.carousel.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
 
     <script src="{{ asset('js/app.js') }}" defer></script>
     <style>
@@ -74,11 +83,6 @@
 </head>
 
 <body>
-    <div class="preloader">
-        <div class="loader"></div>
-    </div>
-
-
 
 
     <header class="home-3 header">
@@ -196,7 +200,7 @@
                                 <div class="nav-item dropdown">
 
                                     <a class="nav-link user_name dropdown-toggle " href="#" data-bs-toggle="dropdown">
-                                        <i class="fas fa-user-circle img" s></i>
+                                        <img class="img" src="{{asset('storage/user/'.Auth::user()->img)}}" >
 
                                         <h6>
                                             {{ Auth::user()->name }}
@@ -214,7 +218,7 @@
                                         @csrf
                                     </form>
                                         </li>
-                                        <li><a class="dropdown-item" href="index-2.html">Home Page 02</a></li>
+                                        <li><a class="dropdown-item" href="/user/edit/{{ Auth::user()->id }}">Profile Settings</a></li>
                                         <li><a class="dropdown-item" href="index-3.html">Home Page 03</a></li>
 
                                     </ul>
@@ -352,6 +356,20 @@
             })
         })
     </script>
+        <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+        <script src="assets/js/jquery-3.6.0.min.js"></script>
+        <script src="assets/js/modernizr.min.js"></script>
+        <script src="assets/js/bootstrap.bundle.min.js"></script>
+        <script src="assets/js/imagesloaded.pkgd.min.js"></script>
+        <script src="assets/js/jquery.magnific-popup.min.js"></script>
+        <script src="assets/js/isotope.pkgd.min.js"></script>
+        <script src="assets/js/jquery.appear.min.js"></script>
+        <script src="assets/js/jquery.easing.min.js"></script>
+        <script src="assets/js/owl.carousel.min.js"></script>
+        <script src="assets/js/counter-up.js"></script>
+        <script src="assets/js/masonry.pkgd.min.js"></script>
+        <script src="assets/js/wow.min.js"></script>
+        <script src="assets/js/main.js"></script>
 </body>
 
 </html>
