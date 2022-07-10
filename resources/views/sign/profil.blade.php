@@ -92,7 +92,7 @@
                                 value="{{ $url->telegram }}"
                             @endif
 
-                                    autocomplete="email" placeholder="Your Email">
+                                    autocomplete="Telegram" placeholder="Talegram">
                             </div>
                             <div class="form-group">
                                 <label>Instagram</label>
@@ -100,7 +100,7 @@
                                  @if (isset($url->instagram))
                                 value="{{ $url->instagram }}"
                             @endif
-                                 autocomplete="email" placeholder="Your Email">
+                                 autocomplete="email" placeholder="Instagram">
                             </div>
                             <div class="form-group">
                                 <label >Facebook</label>
@@ -108,15 +108,15 @@
                                 @if (isset($url->facebook))
                                 value="{{ $url->facebook }}"
                             @endif
-                                    placeholder="Your Email">
+                                    placeholder="Facebook">
                             </div>
                             <div class="form-group">
-                                <label >You-tube</label>
+                                <label >YouTube</label>
                                 <input type="url" class="form-control " name="youtube"
                                 @if (isset($url->youtube))
                                 value="{{ $url->youtube }}"
                             @endif
-                                   placeholder="Your Email">
+                                   placeholder="YouTube">
                             </div>
                             <div class="form-group">
                                 <label>Images</label>

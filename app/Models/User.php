@@ -12,6 +12,21 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
+    public function cources(){
+        return $this->hasMany(Cources::class,'ins_id',"id");
+    }
+
+    public function cources2()
+    {
+        return $this->belongsTo(Cources::class,'id',"ins_id");
+    }
+
+    public function ins_sharx()
+    {
+        return $this->belongsTo(Instructor_sharxlar::class,'id',"student_id");
+    }
+
+
     /**
      * The attributes that are mass assignable.
      *
@@ -34,7 +49,7 @@ class User extends Authenticatable
         'remember_token',
     ];
 
-  
+
 
     /**
      * The attributes that should be cast.

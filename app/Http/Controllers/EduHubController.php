@@ -5,17 +5,83 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\User_link;
-
+use App\Models\Cources;
+use App\Models\Student_buy_course;
+use App\Models\Courses_sharxlar;
+use App\Models\Instructor_about;
+use Illuminate\Support\Facades\DB;
+use App\Models\Instructor_sharxlar;
 use Illuminate\Support\Facades\Hash;
+use App\Models\Instructor_education;
+use App\Models\Instructor_tajriba;
 
 
 class EduHubController extends Controller
 {
+    /*
+teacher profil
+
+ */
+
+    public function instructor_single($id)
+    {
+        $sharx=Instructor_sharxlar::where('user_id','=', $id)->paginate(16);
+        $avg=Instructor_sharxlar::where('user_id','=', $id)->avg('reyting');
+        $sharx_count=Instructor_sharxlar::where('user_id','=', $id)->count();
+        $stars5=(Instructor_sharxlar::where('user_id','=', $id)
+        ->where('reyting','=', 5)
+        ->count())*100/$sharx_count;
+        $stars3=(Instructor_sharxlar::where('user_id','=', $id)
+        ->where('reyting','=', 3)
+        ->count())*100/$sharx_count;
+        $stars4=(Instructor_sharxlar::where('user_id','=', $id)
+        ->where('reyting','=', 4)
+        ->count())*100/$sharx_count;
+        $stars2=(Instructor_sharxlar::where('user_id','=', $id)
+        ->where('reyting','=', 2)
+        ->count())*100/$sharx_count;
+        $stars1=(Instructor_sharxlar::where('user_id','=', $id)
+        ->where('reyting','=', 1)
+        ->count())*100/$sharx_count;
+
+        $tajriba=Instructor_tajriba::where('user_id','=',$id)->orderBy('date1')->get();
+        $edu=Instructor_education::where('user_id','=',$id)->orderBy('date1')->get();
+
+
+
+        $user = User::findOrFail($id);
+        $url = User_link::find($id);
+        $courses = Cources::select('*')->where('ins_id','=',$id)->withCount('students')->withCount('sharxlar')->withAvg('sharxlar','reyting')->paginate();
+        $count_cources = User::find($id)->cources->count() ;
+        $about = instructor_about::where("user_id", '=', $id)->find($id);
+        $student_count = 0;
+
+        foreach ($courses as $c) {
+
+            $a = DB::select('select * from student_buy_courses where cours_id = ?', [$c->id]);
+            foreach ($a as $d) {
+                $student_count = $student_count + 1;
+            }
+        }
+        return view("inctructor.instructor-single", ['sharx_count'=>$sharx_count,
+        'about' => $about,'stars'=>$avg, 'user' => $user, 'url' => $url,
+        'student' => $student_count, 'c_count' => $count_cources, 'cources'=>$courses,
+        'stars5'=>$stars5, 'stars4'=>$stars4, 'stars3'=>$stars3, 'stars2'=>$stars2, 'stars1'=>$stars1,
+        'sharx'=>$sharx, 'tajriba'=>$tajriba, 'edu'=>$edu
+    ]);
+    }
+
+    /*
+User Profil teacher va student uchun
+*/
+
+
+
     public function user_profil($id)
     {
-        $user = User::find($id);
-
+        $user = User::findOrFail($id);
         $url = User_link::find($id);
+
         return view('sign.profil', ['nu' => $user, "url" => $url]);
     }
     public function user_update(Request $req, $id)
@@ -155,7 +221,7 @@ class EduHubController extends Controller
         }
 
         $n->save();
-        return redirect('home');
+        return redirect()->back();
     }
 
 
@@ -195,10 +261,7 @@ class EduHubController extends Controller
     {
         return view("inctructor.instructor");
     }
-    public function instructor_single()
-    {
-        return view("inctructor.instructor-single");
-    }
+
     public function teams()
     {
         return view("pages.teams");

@@ -13,12 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('instructor_sharxlars', function (Blueprint $table) {
+        Schema::create('instructor_tajribas', function (Blueprint $table) {
             $table->id();
             $table->string('user_id');
-            $table->string('student_id');
-            $table->string('reyting');
-            $table->string('sharx');
+            $table->string('name');
+            $table->string('date1');
+            $table->string('date2');
+            $table->text('text');
             $table->timestamps();
         });
     }
@@ -30,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('instructor_sharxlars');
+        Schema::dropIfExists('instructor_tajribas');
     }
 };

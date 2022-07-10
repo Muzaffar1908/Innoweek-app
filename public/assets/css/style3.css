@@ -1,0 +1,9 @@
+.commentss {
+    display: none;
+}
+
+.commentss:nth-child(1),
+.commentss:nth-child(1) {
+    display: block;
+    transition: 0.2s ease;
+}
