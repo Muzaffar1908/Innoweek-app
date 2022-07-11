@@ -18,14 +18,36 @@ use App\Models\Instructor_tajriba;
 
 class EduHubController extends Controller
 {
+
+
+
     /*
 teacher profil
 
  */
 
+
+
+public function teacher_sharx(Request $request, $id,)
+{
+    $data = $request->validate([
+        'reviewRating' => 'in:1,,2,3,4,5|required',
+        'text' =>'required',
+        'user_id'=>'required'
+    ]);
+
+    $n = new Instructor_sharxlar();
+    $n->reyting = $data['reviewRating'];
+    $n->user_id=$id;
+    $n->student_id=$data['user_id'];
+    $n->sharx = $data['text'];
+   $n->save();
+   return redirect('/home');
+}
+
     public function instructor_single($id)
     {
-        $sharx=Instructor_sharxlar::where('user_id','=', $id)->paginate(16);
+        $sharx=Instructor_sharxlar::where('user_id','=', $id)->orderBy('created_at', 'desc')->paginate(16);
         $avg=Instructor_sharxlar::where('user_id','=', $id)->avg('reyting');
         $sharx_count=Instructor_sharxlar::where('user_id','=', $id)->count();
         $stars5=(Instructor_sharxlar::where('user_id','=', $id)
@@ -53,7 +75,7 @@ teacher profil
         $url = User_link::find($id);
         $courses = Cources::select('*')->where('ins_id','=',$id)->withCount('students')->withCount('sharxlar')->withAvg('sharxlar','reyting')->paginate();
         $count_cources = User::find($id)->cources->count() ;
-        $about = instructor_about::where("user_id", '=', $id)->find($id);
+        $about = instructor_about::where("user_id", '=', $id)->first();
         $student_count = 0;
 
         foreach ($courses as $c) {

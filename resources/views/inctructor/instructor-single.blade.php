@@ -194,28 +194,30 @@
 
                                 <div class="instructor-more-info-rating">
                                     <i class="far fa-star"></i>
-                                    <h6>{{ $stars }}</h6>
+                                    <h6>{{ round($stars,1) }}</h6>
                                     <p>Rating</p>
                                 </div>
                             </div>
                             <div class="instructor-single-about">
                                 <h5>About Me</h5>
-                                <p>
-                                    {{ $about->text }}
-                                </p>
-                                @if (strlen($about->text) > 0 and Auth::user()->id === $user->id)
+
+                                    <p> {{ $about->text}} </p>
+
+                                @if (Auth::user()->id === $user->id and !isset($about->text))
+                                <h6 class="alert alert-info">O'zingiz haqida malumot qo'shing.</h6>
+                                <a href="/teacher/about/add/{{ $user->id }}" class="btn btn-primary"
+                                    style=" font-size:15px;"><i class="far fa-plus"></i></a>
+                            @endif
+
+                                @if (isset($about->text) and Auth::user()->id === $user->id)
                                     <a href="/teacher/about/edit/{{ $about->id }}" class="btn btn-success"
                                         style=" font-size:15px;"><i class="far fa-edit"></i></a>
                                 @endif
-                                @if (strlen($about->text) > 0 and Auth::user()->id === $user->id)
+                                @if (isset($about->text) and Auth::user()->id === $user->id)
                                     <a href="/teacher/about/delete/{{ $about->id }}" class="btn btn-danger"
                                         style=" font-size:15px;"><i class="far fa-trash-alt"></i></a>
                                 @endif
-                                @if (strlen($about->text) < 1 and Auth::user()->id === $user->id)
-                                    <h6 class="alert alert-info">O'zingiz haqida malumot qo'shing.</h6>
-                                    <a href="/teacher/about/add" class="btn btn-primary" style=" font-size:15px;"><i
-                                            class="far fa-plus"></i></a>
-                                @endif
+
                             </div>
                         </div>
                     </div>
@@ -354,7 +356,7 @@
                                     <div class="instructor-tab-wrapper">
                                         <div class="instructor-review-rating">
                                             <div class="instructor-rating-count">
-                                                <h2>{{ $stars }}</h2>
+                                                <h2>{{ round($stars,1) }}</h2>
                                                 @for ($i = 0; round($stars) > $i; $i++)
                                                     <i class="fas fa-star"></i>
                                                 @endfor
@@ -380,7 +382,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="instructor-rating-range-percentage">
-                                                        <span>{{ $stars5 }}%</span>
+                                                        <span>{{round($stars5,1)  }}%</span>
                                                     </div>
                                                 </div>
                                                 <div class="instructor-rating-range-item">
@@ -399,7 +401,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="instructor-rating-range-percentage">
-                                                        <span>{{ $stars4 }}%</span>
+                                                        <span>{{ round($stars4,1) }}%</span>
                                                     </div>
                                                 </div>
                                                 <div class="instructor-rating-range-item">
@@ -418,7 +420,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="instructor-rating-range-percentage">
-                                                        <span>{{ $stars3 }}%</span>
+                                                        <span>{{ round($stars3,1) }}%</span>
                                                     </div>
                                                 </div>
                                                 <div class="instructor-rating-range-item">
@@ -437,7 +439,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="instructor-rating-range-percentage">
-                                                        <span>{{ $stars2 }}%</span>
+                                                        <span>{{ round($stars2,1)  }}%</span>
                                                     </div>
                                                 </div>
                                                 <div class="instructor-rating-range-item">
@@ -456,7 +458,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="instructor-rating-range-percentage">
-                                                        <span>{{ $stars1 }}%</span>
+                                                        <span>{{ round($stars1,1)  }}%</span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -474,14 +476,14 @@
                                                                 <h6>{{ $sh->user->name }} {{ $sh->user->sname }}</h6>
                                                                 <span><i class="far fa-clock"></i>
                                                                     <?
-                                                                    date_default_timezone_set('Asia/Tashkent');
-                                                                    $d1 = date('Y-m-d H:i:s');
-                                                                    $date2=date_create($sh->created_at);
-                                                                    $d2=date_format($date2, 'G:ia jS F Y');
+                                                                                date_default_timezone_set('Asia/Tashkent');
+                                                                                $d1 = date('Y-m-d H:i:s');
+                                                                                $date2=date_create($sh->created_at);
+                                                                                $d2=date_format($date2, 'G:ia jS F Y');
 
 
 
-                                                                    echo $d2?>
+                                                                                echo $d2?>
                                                                 </span>
                                                             </div>
                                                             <div class="instructor-review-author-rating">
@@ -508,58 +510,63 @@
                                         @if (!Auth::user()->id === $user->id)
                                             <div class="instructor-review-form">
                                                 <h5>Leave A Review</h5>
-                                                <form action="#" class="" id="my-form-2">
-                                                    <div class="form-group">
-                                                        <label>Your Rating</label>
-                                                        <div class="instructor-review-form-star stars-wrapper">
-                                                            <input id="one-star-rating-2" type="radio"
-                                                                name="reviewRating" value="1">
+                                                    <form action="/teacher/sharx/{{Auth::user()->id}}" class="" method="POST" id="my-form-2">
+                                                        @csrf
+                                                        <div class="form-group">
+                                                            <input type="hidden"  value="{{$user->id}}" name="user_id">
+                                                            <label>Your Rating</label>
 
-                                                            <input id="two-star-rating-2" type="radio"
-                                                                name="reviewRating" value="2">
+                                                            <div class="instructor-review-form-star stars-wrapper">
+                                                                <input id="one-star-rating-2" type="radio"
+                                                                    name="reviewRating" value="1">
 
-                                                            <input id="three-star-rating-2" type="radio"
-                                                                name="reviewRating" value="3">
+                                                                <input id="two-star-rating-2" type="radio"
+                                                                    name="reviewRating" value="2">
 
-                                                            <input id="four-star-rating-2" type="radio"
-                                                                name="reviewRating" value="4">
+                                                                <input id="three-star-rating-2" type="radio"
+                                                                    name="reviewRating" value="3">
 
-                                                            <input id="five-star-rating-2" type="radio"
-                                                                name="reviewRating" value="5">
+                                                                <input id="four-star-rating-2" type="radio"
+                                                                    name="reviewRating" value="4">
 
-                                                            <div class="stars-display" style="">
-                                                                <svg viewBox="0 0 20 20" width="25" height="25">
-                                                                    <use href="#star-icon"></use>
-                                                                </svg>
-                                                                <svg viewBox="0 0 20 20" width="25" height="25">
-                                                                    <use href="#star-icon"></use>
-                                                                </svg>
-                                                                <svg viewBox="0 0 20 20" width="25" height="25">
-                                                                    <use href="#star-icon"></use>
-                                                                </svg>
-                                                                <svg viewBox="0 0 20 20" width="25" height="25">
-                                                                    <use href="#star-icon"></use>
-                                                                </svg>
-                                                                <svg viewBox="0 0 20 20" width="25" height="25">
-                                                                    <use href="#star-icon"></use>
-                                                                </svg>
+                                                                <input id="five-star-rating-2" type="radio"
+                                                                    name="reviewRating" value="5">
+
+                                                                <div class="stars-display" style="">
+                                                                    <svg viewBox="0 0 20 20" width="25" height="25">
+                                                                        <use href="#star-icon"></use>
+                                                                    </svg>
+                                                                    <svg viewBox="0 0 20 20" width="25" height="25">
+                                                                        <use href="#star-icon"></use>
+                                                                    </svg>
+                                                                    <svg viewBox="0 0 20 20" width="25" height="25">
+                                                                        <use href="#star-icon"></use>
+                                                                    </svg>
+                                                                    <svg viewBox="0 0 20 20" width="25" height="25">
+                                                                        <use href="#star-icon"></use>
+                                                                    </svg>
+                                                                    <svg viewBox="0 0 20 20" width="25" height="25">
+                                                                        <use href="#star-icon"></use>
+                                                                    </svg>
+                                                                </div>
                                                             </div>
+                                                            <svg id="svg-sprite" xmlns="http://www.w3.org/2000/svg"
+                                                                viewBox="0 0 20 20" style="display: none;">
+                                                                <symbol id="star-icon">
+                                                                    <title>star</title>
+                                                                    <path
+                                                                        d="M20 7h-7L10 .5 7 7H0l5.46 5.47-1.64 7 6.18-3.7 6.18 3.73-1.63-7z" />
+                                                                </symbol>
+                                                            </svg>
                                                         </div>
-                                                        <svg id="svg-sprite" xmlns="http://www.w3.org/2000/svg"
-                                                            viewBox="0 0 20 20" style="display: none;">
-                                                            <symbol id="star-icon">
-                                                                <title>star</title>
-                                                                <path
-                                                                    d="M20 7h-7L10 .5 7 7H0l5.46 5.47-1.64 7 6.18-3.7 6.18 3.73-1.63-7z" />
-                                                            </symbol>
-                                                        </svg>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label>Your Review</label>
-                                                        <textarea class="form-control" cols="30" rows="5" placeholder="Write your review"></textarea>
-                                                    </div>
-                                                    <button class="theme-btn" type="button">Post Your Review</button>
-                                                </form>
+                                                        <div class="form-group">
+                                                            <label>Your Review</label>
+                                                            <textarea class="form-control" cols="30" name="text" required rows="5" placeholder="Write your review"></textarea>
+                                                        </div>
+                                                        <input class="theme-btn btn" type="submit" value="Post Your Review" style="background-color: rgb(18, 174, 70); color:white;">
+
+                                                    </form>
+
                                             </div>
                                         @endif
 
@@ -584,13 +591,15 @@
                                                             {{ $t->text }}
                                                         </p>
                                                         @if (Auth::user()->id === $user->id)
-                                                        <a href="/teacher/tajriba/edit/{{ $t->id }}" class="btn btn-success"
-                                                            style=" font-size:15px;"><i class="far fa-edit"></i></a>
-                                                    @endif
-                                                    @if ( Auth::user()->id === $user->id)
-                                                        <a href="/teacher/tajriba/delete/{{ $t->id }}" class="btn btn-danger"
-                                                            style=" font-size:15px;"><i class="far fa-trash-alt"></i></a>
-                                                    @endif
+                                                            <a href="/teacher/tajriba/edit/{{ $t->id }}"
+                                                                class="btn btn-success" style=" font-size:15px;"><i
+                                                                    class="far fa-edit"></i></a>
+                                                        @endif
+                                                        @if (Auth::user()->id === $user->id)
+                                                            <a href="/teacher/tajriba/delete/{{ $t->id }}"
+                                                                class="btn btn-danger" style=" font-size:15px;"><i
+                                                                    class="far fa-trash-alt"></i></a>
+                                                        @endif
                                                     </div>
 
                                                 </div>
@@ -599,10 +608,10 @@
 
 
 
-                                        @if ( Auth::user()->id === $user->id)
-
-                                            <a href="/teacher/tajriba/add" class="btn btn-primary" style=" font-size:16px; padding:15px 0;">Add new Experience</a>
-                                        @endif
+                                            @if (Auth::user()->id === $user->id)
+                                                <a href="/teacher/tajriba/add/{{$user->id}}" class="btn btn-primary"
+                                                    style=" font-size:16px; padding:15px 0;">Add new Experience</a>
+                                            @endif
 
 
                                         </div>
@@ -627,20 +636,22 @@
                                                             {{ $e->text }}
                                                         </p>
                                                         @if (Auth::user()->id === $user->id)
-                                                        <a href="/teacher/edu/edit/{{ $t->id }}" class="btn btn-success"
-                                                            style=" font-size:15px;"><i class="far fa-edit"></i></a>
-                                                    @endif
-                                                    @if ( Auth::user()->id === $user->id)
-                                                        <a href="/teacher/edu/delete/{{ $t->id }}" class="btn btn-danger"
-                                                            style=" font-size:15px;"><i class="far fa-trash-alt"></i></a>
-                                                    @endif
+                                                            <a href="/teacher/edu/edit/{{ $t->id }}"
+                                                                class="btn btn-success" style=" font-size:15px;"><i
+                                                                    class="far fa-edit"></i></a>
+                                                        @endif
+                                                        @if (Auth::user()->id === $user->id)
+                                                            <a href="/teacher/edu/delete/{{ $t->id }}"
+                                                                class="btn btn-danger" style=" font-size:15px;"><i
+                                                                    class="far fa-trash-alt"></i></a>
+                                                        @endif
                                                     </div>
                                                 </div>
                                             @endforeach
-                                            @if ( Auth::user()->id === $user->id)
-
-                                            <a href="/teacher/edu/add" class="btn btn-primary" style=" font-size:16px; padding:15px 0;">Add new Experience</a>
-                                        @endif
+                                            @if (Auth::user()->id === $user->id)
+                                                <a href="/teacher/edu/add" class="btn btn-primary"
+                                                    style=" font-size:16px; padding:15px 0;">Add new Experience</a>
+                                            @endif
 
 
 
@@ -663,20 +674,7 @@
         const form2 = document.getElementById("my-form-2");
         const outputDisplay2 = document.getElementById("form-data-display-2");
 
-        const onSubmit = ({
-            formElem,
-            displayElem
-        }) => (event) => {
-            event.preventDefault();
-            const data = Array.from(new FormData(formElem));
-            const serializedData = data
-                .map(([fieldName, value]) => `${fieldName} = ${value}`)
-                .join("\n");
-            displayElem.insertAdjacentText(
-                "beforeend",
-                !!data.length ? serializedData + "\n" : noDataWarning + "\n"
-            );
-        };
+
 
 
 

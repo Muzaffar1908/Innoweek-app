@@ -5,6 +5,7 @@ use App\Http\Controllers\EduHubController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\App;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\TeacherController;
 
 
 /*
@@ -22,6 +23,25 @@ Route::get("eduhub/{lang}", function($lang) {
     session()->put('lang', $lang);
     return redirect()->back();
 });
+
+
+
+Route::post("/teacher/tajriba/save", [TeacherController::class, "tajriba_save"]);
+Route::get("/teacher/tajriba/add/{id}", [TeacherController::class, "tajriba_add"]);
+Route::get("/teacher/tajriba/delete/{id}", [TeacherController::class, "tajriba_dell"]);
+Route::post("/teacher/tajriba/update/{id}", [TeacherController::class, "tajriba_update"]);
+Route::get("/teacher/tajriba/edit/{id}",[TeacherController::class,'tajriba_edit']);
+
+
+
+Route::post("/teacher/about/save", [TeacherController::class, "about_save"]);
+Route::get("/teacher/about/add/{id}", [TeacherController::class, "about_add"]);
+Route::get("/teacher/about/delete/{id}", [TeacherController::class, "about_dell"]);
+Route::post("/teacher/about/update/{id}", [TeacherController::class, "about_update"]);
+Route::get("/teacher/about/edit/{id}",[TeacherController::class,'about_edit']);
+
+
+Route::post('/teacher/sharx/{id}',[EduHubController::class,'teacher_sharx']);
 
 
 Route::post("/user/update/{id}", [EduHubController::class, "user_update"]);
