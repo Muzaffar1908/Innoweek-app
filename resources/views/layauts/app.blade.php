@@ -11,7 +11,7 @@
 
     <title>Eduhub - Education And LMS HTML5 Template</title>
 
-    @yield("links")
+    @yield('links')
 
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="icon" type="image/x-icon" href="assets/img/logo/favicon.png">
@@ -76,9 +76,6 @@
         .user_drop h5 {
             text-align: center;
         }
-
-
-
     </style>
 </head>
 
@@ -108,13 +105,13 @@
                                 <Select class="lang" id="til">
 
                                     <option value="uz"
-                                        {{                                         session()->get('lang') == 'uz' ? 'selected' : '' }}>
+                                        {{ session()->get('lang') == 'uz' ? 'selected' : '' }}>
                                         Uzbek</option>
                                     <option value="en"
-                                        {{                                         session()->get('lang') == 'en' ? 'selected' : '' }}>
+                                        {{ session()->get('lang') == 'en' ? 'selected' : '' }}>
                                         English</option>
                                     <option value="ru"
-                                        {{                                         session()->get('lang') == 'ru' ? 'selected' : '' }}>
+                                        {{ session()->get('lang') == 'ru' ? 'selected' : '' }}>
                                         Rus</option>
                                 </Select>
                             </form>
@@ -175,10 +172,10 @@
                                 <a class="nav-link " href="/instructor">{{ __('till.instructors') }}</a>
                             </li>
 
-                            <li class="nav-item"><a class="nav-link"
-                                    href="/contact">{{ __('till.contact') }}</a></li>
-                            <li class="nav-item"><a class="nav-link"
-                                    href="/about">{{ __('till.about') }}</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/contact">{{ __('till.contact') }}</a>
+                            </li>
+                            <li class="nav-item"><a class="nav-link" href="/about">{{ __('till.about') }}</a>
+                            </li>
 
                         </ul>
                         <div class="header-nav-right">
@@ -197,33 +194,38 @@
                                         <a href="/signin" class="header-btn">{{ __('till.sign-in') }}</a>
                                     @endif
                                 @else
-                                <div class="nav-item dropdown">
+                                    <div class="nav-item dropdown">
 
-                                    <a class="nav-link user_name dropdown-toggle " href="#" data-bs-toggle="dropdown">
-                                        <img class="img" src="{{asset('storage/user/'.Auth::user()->img)}}" >
+                                        <a class="nav-link user_name dropdown-toggle " href="#"
+                                            data-bs-toggle="dropdown">
+                                            <img class="img" src="{{ asset('storage/user/' . Auth::user()->img) }}">
 
-                                        <h6>
-                                            {{ Auth::user()->name }}
-                                        </h6>
-                                    </a>
-                                    <ul class="dropdown-menu fade-up">
+                                            <h6>
+                                                {{ Auth::user()->name }}
+                                            </h6>
+                                        </a>
+                                        <ul class="dropdown-menu fade-up">
 
-                                        <li>
-                                            <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                            <li>
+                                                <a class="dropdown-item" href="{{ route('logout') }}"
+                                                    onclick="event.preventDefault();
                                             document.getElementById('logout-form').submit();">
-                                             {{ __('Logout') }}
-                                            </a>
-                                            <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                                        class="d-none">
-                                        @csrf
-                                    </form>
-                                        </li>
-                                        <li><a class="dropdown-item" href="/user/edit/{{ Auth::user()->id }}">Profile Settings</a></li>
-                                        <li><a class="dropdown-item" href="/instructor-single/{{ Auth::user()->id }}">Teacher Profil</a></li>
-                                        <li><a class="dropdown-item" href="index-3.html">Home Page 03</a></li>
+                                                    {{ __('Logout') }}
+                                                </a>
+                                                <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                                    class="d-none">
+                                                    @csrf
+                                                </form>
+                                            </li>
+                                            <li><a class="dropdown-item"
+                                                    href="/user/edit/{{ Auth::user()->id }}">Profile Settings</a></li>
+                                            <li><a class="dropdown-item"
+                                                    href="/instructor-single/{{ Auth::user()->id }}">Teacher Profil</a>
+                                            </li>
+                                            <li><a class="dropdown-item" href="index-3.html">Home Page 03</a></li>
 
-                                    </ul>
-                                </div>
+                                        </ul>
+                                    </div>
 
 
                                 @endguest
@@ -246,7 +248,7 @@
             </div>
         </form>
     </div>
-    @yield("content")
+    @yield('content')
     <footer class="footer-area">
         <div class="footer-widget">
             <div class="container">
@@ -270,10 +272,13 @@
                                 </ul>
                             </div>
                             <ul class="footer-social">
-                                <li class="facebook-link"><a href="c#"><i class="fab fa-facebook-f"></i></a></li>
-                                <li class="pinterest-link"><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
+                                <li class="facebook-link"><a href="c#"><i class="fab fa-facebook-f"></i></a>
+                                </li>
+                                <li class="pinterest-link"><a href="#"><i class="fab fa-pinterest-p"></i></a>
+                                </li>
                                 <li class="twitter-link"><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                <li class="linkedin-link"><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                                <li class="linkedin-link"><a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -314,10 +319,12 @@
                             </div>
                             <div class="footer-app-download">
                                 <h5>{{ __('till.download') }}</h5>
-                                <a href="#"> <img src="{{ asset('storage/img/download-icon/google-play.png') }}"
+                                <a href="#"> <img
+                                        src="{{ asset('storage/img/download-icon/google-play.png') }}"
                                         alt="">
                                 </a>
-                                <a href="#"> <img src="{{ asset('storage/img/download-icon/app-store.png') }}"
+                                <a href="#"> <img
+                                        src="{{ asset('storage/img/download-icon/app-store.png') }}"
                                         alt="">
                                 </a>
                             </div>
@@ -347,7 +354,7 @@
     </footer>
 
 
-    @yield("scripts")
+    @yield('scripts')
     <script>
         $(function() {
             var url = "eduhub";
@@ -357,20 +364,20 @@
             })
         })
     </script>
-        <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
-        <script src="assets/js/jquery-3.6.0.min.js"></script>
-        <script src="assets/js/modernizr.min.js"></script>
-        <script src="assets/js/bootstrap.bundle.min.js"></script>
-        <script src="assets/js/imagesloaded.pkgd.min.js"></script>
-        <script src="assets/js/jquery.magnific-popup.min.js"></script>
-        <script src="assets/js/isotope.pkgd.min.js"></script>
-        <script src="assets/js/jquery.appear.min.js"></script>
-        <script src="assets/js/jquery.easing.min.js"></script>
-        <script src="assets/js/owl.carousel.min.js"></script>
-        <script src="assets/js/counter-up.js"></script>
-        <script src="assets/js/masonry.pkgd.min.js"></script>
-        <script src="assets/js/wow.min.js"></script>
-        <script src="assets/js/main.js"></script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+    <script src="assets/js/jquery-3.6.0.min.js"></script>
+    <script src="assets/js/modernizr.min.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/imagesloaded.pkgd.min.js"></script>
+    <script src="assets/js/jquery.magnific-popup.min.js"></script>
+    <script src="assets/js/isotope.pkgd.min.js"></script>
+    <script src="assets/js/jquery.appear.min.js"></script>
+    <script src="assets/js/jquery.easing.min.js"></script>
+    <script src="assets/js/owl.carousel.min.js"></script>
+    <script src="assets/js/counter-up.js"></script>
+    <script src="assets/js/masonry.pkgd.min.js"></script>
+    <script src="assets/js/wow.min.js"></script>
+    <script src="assets/js/main.js"></script>
 </body>
 
 </html>

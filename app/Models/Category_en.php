@@ -10,7 +10,7 @@ class Category_en extends Model
     use HasFactory;
     public function courses()
     {
-        return $this->belongsTo(Cources::class,'id',"cat_id");
+        return $this->belongsTo(Cources::class,"cat_id",'id');
     }
     protected $fillable=[
         'name', 'icon','color'

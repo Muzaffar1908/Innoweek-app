@@ -15,6 +15,21 @@ class User extends Authenticatable
     public function cources(){
         return $this->hasMany(Cources::class,'ins_id',"id");
     }
+    public function ins_about(){
+        return $this->hasOne(Instructor_about::class,'user_id',"id");
+    }
+
+
+    public function link(){
+        return $this->hasMany(User_link::class,'user_id',"id");
+    }
+    public function students(){
+        return $this->hasMany(Student_buy_course::class,'user_id',"id");
+    }
+    public function cource_sharx()
+    {
+        return $this->belongsTo(Courses_sharxlar::class,'id',"user_id");
+    }
 
     public function cources2()
     {

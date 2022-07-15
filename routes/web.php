@@ -25,6 +25,41 @@ Route::get("eduhub/{lang}", function($lang) {
 });
 
 
+Route::post("/course/includes/save", [TeacherController::class, "includes_save"]);
+Route::get("/course/includes/add/{id}", [TeacherController::class, "includes_add"]);
+Route::get("/course/includes/delete/{id}", [TeacherController::class, "includes_dell"]);
+Route::post("/course/includes/update/{id}", [TeacherController::class, "includes_update"]);
+Route::get("/course/includes/edit/{id}",[TeacherController::class,'includes_edit']);
+
+
+Route::post("/course/desc_row/save", [TeacherController::class, "desc_row_save"]);
+Route::get("/course/desc_row/add/{id}/{c_id}", [TeacherController::class, "desc_row_add"]);
+Route::get("/course/desc_row/delete/{id}", [TeacherController::class, "desc_row_dell"]);
+Route::post("/course/desc_row/update/{id}", [TeacherController::class, "desc_row_update"]);
+Route::get("/course/desc_row/edit/{id}",[TeacherController::class,'desc_row_edit']);
+
+
+Route::post("/course/desc/save", [TeacherController::class, "desc_save"]);
+Route::get("/course/desc/add/{id}", [TeacherController::class, "desc_add"]);
+Route::get("/course/desc/delete/{id}", [TeacherController::class, "desc_dell"]);
+Route::post("/course/desc/update/{id}", [TeacherController::class, "desc_update"]);
+Route::get("/course/desc/edit/{id}",[TeacherController::class,'desc_edit']);
+
+Route::post('/cource/sharx/{id}',[EduHubController::class,'cource_sharx']);
+
+Route::get("/course-single/{id}", [EduHubController::class, "course_single"]);
+
+Route::post("/course/save", [TeacherController::class, "course_save"]);
+Route::get("/course/add/{id}", [TeacherController::class, "course_add"]);
+Route::get("/course/delete/{id}", [TeacherController::class, "course_dell"]);
+Route::post("/course/update/{id}", [TeacherController::class, "course_update"]);
+Route::get("/course/edit/{id}",[TeacherController::class,'course_edit']);
+
+Route::post("/teacher/edu/save", [TeacherController::class, "edu_save"]);
+Route::get("/teacher/edu/add/{id}", [TeacherController::class, "edu_add"]);
+Route::get("/teacher/edu/delete/{id}", [TeacherController::class, "edu_dell"]);
+Route::post("/teacher/edu/update/{id}", [TeacherController::class, "edu_update"]);
+Route::get("/teacher/edu/edit/{id}",[TeacherController::class,'edu_edit']);
 
 Route::post("/teacher/tajriba/save", [TeacherController::class, "tajriba_save"]);
 Route::get("/teacher/tajriba/add/{id}", [TeacherController::class, "tajriba_add"]);
@@ -32,27 +67,21 @@ Route::get("/teacher/tajriba/delete/{id}", [TeacherController::class, "tajriba_d
 Route::post("/teacher/tajriba/update/{id}", [TeacherController::class, "tajriba_update"]);
 Route::get("/teacher/tajriba/edit/{id}",[TeacherController::class,'tajriba_edit']);
 
-
-
 Route::post("/teacher/about/save", [TeacherController::class, "about_save"]);
 Route::get("/teacher/about/add/{id}", [TeacherController::class, "about_add"]);
 Route::get("/teacher/about/delete/{id}", [TeacherController::class, "about_dell"]);
 Route::post("/teacher/about/update/{id}", [TeacherController::class, "about_update"]);
 Route::get("/teacher/about/edit/{id}",[TeacherController::class,'about_edit']);
 
-
 Route::post('/teacher/sharx/{id}',[EduHubController::class,'teacher_sharx']);
-
 
 Route::post("/user/update/{id}", [EduHubController::class, "user_update"]);
 Route::get("/user/edit/{id}",[EduHubController::class,'user_profil']);
-
 
 Route::post("/admin/admin/update/{id}", [AdminController::class, "admin_update"]);
 Route::get("/admin/admin/{id}", [AdminController::class, "admin"]);
 Route::post("/admin/admin/save", [AdminController::class, "admin_save"]);
 Route::get("/admin/admins/add", [AdminController::class, "admin_add"]);
-
 
 Route::get("/admin/jamoa/dell/{id}", [AdminController::class, "jamoa_dell"]);
 Route::post("/admin/jamoa/update/{id}", [AdminController::class, "jamoa_update"]);
@@ -61,13 +90,11 @@ Route::post("/admin/jamoa/save", [AdminController::class, "jamoa_save"]);
 Route::get("/admin/jamoa/add", [AdminController::class, "jamoa_add"]);
 Route::get("/admin/jamoa", [AdminController::class, "jamoa"]);
 
-
 Route::get("/admin/about_b/dell/{id}", [AdminController::class, "about_b_dell"]);
 Route::post("/admin/about_b/update/{id}", [AdminController::class, "about_b_update"]);
 Route::get("/admin/about_b/edit/{id}", [AdminController::class, "about_b_edit"]);
 Route::post("/admin/about_b/save", [AdminController::class, "about_b_save"]);
 Route::get("/admin/about_b/add", [AdminController::class, "about_b_add"]);
-
 
 Route::get("/admin/about/dell/{id}", [AdminController::class, "about_dell"]);
 Route::post("/admin/about/update/{id}", [AdminController::class, "about_update"]);
@@ -76,16 +103,12 @@ Route::post("/admin/about/save", [AdminController::class, "about_save"]);
 Route::get("/admin/about/add", [AdminController::class, "about_add"]);
 Route::get("/admin/about", [AdminController::class, "about"]);
 
-
-
-
 Route::get("/admin/services/dell/{id}", [AdminController::class, "services_dell"]);
 Route::post("/admin/services/update/{id}", [AdminController::class, "services_update"]);
 Route::get("/admin/services/edit/{id}", [AdminController::class, "services_edit"]);
 Route::post("/admin/services/save", [AdminController::class, "services_save"]);
 Route::get("/admin/services/add", [AdminController::class, "services_add"]);
 Route::get("/admin/services", [AdminController::class, "services"]);
-
 
 Route::get("/admin/policy/dell/{id}", [AdminController::class, "policy_dell"]);
 Route::post("/admin/policy/update/{id}", [AdminController::class, "policy_update"]);
@@ -121,17 +144,10 @@ Route::get("/admin", [AdminController::class, "index"]);
 Route::get("/adminpanel", [AdminController::class, "index"]);
 Route::get("/admin/eduhub", [AdminController::class, "index"]);
 
-
-
-
-
-
-
-
 Route::view("/eduhub","eduhub");
 Route::get("/course-category", [EduHubController::class, "course_category"]);
 Route::get("/course-search", [EduHubController::class, "course_search"]);
-Route::get("/course-single/", [EduHubController::class, "course_single"]);
+
 Route::get("/signup", [EduHubController::class, "signup"]);
 Route::get("/forgotPassword", [EduHubController::class, "forgotPassword"]);
 Route::get("/signin", [EduHubController::class, "signin"]);

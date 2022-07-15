@@ -164,17 +164,17 @@
                                 <p class="instructor-single-tagline">Sineor cdsnjcldh</p>
 
                                 <div class="instructor-single-social">
-                                    @if (strlen($url->telegram) > 0)
+                                    @if (!$url->telegram == null)
                                         <a href="{{ $url->telegram }}"><i class="fab fa-telegram"></i></a>
                                     @endif
-                                    @if (strlen($url->facebook) > 0)
+                                    @if (!$url->facebook == null)
                                         <a href="{{ $url->facebook }}"><i class="fab fa-facebook-f"></i></a>
                                     @endif
-                                    @if (strlen($url->instagram) > 0)
+                                    @if (!$url->instagram == null)
                                         <a href="{{ $url->instagram }}"><i class="fab fa-instagram"></i></a>
                                     @endif
 
-                                    @if (strlen($url->youtube) > 0)
+                                    @if (!$url->youtube == null)
                                         <a href="{{ $url->youtube }}"><i class="fab fa-youtube"></i></a>
                                     @endif
 
@@ -194,20 +194,20 @@
 
                                 <div class="instructor-more-info-rating">
                                     <i class="far fa-star"></i>
-                                    <h6>{{ round($stars,1) }}</h6>
+                                    <h6>{{ round($stars, 1) }}</h6>
                                     <p>Rating</p>
                                 </div>
                             </div>
                             <div class="instructor-single-about">
                                 <h5>About Me</h5>
 
-                                    <p> {{ $about->text}} </p>
+                                <p> {{ $about->text }} </p>
 
                                 @if (Auth::user()->id === $user->id and !isset($about->text))
-                                <h6 class="alert alert-info">O'zingiz haqida malumot qo'shing.</h6>
-                                <a href="/teacher/about/add/{{ $user->id }}" class="btn btn-primary"
-                                    style=" font-size:15px;"><i class="far fa-plus"></i></a>
-                            @endif
+                                    <h6 class="alert alert-info">O'zingiz haqida malumot qo'shing.</h6>
+                                    <a href="/teacher/about/add/{{ $user->id }}" class="btn btn-primary"
+                                        style=" font-size:15px;"><i class="far fa-plus"></i></a>
+                                @endif
 
                                 @if (isset($about->text) and Auth::user()->id === $user->id)
                                     <a href="/teacher/about/edit/{{ $about->id }}" class="btn btn-success"
@@ -257,8 +257,9 @@
                                                         <span
                                                             class="course-tag course-tag-1">{{ $cource->uroven }}</span>
                                                         <div class="course-img">
-                                                            <a href="/cources/{{ $cource->id }}"><img
-                                                                    src="{{ asset('storage/user/' . $user->img) }}"
+                                                            <a style="width:100%"
+                                                                href="/course-single/{{ $cource->id }}"><img
+                                                                    src="{{ asset('storage/course/' . $cource->img) }}"
                                                                     alt="" style="width:100%;height:230px"></a>
                                                         </div>
                                                         <div class="course-content">
@@ -287,7 +288,7 @@
                                                                     <span>({{ $cource->sharxlar_count }})</span>
                                                                 </div>
                                                             </div>
-                                                            <a href="#">
+                                                            <a href="/course-single/{{ $cource->id }}">
                                                                 <h4 class="course-title">
                                                                     {{ substr($cource->name, 0, 52) }}
                                                                     @if (strlen($cource->name) > 52)
@@ -320,7 +321,7 @@
                                                                 </a>
                                                                 <div class="course-price">
                                                                     <del>
-                                                                        @if (strlen($cource->eski_narx) > 0)
+                                                                        @if ($cource->eski_narx > $cource->narx)
                                                                             $
                                                                             {{ $cource->eski_narx }}
                                                                         @endif
@@ -334,9 +335,9 @@
                                             {{ $cources->links() }}
 
                                             @if (Auth::user()->id === $user->id)
-                                                <a href="/teacher/cources/add" class="btn btn-primary"
+                                                <a href="/course/add/{{ $user->id }}" class="btn btn-primary"
                                                     style=" font-size:15px; padding:15px  0px; margin-top:40px">Add new
-                                                    Cource</a>
+                                                    Course</a>
                                             @endif
 
 
@@ -356,7 +357,7 @@
                                     <div class="instructor-tab-wrapper">
                                         <div class="instructor-review-rating">
                                             <div class="instructor-rating-count">
-                                                <h2>{{ round($stars,1) }}</h2>
+                                                <h2>{{ round($stars, 1) }}</h2>
                                                 @for ($i = 0; round($stars) > $i; $i++)
                                                     <i class="fas fa-star"></i>
                                                 @endfor
@@ -382,7 +383,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="instructor-rating-range-percentage">
-                                                        <span>{{round($stars5,1)  }}%</span>
+                                                        <span>{{ round($stars5, 1) }}%</span>
                                                     </div>
                                                 </div>
                                                 <div class="instructor-rating-range-item">
@@ -401,7 +402,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="instructor-rating-range-percentage">
-                                                        <span>{{ round($stars4,1) }}%</span>
+                                                        <span>{{ round($stars4, 1) }}%</span>
                                                     </div>
                                                 </div>
                                                 <div class="instructor-rating-range-item">
@@ -420,7 +421,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="instructor-rating-range-percentage">
-                                                        <span>{{ round($stars3,1) }}%</span>
+                                                        <span>{{ round($stars3, 1) }}%</span>
                                                     </div>
                                                 </div>
                                                 <div class="instructor-rating-range-item">
@@ -439,7 +440,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="instructor-rating-range-percentage">
-                                                        <span>{{ round($stars2,1)  }}%</span>
+                                                        <span>{{ round($stars2, 1) }}%</span>
                                                     </div>
                                                 </div>
                                                 <div class="instructor-rating-range-item">
@@ -458,7 +459,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="instructor-rating-range-percentage">
-                                                        <span>{{ round($stars1,1)  }}%</span>
+                                                        <span>{{ round($stars1, 1) }}%</span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -476,14 +477,11 @@
                                                                 <h6>{{ $sh->user->name }} {{ $sh->user->sname }}</h6>
                                                                 <span><i class="far fa-clock"></i>
                                                                     <?
-                                                                                date_default_timezone_set('Asia/Tashkent');
-                                                                                $d1 = date('Y-m-d H:i:s');
-                                                                                $date2=date_create($sh->created_at);
-                                                                                $d2=date_format($date2, 'G:ia jS F Y');
-
-
-
-                                                                                echo $d2?>
+                                                                                    date_default_timezone_set('Asia/Tashkent');
+                                                                                    $d1 = date('Y-m-d H:i:s');
+                                                                                    $date2=date_create($sh->created_at);
+                                                                                    $d2=date_format($date2, 'G:ia jS F Y');
+                                                                                    echo $d2?>
                                                                 </span>
                                                             </div>
                                                             <div class="instructor-review-author-rating">
@@ -507,67 +505,72 @@
 
                                         </div>
 
-                                        @if (!Auth::user()->id === $user->id)
-                                            <div class="instructor-review-form">
-                                                <h5>Leave A Review</h5>
-                                                    <form action="/teacher/sharx/{{Auth::user()->id}}" class="" method="POST" id="my-form-2">
-                                                        @csrf
-                                                        <div class="form-group">
-                                                            <input type="hidden"  value="{{$user->id}}" name="user_id">
-                                                            <label>Your Rating</label>
+@if (!(Auth::user()->id == $user->id))
 
-                                                            <div class="instructor-review-form-star stars-wrapper">
-                                                                <input id="one-star-rating-2" type="radio"
-                                                                    name="reviewRating" value="1">
 
-                                                                <input id="two-star-rating-2" type="radio"
-                                                                    name="reviewRating" value="2">
+                                        <div class="instructor-review-form">
+                                            <h5>Leave A Review</h5>
+                                            <form action="/teacher/sharx/{{ Auth::user()->id }}" class=""
+                                                method="POST" id="my-form-2">
+                                                @csrf
+                                                <div class="form-group">
+                                                    <input type="hidden" value="{{ $user->id }}" name="user_id">
+                                                    <label>Your Rating</label>
 
-                                                                <input id="three-star-rating-2" type="radio"
-                                                                    name="reviewRating" value="3">
+                                                    <div class="instructor-review-form-star stars-wrapper">
+                                                        <input id="one-star-rating-2" type="radio" name="reviewRating"
+                                                            value="1">
 
-                                                                <input id="four-star-rating-2" type="radio"
-                                                                    name="reviewRating" value="4">
+                                                        <input id="two-star-rating-2" type="radio" name="reviewRating"
+                                                            value="2">
 
-                                                                <input id="five-star-rating-2" type="radio"
-                                                                    name="reviewRating" value="5">
+                                                        <input id="three-star-rating-2" type="radio"
+                                                            name="reviewRating" value="3">
 
-                                                                <div class="stars-display" style="">
-                                                                    <svg viewBox="0 0 20 20" width="25" height="25">
-                                                                        <use href="#star-icon"></use>
-                                                                    </svg>
-                                                                    <svg viewBox="0 0 20 20" width="25" height="25">
-                                                                        <use href="#star-icon"></use>
-                                                                    </svg>
-                                                                    <svg viewBox="0 0 20 20" width="25" height="25">
-                                                                        <use href="#star-icon"></use>
-                                                                    </svg>
-                                                                    <svg viewBox="0 0 20 20" width="25" height="25">
-                                                                        <use href="#star-icon"></use>
-                                                                    </svg>
-                                                                    <svg viewBox="0 0 20 20" width="25" height="25">
-                                                                        <use href="#star-icon"></use>
-                                                                    </svg>
-                                                                </div>
-                                                            </div>
-                                                            <svg id="svg-sprite" xmlns="http://www.w3.org/2000/svg"
-                                                                viewBox="0 0 20 20" style="display: none;">
-                                                                <symbol id="star-icon">
-                                                                    <title>star</title>
-                                                                    <path
-                                                                        d="M20 7h-7L10 .5 7 7H0l5.46 5.47-1.64 7 6.18-3.7 6.18 3.73-1.63-7z" />
-                                                                </symbol>
+                                                        <input id="four-star-rating-2" type="radio" name="reviewRating"
+                                                            value="4">
+
+                                                        <input id="five-star-rating-2" type="radio" name="reviewRating"
+                                                            value="5">
+
+                                                        <div class="stars-display" style="">
+                                                            <svg viewBox="0 0 20 20" width="25" height="25">
+                                                                <use href="#star-icon"></use>
+                                                            </svg>
+                                                            <svg viewBox="0 0 20 20" width="25" height="25">
+                                                                <use href="#star-icon"></use>
+                                                            </svg>
+                                                            <svg viewBox="0 0 20 20" width="25" height="25">
+                                                                <use href="#star-icon"></use>
+                                                            </svg>
+                                                            <svg viewBox="0 0 20 20" width="25" height="25">
+                                                                <use href="#star-icon"></use>
+                                                            </svg>
+                                                            <svg viewBox="0 0 20 20" width="25" height="25">
+                                                                <use href="#star-icon"></use>
                                                             </svg>
                                                         </div>
-                                                        <div class="form-group">
-                                                            <label>Your Review</label>
-                                                            <textarea class="form-control" cols="30" name="text" required rows="5" placeholder="Write your review"></textarea>
-                                                        </div>
-                                                        <input class="theme-btn btn" type="submit" value="Post Your Review" style="background-color: rgb(18, 174, 70); color:white;">
+                                                    </div>
+                                                    <svg id="svg-sprite" xmlns="http://www.w3.org/2000/svg"
+                                                        viewBox="0 0 20 20" style="display: none;">
+                                                        <symbol id="star-icon">
+                                                            <title>star</title>
+                                                            <path
+                                                                d="M20 7h-7L10 .5 7 7H0l5.46 5.47-1.64 7 6.18-3.7 6.18 3.73-1.63-7z" />
+                                                        </symbol>
+                                                    </svg>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Your Review</label>
+                                                    <textarea class="form-control" cols="30" name="text" required rows="5"
+                                                        placeholder="Write your review"></textarea>
+                                                </div>
+                                                <input class="theme-btn btn" type="submit" value="Post Your Review"
+                                                    style="background-color: rgb(18, 174, 70); color:white;">
 
-                                                    </form>
+                                            </form>
 
-                                            </div>
+                                        </div>
                                         @endif
 
                                     </div>
@@ -609,8 +612,9 @@
 
 
                                             @if (Auth::user()->id === $user->id)
-                                                <a href="/teacher/tajriba/add/{{$user->id}}" class="btn btn-primary"
-                                                    style=" font-size:16px; padding:15px 0;">Add new Experience</a>
+                                                <a href="/teacher/tajriba/add/{{ $user->id }}"
+                                                    class="btn btn-primary" style=" font-size:16px; padding:15px 0;">Add
+                                                    new Experience</a>
                                             @endif
 
 
@@ -636,12 +640,12 @@
                                                             {{ $e->text }}
                                                         </p>
                                                         @if (Auth::user()->id === $user->id)
-                                                            <a href="/teacher/edu/edit/{{ $t->id }}"
+                                                            <a href="/teacher/edu/edit/{{ $e->id }}"
                                                                 class="btn btn-success" style=" font-size:15px;"><i
                                                                     class="far fa-edit"></i></a>
                                                         @endif
                                                         @if (Auth::user()->id === $user->id)
-                                                            <a href="/teacher/edu/delete/{{ $t->id }}"
+                                                            <a href="/teacher/edu/delete/{{ $e->id }}"
                                                                 class="btn btn-danger" style=" font-size:15px;"><i
                                                                     class="far fa-trash-alt"></i></a>
                                                         @endif
@@ -649,8 +653,8 @@
                                                 </div>
                                             @endforeach
                                             @if (Auth::user()->id === $user->id)
-                                                <a href="/teacher/edu/add" class="btn btn-primary"
-                                                    style=" font-size:16px; padding:15px 0;">Add new Experience</a>
+                                                <a href="/teacher/edu/add/{{ $user->id }}" class="btn btn-primary"
+                                                    style=" font-size:16px; padding:15px 0;">Add new Education</a>
                                             @endif
 
 

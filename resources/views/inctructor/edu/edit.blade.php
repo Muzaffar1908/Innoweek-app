@@ -16,15 +16,6 @@
         </style>
 @endsection("links")
 @section('content')
-    <div class="search-popup">
-        <button class="close-search"><span class="far fa-times"></span></button>
-        <form action="#">
-            <div class="form-group">
-                <input type="search" name="search-field" placeholder="Search Here..." required>
-                <button type="submit"><i class="far fa-search"></i></button>
-            </div>
-        </form>
-    </div>
 
     <main class="main">
 
@@ -63,7 +54,7 @@
                 </ul>
             </div>
         @endif
-                        <form method="POST" action="/teacher/tajriba/save">
+                        <form method="POST" action="/teacher/edu/update/{{ $t->id }}">
                             @csrf
 
                             <div class="form-group">
@@ -71,22 +62,21 @@
                                     <h5>Name</h5>
                                 </label>
                                 <input type="text" class="form-control" name="name" id="name" required
-                                    placeholder="Name" >
+                                    placeholder="Name" value="{{ $t->name }}">
                             </div>
                             <div class="form-group">
                                 <label for="date1">
                                     <h5>First date</h5>
                                 </label>
-                                <input  name="user_id" value="{{$user_id}}"   required type="hidden">
 
-                                <input class="datepicker form-control" name="date1"   required type="text">
+                                <input class="datepicker form-control" name="date1"  value="{{$t->date1}}"  required type="text">
 
                             </div>
                             <div class="form-group">
                                 <label for="date2">
                                     <h5>Two date</h5>
                                 </label>
-                                <input class="datepicker form-control"  name="date2" required type="text">
+                                <input class="datepicker form-control" value="{{$t->date2}}" name="date2" required type="text">
 
                             </div>
                             <div class="form-group">
@@ -94,7 +84,7 @@
                                     <h5>About text</h5>
                                 </label>
 
-                                <textarea name="text" class="form-control" name="text" required id="text" cols="30" rows="10" placeholder="Text"></textarea>
+                                <textarea name="text" class="form-control" name="text" required id="text" cols="30" rows="10" placeholder="Text">{{ $t->text }}</textarea>
                             </div>
 
                             <div class="d-flex align-items-center">

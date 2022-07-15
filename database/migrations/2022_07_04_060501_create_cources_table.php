@@ -18,12 +18,15 @@ return new class extends Migration
             $table->string('cat_id');
             $table->string('ins_id');
             $table->string('name');
-            $table->string('uroven');
+            $table->string('text');
             $table->string('narx');
             $table->string('eski_narx');
             $table->string('lenght');
             $table->string('img');
             $table->string('count');
+            $table->string('uroven');
+            $table->string('davomiylik');
+            $table->string('admin');
             $table->string('lang');
             $table->timestamps();
         });

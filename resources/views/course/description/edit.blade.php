@@ -38,8 +38,8 @@
             <div class="container">
                 <h2 class="breadcrumb-title">Sign Up</h2>
                 <ul class="breadcrumb-menu">
-                    <li><a href="index.html">Home</a></li>
-                    <li class="active">Sign Up</li>
+                    <li><a href="index.html">Course</a></li>
+                    <li class="active">Description add</li>
                 </ul>
             </div>
         </div>
@@ -52,7 +52,7 @@
                         <div class="login-header">
                             <img src="{{ asset('storage/img/logo/logo.png') }}" alt="">
 
-                            <p>Your exprience edit</p>
+                            <p>Course description add</p>
                         </div>
                         @if ($errors->any())
             <div class="alert alert-danger">
@@ -63,38 +63,23 @@
                 </ul>
             </div>
         @endif
-                        <form method="POST" action="/teacher/tajriba/save">
+                        <form method="POST" action="/course/desc/update/{{$desc->id}}">
                             @csrf
 
                             <div class="form-group">
                                 <label for="name">
-                                    <h5>Name</h5>
+                                    <h5>Title</h5>
                                 </label>
-                                <input type="text" class="form-control" name="name" id="name" required
-                                    placeholder="Name" >
+                                <input type="text" value="{{$desc->title}}" class="form-control" name="title" id="name" required
+                                    placeholder="Title" >
                             </div>
-                            <div class="form-group">
-                                <label for="date1">
-                                    <h5>First date</h5>
-                                </label>
-                                <input  name="user_id" value="{{$user_id}}"   required type="hidden">
 
-                                <input class="datepicker form-control" name="date1"   required type="text">
-
-                            </div>
-                            <div class="form-group">
-                                <label for="date2">
-                                    <h5>Two date</h5>
-                                </label>
-                                <input class="datepicker form-control"  name="date2" required type="text">
-
-                            </div>
                             <div class="form-group">
                                 <label for="text">
-                                    <h5>About text</h5>
+                                    <h5>Text</h5>
                                 </label>
 
-                                <textarea name="text" class="form-control" name="text" required id="text" cols="30" rows="10" placeholder="Text"></textarea>
+                                <textarea name="text" class="form-control" name="text" required id="text" cols="30" rows="10" placeholder="Text">{{$desc->text}}</textarea>
                             </div>
 
                             <div class="d-flex align-items-center">

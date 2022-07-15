@@ -63,7 +63,7 @@
                 </ul>
             </div>
         @endif
-                        <form method="POST" action="/teacher/tajriba/save">
+                        <form method="POST" action="/teacher/edu/save">
                             @csrf
 
                             <div class="form-group">

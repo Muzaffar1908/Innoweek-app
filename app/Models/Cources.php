@@ -13,10 +13,13 @@ class Cources extends Model
     {
         return $this->belongsTo(User::class,'ins_id',"id");
     }
-
     public function teacher(){
         return $this->hasOne(User::class,'id',"ins_id");
     }
+    public function includes(){
+        return $this->hasMany(Cources_includes::class,'id',"cours_id");
+    }
+
     public function category_en(){
         return $this->hasOne(Category_en::class,'id',"cat_id");
     }
@@ -31,5 +34,8 @@ class Cources extends Model
     }
     public function sharxlar(){
         return $this->hasMany(Courses_sharxlar::class,'cours_id',"id");
+    }
+    public function video(){
+        return $this->hasMany(Video_audio_books::class,'cours_id',"id");
     }
 }
