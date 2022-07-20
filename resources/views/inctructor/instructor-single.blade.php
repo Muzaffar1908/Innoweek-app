@@ -161,7 +161,7 @@
                                 <img src="{{ asset('storage/user/' . $user->img) }}" alt="">
                             </div>
                             <div class="instructor-single-info">{{ $user->name }} {{ $user->sname }}</h4>
-                                <p class="instructor-single-tagline">Sineor cdsnjcldh</p>
+                                <p class="instructor-single-tagline"></p>
 
                                 <div class="instructor-single-social">
                                     @if (!$url->telegram == null)
@@ -177,6 +177,18 @@
                                     @if (!$url->youtube == null)
                                         <a href="{{ $url->youtube }}"><i class="fab fa-youtube"></i></a>
                                     @endif
+
+                                </div>
+
+                                <div class="mt-3">
+                                    @if (Auth::user()->id === $user->id  and $edit==1)
+                                    <a href="/instructor-single/{{$user->id}}/{{$user->id-1}}" style="width: 100%" class="btn btn-success">Edit profil</a>
+                                @endif
+                                @if (Auth::user()->id === $user->id and !$edit==1)
+                                <a href="/instructor-single/{{$user->id}}/{{$user->id}}" class="btn btn-dark"  style="width: 100%" >Save and back</a>
+                                @endif
+
+
 
                                 </div>
                             </div>
@@ -203,17 +215,17 @@
 
                                 <p> {{ $about->text }} </p>
 
-                                @if (Auth::user()->id === $user->id and !isset($about->text))
+                                @if (Auth::user()->id === $user->id and !isset($about->text ) and !$edit==1)
                                     <h6 class="alert alert-info">O'zingiz haqida malumot qo'shing.</h6>
                                     <a href="/teacher/about/add/{{ $user->id }}" class="btn btn-primary"
                                         style=" font-size:15px;"><i class="far fa-plus"></i></a>
                                 @endif
 
-                                @if (isset($about->text) and Auth::user()->id === $user->id)
+                                @if (isset($about->text) and Auth::user()->id === $user->id  and !$edit==1)
                                     <a href="/teacher/about/edit/{{ $about->id }}" class="btn btn-success"
                                         style=" font-size:15px;"><i class="far fa-edit"></i></a>
                                 @endif
-                                @if (isset($about->text) and Auth::user()->id === $user->id)
+                                @if (isset($about->text) and Auth::user()->id === $user->id  and !$edit==1)
                                     <a href="/teacher/about/delete/{{ $about->id }}" class="btn btn-danger"
                                         style=" font-size:15px;"><i class="far fa-trash-alt"></i></a>
                                 @endif
@@ -258,7 +270,7 @@
                                                             class="course-tag course-tag-1">{{ $cource->uroven }}</span>
                                                         <div class="course-img">
                                                             <a style="width:100%"
-                                                                href="/course-single/{{ $cource->id }}"><img
+                                                                href="/course-single/{{ $cource->id }}/{{ $cource->id }}"><img
                                                                     src="{{ asset('storage/course/' . $cource->img) }}"
                                                                     alt="" style="width:100%;height:230px"></a>
                                                         </div>
@@ -334,7 +346,7 @@
                                             @endforeach
                                             {{ $cources->links() }}
 
-                                            @if (Auth::user()->id === $user->id)
+                                            @if (Auth::user()->id === $user->id  and !$edit==1)
                                                 <a href="/course/add/{{ $user->id }}" class="btn btn-primary"
                                                     style=" font-size:15px; padding:15px  0px; margin-top:40px">Add new
                                                     Course</a>
@@ -593,12 +605,12 @@
                                                         <p>
                                                             {{ $t->text }}
                                                         </p>
-                                                        @if (Auth::user()->id === $user->id)
+                                                        @if (Auth::user()->id === $user->id  and !$edit==1)
                                                             <a href="/teacher/tajriba/edit/{{ $t->id }}"
                                                                 class="btn btn-success" style=" font-size:15px;"><i
                                                                     class="far fa-edit"></i></a>
                                                         @endif
-                                                        @if (Auth::user()->id === $user->id)
+                                                        @if (Auth::user()->id === $user->id  and !$edit==1)
                                                             <a href="/teacher/tajriba/delete/{{ $t->id }}"
                                                                 class="btn btn-danger" style=" font-size:15px;"><i
                                                                     class="far fa-trash-alt"></i></a>
@@ -611,7 +623,7 @@
 
 
 
-                                            @if (Auth::user()->id === $user->id)
+                                            @if (Auth::user()->id === $user->id  and !$edit==1)
                                                 <a href="/teacher/tajriba/add/{{ $user->id }}"
                                                     class="btn btn-primary" style=" font-size:16px; padding:15px 0;">Add
                                                     new Experience</a>
@@ -639,12 +651,12 @@
                                                         <p>
                                                             {{ $e->text }}
                                                         </p>
-                                                        @if (Auth::user()->id === $user->id)
+                                                        @if (Auth::user()->id === $user->id  and !$edit==1)
                                                             <a href="/teacher/edu/edit/{{ $e->id }}"
                                                                 class="btn btn-success" style=" font-size:15px;"><i
                                                                     class="far fa-edit"></i></a>
                                                         @endif
-                                                        @if (Auth::user()->id === $user->id)
+                                                        @if (Auth::user()->id === $user->id  and !$edit==1)
                                                             <a href="/teacher/edu/delete/{{ $e->id }}"
                                                                 class="btn btn-danger" style=" font-size:15px;"><i
                                                                     class="far fa-trash-alt"></i></a>
@@ -652,7 +664,7 @@
                                                     </div>
                                                 </div>
                                             @endforeach
-                                            @if (Auth::user()->id === $user->id)
+                                            @if (Auth::user()->id === $user->id  and !$edit==1)
                                                 <a href="/teacher/edu/add/{{ $user->id }}" class="btn btn-primary"
                                                     style=" font-size:16px; padding:15px 0;">Add new Education</a>
                                             @endif

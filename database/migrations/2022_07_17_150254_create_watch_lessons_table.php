@@ -13,14 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('video_audio_books', function (Blueprint $table) {
+        Schema::create('watch_lessons', function (Blueprint $table) {
             $table->id();
-            $table->string('cours_id');
-            $table->string('tip');
-            $table->string('dars_turi');
-            $table->string('uroven');
-            $table->string('name');
-            $table->string('v_name');
+            $table->string('user_id');
+            $table->string('lesson_id');
             $table->timestamps();
         });
     }
@@ -32,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('video_audio_books');
+        Schema::dropIfExists('watch_lessons');
     }
 };

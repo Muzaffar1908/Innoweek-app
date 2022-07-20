@@ -23,6 +23,10 @@
             max-width: 10rem;
         }
 
+        .active {
+            box-shadow: 0 0 2px #0ae106;
+        }
+
         .stars-display {
             grid-row: 1;
             grid-column: 1 / -1;
@@ -30,6 +34,8 @@
             pointer-events: none;
             place-items: center;
         }
+
+
 
         #my-form-2 input,
         #my-form-2 label,
@@ -131,6 +137,14 @@
         #five-star-rating-2:hover:checked~.stars-display svg:nth-child(-n + 5) {
             fill: orange;
         }
+
+        video::-webkit-media-controls-volume-slider {
+            background-color: #f00;
+            padding-top: 0;
+            margin-top: 20px;
+
+            padding-bottom: 0;
+        }
     </style>
 @endsection("links")
 
@@ -178,10 +192,10 @@
                                 <h6><span>
                                         <?
 
-                                            $date2=date_create($cource->teacher->created_at);
-                                            $d2=date_format($date2, ' jS F Y');
-                                            echo $d2
-                                            ?>
+                                                                            $date2=date_create($cource->teacher->created_at);
+                                                                            $d2=date_format($date2, ' jS F Y');
+                                                                            echo $d2
+                                                                            ?>
                                     </span> dan buyon</h6>
                             </div>
                         </div>
@@ -197,16 +211,23 @@
                     <div class="col-lg-7 col-xl-8">
                         <div class="course-single-wrapper">
 
-                            <div class="video-area"
-                                style="background-image: url({{ asset('storage/course/' . $cource->img) }});">
+
+                            <div class="video-area">
+
+
+
                                 <div class="row">
                                     <div class="col-lg-12">
-                                        <div class="video-wrapper">
-                                            <a class="play-btn popup-youtube"
-                                                href="https://www.youtube.com/watch?v=ckHzmP1evNU">
+                                        <div class="video-wrapper" style="overflow: hidden;">
+                                            <video controls data-setup='{}'
+                                                poster="{{ asset('storage/course/' . $cource->img) }}" preload='auto'
+                                                id="video" style="width:100%; height:450px">
+                                                <source id="source" src="{{ asset('storage/video/1.mp4') }}"
+                                                    type="video/mp4" />
+                                            </video>
+                                            <div class="play-btn popup-youtube" id="circle-play-b">
                                                 <i class="fas fa-play"></i>
-
-                                            </a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -251,46 +272,56 @@
                                                         </p>
                                                         <ul class="course-single-list">
 
-                                                                @foreach ($d->disc as $row)
-                                                                    <li><i class="far fa-check"></i>
-                                                                        {{ $row->text }} &nbsp;
-                                                                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                                                                        @if ((Auth::user()->id == $cource->user->id))
-                                                                        <a href="/course/desc_row/edit/{{$row->id}}"><i style=" font-size:15px; color:rgb(2, 139, 57))"
+                                                            @foreach ($d->disc as $row)
+                                                                <li><i class="far fa-check"></i>
+                                                                    {{ $row->text }} &nbsp;
+                                                                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                                                    @if (Auth::user()->id == $cource->user->id and $edit == 1)
+                                                                        <a
+                                                                            href="/course/desc_row/edit/{{ $row->id }}"><i
+                                                                                style=" font-size:15px; color:rgb(2, 139, 57))"
                                                                                 class="far fa-edit"></i></a>
-                                                                        <a href="/course/desc_row/delete/{{$row->id}}"><i class="far fa-trash-alt "
+                                                                        <a
+                                                                            href="/course/desc_row/delete/{{ $row->id }}"><i
+                                                                                class="far fa-trash-alt "
                                                                                 style=" font-size:15px; color:red"></i></a>
                                                                     @endif
-                                                                    </li>
-                                                                @endforeach
+                                                                </li>
+                                                            @endforeach
 
                                                         </ul>
-                                                        @if ((Auth::user()->id == $cource->user->id))
-                                                        <div class="alert alert-info">
+                                                        @if (Auth::user()->id == $cource->user->id and $edit == 1)
+                                                            <div class="alert alert-info">
 
-                                                                <li><i class="far fa-check"></i>Huddi shunday ko'rinishda o'z
+                                                                <li><i class="far fa-check"></i>Huddi shunday ko'rinishda
+                                                                    o'z
                                                                     kursingiz afzalliklarin kiriting.
-                                                                    <a href="/course/desc_row/add/{{$d->id}}/{{$d->cours_id}}" class="btn btn-info"
-                                                                        style="margin-left: 10px;">Add</a></li>
+                                                                    <a href="/course/desc_row/add/{{ $d->id }}/{{ $d->cours_id }}"
+                                                                        class="btn btn-info"
+                                                                        style="margin-left: 10px;">Add</a>
+                                                                </li>
 
 
 
-                                                        </div>
-                                                        <div>
+                                                            </div>
+                                                            <div>
 
-                                                            <a href="/course/desc/edit/{{$d->id}}" class="btn btn-info">Edit</a>
-                                                            <a href="/course/desc/delete/{{$d->id}}" class="btn btn-danger">Delete</a>
+                                                                <a href="/course/desc/edit/{{ $d->id }}"
+                                                                    class="btn btn-info">Edit</a>
+                                                                <a href="/course/desc/delete/{{ $d->id }}"
+                                                                    class="btn btn-danger">Delete</a>
 
-                                                        </div>
-                                                    @endif
+                                                            </div>
+                                                        @endif
 
 
                                                     </div>
                                                 @endforeach
 
 
-                                                @if ((Auth::user()->id == $cource->user->id))
-                                                    <a href="/course/desc/add/{{$cource->id}}" style="width: 100%; margin:20px 0; padding:15px 0;"
+                                                @if (Auth::user()->id == $cource->user->id and $edit == 1)
+                                                    <a href="/course/desc/add/{{ $cource->id }}"
+                                                        style="width: 100%; margin:20px 0; padding:15px 0;"
                                                         class="btn btn-info"> Add new title and text</a>
                                                 @endif
 
@@ -307,289 +338,156 @@
                                         <div class="course-single-content">
                                             <div class="course-single-curriculum">
                                                 <div class="accordion accordion-flush" id="accordionFlushExample">
-                                                    <div class="accordion-item">
-                                                        <h2 class="accordion-header" id="flush-headingOne">
-                                                            <button class="accordion-button" type="button"
-                                                                data-bs-toggle="collapse"
-                                                                data-bs-target="#flush-collapseOne" aria-expanded="true"
-                                                                aria-controls="flush-collapseOne">
-                                                                Get Started
-                                                            </button>
-                                                        </h2>
-                                                        <div id="flush-collapseOne"
-                                                            class="accordion-collapse collapse show"
-                                                            aria-labelledby="flush-headingOne"
-                                                            data-bs-parent="#accordionFlushExample">
-                                                            <div class="accordion-body">
-                                                                <div class="course-curriculum-item curriculum-completed">
-                                                                    <div class="course-curriculum-left">
-                                                                        <h6><i class="fad fa-check-circle"></i>
-                                                                            <span>Video:</span> Greetings and Introduction
-                                                                        </h6>
-                                                                    </div>
-                                                                    <div class="course-curriculum-right">
-                                                                        <span
-                                                                            class="course-curriculum-duration">12:43</span>
-                                                                        <span class="course-curriculum-lock"><i
-                                                                                class="fad fa-unlock"></i></span>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="course-curriculum-item curriculum-unlock">
-                                                                    <div class="course-curriculum-left">
-                                                                        <h6><i class="fad fa-play-circle"></i>
-                                                                            <span>Video:</span> Greetings and Introduction
-                                                                        </h6>
-                                                                    </div>
-                                                                    <div class="course-curriculum-right">
-                                                                        <span
-                                                                            class="course-curriculum-duration">12:43</span>
-                                                                        <span class="course-curriculum-lock"><i
-                                                                                class="fad fa-unlock"></i></span>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="course-curriculum-item curriculum-unlock">
-                                                                    <div class="course-curriculum-left">
-                                                                        <h6><i class="fad fa-play-circle"></i>
-                                                                            <span>Video:</span> Greetings and Introduction
-                                                                        </h6>
-                                                                    </div>
-                                                                    <div class="course-curriculum-right">
-                                                                        <span
-                                                                            class="course-curriculum-duration">12:43</span>
-                                                                        <span class="course-curriculum-lock"><i
-                                                                                class="fad fa-unlock"></i></span>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="course-curriculum-item">
-                                                                    <div class="course-curriculum-left">
-                                                                        <h6><i class="fad fa-play-circle"></i>
-                                                                            <span>Video:</span> Greetings and Introduction
-                                                                        </h6>
-                                                                    </div>
-                                                                    <div class="course-curriculum-right">
-                                                                        <span
-                                                                            class="course-curriculum-duration">12:43</span>
-                                                                        <span class="course-curriculum-lock"><i
-                                                                                class="fad fa-lock"></i></span>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="course-curriculum-item">
-                                                                    <div class="course-curriculum-left">
-                                                                        <h6><i class="fad fa-volume"></i>
-                                                                            <span>Audio:</span> Interactive lesson
-                                                                        </h6>
-                                                                    </div>
-                                                                    <div class="course-curriculum-right">
-                                                                        <span
-                                                                            class="course-curriculum-duration">12:43</span>
-                                                                        <span class="course-curriculum-lock"><i
-                                                                                class="fad fa-lock"></i></span>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="course-curriculum-item">
-                                                                    <div class="course-curriculum-left">
-                                                                        <h6><i class="fad fa-file-alt"></i>
-                                                                            <span>Reading:</span> Web Design & Development
-                                                                        </h6>
-                                                                    </div>
-                                                                    <div class="course-curriculum-right">
-                                                                        <span
-                                                                            class="course-curriculum-duration">12:43</span>
-                                                                        <span class="course-curriculum-lock"><i
-                                                                                class="fad fa-lock"></i></span>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="accordion-item">
-                                                        <h2 class="accordion-header" id="flush-headingTwo">
-                                                            <button class="accordion-button collapsed" type="button"
-                                                                data-bs-toggle="collapse"
-                                                                data-bs-target="#flush-collapseTwo" aria-expanded="false"
-                                                                aria-controls="flush-collapseTwo">
-                                                                Course Project Overview
-                                                            </button>
-                                                        </h2>
-                                                        <div id="flush-collapseTwo" class="accordion-collapse collapse"
-                                                            aria-labelledby="flush-headingTwo"
-                                                            data-bs-parent="#accordionFlushExample">
-                                                            <div class="accordion-body">
-                                                                <div class="course-curriculum-item curriculum-completed">
-                                                                    <div class="course-curriculum-left">
-                                                                        <h6><i class="fad fa-check-circle"></i>
-                                                                            <span>Video:</span> Greetings and Introduction
-                                                                        </h6>
-                                                                    </div>
-                                                                    <div class="course-curriculum-right">
-                                                                        <span
-                                                                            class="course-curriculum-duration">12:43</span>
-                                                                        <span class="course-curriculum-lock"><i
-                                                                                class="fad fa-unlock"></i></span>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="course-curriculum-item curriculum-unlock">
-                                                                    <div class="course-curriculum-left">
-                                                                        <h6><i class="fad fa-play-circle"></i>
-                                                                            <span>Video:</span> Greetings and Introduction
-                                                                        </h6>
-                                                                    </div>
-                                                                    <div class="course-curriculum-right">
-                                                                        <span
-                                                                            class="course-curriculum-duration">12:43</span>
-                                                                        <span class="course-curriculum-lock"><i
-                                                                                class="fad fa-unlock"></i></span>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="course-curriculum-item curriculum-unlock">
-                                                                    <div class="course-curriculum-left">
-                                                                        <h6><i class="fad fa-play-circle"></i>
-                                                                            <span>Video:</span> Greetings and Introduction
-                                                                        </h6>
-                                                                    </div>
-                                                                    <div class="course-curriculum-right">
-                                                                        <span
-                                                                            class="course-curriculum-duration">12:43</span>
-                                                                        <span class="course-curriculum-lock"><i
-                                                                                class="fad fa-unlock"></i></span>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="course-curriculum-item">
-                                                                    <div class="course-curriculum-left">
-                                                                        <h6><i class="fad fa-play-circle"></i>
-                                                                            <span>Video:</span> Greetings and Introduction
-                                                                        </h6>
-                                                                    </div>
-                                                                    <div class="course-curriculum-right">
-                                                                        <span
-                                                                            class="course-curriculum-duration">12:43</span>
-                                                                        <span class="course-curriculum-lock"><i
-                                                                                class="fad fa-lock"></i></span>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="course-curriculum-item">
-                                                                    <div class="course-curriculum-left">
-                                                                        <h6><i class="fad fa-volume"></i>
-                                                                            <span>Audio:</span> Interactive lesson
-                                                                        </h6>
-                                                                    </div>
-                                                                    <div class="course-curriculum-right">
-                                                                        <span
-                                                                            class="course-curriculum-duration">12:43</span>
-                                                                        <span class="course-curriculum-lock"><i
-                                                                                class="fad fa-lock"></i></span>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="course-curriculum-item">
-                                                                    <div class="course-curriculum-left">
-                                                                        <h6><i class="fad fa-file-alt"></i>
-                                                                            <span>Reading:</span> Web Design & Development
-                                                                        </h6>
-                                                                    </div>
-                                                                    <div class="course-curriculum-right">
-                                                                        <span
-                                                                            class="course-curriculum-duration">12:43</span>
-                                                                        <span class="course-curriculum-lock"><i
-                                                                                class="fad fa-lock"></i></span>
-                                                                    </div>
+                                                    <?$tartib=1;?>
+                                                    @foreach ($video as $v)
+                                                        <div class="accordion-item">
+                                                            <h2 class="accordion-header"
+                                                                id="<?
+                                                        if($tartib==1){
+                                                            echo("flush-headingOne");
+                                                                } ;if($tartib==2){ echo("flush-headingTwo") ;}
+                                                                ;if($tartib==3){ echo("flush-headingThree"); };
+                                                                if($tartib==4){ echo("flush-headingFour"); }; ?>">
+                                                                <button class="accordion-button collapsed" type="button"
+                                                                    data-bs-toggle="collapse"
+                                                                    data-bs-target="<?
+                                                                if($tartib==1){
+                                                                    echo("#flush-collapseOne");
+                                                                    } ;if($tartib==2){ echo("#flush-collapseTwo") ;}
+                                                                    ;if($tartib==3){ echo("#flush-collapseThree"); };
+                                                                    if($tartib==4){ echo("#flush-collapseFour"); }; ?>"
+                                                                    aria-expanded="false"
+                                                                    aria-controls="<?
+                                                                if($tartib==1){
+                                                                    echo("flush-collapseOne");
+                                                                    } ;if($tartib==2){ echo("flush-collapseTwo") ;}
+                                                                    ;if($tartib==3){ echo("flush-collapseThree"); };
+                                                                    if($tartib==4){ echo("flush-collapseFour"); };
+                                                                    ?>">
+                                                                    {{ $v->name }}
+
+
+
+
+
+
+
+                                                                </button>
+
+                                                            </h2>
+
+
+                                                            <div id="<?
+                                                        if($tartib==1){
+                                                            echo("flush-collapseOne");
+                                                                } ;if($tartib==2){ echo("flush-collapseTwo") ;}
+                                                                ;if($tartib==3){ echo("flush-collapseThree"); };
+                                                                if($tartib==4){ echo("flush-collapseFour"); }; ?>"
+                                                                class="accordion-collapse collapse"
+                                                                aria-labelledby="<?
+                                                            if($tartib==1){
+                                                                echo("flush-headingOne");
+                                                                } ;if($tartib==2){ echo("flush-headingTwo") ;}
+                                                                ;if($tartib==3){ echo("flush-headingThree"); };
+                                                                if($tartib==4){ echo("flush-headingFour"); };
+                                                                if($tartib==5){ echo("flush-headingFive"); };
+                                                                if($tartib==6){ echo("flush-headingSix"); };
+                                                                if($tartib==7){ echo("flush-headingSeven"); };
+                                                                $tartib=$tartib+1;
+                                                                ?>"
+                                                                data-bs-parent="#accordionFlushExample">
+                                                                <div class="accordion-body">
+                                                                    @foreach ($v->video as $d)
+                                                                        @if (($d->tip == 'free' or isset($buy)) and $d->dars_turi == 'Reading' and !(Auth::user()->id == $cource->user->id))
+                                                                            <a href="{{ asset('storage/video/' . $d->v_name) }}"
+                                                                                download style="width:100%">
+                                                                        @endif
+                                                                        <div class="course-curriculum-item
+                                                                        <?foreach ($d->watch as $k) {
+                                                                                if(isset($k->user_id) and $k->user_id== Auth::user()->id ){
+                                                                                        echo(' curriculum-completed');
+                                                                                }
+                                                                            }?>
+                                                                    @if ($d->tip == 'free' or isset($buy))
+curriculum-unlock
+@endif @if (($d->tip == 'free' or isset($buy)) and !($d->dars_turi == 'Reading'))
+free_lesson
+@endif"
+                                                                            src="{{ asset('storage/video/' . $d->v_name) }}">
+                                                                            <div class="course-curriculum-left">
+                                                                                <h6>
+                                                                                    <span>
+                                                                                    <?foreach ($d->watch as $k) {
+                                                                                        if($k->user_id==Auth::user()->id ){
+                                                                                            echo(' <i class="fad fa-check-circle"></i>');
+                                                                                        };
+
+                                                                                    }?>
+                                                                                    @if ($d->dars_turi == 'Video')
+                                                                                        <i class="fad fa-play-circle"></i>
+                                                                                    @endif
+                                                                                    @if ($d->dars_turi == 'Audio')
+                                                                                        <i class="fad fa-volume"></i>
+                                                                                    @endif
+                                                                                    @if ($d->dars_turi == 'Reading')
+                                                                                        <i class="fad fa-file-alt"></i>
+                                                                                    @endif
+
+
+                                                                                    </span> {{ $d->name }}
+                                                                                </h6>
+                                                                            </div>
+                                                                            <div class="course-curriculum-right">
+                                                                                <span class="course-curriculum-lock">
+                                                                                    @if ($d->tip == 'free' or isset($buy) and $d->tip == 'premmum')
+                                                                                        <i class="fad fa-unlock"></i>
+                                                                                    @endif
+                                                                                    @if ($d->tip == 'premmum' and !isset($buy))
+                                                                                        <i class="fad fa-lock"></i>
+                                                                                    @endif
+
+                                                                                    @if (Auth::user()->id == $cource->user->id and $edit == 1)
+                                                                                    <a href="/course/lesson/edit/{{$d->id}}"><i
+                                                                                            style=" font-size:15px; color:rgb(2, 139, 57))"
+                                                                                            class="far fa-edit"></i></a>
+                                                                                    <a href="/course/lesson/delete/{{$d->id}}"><i class="far fa-trash-alt "
+                                                                                            style=" font-size:15px; color:red"></i></a>
+                                                                                @endif
+
+                                                                                </span>
+
+
+
+                                                                            </div>
+                                                                        </div>
+                                                                        @if (($d->tip == 'free' or isset($buy)) and $d->dars_turi == 'Reading' and !(Auth::user()->id == $cource->user->id))
+                                                                            </a>
+                                                                        @endif
+                                                                    @endforeach
+                                                                    @if (Auth::user()->id == $cource->user->id and $edit == 1)
+                                                                    <a href="/course/lesson/add/{{ $cource->id }}/{{ $v->id }}"
+                                                                        style=""
+                                                                        class="btn btn-info">Add a new lesson</a>
+
+                                                                        <a href="/course/les_lev/edit/{{$v->id}}"   class="btn btn-success"><i
+
+                                                                                class="far fa-edit"></i> Edit a lesson lavel</a>
+                                                                        <a href="/course/les_lev/delete/{{$v->id}}" class="btn btn-danger">
+                                                                            <i class="far fa-trash-alt " ></i> Delete a lesson level</a>
+
+                                                                @endif
+
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="accordion-item">
-                                                        <h2 class="accordion-header" id="flush-headingThree">
-                                                            <button class="accordion-button collapsed" type="button"
-                                                                data-bs-toggle="collapse"
-                                                                data-bs-target="#flush-collapseThree"
-                                                                aria-expanded="false" aria-controls="flush-collapseThree">
-                                                                Development Advance Level
-                                                            </button>
-                                                        </h2>
-                                                        <div id="flush-collapseThree" class="accordion-collapse collapse"
-                                                            aria-labelledby="flush-headingThree"
-                                                            data-bs-parent="#accordionFlushExample">
-                                                            <div class="accordion-body">
-                                                                <div class="course-curriculum-item curriculum-completed">
-                                                                    <div class="course-curriculum-left">
-                                                                        <h6><i class="fad fa-check-circle"></i>
-                                                                            <span>Video:</span> Greetings and Introduction
-                                                                        </h6>
-                                                                    </div>
-                                                                    <div class="course-curriculum-right">
-                                                                        <span
-                                                                            class="course-curriculum-duration">12:43</span>
-                                                                        <span class="course-curriculum-lock"><i
-                                                                                class="fad fa-unlock"></i></span>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="course-curriculum-item curriculum-unlock">
-                                                                    <div class="course-curriculum-left">
-                                                                        <h6><i class="fad fa-play-circle"></i>
-                                                                            <span>Video:</span> Greetings and Introduction
-                                                                        </h6>
-                                                                    </div>
-                                                                    <div class="course-curriculum-right">
-                                                                        <span
-                                                                            class="course-curriculum-duration">12:43</span>
-                                                                        <span class="course-curriculum-lock"><i
-                                                                                class="fad fa-unlock"></i></span>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="course-curriculum-item curriculum-unlock">
-                                                                    <div class="course-curriculum-left">
-                                                                        <h6><i class="fad fa-play-circle"></i>
-                                                                            <span>Video:</span> Greetings and Introduction
-                                                                        </h6>
-                                                                    </div>
-                                                                    <div class="course-curriculum-right">
-                                                                        <span
-                                                                            class="course-curriculum-duration">12:43</span>
-                                                                        <span class="course-curriculum-lock"><i
-                                                                                class="fad fa-unlock"></i></span>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="course-curriculum-item">
-                                                                    <div class="course-curriculum-left">
-                                                                        <h6><i class="fad fa-play-circle"></i>
-                                                                            <span>Video:</span> Greetings and Introduction
-                                                                        </h6>
-                                                                    </div>
-                                                                    <div class="course-curriculum-right">
-                                                                        <span
-                                                                            class="course-curriculum-duration">12:43</span>
-                                                                        <span class="course-curriculum-lock"><i
-                                                                                class="fad fa-lock"></i></span>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="course-curriculum-item">
-                                                                    <div class="course-curriculum-left">
-                                                                        <h6><i class="fad fa-volume"></i>
-                                                                            <span>Audio:</span> Interactive lesson
-                                                                        </h6>
-                                                                    </div>
-                                                                    <div class="course-curriculum-right">
-                                                                        <span
-                                                                            class="course-curriculum-duration">12:43</span>
-                                                                        <span class="course-curriculum-lock"><i
-                                                                                class="fad fa-lock"></i></span>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="course-curriculum-item">
-                                                                    <div class="course-curriculum-left">
-                                                                        <h6><i class="fad fa-file-alt"></i>
-                                                                            <span>Reading:</span> Web Design & Development
-                                                                        </h6>
-                                                                    </div>
-                                                                    <div class="course-curriculum-right">
-                                                                        <span
-                                                                            class="course-curriculum-duration">12:43</span>
-                                                                        <span class="course-curriculum-lock"><i
-                                                                                class="fad fa-lock"></i></span>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
+                                                    @endforeach
+                                                    @if (Auth::user()->id == $cource->user->id and $edit == 1)
+                                                        <a href="/course/les_lev/add/{{ $cource->id }}"
+                                                            style="width: 100%; margin:20px 0; padding:15px 0;"
+                                                            class="btn btn-info">Add a new lesson level</a>
+                                                    @endif
+
+
                                                 </div>
                                             </div>
                                         </div>
@@ -617,7 +515,7 @@
                                                             @endfor
 
 
-                                                            <span>({{ $user->ins_sharx_count}})</span>
+                                                            <span>({{ $user->ins_sharx_count }})</span>
                                                         </div>
                                                         <span class="course-tab-instructor-course"><i
                                                                 class="fad fa-book-open"></i> {{ $user->cources_count }}
@@ -668,7 +566,7 @@
                                                                 </div>
                                                             </div>
                                                             <div class="instructor-rating-range-percentage">
-                                                                <span>{{ round($stars5,1) }}%</span>
+                                                                <span>{{ round($stars5, 1) }}%</span>
                                                             </div>
                                                         </div>
                                                         <div class="instructor-rating-range-item">
@@ -704,7 +602,7 @@
                                                                 </div>
                                                             </div>
                                                             <div class="instructor-rating-range-percentage">
-                                                                <span>{{  round($stars3, 1)  }}%</span>
+                                                                <span>{{ round($stars3, 1) }}%</span>
                                                             </div>
                                                         </div>
                                                         <div class="instructor-rating-range-item">
@@ -722,7 +620,7 @@
                                                                 </div>
                                                             </div>
                                                             <div class="instructor-rating-range-percentage">
-                                                                <span>{{  round($stars2, 1)  }}%</span>
+                                                                <span>{{ round($stars2, 1) }}%</span>
                                                             </div>
                                                         </div>
                                                         <div class="instructor-rating-range-item">
@@ -740,7 +638,7 @@
                                                                 </div>
                                                             </div>
                                                             <div class="instructor-rating-range-percentage">
-                                                                <span>{{  round($stars1, 1)  }}%</span>
+                                                                <span>{{ round($stars1, 1) }}%</span>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -758,7 +656,7 @@
                                                                         <h6>{{ $sh->user->name }}</h6>
                                                                         <span><i
                                                                                 class="far fa-clock"></i><? $date2=date_create($sh->created_at);
-                                                                                $d2=date_format($date2, 'G:ia jS F Y');echo $d2?></span>
+                                                                                                                $d2=date_format($date2, 'G:ia jS F Y');echo $d2?></span>
                                                                     </div>
                                                                     <div class="instructor-review-author-rating">
                                                                         @for ($i = 0; round($sh->reyting) > $i; $i++)
@@ -885,12 +783,20 @@
                                         Cart
                                     </a>
                                 @endif
-                                @if (Auth::user()->id == $user->id)
-                                    <a href="#" class="theme-btn"
+                                @if (Auth::user()->id == $user->id and $edit == 0)
+                                    <a href="/course-single/{{ $cource->id }}/{{ $cource->id - 1 }}" class="theme-btn"
                                         style="background-color: rgba(26, 169, 55, 0.752);"> <span
-                                            class="far fa-shopping-cart"></span> Edit course </a>
-                                    <a href="#" class="theme-btn" style="background-color: rgb(172, 23, 23);">
-                                        <span class="far fa-shopping-cart"></span>Delete course</a>
+                                            class="far fa-edit"></span> Edit course </a>
+                                    <a href="" class="theme-btn"
+                                        style="background-color: rgb(35, 17, 147);">Sotuvga chiqarishga ariza berish.</a>
+                                @endif
+                                @if (Auth::user()->id == $user->id and $edit == 1)
+                                    <a href="/course/edit/{{ $cource->id}}" class="theme-btn"
+                                        style="background-color: rgba(26, 169, 55, 0.752);"> <span
+                                            class="far fa-edit"></span> Edit cource name </a>
+                                    <a href="/course-single/{{ $cource->id }}/{{ $cource->id }}" class="theme-btn"
+                                        style="background-color: rgb(70, 48, 216);">
+                                        Save and Back</a>
                                 @endif
                                 <div class="course-single-more-info">
                                     <ul>
@@ -916,21 +822,24 @@
                                         @foreach ($includes as $i)
                                             <li><i class="fad fa-check-circle"></i>
                                                 {{ $i->text }}
-                                                @if (Auth::user()->id == $cource->user->id)
-                                                    <a href="/course/includes/edit/{{$i->id}}"><i style=" font-size:15px; color:rgb(2, 139, 57))"
+                                                @if (Auth::user()->id == $cource->user->id and $edit == 1)
+                                                    <a href="/course/includes/edit/{{ $i->id }}"><i
+                                                            style=" font-size:15px; color:rgb(2, 139, 57))"
                                                             class="far fa-edit"></i></a>
-                                                    <a href="/course/includes/delete/{{$i->id}}"><i class="far fa-trash-alt "
+                                                    <a href="/course/includes/delete/{{ $i->id }}"><i
+                                                            class="far fa-trash-alt "
                                                             style=" font-size:15px; color:red"></i></a>
                                                 @endif
 
                                             </li>
                                         @endforeach
-                                        @if ($includes == null and Auth::user()->id == $cource->user->id)
+                                        @if ($includes == null and Auth::user()->id == $cource->user->id and $edit == 1)
                                             <div class="alert alert-info">
                                                 <li><i class="fad fa-check-circle"></i>Huddi shunday ko'rinishda o'z
                                                     kursingiz afzalliklarin kiriting.</li>
                                                 <div>
-                                                    <a href="/course/includes/add/{{$cource->id}}" class="btn btn-info"
+                                                    <a href="/course/includes/add/{{ $cource->id }}"
+                                                        class="btn btn-info"
                                                         style="margin-bottom: 10px; width:100%">Add</a>
                                                 </div>
 
@@ -941,9 +850,9 @@
 
 
                                     </ul>
-                                    @if (Auth::user()->id == $cource->user->id)
-                                        <a href="/course/includes/add/{{$cource->id}}" style="width: 100%" class="btn btn-info"
-                                            style="margin-bottom: 10px;">Add</a>
+                                    @if (Auth::user()->id == $cource->user->id and $edit == 1)
+                                        <a href="/course/includes/add/{{ $cource->id }}" style="width: 100%"
+                                            class="btn btn-info" style="margin-bottom: 10px;">Add</a>
                                     @endif
 
 
@@ -1124,6 +1033,19 @@
         </div>
 
     </main>
+
+
+
+
+
+
+
+
+
+
+
+
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
         const form2 = document.getElementById("my-form-2");
@@ -1145,6 +1067,41 @@
 @endsection("content")
 
 @section('scripts')
+    <script>
+        const video = document.getElementById("video");
+        const circlePlayButton = document.getElementById("circle-play-b");
+
+        function togglePlay() {
+            if (video.paused || video.ended) {
+                video.play();
+            } else {
+                video.pause();
+            }
+        }
+
+        circlePlayButton.addEventListener("click", togglePlay);
+        video.addEventListener("playing", function() {
+            circlePlayButton.style.opacity = 0;
+        });
+        video.addEventListener("pause", function() {
+            circlePlayButton.style.opacity = 1;
+        });
+
+
+
+        jQuery(document).ready(function($) {
+
+
+            $(".free_lesson").on("click", function() {
+                var newmp4 = $(this).attr("src");
+                $('#video').get(0).pause();
+                $('#source').attr('src', newmp4);
+                $('#video').get(0).load();
+                $('#video').get(0).play();
+            });
+
+        });
+    </script>
     <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
     <script src="assets/js/jquery-3.6.0.min.js"></script>
     <script src="assets/js/modernizr.min.js"></script>

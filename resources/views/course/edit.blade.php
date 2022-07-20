@@ -122,7 +122,7 @@
                                     <h5>Eski narx</h5>
                                 </label>
                                 <input class="form-control"  name="eski_narx"
-                                 @if($course->eski_narx>0 and  $course->eski_narx<$course->narx)
+                                 @if($course->eski_narx>0 and  $course->eski_narx>$course->narx)
                                value="{{$course->eski_narx}}"
                                  @endif
                                  type="number">

@@ -12,5 +12,15 @@ class Video_audio_books extends Model
     {
         return $this->belongsTo(Cources::class,'cours_id',"id");
     }
+    public function uroven()
+    {
+        return $this->belongsTo(Video_tip::class,'uroven',"id");
+    }
+
+    public function watch(){
+        return $this->hasMany(Watch_lesson::class,'lesson_id',"id");
+    }
+
+
 
 }

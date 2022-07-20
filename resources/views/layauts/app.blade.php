@@ -219,9 +219,14 @@
                                             </li>
                                             <li><a class="dropdown-item"
                                                     href="/user/edit/{{ Auth::user()->id }}">Profile Settings</a></li>
-                                            <li><a class="dropdown-item"
-                                                    href="/instructor-single/{{ Auth::user()->id }}">Teacher Profil</a>
-                                            </li>
+
+                                                    @if (Auth::user()->uroven=="teacher")
+                                                    <li><a class="dropdown-item"
+                                                        href="/instructor-single/{{ Auth::user()->id }}/{{ Auth::user()->id }}">Teacher Profil</a>
+                                                </li>
+
+                                                    @endif
+
                                             <li><a class="dropdown-item" href="index-3.html">Home Page 03</a></li>
 
                                         </ul>

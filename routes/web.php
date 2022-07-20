@@ -6,7 +6,7 @@ use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\App;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\TeacherController;
-
+use App\Models\Eduhub;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,6 +23,27 @@ Route::get("eduhub/{lang}", function($lang) {
     session()->put('lang', $lang);
     return redirect()->back();
 });
+
+
+Route::get("/student-single/{id}/{id2}", [EduHubController::class, "student_single"]);
+
+Route::post("/course/lesson/save", [TeacherController::class, "lesson_save"]);
+Route::get("/course/lesson/add/{id}/{l_id}", [TeacherController::class, "lesson_add"]);
+Route::get("/course/lesson/delete/{id}", [TeacherController::class, "lesson_dell"]);
+Route::post("/course/lesson/update/{id}", [TeacherController::class, "lesson_update"]);
+Route::get("/course/lesson/edit/{id}",[TeacherController::class,'lesson_edit']);
+
+
+
+Route::post("/course/les_lev/save", [TeacherController::class, "les_lev_save"]);
+Route::get("/course/les_lev/add/{id}", [TeacherController::class, "les_lev_add"]);
+Route::get("/course/les_lev/delete/{id}", [TeacherController::class, "les_lev_dell"]);
+Route::post("/course/les_lev/update/{id}", [TeacherController::class, "les_lev_update"]);
+Route::get("/course/les_lev/edit/{id}",[TeacherController::class,'les_lev_edit']);
+
+
+
+Route::post("/course/edit_order/{order_id}", [EduHubController::class, "course_single"]);
 
 
 Route::post("/course/includes/save", [TeacherController::class, "includes_save"]);
@@ -47,7 +68,7 @@ Route::get("/course/desc/edit/{id}",[TeacherController::class,'desc_edit']);
 
 Route::post('/cource/sharx/{id}',[EduHubController::class,'cource_sharx']);
 
-Route::get("/course-single/{id}", [EduHubController::class, "course_single"]);
+Route::get("/course-single/{id}/{id2}", [EduHubController::class, "course_single"]);
 
 Route::post("/course/save", [TeacherController::class, "course_save"]);
 Route::get("/course/add/{id}", [TeacherController::class, "course_add"]);
@@ -155,7 +176,7 @@ Route::get("/card", [EduHubController::class, "card"]);
 Route::get("/card-checkout", [EduHubController::class, "card_checkout"]);
 Route::get("/contact", [EduHubController::class, "contact"]);
 Route::get("/blog", [EduHubController::class, "blog"]);
-Route::get("/instructor-single/{id}", [EduHubController::class, "instructor_single"]);
+Route::get("/instructor-single/{id}/{id2}", [EduHubController::class, "instructor_single"]);
 Route::get("/instructor", [EduHubController::class, "instructor"]);
 Route::get("/courses", [EduHubController::class, "courses"]);
 Route::get("/about", [EduHubController::class, "about"]);
