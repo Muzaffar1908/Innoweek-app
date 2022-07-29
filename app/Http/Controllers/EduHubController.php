@@ -29,42 +29,7 @@ class EduHubController extends Controller
 
     public function student_single($id, $id2)
     {
-       /* $edit=0;
-        if(($id==$id2)){
-            $edit=1;
-        }
-        $sharx = Instructor_sharxlar::where('user_id', '=', $id)->orderBy('created_at', 'desc')->paginate(16);
-        $avg = Instructor_sharxlar::where('user_id', '=', $id)->avg('reyting');
-        $sharx_count = Instructor_sharxlar::where('user_id', '=', $id)->count();
-        if (!$sharx_count == 0) {
-            $stars5 = (Instructor_sharxlar::where('user_id', '=', $id)
-                ->where('reyting', '=', 5)
-                ->count()) * 100 / $sharx_count;
-            $stars3 = (Instructor_sharxlar::where('user_id', '=', $id)
-                ->where('reyting', '=', 3)
-                ->count()) * 100 / $sharx_count;
-            $stars4 = (Instructor_sharxlar::where('user_id', '=', $id)
-                ->where('reyting', '=', 4)
-                ->count()) * 100 / $sharx_count;
-            $stars2 = (Instructor_sharxlar::where('user_id', '=', $id)
-                ->where('reyting', '=', 2)
-                ->count()) * 100 / $sharx_count;
-            $stars1 = (Instructor_sharxlar::where('user_id', '=', $id)
-                ->where('reyting', '=', 1)
-                ->count()) * 100 / $sharx_count;
-        } else {
-            $stars5 = 0;
-            $stars1 = 0;
-            $stars2 = 0;
-            $stars3 = 0;
-            $stars4 = 0;
-        }
-
-        $tajriba = Instructor_tajriba::where('user_id', '=', $id)->orderBy('date1')->get();
-        $edu = Instructor_education::where('user_id', '=', $id)->orderBy('date1')->get();
-
-
-
+       /*
         $user = User::findOrFail($id);
         $url = User_link::find($id);
         $courses = Cources::select('*')->where('ins_id', '=', $id)->withCount('students')->withCount('sharxlar')->withAvg('sharxlar', 'reyting')->paginate();
@@ -79,7 +44,14 @@ class EduHubController extends Controller
                 $student_count = $student_count + 1;
             }
         }*/
-        return view("student.student_profil", [ ]);
+        $edit=0;
+        if(($id==$id2)){
+            $edit=1;
+        }
+
+        $user = User::withCount('cources')->findOrFail($id);
+
+        return view("student.student_profil", ['user'=>$user,'edit'=>$edit ]);
     }
 
     /**
