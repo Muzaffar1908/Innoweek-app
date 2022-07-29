@@ -167,20 +167,19 @@
 
                                 <div class="instructor-single-social">
                                     @foreach ($user->link as $url)
-                                    @if (!$url->telegram == null)
-                                    <a href="{{ $url->telegram }}"><i class="fab fa-telegram"></i></a>
-                                @endif
-                                @if (!$url->facebook == null)
-                                    <a href="{{ $url->facebook }}"><i class="fab fa-facebook-f"></i></a>
-                                @endif
-                                @if (!$url->instagram == null)
-                                    <a href="{{ $url->instagram }}"><i class="fab fa-instagram"></i></a>
-                                @endif
+                                        @if (!$url->telegram == null)
+                                            <a href="{{ $url->telegram }}"><i class="fab fa-telegram"></i></a>
+                                        @endif
+                                        @if (!$url->facebook == null)
+                                            <a href="{{ $url->facebook }}"><i class="fab fa-facebook-f"></i></a>
+                                        @endif
+                                        @if (!$url->instagram == null)
+                                            <a href="{{ $url->instagram }}"><i class="fab fa-instagram"></i></a>
+                                        @endif
 
-                                @if (!$url->youtube == null)
-                                    <a href="{{ $url->youtube }}"><i class="fab fa-youtube"></i></a>
-                                @endif
-
+                                        @if (!$url->youtube == null)
+                                            <a href="{{ $url->youtube }}"><i class="fab fa-youtube"></i></a>
+                                        @endif
                                     @endforeach
 
 
@@ -188,12 +187,14 @@
 
                                 <div class="mt-3">
 
-                                    @if (Auth::user()->id === $user->id  and $edit==1)
-                                    <a href="/instructor-single/{{$user->id}}/{{$user->id-1}}" style="width: 100%" class="btn btn-success">Edit profil</a>
-                                @endif
-                                @if (Auth::user()->id === $user->id and !$edit==1)
-                                <a href="/instructor-single/{{$user->id}}/{{$user->id}}" class="btn btn-dark"  style="width: 100%" >Save and back</a>
-                                @endif
+                                    @if (isset(Auth::user()->id) and Auth::user()->id === $user->id and $edit == 1)
+                                        <a href="/student-single/{{ $user->id }}/{{ $user->id - 1 }}"
+                                            style="width: 100%" class="btn btn-success">Edit profil</a>
+                                    @endif
+                                    @if (isset(Auth::user()->id)  and Auth::user()->id === $user->id and !$edit == 1)
+                                        <a href="/student-single/{{ $user->id }}/{{ $user->id }}"
+                                            class="btn btn-dark" style="width: 100%">Save and back</a>
+                                    @endif
 
                                 </div>
                             </div>
@@ -206,26 +207,38 @@
 
                                 <div class="instructor-more-info-student">
                                     <i class="fas fa-books"></i>
-                                    <h6>{{ $user->cources_count }}</h6>
-                                    <p>Tugallangan kurslar</p>
+                                    <?$co=0;?>
+                                    <h6>
+                                        @foreach ($cources as  $c )
+                                        <?
+                                        if($c->lesson_count===$c->watch_count){
+                                            $co=$co+1;
+                                            echo $co;
+                                        }
+                                        ?>
+                                    @endforeach</h6>
+
+                                    <p>Completed</p>
                                 </div>
                             </div>
                             <div class="instructor-single-about">
                                 <h5>About Me</h5>
+                                @if(isset($user->ins_about->text))
 
                                 <p> {{ $user->ins_about->text }} </p>
+                                @endif
 
-                                @if (Auth::user()->id === $user->id and !isset($about->text ) and !$edit==1)
+                                @if (isset(Auth::user()->id)  and Auth::user()->id === $user->id and !isset($about->text) and !$edit == 1)
                                     <h6 class="alert alert-info">O'zingiz haqida malumot qo'shing.</h6>
                                     <a href="/teacher/about/add/{{ $user->id }}" class="btn btn-primary"
                                         style=" font-size:15px;"><i class="far fa-plus"></i></a>
                                 @endif
 
-                                @if (isset($about->text) and Auth::user()->id === $user->id  and !$edit==1)
+                                @if (isset(Auth::user()->id) and isset($about->text) and Auth::user()->id === $user->id and !$edit == 1)
                                     <a href="/teacher/about/edit/{{ $about->id }}" class="btn btn-success"
                                         style=" font-size:15px;"><i class="far fa-edit"></i></a>
                                 @endif
-                                @if (isset($about->text) and Auth::user()->id === $user->id  and !$edit==1)
+                                @if (isset(Auth::user()->id) and isset($about->text) and Auth::user()->id === $user->id and !$edit == 1)
                                     <a href="/teacher/about/delete/{{ $about->id }}" class="btn btn-danger"
                                         style=" font-size:15px;"><i class="far fa-trash-alt"></i></a>
                                 @endif
@@ -235,14 +248,8 @@
                     </div>
                     <div class="col-lg-8">
                         <div class="instructor-single-wrapper">
-                            <ul class="nav nav-tabs" id="myTab" role="tablist">
-                                <li class="nav-item" role="presentation">
-                                    <button class="nav-link active" id="instructor-tab1" data-bs-toggle="tab"
-                                        data-bs-target="#tab1" type="button" role="tab" aria-controls="tab1"
-                                        aria-selected="true">Courses</button>
-                                </li>
-
-                            </ul>
+                            <h3 style="font-family:sans-serif">Courses</h3>
+                            <hr style="background-color:black;height:2px;">
                             <div class="tab-content" id="myTabContent">
 
                                 <div class="tab-pane fade show active" id="tab1" role="tabpanel"
@@ -250,80 +257,97 @@
                                     <div class="instructor-tab-wrapper">
                                         <div class="row">
 
-                                            <div class="col-md-6 col-lg-6">
-                                                <div class="course-item">
-                                                    <span class="course-tag course-tag-2">Advance</span>
-                                                    <div class="course-img">
-                                                        <a href="#"><img src="assets/img/course/06.jpg"
-                                                                alt=""></a>
-                                                    </div>
-                                                    <div class="course-content">
-                                                        <div class="course-meta">
-                                                            <span
-                                                                class="course-category course-category-6">Marketing</span>
-                                                            <div class="course-rate">
-                                                                <i class="fas fa-star"></i>
-                                                                <i class="fas fa-star"></i>
-                                                                <i class="fas fa-star"></i>
-                                                                <i class="fas fa-star"></i>
-                                                                <i class="fas fa-star"></i>
-                                                                <span>(40)</span>
-                                                            </div>
+                                            @foreach ($cources as $cource)
+                                                <div class="col-md-6 col-lg-6">
+                                                    <div class="course-item">
+                                                        <span
+                                                            class="course-tag course-tag-1">{{ $cource->buy->uroven }}</span>
+                                                        <div class="course-img">
+                                                            <a style="width:100%"
+                                                                href="/course-single/{{ $cource->buy->id }}/{{ $cource->buy->id }}"><img
+                                                                    src="{{ asset('storage/course/' . $cource->buy->img) }}"
+                                                                    alt="" style="width:100%;height:230px"></a>
                                                         </div>
-                                                        <a href="#">
-                                                            <h4 class="course-title">Full Web Designing Course With 20 Web
-                                                                Template Designing</h4>
-                                                        </a>
-                                                        <div class="course-info">
-                                                            <ul>
-                                                                <li class="course-lecture"><i
-                                                                        class="fad fa-book-open"></i>64 Lectures</li>
-                                                                <li class="course-duration"><i class="fad fa-clock"></i>30
-                                                                    Hours</li>
-                                                                <li class="course-enrolled"><i
-                                                                        class="fad fa-user-friends"></i>40.7k Enrolled
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                        <div class="course-bottom">
-                                                            <a href="#">
-                                                                <div class="course-instructor">
-                                                                    <img src="assets/img/course/ins-2.jpg" alt="">
-                                                                    <h6>Karin M. Chumley</h6>
+                                                        <div class="course-content">
+                                                            <div class="course-meta">
+                                                                <span class="course-category course-category-1">
+                                                                    @if (app()->getLocale('lang') === 'en')
+                                                                        {{ $cource->buy->category_en->name }}
+                                                                    @elseif (app()->getLocale('lang') === 'ru')
+                                                                        {{ $cource->buy->category_ru->name }}
+                                                                    @else
+                                                                        {{ $cource->buy->category_uz->name }}
+                                                                    @endif
+
+
+                                                                </span>
+                                                                <div class="course-rate">
+
+                                                                    @for ($i = 0; round($cource->sharx_avg_reyting) > $i; $i++)
+                                                                        <i class="fas fa-star"></i>
+                                                                    @endfor
+                                                                    @for ($i = 0; 5 - round($cource->sharx_avg_reyting) > $i; $i++)
+                                                                        <i class="far fa-star"></i>
+                                                                    @endfor
+
+
+                                                                    <span>({{ $cource->sharx_count }})</span>
                                                                 </div>
+                                                            </div>
+                                                            <a
+                                                                href="/course-single/{{ $cource->buy->id }}/{{ $cource->buy->id }}">
+                                                                <h4 class="course-title">
+                                                                    {{ substr($cource->buy->name, 0, 52) }}
+                                                                    @if (strlen($cource->buy->name) > 52)
+                                                                        ...
+                                                                    @endif
+                                                                </h4>
                                                             </a>
-                                                            <div class="course-price">
-                                                                <del>$180</del> <span>$150</span>
+
+                                                            <div class="row">
+                                                                <div class="progress col-10" style=" height:11px; margin:15px 0px;">
+                                                                    <div class="progress-bar bg-info" role="progressbar"
+                                                                        aria-valuemin="0" aria-valuemax="100"
+                                                                        style="width: @if (!$cource->lesson_count == 0) {{ ($cource->watch_count / $cource->lesson_count) * 100 }}%;" aria-valuenow="{{ ($cource->watch_count / $cource->lesson_count) * 100 }}" > {{ round(($cource->watch_count / $cource->lesson_count) * 100, 1) }} @endif
+                                                                 @if ($cource->lesson_count == 0) 0%;" aria-valuenow="0" > 0% @endif
+                                                                </div>
+                                                              </div>
+                                                              <div class="col-2" style=" font-size:16px; font-weight:bold ; margin-top:5px ">
+                                                                    {{$cource->watch_count}}/{{$cource->lesson_count}}
+                                                              </div>
+
+                                                            </div>
+
+
+
+
+                                                        <div class="course-bottom">
+                                                                    <a href="#">
+                                                                        <div class="course-instructor">
+                                                                            <img src="{{ asset('storage/user/' . $user->img) }}"
+                                                                                alt="">
+                                                                            <h6>{{ $cource->buy->teacher->name }}
+                                                                                {{ $cource->buy->teacher->sname }}</h6>
+                                                                        </div>
+                                                                    </a>
+                                                                    <div class="course-price">
+                                                                        <del>
+                                                                            @if ($cource->buy->eski_narx > $cource->buy->narx)
+                                                                                $
+                                                                                {{ $cource->buy->eski_narx }}
+                                                                            @endif
+                                                                        </del> <span>${{ $cource->buy->narx }}</span>
+                                                                    </div>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                            </div>
+                                            @endforeach
+
+
                                         </div>
 
-                                        <div class="pagination-area">
-                                            <div aria-label="Page navigation example">
-                                                <ul class="pagination">
-                                                    <li class="page-item">
-                                                        <a class="page-link" href="#" aria-label="Previous">
-                                                            <span aria-hidden="true"><i
-                                                                    class="far fa-angle-double-left"></i></span>
-                                                        </a>
-                                                    </li>
-                                                    <li class="page-item active"><a class="page-link"
-                                                            href="#">1</a>
-                                                    </li>
-                                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                                    <li class="page-item">
-                                                        <a class="page-link" href="#" aria-label="Next">
-                                                            <span aria-hidden="true"><i
-                                                                    class="far fa-angle-double-right"></i></span>
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
+
                                     </div>
                                 </div>
 

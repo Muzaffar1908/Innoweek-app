@@ -29,6 +29,9 @@ use App\Models\About_bolim_uz;
 use Illuminate\Support\Facades\DB;
 use App\Models\Eduhub_jamoasi;
 use App\Models\User;
+use App\Models\Eduhub_header_uz;
+use App\Models\Eduhub_header_en;
+use App\Models\Eduhub_header_ru;
 
 class AdminController extends Controller
 {
@@ -40,6 +43,146 @@ class AdminController extends Controller
 /*
 umumiy student va teacher   profil.
 */
+
+
+
+    /*
+    Header
+    */
+
+
+    public function header()
+    {
+        $t = app()->getLocale('lang');
+        $header = DB::select('select * from eduhub_header_' . $t . 's ');
+        return view('adminpanel/header/index', ['nega' => $header]);
+    }
+    public function header_add()
+    {
+        return view('adminpanel/header/add');
+    }
+
+    public function header_save(Request $req)
+    {
+        $data = $req->validate([
+            'title_uz' => 'required',
+            'title2_uz' => 'required',
+            'text_uz' => 'required',
+            'title_ru' => 'required',
+            'title2_ru' => 'required',
+            'text_ru' => 'required',
+            'title_en' => 'required',
+            'title2_en' => 'required',
+            'text_en' => 'required',
+
+            'img' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:5048',
+        ]);
+        if ($req->hasFile('img')) {
+            $filemodel = $req->file('img');
+            $fileNameWithExt = $filemodel->getClientOriginalName();
+            $filename = pathinfo($fileNameWithExt, PATHINFO_FILENAME);
+            $ext = $filemodel->getClientOriginalExtension();
+            $fileNameToStory = $filename . '_' . time() . "." . $ext;
+            $path = $filemodel->storeAs('public/header/', $fileNameToStory);
+        }
+        $n = new Eduhub_header_uz();
+        $e = new Eduhub_header_en();
+        $r = new Eduhub_header_ru();
+        $n->img = $fileNameToStory;
+        $n->title = $data['title_uz'];
+        $n->title2 = $data['title2_uz'];
+        $n->text = $data['text_uz'];
+        $e->img = $fileNameToStory;
+        $e->title = $data['title_en'];
+        $e->title2 = $data['title2_en'];
+        $e->text = $data['text_en'];
+        $r->img = $fileNameToStory;
+        $r->title = $data['title_ru'];
+        $r->title2 = $data['title2_ru'];
+        $r->text = $data['text_ru'];
+        $n->save();
+        $e->save();
+        $r->save();
+        return redirect('/admin/header');
+    }
+
+    public function header_update(Request $req, $id)
+    {
+        $n = Eduhub_header_uz::find($id);
+        $e = Eduhub_header_en::find($id);
+        $r = Eduhub_header_ru::find($id);
+        $data = $req->validate([
+            'title_uz' => 'required|max:255',
+            'title2_uz' => 'required|max:255',
+            'text_uz' => 'required',
+            'title_ru' => 'required',
+            'title2_ru' => 'required',
+            'text_ru' => 'required',
+            'title_en' => 'required',
+            'title2_en' => 'required',
+            'text_en' => 'required',
+        ]);
+        if ($req->hasFile('img')) {
+        $data = $req->validate([
+            'title_uz' => 'required',
+            'title2_uz' => 'required',
+            'text_uz' => 'required',
+            'title_ru' => 'required',
+            'title2_ru' => 'required',
+            'text_ru' => 'required',
+            'title_en' => 'required',
+            'title2_en' => 'required',
+            'text_en' => 'required',
+            'img' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:5048',
+
+        ]);
+            $filemodel = $req->file('img');
+            $fileNameWithExt = $filemodel->getClientOriginalName();
+            $filename = pathinfo($fileNameWithExt, PATHINFO_FILENAME);
+            $ext = $filemodel->getClientOriginalExtension();
+            $fileNameToStory = $filename . '_' . time() . "." . $ext;
+            $path = $filemodel->storeAs('public/header/', $fileNameToStory);
+            $n->img = $fileNameToStory;
+            $e->img = $fileNameToStory;
+            $r->img = $fileNameToStory;
+        }
+
+
+        $n->title = $data['title_uz'];
+        $n->title2 = $data['title2_uz'];
+        $n->text = $data['text_uz'];
+
+        $e->title = $data['title_en'];
+        $e->title2 = $data['title2_en'];
+        $e->text = $data['text_en'];
+
+        $r->title = $data['title_ru'];
+        $r->title2 = $data['title2_ru'];
+        $r->text = $data['text_ru'];
+        $n->save();
+        $e->save();
+        $r->save();
+        return redirect('/admin/header');
+    }
+    public function header_edit($id)
+    {
+        $n = Eduhub_header_uz::find($id);
+        $e = Eduhub_header_en::find($id);
+        $r = Eduhub_header_ru::find($id);
+
+        return view('adminpanel/header/edit', ['u' => $n,'e'=>$e, 'r'=>$r]);
+    }
+    public function header_dell($id)
+    {
+        $n = Eduhub_header_uz::find($id);
+        $e = Eduhub_header_en::find($id);
+        $r = Eduhub_header_ru::find($id);
+        $n->delete();
+        $e->delete();
+        $r->delete();
+        return redirect('/admin/header');
+    }
+
 
 
 
@@ -969,7 +1112,7 @@ Teams of Services
         $ne->text = $data['title_en'];
         $ne->title = $data['title_en'];
         $ne->icon = $data['icon'];
-        $nr->text = $data['title_ru'];
+        $nr->text = $data['text_ru'];
         $nr->title = $data['title_ru'];
         $nr->icon = $data['icon'];
         $nu->save();

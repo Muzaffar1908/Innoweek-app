@@ -25,6 +25,14 @@ Route::get("eduhub/{lang}", function($lang) {
 });
 
 
+Route::get("/admin/header/dell/{id}", [AdminController::class, "header_dell"]);
+Route::post("/admin/header/update/{id}", [AdminController::class, "header_update"]);
+Route::get("/admin/header/edit/{id}", [AdminController::class, "header_edit"]);
+Route::post("/admin/header/save", [AdminController::class, "header_save"]);
+Route::get("/admin/header/add", [AdminController::class, "header_add"]);
+Route::get("/admin/header", [AdminController::class, "header"]);
+
+
 Route::get("/student-single/{id}/{id2}", [EduHubController::class, "student_single"]);
 
 Route::post("/course/lesson/save", [TeacherController::class, "lesson_save"]);
@@ -68,7 +76,9 @@ Route::get("/course/desc/edit/{id}",[TeacherController::class,'desc_edit']);
 
 Route::post('/cource/sharx/{id}',[EduHubController::class,'cource_sharx']);
 
-Route::get("/course-single/{id}/{id2}", [EduHubController::class, "course_single"]);
+Route::get("/course-single/{id}", [EduHubController::class, "course_single"]);
+Route::get("/course-single/edit/{id}", [EduHubController::class, "course_single_edit"]);
+
 
 Route::post("/course/save", [TeacherController::class, "course_save"]);
 Route::get("/course/add/{id}", [TeacherController::class, "course_add"]);
@@ -171,8 +181,9 @@ Route::get("/course-search", [EduHubController::class, "course_search"]);
 
 Route::get("/signup", [EduHubController::class, "signup"]);
 Route::get("/forgotPassword", [EduHubController::class, "forgotPassword"]);
-Route::get("/signin", [EduHubController::class, "signin"]);
-Route::get("/card", [EduHubController::class, "card"]);
+Route::get("/signin", [EduHubController::class, "signin"])->name('login');
+Route::get("/card", [EduHubController::class, "card"])->middleware('auth');
+Route::get("/card/add/{id}/{auth}", [EduHubController::class, "card_add"]);
 Route::get("/card-checkout", [EduHubController::class, "card_checkout"]);
 Route::get("/contact", [EduHubController::class, "contact"]);
 Route::get("/blog", [EduHubController::class, "blog"]);
@@ -186,9 +197,8 @@ Route::get("/", [EduHubController::class, "index"]);
 Route::get("/eduhub", [EduHubController::class, "index"]);
 Route::get("/home", [EduHubController::class, "index"]);
 
-Route::get('/', function () {
-    return view('/index');
-});
+
+
 
 Auth::routes();
 

@@ -13,6 +13,10 @@ class Cources extends Model
     {
         return $this->belongsTo(User::class,'ins_id',"id");
     }
+    public function cources()
+    {
+        return $this->belongsTo(Student_buy_course::class,'cours_id',"id");
+    }
     public function teacher(){
         return $this->hasOne(User::class,'id',"ins_id");
     }

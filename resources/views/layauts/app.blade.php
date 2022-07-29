@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="keywords" content="">
 
     <title>Eduhub - Education And LMS HTML5 Template</title>
@@ -90,11 +91,15 @@
                     <div class="header-top-left">
                         <div class="header-top-contact">
                             <ul>
-                                <li><a href="tel:+21236547898"><i class="far fa-phone"></i>+2 123 654 7898</a></li>
-                                <li><a href="/cdn-cgi/l/email-protection#046d6a626b44617c65697468612a676b69"><i
-                                            class="far fa-envelope"></i><span class="__cf_email__"
-                                            data-cfemail="036a6d656c43667b626e736f662d606c6e">{{ __('till.h-email') }}</span></a>
-                                </li>
+                                <li><a href="tel:{{$eduhub->tell}}"><i class="far fa-phone"></i>{{$eduhub->tell}}</a></li>
+                                <li>
+                                    <a href = "mailto:{{$eduhub->email}}?subject = Feedback&body = Message">
+                                        <i
+                                        class="far fa-envelope"></i> Email:
+                                    <span class="__cf_email__"
+                                        data-cfemail="1f767179705f7a677e726f737a317c7072">{{ __('till.h-email') }}</span></a>
+
+                 </li>
                             </ul>
                         </div>
                     </div>
@@ -119,10 +124,10 @@
                         </div>
                         <div class="header-top-social">
                             <span>{{ __('till.follow') }}:</span>
-                            <a href="#"><i class="fab fa-facebook-f"></i></a>
-                            <a href="#"><i class="fab fa-twitter"></i></a>
-                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                            <a href="#"><i class="fab fa-youtube"></i></a>
+                            <a href="{{$eduhub->facebook}}"><i class="fab fa-facebook-f"></i></a>
+                            <a href="{{$eduhub->telegram}}"><i class="fab fa-telegram"></i></a>
+                            <a href="{{$eduhub->instagram}}"><i class="fab fa-instagram"></i></a>
+                            <a href="{{$eduhub->you_tube}}"><i class="fab fa-youtube"></i></a>
                         </div>
                     </div>
                 </div>
@@ -147,14 +152,10 @@
                                 <i class="fas fa-grip-vertical"></i>{{ __('till.category') }}
                             </button>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="/course-category">Software Development</a></li>
-                                <li><a class="dropdown-item" href="#">Web Development</a></li>
-                                <li><a class="dropdown-item" href="#">Graphics Design</a></li>
-                                <li><a class="dropdown-item" href="#">Motion Graphics</a></li>
-                                <li><a class="dropdown-item" href="#">Digital Marketing</a></li>
-                                <li><a class="dropdown-item" href="#">Video Edition</a></li>
-                                <li><a class="dropdown-item" href="#">Logo Design</a></li>
-                                <li><a class="dropdown-item" href="#">English Learning</a></li>
+                                @foreach($category as $c)
+                                <li><a class="dropdown-item" href="/course-category/{{$c->id}}">{{$c->name}}</a></li>
+
+                                @endforeach
                             </ul>
                         </div>
                     </div>
@@ -205,30 +206,43 @@
                                             </h6>
                                         </a>
                                         <ul class="dropdown-menu fade-up">
-
-                                            <li>
-                                                <a class="dropdown-item" href="{{ route('logout') }}"
-                                                    onclick="event.preventDefault();
-                                            document.getElementById('logout-form').submit();">
-                                                    {{ __('Logout') }}
-                                                </a>
-                                                <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                                                    class="d-none">
-                                                    @csrf
-                                                </form>
-                                            </li>
-                                            <li><a class="dropdown-item"
-                                                    href="/user/edit/{{ Auth::user()->id }}">Profile Settings</a></li>
-
-                                                    @if (Auth::user()->uroven=="teacher")
+                                                    @if (Auth::user()->uroven==="teacher")
                                                     <li><a class="dropdown-item"
-                                                        href="/instructor-single/{{ Auth::user()->id }}/{{ Auth::user()->id }}">Teacher Profil</a>
+                                                        href="/instructor-single/{{ Auth::user()->id }}/{{ Auth::user()->id }}">Profil</a>
                                                 </li>
 
                                                     @endif
 
-                                            <li><a class="dropdown-item" href="index-3.html">Home Page 03</a></li>
+                                                    @if (Auth::user()->uroven==="student")
+                                                    <li><a class="dropdown-item"
+                                                        href="/student-single/{{ Auth::user()->id }}/{{ Auth::user()->id }}">Profil</a>
+                                                </li>
 
+
+
+                                                    @endif
+                                                    @if (Auth::user()->uroven==="admin")
+                                                    <li><a class="dropdown-item"
+                                                        href="/adminpanel">Adminpanel</a>
+                                                </li>
+
+                                                    @endif
+
+
+                                                    <li><a class="dropdown-item"
+                                                            href="/user/edit/{{ Auth::user()->id }}">Profile Settings</a></li>
+
+                                                            <li>
+                                                                <a class="dropdown-item" href="{{ route('logout') }}"
+                                                                    onclick="event.preventDefault();
+                                                            document.getElementById('logout-form').submit();">
+                                                                    {{ __('Logout') }}
+                                                                </a>
+                                                                <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                                                    class="d-none">
+                                                                    @csrf
+                                                                </form>
+                                                            </li>
                                         </ul>
                                     </div>
 
@@ -266,23 +280,26 @@
 
                             <div>
                                 <ul class="footer-contact">
-                                    <li><a href="tel:+21236547898"><i class="far fa-phone"></i> Tel: +2 123 654
-                                            7898</a>
+                                    <li><a href="tel:</i>{{$eduhub->tell}}"><i class="far fa-phone"></i>{{$eduhub->tell}}</a>
                                     </li>
-                                    <li><a href="/cdn-cgi/l/email-protection#177e79717857726f767a677b723974787a"><i
-                                                class="far fa-envelope"></i> Email:
-                                            <span class="__cf_email__"
-                                                data-cfemail="1f767179705f7a677e726f737a317c7072">{{ __('till.h-email') }}</span></a>
+                                    <li>
+                                        <a href = "mailto:{{$eduhub->email}}?subject = Feedback&body = Message">
+                                            <i
+                                            class="far fa-envelope"></i> Email:
+                                        <span class="__cf_email__"
+                                            data-cfemail="1f767179705f7a677e726f737a317c7072">{{ __('till.h-email') }}</span></a>
+
+
                                     </li>
                                 </ul>
                             </div>
                             <ul class="footer-social">
-                                <li class="facebook-link"><a href="c#"><i class="fab fa-facebook-f"></i></a>
+                                <li class="facebook-link"><a href="{{$eduhub->facebook}}"><i class="fab fa-facebook-f"></i></a>
                                 </li>
-                                <li class="pinterest-link"><a href="#"><i class="fab fa-pinterest-p"></i></a>
+                                <li class="pinterest-link"><a href="{{$eduhub->telegram}}"><i class="fab fa-telegram-plane"></i></a>
                                 </li>
-                                <li class="twitter-link"><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                <li class="linkedin-link"><a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                <li class="twitter-link"><a href="{{$eduhub->instagram}}"><i class="fab fa-instagram"></i></a></li>
+                                <li class="linkedin-link"><a href="{{$eduhub->you_tube}}"><i class="fab fa-youtube"></i></a>
                                 </li>
                             </ul>
                         </div>
@@ -324,12 +341,12 @@
                             </div>
                             <div class="footer-app-download">
                                 <h5>{{ __('till.download') }}</h5>
-                                <a href="#"> <img
-                                        src="{{ asset('storage/img/download-icon/google-play.png') }}"
+                                <a href="{{$eduhub->google_play}}"> <img
+                                        src="{{ asset('storage/download-icon/google-play.png') }}"
                                         alt="">
                                 </a>
-                                <a href="#"> <img
-                                        src="{{ asset('storage/img/download-icon/app-store.png') }}"
+                                <a href="{{$eduhub->app_story}}"> <img
+                                        src="{{ asset('storage/download-icon/app-store.png') }}"
                                         alt="">
                                 </a>
                             </div>
@@ -343,7 +360,7 @@
                 <div class="row">
                     <div class="col-lg-6 align-self-center">
                         <p class="copyright-text">
-                            &copy;{{ __('till.footer1') }} <span id="date"></span> <a href="#">
+                            &copy;{{ __('till.footer1') }} <span id="date"></span> <a href="/eduhub">
                                 {{ __('till.footer2') }}</a> {{ __('till.footer3') }}
                         </p>
                     </div>
@@ -369,6 +386,7 @@
             })
         })
     </script>
+
     <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
     <script src="assets/js/jquery-3.6.0.min.js"></script>
     <script src="assets/js/modernizr.min.js"></script>

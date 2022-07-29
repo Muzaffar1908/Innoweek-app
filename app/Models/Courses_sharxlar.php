@@ -16,4 +16,8 @@ class Courses_sharxlar extends Model
         return $this->hasOne(User::class,'id',"user_id");
     }
 
+    public function buy_courses()
+    {
+        return $this->belongsTo(Cources::class,'cours_id',"cours_id");
+    }
 }

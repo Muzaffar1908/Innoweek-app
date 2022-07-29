@@ -14,17 +14,24 @@ use Illuminate\Support\Facades\DB;
 use App\Models\Cources_discription;
 use App\Models\Video_audio_books;
 use App\Models\Video_tip;
+use App\Models\Eduhub;
 
 class TeacherController extends Controller
 {
+
+
 
 /**
  * Add lesson level
  */
 public function lesson_edit($id)
 {
+    $t = app()->getLocale('lang');
+    $eduhub=Eduhub::orderBy('id', 'desc')->first();
+   $category=DB::select('select * from category_' . $t . 's order by name' );
+
     $about = Video_audio_books::find($id);
-    return view('course.lesson.edit', ['lesson' => $about]);
+    return view('course.lesson.edit', ['lesson' => $about,'category'=>$category,'eduhub'=>$eduhub,]);
 }
 public function lesson_update(Request $req, $id)
 {
@@ -77,7 +84,7 @@ public function lesson_update(Request $req, $id)
 
     $n->save();
 
-    return redirect('/course-single/' . $n->cours_id.'/'.($n->cours_id-1));
+    return redirect('/course-single/edit/' . $n->cours_id);
 }
 public function  lesson_dell($id)
 {
@@ -86,11 +93,15 @@ public function  lesson_dell($id)
 
     $cu->delete();
 
-    return redirect('/course-single/' . $c_id.'/'.($c_id-1));
+    return redirect('/course-single/edit/' . $c_id);
 }
 public function lesson_add($id, $l_id)
 {
-    return view('course.lesson.add', ['c_id' => $id,'l_id'=>$l_id]);
+    $t = app()->getLocale('lang');
+    $eduhub=Eduhub::orderBy('id', 'desc')->first();
+   $category=DB::select('select * from category_' . $t . 's order by name' );
+
+    return view('course.lesson.add', ['c_id' => $id,'l_id'=>$l_id, 'category'=>$category,'eduhub'=>$eduhub,]);
 }
 
 public function lesson_save(Request $req)
@@ -141,7 +152,7 @@ public function lesson_save(Request $req)
     }
 
     $n->save();
-    return redirect('/course-single/' . $c_id.'/'.($c_id-1));
+    return redirect('/course-single/edit/' . $c_id);
 }
 
 
@@ -150,8 +161,12 @@ public function lesson_save(Request $req)
  */
     public function les_lev_edit($id)
     {
+        $t = app()->getLocale('lang');
+        $eduhub=Eduhub::orderBy('id', 'desc')->first();
+       $category=DB::select('select * from category_' . $t . 's order by name' );
+
         $about = Video_tip::find($id);
-        return view('course.lesson_level.edit', ['desc' => $about]);
+        return view('course.lesson_level.edit', ['desc' => $about,'category'=>$category,'eduhub'=>$eduhub,]);
     }
     public function les_lev_update(Request $req, $id)
     {
@@ -162,7 +177,7 @@ public function lesson_save(Request $req)
         $n->name = $data['name'];
         $n->save();
 
-        return redirect('/course-single/' . $n->cource_id.'/'.($n->cource_id-1));
+        return redirect('/course-single/edit/' . $n->cource_id);
     }
     public function les_lev_dell($id)
     {
@@ -178,11 +193,15 @@ public function lesson_save(Request $req)
 
         $cu->delete();
 
-        return redirect('/course-single/' . $c_id.'/'.($c_id-1));
+        return redirect('/course-single/edit/' . $c_id);
     }
     public function les_lev_add($id)
     {
-        return view('course.lesson_level.add', ['c_id' => $id]);
+        $t = app()->getLocale('lang');
+        $eduhub=Eduhub::orderBy('id', 'desc')->first();
+       $category=DB::select('select * from category_' . $t . 's order by name' );
+
+        return view('course.lesson_level.add', ['c_id' => $id,'category'=>$category,'eduhub'=>$eduhub,]);
     }
 
     public function les_lev_save(Request $req)
@@ -197,7 +216,7 @@ public function lesson_save(Request $req)
         $n->cource_id = $data['cource_id'];
         $n->name = $data['name'];
         $n->save();
-        return redirect('/course-single/' . $c_id.'/'.($c_id-1));
+        return redirect('/course-single/edit/' . $c_id);
     }
 
 /**
@@ -205,8 +224,12 @@ public function lesson_save(Request $req)
  */
     public function includes_edit($id)
     {
+        $t = app()->getLocale('lang');
+        $eduhub=Eduhub::orderBy('id', 'desc')->first();
+       $category=DB::select('select * from category_' . $t . 's order by name' );
+
         $about = Cources_includes::find($id);
-        return view('course.includes.edit', ['desc' => $about]);
+        return view('course.includes.edit', ['desc' => $about,'category'=>$category,'eduhub'=>$eduhub,]);
     }
     public function includes_update(Request $req, $id)
     {
@@ -217,7 +240,7 @@ public function lesson_save(Request $req)
         $n->text = $data['text'];
         $n->save();
 
-        return redirect('/course-single/' . $n->cours_id.'/'.($n->cours_id-1));
+        return redirect('/course-single/edit/' . $n->cours_id);
     }
     public function includes_dell($id)
     {
@@ -226,11 +249,15 @@ public function lesson_save(Request $req)
 
         $cu->delete();
 
-        return redirect('/course-single/' . $c_id.'/'.($c_id-1));
+        return redirect('/course-single/edit/' . $c_id);
     }
     public function includes_add($id)
     {
-        return view('course.includes.add', ['c_id' => $id]);
+        $t = app()->getLocale('lang');
+        $eduhub=Eduhub::orderBy('id', 'desc')->first();
+       $category=DB::select('select * from category_' . $t . 's order by name' );
+
+        return view('course.includes.add', ['c_id' => $id,'category'=>$category,'eduhub'=>$eduhub,]);
     }
 
     public function includes_save(Request $req)
@@ -245,7 +272,7 @@ public function lesson_save(Request $req)
         $n->cours_id = $data['cource_id'];
         $n->text = $data['text'];
         $n->save();
-        return redirect('/course-single/' . $c_id.'/'.($c_id-1));
+        return redirect('/course-single/edit/' . $c_id);
     }
 
 
@@ -258,8 +285,12 @@ public function lesson_save(Request $req)
 
     public function desc_row_edit($id)
     {
+        $t = app()->getLocale('lang');
+        $eduhub=Eduhub::orderBy('id', 'desc')->first();
+       $category=DB::select('select * from category_' . $t . 's order by name' );
+
         $about = Cource_includes_row::find($id);
-        return view('course.desc_row.edit', ['desc' => $about]);
+        return view('course.desc_row.edit', ['desc' => $about,'category'=>$category,'eduhub'=>$eduhub,]);
     }
     public function desc_row_update(Request $req, $id)
     {
@@ -271,7 +302,7 @@ public function lesson_save(Request $req)
         $n->text = $data['text'];
         $n->save();
 
-        return redirect('/course-single/'. $n->cource_id.'/' .($n->cource_id-1));
+        return redirect('/course-single/edit/'. $n->cource_id);
     }
     public function desc_row_dell($id)
     {
@@ -280,11 +311,15 @@ public function lesson_save(Request $req)
 
         $cu->delete();
 
-        return redirect('/course-single/' . $c_id.'/'.($c_id-1));
+        return redirect('/course-single/edit/' . $c_id);
     }
     public function desc_row_add($id, $c_id)
     {
-        return view('course.desc_row.add', ['desc_id' => $id,'c_id'=>$c_id]);
+        $t = app()->getLocale('lang');
+        $eduhub=Eduhub::orderBy('id', 'desc')->first();
+       $category=DB::select('select * from category_' . $t . 's order by name' );
+
+        return view('course.desc_row.add', ['desc_id' => $id,'c_id'=>$c_id,'category'=>$category,'eduhub'=>$eduhub,]);
     }
 
     public function desc_row_save(Request $req)
@@ -300,7 +335,7 @@ public function lesson_save(Request $req)
         $n->text = $data['text'];
         $n->disc_id = $data['desc_id'];
         $n->save();
-        return redirect('/course-single/' . $c_id.'/'.($c_id-1));
+        return redirect('/course-single/edit/' . $c_id);
     }
 
 
@@ -315,8 +350,12 @@ public function lesson_save(Request $req)
 
     public function desc_edit($id)
     {
+        $t = app()->getLocale('lang');
+        $eduhub=Eduhub::orderBy('id', 'desc')->first();
+       $category=DB::select('select * from category_' . $t . 's order by name' );
+
         $about = Cources_discription::find($id);
-        return view('course.description.edit', ['desc' => $about]);
+        return view('course.description.edit', ['desc' => $about,'category'=>$category,'eduhub'=>$eduhub,]);
     }
     public function desc_update(Request $req, $id)
     {
@@ -333,7 +372,7 @@ public function lesson_save(Request $req)
 
         $n->save();
 
-        return redirect('/course-single/' .$n->cours_id .'/'.($n->cours_id-1));
+        return redirect('/course-single/edit/' .$n->cours_id);
     }
     public function desc_dell($id)
     {
@@ -347,11 +386,15 @@ public function lesson_save(Request $req)
         }
         $cu->delete();
 
-        return redirect('/course-single/' . $c_id.'/'.($c_id-1));
+        return redirect('/course-single/edit/' . $c_id);
     }
     public function desc_add($id)
     {
-        return view('course.description.add', ['cours_id' => $id]);
+        $t = app()->getLocale('lang');
+        $eduhub=Eduhub::orderBy('id', 'desc')->first();
+       $category=DB::select('select * from category_' . $t . 's order by name' );
+
+        return view('course.description.add', ['cours_id' => $id,'category'=>$category,'eduhub'=>$eduhub,]);
     }
 
     public function desc_save(Request $req)
@@ -367,7 +410,7 @@ public function lesson_save(Request $req)
         $n->text = $data['text'];
         $n->title = $data['title'];
         $n->save();
-        return redirect('/course-single/' . $c_id.'/'.($c_id-1));
+        return redirect('/course-single/edit/' . $c_id);
     }
 
 
@@ -386,7 +429,7 @@ public function lesson_save(Request $req)
         $t = app()->getLocale('lang');
         $cat = DB::select('select * from category_' . $t . 's ');
         $about = Cources::find($id);
-        return view('course.edit', ['course' => $about, 'cat' => $cat]);
+        return view('course.edit', ['course' => $about, 'cat' => $cat,'category'=>$category,'eduhub'=>$eduhub,]);
     }
     public function course_update(Request $req, $id)
     {
@@ -428,7 +471,7 @@ public function lesson_save(Request $req)
         $n->davomiylik = $data['davomiylik'];
 
         $n->save();
-        return redirect('/course-single/'. $id.'/'.($id-1));
+        return redirect('/course-single/edit/'. $id);
     }
     public function course_dell($id)
     {
@@ -436,13 +479,15 @@ public function lesson_save(Request $req)
         $ins_id = $cu->ins_id;
         $cu->delete();
 
-        return redirect('/instructor-single/' . $ins_id.'/'.( $ins_id-1);
+        return redirect('/instructor-single/' . $ins_id.'/'.( $ins_id-1));
     }
     public function course_add($id)
     {
         $t = app()->getLocale('lang');
+        $eduhub=Eduhub::orderBy('id', 'desc')->first();
+       $category=DB::select('select * from category_' . $t . 's order by name' );
         $cat = DB::select('select * from category_' . $t . 's ');
-        return view('course.add', ['user_id' => $id, 'cat' => $cat]);
+        return view('course.add', ['user_id' => $id, 'cat' => $cat,'category'=>$category,'eduhub'=>$eduhub]);
     }
 
     public function course_save(Request $req)
@@ -486,7 +531,7 @@ public function lesson_save(Request $req)
         $n->img = $fileNameToStory;
         $n->save();
         $ins_id = $data['user_id'];
-        return redirect('/instructor-single/' . $ins_id.'/'.( $ins_id-1);
+        return redirect('/instructor-single/' . $ins_id.'/'.( $ins_id));
     }
 
 
@@ -499,8 +544,12 @@ public function lesson_save(Request $req)
 
     public function about_edit($id)
     {
+        $t = app()->getLocale('lang');
+        $eduhub=Eduhub::orderBy('id', 'desc')->first();
+       $category=DB::select('select * from category_' . $t . 's order by name' );
+
         $about = Instructor_about::find($id);
-        return view('inctructor.about.edit', ['about' => $about]);
+        return view('inctructor.about.edit', ['about' => $about,'category'=>$category,'eduhub'=>$eduhub,]);
     }
     public function about_update(Request $req, $id)
     {
@@ -515,7 +564,7 @@ public function lesson_save(Request $req)
 
         $n->save();
 
-        return redirect('/instructor-single/' . $n->user_id.'/'.( $n->user_id-1);
+        return redirect('/instructor-single/' . $n->user_id.'/'.( $n->user_id-1));
     }
     public function about_dell($id)
     {
@@ -523,11 +572,15 @@ public function lesson_save(Request $req)
         $user_id = $cu->user_id;
         $cu->delete();
 
-        return redirect('/instructor-single/' . $user_id.'/'.($user_id-1);
+        return redirect('/instructor-single/' . $user_id.'/'.($user_id-1));
     }
     public function about_add($id)
     {
-        return view('inctructor.about.add', ['user_id' => $id]);
+        $t = app()->getLocale('lang');
+        $eduhub=Eduhub::orderBy('id', 'desc')->first();
+       $category=DB::select('select * from category_' . $t . 's order by name' );
+
+        return view('inctructor.about.add', ['user_id' => $id,'category'=>$category,'eduhub'=>$eduhub,]);
     }
 
     public function about_save(Request $req)
@@ -547,8 +600,12 @@ public function lesson_save(Request $req)
 
     public function tajriba_edit($id)
     {
+        $t = app()->getLocale('lang');
+        $eduhub=Eduhub::orderBy('id', 'desc')->first();
+       $category=DB::select('select * from category_' . $t . 's order by name' );
+
         $about = Instructor_tajriba::where('user_id', '=', $id)->first();
-        return view('inctructor.tajriba.edit', ['t' => $about]);
+        return view('inctructor.tajriba.edit', ['t' => $about,'category'=>$category,'eduhub'=>$eduhub,]);
     }
     public function tajriba_update(Request $req, $id)
     {
@@ -580,7 +637,11 @@ public function lesson_save(Request $req)
     }
     public function tajriba_add($id)
     {
-        return view('inctructor.tajriba.add', ['user_id' => $id]);
+        $t = app()->getLocale('lang');
+        $eduhub=Eduhub::orderBy('id', 'desc')->first();
+       $category=DB::select('select * from category_' . $t . 's order by name' );
+
+        return view('inctructor.tajriba.add', ['user_id' => $id,'category'=>$category,'eduhub'=>$eduhub,]);
     }
 
     public function tajriba_save(Request $req)
@@ -608,8 +669,12 @@ public function lesson_save(Request $req)
 
     public function edu_edit($id)
     {
+        $t = app()->getLocale('lang');
+        $eduhub=Eduhub::orderBy('id', 'desc')->first();
+       $category=DB::select('select * from category_' . $t . 's order by name' );
+
         $about = Instructor_education::where('id', '=', $id)->first();
-        return view('inctructor.edu.edit', ['t' => $about]);
+        return view('inctructor.edu.edit', ['t' => $about,'category'=>$category,'eduhub'=>$eduhub,]);
     }
     public function edu_update(Request $req, $id)
     {
@@ -641,7 +706,11 @@ public function lesson_save(Request $req)
     }
     public function edu_add($id)
     {
-        return view('inctructor.edu.add', ['user_id' => $id]);
+        $t = app()->getLocale('lang');
+        $eduhub=Eduhub::orderBy('id', 'desc')->first();
+       $category=DB::select('select * from category_' . $t . 's order by name' );
+
+        return view('inctructor.edu.add', ['user_id' => $id,'category'=>$category,'eduhub'=>$eduhub,]);
     }
 
     public function edu_save(Request $req)

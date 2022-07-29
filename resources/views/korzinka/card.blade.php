@@ -45,8 +45,7 @@
                             <th>Image</th>
                             <th>Course Name</th>
                             <th>Price</th>
-                            <th>Quantity</th>
-                            <th>Sub Total</th>
+
                             <th></th>
                         </tr>
                     </thead>
@@ -65,82 +64,12 @@
                                     <span>$1,500</span>
                                 </div>
                             </td>
-                            <td>
-                                <div class="cart-qty">
-                                    <button class="minus-btn"><i class="fal fa-minus"></i></button>
-                                    <input class="quantity" type="text" value="1" disabled="">
-                                    <button class="plus-btn"><i class="fal fa-plus"></i></button>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="cart-sub-total">
-                                    <span>$1,500</span>
-                                </div>
-                            </td>
+
                             <td>
                                 <a href="#" class="cart-remove"><i class="far fa-times"></i></a>
                             </td>
                         </tr>
-                        <tr>
-                            <td>
-                                <div class="cart-img">
-                                    <img src="assets/img/course/02.jpg" alt="">
-                                </div>
-                            </td>
-                            <td>
-                                <h5>The Complete Digital Marketing Course</h5>
-                            </td>
-                            <td>
-                                <div class="cart-price">
-                                    <span>$1,500</span>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="cart-qty">
-                                    <button class="minus-btn"><i class="fal fa-minus"></i></button>
-                                    <input class="quantity" type="text" value="1" disabled="">
-                                    <button class="plus-btn"><i class="fal fa-plus"></i></button>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="cart-sub-total">
-                                    <span>$1,500</span>
-                                </div>
-                            </td>
-                            <td>
-                                <a href="#" class="cart-remove"><i class="far fa-times"></i></a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="cart-img">
-                                    <img src="assets/img/course/04.jpg" alt="">
-                                </div>
-                            </td>
-                            <td>
-                                <h5>The Complete Digital Marketing Course</h5>
-                            </td>
-                            <td>
-                                <div class="cart-price">
-                                    <span>$1,500</span>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="cart-qty">
-                                    <button class="minus-btn"><i class="fal fa-minus"></i></button>
-                                    <input class="quantity" type="text" value="1" disabled="">
-                                    <button class="plus-btn"><i class="fal fa-plus"></i></button>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="cart-sub-total">
-                                    <span>$1,500</span>
-                                </div>
-                            </td>
-                            <td>
-                                <a href="#" class="cart-remove"><i class="far fa-times"></i></a>
-                            </td>
-                        </tr>
+
                     </tbody>
                 </table>
             </div>

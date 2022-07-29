@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('dars_turi');
             $table->string('uroven');
             $table->string('name');
-            $table->string('v_name');
+            $table->text('v_name');
             $table->timestamps();
         });
     }

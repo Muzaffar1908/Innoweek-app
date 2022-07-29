@@ -18,9 +18,9 @@ return new class extends Migration
             $table->string('name');
             $table->string('uroven');
             $table->string('img');
-            $table->string('facebook');
-            $table->string('instagram');
-            $table->string('telegram');
+            $table->text('facebook');
+            $table->text('instagram');
+            $table->text('telegram');
             $table->timestamps();
         });
     }

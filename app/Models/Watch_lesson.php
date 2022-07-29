@@ -12,4 +12,8 @@ class Watch_lesson extends Model
     {
         return $this->belongsTo(Video_audio_books::class,'lesson_id',"id");
     }
+    public function buy()
+    {
+        return $this->belongsTo(Student_buy_course::class,'cours_id',"cours_id");
+    }
 }

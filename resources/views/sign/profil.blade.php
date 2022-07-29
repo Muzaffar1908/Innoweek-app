@@ -51,6 +51,15 @@
 
                             <p>Your user profil</p>
                         </div>
+                        @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
                         <form enctype="multipart/form-data" method="POST" action="/user/update/{{ $nu->id }}">
                             @csrf
                             @if ($errors->any())

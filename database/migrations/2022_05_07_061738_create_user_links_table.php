@@ -16,10 +16,10 @@ return new class extends Migration
         Schema::create('user_links', function (Blueprint $table) {
             $table->id();
             $table->string('user_id');
-            $table->string('telegram')->nullable();
-            $table->string('instagram')->nullable();
-            $table->string('facebook')->nullable();
-            $table->string('youtube')->nullable();
+            $table->text('telegram')->nullable();
+            $table->text('instagram')->nullable();
+            $table->text('facebook')->nullable();
+            $table->text('youtube')->nullable();
             $table->timestamps();
 
         });

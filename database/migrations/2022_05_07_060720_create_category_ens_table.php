@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('category_ens', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('icon');
+            $table->text('icon');
             $table->string('color');
             $table->timestamps();
         });

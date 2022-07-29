@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('cources_discriptions', function (Blueprint $table) {
             $table->id();
             $table->string('cours_id');
-            $table->string('text');
+            $table->text('text');
             $table->text('title');
             $table->timestamps();
         });

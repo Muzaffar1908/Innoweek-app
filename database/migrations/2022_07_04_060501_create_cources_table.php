@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('cat_id');
             $table->string('ins_id');
             $table->string('name');
-            $table->string('text');
+            $table->text('text');
             $table->string('narx');
             $table->string('eski_narx');
             $table->string('lenght');

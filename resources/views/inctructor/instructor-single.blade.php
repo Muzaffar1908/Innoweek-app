@@ -164,29 +164,31 @@
                                 <p class="instructor-single-tagline"></p>
 
                                 <div class="instructor-single-social">
-                                    @if (!$url->telegram == null)
+                                    @if (isset($url->telegram))
                                         <a href="{{ $url->telegram }}"><i class="fab fa-telegram"></i></a>
                                     @endif
-                                    @if (!$url->facebook == null)
+                                    @if (isset($url->facebook))
                                         <a href="{{ $url->facebook }}"><i class="fab fa-facebook-f"></i></a>
                                     @endif
-                                    @if (!$url->instagram == null)
+                                    @if (isset($url->instagram))
                                         <a href="{{ $url->instagram }}"><i class="fab fa-instagram"></i></a>
                                     @endif
 
-                                    @if (!$url->youtube == null)
+                                    @if (isset($url->youtube))
                                         <a href="{{ $url->youtube }}"><i class="fab fa-youtube"></i></a>
                                     @endif
 
                                 </div>
 
                                 <div class="mt-3">
-                                    @if (Auth::user()->id === $user->id  and $edit==1)
-                                    <a href="/instructor-single/{{$user->id}}/{{$user->id-1}}" style="width: 100%" class="btn btn-success">Edit profil</a>
-                                @endif
-                                @if (Auth::user()->id === $user->id and !$edit==1)
-                                <a href="/instructor-single/{{$user->id}}/{{$user->id}}" class="btn btn-dark"  style="width: 100%" >Save and back</a>
-                                @endif
+                                    @if (Auth::user()->id === $user->id and $edit == 1)
+                                        <a href="/instructor-single/{{ $user->id }}/{{ $user->id - 1 }}"
+                                            style="width: 100%" class="btn btn-success">Edit profil</a>
+                                    @endif
+                                    @if (Auth::user()->id === $user->id and !$edit == 1)
+                                        <a href="/instructor-single/{{ $user->id }}/{{ $user->id }}"
+                                            class="btn btn-dark" style="width: 100%">Save and back</a>
+                                    @endif
 
 
 
@@ -212,20 +214,24 @@
                             </div>
                             <div class="instructor-single-about">
                                 <h5>About Me</h5>
-
+                                @if (isset($about->text))
                                 <p> {{ $about->text }} </p>
 
-                                @if (Auth::user()->id === $user->id and !isset($about->text ) and !$edit==1)
+                                @endif
+
+
+
+                                @if (Auth::user()->id === $user->id and !isset($about->text) and !$edit == 1)
                                     <h6 class="alert alert-info">O'zingiz haqida malumot qo'shing.</h6>
                                     <a href="/teacher/about/add/{{ $user->id }}" class="btn btn-primary"
                                         style=" font-size:15px;"><i class="far fa-plus"></i></a>
                                 @endif
 
-                                @if (isset($about->text) and Auth::user()->id === $user->id  and !$edit==1)
+                                @if (isset($about->text) and Auth::user()->id === $user->id and !$edit == 1)
                                     <a href="/teacher/about/edit/{{ $about->id }}" class="btn btn-success"
                                         style=" font-size:15px;"><i class="far fa-edit"></i></a>
                                 @endif
-                                @if (isset($about->text) and Auth::user()->id === $user->id  and !$edit==1)
+                                @if (isset($about->text) and Auth::user()->id === $user->id and !$edit == 1)
                                     <a href="/teacher/about/delete/{{ $about->id }}" class="btn btn-danger"
                                         style=" font-size:15px;"><i class="far fa-trash-alt"></i></a>
                                 @endif
@@ -266,8 +272,7 @@
                                             @foreach ($cources as $cource)
                                                 <div class="col-md-6 col-lg-6">
                                                     <div class="course-item">
-                                                        <span
-                                                            class="course-tag course-tag-1">{{ $cource->uroven }}</span>
+                                                        <span class="course-tag course-tag-1">{{ $cource->uroven }}</span>
                                                         <div class="course-img">
                                                             <a style="width:100%"
                                                                 href="/course-single/{{ $cource->id }}/{{ $cource->id }}"><img
@@ -323,7 +328,8 @@
                                                                 </ul>
                                                             </div>
                                                             <div class="course-bottom">
-                                                                <a href="#">
+                                                                <a
+                                                                    href="/instructor-single/{{ $user->id }}/{{ $user->id }}">
                                                                     <div class="course-instructor">
                                                                         <img src="{{ asset('storage/user/' . $user->img) }}"
                                                                             alt="">
@@ -346,10 +352,9 @@
                                             @endforeach
                                             {{ $cources->links() }}
 
-                                            @if (Auth::user()->id === $user->id  and !$edit==1)
+                                            @if (Auth::user()->id === $user->id )
                                                 <a href="/course/add/{{ $user->id }}" class="btn btn-primary"
-                                                    style=" font-size:15px; padding:15px  0px; margin-top:40px">Add new
-                                                    Course</a>
+                                                    style=" font-size:15px; padding:15px  0px; margin-top:40px">Add new Course</a>
                                             @endif
 
 
@@ -489,11 +494,11 @@
                                                                 <h6>{{ $sh->user->name }} {{ $sh->user->sname }}</h6>
                                                                 <span><i class="far fa-clock"></i>
                                                                     <?
-                                                                                    date_default_timezone_set('Asia/Tashkent');
-                                                                                    $d1 = date('Y-m-d H:i:s');
-                                                                                    $date2=date_create($sh->created_at);
-                                                                                    $d2=date_format($date2, 'G:ia jS F Y');
-                                                                                    echo $d2?>
+                                                                                        date_default_timezone_set('Asia/Tashkent');
+                                                                                        $d1 = date('Y-m-d H:i:s');
+                                                                                        $date2=date_create($sh->created_at);
+                                                                                        $d2=date_format($date2, 'G:ia jS F Y');
+                                                                                        echo $d2?>
                                                                 </span>
                                                             </div>
                                                             <div class="instructor-review-author-rating">
@@ -517,72 +522,71 @@
 
                                         </div>
 
-@if (!(Auth::user()->id == $user->id))
+                                        @if (!(Auth::user()->id == $user->id))
+                                            <div class="instructor-review-form">
+                                                <h5>Leave A Review</h5>
+                                                <form action="/teacher/sharx/{{ Auth::user()->id }}" class=""
+                                                    method="POST" id="my-form-2">
+                                                    @csrf
+                                                    <div class="form-group">
+                                                        <input type="hidden" value="{{ $user->id }}"
+                                                            name="user_id">
+                                                        <label>Your Rating</label>
 
+                                                        <div class="instructor-review-form-star stars-wrapper">
+                                                            <input id="one-star-rating-2" type="radio"
+                                                                name="reviewRating" value="1">
 
-                                        <div class="instructor-review-form">
-                                            <h5>Leave A Review</h5>
-                                            <form action="/teacher/sharx/{{ Auth::user()->id }}" class=""
-                                                method="POST" id="my-form-2">
-                                                @csrf
-                                                <div class="form-group">
-                                                    <input type="hidden" value="{{ $user->id }}" name="user_id">
-                                                    <label>Your Rating</label>
+                                                            <input id="two-star-rating-2" type="radio"
+                                                                name="reviewRating" value="2">
 
-                                                    <div class="instructor-review-form-star stars-wrapper">
-                                                        <input id="one-star-rating-2" type="radio" name="reviewRating"
-                                                            value="1">
+                                                            <input id="three-star-rating-2" type="radio"
+                                                                name="reviewRating" value="3">
 
-                                                        <input id="two-star-rating-2" type="radio" name="reviewRating"
-                                                            value="2">
+                                                            <input id="four-star-rating-2" type="radio"
+                                                                name="reviewRating" value="4">
 
-                                                        <input id="three-star-rating-2" type="radio"
-                                                            name="reviewRating" value="3">
+                                                            <input id="five-star-rating-2" type="radio"
+                                                                name="reviewRating" value="5">
 
-                                                        <input id="four-star-rating-2" type="radio" name="reviewRating"
-                                                            value="4">
-
-                                                        <input id="five-star-rating-2" type="radio" name="reviewRating"
-                                                            value="5">
-
-                                                        <div class="stars-display" style="">
-                                                            <svg viewBox="0 0 20 20" width="25" height="25">
-                                                                <use href="#star-icon"></use>
-                                                            </svg>
-                                                            <svg viewBox="0 0 20 20" width="25" height="25">
-                                                                <use href="#star-icon"></use>
-                                                            </svg>
-                                                            <svg viewBox="0 0 20 20" width="25" height="25">
-                                                                <use href="#star-icon"></use>
-                                                            </svg>
-                                                            <svg viewBox="0 0 20 20" width="25" height="25">
-                                                                <use href="#star-icon"></use>
-                                                            </svg>
-                                                            <svg viewBox="0 0 20 20" width="25" height="25">
-                                                                <use href="#star-icon"></use>
-                                                            </svg>
+                                                            <div class="stars-display" style="">
+                                                                <svg viewBox="0 0 20 20" width="25" height="25">
+                                                                    <use href="#star-icon"></use>
+                                                                </svg>
+                                                                <svg viewBox="0 0 20 20" width="25" height="25">
+                                                                    <use href="#star-icon"></use>
+                                                                </svg>
+                                                                <svg viewBox="0 0 20 20" width="25" height="25">
+                                                                    <use href="#star-icon"></use>
+                                                                </svg>
+                                                                <svg viewBox="0 0 20 20" width="25" height="25">
+                                                                    <use href="#star-icon"></use>
+                                                                </svg>
+                                                                <svg viewBox="0 0 20 20" width="25" height="25">
+                                                                    <use href="#star-icon"></use>
+                                                                </svg>
+                                                            </div>
                                                         </div>
+                                                        <svg id="svg-sprite" xmlns="http://www.w3.org/2000/svg"
+                                                            viewBox="0 0 20 20" style="display: none;">
+                                                            <symbol id="star-icon">
+                                                                <title>star</title>
+                                                                <path
+                                                                    d="M20 7h-7L10 .5 7 7H0l5.46 5.47-1.64 7 6.18-3.7 6.18 3.73-1.63-7z" />
+                                                            </symbol>
+                                                        </svg>
                                                     </div>
-                                                    <svg id="svg-sprite" xmlns="http://www.w3.org/2000/svg"
-                                                        viewBox="0 0 20 20" style="display: none;">
-                                                        <symbol id="star-icon">
-                                                            <title>star</title>
-                                                            <path
-                                                                d="M20 7h-7L10 .5 7 7H0l5.46 5.47-1.64 7 6.18-3.7 6.18 3.73-1.63-7z" />
-                                                        </symbol>
-                                                    </svg>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label>Your Review</label>
-                                                    <textarea class="form-control" cols="30" name="text" required rows="5"
-                                                        placeholder="Write your review"></textarea>
-                                                </div>
-                                                <input class="theme-btn btn" type="submit" value="Post Your Review"
-                                                    style="background-color: rgb(18, 174, 70); color:white;">
+                                                    <div class="form-group">
+                                                        <label>Your Review</label>
+                                                        <textarea class="form-control" cols="30" name="text" required rows="5"
+                                                            placeholder="Write your review"></textarea>
+                                                    </div>
+                                                    <input class="theme-btn btn" type="submit" value="Post Your Review"
+                                                        style="background-color: rgb(18, 174, 70); color:white;">
 
-                                            </form>
+                                                </form>
 
-                                        </div>
+                                            </div>
                                         @endif
 
                                     </div>
@@ -605,12 +609,12 @@
                                                         <p>
                                                             {{ $t->text }}
                                                         </p>
-                                                        @if (Auth::user()->id === $user->id  and !$edit==1)
+                                                        @if (Auth::user()->id === $user->id and !$edit == 1)
                                                             <a href="/teacher/tajriba/edit/{{ $t->id }}"
                                                                 class="btn btn-success" style=" font-size:15px;"><i
                                                                     class="far fa-edit"></i></a>
                                                         @endif
-                                                        @if (Auth::user()->id === $user->id  and !$edit==1)
+                                                        @if (Auth::user()->id === $user->id and !$edit == 1)
                                                             <a href="/teacher/tajriba/delete/{{ $t->id }}"
                                                                 class="btn btn-danger" style=" font-size:15px;"><i
                                                                     class="far fa-trash-alt"></i></a>
@@ -623,7 +627,7 @@
 
 
 
-                                            @if (Auth::user()->id === $user->id  and !$edit==1)
+                                            @if (Auth::user()->id === $user->id and !$edit == 1)
                                                 <a href="/teacher/tajriba/add/{{ $user->id }}"
                                                     class="btn btn-primary" style=" font-size:16px; padding:15px 0;">Add
                                                     new Experience</a>
@@ -651,12 +655,12 @@
                                                         <p>
                                                             {{ $e->text }}
                                                         </p>
-                                                        @if (Auth::user()->id === $user->id  and !$edit==1)
+                                                        @if (Auth::user()->id === $user->id and !$edit == 1)
                                                             <a href="/teacher/edu/edit/{{ $e->id }}"
                                                                 class="btn btn-success" style=" font-size:15px;"><i
                                                                     class="far fa-edit"></i></a>
                                                         @endif
-                                                        @if (Auth::user()->id === $user->id  and !$edit==1)
+                                                        @if (Auth::user()->id === $user->id and !$edit == 1)
                                                             <a href="/teacher/edu/delete/{{ $e->id }}"
                                                                 class="btn btn-danger" style=" font-size:15px;"><i
                                                                     class="far fa-trash-alt"></i></a>
@@ -664,7 +668,7 @@
                                                     </div>
                                                 </div>
                                             @endforeach
-                                            @if (Auth::user()->id === $user->id  and !$edit==1)
+                                            @if (Auth::user()->id === $user->id and !$edit == 1)
                                                 <a href="/teacher/edu/add/{{ $user->id }}" class="btn btn-primary"
                                                     style=" font-size:16px; padding:15px 0;">Add new Education</a>
                                             @endif

@@ -26,7 +26,7 @@
                   </p>
                  </div>
                  <div>
-                  <a href="admin/eduhub/add" class="btn btn-success btn-fw">Add</a>
+                  <a href="/admin/eduhub/add" class="btn btn-success btn-fw">Add</a>
 
                  </div>
              </div>

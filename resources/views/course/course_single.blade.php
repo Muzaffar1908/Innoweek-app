@@ -158,6 +158,12 @@
                 <img class="hero-shape-3" src="{{ asset('storage/img/shape/shape-3.png') }}" alt="">
                 <img class="hero-shape-4" src="{{ asset('storage/img/shape/shape-4.png') }}" alt="">
             </div>
+            @if (session('success'))
+            <div class="alert alert-success text-center" style="width: 100%; font-size:20px;color:rgb(255, 6, 6);font-weight:bold;">
+                {{ session('success') }}
+            </div>
+        @endif
+
             <div class="container">
                 <div class="col-lg-6">
                     <div class="course-single-header">
@@ -192,10 +198,10 @@
                                 <h6><span>
                                         <?
 
-                                                                            $date2=date_create($cource->teacher->created_at);
-                                                                            $d2=date_format($date2, ' jS F Y');
-                                                                            echo $d2
-                                                                            ?>
+                                                                                $date2=date_create($cource->teacher->created_at);
+                                                                                $d2=date_format($date2, ' jS F Y');
+                                                                                echo $d2
+                                                                                ?>
                                     </span> dan buyon</h6>
                             </div>
                         </div>
@@ -274,56 +280,19 @@
 
                                                             @foreach ($d->disc as $row)
                                                                 <li><i class="far fa-check"></i>
-                                                                    {{ $row->text }} &nbsp;
-                                                                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                                                                    @if (Auth::user()->id == $cource->user->id and $edit == 1)
-                                                                        <a
-                                                                            href="/course/desc_row/edit/{{ $row->id }}"><i
-                                                                                style=" font-size:15px; color:rgb(2, 139, 57))"
-                                                                                class="far fa-edit"></i></a>
-                                                                        <a
-                                                                            href="/course/desc_row/delete/{{ $row->id }}"><i
-                                                                                class="far fa-trash-alt "
-                                                                                style=" font-size:15px; color:red"></i></a>
-                                                                    @endif
+                                                                    {{ $row->text }}
+
                                                                 </li>
                                                             @endforeach
 
                                                         </ul>
-                                                        @if (Auth::user()->id == $cource->user->id and $edit == 1)
-                                                            <div class="alert alert-info">
 
-                                                                <li><i class="far fa-check"></i>Huddi shunday ko'rinishda
-                                                                    o'z
-                                                                    kursingiz afzalliklarin kiriting.
-                                                                    <a href="/course/desc_row/add/{{ $d->id }}/{{ $d->cours_id }}"
-                                                                        class="btn btn-info"
-                                                                        style="margin-left: 10px;">Add</a>
-                                                                </li>
-
-
-
-                                                            </div>
-                                                            <div>
-
-                                                                <a href="/course/desc/edit/{{ $d->id }}"
-                                                                    class="btn btn-info">Edit</a>
-                                                                <a href="/course/desc/delete/{{ $d->id }}"
-                                                                    class="btn btn-danger">Delete</a>
-
-                                                            </div>
-                                                        @endif
 
 
                                                     </div>
                                                 @endforeach
 
 
-                                                @if (Auth::user()->id == $cource->user->id and $edit == 1)
-                                                    <a href="/course/desc/add/{{ $cource->id }}"
-                                                        style="width: 100%; margin:20px 0; padding:15px 0;"
-                                                        class="btn btn-info"> Add new title and text</a>
-                                                @endif
 
 
 
@@ -398,40 +367,43 @@
                                                                 data-bs-parent="#accordionFlushExample">
                                                                 <div class="accordion-body">
                                                                     @foreach ($v->video as $d)
-                                                                        @if (($d->tip == 'free' or isset($buy)) and $d->dars_turi == 'Reading' and !(Auth::user()->id == $cource->user->id))
+                                                                        @if (($d->tip == 'free' or !($buy==null)) and
+                                                                            $d->dars_turi == 'Reading' and
+                                                                            !(isset(Auth::user()->id) and Auth::user()->id == $cource->user->id))
                                                                             <a href="{{ asset('storage/video/' . $d->v_name) }}"
                                                                                 download style="width:100%">
                                                                         @endif
                                                                         <div class="course-curriculum-item
                                                                         <?foreach ($d->watch as $k) {
-                                                                                if(isset($k->user_id) and $k->user_id== Auth::user()->id ){
+                                                                                if(isset($k->user_id) and $k->user_id== Auth::user()->id  and isset(Auth::user()->id)){
                                                                                         echo(' curriculum-completed');
                                                                                 }
                                                                             }?>
-                                                                    @if ($d->tip == 'free' or isset($buy))
+                                                                    @if ($d->tip == 'free' or  !($buy==null))
 curriculum-unlock
-@endif @if (($d->tip == 'free' or isset($buy)) and !($d->dars_turi == 'Reading'))
+@endif @if (($d->tip == 'free' or !($buy==null)) and !($d->dars_turi == 'Reading'))
 free_lesson
 @endif"
                                                                             src="{{ asset('storage/video/' . $d->v_name) }}">
                                                                             <div class="course-curriculum-left">
                                                                                 <h6>
                                                                                     <span>
-                                                                                    <?foreach ($d->watch as $k) {
-                                                                                        if($k->user_id==Auth::user()->id ){
-                                                                                            echo(' <i class="fad fa-check-circle"></i>');
-                                                                                        };
+                                                                                        <?foreach ($d->watch as $k) {
+                                                                                            if($k->user_id==Auth::user()->id and isset(Auth::user()->id)){
+                                                                                                echo(' <i class="fad fa-check-circle"></i>');
+                                                                                            };
 
-                                                                                    }?>
-                                                                                    @if ($d->dars_turi == 'Video')
-                                                                                        <i class="fad fa-play-circle"></i>
-                                                                                    @endif
-                                                                                    @if ($d->dars_turi == 'Audio')
-                                                                                        <i class="fad fa-volume"></i>
-                                                                                    @endif
-                                                                                    @if ($d->dars_turi == 'Reading')
-                                                                                        <i class="fad fa-file-alt"></i>
-                                                                                    @endif
+                                                                                        }?>
+                                                                                        @if ($d->dars_turi == 'Video')
+                                                                                            <i
+                                                                                                class="fad fa-play-circle"></i>
+                                                                                        @endif
+                                                                                        @if ($d->dars_turi == 'Audio')
+                                                                                            <i class="fad fa-volume"></i>
+                                                                                        @endif
+                                                                                        @if ($d->dars_turi == 'Reading')
+                                                                                            <i class="fad fa-file-alt"></i>
+                                                                                        @endif
 
 
                                                                                     </span> {{ $d->name }}
@@ -439,20 +411,14 @@ free_lesson
                                                                             </div>
                                                                             <div class="course-curriculum-right">
                                                                                 <span class="course-curriculum-lock">
-                                                                                    @if ($d->tip == 'free' or isset($buy) and $d->tip == 'premmum')
+                                                                                    @if ($d->tip == 'free' or !($buy==null) and $d->tip == 'premmum')
                                                                                         <i class="fad fa-unlock"></i>
                                                                                     @endif
-                                                                                    @if ($d->tip == 'premmum' and !isset($buy))
+                                                                                    @if ($d->tip == 'premmum' and ($buy==null))
                                                                                         <i class="fad fa-lock"></i>
                                                                                     @endif
 
-                                                                                    @if (Auth::user()->id == $cource->user->id and $edit == 1)
-                                                                                    <a href="/course/lesson/edit/{{$d->id}}"><i
-                                                                                            style=" font-size:15px; color:rgb(2, 139, 57))"
-                                                                                            class="far fa-edit"></i></a>
-                                                                                    <a href="/course/lesson/delete/{{$d->id}}"><i class="far fa-trash-alt "
-                                                                                            style=" font-size:15px; color:red"></i></a>
-                                                                                @endif
+
 
                                                                                 </span>
 
@@ -460,32 +426,19 @@ free_lesson
 
                                                                             </div>
                                                                         </div>
-                                                                        @if (($d->tip == 'free' or isset($buy)) and $d->dars_turi == 'Reading' and !(Auth::user()->id == $cource->user->id))
+                                                                        @if (isset(Auth::user()->id) and ($d->tip == 'free' or !($buy==null)) and
+                                                                            $d->dars_turi == 'Reading' and
+                                                                            !(Auth::user()->id == $cource->user->id))
                                                                             </a>
                                                                         @endif
                                                                     @endforeach
-                                                                    @if (Auth::user()->id == $cource->user->id and $edit == 1)
-                                                                    <a href="/course/lesson/add/{{ $cource->id }}/{{ $v->id }}"
-                                                                        style=""
-                                                                        class="btn btn-info">Add a new lesson</a>
 
-                                                                        <a href="/course/les_lev/edit/{{$v->id}}"   class="btn btn-success"><i
-
-                                                                                class="far fa-edit"></i> Edit a lesson lavel</a>
-                                                                        <a href="/course/les_lev/delete/{{$v->id}}" class="btn btn-danger">
-                                                                            <i class="far fa-trash-alt " ></i> Delete a lesson level</a>
-
-                                                                @endif
 
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     @endforeach
-                                                    @if (Auth::user()->id == $cource->user->id and $edit == 1)
-                                                        <a href="/course/les_lev/add/{{ $cource->id }}"
-                                                            style="width: 100%; margin:20px 0; padding:15px 0;"
-                                                            class="btn btn-info">Add a new lesson level</a>
-                                                    @endif
+
 
 
                                                 </div>
@@ -525,7 +478,9 @@ free_lesson
                                                             Enrolled</span>
                                                     </div>
                                                     <p>
-                                                        {{ substr($user->ins_about->text, 0, 70) }}
+                                                        @if (isset($user->ins_about->text))
+                                                            {{ substr($user->ins_about->text, 0, 70) }}
+                                                        @endif
                                                     </p>
                                                 </div>
                                             </a>
@@ -656,7 +611,7 @@ free_lesson
                                                                         <h6>{{ $sh->user->name }}</h6>
                                                                         <span><i
                                                                                 class="far fa-clock"></i><? $date2=date_create($sh->created_at);
-                                                                                                                $d2=date_format($date2, 'G:ia jS F Y');echo $d2?></span>
+                                                                                                                    $d2=date_format($date2, 'G:ia jS F Y');echo $d2?></span>
                                                                     </div>
                                                                     <div class="instructor-review-author-rating">
                                                                         @for ($i = 0; round($sh->reyting) > $i; $i++)
@@ -678,10 +633,10 @@ free_lesson
 
 
                                                 </div>
-                                                @if (!(Auth::user()->id == $user->id))
+                                                @if (!($auth == $user->id))
                                                     <div class="instructor-review-form">
                                                         <h5>Leave A Review</h5>
-                                                        <form action="/cource/sharx/{{ Auth::user()->id }}"
+                                                        <form action="/cource/sharx/{{ $auth }}"
                                                             class="" method="POST" id="my-form-2">
                                                             @csrf
                                                             <div class="form-group">
@@ -742,10 +697,18 @@ free_lesson
                                                                 <textarea class="form-control" cols="30" name="text" required rows="5"
                                                                     placeholder="Write your review"></textarea>
                                                             </div>
+                                                            @if (isset(Auth()->user()->id))
                                                             <input class="theme-btn btn" type="submit"
-                                                                value="Post Your Review"
-                                                                style="background-color: rgb(18, 174, 70); color:white;">
+                                                            value="Post Your Review"
+                                                            style="background-color: rgb(18, 174, 70); color:white;">
+                                                            @endif
+                                                            @if (!isset(auth()->user()->id))
 
+
+                                                            <a href="/signin" class="theme-btn btn" type="submit"
+                                                                value=""
+                                                                style="background-color: rgb(18, 174, 70); color:white;">Post Your Review </a>
+                                                                @endif
                                                         </form>
 
                                                     </div>
@@ -777,27 +740,26 @@ free_lesson
                                     @endif
                                 </div>
 
-                                @if (!(Auth::user()->id == $user->id))
-                                    <a href="#" class="theme-btn"> <span class="far fa-shopping-cart"></span> Add
-                                        To
-                                        Cart
+                                @if (isset(Auth::user()->id) and !(Auth::user()->id == $user->id) and Auth::user()->uroven=='student' and ($buy==null ))
+                                    <a href="/card/add/{{$cource->id}}/{{$auth}}" class="theme-btn"> <span class="far fa-shopping-cart"></span> Add To Cart
                                     </a>
                                 @endif
-                                @if (Auth::user()->id == $user->id and $edit == 0)
-                                    <a href="/course-single/{{ $cource->id }}/{{ $cource->id - 1 }}" class="theme-btn"
-                                        style="background-color: rgba(26, 169, 55, 0.752);"> <span
-                                            class="far fa-edit"></span> Edit course </a>
+                                @if (!isset(Auth::user()->id))
+                                <a href="/signin" class="theme-btn"> <span class="far fa-shopping-cart"></span> Add To Cart
+                                </a>
+                            @endif
+
+                            @if (isset(Auth::user()->id) and Auth::user()->id == $user->id)
+                            <a href="/course-single/edit/{{ $cource->id }}" class="theme-btn"
+                                style="background-color: rgba(26, 169, 55, 0.752);"> <span
+                                    class="far fa-edit"></span> Edit course </a>
+                                    @if ($cource->admin==0)
                                     <a href="" class="theme-btn"
-                                        style="background-color: rgb(35, 17, 147);">Sotuvga chiqarishga ariza berish.</a>
-                                @endif
-                                @if (Auth::user()->id == $user->id and $edit == 1)
-                                    <a href="/course/edit/{{ $cource->id}}" class="theme-btn"
-                                        style="background-color: rgba(26, 169, 55, 0.752);"> <span
-                                            class="far fa-edit"></span> Edit cource name </a>
-                                    <a href="/course-single/{{ $cource->id }}/{{ $cource->id }}" class="theme-btn"
-                                        style="background-color: rgb(70, 48, 216);">
-                                        Save and Back</a>
-                                @endif
+                                    style="background-color: rgb(35, 17, 147);">Sotuvga chiqarishga ariza berish.</a>
+                                    @endif
+
+                        @endif
+
                                 <div class="course-single-more-info">
                                     <ul>
                                         <li><i class="fad fa-user"></i> Instructor:
@@ -822,38 +784,17 @@ free_lesson
                                         @foreach ($includes as $i)
                                             <li><i class="fad fa-check-circle"></i>
                                                 {{ $i->text }}
-                                                @if (Auth::user()->id == $cource->user->id and $edit == 1)
-                                                    <a href="/course/includes/edit/{{ $i->id }}"><i
-                                                            style=" font-size:15px; color:rgb(2, 139, 57))"
-                                                            class="far fa-edit"></i></a>
-                                                    <a href="/course/includes/delete/{{ $i->id }}"><i
-                                                            class="far fa-trash-alt "
-                                                            style=" font-size:15px; color:red"></i></a>
-                                                @endif
+
 
                                             </li>
                                         @endforeach
-                                        @if ($includes == null and Auth::user()->id == $cource->user->id and $edit == 1)
-                                            <div class="alert alert-info">
-                                                <li><i class="fad fa-check-circle"></i>Huddi shunday ko'rinishda o'z
-                                                    kursingiz afzalliklarin kiriting.</li>
-                                                <div>
-                                                    <a href="/course/includes/add/{{ $cource->id }}"
-                                                        class="btn btn-info"
-                                                        style="margin-bottom: 10px; width:100%">Add</a>
-                                                </div>
 
-                                            </div>
-                                        @endif
 
 
 
 
                                     </ul>
-                                    @if (Auth::user()->id == $cource->user->id and $edit == 1)
-                                        <a href="/course/includes/add/{{ $cource->id }}" style="width: 100%"
-                                            class="btn btn-info" style="margin-bottom: 10px;">Add</a>
-                                    @endif
+
 
 
 

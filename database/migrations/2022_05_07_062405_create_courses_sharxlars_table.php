@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('cours_id');
             $table->string('user_id');
             $table->string('reyting');
-            $table->string('sharx');
+            $table->text('sharx');
             $table->timestamps();
         });
     }

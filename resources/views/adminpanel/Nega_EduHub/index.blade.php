@@ -44,7 +44,7 @@
                                         <tr>
                                             <th>{{ $loop->index + 1 }}</th>
                                             <td>
-                                                <h4>{{ substr($cat->title,0, 20 )}}...
+                                                <h4>{{ $cat->title}}
                                                 </h4>
                                             </td>
                                             <td>
