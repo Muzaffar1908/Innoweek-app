@@ -688,8 +688,6 @@ label {
     transition: all .5s ease-in-out
 }
 
-
-
 .header-top {
     padding: 8px 0;
     position: relative;
@@ -1134,7 +1132,7 @@ button.navbar-toggler:focus {
 
 .hero-section {
     position: relative;
-    overflow: hidden
+    overflow: hidden;
 }
 
 .hero-single {
