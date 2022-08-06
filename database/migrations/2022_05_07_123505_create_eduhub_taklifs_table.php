@@ -15,7 +15,8 @@ return new class extends Migration
     {
         Schema::create('eduhub_taklifs', function (Blueprint $table) {
             $table->id();
-            $table->string('user_id');
+            $table->text('mavzu');
+            $table->string('watch');
             $table->string('uroven');
             $table->text('text');
             $table->timestamps();

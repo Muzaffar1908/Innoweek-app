@@ -1,30 +1,11 @@
 @extends('layauts.app')
 @section('links')
-    <title>Eduhub - Education And LMS HTML5 Template</title>
-    <link rel="icon" type="image/x-icon" href="assets/img/logo/favicon.png">
 
-  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/all-fontawesome.min.css">
-    <link rel="stylesheet" href="assets/css/animate.min.css">
-    <link rel="stylesheet" href="assets/css/magnific-popup.min.css">
-    <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
-    <link rel="stylesheet" href="assets/css/style.css">
     <style>
-        .ui-datepicker-calendar {
-            display: none;
-        }
+
         </style>
 @endsection("links")
 @section('content')
-    <div class="search-popup">
-        <button class="close-search"><span class="far fa-times"></span></button>
-        <form action="#">
-            <div class="form-group">
-                <input type="search" name="search-field" placeholder="Search Here..." required>
-                <button type="submit"><i class="far fa-search"></i></button>
-            </div>
-        </form>
-    </div>
 
     <main class="main">
 
@@ -98,46 +79,31 @@
         </div>
 
     </main>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.js"></script>
 
 
-    <script>
-        $(document).ready(function(){
-          $(".datepicker").datepicker({
-             format: "yyyy",
-             viewMode: "years",
-             minViewMode: "years",
-             autoclose:true
-          });
-        })
-
-
-        </script>
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
-    <script src="assets/js/jquery-3.6.0.min.js"></script>
-    <script src="assets/js/modernizr.min.js"></script>
-    <script src="assets/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/js/imagesloaded.pkgd.min.js"></script>
-    <script src="assets/js/jquery.magnific-popup.min.js"></script>
-    <script src="assets/js/isotope.pkgd.min.js"></script>
-    <script src="assets/js/jquery.appear.min.js"></script>
-    <script src="assets/js/jquery.easing.min.js"></script>
-    <script src="assets/js/owl.carousel.min.js"></script>
-    <script src="assets/js/counter-up.js"></script>
-    <script src="assets/js/masonry.pkgd.min.js"></script>
-    <script src="assets/js/wow.min.js"></script>
-    <script src="assets/js/main.js"></script>
-
-
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.2.0/css/datepicker.min.css" rel="stylesheet">
-
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-    <script src="https://netdna.bootstrapcdn.com/bootstrap/2.3.2/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.2.0/js/bootstrap-datepicker.min.js"></script>
 
 
     <a href="#" id="scroll-top"><i class="far fa-angle-double-up"></i></a>
 @endsection('content')
 @section('scripts')
+
+<script>
+    $(document).ready(function(){
+      $(".datepicker").datepicker({
+         format: "yyyy",
+         viewMode: "years",
+         minViewMode: "years",
+         autoclose:true
+      });
+    })
+
+
+    </script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.js"></script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.2.0/css/datepicker.min.css" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="https://netdna.bootstrapcdn.com/bootstrap/2.3.2/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.2.0/js/bootstrap-datepicker.min.js"></script>
+
 @endsection('scripts')

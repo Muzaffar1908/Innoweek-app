@@ -48,13 +48,13 @@
                                             <td> {{ $loop->index + 1 }} </td>
                                             <td>
                                                 <p>
-                                                    {{ substr($eduhub->title, 0, 26) }}...
+                                                    {{ substr($eduhub->title, 0, 26) }}
                                                 </p>
 
                                             </td>
                                             <td>
                                                 <p>
-                                                    {{ substr($eduhub->title, 0, 50) }}...
+                                                    {{ substr($eduhub->text, 0, 50) }}...
                                                 </p>
 
                                             </td>

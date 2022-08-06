@@ -37,135 +37,17 @@
         <div class="instructor-area py-120">
             <div class="container">
                 <div class="row">
+                    @foreach ($teacher as $teach)
                     <div class="col-md-6 col-lg-4 col-xl-3">
                         <div class="instructor-item">
                             <div class="instructor-img">
-                                <a href="/instructor-single"><img src="{{asset("storage/img/instructor/01.jpg")}}" alt="img"></a>
-                            </div>
-                            <div class="instructor-content">
-                                <span class="instructor-tag">Developer</span>
-                                <a href="/instructor-single" class="d-block">
-                                    <h5 class="instructor-name">Hector S. Nickel</h5>
-                                </a>
-                                <div class="instructor-rate">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <span>(22 Reviews)</span>
-                                </div>
-                                <span class="instructor-enroll"><i class="far fa-user-friends"></i> 7.9k Students
-                                    Enrolled</span>
-                                <div class="instructor-social">
-                                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                                    <a href="#"><i class="fab fa-twitter"></i></a>
-                                    <a href="#"><i class="fab fa-instagram"></i></a>
-                                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                                    <a href="#"><i class="fab fa-behance"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4 col-xl-3">
-                        <div class="instructor-item">
-                            <div class="instructor-img">
-                                <a href="#"><img src="{{asset("storage/img/instructor/02.jpg")}}" alt="img"></a>
-                            </div>
-                            <div class="instructor-content">
-                                <span class="instructor-tag">Designer</span>
-                                <a href="/instructor-single" class="d-block">
-                                    <h5 class="instructor-name">Mary D. Musser</h5>
-                                </a>
-                                <div class="instructor-rate">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <span>(22 Reviews)</span>
-                                </div>
-                                <span class="instructor-enroll"><i class="far fa-user-friends"></i> 1.5k Students
-                                    Enrolled</span>
-                                <div class="instructor-social">
-                                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                                    <a href="#"><i class="fab fa-twitter"></i></a>
-                                    <a href="#"><i class="fab fa-instagram"></i></a>
-                                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                                    <a href="#"><i class="fab fa-behance"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4 col-xl-3">
-                        <div class="instructor-item">
-                            <div class="instructor-img">
-                                <a href="#"><img src="{{asset("storage/img/instructor/03.jpg")}}" alt="img"></a>
-                            </div>
-                            <div class="instructor-content">
-                                <span class="instructor-tag">Marketer</span>
-                                <a href="#" class="d-block">
-                                    <h5 class="instructor-name">Jean K. Avendano</h5>
-                                </a>
-                                <div class="instructor-rate">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <span>(22 Reviews)</span>
-                                </div>
-                                <span class="instructor-enroll"><i class="far fa-user-friends"></i> 5.6k Students
-                                    Enrolled</span>
-                                <div class="instructor-social">
-                                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                                    <a href="#"><i class="fab fa-twitter"></i></a>
-                                    <a href="#"><i class="fab fa-instagram"></i></a>
-                                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                                    <a href="#"><i class="fab fa-behance"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4 col-xl-3">
-                        <div class="instructor-item">
-                            <div class="instructor-img">
-                                <a href="#"><img src="{{asset("storage/img/instructor/04.jpg")}}" alt="img"></a>
-                            </div>
-                            <div class="instructor-content">
-                                <span class="instructor-tag">Adobe</span>
-                                <a href="#" class="d-block">
-                                    <h5 class="instructor-name">Karin M. Chumley</h5>
-                                </a>
-                                <div class="instructor-rate">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <span>(22 Reviews)</span>
-                                </div>
-                                <span class="instructor-enroll"><i class="far fa-user-friends"></i> 2.5k Students
-                                    Enrolled</span>
-                                <div class="instructor-social">
-                                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                                    <a href="#"><i class="fab fa-twitter"></i></a>
-                                    <a href="#"><i class="fab fa-instagram"></i></a>
-                                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                                    <a href="#"><i class="fab fa-behance"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4 col-xl-3">
-                        <div class="instructor-item">
-                            <div class="instructor-img">
-                                <a href="#"><img src="assets/img/instructor/01.jpg" alt="img"></a>
+                                <a href="#"><img src="{{ asset('storage/user/' . $teach->img) }}"
+                                        alt="img"></a>
                             </div>
                             <div class="instructor-content">
                                 <span class="instructor-tag">Developer</span>
                                 <a href="#" class="d-block">
-                                    <h5 class="instructor-name">Hector S. Nickel</h5>
+                                    <h5 class="instructor-name">{{ $teach->name }}</h5>
                                 </a>
                                 <div class="instructor-rate">
                                     <i class="fas fa-star"></i>
@@ -173,110 +55,35 @@
                                     <i class="fas fa-star"></i>
                                     <i class="fas fa-star"></i>
                                     <i class="fas fa-star"></i>
-                                    <span>(22 Reviews)</span>
+                                    <span>({{ $teach->ins_sharx_count }} {{ __('till.istructor-sharx') }})</span>
                                 </div>
-                                <span class="instructor-enroll"><i class="far fa-user-friends"></i> 7.9k Students
-                                    Enrolled</span>
+                                <span class="instructor-enroll"><i class="far fa-user-friends"></i>
+                                    {{ $teach->students_count }}{{ __('till.instructor-count') }}</span>
                                 <div class="instructor-social">
-                                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                                    <a href="#"><i class="fab fa-twitter"></i></a>
-                                    <a href="#"><i class="fab fa-instagram"></i></a>
-                                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                                    <a href="#"><i class="fab fa-behance"></i></a>
+                                    @foreach ($teach->link as $url)
+                                        @if (isset($url->telegram))
+                                            <a href="{{ $url->telegram }}"><i class="fab fa-telegram"></i></a>
+                                        @endif
+                                        @if (isset($url->facebook))
+                                            <a href="{{ $url->facebook }}"><i class="fab fa-facebook-f"></i></a>
+                                        @endif
+                                        @if (isset($url->instagram))
+                                            <a href="{{ $url->instagram }}"><i class="fab fa-instagram"></i></a>
+                                        @endif
+
+                                        @if (isset($url->youtube))
+                                            <a href="{{ $url->youtube }}"><i class="fab fa-youtube"></i></a>
+                                        @endif
+                                    @endforeach
+
+
+
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6 col-lg-4 col-xl-3">
-                        <div class="instructor-item">
-                            <div class="instructor-img">
-                                <a href="#"><img src="assets/img/instructor/02.jpg" alt="img"></a>
-                            </div>
-                            <div class="instructor-content">
-                                <span class="instructor-tag">Designer</span>
-                                <a href="#" class="d-block">
-                                    <h5 class="instructor-name">Mary D. Musser</h5>
-                                </a>
-                                <div class="instructor-rate">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <span>(22 Reviews)</span>
-                                </div>
-                                <span class="instructor-enroll"><i class="far fa-user-friends"></i> 1.5k Students
-                                    Enrolled</span>
-                                <div class="instructor-social">
-                                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                                    <a href="#"><i class="fab fa-twitter"></i></a>
-                                    <a href="#"><i class="fab fa-instagram"></i></a>
-                                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                                    <a href="#"><i class="fab fa-behance"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4 col-xl-3">
-                        <div class="instructor-item">
-                            <div class="instructor-img">
-                                <a href="#"><img src="assets/img/instructor/03.jpg" alt="img"></a>
-                            </div>
-                            <div class="instructor-content">
-                                <span class="instructor-tag">Marketer</span>
-                                <a href="#" class="d-block">
-                                    <h5 class="instructor-name">Jean K. Avendano</h5>
-                                </a>
-                                <div class="instructor-rate">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <span>(22 Reviews)</span>
-                                </div>
-                                <span class="instructor-enroll"><i class="far fa-user-friends"></i> 5.6k Students
-                                    Enrolled</span>
-                                <div class="instructor-social">
-                                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                                    <a href="#"><i class="fab fa-twitter"></i></a>
-                                    <a href="#"><i class="fab fa-instagram"></i></a>
-                                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                                    <a href="#"><i class="fab fa-behance"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4 col-xl-3">
-                        <div class="instructor-item">
-                            <div class="instructor-img">
-                                <a href="#"><img src="assets/img/instructor/04.jpg" alt="img"></a>
-                            </div>
-                            <div class="instructor-content">
-                                <span class="instructor-tag">Adobe</span>
-                                <a href="#" class="d-block">
-                                    <h5 class="instructor-name">Karin M. Chumley</h5>
-                                </a>
-                                <div class="instructor-rate">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <span>(22 Reviews)</span>
-                                </div>
-                                <span class="instructor-enroll"><i class="far fa-user-friends"></i> 2.5k Students
-                                    Enrolled</span>
-                                <div class="instructor-social">
-                                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                                    <a href="#"><i class="fab fa-twitter"></i></a>
-                                    <a href="#"><i class="fab fa-instagram"></i></a>
-                                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                                    <a href="#"><i class="fab fa-behance"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                @endforeach
+
                 </div>
             </div>
         </div>

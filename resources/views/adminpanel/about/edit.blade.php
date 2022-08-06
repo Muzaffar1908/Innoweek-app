@@ -37,6 +37,10 @@
                 <textarea name="text_en" class="form-control" id="" cols="30" rows="5">{{$ne->title}}</textarea>
                 <textarea name="text_ru" class="form-control" id="" cols="30" rows="5">{{$nr->title}}</textarea>
               </div>
+              <div class="form-group">
+                <label for="exampleInputName1">Image</label>
+            <input type="file" name="img" class="form-control" id="">   ]
+          </div>
 
             <button type="submit" class="btn btn-primary mr-2">Save</button>
             <a href="/admin/services" class="btn btn-dark">Cancel</a>

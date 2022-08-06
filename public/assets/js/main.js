@@ -75,6 +75,8 @@ Version         : 1.0
 
 
 
+
+
     // partner-slider
     $('.partner-slider').owlCarousel({
         loop: true,

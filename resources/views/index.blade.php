@@ -9,11 +9,25 @@
     <link rel="stylesheet" href="{{ asset('assets/css/magnific-popup.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/owl.carousel.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+    <style>
+        .search-ul2 {
+            background-color: rgba(222, 222, 222, 0.462);
+            position: absolute;
+            width: 100%;
+
+            z-index: 9:top:-50px;
+        }
+
+        .search-ul2 li:hover {
+            background-color: #fff;
+            color: #018c75;
+        }
+    </style>
 @endsection("links")
 @section('content')
     <main class="home-3 main">
 
-        <div class="hero-section">
+        <div class="hero-section" style=" overflow:inherit;">
             <div class="hero-single">
                 <div class="hero-shape-area">
                     <img class="hero-shape-1" src="{{ asset('storage/img/shape/shape-1.png') }}" alt="">
@@ -35,15 +49,24 @@
                                         data-wow-delay=".75s">
                                         {{ $h->text }} </p>
                                     <div class="hero-search">
-                                        <form action="#">
+                                        <form action="/search" method="get">
+                                            @csrf
                                             <div class="form-group">
                                                 <i class="far fa-search"></i>
-                                                <input type="text" class="form-control"
+                                                <input type="text" required name="search" id="search2"
+                                                    class="form-control " style="position:relative"
                                                     placeholder="{{ __('till.h-t-plhc') }}">
+
                                                 <button type="submit">{{ __('till.search') }}</button>
+                                                <ul class="search-ul2">
+
+                                                </ul>
                                             </div>
+
                                         </form>
+
                                     </div>
+
                                 </div>
                             </div>
                             <div class="col-md-6 col-lg-6">
@@ -71,10 +94,10 @@
                     <?$color=1?>
                     @foreach ($category as $cat)
                         <div class="mt-4">
-                            <a href="#" class="d-block">
+                            <a href="courses/{{ $cat->id }}" class="d-block">
                                 <div class="category-item category-color-{{ $color }}">
                                     <div class="category-item-icon">
-                                        <i class="fad fa-laptop-code"></i>
+                                        <i class="{{ $cat->icon }}"></i>
                                     </div>
                                     <div class="category-item-content">
                                         <h6>{{ $cat->name }}</h6>
@@ -84,10 +107,10 @@
                             </a>
                         </div>
                         <?$color=$color+1;
-                                    if($color==8){
-                                        $color=1;
-                                    }
-                                    ?>
+                                                    if($color==8){
+                                                        $color=1;
+                                                    }
+                                                    ?>
                     @endforeach
 
 
@@ -109,92 +132,89 @@
                 </div>
                 <div class="row courc_ajax">
                     @foreach ($cources as $cource)
-<div class="col-md-6 col-lg-6 col-xl-4">
-    <div class="course-item">
-        <span class="course-tag course-tag-1">{{ $cource->uroven }}</span>
-        <div class="course-img">
-            <a href="/course-single/{{ $cource->id }}" style="width:100%">
+                        <div class="col-md-6 col-lg-6 col-xl-4">
+                            <div class="course-item">
+                                <span class="course-tag course-tag-1">{{ $cource->uroven }}</span>
+                                <div class="course-img">
+                                    <a href="/course-single/{{ $cource->id }}" style="width:100%">
 
-                <img
-                    src="{{ asset('storage/course/' . $cource->img) }}"
-                    alt="" style="width:100%;height:230px"></a>
-        </div>
-        <div class="course-content">
-            <div class="course-meta">
-                <span class="course-category course-category-1">
-                    @if (app()->getLocale('lang') === 'en')
-                        {{ $cource->category_en->name }}
-                    @elseif (app()->getLocale('lang') === 'ru')
-                        {{ $cource->category_ru->name }}
-                    @else
-                        {{ $cource->category_uz->name }}
-                    @endif
-
-
-                </span>
-                <div class="course-rate">
-
-                    @for ($i = 0; round($cource->sharxlar_avg_reyting) > $i; $i++)
-                        <i class="fas fa-star"></i>
-                    @endfor
-                    @for ($i = 0; 5 - round($cource->sharxlar_avg_reyting) > $i; $i++)
-                        <i class="far fa-star"></i>
-                    @endfor
+                                        <img src="{{ asset('storage/course/' . $cource->img) }}" alt=""
+                                            style="width:100%;height:230px"></a>
+                                </div>
+                                <div class="course-content">
+                                    <div class="course-meta">
+                                        <span class="course-category course-category-1">
+                                            @if (app()->getLocale('lang') === 'en')
+                                                {{ $cource->category_en->name }}
+                                            @elseif (app()->getLocale('lang') === 'ru')
+                                                {{ $cource->category_ru->name }}
+                                            @else
+                                                {{ $cource->category_uz->name }}
+                                            @endif
 
 
-                    <span>({{ $cource->sharxlar_count }})</span>
-                </div>
-            </div>
-            <a href="/course-single/{{ $cource->id }}">
-                <h4 class="course-title">
-                    {{ substr($cource->name, 0, 52) }}
-                    @if (strlen($cource->name) > 52)
-                        ...
-                    @endif
-                </h4>
-            </a>
-            <div class="course-info">
-                <ul>
-                    <li class="course-lecture"><i
-                            class="fad fa-book-open"></i>{{ $cource->count }}
-                        Lectures</li>
-                    <li class="course-duration"><i
-                            class="fad fa-clock"></i>{{ $cource->lenght }}
-                        Hours</li>
-                    <li class="course-enrolled"><i
-                            class="fad fa-user-friends"></i>{{ $cource->students_count }}
-                        Enrolled
-                    </li>
-                </ul>
-            </div>
-            <div class="course-bottom">
-                <a
-                    href="/instructor-single/{{ $cource->user->id }}/{{ $cource->user->id }}">
-                    <div class="course-instructor">
-                        <img src="{{ asset('storage/user/' . $cource->user->img) }}"
-                            alt="">
-                        <h6>{{ $cource->teacher->name }}
-                            {{ $cource->teacher->sname }}</h6>
-                    </div>
-                </a>
-                <div class="course-price">
-                    <del>
-                        @if ($cource->eski_narx > $cource->narx)
-                            $
-                            {{ $cource->eski_narx }}
-                        @endif
-                    </del> <span>${{ $cource->narx }}</span>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-@endforeach
+                                        </span>
+                                        <div class="course-rate">
+
+                                            @for ($i = 0; round($cource->sharxlar_avg_reyting) > $i; $i++)
+                                                <i class="fas fa-star"></i>
+                                            @endfor
+                                            @for ($i = 0; 5 - round($cource->sharxlar_avg_reyting) > $i; $i++)
+                                                <i class="far fa-star"></i>
+                                            @endfor
+
+
+                                            <span>({{ $cource->sharxlar_count }})</span>
+                                        </div>
+                                    </div>
+                                    <a href="/course-single/{{ $cource->id }}">
+                                        <h4 class="course-title">
+                                            {{ substr($cource->name, 0, 52) }}
+                                            @if (strlen($cource->name) > 52)
+                                                ...
+                                            @endif
+                                        </h4>
+                                    </a>
+                                    <div class="course-info">
+                                        <ul>
+                                            <li class="course-lecture"><i
+                                                    class="fad fa-book-open"></i>{{ $cource->count }}
+                                                Lectures</li>
+                                            <li class="course-duration"><i class="fad fa-clock"></i>{{ $cource->lenght }}
+                                                Hours</li>
+                                            <li class="course-enrolled"><i
+                                                    class="fad fa-user-friends"></i>{{ $cource->students_count }}
+                                                Enrolled
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="course-bottom">
+                                        <a href="/instructor-single/{{ $cource->user->id }}/{{ $cource->user->id }}">
+                                            <div class="course-instructor">
+                                                <img src="{{ asset('storage/user/' . $cource->user->img) }}"
+                                                    alt="">
+                                                <h6>{{ $cource->teacher->name }}
+                                                    {{ $cource->teacher->sname }}</h6>
+                                            </div>
+                                        </a>
+                                        <div class="course-price">
+                                            <del>
+                                                @if ($cource->eski_narx > $cource->narx)
+                                                    $
+                                                    {{ $cource->eski_narx }}
+                                                @endif
+                                            </del> <span>${{ $cource->narx }}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
 
                 </div>
                 <div class="ajax_load text-center">
-                    <p><img src="{{ asset('assets/img/loader/1.webp') }}" style="width:150px;margin-top:30px;display:none"
-                            alt=""></p>
+                    <p><img src="{{ asset('assets/img/loader/1.webp') }}"
+                            style="width:150px;margin-top:30px;display:none" alt=""></p>
                 </div>
                 <form action="" method="get">
                     @csrf
@@ -227,7 +247,8 @@
                         <div class="col-md-6 col-lg-3">
 
                             <div class="feature-item feature-item-bg-{{ $n_color }}" style="height: 100%">
-                                <div class="feature-icon">
+                                <div class="feature-icon feature-icon-{{ $n_color }} text-center"
+                                    style="width: 100px; padding:20px 20px">
                                     <i class="{{ $n->icon }}"></i>
                                 </div>
                                 <div class="feature-content">
@@ -518,7 +539,7 @@
                     url: "?page=" + page,
                     datatype: "html",
                     type: "get",
-                  beforeSend: function() {
+                    beforeSend: function() {
                         $('.ajax_load').show();
                     }
 
@@ -558,16 +579,41 @@
     <a href="#" id="scroll-top"><i class="far fa-angle-double-up"></i></a>
 @endsection("content")
 @section('scripts')
-    <script src="assets/js/modernizr.min.js"></script>
-    <script src="assets/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/js/imagesloaded.pkgd.min.js"></script>
-    <script src="assets/js/jquery.magnific-popup.min.js"></script>
-    <script src="assets/js/isotope.pkgd.min.js"></script>
-    <script src="assets/js/jquery.appear.min.js"></script>
-    <script src="assets/js/jquery.easing.min.js"></script>
-    <script src="assets/js/owl.carousel.min.js"></script>
-    <script src="assets/js/counter-up.js"></script>
-    <script src="assets/js/masonry.pkgd.min.js"></script>
-    <script src="assets/js/wow.min.js"></script>
-    <script src="assets/js/main.js"></script>
+
+
+    <script>
+        $(document).ready(function() {
+
+
+            $('#search2').on('keyup', function() {
+                var query = $(this).val();
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+                $.ajax({
+
+                    url: "{{ route('employee.search') }}",
+
+                    type: "GET",
+
+                    data: {
+                        'country': query
+                    },
+
+                    success: function(data) {
+
+                        $('.search-ul2').html(data);
+                    }
+                })
+                // end of ajax call
+            });
+
+
+            $(document).on('click', function() {
+                $('.search-ul2').html("");
+            });
+        });
+    </script>
 @endsection("scripts")

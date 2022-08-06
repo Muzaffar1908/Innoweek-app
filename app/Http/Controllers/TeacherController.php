@@ -447,6 +447,9 @@ public function lesson_save(Request $req)
             'davomiylik' => 'required',
         ]);
         if ($req->hasFile('img')) {
+            $data = $req->validate([
+                'img' => 'required|mimes:jpeg,png,jpg,gif'
+            ]);
             $filemodel = $req->file('img');
             $fileNameWithExt = $filemodel->getClientOriginalName();
             $filename = pathinfo($fileNameWithExt, PATHINFO_FILENAME);

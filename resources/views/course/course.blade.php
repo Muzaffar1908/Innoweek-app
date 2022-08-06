@@ -16,15 +16,7 @@
 @endsection("links")
 
 @section("content")
-       <div class="search-popup">
-        <button class="close-search"><span class="far fa-times"></span></button>
-        <form action="#">
-            <div class="form-group">
-                <input type="search" name="search-field" placeholder="Search Here..." required>
-                <button type="submit"><i class="far fa-search"></i></button>
-            </div>
-        </form>
-    </div>
+
 
     <main class="main">
 
@@ -57,276 +49,101 @@
                     </div>
                 </div>
                 <div class="filter-controls">
-                    <ul class="filter-btns">
+                    <ul class="filter-btns ">
                         <li class="active" data-filter="*">See All</li>
                         <li data-filter=".cat1">Trending</li>
                         <li data-filter=".cat2">Popularity</li>
-                        <li data-filter=".cat3">Featured</li>
-                        <li data-filter=".cat4">Art & Design</li>
-                        <li data-filter=".cat5">Development</li>
-                        <li data-filter=".cat6">IT & Software</li>
-                        <li data-filter=".cat7">Business</li>
+
+                            @foreach ($category as $cat2)
+                            <li data-filter=".cat{{$cat2->id}}">{{$cat2->name}}</li>
+
+
+                            @endforeach
+
+
                     </ul>
                 </div>
                 <div class="row filter-box">
-                    <div class="col-md-6 col-lg-6 col-xl-4 filter-item cat1 cat3 cat5">
-                        <div class="course-item">
-                            <span class="course-tag course-tag-1">Beginer</span>
-                                    <div class="course-img">
-                                        <a href="/course-single"><img src="{{asset("storage/img/course/01.jpg")}}" alt=""></a>
-                                    </div>
-                                    <div class="course-content">
-                                        <div class="course-meta">
-                                            <span class="course-category course-category-1">Development</span>
-                                            <div class="course-rate">
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <span>(40)</span>
-                                            </div>
-                                        </div>
-                                        <a href="/course-single">
-                                            <h4 class="course-title">Advance PHP Knowledge and learn Laravel
-                                                framework
-                                            </h4>
-                                        </a>
-                                        <div class="course-info">
-                                            <ul>
-                                                <li class="course-lecture"><i class="fad fa-book-open"></i>64 Lectures
-                                                </li>
-                                                <li class="course-duration"><i class="fad fa-clock"></i>30 Hours
-                                                </li>
-                                                <li class="course-enrolled"><i class="fad fa-user-friends"></i>40.7k
-                                                    Enrolled</li>
-                                            </ul>
-                                        </div>
-                                        <div class="course-bottom">
-                                            <a href="#">
-                                                <div class="course-instructor">
-                                                    <img src="{{asset("storage/img/course/ins-1.jpg")}}" alt="">
-                                                    <h6>Sara Wood</h6>
-                                                </div>
-                                            </a>
-                                            <div class="course-price">
-                                                <span>$69</span>
-                                            </div>
-                                        </div>
-                                    </div>
 
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-6 col-xl-4 filter-item cat2 cat4 cat6">
+                    @foreach ($cources as $cource)
+                    <div class="col-md-6 col-lg-6 col-xl-4 filter-item">
                         <div class="course-item">
-                            <span class="course-tag course-tag-2">Advance</span>
+                            <span class="course-tag course-tag-1">{{ $cource->uroven }}</span>
                             <div class="course-img">
-                                <a href="#"><img src="assets/img/course/02.jpg" alt=""></a>
+                                <a href="/course-single/{{ $cource->id }}" style="width:100%">
+
+                                    <img src="{{ asset('storage/course/' . $cource->img) }}" alt=""
+                                        style="width:100%;height:230px"></a>
                             </div>
                             <div class="course-content">
                                 <div class="course-meta">
-                                    <span class="course-category course-category-2">Art & Design</span>
+                                    <span class="course-category course-category-1">
+                                        @if (app()->getLocale('lang') === 'en')
+                                            {{ $cource->category_en->name }}
+                                        @elseif (app()->getLocale('lang') === 'ru')
+                                            {{ $cource->category_ru->name }}
+                                        @else
+                                            {{ $cource->category_uz->name }}
+                                        @endif
+
+
+                                    </span>
                                     <div class="course-rate">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <span>(40)</span>
+
+                                        @for ($i = 0; round($cource->sharxlar_avg_reyting) > $i; $i++)
+                                            <i class="fas fa-star"></i>
+                                        @endfor
+                                        @for ($i = 0; 5 - round($cource->sharxlar_avg_reyting) > $i; $i++)
+                                            <i class="far fa-star"></i>
+                                        @endfor
+
+
+                                        <span>({{ $cource->sharxlar_count }})</span>
                                     </div>
                                 </div>
-                                <a href="#">
-                                    <h4 class="course-title">Full Web Designing Course With 20 Web Template Designing</h4>
+                                <a href="/course-single/{{ $cource->id }}">
+                                    <h4 class="course-title">
+                                        {{ substr($cource->name, 0, 52) }}
+                                        @if (strlen($cource->name) > 52)
+                                            ...
+                                        @endif
+                                    </h4>
                                 </a>
                                 <div class="course-info">
                                     <ul>
-                                        <li class="course-lecture"><i class="fad fa-book-open"></i>64 Lectures</li>
-                                        <li class="course-duration"><i class="fad fa-clock"></i>30 Hours</li>
-                                        <li class="course-enrolled"><i class="fad fa-user-friends"></i>40.7k Enrolled</li>
+                                        <li class="course-lecture"><i class="fad fa-book-open"></i>{{ $cource->count }}
+                                            Lectures</li>
+                                        <li class="course-duration"><i class="fad fa-clock"></i>{{ $cource->lenght }}
+                                            Hours</li>
+                                        <li class="course-enrolled"><i
+                                                class="fad fa-user-friends"></i>{{ $cource->students_count }}
+                                            Enrolled
+                                        </li>
                                     </ul>
                                 </div>
                                 <div class="course-bottom">
-                                    <a href="#">
+                                    <a href="/instructor-single/{{ $cource->user->id }}/{{ $cource->user->id }}">
                                         <div class="course-instructor">
-                                            <img src="assets/img/course/ins-2.jpg" alt="">
-                                            <h6>Johnny Michell</h6>
+                                            <img src="{{ asset('storage/user/' . $cource->user->img) }}"
+                                                alt="">
+                                            <h6>{{ $cource->teacher->name }}
+                                                {{ $cource->teacher->sname }}</h6>
                                         </div>
                                     </a>
                                     <div class="course-price">
-                                        <del>$180</del> <span>$150</span>
+                                        <del>
+                                            @if ($cource->eski_narx > $cource->narx)
+                                                $
+                                                {{ $cource->eski_narx }}
+                                            @endif
+                                        </del> <span>${{ $cource->narx }}</span>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6 col-lg-6 col-xl-4 filter-item cat1 cat5 cat7">
-                        <div class="course-item">
-                            <span class="course-tag course-tag-1">Beginer</span>
-                            <div class="course-img">
-                                <a href="#"><img src="assets/img/course/03.jpg" alt=""></a>
-                            </div>
-                            <div class="course-content">
-                                <div class="course-meta">
-                                    <span class="course-category course-category-3">Business</span>
-                                    <div class="course-rate">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <span>(40)</span>
-                                    </div>
-                                </div>
-                                <a href="#">
-                                    <h4 class="course-title">Basic Knowledge About the UI/UX Design Pattern</h4>
-                                </a>
-                                <div class="course-info">
-                                    <ul>
-                                        <li class="course-lecture"><i class="fad fa-book-open"></i>64 Lectures</li>
-                                        <li class="course-duration"><i class="fad fa-clock"></i>30 Hours</li>
-                                        <li class="course-enrolled"><i class="fad fa-user-friends"></i>40.7k Enrolled</li>
-                                    </ul>
-                                </div>
-                                <div class="course-bottom">
-                                    <a href="#">
-                                        <div class="course-instructor">
-                                            <img src="assets/img/course/ins-3.jpg" alt="">
-                                            <h6>Joey D. Glines</h6>
-                                        </div>
-                                    </a>
-                                    <div class="course-price">
-                                        <span>$179</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-6 col-xl-4 filter-item cat2 cat3 cat7 cat6">
-                        <div class="course-item">
-                            <span class="course-tag course-tag-2">Advance</span>
-                            <div class="course-img">
-                                <a href="#"><img src="assets/img/course/04.jpg" alt=""></a>
-                            </div>
-                            <div class="course-content">
-                                <div class="course-meta">
-                                    <span class="course-category course-category-4">IT & Software</span>
-                                    <div class="course-rate">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <span>(40)</span>
-                                    </div>
-                                </div>
-                                <a href="#">
-                                    <h4 class="course-title">The Complete Business Plan Course Includes 50 Templates</h4>
-                                </a>
-                                <div class="course-info">
-                                    <ul>
-                                        <li class="course-lecture"><i class="fad fa-book-open"></i>64 Lectures</li>
-                                        <li class="course-duration"><i class="fad fa-clock"></i>30 Hours</li>
-                                        <li class="course-enrolled"><i class="fad fa-user-friends"></i>40.7k Enrolled</li>
-                                    </ul>
-                                </div>
-                                <div class="course-bottom">
-                                    <a href="#">
-                                        <div class="course-instructor">
-                                            <img src="assets/img/course/ins-4.jpg" alt="">
-                                            <h6>Nancy Alarcon</h6>
-                                        </div>
-                                    </a>
-                                    <div class="course-price">
-                                        <del>$210</del> <span>$150</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-6 col-xl-4 filter-item cat2 cat4 cat5">
-                        <div class="course-item">
-                            <span class="course-tag course-tag-1">Beginer</span>
-                            <div class="course-img">
-                                <a href="#"><img src="assets/img/course/05.jpg" alt=""></a>
-                            </div>
-                            <div class="course-content">
-                                <div class="course-meta">
-                                    <span class="course-category course-category-5">Lifestyle</span>
-                                    <div class="course-rate">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <span>(40)</span>
-                                    </div>
-                                </div>
-                                <a href="#">
-                                    <h4 class="course-title">Become a product Manager learn the skills & job</h4>
-                                </a>
-                                <div class="course-info">
-                                    <ul>
-                                        <li class="course-lecture"><i class="fad fa-book-open"></i>64 Lectures</li>
-                                        <li class="course-duration"><i class="fad fa-clock"></i>30 Hours</li>
-                                        <li class="course-enrolled"><i class="fad fa-user-friends"></i>40.7k Enrolled</li>
-                                    </ul>
-                                </div>
-                                <div class="course-bottom">
-                                    <a href="#">
-                                        <div class="course-instructor">
-                                            <img src="assets/img/course/ins-5.jpg" alt="">
-                                            <h6>Tina L. Heiner</h6>
-                                        </div>
-                                    </a>
-                                    <div class="course-price">
-                                        <span>$159</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-6 col-xl-4 filter-item cat4 cat7 cat6">
-                        <div class="course-item">
-                            <span class="course-tag course-tag-2">Advance</span>
-                            <div class="course-img">
-                                <a href="#"><img src="assets/img/course/06.jpg" alt=""></a>
-                            </div>
-                            <div class="course-content">
-                                <div class="course-meta">
-                                    <span class="course-category course-category-6">Marketing</span>
-                                    <div class="course-rate">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <span>(40)</span>
-                                    </div>
-                                </div>
-                                <a href="#">
-                                    <h4 class="course-title">The Complete Digital Marketing Course - 12 Courses in 1</h4>
-                                </a>
-                                <div class="course-info">
-                                    <ul>
-                                        <li class="course-lecture"><i class="fad fa-book-open"></i>64 Lectures</li>
-                                        <li class="course-duration"><i class="fad fa-clock"></i>30 Hours</li>
-                                        <li class="course-enrolled"><i class="fad fa-user-friends"></i>40.7k Enrolled</li>
-                                    </ul>
-                                </div>
-                                <div class="course-bottom">
-                                    <a href="#">
-                                        <div class="course-instructor">
-                                            <img src="assets/img/course/ins-6.jpg" alt="">
-                                            <h6>Leo Hender</h6>
-                                        </div>
-                                    </a>
-                                    <div class="course-price">
-                                        <span>Free</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                @endforeach
+
                 </div>
                 <div class="text-center">
                     <a href="#" class="theme-btn mt-5"><span class="fad fa-sync-alt"></span> Load More Courses</a>
@@ -502,4 +319,43 @@
 <script src="assets/js/jquery-ui.min.js"></script>
 <script src="assets/js/main.js"></script>
 <script src="assets/js/main3.js"></script>
+<script>
+    $(document).ready(function() {
+
+
+        $('#search').on('keyup', function() {
+            var query = $(this).val();
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            $.ajax({
+
+                url: "{{ route('employee.search') }}",
+
+                type: "GET",
+
+                data: {
+                    'country': query
+                },
+
+                success: function(data) {
+
+                    $('.search-ul').html(data);
+                }
+            })
+            // end of ajax call
+        });
+
+
+        $(document).on('click', 'li', function() {
+
+            var value = $(this).text();
+            $('#country').val(value);
+            $('#country_list').html("");
+        });
+    });
+</script>
+<script src="assets/js/cslider1.js"></script>
 @endsection("scripts")

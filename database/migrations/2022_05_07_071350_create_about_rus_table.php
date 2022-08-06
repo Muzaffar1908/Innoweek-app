@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('about_rus', function (Blueprint $table) {
             $table->id();
             $table->string('title');
+            $table->string('img');
             $table->text('text');
             $table->timestamps();
         });

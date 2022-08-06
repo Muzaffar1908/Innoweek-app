@@ -11,17 +11,25 @@ use App\Models\Courses_sharxlar;
 use App\Models\Instructor_about;
 use Illuminate\Support\Facades\DB;
 use App\Models\Instructor_sharxlar;
+use App\Models\About_bolim_en;
+use App\Models\About_bolim_uz;
+use App\Models\About_bolim_ru;
+use App\Models\About_en;
+use App\Models\About_ru;
+use App\Models\About_uz;
 use Illuminate\Support\Facades\Hash;
 use App\Models\Instructor_education;
 use App\Models\Instructor_tajriba;
 use App\Models\Cources_includes;
 use App\Models\Category;
 use App\Models\Video_tip;
+use App\Models\Eduhub_jamoasi;
 use App\Models\Cources_discription;
 use App\Models\Eduhub;
 use App\Models\Eduhub_header_en;
 use App\Models\Eduhub_header_uz;
 use App\Models\Eduhub_header_ru;
+use App\Models\Eduhub_taklif;
 use App\Models\Student_cards_courses;
 use Auth;
 use Response;
@@ -29,9 +37,9 @@ use Illuminate\Database\Eloquent\Builder;
 
 class EduHubController extends Controller
 {
-/**
- * student profil
- */
+    /**
+     * student profil
+     */
 
 
 
@@ -45,170 +53,306 @@ class EduHubController extends Controller
     public function index(Request $request)
     {
         $t = app()->getLocale('lang');
-        $eduhub=Eduhub::orderBy('id', 'desc')->first();
-        $header=DB::select('select * from eduhub_header_' . $t . 's order by id Desc limit 1 ' );
-        $category=DB::select('select * from category_' . $t . 's order by name' );
-        $nega=DB::select('select * from eduhub_nega_' . $t . 's order by id Desc limit 4 ' );
-        $qadam=DB::select('select * from eduhub_steps_' . $t . 's order by id Desc limit 1 ' );
+        $eduhub = Eduhub::orderBy('id', 'desc')->first();
+        $header = DB::select('select * from eduhub_header_' . $t . 's order by id Desc limit 1 ');
+        $category = DB::select('select * from category_' . $t . 's order by name');
+        $nega = DB::select('select * from eduhub_nega_' . $t . 's order by id Desc limit 4 ');
+        $qadam = DB::select('select * from eduhub_steps_' . $t . 's order by id Desc limit 1 ');
 
         $cources = Cources::select('*')->orderBy('name')->withCount('students')->withCount('sharxlar')->withAvg('sharxlar', 'reyting')->paginate(6);
 
-        if($request->ajax()){
-            $view=view('data', compact('cources'))->render();
-            return response()->json(['html'=>$view]);
+        if ($request->ajax()) {
+            $view = view('data', compact('cources'))->render();
+            return response()->json(['html' => $view]);
         }
-
-        $teacher=User::where('uroven','=','teacher')->orderBy("name")->withCount('students')->withCount('ins_sharx')->withCount('cources')->withAvg('ins_sharx', 'reyting')->paginate(4);
-        return view("index",['head'=>$header,'category'=>$category,'nega'=>$nega,'steps'=>$qadam,'eduhub'=>$eduhub,
-        'cources'=>$cources,'teacher'=>$teacher
+        if (isset(auth()->user()->id)) {
+            $card_count = Student_cards_courses::where('user_id', '=', auth()->user()->id)->count();
+        } else {
+            $card_count = 0;
+        }
+        $teacher = User::where('uroven', '=', 'teacher')->orderBy("name")->withCount('students')->withCount('ins_sharx')->withCount('cources')->withAvg('ins_sharx', 'reyting')->paginate(4);
+        return view("index", [
+            'head' => $header, 'category' => $category, 'nega' => $nega, 'steps' => $qadam, 'eduhub' => $eduhub,
+            'cources' => $cources, 'teacher' => $teacher, 'card_count' => $card_count
         ]);
     }
     public function about()
     {
         $t = app()->getLocale('lang');
-        $eduhub=Eduhub::orderBy('id', 'desc')->first();
-       $category=DB::select('select * from category_' . $t . 's order by name' );
+        $eduhub = Eduhub::orderBy('id', 'desc')->first();
+        $category = DB::select('select * from category_' . $t . 's order by name');
 
-        return view("pages.about", ['category'=>$category,'eduhub'=>$eduhub]);
+        if (isset(auth()->user()->id)) {
+            $card_count = Student_cards_courses::where('user_id', '=', auth()->user()->id)->count();
+        } else {
+            $card_count = 0;
+        }
+        $nega = DB::select('select * from eduhub_nega_' . $t . 's order by id Desc limit 4 ');
+        $about= DB::select('select * from about_' . $t . 's order by id limit 1' );
+        $about_b= DB::select('select * from about_bolim_' . $t . 's order by id Desc' );
+        $cource_count=Cources::count();
+        $team=Eduhub_jamoasi::orderBy("id",'Desc')->paginate(4);
+        $student_count=User::where('uroven','=','student')->count();
+        $teacher_count=User::where('uroven','=','teacher')->count();
+        return view("pages.about", ['team'=>$team,'nega'=>$nega,'category' => $category,'s_count'=>$student_count, 't_count'=>$teacher_count,'cource_count'=>$cource_count,'eduhub' => $eduhub, 'about'=>$about, 'about_b'=>$about_b,'card_count' => $card_count]);
     }
     public function courses()
     {
         $t = app()->getLocale('lang');
-        $eduhub=Eduhub::orderBy('id', 'desc')->first();
-       $category=DB::select('select * from category_' . $t . 's order by name' );
+        $eduhub = Eduhub::first();
+        $category = DB::select('select * from category_' . $t . 's order by name');
+        if (isset(auth()->user()->id)) {
+            $card_count = Student_cards_courses::where('user_id', '=', auth()->user()->id)->count();
+        } else {
+            $card_count = 0;
+        }
+        $cources = Cources::select('*')->orderBy('name')->withCount('students')->withCount('sharxlar')->withAvg('sharxlar', 'reyting')->paginate(12);
 
-        return view("course.course");
+
+        return view("course.course", ['cources' => $cources,'category' => $category, 'eduhub' => $eduhub, 'card_count' => $card_count]);
+    }
+    public function ajax_search(Request $request){
+        if($request->ajax()) {
+
+            $data = Cources::where('name', 'LIKE', '%'.$request->country.'%')->paginate(6);
+
+            $output = '';
+
+            if (count($data)>0) {
+
+
+                foreach ($data as $row){
+                    $output.='   <li><a class="dropdown-item"  href="/course-single/'.$row->id.'">'.$row->name.'</a></li>';
+
+                }
+
+
+            }
+            else {
+
+                $output .= '<li class="list-group-item">'.'No results'.'</li>';
+            }
+
+            return $output;
+        }
     }
 
-    public function course_search()
+    public function search(Request $req)
     {
         $t = app()->getLocale('lang');
-        $eduhub=Eduhub::orderBy('id', 'desc')->first();
-       $category=DB::select('select * from category_' . $t . 's order by name' );
+        $eduhub = Eduhub::orderBy('id', 'desc')->first();
+        $category = DB::select('select * from category_' . $t . 's order by name');
+        if (isset(auth()->user()->id)) {
+            $card_count = Student_cards_courses::where('user_id', '=', auth()->user()->id)->count();
+        } else {
+            $card_count = 0;
+        }
+        $data = $req->validate([
+            'search' => 'required',
+        ]);
+        $cources = Cources::select('*')->orderBy('name')->where('name','like','%'.$data['search'].'%')->withCount('students')->withCount('sharxlar')->withAvg('sharxlar', 'reyting')->get();
+        $teacher = User::where('uroven', '=', 'teacher')->where('name','like','%'.$data['search'].'%')->orderBy("name")->withCount('students')->withCount('ins_sharx')->withCount('cources')->withAvg('ins_sharx', 'reyting')->get();
 
-        return view("course.course_search");
+
+
+
+        return view("course.course_search", ['search'=>$data['search'], 'teacher' => $teacher,'category' => $category,  'cources' => $cources, 'eduhub' => $eduhub, 'card_count' => $card_count]);
     }
     public function course_category()
     {
         $t = app()->getLocale('lang');
-        $eduhub=Eduhub::orderBy('id', 'desc')->first();
-       $category=DB::select('select * from category_' . $t . 's order by name' );
-
-        return view("course.course_category", ['category'=>$category,'eduhub'=>$eduhub]);
+        $eduhub = Eduhub::orderBy('id', 'desc')->first();
+        $category = DB::select('select * from category_' . $t . 's order by name');
+        if (isset(auth()->user()->id)) {
+            $card_count = Student_cards_courses::where('user_id', '=', auth()->user()->id)->count();
+        } else {
+            $card_count = 0;
+        }
+        return view("course.course_category", ['category' => $category, 'eduhub' => $eduhub, 'card_count' => $card_count]);
     }
     public function instructor()
     {
         $t = app()->getLocale('lang');
-        $eduhub=Eduhub::orderBy('id', 'desc')->first();
-       $category=DB::select('select * from category_' . $t . 's order by name' );
-
-        return view("inctructor.instructor", ['category'=>$category,'eduhub'=>$eduhub]);
+        $eduhub = Eduhub::orderBy('id', 'desc')->first();
+        $category = DB::select('select * from category_' . $t . 's order by name');
+        if (isset(auth()->user()->id)) {
+            $card_count = Student_cards_courses::where('user_id', '=', auth()->user()->id)->count();
+        } else {
+            $card_count = 0;
+        }
+        $teacher = User::where('uroven', '=', 'teacher')->orderBy("name")->withCount('students')->withCount('ins_sharx')->withCount('cources')->withAvg('ins_sharx', 'reyting')->paginate(4);
+        return view("inctructor.instructor", ['teacher' => $teacher,'category' => $category, 'eduhub' => $eduhub, 'card_count' => $card_count]);
     }
 
     public function teams()
     {
         $t = app()->getLocale('lang');
-        $eduhub=Eduhub::orderBy('id', 'desc')->first();
-       $category=DB::select('select * from category_' . $t . 's order by name' );
-
-        return view("pages.teams", ['category'=>$category,'eduhub'=>$eduhub]);
+        $eduhub = Eduhub::orderBy('id', 'desc')->first();
+        $category = DB::select('select * from category_' . $t . 's order by name');
+        if (isset(auth()->user()->id)) {
+            $card_count = Student_cards_courses::where('user_id', '=', auth()->user()->id)->count();
+        } else {
+            $card_count = 0;
+        }
+        $teams = DB::select('select * from servise_' . $t . 's');
+        return view("pages.teams", ['category' => $category, 'teams'=>$teams,'eduhub' => $eduhub, 'card_count' => $card_count]);
     }
     public function police()
     {
         $t = app()->getLocale('lang');
-        $eduhub=Eduhub::orderBy('id', 'desc')->first();
-       $category=DB::select('select * from category_' . $t . 's order by name' );
+        $eduhub = Eduhub::orderBy('id', 'desc')->first();
+        $category = DB::select('select * from category_' . $t . 's order by name');
+        $policy = DB::select('select * from policy_' . $t . 's');
+        if (isset(auth()->user()->id)) {
+            $card_count = Student_cards_courses::where('user_id', '=', auth()->user()->id)->count();
+        } else {
+            $card_count = 0;
+        }
+        return view("pages.police", ['category' => $category, 'policy'=>$policy, 'eduhub' => $eduhub, 'card_count' => $card_count]);
+    }
+    public function taklifs(Request $req, $id)
+    {   $data = $req->validate([
+        'text' => 'required',
+        'mavzu' => 'required'
+    ]);
 
-        return view("pages.police", ['category'=>$category,'eduhub'=>$eduhub]);
+    $n = new Eduhub_taklif();
+
+    $n->user_id = $id;
+    $n->mavzu = $data['mavzu'];
+    $n->text = $data['text'];
+    $n->save();
+    return redirect('/contact')->with('success', 'Send.');
     }
     public function blog()
     {
         $t = app()->getLocale('lang');
-        $eduhub=Eduhub::orderBy('id', 'desc')->first();
-       $category=DB::select('select * from category_' . $t . 's order by name' );
-
-        return view("blog.blog", ['category'=>$category,'eduhub'=>$eduhub]);
+        $eduhub = Eduhub::orderBy('id', 'desc')->first();
+        $category = DB::select('select * from category_' . $t . 's order by name');
+        if (isset(auth()->user()->id)) {
+            $card_count = Student_cards_courses::where('user_id', '=', auth()->user()->id)->count();
+        } else {
+            $card_count = 0;
+        }
+        return view("blog.blog", ['category' => $category, 'eduhub' => $eduhub, 'card_count' => $card_count]);
     }
     public function contact()
     {
         $t = app()->getLocale('lang');
-        $eduhub=Eduhub::orderBy('id', 'desc')->first();
-       $category=DB::select('select * from category_' . $t . 's order by name' );
-
-        return view("pages.contact", ['category'=>$category,'eduhub'=>$eduhub]);
-    }
-    public function card()
-    {
-        $t = app()->getLocale('lang');
-        $eduhub=Eduhub::orderBy('id', 'desc')->first();
-       $category=DB::select('select * from category_' . $t . 's order by name' );
-
-        return view("korzinka.card", ['category'=>$category,'eduhub'=>$eduhub]);
-    }
-    public function card_add($id, $auth)
-    {
-        $buy=Student_cards_courses::where('user_id', '=', $auth)->where('cours_id', '=', $id)->first();
-        if($buy==null){
-            $card=new Student_cards_courses;
-            $card->cours_id=$id;
-            $card->user_id=$auth;
-            $card->save();
-            return redirect()->back()->with('success', 'Add new cource Card.');
-        }else{
-            return redirect()->back()->with('success', 'This is available on the course card.');
+        $eduhub = Eduhub::orderBy('id', 'desc')->first();
+        $category = DB::select('select * from category_' . $t . 's order by name');
+        if (isset(auth()->user()->id)) {
+            $card_count = Student_cards_courses::where('user_id', '=', auth()->user()->id)->count();
+        } else {
+            $card_count = 0;
         }
 
+        return view("pages.contact", ['category' => $category, 'eduhub' => $eduhub, 'card_count' => $card_count]);
+    }
+    public function card($id)
+    {
+        $t = app()->getLocale('lang');
+        $eduhub = Eduhub::orderBy('id', 'desc')->first();
+        $category = DB::select('select * from category_' . $t . 's order by name');
+        $card = Student_cards_courses::where('user_id', '=', $id)->get();
+        if (isset(auth()->user()->id)) {
+            $card_count = Student_cards_courses::where('user_id', '=', auth()->user()->id)->count();
+        } else {
+            $card_count = 0;
+        }
+        return view("korzinka.card", ['category' => $category, 'eduhub' => $eduhub, 'card' => $card, 'card_count' => $card_count]);
+    }
+    public function card_return()
+    {
+        return redirect('/');
+    }
+
+    public function card_add($id, $auth)
+    {
+        $buy = Student_cards_courses::where('user_id', '=', $auth)->where('cours_id', '=', $id)->first();
+        if ($buy == null) {
+            $card = new Student_cards_courses;
+            $card->cours_id = $id;
+            $card->user_id = $auth;
+            $card->save();
+            return redirect()->back()->with('success', 'Add new cource Card.');
+        } else {
+            return redirect()->back()->with('success', 'This is available on the course card.');
+        }
     }
     public function card_checkout()
     {
         $t = app()->getLocale('lang');
-        $eduhub=Eduhub::orderBy('id', 'desc')->first();
-       $category=DB::select('select * from category_' . $t . 's order by name' );
-
-        return view("korzinka.card_checkout", ['category'=>$category,'eduhub'=>$eduhub]);
+        $eduhub = Eduhub::orderBy('id', 'desc')->first();
+        $category = DB::select('select * from category_' . $t . 's order by name');
+        if (isset(auth()->user()->id)) {
+            $card_count = Student_cards_courses::where('user_id', '=', auth()->user()->id)->count();
+        } else {
+            $card_count = 0;
+        }
+        return view("korzinka.card_checkout", ['category' => $category, 'eduhub' => $eduhub, 'card_count' => $card_count]);
     }
     public function signin()
     {
 
         $t = app()->getLocale('lang');
-        $eduhub=Eduhub::orderBy('id', 'desc')->first();
-       $category=DB::select('select * from category_' . $t . 's order by name' );
-
-        return view("sign.sign-in",['category'=>$category,'eduhub'=>$eduhub]);
+        $eduhub = Eduhub::orderBy('id', 'desc')->first();
+        $category = DB::select('select * from category_' . $t . 's order by name');
+        if (isset(auth()->user()->id)) {
+            $card_count = Student_cards_courses::where('user_id', '=', auth()->user()->id)->count();
+        } else {
+            $card_count = 0;
+        }
+        return view("sign.sign-in", ['category' => $category, 'eduhub' => $eduhub, 'card_count' => $card_count]);
     }
     public function forgotPassword()
     {
 
         $t = app()->getLocale('lang');
-        $eduhub=Eduhub::orderBy('id', 'desc')->first();
-       $category=DB::select('select * from category_' . $t . 's order by name' );
-
-        return view("sign.forget-password", ['category'=>$category,'eduhub'=>$eduhub]);
+        $eduhub = Eduhub::orderBy('id', 'desc')->first();
+        $category = DB::select('select * from category_' . $t . 's order by name');
+        if (isset(auth()->user()->id)) {
+            $card_count = Student_cards_courses::where('user_id', '=', auth()->user()->id)->count();
+        } else {
+            $card_count = 0;
+        }
+        return view("sign.forget-password", ['category' => $category, 'eduhub' => $eduhub, 'card_count' => $card_count]);
     }
     public function signup()
 
     {
         $t = app()->getLocale('lang');
-        $eduhub=Eduhub::orderBy('id', 'desc')->first();
-       $category=DB::select('select * from category_' . $t . 's order by name' );
-        return view("sign.sign-up",['category'=>$category,'eduhub'=>$eduhub]);
+        $eduhub = Eduhub::orderBy('id', 'desc')->first();
+        if (isset(auth()->user()->id)) {
+            $card_count = Student_cards_courses::where('user_id', '=', auth()->user()->id)->count();
+        } else {
+            $card_count = 0;
+        }
+        $category = DB::select('select * from category_' . $t . 's order by name');
+        return view("sign.sign-up", ['category' => $category, 'eduhub' => $eduhub, 'card_count' => $card_count]);
     }
 
 
     public function student_single($id, $id2)
     {
         $t = app()->getLocale('lang');
-        $eduhub=Eduhub::orderBy('id', 'desc')->first();
-       $category=DB::select('select * from category_' . $t . 's order by name' );
-        $edit=0;
-        if(($id==$id2)){
-            $edit=1;
+        $eduhub = Eduhub::orderBy('id', 'desc')->first();
+        $category = DB::select('select * from category_' . $t . 's order by name');
+        $edit = 0;
+        if (($id == $id2)) {
+            $edit = 1;
+        }
+        if (isset(auth()->user()->id)) {
+            $card_count = Student_cards_courses::where('user_id', '=', auth()->user()->id)->count();
+        } else {
+            $card_count = 0;
         }
 
-        $user = User::withCount('cources')->findOrFail($id);
-        $course=Student_buy_course::where('user_id','=',$id)->withAvg('sharx','reyting')->withAvg('sharx','reyting')->withCount('lesson')->withAvg('sharx','reyting')->withCount('watch')->withCount('sharx')->withCount('lesson')->get();
 
-        return view("student.student_profil", ['user'=>$user,'edit'=>$edit,'cources'=>$course, 'category'=>$category,'eduhub'=>$eduhub ]);
+        $user = User::withCount('cources')->findOrFail($id);
+        $course = Student_buy_course::where('user_id', '=', $id)->withAvg('sharx', 'reyting')->withAvg('sharx', 'reyting')->withCount('lesson')->withAvg('sharx', 'reyting')->withCount('watch')->withCount('sharx')->withCount('lesson')->get();
+
+        return view("student.student_profil", ['user' => $user, 'edit' => $edit, 'cources' => $course, 'category' => $category, 'eduhub' => $eduhub, 'card_count' => $card_count]);
     }
 
     /**
@@ -219,7 +363,7 @@ class EduHubController extends Controller
     public function cource_sharx(Request $request, $id,)
     {
         $data = $request->validate([
-            'reviewRating' => 'in:1,,2,3,4,5|required',
+            'reviewRating' => 'in:1,2,3,4,5|required',
             'text' => 'required',
             'cource_id' => 'required'
         ]);
@@ -236,8 +380,8 @@ class EduHubController extends Controller
     public function course_single($id)
     {
         $t = app()->getLocale('lang');
-        $eduhub=Eduhub::orderBy('id', 'desc')->first();
-       $category=DB::select('select * from category_' . $t . 's order by name' );
+        $eduhub = Eduhub::orderBy('id', 'desc')->first();
+        $category = DB::select('select * from category_' . $t . 's order by name');
         $course = Cources::select('*')->withCount('students')->withCount('video')->withCount('sharxlar')->withAvg('sharxlar', 'reyting')->find($id);
         $courses = Cources::select('*')->where('ins_id', '=', $course->user->id)->paginate();
         $students = 0;
@@ -280,27 +424,32 @@ class EduHubController extends Controller
         }
 
 
-    if(isset(auth()->user()->id)){
-        $auth_id = auth()->user()->id;
-    }else{
-        $auth_id = -5;
-    }
+        if (isset(auth()->user()->id)) {
+            $auth_id = auth()->user()->id;
+        } else {
+            $auth_id = -5;
+        }
 
         $buy = Student_buy_course::where('user_id', '=', $auth_id)->where('cours_id', '=', $id)->first();
         $card = Student_cards_courses::where('user_id', '=', $auth_id)->where('cours_id', '=', $id)->first();
         $video = Video_tip::where('cource_id', '=', $id)->get();
+        if (isset(auth()->user()->id)) {
+            $card_count = Student_cards_courses::where('user_id', '=', auth()->user()->id)->count();
+        } else {
+            $card_count = 0;
+        }
         return view("course.course_single", [
-            'cource' => $course, 'desc' => $desc, 'user' => $user, 'students' => $students,'auth'=>$auth_id,
+            'cource' => $course, 'desc' => $desc, 'user' => $user, 'students' => $students, 'auth' => $auth_id,
             'stars5' => $stars5, 'stars4' => $stars4, 'stars3' => $stars3, 'stars2' => $stars2, 'stars1' => $stars1, 'sharx' => $sharx,
-            'includes' => $include, 'video' => $video, 'buy' => $buy,'card'=>$card,'category'=>$category,'eduhub'=>$eduhub
+            'includes' => $include, 'video' => $video, 'buy' => $buy, 'card' => $card, 'category' => $category, 'eduhub' => $eduhub, 'card_count' => $card_count
         ]);
     }
 
     public function course_single_edit($id)
     {
         $t = app()->getLocale('lang');
-        $eduhub=Eduhub::orderBy('id', 'desc')->first();
-       $category=DB::select('select * from category_' . $t . 's order by name' );
+        $eduhub = Eduhub::orderBy('id', 'desc')->first();
+        $category = DB::select('select * from category_' . $t . 's order by name');
 
         $course = Cources::select('*')->withCount('students')
             ->withCount('video')->withCount('sharxlar')->withAvg('sharxlar', 'reyting')->find($id);
@@ -345,18 +494,23 @@ class EduHubController extends Controller
         }
 
 
-if(isset(auth()->user()->id)){
-    $auth_id = auth()->user()->id;
-}else{
-    $auth_id = -5;
-}
+        if (isset(auth()->user()->id)) {
+            $auth_id = auth()->user()->id;
+        } else {
+            $auth_id = -5;
+        }
 
         $buy = Student_buy_course::where('user_id', '=', $auth_id)->where('cours_id', '=', $id)->first();
         $video = Video_tip::where('cource_id', '=', $id)->get();
+        if (isset(auth()->user()->id)) {
+            $card_count = Student_cards_courses::where('user_id', '=', auth()->user()->id)->count();
+        } else {
+            $card_count = 0;
+        }
         return view("course.course_single_edit", [
-            'cource' => $course, 'desc' => $desc, 'user' => $user, 'students' => $students,'auth'=>$auth_id,
+            'cource' => $course, 'desc' => $desc, 'user' => $user, 'students' => $students, 'auth' => $auth_id,
             'stars5' => $stars5, 'stars4' => $stars4, 'stars3' => $stars3, 'stars2' => $stars2, 'stars1' => $stars1, 'sharx' => $sharx,
-            'includes' => $include, 'video' => $video, 'buy' => $buy,'category'=>$category,'eduhub'=>$eduhub
+            'includes' => $include, 'video' => $video, 'buy' => $buy, 'category' => $category, 'eduhub' => $eduhub, 'card_count' => $card_count
         ]);
     }
 
@@ -371,7 +525,7 @@ teacher profil
     public function teacher_sharx(Request $request, $id,)
     {
         $data = $request->validate([
-            'reviewRating' => 'in:1,,2,3,4,5|required',
+            'reviewRating' => 'in:1,2,3,4,5|required',
             'text' => 'required',
             'user_id' => 'required'
         ]);
@@ -382,18 +536,18 @@ teacher profil
         $n->student_id = $data['user_id'];
         $n->sharx = $data['text'];
         $n->save();
-        return redirect('/instructor-single/' . $id.'/'.$id);
+        return redirect('/instructor-single/' . $id . '/' . $id);
     }
 
     public function instructor_single($id, $id2)
     {
         $t = app()->getLocale('lang');
-        $eduhub=Eduhub::orderBy('id', 'desc')->first();
-       $category=DB::select('select * from category_' . $t . 's order by name' );
+        $eduhub = Eduhub::orderBy('id', 'desc')->first();
+        $category = DB::select('select * from category_' . $t . 's order by name');
 
-        $edit=0;
-        if(($id==$id2)){
-            $edit=1;
+        $edit = 0;
+        if (($id == $id2)) {
+            $edit = 1;
         }
         $sharx = Instructor_sharxlar::where('user_id', '=', $id)->orderBy('created_at', 'desc')->paginate(16);
         $avg = Instructor_sharxlar::where('user_id', '=', $id)->avg('reyting');
@@ -446,7 +600,7 @@ teacher profil
             'about' => $about, 'stars' => $avg, 'user' => $user, 'url' => $url,
             'student' => $student_count, 'c_count' => $count_cources, 'cources' => $courses,
             'stars5' => $stars5, 'stars4' => $stars4, 'stars3' => $stars3, 'stars2' => $stars2, 'stars1' => $stars1,
-            'sharx' => $sharx, 'tajriba' => $tajriba, 'edu' => $edu, 'edit'=>$edit,'category'=>$category,'eduhub'=>$eduhub
+            'sharx' => $sharx, 'tajriba' => $tajriba, 'edu' => $edu, 'edit' => $edit, 'category' => $category, 'eduhub' => $eduhub, 'card_count' => $card_count
         ]);
     }
 
@@ -462,17 +616,21 @@ User Profil teacher va student uchun
         $url = User_link::find($id);
 
         $t = app()->getLocale('lang');
-        $eduhub=Eduhub::orderBy('id', 'desc')->first();
-       $category=DB::select('select * from category_' . $t . 's order by name' );
-
-        return view('sign.profil', ['nu' => $user, "url" => $url, 'category'=>$category,'eduhub'=>$eduhub]);
+        $eduhub = Eduhub::orderBy('id', 'desc')->first();
+        $category = DB::select('select * from category_' . $t . 's order by name');
+        if (isset(auth()->user()->id)) {
+            $card_count = Student_cards_courses::where('user_id', '=', auth()->user()->id)->count();
+        } else {
+            $card_count = 0;
+        }
+        return view('sign.profil', ['nu' => $user, "url" => $url, 'category' => $category, 'eduhub' => $eduhub, 'card_count' => $card_count]);
     }
     public function user_update(Request $req, $id)
     {
         $n = User::find($id);
         $user = User::find($id);
-        $user_link = User_link::where('user_id','=',$id)->first();
-        if ($user_link!==null ){
+        $user_link = User_link::where('user_id', '=', $id)->first();
+        if ($user_link !== null) {
             $url = $user_link;
         } else {
             $url = new User_link();
@@ -606,7 +764,7 @@ User Profil teacher va student uchun
             }
             if ((strlen($req->newpassword) >= 1  and strlen($req->resetpassword) >= 1) and $req->newpassword === $req->resetpassword) {
                 $data = $req->validate([
-                    'resetpassword' =>[
+                    'resetpassword' => [
                         'required',
                         'string',
                         'min:10',             // must be at least 10 characters in length
@@ -638,8 +796,4 @@ User Profil teacher va student uchun
         $n->save();
         return redirect('home');
     }
-
-
-
-
 }

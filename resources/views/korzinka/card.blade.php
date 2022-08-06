@@ -50,44 +50,43 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>
-                                <div class="cart-img">
-                                    <img src="assets/img/course/01.jpg" alt="">
-                                </div>
-                            </td>
-                            <td>
-                                <h5>The Complete Digital Marketing Course</h5>
-                            </td>
-                            <td>
-                                <div class="cart-price">
-                                    <span>$1,500</span>
-                                </div>
-                            </td>
+                      <?$summa=0?>
+                       @foreach ($card as $c)
+                       <tr>
+                        <td>
+                            <div class="cart-img">
+                                <img src="{{ asset('storage/course/'. $c->cources->img) }}" alt="">
+                            </div>
+                        </td>
+                        <td>
+                            <h5> {{$c->cources->name}}</h5>
+                        </td>
+                        <td>
+                            <div class="cart-price">
+                                <span>${{$c->cources->narx}}</span>
+                            </div>
+                        </td>
 
-                            <td>
-                                <a href="#" class="cart-remove"><i class="far fa-times"></i></a>
-                            </td>
-                        </tr>
+                        <td>
+                            <a href="/card/delete/{{$c->id}}" class="cart-remove"><i class="far fa-times"></i></a>
+                        </td>
+                        <?$summa=$summa+$c->cources->narx?>
+                    </tr>
+
+                       @endforeach
 
                     </tbody>
                 </table>
             </div>
             <div class="cart-footer">
-                <div class="row">
-                    <div class="col-md-6 col-lg-4">
-                        <div class="cart-coupon">
-                            <input type="text" class="form-control" placeholder="Your Coupon Code">
-                            <button class="coupon-btn" type="submit">Apply</button>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-8">
+                <div class="row" >
+
+                    <div class="col-md-12 col-lg-12 flex-end" style="display:flex; flex-direction:row; justify-content:flex-end">
                         <div class="cart-summary">
                             <ul>
-                                <li><strong>Sub Total:</strong> <span>$4,500.00</span></li>
-                                <li><strong>Vat:</strong> <span>$25.00</span></li>
-                                <li><strong>Discount:</strong> <span>$5.00</span></li>
-                                <li class="cart-total"><strong>Total:</strong> <span>$4,520.00</span></li>
+                                <li><strong>Sub Total:</strong> <span>${{$summa}}</span></li>
+                                <li><strong>Vat:</strong> <span>${{$summa*0.12}}</span></li>
+                                <li class="cart-total"><strong>Total:</strong> <span>${{$summa+$summa*0.12}}</span></li>
                             </ul>
                             <div class="text-end mt-40">
                                 <a href="#" class="theme-btn">Checkout Now <i

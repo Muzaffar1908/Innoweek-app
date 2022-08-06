@@ -9,6 +9,10 @@ class Cources extends Model
 {
     use HasFactory;
 
+    public function card()
+    {
+        return $this->belongsTo(Student_cards_courses::class,'id',"cours_id");
+    }
     public function user()
     {
         return $this->belongsTo(User::class,'ins_id',"id");

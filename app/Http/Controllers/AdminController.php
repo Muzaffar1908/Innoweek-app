@@ -40,7 +40,7 @@ class AdminController extends Controller
     {
         $this->middleware('isAdmin');
     }
-/*
+    /*
 umumiy student va teacher   profil.
 */
 
@@ -123,19 +123,19 @@ umumiy student va teacher   profil.
             'text_en' => 'required',
         ]);
         if ($req->hasFile('img')) {
-        $data = $req->validate([
-            'title_uz' => 'required',
-            'title2_uz' => 'required',
-            'text_uz' => 'required',
-            'title_ru' => 'required',
-            'title2_ru' => 'required',
-            'text_ru' => 'required',
-            'title_en' => 'required',
-            'title2_en' => 'required',
-            'text_en' => 'required',
-            'img' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:5048',
+            $data = $req->validate([
+                'title_uz' => 'required',
+                'title2_uz' => 'required',
+                'text_uz' => 'required',
+                'title_ru' => 'required',
+                'title2_ru' => 'required',
+                'text_ru' => 'required',
+                'title_en' => 'required',
+                'title2_en' => 'required',
+                'text_en' => 'required',
+                'img' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:5048',
 
-        ]);
+            ]);
             $filemodel = $req->file('img');
             $fileNameWithExt = $filemodel->getClientOriginalName();
             $filename = pathinfo($fileNameWithExt, PATHINFO_FILENAME);
@@ -170,7 +170,7 @@ umumiy student va teacher   profil.
         $e = Eduhub_header_en::find($id);
         $r = Eduhub_header_ru::find($id);
 
-        return view('adminpanel/header/edit', ['u' => $n,'e'=>$e, 'r'=>$r]);
+        return view('adminpanel/header/edit', ['u' => $n, 'e' => $e, 'r' => $r]);
     }
     public function header_dell($id)
     {
@@ -208,29 +208,25 @@ profil settings
             $data = $req->validate([
                 'email' => ['required', 'string', 'email', 'max:255'],
             ]);
-            $n->email=$req->email;
-
-
+            $n->email = $req->email;
         } else {
             $data = $req->validate([
                 'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             ]);
-            $n->email=$req->email;
+            $n->email = $req->email;
         }
 
         if (strlen($req->sname) >= 1) {
             $data = $req->validate([
                 'sname' => ['required', 'string', 'max:255'],
             ]);
-            $n->sname=$req->sname;
-
+            $n->sname = $req->sname;
         }
         if (strlen($req->tell) >= 1) {
             $data = $req->validate([
                 'tell' => 'required|min:9|numeric'
             ]);
-            $n->tell=$req->tell;
-
+            $n->tell = $req->tell;
         }
         if ($req->has("img")) {
             $data = $req->validate([
@@ -295,7 +291,7 @@ profil settings
                 $n->password = $password;
             }
         }
-        $n->name=$req->name;
+        $n->name = $req->name;
 
 
         $n->save();
@@ -305,7 +301,6 @@ profil settings
     public function admin_add()
     {
         return view("adminpanel.admin.add");
-
     }
 
     public function admin_save(Request $req)
@@ -348,18 +343,17 @@ profil settings
             $n->img = $fileNameToStory;
         }
 
-        if ( $req->newpassword === $req->resetpassword) {
+        if ($req->newpassword === $req->resetpassword) {
             $password = Hash::make($data['newpassword']);
             $n->password = $password;
-        }else{
+        } else {
             $pass = "Yangi parollar bir xil emas";
             return redirect()->back()->withErrors($pass)->withInput();
-
         }
 
         $n->name = $data['name'];
         $n->email = $data['email'];
-        $n->uroven ="admin";
+        $n->uroven = "admin";
         $n->level = 'oddiy';
         $n->save();
         return redirect('adminpanel');
@@ -495,9 +489,9 @@ profil settings
         $nr->title = $data['title_ru'];
         $ne->title = $data['title_en'];
 
-        $nu->text = $data['title_uz'];
-        $nr->text = $data['title_ru'];
-        $ne->text = $data['title_en'];
+        $nu->text = $data['text_uz'];
+        $nr->text = $data['text_ru'];
+        $ne->text = $data['text_en'];
 
         $nu->save();
         $nr->save();
@@ -582,7 +576,18 @@ profil settings
             'text_ru' => 'required',
             'title_en' => 'required',
             'text_en' => 'required',
+            'text_en' => 'required',
+            'img' => 'required|mimes:jpeg,png,jpg,gif'
         ]);
+        if ($req->has("img")) {
+
+            $filemodel = $req->file('file');
+            $fileNameWithExt = $filemodel->getClientOriginalName();
+            $filename = pathinfo($fileNameWithExt, PATHINFO_FILENAME);
+            $ext = $filemodel->getClientOriginalExtension();
+            $fileNameToStory = $filename . '_' . time() . "." . $ext;
+            $path = $filemodel->storeAs('public/about/', $fileNameToStory);
+        }
         $ne = new About_en();
         $nr = new About_ru();
         $nu = new About_uz();
@@ -591,9 +596,14 @@ profil settings
         $nr->title = $data['title_ru'];
         $ne->title = $data['title_en'];
 
-        $nu->text = $data['title_uz'];
-        $nr->text = $data['title_ru'];
-        $ne->text = $data['title_en'];
+        $ne->img = $data['img'];
+        $nr->img = $data['img'];
+        $nu->img = $data['img'];
+
+
+        $nu->text = $data['text_uz'];
+        $nr->text = $data['text_ru'];
+        $ne->text = $data['text_en'];
 
         $nu->save();
         $nr->save();
@@ -609,6 +619,11 @@ profil settings
     }
     public function about_update(Request $req, $id)
     {
+        $ne = About_en::find($id);
+        $nr = About_ru::find($id);
+        $nu = About_uz::find($id);
+
+
         $data = $req->validate([
             'title_uz' => 'required',
             'text_uz' => 'required',
@@ -617,10 +632,27 @@ profil settings
             'title_en' => 'required',
             'text_en' => 'required',
         ]);
+        if ($req->has("img")) {
+            $data = $req->validate([
+                'title_uz' => 'required',
+                'text_uz' => 'required',
+                'title_ru' => 'required',
+                'text_ru' => 'required',
+                'title_en' => 'required',
+                'text_en' => 'required',
+                'img' => 'required|mimes:jpeg,png,jpg,gif'
+            ]);
 
-        $ne = About_en::find($id);
-        $nr = About_ru::find($id);
-        $nu = About_uz::find($id);
+            $filemodel = $req->file('img');
+            $fileNameWithExt = $filemodel->getClientOriginalName();
+            $filename = pathinfo($fileNameWithExt, PATHINFO_FILENAME);
+            $ext = $filemodel->getClientOriginalExtension();
+            $fileNameToStory = $filename . '_' . time() . "." . $ext;
+            $path = $filemodel->storeAs('public/about/', $fileNameToStory);
+            $ne->img =$fileNameToStory;
+            $nr->img = $fileNameToStory;
+            $nu->img = $fileNameToStory;
+        }
 
 
         $nu->title = $data['title_uz'];
@@ -680,9 +712,9 @@ Teams of Services
         $nr->title = $data['title_ru'];
         $ne->title = $data['title_en'];
 
-        $nu->text = $data['title_uz'];
-        $nr->text = $data['title_ru'];
-        $ne->text = $data['title_en'];
+        $nu->text = $data['text_uz'];
+        $nr->text = $data['text_ru'];
+        $ne->text = $data['text_en'];
 
         $nu->save();
         $nr->save();
@@ -768,9 +800,9 @@ Teams of Services
         $nr->title = $data['title_ru'];
         $ne->title = $data['title_en'];
 
-        $nu->text = $data['title_uz'];
-        $nr->text = $data['title_ru'];
-        $ne->text = $data['title_en'];
+        $nu->text = $data['text_uz'];
+        $nr->text = $data['text_ru'];
+        $ne->text = $data['text_en'];
 
         $nu->save();
         $nr->save();

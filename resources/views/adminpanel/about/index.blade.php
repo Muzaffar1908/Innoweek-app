@@ -11,10 +11,6 @@
             </nav>
         </div>
         <div class="row">
-
-
-
-
             <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
@@ -84,7 +80,19 @@
                             </table>
                         </div>
 
-<hr style="background-color:rgb(248, 248, 248);margin:30px 0;">
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12 grid-margin stretch-card">
+                <div class="card">
+                    <div class="card-body">
+
+
                         <div style="display:flex;flex-direction:row; justify-content:space-between; align-items:center;">
                             <div>
                                 <h4 class="card-title">About_bolim</h4>
@@ -113,21 +121,21 @@
                                   </tr>
                                 </thead>
                                 <tbody>
-                                  @foreach ($cat as $cat)
+                                  @foreach ($cat as $catee)
                                  <tr >
                                      <th>{{$loop->index+1}}</th>
 
                                      <td>
-                                         <p class="btn-icon-" style="color:red; font-size:20px;"><i class="{{$cat->icon}}" ></i></p>
+                                         <p class="btn-icon-" style="color:red; font-size:20px;"><i class="{{$catee->icon}}" ></i></p>
                                      </td>
-                                     <td><h4>{{$cat->title}}</h4></td>
-                                     <td><h4>{{$cat->text}}</h4></td>
+                                     <td><h4>{{$catee->title}}</h4></td>
+                                     <td><h4>{{$catee->text}}</h4></td>
 
 
                                       <td style="display:flex; flex-direction:row; text-align:center; justify-content:center; align-items:center;">
-                                          <a href="/admin/about_b/edit/{{$cat->id}}" style="margin-right:10px"  type="button" class="btn btn-outline-secondary btn-icon-text"> Edit <i class="mdi mdi-file-check btn-icon-append"></i>
+                                          <a href="/admin/about_b/edit/{{$catee->id}}" style="margin-right:10px"  type="button" class="btn btn-outline-secondary btn-icon-text"> Edit <i class="mdi mdi-file-check btn-icon-append"></i>
                                           </a>
-                                          <a href="/admin/about_b/dell/{{$cat->id}}"  class="btn btn-outline-danger btn-icon-text">
+                                          <a href="/admin/about_b/dell/{{$catee->id}}"  class="btn btn-outline-danger btn-icon-text">
                                               <i class="mdi mdi-delete"></i> delete </a>
 
                                      </td>

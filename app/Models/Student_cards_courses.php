@@ -8,4 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Student_cards_courses extends Model
 {
     use HasFactory;
+    public function cources(){
+        return $this->hasOne(Cources::class,'id',"cours_id");
+    }
 }

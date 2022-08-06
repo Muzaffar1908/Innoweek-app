@@ -44,27 +44,19 @@
                                     <p>It is a long established fact that a reader will be distracted by the readable
                                         content of a page when looking at its layout. </p>
                                 </div>
-                                <form method="post" action="/eduhub/assets/php/contact.php" id="contact-form">
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <input type="text" class="form-control" name="name"
-                                                    placeholder="Your Name" required>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <input type="email" class="form-control" name="email"
-                                                    placeholder="Your Email" required>
-                                            </div>
-                                        </div>
-                                    </div>
+                                @if (session('success'))
+                                <div class="alert alert-success text-center" style="width: 100%; font-size:20px;color:rgb(255, 6, 6);font-weight:bold;">
+                                    {{ session('success') }}
+                                </div>
+                            @endif
+                                <form method="post" action="/taklifs/<?if(isset(Auth::user()->id)){echo(Auth::user()->id); }else{echo("0");}?>" method="POST">
+                                    @csrf
                                     <div class="form-group">
-                                        <input type="text" class="form-control" name="subject" placeholder="Your Subject"
+                                        <input type="text" class="form-control" name="mavzu" placeholder="Your Subject"
                                             required>
                                     </div>
                                     <div class="form-group">
-                                        <textarea name="message" cols="30" rows="5" class="form-control" placeholder="Write Your Message"></textarea>
+                                        <textarea name="text" cols="30" rows="5" class="form-control" placeholder="Write Your Message"></textarea>
                                     </div>
                                     <button type="submit" class="theme-btn"> <i class="far fa-paper-plane"></i>
                                         Send
@@ -83,7 +75,7 @@
                                     </div>
                                     <div class="contact-info-content">
                                         <h5>Office Address</h5>
-                                        <p>25/B Milford, New York, USA</p>
+                                        <p>{{$eduhub->adress}}</p>
                                     </div>
                                 </div>
                                 <div class="contact-info">
@@ -92,7 +84,7 @@
                                     </div>
                                     <div class="contact-info-content">
                                         <h5>Call Us</h5>
-                                        <p>+2 123 4565 789</p>
+                                        <p>{{$eduhub->tell}}</p>
                                     </div>
                                 </div>
                                 <div class="contact-info">
@@ -102,7 +94,7 @@
                                     <div class="contact-info-content">
                                         <h5>Email Us</h5>
                                         <p><a href="/cdn-cgi/l/email-protection" class="__cf_email__"
-                                                data-cfemail="61080f070e210419000c110d044f020e0c">[email&#160;protected]</a>
+                                                data-cfemail="61080f070e210419000c110d044f020e0c">{{$eduhub->email}}</a>
                                         </p>
                                     </div>
                                 </div>
@@ -112,7 +104,7 @@
                                     </div>
                                     <div class="contact-info-content">
                                         <h5>Office Open</h5>
-                                        <p>Sun - Fri (08AM - 10PM)</p>
+                                        <p>Sun - Fri ({{$eduhub->office_open}}AM - {{$eduhub->office_close}}AM)</p>
                                     </div>
                                 </div>
                             </div>
@@ -121,8 +113,10 @@
                 </div>
                 <div class="contact-map">
                     <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d96708.34194156103!2d-74.03927096447748!3d40.759040329405195!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x4a01c8df6fb3cb8!2sSolomon%20R.%20Guggenheim%20Museum!5e0!3m2!1sen!2sbd!4v1619410634508!5m2!1sen!2s"
-                        style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=kokand%20turkiston%2024+(Your%20Business%20Name)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
+                    style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+
+
                 </div>
             </div>
         </div>

@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('about_ens', function (Blueprint $table) {
             $table->id();
+            $table->string('img');
             $table->string('title');
             $table->text('text');
             $table->timestamps();

@@ -1,154 +1,160 @@
-@extends('layauts.app')
-@section('links')
-    <title>
-        Eduhub - Education And LMS HTML5 Template</title>
-
-    <link rel="icon" type="image/x-icon" href="assets/img/logo/favicon.png">
-
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/all-fontawesome.min.css">
-    <link rel="stylesheet" href="assets/css/animate.min.css">
-    <link rel="stylesheet" href="assets/css/magnific-popup.min.css">
-    <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
-    <link rel="stylesheet" href="assets/css/jquery-ui.min.css">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <style>
-        .stars-wrapper,
-        .stars-display {
-            display: grid;
-            grid: 2rem / repeat(5, 1fr);
-        }
-
-        .stars-wrapper {
-            max-width: 10rem;
-        }
-
-        .active {
-            box-shadow: 0 0 2px #0ae106;
-        }
-
-        .stars-display {
-            grid-row: 1;
-            grid-column: 1 / -1;
-            fill: lightgrey;
-            pointer-events: none;
-            place-items: center;
-        }
 
 
 
-        #my-form-2 input,
-        #my-form-2 label,
-        #my-form-2 label::selection {
-            appearance: none;
-            color: rgba(255, 255, 255, 0);
-            background: rgba(255, 255, 255, 0);
-        }
 
-        #one-star-rating-2,
-        label[for="one-star-rating-2"] {
-            grid-row: 1;
-            grid-column: 1;
-        }
 
-        #two-star-rating-2,
-        label[for="two-star-rating-2"] {
-            grid-row: 1;
-            grid-column: 2;
-        }
+@extends("layauts.app")
+@section("links")
+<title>Eduhub - Education And LMS HTML5 Template</title>
 
-        #three-star-rating-2,
-        label[for="three-star-rating-2"] {
-            grid-row: 1;
-            grid-column: 3;
-        }
+<link rel="icon" type="image/x-icon" href="assets/img/logo/favicon.png">
 
-        #four-star-rating-2,
-        label[for="four-star-rating-2"] {
-            grid-row: 1;
-            grid-column: 4;
-        }
+<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+<link rel="stylesheet" href="assets/css/all-fontawesome.min.css">
+<link rel="stylesheet" href="assets/css/animate.min.css">
+<link rel="stylesheet" href="assets/css/magnific-popup.min.css">
+<link rel="stylesheet" href="assets/css/owl.carousel.min.css">
+<link rel="stylesheet" href="assets/css/jquery-ui.min.css">
+<link rel="stylesheet" href="assets/css/style2.css">
+<link rel="stylesheet" href="assets/css/style.css">
+<style>
+    .stars-wrapper,
+    .stars-display {
+        display: grid;
+        grid: 2rem / repeat(5, 1fr);
+    }
 
-        #five-star-rating-2,
-        label[for="five-star-rating-2"] {
-            grid-row: 1;
-            grid-column: 5;
-        }
+    .stars-wrapper {
+        max-width: 10rem;
+    }
 
-        /* Fill stars up to and including selected star */
-        #one-star-rating-2:checked~.stars-display svg:nth-child(-n + 1) {
-            fill: orange;
-        }
+    .active {
+        box-shadow: 0 0 2px #0ae106;
+    }
 
-        #two-star-rating-2:checked~.stars-display svg:nth-child(-n + 2) {
-            fill: orange;
-        }
+    .stars-display {
+        grid-row: 1;
+        grid-column: 1 / -1;
+        fill: lightgrey;
+        pointer-events: none;
+        place-items: center;
+    }
 
-        #three-star-rating-2:checked~.stars-display svg:nth-child(-n + 3) {
-            fill: orange;
-        }
 
-        #four-star-rating-2:checked~.stars-display svg:nth-child(-n + 4) {
-            fill: orange;
-        }
 
-        #five-star-rating-2:checked~.stars-display svg:nth-child(-n + 5) {
-            fill: orange;
-        }
+    #my-form-2 input,
+    #my-form-2 label,
+    #my-form-2 label::selection {
+        appearance: none;
+        color: rgba(255, 255, 255, 0);
+        background: rgba(255, 255, 255, 0);
+    }
 
-        /* Fill stars that are being hovered (overrides the fill up to selected rating) */
-        #one-star-rating-2:hover~.stars-display svg:nth-child(-n + 1) {
-            fill: rgb(255, 0, 0);
-        }
+    #one-star-rating-2,
+    label[for="one-star-rating-2"] {
+        grid-row: 1;
+        grid-column: 1;
+    }
 
-        #two-star-rating-2:hover~.stars-display svg:nth-child(-n + 2) {
-            fill: rgb(255, 0, 0);
-        }
+    #two-star-rating-2,
+    label[for="two-star-rating-2"] {
+        grid-row: 1;
+        grid-column: 2;
+    }
 
-        #three-star-rating-2:hover~.stars-display svg:nth-child(-n + 3) {
-            fill: rgb(255, 0, 0);
-        }
+    #three-star-rating-2,
+    label[for="three-star-rating-2"] {
+        grid-row: 1;
+        grid-column: 3;
+    }
 
-        #four-star-rating-2:hover~.stars-display svg:nth-child(-n + 4) {
-            fill: rgb(255, 0, 0);
-        }
+    #four-star-rating-2,
+    label[for="four-star-rating-2"] {
+        grid-row: 1;
+        grid-column: 4;
+    }
 
-        #five-star-rating-2:hover~.stars-display svg:nth-child(-n + 5) {
-            fill: rgb(255, 0, 0);
-        }
+    #five-star-rating-2,
+    label[for="five-star-rating-2"] {
+        grid-row: 1;
+        grid-column: 5;
+    }
 
-        /* Fill stars that are being hovered (overrides the fill up to selected rating) */
-        #one-star-rating-2:hover:checked~.stars-display svg:nth-child(-n + 1) {
-            fill: orange;
-        }
+    /* Fill stars up to and including selected star */
+    #one-star-rating-2:checked~.stars-display svg:nth-child(-n + 1) {
+        fill: orange;
+    }
 
-        #two-star-rating-2:hover:checked~.stars-display svg:nth-child(-n + 2) {
-            fill: orange;
-        }
+    #two-star-rating-2:checked~.stars-display svg:nth-child(-n + 2) {
+        fill: orange;
+    }
 
-        #three-star-rating-2:hover:checked~.stars-display svg:nth-child(-n + 3) {
-            fill: orange;
-        }
+    #three-star-rating-2:checked~.stars-display svg:nth-child(-n + 3) {
+        fill: orange;
+    }
 
-        #four-star-rating-2:hover:checked~.stars-display svg:nth-child(-n + 4) {
-            fill: orange;
-        }
+    #four-star-rating-2:checked~.stars-display svg:nth-child(-n + 4) {
+        fill: orange;
+    }
 
-        #five-star-rating-2:hover:checked~.stars-display svg:nth-child(-n + 5) {
-            fill: orange;
-        }
+    #five-star-rating-2:checked~.stars-display svg:nth-child(-n + 5) {
+        fill: orange;
+    }
 
-        video::-webkit-media-controls-volume-slider {
-            background-color: #f00;
-            padding-top: 0;
-            margin-top: 20px;
+    /* Fill stars that are being hovered (overrides the fill up to selected rating) */
+    #one-star-rating-2:hover~.stars-display svg:nth-child(-n + 1) {
+        fill: rgb(255, 0, 0);
+    }
 
-            padding-bottom: 0;
-        }
-    </style>
+    #two-star-rating-2:hover~.stars-display svg:nth-child(-n + 2) {
+        fill: rgb(255, 0, 0);
+    }
+
+    #three-star-rating-2:hover~.stars-display svg:nth-child(-n + 3) {
+        fill: rgb(255, 0, 0);
+    }
+
+    #four-star-rating-2:hover~.stars-display svg:nth-child(-n + 4) {
+        fill: rgb(255, 0, 0);
+    }
+
+    #five-star-rating-2:hover~.stars-display svg:nth-child(-n + 5) {
+        fill: rgb(255, 0, 0);
+    }
+
+    /* Fill stars that are being hovered (overrides the fill up to selected rating) */
+    #one-star-rating-2:hover:checked~.stars-display svg:nth-child(-n + 1) {
+        fill: orange;
+    }
+
+    #two-star-rating-2:hover:checked~.stars-display svg:nth-child(-n + 2) {
+        fill: orange;
+    }
+
+    #three-star-rating-2:hover:checked~.stars-display svg:nth-child(-n + 3) {
+        fill: orange;
+    }
+
+    #four-star-rating-2:hover:checked~.stars-display svg:nth-child(-n + 4) {
+        fill: orange;
+    }
+
+    #five-star-rating-2:hover:checked~.stars-display svg:nth-child(-n + 5) {
+        fill: orange;
+    }
+
+    video::-webkit-media-controls-volume-slider {
+        background-color: #f00;
+        padding-top: 0;
+        margin-top: 20px;
+
+        padding-bottom: 0;
+    }
+</style>
+
 @endsection("links")
-
 @section('content')
+
     <main class="main">
 
         <div class="site-breadcrumb justify-content-start text-start">
@@ -1007,55 +1013,81 @@ free_lesson
     <a href="#" id="scroll-top"><i class="far fa-angle-double-up"></i></a>
 @endsection("content")
 
-@section('scripts')
-    <script>
-        const video = document.getElementById("video");
-        const circlePlayButton = document.getElementById("circle-play-b");
+@section("scripts")
 
-        function togglePlay() {
-            if (video.paused || video.ended) {
-                video.play();
-            } else {
-                video.pause();
-            }
+<script>
+    const video = document.getElementById("video");
+    const circlePlayButton = document.getElementById("circle-play-b");
+
+    function togglePlay() {
+        if (video.paused || video.ended) {
+            video.play();
+        } else {
+            video.pause();
         }
+    }
 
-        circlePlayButton.addEventListener("click", togglePlay);
-        video.addEventListener("playing", function() {
-            circlePlayButton.style.opacity = 0;
+    circlePlayButton.addEventListener("click", togglePlay);
+    video.addEventListener("playing", function() {
+        circlePlayButton.style.opacity = 0;
+    });
+    video.addEventListener("pause", function() {
+        circlePlayButton.style.opacity = 1;
+    });
+
+
+
+    jQuery(document).ready(function($) {
+
+
+        $(".free_lesson").on("click", function() {
+            var newmp4 = $(this).attr("src");
+            $('#video').get(0).pause();
+            $('#source').attr('src', newmp4);
+            $('#video').get(0).load();
+            $('#video').get(0).play();
         });
-        video.addEventListener("pause", function() {
-            circlePlayButton.style.opacity = 1;
-        });
+
+    });
+</script>
+<script>
+    $(document).ready(function() {
 
 
-
-        jQuery(document).ready(function($) {
-
-
-            $(".free_lesson").on("click", function() {
-                var newmp4 = $(this).attr("src");
-                $('#video').get(0).pause();
-                $('#source').attr('src', newmp4);
-                $('#video').get(0).load();
-                $('#video').get(0).play();
+        $('#search').on('keyup', function() {
+            var query = $(this).val();
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
             });
+            $.ajax({
 
+                url: "{{ route('employee.search') }}",
+
+                type: "GET",
+
+                data: {
+                    'country': query
+                },
+
+                success: function(data) {
+
+                    $('.search-ul').html(data);
+                }
+            })
+            // end of ajax call
         });
-    </script>
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
-    <script src="assets/js/jquery-3.6.0.min.js"></script>
-    <script src="assets/js/modernizr.min.js"></script>
-    <script src="assets/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/js/imagesloaded.pkgd.min.js"></script>
-    <script src="assets/js/jquery.magnific-popup.min.js"></script>
-    <script src="assets/js/isotope.pkgd.min.js"></script>
-    <script src="assets/js/jquery.appear.min.js"></script>
-    <script src="assets/js/jquery.easing.min.js"></script>
-    <script src="assets/js/owl.carousel.min.js"></script>
-    <script src="assets/js/counter-up.js"></script>
-    <script src="assets/js/masonry.pkgd.min.js"></script>
-    <script src="assets/js/wow.min.js"></script>
-    <script src="assets/js/jquery-ui.min.js"></script>
-    <script src="assets/js/main.js"></script>
+
+
+        $(document).on('click', 'li', function() {
+
+            var value = $(this).text();
+            $('#country').val(value);
+            $('#country_list').html("");
+        });
+    });
+</script>
+<script src="assets/js/cslider1.js"></script>
 @endsection("scripts")
+

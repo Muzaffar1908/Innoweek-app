@@ -36,45 +36,41 @@
         <div class="about-area py-120">
             <div class="container">
                 <div class="row align-items-center">
-                    <div class="col-lg-6">
-                        <div class="about-left">
-                            <div class="about-img">
-                                <img src="{{asset("storage/img/about/01.jpg")}}" alt="">
+
+                            @foreach ($about as $ab )
+                            <div class="col-lg-6">
+                                <div class="about-left">
+                                    <div class="about-img">
+                                        <img src="{{asset("storage/about/".$ab->img)}}" alt="">
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="about-right">
+                            <div class="col-lg-6">
+                                <div class="about-right">
                             <div class="site-heading mb-3">
                                 <h2 class="site-title">
-                                    Whether you want to <span>learn or to share</span> what you know
+                                   <span> {{$ab->title}}</span>
                                 </h2>
                             </div>
-                            <p class="about-text">There are many variations of passages of Lorem Ipsum available, but
-                                the majority have suffered alteration in some form, by injected humour, or randomised words
-                                which don't look even slightly believable. If you are going to use
-                                a passage of orem psum you need to be sure.All the Lorem Ipsum generators on the Internet
-                                tend to repeat predefined chunks.</p>
+                            <p class="about-text">{{$ab->text}}</p>
+                            @endforeach
+
                             <div class="about-list-wrapper">
                                 <ul class="about-list list-unstyled">
+                                    @foreach ($about_b as $abb )
                                     <li>
-                                        <div class="icon"><i class="fal fa-user-friends"></i></div>
+                                        <div class="icon"><i class="{{$abb->icon}}"></i></div>
                                         <div class="text">
-                                            <h4>Qualified Instructor</h4>
-                                            <p>Take a look at our round up of the best shows.</p>
+                                            <h4>{{$abb->title}}</h4>
+                                            <p>{{$abb->text}}</p>
                                         </div>
                                     </li>
-                                    <li>
-                                        <div class="icon"><i class="fal fa-headset"></i></div>
-                                        <div class="text">
-                                            <h4>Individual Support</h4>
-                                            <p>It has survived not only five centuries.</p>
-                                        </div>
-                                    </li>
+                                    @endforeach
+
+
                                 </ul>
                             </div>
-                            <a href="about.html" class="theme-btn">Discover More <i class="far fa-arrow-right"></i></a>
-                        </div>
+                          </div>
                     </div>
                 </div>
             </div>
@@ -88,8 +84,8 @@
                         <div class="counter-box">
                             <div class="icon counter-icon-1"><i class="fal fa-users"></i></div>
                             <div>
-                                <span class="counter" data-count="+" data-to="1500" data-speed="3000">1500</span>
-                                <h6 class="title">+ Students Enrolled</h6>
+                                <span class="counter" data-count="+" data-to="{{$s_count}}" data-speed="3000">{{$s_count}}</span>
+                                <h6 class="title">Students Enrolled</h6>
                             </div>
                         </div>
                     </div>
@@ -97,8 +93,8 @@
                         <div class="counter-box">
                             <div class="icon counter-icon-2"><i class="fal fa-book-open"></i></div>
                             <div>
-                                <span class="counter" data-count="+" data-to="250" data-speed="3000">250</span>
-                                <h6 class="title">+ Total Courses</h6>
+                                <span class="counter" data-count="+" data-to="{{$cource_count}}" data-speed="3000">{{$cource_count}}</span>
+                                <h6 class="title">Total Courses</h6>
                             </div>
                         </div>
                     </div>
@@ -106,8 +102,8 @@
                         <div class="counter-box">
                             <div class="icon counter-icon-3"><i class="fal fa-diploma"></i></div>
                             <div>
-                                <span class="counter" data-count="+" data-to="120" data-speed="3000">120</span>
-                                <h6 class="title">+ Active Experts</h6>
+                                <span class="counter" data-count="+" data-to="{{$t_count}}" data-speed="3000">{{$t_count}}</span>
+                                <h6 class="title">Active Experts</h6>
                             </div>
                         </div>
                     </div>
@@ -115,8 +111,8 @@
                         <div class="counter-box">
                             <div class="icon counter-icon-4"><i class="fal fa-award"></i></div>
                             <div>
-                                <span class="counter" data-count="+" data-to="50" data-speed="3000">50</span>
-                                <h6 class="title">+ Win Awards</h6>
+                                <span class="counter" data-count="+" data-to="{{$eduhub->awards_count}}" data-speed="3000">{{$eduhub->awards_count}}</span>
+                                <h6 class="title"> Win Awards</h6>
                             </div>
                         </div>
                     </div>
@@ -128,51 +124,26 @@
         <div class="feature-area py-120">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-6 mx-auto">
-                        <div class="site-heading text-center">
-                            <h2 class="site-title mb-2">Why You Learn <span>With Eduhub</span></h2>
-                            <p>It is a long established fact that a reader will be distracted by the readable.</p>
+                    <?$n_color=1?>
+
+                    @foreach ($nega as $n)
+                        <div class="col-md-6 col-lg-3" >
+
+                            <div class="feature-item feature-item-bg-{{ $n_color }}" style="height: 100%">
+                                <div class="feature-icon feature-icon-{{ $n_color }}" style="color: #fff">
+                                    <i class="{{ $n->icon }}"></i>
+                                </div>
+                                <div class="feature-content" >
+                                    <h4 style="color: #fff">{{ $n->title }}</h4>
+                                    <p style="color: #fff">{{ $n->text }}</p>
+                                </div>
+                            </div>
                         </div>
-                    </div>
+                        <?$n_color=$n_color+1;?>
+                    @endforeach
+
                 </div>
-                <div class="row">
-                    <div class="col-md-6 col-lg-4">
-                        <div class="feature-item">
-                            <div class="feature-icon feature-icon-1">
-                                <i class="far fa-book-open"></i>
-                            </div>
-                            <div class="feature-content">
-                                <h4>320k Online Course</h4>
-                                <p>It is a long established fact that a reader will be distracted by the readable content of
-                                    a page when looking at its layout.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4">
-                        <div class="feature-item active">
-                            <div class="feature-icon feature-icon-2">
-                                <i class="far fa-users"></i>
-                            </div>
-                            <div class="feature-content">
-                                <h4>Expert Instructors</h4>
-                                <p>It is a long established fact that a reader will be distracted by the readable content of
-                                    a page when looking at its layout.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4">
-                        <div class="feature-item">
-                            <div class="feature-icon feature-icon-3">
-                                <i class="far fa-clock"></i>
-                            </div>
-                            <div class="feature-content">
-                                <h4>Lifetime Access</h4>
-                                <p>It is a long established fact that a reader will be distracted by the readable content of
-                                    a page when looking at its layout.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
             </div>
         </div>
 
@@ -312,75 +283,31 @@
                     </div>
                 </div>
                 <div class="row">
+                    @foreach ($team as $tea)
                     <div class="col-md-6 col-lg-3">
                         <div class="team-item">
-                            <img src="{{asset("storage/img/team/01.png")}}" alt="thumb">
+                            <img src="{{asset("storage/jamoa/".$tea->img)}}" alt="thumb">
                             <div class="team-social">
-                                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                                <a href="#"><i class="fab fa-twitter"></i></a>
-                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                                <a href="#"><i class="fab fa-youtube"></i></a>
+                                @if (isset($tea->telegram))
+                                                <a href="{{ $tea->telegram }}"><i class="fab fa-telegram"></i></a>
+                                            @endif
+                                            @if (isset($tea->facebook))
+                                                <a href="{{ $tea->facebook }}"><i class="fab fa-facebook-f"></i></a>
+                                            @endif
+                                            @if (isset($tea->instagram))
+                                                <a href="{{ $tea->instagram }}"><i class="fab fa-instagram"></i></a>
+                                            @endif
+
                             </div>
                             <div class="team-content">
                                 <div class="team-bio">
-                                    <h5><a href="#">Malissa Fie</a></h5>
-                                    <span>CEO & Founder</span>
+                                    <h5>{{$tea->name}}</h5>
+                                    <span>{{$tea->uroven}}</span>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6 col-lg-3">
-                        <div class="team-item">
-                            <img src="{{asset("storage/img/team/02.png")}}" alt="thumb">
-                            <div class="team-social">
-                                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                                <a href="#"><i class="fab fa-twitter"></i></a>
-                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                                <a href="#"><i class="fab fa-youtube"></i></a>
-                            </div>
-                            <div class="team-content">
-                                <div class="team-bio">
-                                    <h5><a href="#">Arron Rodri</a></h5>
-                                    <span>CEO & Founder</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-3">
-                        <div class="team-item">
-                            <img src="{{asset("storage/img/team/03.png")}}" alt="thumb">
-                            <div class="team-social">
-                                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                                <a href="#"><i class="fab fa-twitter"></i></a>
-                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                                <a href="#"><i class="fab fa-youtube"></i></a>
-                            </div>
-                            <div class="team-content">
-                                <div class="team-bio">
-                                    <h5><a href="#">Chad Smith</a></h5>
-                                    <span>CEO & Founder</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-3">
-                        <div class="team-item">
-                            <img src="{{asset("storage/img/team/04.png")}}" alt="thumb">
-                            <div class="team-social">
-                                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                                <a href="#"><i class="fab fa-twitter"></i></a>
-                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                                <a href="#"><i class="fab fa-youtube"></i></a>
-                            </div>
-                            <div class="team-content">
-                                <div class="team-bio">
-                                    <h5><a href="#">Tony Pinto</a></h5>
-                                    <span>CEO & Founder</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                   @endforeach
             </div>
         </div>
 

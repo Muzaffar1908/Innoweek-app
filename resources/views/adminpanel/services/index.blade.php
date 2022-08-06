@@ -54,7 +54,7 @@
                                             </td>
                                             <td>
                                                 <p>
-                                                    {{ substr($eduhub->title, 0, 50) }}...
+                                                    {{ substr($eduhub->text, 0, 50) }}...
                                                 </p>
 
                                             </td>

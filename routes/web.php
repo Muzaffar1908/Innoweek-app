@@ -176,20 +176,17 @@ Route::get("/adminpanel", [AdminController::class, "index"]);
 Route::get("/admin/eduhub", [AdminController::class, "index"]);
 
 Route::view("/eduhub","eduhub");
-Route::get("/course-category", [EduHubController::class, "course_category"]);
-Route::get("/course-search", [EduHubController::class, "course_search"]);
 
 Route::get("/signup", [EduHubController::class, "signup"]);
 Route::get("/forgotPassword", [EduHubController::class, "forgotPassword"]);
 Route::get("/signin", [EduHubController::class, "signin"])->name('login');
-Route::get("/card", [EduHubController::class, "card"])->middleware('auth');
+Route::get("/card/{id}", [EduHubController::class, "card"])->middleware('auth');
+Route::get("/card", [EduHubController::class, "card_return"])->middleware('auth');
 Route::get("/card/add/{id}/{auth}", [EduHubController::class, "card_add"]);
-Route::get("/card-checkout", [EduHubController::class, "card_checkout"]);
 Route::get("/contact", [EduHubController::class, "contact"]);
-Route::get("/blog", [EduHubController::class, "blog"]);
+Route::post("/taklifs/{id}", [EduHubController::class, "taklifs"])->middleware('auth');;
+
 Route::get("/instructor-single/{id}/{id2}", [EduHubController::class, "instructor_single"]);
-Route::get("/instructor", [EduHubController::class, "instructor"]);
-Route::get("/courses", [EduHubController::class, "courses"]);
 Route::get("/about", [EduHubController::class, "about"]);
 Route::get("/teams", [EduHubController::class, "teams"]);
 Route::get("/police", [EduHubController::class, "police"]);
@@ -197,8 +194,13 @@ Route::get("/", [EduHubController::class, "index"]);
 Route::get("/eduhub", [EduHubController::class, "index"]);
 Route::get("/home", [EduHubController::class, "index"]);
 
-
-
+Route::get("/instructor", [EduHubController::class, "instructor"]);
+Route::get("/courses", [EduHubController::class, "courses"]);
+Route::get("/blog", [EduHubController::class, "blog"]);
+Route::get("/course-category", [EduHubController::class, "course_category"]);
+Route::get("/search", [EduHubController::class, "search"]);
+Route::get("/card-checkout", [EduHubController::class, "card_checkout"]);
+Route::get('/search_ajax',[EduHubController::class,'ajax_search'])->name('employee.search');
 
 Auth::routes();
 
