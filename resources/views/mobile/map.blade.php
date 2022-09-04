@@ -1,5 +1,6 @@
 @extends('layouts.mobile')
-
+@section('styles')
+@endsection
 @section('content')
     <!-- Start Section-title Area -->
     <div class="section-title mb-0 bg-color ptb-30">

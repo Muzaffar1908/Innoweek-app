@@ -3,6 +3,9 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Pagination\Paginator;
+use Illuminate\Support\Facades\Validator;
+
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -23,6 +26,12 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        Paginator::useBootstrap();
+
+        // Validator::extend('email_or_phone', function ($attribute, $value, $parameters, $validator) {
+        //     return
+        //         $validator->validateRegex($attribute, $value, ['/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/']) ||
+        //         $validator->validateEmail($attribute, $value, []);
+        // });
     }
 }

@@ -3,7 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Mobile\IndexController;
 use App\Http\Controllers\Mobile\AuthController;
-
+use App\Http\Controllers\NewsCategoryController;
+use App\Http\Controllers\UserController;
+use App\Models\News\NewsCategory;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,6 +22,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::prefix('admin')->name('admin.')->group(function(){
+    Route::get('/dashboard', function(){
+        return view('admin.layout.app');
+    });
+
+    Route::resource('/user', UserController::class);
+    Route::resource('/news_category', NewsCategoryController::class);
+});
+
 Auth::routes();
 
 
@@ -27,8 +38,15 @@ Route::group(['prefix' => 'mobile-v'], function () {
     
     Route::controller(IndexController::class)->group(function () {
         Route::get('/', 'home')->name('m-home');
+        Route::get('/dashboard', 'dashboard')->name('m-dashboard');
         Route::get('/about', 'about')->name('m-about');
         Route::get('/map', 'map')->name('m-map');
+        Route::get('/calendar', 'calendar')->name('m-calendar');
+        Route::get('/qrkod', 'qrkod')->name('m-qrkod');
+        Route::get('/setting', 'setting')->name('m-setting');
+        Route::get('/news-1', 'news1')->name('m-news1');
+        Route::get('/news-2', 'news2')->name('m-news2');
+        Route::get('/news-3', 'news3')->name('m-news3');
     });
 
      Route::controller(AuthController::class)->group(function () {

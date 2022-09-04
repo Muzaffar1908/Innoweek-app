@@ -1,0 +1,181 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use App\Models\User;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Session;
+
+class UserController extends Controller
+{
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        $users = User::paginate(5);
+        return view('admin.user.index', compact('users'));
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        return view('admin.user.create');
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        $data = $request->except(array('_token'));
+        $rule = array(
+          'first_name' => 'required',
+          'last_name' => 'required',
+          'gender' => 'required',
+          'birth_date' => 'required',
+          'email' => 'required',
+          'phone' => 'required',
+          'password' => 'required',
+         );
+
+         $validator = Validator::make($data, $rule);
+
+         if ($validator->fails()) {
+             Session::flash('warning', $validator->messages());
+             return redirect()->back();
+         }
+
+         $inputs = $request->all();
+         if (!empty($inputs['id'])) {
+             $users = User::findOrFail($inputs['id']);
+         } else {
+             $users = new User;
+         }
+
+         $users->first_name = $inputs['first_name'];
+         $users->last_name = $inputs['last_name'];
+         $users->middle_name = $inputs['middle_name'];
+         $users->gender = $inputs['gender'];
+         $users->birth_date = $inputs['birth_date'];
+         $users->user_image = $inputs['user_image'];
+         $users->address = $inputs['address'];
+         $users->balance = $inputs['balance'];
+         $users->email = $inputs['email'];
+         $users->phone = $inputs['phone'];
+         $users->password = $inputs['password'];
+         $users->provider_name = $inputs['provider_name'];
+         $users->provider_id = $inputs['provider_id'];
+         $users->save();
+
+         if (!empty($inputs['id'])) {
+            Session::flash('warning', __('ALL_CHANGES_SUCCESSFUL_SAVED'));
+            return redirect('admin/user');
+        } else {
+            Session::flash('warning', __('ALL_SUCCESSFUL_SAVED'));
+            return redirect('admin/user');
+        }
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        $user = User::find($id);
+        return view('admin.user.show')->with('user', $user);
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        $user = User::find($id);
+        return view('admin.user.edit')->with('user', $user);
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, User $users)
+    {
+        $data = $request->except(array('_token'));
+        $rule = array(
+          'first_name' => 'required',
+          'last_name' => 'required',
+          'gender' => 'required',
+          'birth_date' => 'required',
+          'email' => 'required',
+          'phone' => 'required',
+         );
+
+         $validator = Validator::make($data, $rule);
+
+         if ($validator->fails()) {
+             Session::flash('warning', $validator->messages());
+             return redirect()->back();
+         }
+
+         $inputs = $request->all();
+         if (!empty($inputs['id'])) {
+             $users = User::findOrFail($inputs['id']);
+         } else {
+             $users = new User;
+         }
+
+         $users->first_name = $inputs['first_name'];
+         $users->last_name = $inputs['last_name'];
+         $users->middle_name = $inputs['middle_name'];
+         $users->gender = $inputs['gender'];
+         $users->birth_date = $inputs['birth_date'];
+         $users->user_image = $inputs['user_image'];
+         $users->address = $inputs['address'];
+         $users->balance = $inputs['balance'];
+         $users->email = $inputs['email'];
+         $users->phone = $inputs['phone'];
+         $users->provider_name = $inputs['provider_name'];
+         $users->provider_id = $inputs['provider_id'];
+         $users->save();
+
+         if (!empty($inputs['id'])) {
+            Session::flash('warning', __('ALL_CHANGES_SUCCESSFUL_SAVED'));
+            return redirect('admin/user');
+        } else {
+            Session::flash('warning', __('ALL_SUCCESSFUL_SAVED'));
+            return redirect('admin/user');
+        }
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        User::destroy($id);
+        return redirect('admin/user')->with('warning', 'USER TABLES DELETED');
+    }
+}

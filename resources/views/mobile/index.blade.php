@@ -1,18 +1,18 @@
 @extends('layouts.mobile')
 @section('styles')
-<link rel="stylesheet" href="{{ asset('/assets/css/owl.theme.default.min.css') }}">
-<link rel="stylesheet" href="{{ asset('/assets/css/owl.carousel.min.css') }}">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
-    integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link
-    href="https://fonts.googleapis.com/css2?family=Alumni+Sans+Collegiate+One&family=Dancing+Script:wght@400;500;600;700&family=Poppins&family=Roboto:ital,wght@1,100;1,400&display=swap"
-    rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+    <link rel="stylesheet" href="{{ asset('/assets/css/owl.theme.default.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('/assets/css/owl.carousel.min.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+        integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Alumni+Sans+Collegiate+One&family=Dancing+Script:wght@400;500;600;700&family=Poppins&family=Roboto:ital,wght@1,100;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
 @endsection
 
 @section('content')
@@ -63,19 +63,19 @@
                     </li>
                     <li>
                         <img src="{{ asset('/assets/images/menu-icon/icon-2.png') }}" alt="Images">
-                        <a href="./taqvim.html">
+                        <a href="{{route('m-calendar')}}">
                             TAQVIM
                         </a>
                     </li>
                     <li>
                         <img src="{{ asset('/assets/images/menu-icon/icon-2.png') }}" alt="Images">
-                        <a href="qrkod.html">
+                        <a href="{{route('m-qrkod')}}">
                             QR KOD
                         </a>
                     </li>
                     <li>
                         <img src="{{ asset('/assets/images/menu-icon/icon-2.png') }}" alt="Images">
-                        <a href="setting.html">
+                        <a href="{{route('m-setting')}}">
                             SOZLAMALAR
                         </a>
                     </li>
@@ -112,7 +112,7 @@
     </div>
     <div class="features-slide owl-carousel owl-theme">
         <div class="single-features card-bg-a1dbd2">
-            <a href="./news-1.html">
+            <a href="{{route('m-news1')}}">
                 <img style="object-fit: cover; width: 100%; height: 230px;"
                     src="{{ asset('/assets/images/image/img1.jpg') }}" alt="">
             </a>
@@ -123,7 +123,7 @@
             </div>
         </div>
         <div class="single-features card-bg-a1dbd2">
-            <a href="./news-2.html">
+            <a href="{{route('m-news2')}}"">
                 <img style="object-fit: cover; width: 100%; height: 230px;"
                     src="{{ asset('/assets/images/image/img2.jpg') }}" alt="">
             </a>
@@ -134,7 +134,7 @@
             </div>
         </div>
         <div class="single-features card-bg-a1dbd2">
-            <a href="./news-3.html">
+            <a href="{{route('m-news3')}}">
                 <img style="object-fit: cover; width: 100%; height: 230px;"
                     src="{{ asset('/assets/images/image/img3.jpg') }}" alt="">
             </a>
