@@ -3,14 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\News\News;
+use App\Models\Archive\Archive;
 use App\Models\User;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Session;
 
-class NewsController extends Controller
+class ArchiveController extends Controller
 {
-
     /**
      * Display a listing of the resource.
      *
@@ -18,9 +17,9 @@ class NewsController extends Controller
      */
     public function index()
     {
-        $news = News::paginate(5);
+        $archives = Archive::paginate(5);
         $users = User::all();
-        return view('admin.news.index', compact('news', 'users'));
+        return view('admin.archive.index', compact('archives', 'users'));
     }
 
     /**
@@ -31,7 +30,7 @@ class NewsController extends Controller
     public function create()
     {
         $users = User::all();
-        return view('admin.news.create')->with('users', $users);
+        return view('admin.archive.create')->with('users', $users);
     }
 
     /**
@@ -44,17 +43,8 @@ class NewsController extends Controller
     {
         $data = $request->except(array('_token'));
         $rule = array(
-        'title_uz' => 'required',
+        'year' => 'required',
         );
-
-        if (!file_exists('uploads/news')) {
-            mkdir('uploads/news', 0777, true);
-        }
-
-        if (!file_exists('uploads/news/description_image')) {
-            mkdir('uploads/news/description_image', 0777, true);
-        }
-
 
         $validator = Validator::make($data, $rule);
 
@@ -65,35 +55,18 @@ class NewsController extends Controller
 
         $inputs = $request->all();
         if (!empty($inputs['id'])) {
-            $news = News::findOrFail($inputs['id']);
+            $archives = Archive::findOrFail($inputs['id']);
         } else {
-            $news = new News;
+            $archives = new Archive;
         }
 
-        $news->user_id = $inputs['user_id'];
-        $news->cat_id = $inputs['cat_id'];
-        $news->title_uz = $inputs['title_uz'];
-        $news->title_ru = $inputs['title_ru'];
-        $news->title_en = $inputs['title_en'];
-        // $news->user_image = $inputs['user_image'];
-        $news->tags = $inputs['tags'];
-
-        $news->description_uz = $inputs['description_uz'];
-
-        if ($request->hasFile('image')) {
-            $file = $request->file('image');
-            $ex = $file->getClientOriginalExtension();
-            $imageName = md5(rand(100, 999999) . microtime()) . "." . $ex;
-            $file->move(public_path('uploads/news'), $imageName);
-            // unlink($userticket->ticket_image);
-            $data['image'] = 'uploads/news/' . $imageName;
-        }
-        
-
-        if (!empty($news->description_uz)) {
+        $archives->year = $inputs['year'];
+    
+        $archives->description_uz = $inputs['description_uz'];
+        if (!empty($archives->description_uz)) {
             $dom_save_uz = new \DomDocument();
             libxml_use_internal_errors(true);
-            $dom_save_uz->loadHtml('<?xml encoding="UTF-8">'.$news->description_uz, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
+            $dom_save_uz->loadHtml('<?xml encoding="UTF-8">'.$archives->description_uz, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
             $dom_image_save_uz = $dom_save_uz->getElementsByTagName('img');
             foreach ($dom_image_save_uz as $k => $img) {
                 $data = $img->getAttribute('src');
@@ -101,21 +74,21 @@ class NewsController extends Controller
                     list($type, $data) = explode(';', $data);
                     list(, $data)      = explode(',', $data);
                     $data = base64_decode($data);
-                    $image_name= "/uploads/news/description_image/uz_" . time().$k.'.jpg';
+                    $image_name= "/uploads/archive/uz_" . time().$k.'.jpg';
                     $path = public_path() . $image_name;
                     file_put_contents($path, $data);
                     $img->removeAttribute('src');
                     $img->setAttribute('src', $image_name);
                 }
             }
-            $news->description_uz = str_replace('<?xml encoding="UTF-8">', "",$dom_save_uz->saveHTML());
+            $archives->description_uz = str_replace('<?xml encoding="UTF-8">', "",$dom_save_uz->saveHTML());
         }
 
-        $news->description_ru = $inputs['description_ru'];
-        if (!empty($news->description_ru)) {
+        $archives->description_ru = $inputs['description_ru'];
+        if (!empty($archives->description_ru)) {
             $dom_save_ru = new \DomDocument();
             libxml_use_internal_errors(true);
-            $dom_save_ru->loadHtml('<?xml encoding="UTF-8">'.$news->description_ru, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
+            $dom_save_ru->loadHtml('<?xml encoding="UTF-8">'.$archives->description_ru, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
             $dom_image_save_ru = $dom_save_ru->getElementsByTagName('img');
             foreach ($dom_image_save_ru as $k => $img) {
                 $data = $img->getAttribute('src');
@@ -123,22 +96,21 @@ class NewsController extends Controller
                     list($type, $data) = explode(';', $data);
                     list(, $data)      = explode(',', $data);
                     $data = base64_decode($data);
-                    $image_name= "/uploads/news/description_image/ru_".'_'.time().'.jpg';
+                    $image_name= "/uploads/archive/ru_".'_'.time().'.jpg';
                     $path = public_path() . $image_name;
                     file_put_contents($path, $data);
                     $img->removeAttribute('src');
                     $img->setAttribute('src', $image_name);
                 }
             }
-            $news->description_ru = str_replace('<?xml encoding="UTF-8">', "",$dom_save_ru->saveHTML());
+            $archives->description_ru = str_replace('<?xml encoding="UTF-8">', "",$dom_save_ru->saveHTML());
         }
 
-        $news->description_en = $inputs['description_en'];
-        if (!empty($news->description_en)) {
+        $archives->description_en = $inputs['description_en'];
+        if (!empty($archives->description_en)) {
             $dom_save_en = new \DomDocument();
             libxml_use_internal_errors(true);
-            $dom_save_en->loadHtml('<?xml encoding="UTF-8">'.$news->description_en, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
-            //$dom_save_en->loadHTML($news->description_en);
+            $dom_save_en->loadHtml('<?xml encoding="UTF-8">'.$archives->description_en, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
             $dom_image_save_en = $dom_save_en->getElementsByTagName('img');
             foreach ($dom_image_save_en as $k => $img) {
                 $data = $img->getAttribute('src');
@@ -146,26 +118,24 @@ class NewsController extends Controller
                     list($type, $data) = explode(';', $data);
                     list(, $data)      = explode(',', $data);
                     $data = base64_decode($data);
-                    $image_name= "/uploads/news/description_image/en_".'_'.time().'.jpg';
+                    $image_name= "/uploads/archive/en_".'_'.time().'.jpg';
                     $path = public_path() . $image_name;
                     file_put_contents($path, $data);
                     $img->removeAttribute('src');
                     $img->setAttribute('src', $image_name);
                 }
             }
-            $news->description_en = str_replace('<?xml encoding="UTF-8">', "",$dom_save_en->saveHTML());
+            $archives->description_en = str_replace('<?xml encoding="UTF-8">', "",$dom_save_en->saveHTML());
         }
 
-        $news->user_image = $imageName;
-
-        $news->save();
+        $archives->save();
 
         if (!empty($inputs['id'])) {
             Session::flash('warning', __('ALL_CHANGES_SUCCESSFUL_SAVED'));
-            return redirect('admin/news');
+            return redirect('admin/archive');
         } else {
             Session::flash('warning', __('ALL_SUCCESSFUL_SAVED'));
-            return redirect('admin/news');
+            return redirect('admin/archive');
         }
     }
 
@@ -177,12 +147,8 @@ class NewsController extends Controller
      */
     public function show($id)
     {
-        $news = News::find($id);
-        $users = User::all();
-        return view('admin.news.show', [
-            'news' => $news,
-            'users' => $users,
-        ]);
+        $archive = Archive::find($id);
+        return view('admin.archive.show')->with('archive', $archive);
     }
 
     /**
@@ -193,12 +159,8 @@ class NewsController extends Controller
      */
     public function edit($id)
     {
-        $news = News::find($id);
-        $users = User::all();
-        return view('admin.news.edit', [
-            'news' => $news,
-            'users' => $users,
-        ]);
+        $archive = Archive::find($id);
+        return view('admin.archive.edit')->with('archive', $archive);
     }
 
     /**
@@ -208,21 +170,12 @@ class NewsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, News $news)
+    public function update(Request $request, Archive $archives)
     {
         $data = $request->except(array('_token'));
         $rule = array(
-        'title_uz' => 'required',
+        'year' => 'required',
         );
-
-        if (!file_exists('uploads/news')) {
-            mkdir('uploads/news', 0777, true);
-        }
-
-        if (!file_exists('uploads/news/description_image')) {
-            mkdir('uploads/news/description_image', 0777, true);
-        }
-
 
         $validator = Validator::make($data, $rule);
 
@@ -233,34 +186,18 @@ class NewsController extends Controller
 
         $inputs = $request->all();
         if (!empty($inputs['id'])) {
-            $news = News::findOrFail($inputs['id']);
+            $archives = Archive::findOrFail($inputs['id']);
         } else {
-            $news = new News;
+            $archives = new Archive;
         }
 
-        $news->user_id = $inputs['user_id'];
-        $news->cat_id = $inputs['cat_id'];
-        $news->title_uz = $inputs['title_uz'];
-        $news->title_ru = $inputs['title_ru'];
-        $news->title_en = $inputs['title_en'];
-        // $news->user_image = $inputs['user_image'];
-        $news->tags = $inputs['tags'];
-
-        $news->description_uz = $inputs['description_uz'];
-
-        if ($request->hasFile('image')) {
-            $file = $request->file('image');
-            $ex = $file->getClientOriginalExtension();
-            $imageName = md5(rand(100, 999999) . microtime()) . "." . $ex;
-            $file->move(public_path('uploads/news'), $imageName);
-            // unlink($userticket->ticket_image);
-            $data['image'] = 'uploads/news/' . $imageName;
-        }
-
-        if (!empty($news->description_uz)) {
+        $archives->year = $inputs['year'];
+    
+        $archives->description_uz = $inputs['description_uz'];
+        if (!empty($archives->description_uz)) {
             $dom_save_uz = new \DomDocument();
             libxml_use_internal_errors(true);
-            $dom_save_uz->loadHtml('<?xml encoding="UTF-8">'.$news->description_uz, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
+            $dom_save_uz->loadHtml('<?xml encoding="UTF-8">'.$archives->description_uz, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
             $dom_image_save_uz = $dom_save_uz->getElementsByTagName('img');
             foreach ($dom_image_save_uz as $k => $img) {
                 $data = $img->getAttribute('src');
@@ -268,21 +205,21 @@ class NewsController extends Controller
                     list($type, $data) = explode(';', $data);
                     list(, $data)      = explode(',', $data);
                     $data = base64_decode($data);
-                    $image_name= "/uploads/news/description_image/uz_" . time().$k.'.jpg';
+                    $image_name= "/uploads/archive/uz_" . time().$k.'.jpg';
                     $path = public_path() . $image_name;
                     file_put_contents($path, $data);
                     $img->removeAttribute('src');
                     $img->setAttribute('src', $image_name);
                 }
             }
-            $news->description_uz = str_replace('<?xml encoding="UTF-8">', "",$dom_save_uz->saveHTML());
+            $archives->description_uz = str_replace('<?xml encoding="UTF-8">', "",$dom_save_uz->saveHTML());
         }
 
-        $news->description_ru = $inputs['description_ru'];
-        if (!empty($news->description_ru)) {
+        $archives->description_ru = $inputs['description_ru'];
+        if (!empty($archives->description_ru)) {
             $dom_save_ru = new \DomDocument();
             libxml_use_internal_errors(true);
-            $dom_save_ru->loadHtml('<?xml encoding="UTF-8">'.$news->description_ru, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
+            $dom_save_ru->loadHtml('<?xml encoding="UTF-8">'.$archives->description_ru, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
             $dom_image_save_ru = $dom_save_ru->getElementsByTagName('img');
             foreach ($dom_image_save_ru as $k => $img) {
                 $data = $img->getAttribute('src');
@@ -290,22 +227,21 @@ class NewsController extends Controller
                     list($type, $data) = explode(';', $data);
                     list(, $data)      = explode(',', $data);
                     $data = base64_decode($data);
-                    $image_name= "/uploads/news/description_image/ru_".'_'.time().'.jpg';
+                    $image_name= "/uploads/archive/ru_".'_'.time().'.jpg';
                     $path = public_path() . $image_name;
                     file_put_contents($path, $data);
                     $img->removeAttribute('src');
                     $img->setAttribute('src', $image_name);
                 }
             }
-            $news->description_ru = str_replace('<?xml encoding="UTF-8">', "",$dom_save_ru->saveHTML());
+            $archives->description_ru = str_replace('<?xml encoding="UTF-8">', "",$dom_save_ru->saveHTML());
         }
 
-        $news->description_en = $inputs['description_en'];
-        if (!empty($news->description_en)) {
+        $archives->description_en = $inputs['description_en'];
+        if (!empty($archives->description_en)) {
             $dom_save_en = new \DomDocument();
             libxml_use_internal_errors(true);
-            $dom_save_en->loadHtml('<?xml encoding="UTF-8">'.$news->description_en, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
-            //$dom_save_en->loadHTML($news->description_en);
+            $dom_save_en->loadHtml('<?xml encoding="UTF-8">'.$archives->description_en, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
             $dom_image_save_en = $dom_save_en->getElementsByTagName('img');
             foreach ($dom_image_save_en as $k => $img) {
                 $data = $img->getAttribute('src');
@@ -313,26 +249,24 @@ class NewsController extends Controller
                     list($type, $data) = explode(';', $data);
                     list(, $data)      = explode(',', $data);
                     $data = base64_decode($data);
-                    $image_name= "/uploads/news/description_image/en_".'_'.time().'.jpg';
+                    $image_name= "/uploads/archive/en_".'_'.time().'.jpg';
                     $path = public_path() . $image_name;
                     file_put_contents($path, $data);
                     $img->removeAttribute('src');
                     $img->setAttribute('src', $image_name);
                 }
             }
-            $news->description_en = str_replace('<?xml encoding="UTF-8">', "",$dom_save_en->saveHTML());
+            $archives->description_en = str_replace('<?xml encoding="UTF-8">', "",$dom_save_en->saveHTML());
         }
 
-        $news->user_image = $imageName;
-
-        $news->save();
+        $archives->save();
 
         if (!empty($inputs['id'])) {
             Session::flash('warning', __('ALL_CHANGES_SUCCESSFUL_SAVED'));
-            return redirect('admin/news');
+            return redirect('admin/archive');
         } else {
             Session::flash('warning', __('ALL_SUCCESSFUL_SAVED'));
-            return redirect('admin/news');
+            return redirect('admin/archive');
         }
     }
 
@@ -344,7 +278,7 @@ class NewsController extends Controller
      */
     public function destroy($id)
     {
-        News::destroy($id);
-        return redirect('admin/news')->with('warning', 'NEWS TABLES DELETED');
+        Archive::destroy($id);
+        return redirect('admin/archive')->with('warning', 'ARCHIVE_TABLES_DELETED');
     }
 }

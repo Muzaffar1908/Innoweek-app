@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ArchiveController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Mobile\IndexController;
 use App\Http\Controllers\Mobile\AuthController;
@@ -31,6 +32,7 @@ Route::prefix('admin')->name('admin.')->group(function(){
     Route::resource('/user', UserController::class);
     Route::resource('/news_category', NewsCategoryController::class);
     Route::resource('/news', NewsController::class);
+    Route::resource('/archive', ArchiveController::class);
 });
 
 Auth::routes();

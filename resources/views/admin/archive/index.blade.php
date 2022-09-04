@@ -50,8 +50,8 @@
                               <thead>
                                 <tr>
                                   <th>№</th>
+                                  <th>Username</th>
                                   <th>Year</th>
-                                  <th>Title</th>
                                   <th>Description</th>
                                   <th>Is active</th>
                                   <th>Action</th>
@@ -60,6 +60,7 @@
                               @foreach ($archives as $archive)
                                   <tr>
                                     <td>{{($archives->currentpage() - 1) * $archives->perpage() + ($loop->index+1)}}</td>
+                                    <td>{{$archive->username}}</td>
                                     <td>{{$archive->year}}</td>
                                     <td>{{$archive->title_uz}}</td>
                                     <td>{{Str::limit(strip_tags($archive->description_uz),20)}}</td>

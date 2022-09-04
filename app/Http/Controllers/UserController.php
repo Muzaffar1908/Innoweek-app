@@ -49,6 +49,14 @@ class UserController extends Controller
           'password' => 'required',
          );
 
+        if (!file_exists('uploads/users')) {
+            mkdir('uploads/users', 0777, true);
+        }
+
+        if (!file_exists('uploads/users')) {
+            mkdir('uploads/users', 0777, true);
+        }
+
          $validator = Validator::make($data, $rule);
 
          if ($validator->fails()) {
@@ -76,6 +84,16 @@ class UserController extends Controller
          $users->password = $inputs['password'];
          $users->provider_name = $inputs['provider_name'];
          $users->provider_id = $inputs['provider_id'];
+
+         if ($request->hasFile('image')) {
+            $file = $request->file('image');
+            $ex = $file->getClientOriginalExtension();
+            $imageName = md5(rand(100, 999999) . microtime()) . "." . $ex;
+            $file->move(public_path('uploads/users'), $imageName);
+            // unlink($userticket->ticket_image);
+            $data['image'] = 'uploads/users/' . $imageName;
+        }
+
          $users->save();
 
          if (!empty($inputs['id'])) {
@@ -128,7 +146,16 @@ class UserController extends Controller
           'birth_date' => 'required',
           'email' => 'required',
           'phone' => 'required',
+          'password' => 'required',
          );
+
+        if (!file_exists('uploads/users')) {
+            mkdir('uploads/users', 0777, true);
+        }
+
+        if (!file_exists('uploads/users')) {
+            mkdir('uploads/users', 0777, true);
+        }
 
          $validator = Validator::make($data, $rule);
 
@@ -154,8 +181,19 @@ class UserController extends Controller
          $users->balance = $inputs['balance'];
          $users->email = $inputs['email'];
          $users->phone = $inputs['phone'];
+         $users->password = $inputs['password'];
          $users->provider_name = $inputs['provider_name'];
          $users->provider_id = $inputs['provider_id'];
+
+         if ($request->hasFile('image')) {
+            $file = $request->file('image');
+            $ex = $file->getClientOriginalExtension();
+            $imageName = md5(rand(100, 999999) . microtime()) . "." . $ex;
+            $file->move(public_path('uploads/users'), $imageName);
+            // unlink($userticket->ticket_image);
+            $data['image'] = 'uploads/users/' . $imageName;
+        }
+
          $users->save();
 
          if (!empty($inputs['id'])) {

@@ -76,7 +76,7 @@
                                     <td>{{$user->gender}}</td>
                                     <td>{{$user->birth_date}}</td>
                                     <td>
-                                        <img src="{{asset('upload/config/defaul_user.png' .$user->image)}}" alt="img" with="100px" height="60px">
+                                        <img src="{{asset('uploads/users/' .$user->user_image)}}" alt="img" with="100px" height="60px">
                                     </td>
                                     <td>{{$user->address}}</td>
                                     <td>{{$user->balance}}</td>

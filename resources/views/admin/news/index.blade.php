@@ -62,7 +62,7 @@
                               @foreach ($news as $new)
                                   <tr>
                                     <td>{{($news->currentpage() - 1) * $news->perpage() + ($loop->index+1)}}</td>
-                                    <td>{{$new->user_id}}</td>
+                                    <td>{{$new->first_name}}</td>
                                     <td>{{$new->title_uz}}</td>
                                       <td>
                                           <img src="{{asset('uploads/news/' .$new->user_image)}}" alt="img" with="100px" height="60px">

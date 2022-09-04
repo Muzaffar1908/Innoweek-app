@@ -15,6 +15,7 @@
             <li><a href="{{route('admin.news.index')}}">News</a></li>
             <li><a href="{{route('admin.news_category.index')}}">News Category</a></li>
             <li><a href="{{route('admin.user.index')}}">User</a></li>
+            <li><a href="{{route('admin.archive.index')}}">Archive</a></li>
           </ul>
         </li>
         <li>

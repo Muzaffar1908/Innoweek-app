@@ -45,25 +45,19 @@
                         {{-- <label for="id">Id</label> --}}
                         <input type="hidden" name="id"  id="id"  value="{{$archive->id}}" />
                     </div>
+
+                    <div class="mb-3">
+                        <label for="user_id">Username</label>
+                        <select name="user_id" class="form-control" id="user_id">
+                            @foreach($users as $user)
+                             <option value="{{$user->id}}">{{$user->first_name}}</option>
+                            @endforeach
+                        </select>
+                    </div>
                     
                     <div class="mb-3">
                         <label for="year">Year</label>
                         <input type="text" name="year" class="form-control" id="year" placeholder="Year" value="{{$archive->year}}">
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="title_uz">Title uz</label>
-                        <input type="text" name="title_uz" class="form-control" id="title_uz" placeholder="Title uz" value="{{$archive->title_uz}}">
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="title_ru">Title ru</label>
-                        <input type="text" name="title_ru" class="form-control" id="title_ru" placeholder="Title ru" value="{{$archive->title_ru}}">
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="title_en">Title en</label>
-                        <input type="text" name="title_en" class="form-control" id="title_en" placeholder="Title en" value="{{$archive->title_en}} ">
                     </div>
 
                     <div class="mb-3">
