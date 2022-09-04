@@ -59,7 +59,7 @@
                               </thead>
                               @foreach ($news_categories as $news_category)
                                   <tr>
-                                    <td>{{($news_category->currentpage() - 1) * $news_category->perpage() + ($loop->index+1)}}</td>
+                                    <td>{{($news_categories->currentpage() - 1) * $news_categories->perpage() + ($loop->index+1)}}</td>
                                     <td>{{$news_category->user_id}}</td>
                                     <td>{{$news_category->parent_id}}</td>
                                     <td>{{$news_category->title_uz}}</td>
@@ -71,8 +71,7 @@
                                             <form action="{{route('admin.news_category.destroy', $news_category->id)}}" method="POST">
                                                 @csrf
                                                 @method('DELETE')
-                                                <button type="button" class="btn btn-danger"><i class="bi bi-trash"></i></button>
-                        
+                                                <button type="submit" class="btn btn-danger"><i class="bi bi-trash"></i></button>
                                             </form>
                                         </div>
                                     </td>
