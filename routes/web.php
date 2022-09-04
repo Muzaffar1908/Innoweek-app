@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Mobile\IndexController;
 use App\Http\Controllers\Mobile\AuthController;
 use App\Http\Controllers\NewsCategoryController;
+use App\Http\Controllers\NewsController;
 use App\Http\Controllers\UserController;
 use App\Models\News\NewsCategory;
 
@@ -29,6 +30,7 @@ Route::prefix('admin')->name('admin.')->group(function(){
 
     Route::resource('/user', UserController::class);
     Route::resource('/news_category', NewsCategoryController::class);
+    Route::resource('/news', NewsController::class);
 });
 
 Auth::routes();

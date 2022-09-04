@@ -47,10 +47,10 @@
                     </div>
 
                     <div class="mb-3">
-                        <label for="category_id">Category name</label>
-                        <select name="category_id" class="form-control" id="category_id">
-                            @foreach($categories as $category)
-                             <option value="{{$category->id}}">{{$category->name_uz}}</option>
+                        <label for="user_id">Username</label>
+                        <select name="user_id" class="form-control" id="user_id">
+                            @foreach($users as $user)
+                             <option value="{{$user->id}}">{{$user->first_name}}</option>
                             @endforeach
                         </select>
                     </div>
@@ -71,8 +71,8 @@
                     </div>
 
                     <div class="mb-3">
-                        <label for="image">image</label>
-                        <input type="file" name="image"  class="form-control" id="image" placeholder="image enter" />
+                        <label for="user_image">User image</label>
+                        <input type="file" name="user_image"  class="form-control" id="user_image" placeholder="User image enter" />
                     </div>
 
                     <div class="mb-3">
@@ -88,6 +88,16 @@
                     <div class="mb-3">
                         <label for="mytextarea">Description en</label>
                         <textarea name="description_en" id="mytextarea"  cols="10" rows="5">{{$news->description_en}}</textarea>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="is_active">Is Active</label>
+                        <input type="checkbox" name="is_active"  id="is_active"  value="{{$news->is_active}}" />
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="tags">Tags</label>
+                        <input type="text" name="tags" class="form-control" id="tags" placeholder="Tags enter" value="{{old('tags')}}" />
                     </div>
 
                     <button type="submit" class="btn btn-success">Save</button>

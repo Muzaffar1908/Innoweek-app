@@ -7,8 +7,8 @@
             <div class="card">
                 <table class="table">
                     <tr>
-                        <th>Category name</th>
-                        <td>{{$news->categoryTable->name_uz}}</td>
+                        <th>Username</th>
+                        <td>{{$news->user_id}}</td>
                     </tr>
                     <tr>
                         <th>Title uz</th>
@@ -23,9 +23,9 @@
                         <td>{{$news->title_en}}</td>
                     </tr>
                     <tr>
-                        <th>Image</th>
+                        <th>User image</th>
                         <td>
-                            <img src="{{asset('uploads/news/' .$news->image)}}" alt="img" with="100px" height="60px">
+                            <img src="{{asset('uploads/news/' .$news->user_image)}}" alt="img" with="100px" height="60px">
                         </td>
                     </tr>
                     <tr>
@@ -43,6 +43,10 @@
                     <tr>
                         <th>Is Active</th>
                         <td>{{$news->is_active}}</td>
+                    </tr>
+                    <tr>
+                        <th>Tags</th>
+                        <td>{{$news->tags}}</td>
                     </tr>
 
                 </table>

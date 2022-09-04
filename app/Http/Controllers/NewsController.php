@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\News\Category;
 use Illuminate\Http\Request;
 use App\Models\News\News;
+use App\Models\User;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Session;
 
@@ -19,7 +19,8 @@ class NewsController extends Controller
     public function index()
     {
         $news = News::paginate(5);
-        return view('admin.news.index', compact('news'));
+        $users = User::all();
+        return view('admin.news.index', compact('news', 'users'));
     }
 
     /**
@@ -29,7 +30,8 @@ class NewsController extends Controller
      */
     public function create()
     {
-        return view('admin.news.create');
+        $users = User::all();
+        return view('admin.news.create')->with('users', $users);
     }
 
     /**
@@ -68,10 +70,13 @@ class NewsController extends Controller
             $news = new News;
         }
 
-        $news->category_id = $inputs['category_id'];
+        $news->user_id = $inputs['user_id'];
+        $news->cat_id = $inputs['cat_id'];
         $news->title_uz = $inputs['title_uz'];
         $news->title_ru = $inputs['title_ru'];
         $news->title_en = $inputs['title_en'];
+        $news->user_image = $inputs['user_image'];
+        $news->tags = $inputs['tags'];
 
         $news->description_uz = $inputs['description_uz'];
 
@@ -170,7 +175,11 @@ class NewsController extends Controller
     public function show($id)
     {
         $news = News::find($id);
-        return view('admin.news.show')->with('news', $news);
+        $users = User::all();
+        return view('admin.news.show', [
+            'news' => $news,
+            'users' => $users,
+        ]);
     }
 
     /**
@@ -182,10 +191,10 @@ class NewsController extends Controller
     public function edit($id)
     {
         $news = News::find($id);
-        $categories = Category::all();
+        $users = User::all();
         return view('admin.news.edit', [
             'news' => $news,
-            'categories' => $categories,
+            'users' => $users,
         ]);
     }
 
@@ -201,8 +210,16 @@ class NewsController extends Controller
         $data = $request->except(array('_token'));
         $rule = array(
         'title_uz' => 'required',
-        'description_uz' => 'required',
         );
+
+        if (!file_exists('uploads/news')) {
+            mkdir('uploads/news', 0777, true);
+        }
+
+        if (!file_exists('uploads/news/description_image')) {
+            mkdir('uploads/news/description_image', 0777, true);
+        }
+
 
         $validator = Validator::make($data, $rule);
 
@@ -210,6 +227,7 @@ class NewsController extends Controller
             Session::flash('warning', $validator->messages());
             return redirect()->back();
         }
+
         $inputs = $request->all();
         if (!empty($inputs['id'])) {
             $news = News::findOrFail($inputs['id']);
@@ -217,10 +235,13 @@ class NewsController extends Controller
             $news = new News;
         }
 
-        $news->category_id = $inputs['category_id'];
+        $news->user_id = $inputs['user_id'];
+        $news->cat_id = $inputs['cat_id'];
         $news->title_uz = $inputs['title_uz'];
         $news->title_ru = $inputs['title_ru'];
         $news->title_en = $inputs['title_en'];
+        $news->user_image = $inputs['user_image'];
+        $news->tags = $inputs['tags'];
 
         $news->description_uz = $inputs['description_uz'];
 

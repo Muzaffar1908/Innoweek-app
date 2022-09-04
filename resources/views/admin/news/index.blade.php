@@ -50,22 +50,26 @@
                               <thead>
                                 <tr>
                                   <th>№</th>
-                                  <th>Category name</th>
+                                  <th>Username</th>
                                   <th>Title</th>
-                                  <th>Image</th>
+                                  <th>User image</th>
+                                  <th>Description</th>
                                   <th>Is Active</th>
+                                  <th>Tags</th>
                                   <th>Action</th>
                                 </tr>
                               </thead>
                               @foreach ($news as $new)
                                   <tr>
                                     <td>{{($news->currentpage() - 1) * $news->perpage() + ($loop->index+1)}}</td>
-                                    <td>{{$new->categoryTable->name_uz}}</td>
+                                    <td>{{$new->user_id}}</td>
                                     <td>{{$new->title_uz}}</td>
                                       <td>
-                                          <img src="{{asset('uploads/news/' .$new->image)}}" alt="img" with="100px" height="60px">
+                                          <img src="{{asset('uploads/news/' .$new->user_image)}}" alt="img" with="100px" height="60px">
                                       </td>
+                                    <td>{!!Str::limit(strip_tags($new->description_uz),20)!!}</td>
                                     <td>{{$new->is_active}}</td>
+                                    <td>{{$new->tags}}</td>
                                     <td>
                                         <div class="btn-group">
                                             <a href="{{route('admin.news.show', $new->id)}}" type="button" class="btn btn-info"><i class="bi bi-eye"></i></a>

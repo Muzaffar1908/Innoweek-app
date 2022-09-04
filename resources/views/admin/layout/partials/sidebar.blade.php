@@ -12,7 +12,7 @@
             <span class="nav-text">Dashboard</span>
           </a>
           <ul aria-expanded="false">
-            <li><a href="">News</a></li>
+            <li><a href="{{route('admin.news.index')}}">News</a></li>
             <li><a href="{{route('admin.news_category.index')}}">News Category</a></li>
             <li><a href="{{route('admin.user.index')}}">User</a></li>
           </ul>
