@@ -44,10 +44,6 @@ class User extends Authenticatable
         return $this->hasMany(NewsCategory::class,'user_id');
     }
 
-    public function news()
-    {
-        return $this->hasMany(News::class, 'user_id');
-    }
 
     /**
      * The attributes that should be hidden for serialization.
