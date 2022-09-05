@@ -19,14 +19,16 @@
 	</div>
 	<!-- End Section-title Area -->
 	
-	<div class="bg-color-f5f8ff">
+	<div>
 		<!-- Start Form Validation Page Area -->
 		<div class="form-validation-area ptb-30">
 			<div class="container">
 				<div class="contact-form custom">
 					<div class="profil d-flex align-items-center mb-3">
-						<img width="80px" style="border-radius: 50%; margin-right: 1rem; object-fit: cover;" src="{{ Auth::user()->user_image}}" alt="">
-						<h5>{{ Auth::user()->first_name }} {{ Auth::user()->last_name }} <br> <span style="color: grey; font-size: 13px; font-weight: 400;">Mehmon</span></h5><br>
+						<div style="width: 80px; margin-top:-16px; height:80px;border-radius: 50%; margin-right: 1rem; object-fit: cover; overflow:hidden;">
+                            <img  style="width: 100%; height:100%" src="{{ asset(Auth::user()->user_image)}}" alt="">
+                        </div>
+						<h5>{{ Auth::user()->first_name }} {{ Auth::user()->last_name }} <br> <span sstyle="color: grey; font-size: 13px; font-weight: 400;">Mehmon</span></h5><br>
 					</div>
 					<form  action="/mobile-v/profile/update/{{Auth::user()->id}}" method="POST" enctype="multipart/form-data">
 						 @csrf   
@@ -81,7 +83,7 @@
 								<label for="et_pb_contact_brand_file_request_0" class="et_pb_contact_form_label" style="display: flex;
 								align-items: center;
 								justify-content: center;"><img src="{{ Auth::user()->user_image }}" alt=""></label>
-								<input type="file" name="user_image" id="et_pb_contact_brand_file_request_0" required data-error="Please enter your file" class="file-upload" >
+								<input type="file" name="user_image" id="et_pb_contact_brand_file_request_0"  data-error="Please enter your file" class="file-upload" >
 								<div class="help-block with-errors"></div>
 							</div>
 						</div>
@@ -95,4 +97,8 @@
 					</form>
 				</div>
 
+@endsection
+
+@section('script')
+<script src="{{ asset('/assets/js/owl.carousel.min.js') }}"></script>
 @endsection

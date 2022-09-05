@@ -34,22 +34,16 @@ class UserController extends Controller
     {
         $data = $request->except(array('_token'));
         $rule = array(
-          'user_image' => 'required',
           'first_name' => 'required',
           'last_name' => 'required',
           'gender' => 'required',
           'middle_name' => 'required',
           'email' => 'required',
           'phone' => 'required',
-       
          );
 
-        if (!file_exists('uploads/users')) {
-            mkdir('uploads/users', 0777, true);
-        }
-
-        if (!file_exists('uploads/users')) {
-            mkdir('uploads/users', 0777, true);
+        if (!file_exists('uploads/config')) {
+            mkdir('uploads/config', 0777, true);
         }
 
          $validator = Validator::make($data, $rule);
@@ -72,19 +66,24 @@ class UserController extends Controller
          $users->gender = $inputs['gender'];
          $users->email = $inputs['email'];
          $users->phone = $inputs['phone'];
-         $users->password =" 0";
+         $users->password ="0";
     
 
+
          if ($request->hasFile('user_image')) {
+            $rule = array(
+                'user_image' => 'required',             
+               );
             $file = $request->file('user_image');
             $ex = $file->getClientOriginalExtension();
             $imageName = md5(rand(100, 999999) . microtime()) . "." . $ex;
             $file->move(public_path('uploads/config'), $imageName);
             // unlink($userticket->ticket_image);
             $data['user_image'] = 'uploads/config/' . $imageName;
+            $users->user_image = $data['user_image'];
         }
 
-          $users->user_image = $data['user_image'];
+          
 
          $users->save();
 
@@ -116,12 +115,8 @@ class UserController extends Controller
           'password' => 'required',
          );
 
-        if (!file_exists('uploads/users')) {
-            mkdir('uploads/users', 0777, true);
-        }
-
-        if (!file_exists('uploads/users')) {
-            mkdir('uploads/users', 0777, true);
+        if (!file_exists('uploads/config')) {
+            mkdir('uploads/config', 0777, true);
         }
 
          $validator = Validator::make($data, $rule);
@@ -152,13 +147,13 @@ class UserController extends Controller
          $users->provider_name = $inputs['provider_name'];
          $users->provider_id = $inputs['provider_id'];
 
-         if ($request->hasFile('image')) {
-            $file = $request->file('image');
+         if ($request->hasFile('user_image')) {
+            $file = $request->file('user_image');
             $ex = $file->getClientOriginalExtension();
             $imageName = md5(rand(100, 999999) . microtime()) . "." . $ex;
-            $file->move(public_path('uploads/users'), $imageName);
+            $file->move(public_path('uploads/config'), $imageName);
             // unlink($userticket->ticket_image);
-            $data['image'] = 'uploads/users/' . $imageName;
+            $data['user_image'] = 'uploads/config/' . $imageName;
         }
 
          $users->save();
@@ -216,12 +211,8 @@ class UserController extends Controller
           'password' => 'required',
          );
 
-        if (!file_exists('uploads/users')) {
-            mkdir('uploads/users', 0777, true);
-        }
-
-        if (!file_exists('uploads/users')) {
-            mkdir('uploads/users', 0777, true);
+        if (!file_exists('uploads/config')) {
+            mkdir('uploads/config', 0777, true);
         }
 
          $validator = Validator::make($data, $rule);
@@ -252,13 +243,13 @@ class UserController extends Controller
          $users->provider_name = $inputs['provider_name'];
          $users->provider_id = $inputs['provider_id'];
 
-         if ($request->hasFile('image')) {
-            $file = $request->file('image');
+         if ($request->hasFile('user_image')) {
+            $file = $request->file('user_image');
             $ex = $file->getClientOriginalExtension();
             $imageName = md5(rand(100, 999999) . microtime()) . "." . $ex;
-            $file->move(public_path('uploads/users'), $imageName);
+            $file->move(public_path('uploads/config'), $imageName);
             // unlink($userticket->ticket_image);
-            $data['image'] = 'uploads/users/' . $imageName;
+            $data['user_image'] = 'uploads/config/' . $imageName;
         }
 
          $users->save();

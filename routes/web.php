@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ArchiveController;
+use App\Http\Controllers\ConferenceController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Mobile\IndexController;
 use App\Http\Controllers\Mobile\AuthController;
@@ -33,6 +34,7 @@ Route::prefix('admin')->name('admin.')->group(function(){
     Route::resource('/news_category', NewsCategoryController::class);
     Route::resource('/news', NewsController::class);
     Route::resource('/archive', ArchiveController::class);
+    Route::resource('/conference', ConferenceController::class);
 });
 
 Auth::routes();

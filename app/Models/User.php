@@ -42,12 +42,17 @@ class User extends Authenticatable
 
     public function users()
     {
-        return $this->hasMany(NewsCategory::class,'user_id');
+        return $this->hasMany(NewsCategory::class,'user_id','id');
     }
 
     public function archive()
     {
-        return $this->hasMany(Archive::class, 'user_id');
+        return $this->hasMany(Archive::class, 'user_id','id');
+    }
+
+    public function conference()
+    {
+        return $this->hasMany(Conference::class, 'user_id', 'id');
     }
 
 

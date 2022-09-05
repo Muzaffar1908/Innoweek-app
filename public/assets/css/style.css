@@ -4639,7 +4639,7 @@ Csomponents Style
     position: absolute;
     /* background-image: url(../../assets/images/upload.png); */
     /* padding: 57px 10px; */
-    top: 121.99999px;
+    top: 106px;
     background-color: #2125296b;
     border-radius: 50%;
     left: 12px;
@@ -5932,4 +5932,11 @@ Page-navigation Area Style*/
   width: 100%;
   position: absolute;
   box-shadow: 2px 5px 13px 0 #171d4114;
+}
+
+.file_names{
+  position: absolute !important;
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
 }
