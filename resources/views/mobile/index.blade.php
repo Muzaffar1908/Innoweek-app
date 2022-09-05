@@ -40,7 +40,7 @@
                     <li>
                         <img src="{{ asset('/assets/images/menu-icon/icon-1.png') }}" alt="Images">
                         @if (auth()->check())
-                        <a href="{{ route('m-login') }}">
+                        <a href="{{ route('m-profile') }}">
                             {{ Auth::user()->first_name }} {{ Auth::user()->last_name }}
                         </a>
                         @else

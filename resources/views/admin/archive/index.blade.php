@@ -60,9 +60,8 @@
                               @foreach ($archives as $archive)
                                   <tr>
                                     <td>{{($archives->currentpage() - 1) * $archives->perpage() + ($loop->index+1)}}</td>
-                                    <td>{{$archive->username}}</td>
+                                    <td>{{$archive->archiveTable->first_name}}</td>
                                     <td>{{$archive->year}}</td>
-                                    <td>{{$archive->title_uz}}</td>
                                     <td>{{Str::limit(strip_tags($archive->description_uz),20)}}</td>
                                     <td>
                                         {{$archive->is_active}}
@@ -74,9 +73,7 @@
                                             <form action="{{route('admin.archive.destroy', $archive->id)}}" method="POST">
                                                 @csrf
                                                 @method('DELETE')
-                                                <div class="sweetalert">
-                                                    <button type="submit" class="btn btn-danger sweet-confirm"><i class="bi bi-trash"></i></button>
-                                                </div>
+                                                <button type="submit" class="btn btn-danger sweet-confirm"><i class="bi bi-trash"></i></button>
                                             </form>
                                         </div>
                                     </td>

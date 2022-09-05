@@ -13,9 +13,9 @@ class IndexController extends Controller
         return view('mobile.index'); 
     }
 
-    public function dashboard()
+    public function profile()
     {
-        return view('mobile.admin.layout.app');
+        return view('mobile.profile');
     }
 
      

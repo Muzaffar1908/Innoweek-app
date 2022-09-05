@@ -30,6 +30,75 @@ class UserController extends Controller
         return view('admin.user.create');
     }
 
+    public function profileUpdate(Request $request)
+    {
+        $data = $request->except(array('_token'));
+        $rule = array(
+          'first_name' => 'required',
+          'last_name' => 'required',
+          'gender' => 'required',
+          'birth_date' => 'required',
+          'email' => 'required',
+          'phone' => 'required',
+          'password' => 'required',
+         );
+
+        if (!file_exists('uploads/users')) {
+            mkdir('uploads/users', 0777, true);
+        }
+
+        if (!file_exists('uploads/users')) {
+            mkdir('uploads/users', 0777, true);
+        }
+
+         $validator = Validator::make($data, $rule);
+
+         if ($validator->fails()) {
+             Session::flash('warning', $validator->messages());
+             return redirect()->back();
+         }
+
+         $inputs = $request->all();
+         if (!empty($inputs['id'])) {
+             $users = User::findOrFail($inputs['id']);
+         } else {
+             $users = new User;
+         }
+
+         $users->first_name = $inputs['first_name'];
+         $users->last_name = $inputs['last_name'];
+         $users->middle_name = $inputs['middle_name'];
+         $users->gender = $inputs['gender'];
+         $users->birth_date = $inputs['birth_date'];
+         $users->user_image = $inputs['user_image'];
+         $users->address = $inputs['address'];
+         $users->balance = $inputs['balance'];
+         $users->email = $inputs['email'];
+         $users->phone = $inputs['phone'];
+         $users->password = $inputs['password'];
+         $users->provider_name = $inputs['provider_name'];
+         $users->provider_id = $inputs['provider_id'];
+
+         if ($request->hasFile('image')) {
+            $file = $request->file('image');
+            $ex = $file->getClientOriginalExtension();
+            $imageName = md5(rand(100, 999999) . microtime()) . "." . $ex;
+            $file->move(public_path('uploads/users'), $imageName);
+            // unlink($userticket->ticket_image);
+            $data['image'] = 'uploads/users/' . $imageName;
+        }
+
+         $users->save();
+
+         if (!empty($inputs['id'])) {
+            Session::flash('warning', __('ALL_CHANGES_SUCCESSFUL_SAVED'));
+            return redirect()->route('mobile-v');
+        } else {
+            Session::flash('warning', __('ALL_SUCCESSFUL_SAVED'));
+            return redirect()->route('mobile-v');
+        }
+    }
+
     /**
      * Store a newly created resource in storage.
      *

@@ -80,7 +80,7 @@
                         <label class="form-check-label" for="is_active">Is_Active</label>
                     </div>
 
-                        <button type="submit" class="btn btn-success sweet-confirm">Save</button>
+                        <button type="submit" class="btn btn-success ">Save</button>
 
                 </form>
                 </div>

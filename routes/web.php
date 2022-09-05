@@ -51,6 +51,8 @@ Route::group(['prefix' => 'mobile-v'], function () {
         Route::get('/news-1', 'news1')->name('m-news1');
         Route::get('/news-2', 'news2')->name('m-news2');
         Route::get('/news-3', 'news3')->name('m-news3');
+        Route::get('/profile', 'profile')->name('m-profile');
+        Route::post('/profile/update/{id}', [UserController::class, 'profileUpdate']);
     });
 
      Route::controller(AuthController::class)->group(function () {

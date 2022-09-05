@@ -60,6 +60,7 @@ class ArchiveController extends Controller
             $archives = new Archive;
         }
 
+        $archives->user_id = $inputs['user_id'];
         $archives->year = $inputs['year'];
     
         $archives->description_uz = $inputs['description_uz'];
@@ -148,7 +149,11 @@ class ArchiveController extends Controller
     public function show($id)
     {
         $archive = Archive::find($id);
-        return view('admin.archive.show')->with('archive', $archive);
+        $users = User::all();
+        return view('admin.archive.show', [
+            'archive' => $archive,
+            'users' => $users,
+        ]);
     }
 
     /**
@@ -160,7 +165,11 @@ class ArchiveController extends Controller
     public function edit($id)
     {
         $archive = Archive::find($id);
-        return view('admin.archive.edit')->with('archive', $archive);
+        $users = User::all();
+        return view('admin.archive.edit', [
+            'archive' => $archive,
+            'users' => $users,
+        ]);
     }
 
     /**
@@ -191,6 +200,7 @@ class ArchiveController extends Controller
             $archives = new Archive;
         }
 
+        $archives->user_id = $inputs['user_id'];
         $archives->year = $inputs['year'];
     
         $archives->description_uz = $inputs['description_uz'];
