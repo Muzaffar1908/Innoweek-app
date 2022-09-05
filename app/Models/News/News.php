@@ -22,4 +22,16 @@ class News extends Model
         'is_active',
         'tags',
     ];
+
+    public function usersTable()
+    {
+        return $this->belongsTo(User::class,'user_id');
+    }
+
+    public function newsTable()
+    {
+        return $this->belongsTo(User::class,'cat_id');
+    }
+
+    
 }

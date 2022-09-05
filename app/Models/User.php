@@ -3,6 +3,9 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+
+use App\Models\News\News;
+use App\Models\News\NewsCategory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -35,6 +38,16 @@ class User extends Authenticatable
         'is_active',
         'is_blocked',
     ];
+
+    public function users()
+    {
+        return $this->hasMany(NewsCategory::class,'user_id');
+    }
+
+    public function news()
+    {
+        return $this->hasMany(News::class, 'user_id');
+    }
 
     /**
      * The attributes that should be hidden for serialization.

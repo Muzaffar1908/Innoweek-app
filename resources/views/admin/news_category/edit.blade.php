@@ -39,6 +39,7 @@
                 <div class="basic-form">
                 <form action="{{route('admin.news_category.update', $news_categories->id)}}" method="POST">
                     @csrf
+                    @method('PUT')
 
                     <div class="mb-3">
                         {{-- <label for="id"></label> --}}
@@ -74,9 +75,9 @@
                         <input type="text" name="title_ru"  class="form-control" id="title_ru" placeholder="Title uz enter" value="{{$news_categories->title_ru}}" />
                     </div>
 
-                    <div class="mb-3">
-                        <label for="is_active">Is Active</label>
-                        <input type="checkbox" name="is_active"  class="form-control" id="is_active"  value="{{$news_categories->is_active}}" />
+                    <div class="mb-3 form-check">
+                        <input type="checkbox" name="is_active" class="form-check-input" id="is_active" value="{{$news_categories->is_active}}">
+                        <label class="form-check-label" for="is_active">Is_Active</label>
                     </div>
 
                     <button type="submit" class="btn btn-success">Save</button>

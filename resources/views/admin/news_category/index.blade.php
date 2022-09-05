@@ -60,7 +60,7 @@
                               @foreach ($news_categories as $news_category)
                                   <tr>
                                     <td>{{($news_categories->currentpage() - 1) * $news_categories->perpage() + ($loop->index+1)}}</td>
-                                    <td>{{$news_category->user_id}}</td>
+                                    <td>{{$news_category->usersTable->first_name}}</td>
                                     <td>{{$news_category->parent_id}}</td>
                                     <td>{{$news_category->title_uz}}</td>
                                     <td>{{$news_category->is_active}}</td>

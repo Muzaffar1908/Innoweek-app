@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\News\News;
+use App\Models\News\NewsCategory;
 use App\Models\User;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Session;
@@ -20,7 +21,8 @@ class NewsController extends Controller
     {
         $news = News::paginate(5);
         $users = User::all();
-        return view('admin.news.index', compact('news', 'users'));
+        $news_categories = NewsCategory::all();
+        return view('admin.news.index', compact('news', 'users', 'news_categories'));
     }
 
     /**
@@ -31,7 +33,11 @@ class NewsController extends Controller
     public function create()
     {
         $users = User::all();
-        return view('admin.news.create')->with('users', $users);
+        $news_categories = NewsCategory::all();
+        return view('admin.news.create', [
+          'users' => $users,
+          'news_categories' => $news_categories,
+        ]);
     }
 
     /**
@@ -75,20 +81,20 @@ class NewsController extends Controller
         $news->title_uz = $inputs['title_uz'];
         $news->title_ru = $inputs['title_ru'];
         $news->title_en = $inputs['title_en'];
-        // $news->user_image = $inputs['user_image'];
         $news->tags = $inputs['tags'];
 
         $news->description_uz = $inputs['description_uz'];
 
-        if ($request->hasFile('image')) {
-            $file = $request->file('image');
+        if ($request->hasFile('user_image')) {
+            $file = $request->file('user_image');
             $ex = $file->getClientOriginalExtension();
             $imageName = md5(rand(100, 999999) . microtime()) . "." . $ex;
             $file->move(public_path('uploads/news'), $imageName);
             // unlink($userticket->ticket_image);
-            $data['image'] = 'uploads/news/' . $imageName;
+            $data['user_image'] = 'uploads/news/' . $imageName;
         }
-        
+
+        $news->user_image = $imageName;
 
         if (!empty($news->description_uz)) {
             $dom_save_uz = new \DomDocument();
@@ -156,8 +162,6 @@ class NewsController extends Controller
             $news->description_en = str_replace('<?xml encoding="UTF-8">', "",$dom_save_en->saveHTML());
         }
 
-        $news->user_image = $imageName;
-
         $news->save();
 
         if (!empty($inputs['id'])) {
@@ -179,9 +183,11 @@ class NewsController extends Controller
     {
         $news = News::find($id);
         $users = User::all();
+        $news_categories = NewsCategory::all();
         return view('admin.news.show', [
             'news' => $news,
             'users' => $users,
+            'news_categories' => $news_categories,
         ]);
     }
 
@@ -195,9 +201,11 @@ class NewsController extends Controller
     {
         $news = News::find($id);
         $users = User::all();
+        $news_categories = NewsCategory::all();
         return view('admin.news.edit', [
             'news' => $news,
             'users' => $users,
+            'news_categories' => $news_categories,
         ]);
     }
 

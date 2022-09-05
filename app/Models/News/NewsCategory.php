@@ -2,6 +2,7 @@
 
 namespace App\Models\News;
 
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -17,4 +18,9 @@ class NewsCategory extends Model
         'title_ru',
         'is_active',
     ];
+
+    public function usersTable()
+    {
+        return $this->belongsTo(User::class,'user_id');
+    }
 }

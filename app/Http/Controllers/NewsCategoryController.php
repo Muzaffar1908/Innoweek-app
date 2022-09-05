@@ -61,7 +61,7 @@ class NewsCategoryController extends Controller
         }
 
         $news_categories->user_id = $inputs['user_id'];
-        $news_categories->parent_id = $inputs['parent_id'];
+        $news_categories->parent_id = $inputs['id'];
         $news_categories->title_uz = $inputs['title_uz'];
         $news_categories->title_ru = $inputs['title_ru'];
         $news_categories->title_en = $inputs['title_en'];
@@ -84,8 +84,12 @@ class NewsCategoryController extends Controller
      */
     public function show($id)
     {
-        $news_categories = NewsCategory::find($id);
-        return view('admin.news_category.show')->with('$news_categories', $news_categories);
+        $news_category = NewsCategory::find($id);
+        $users = User::all();
+        return view('admin.news_category.show', [
+            'news_category' => $news_category,
+            'users' => $users,
+        ]);
     }
 
     /**
@@ -97,7 +101,11 @@ class NewsCategoryController extends Controller
     public function edit($id)
     {
         $news_categories = NewsCategory::find($id);
-        return view('admin.news_category.edit')->with('$news_categories', $news_categories);
+        $users = User::all();
+        return view('admin.news_category.edit', [
+            'news_categories' => $news_categories,
+            'users' => $users,
+        ]);
     }
 
     /**

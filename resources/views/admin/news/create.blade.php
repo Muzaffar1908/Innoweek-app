@@ -50,7 +50,16 @@
                              <option value="{{$user->id}}">{{$user->first_name}}</option>
                             @endforeach
                         </select>
-                    </div>  
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="cat_id">Categoryname</label>
+                        <select name="cat_id" class="form-control" id="cat_id">
+                            @foreach($news_categories as $news_cat)
+                             <option value="{{$news_cat->id}}">{{$news_cat->title_uz}}</option>
+                            @endforeach
+                        </select>
+                    </div>
 
                     <div class="mb-3">
                         <label for="title_uz">Title uz</label>

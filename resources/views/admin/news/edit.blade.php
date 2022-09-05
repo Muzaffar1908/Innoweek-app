@@ -56,6 +56,15 @@
                     </div>
 
                     <div class="mb-3">
+                        <label for="cat_id">Categoryname</label>
+                        <select name="cat_id" class="form-control" id="cat_id">
+                            @foreach($news_categories as $news_cat)
+                             <option value="{{$news_cat->id}}">{{$news_cat->title_uz}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
                         <label for="title_uz">Title uz</label>
                         <input type="text" name="title_uz" class="form-control" id="title_uz" placeholder="Title uz enter" value="{{$news->title_uz}}" />
                     </div>
