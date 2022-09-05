@@ -30,17 +30,18 @@ class UserController extends Controller
         return view('admin.user.create');
     }
 
-    public function profileUpdate(Request $request)
+    public function profileUpdate(Request $request ,$id)
     {
         $data = $request->except(array('_token'));
         $rule = array(
+          'user_image' => 'required',
           'first_name' => 'required',
           'last_name' => 'required',
           'gender' => 'required',
-          'birth_date' => 'required',
+          'middle_name' => 'required',
           'email' => 'required',
           'phone' => 'required',
-          'password' => 'required',
+       
          );
 
         if (!file_exists('uploads/users')) {
@@ -59,8 +60,8 @@ class UserController extends Controller
          }
 
          $inputs = $request->all();
-         if (!empty($inputs['id'])) {
-             $users = User::findOrFail($inputs['id']);
+         if (!empty($id)) {
+             $users = User::findOrFail($id);
          } else {
              $users = new User;
          }
@@ -69,24 +70,21 @@ class UserController extends Controller
          $users->last_name = $inputs['last_name'];
          $users->middle_name = $inputs['middle_name'];
          $users->gender = $inputs['gender'];
-         $users->birth_date = $inputs['birth_date'];
-         $users->user_image = $inputs['user_image'];
-         $users->address = $inputs['address'];
-         $users->balance = $inputs['balance'];
          $users->email = $inputs['email'];
          $users->phone = $inputs['phone'];
-         $users->password = $inputs['password'];
-         $users->provider_name = $inputs['provider_name'];
-         $users->provider_id = $inputs['provider_id'];
+         $users->password =" 0";
+    
 
-         if ($request->hasFile('image')) {
-            $file = $request->file('image');
+         if ($request->hasFile('user_image')) {
+            $file = $request->file('user_image');
             $ex = $file->getClientOriginalExtension();
             $imageName = md5(rand(100, 999999) . microtime()) . "." . $ex;
-            $file->move(public_path('uploads/users'), $imageName);
+            $file->move(public_path('uploads/config'), $imageName);
             // unlink($userticket->ticket_image);
-            $data['image'] = 'uploads/users/' . $imageName;
+            $data['user_image'] = 'uploads/config/' . $imageName;
         }
+
+          $users->user_image = $data['user_image'];
 
          $users->save();
 
@@ -95,7 +93,7 @@ class UserController extends Controller
             return redirect()->route('mobile-v');
         } else {
             Session::flash('warning', __('ALL_SUCCESSFUL_SAVED'));
-            return redirect()->route('mobile-v');
+            return redirect('mobile-v');
         }
     }
 

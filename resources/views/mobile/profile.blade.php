@@ -25,12 +25,11 @@
 			<div class="container">
 				<div class="contact-form custom">
 					<div class="profil d-flex align-items-center mb-3">
-						<img width="80px" style="border-radius: 50%; margin-right: 1rem; object-fit: cover;" src="./assets/images/image/speak1.jpg" alt="">
+						<img width="80px" style="border-radius: 50%; margin-right: 1rem; object-fit: cover;" src="{{ Auth::user()->user_image}}" alt="">
 						<h5>{{ Auth::user()->first_name }} {{ Auth::user()->last_name }} <br> <span style="color: grey; font-size: 13px; font-weight: 400;">Mehmon</span></h5><br>
 					</div>
 					<form  action="/mobile-v/profile/update/{{Auth::user()->id}}" method="POST" enctype="multipart/form-data">
-						@csrf
-                        
+						 @csrf   
                         <div class="form-group">
 							<!-- <label>Ismi</label> -->
 							<input type="text" name="first_name" id="name" class="form-control" required data-error="Please enter your Ismi" placeholder="Ismi*" autocomplete="off" value="{{ Auth::user()->first_name }}">
@@ -38,34 +37,34 @@
 						</div>
 						<div class="form-group">
 							<!-- <label>Familiyasi</label> -->
-							<input type="text" name="email" id="email" class="form-control" required data-error="Please enter your Familiyasi" placeholder="Familiyasi*" autocomplete="off" value="{{ Auth::user()->last_name }}">
+							<input type="text" name="last_name" id="email" class="form-control" required data-error="Please enter your Familiyasi" placeholder="Familiyasi*" autocomplete="off" value="{{ Auth::user()->last_name }}">
 							<div class="help-block with-errors"></div>
 						</div>
 						<div class="form-group">
 							<!-- <label>Otasining ismi</label> -->
-							<input type="text" name="email" id="email" class="form-control" required data-error="Please enter your Otasining ismi" placeholder="Otasining ismi" autocomplete="off" value="{{ Auth::user()->middle_name }}">
+							<input type="text" name="middle_name" id="email" class="form-control" required data-error="Please enter your Otasining ismi" placeholder="Otasining ismi" autocomplete="off" value="{{ Auth::user()->middle_name }}">
 							<div class="help-block with-errors"></div>
 						</div>
 						<div class="form-group">
 							<!-- <label>Email</label> -->
-							<input type="text" name="email" id="email" class="form-control" required data-error="Please enter your email" placeholder="Email*" autocomplete="off" value="{{ Auth::user()->email }}">
+							<input type="em" name="email" id="email" class="form-control" required data-error="Please enter your email" placeholder="Email*" autocomplete="off" value="{{ Auth::user()->email }}">
 							<div class="help-block with-errors"></div>
 						</div>
 						<div class="form-group">
 							<!-- <label>Telefon raqam</label> -->
-							<input type="number" name="phone_number" id="phone_number" required data-error="Please enter your number" class="form-control" placeholder="Telefon raqam*" autocomplete="off" value="{{ Auth::user()->phone }}">
+							<input type="number" name="phone" id="phone_number" required data-error="Please enter your number" class="form-control" placeholder="Telefon raqam*" autocomplete="off" value="{{ Auth::user()->phone }}">
 							<div class="help-block with-errors"></div>
 						</div>
 						<h6 style="font-size: 14px;    font-weight: 500;">Jinsi: </h6>
 						<div class="d-flex">
 							<div class="form-check">
-								<input class="form-check-input" type="radio" data-error="Please enter your radio" name="gender" id="erkak" value="{{ Auth::user()->gender }}">
+								<input class="form-check-input" type="radio" data-error="Please enter your radio" name="gender" id="erkak" @if(Auth::user()->gender==1) checked @endif  value="1">
 								<label class="form-check-label" for="erkak">
 									Erkak
 								</label>
 							</div>
 							<div class="form-check mb-3 px-5">
-								<input class="form-check-input" type="radio" data-error="Please enter your radio" name="gender" id="ayol" value="{{ Auth::user()->gender }}">
+								<input class="form-check-input" type="radio" data-error="Please enter your radio" name="gender" id="ayol" value="0"  @if(Auth::user()->gender==0) checked @endif>
 								<label class="form-check-label" for="ayol">
 									Ayol
 								</label>
@@ -81,11 +80,12 @@
 							<div class="file-upload-wrap style-two">
 								<label for="et_pb_contact_brand_file_request_0" class="et_pb_contact_form_label" style="display: flex;
 								align-items: center;
-								justify-content: center;">Change</label>
-								<input type="file" name="user_image" id="et_pb_contact_brand_file_request_0" required data-error="Please enter your file" class="file-upload" value="{{ Auth::user()->user_image }}">
+								justify-content: center;"><img src="{{ Auth::user()->user_image }}" alt=""></label>
+								<input type="file" name="user_image" id="et_pb_contact_brand_file_request_0" required data-error="Please enter your file" class="file-upload" >
 								<div class="help-block with-errors"></div>
 							</div>
 						</div>
+						
 						
 						<div>
 							<button type="submit" class="default-btn">
