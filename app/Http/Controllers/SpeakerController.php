@@ -46,8 +46,6 @@ class SpeakerController extends Controller
      */
     public function store(Request $request)
     {
-
-
         $data = $request->except(array('_token'));
         $rule = array(
             'full_name' => 'required',

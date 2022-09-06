@@ -56,6 +56,10 @@ class ConferenceController extends Controller
             mkdir('uploads/conference', 0777, true);
         }
 
+        if (!file_exists('uploads/conference/description_image')) {
+            mkdir('uploads/conference/description_image', 0777, true);
+        }
+
         $validator = Validator::make($data, $rule);
 
         if ($validator->fails()) {
@@ -219,6 +223,10 @@ class ConferenceController extends Controller
 
         if (!file_exists('uploads/conference')) {
             mkdir('uploads/conference', 0777, true);
+        }
+
+        if (!file_exists('uploads/conference/description_image')) {
+            mkdir('uploads/conference/description_image', 0777, true);
         }
 
         $validator = Validator::make($data, $rule);
