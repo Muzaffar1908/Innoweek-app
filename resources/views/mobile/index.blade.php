@@ -28,7 +28,7 @@
                         <span class="ma5menu__sr-only">Menu</span>
                     </button>
                     <h2>
-                        <a href="index.html">
+                        <a href="{{route('m-home')}}">
                             <img style="padding-bottom: 6px;" width="73px" src="{{ asset('/assets/images/logo.webp') }}"
                                 alt="">
                         </a>
@@ -111,39 +111,19 @@
         <h2 style="margin: 4rem 0 2rem 0;">Yangiliklar</h2>
     </div>
     <div class="features-slide owl-carousel owl-theme">
-        <div class="single-features card-bg-a1dbd2">
-            <a href="{{route('m-news1')}}">
-                <img style="object-fit: cover; width: 100%; height: 230px;"
-                    src="{{ asset('/assets/images/image/img1.jpg') }}" alt="">
-            </a>
-            <div class="features-content">
-                <h3>Italiyalik biznes hamkorlar bilan INNO Texnoparkda uchrashuv o’tkazildi</h3>
-                <p>"InnoWeek-2022" regional exhibition of innovative ideas was held in ...
-                </p>
+        @foreach($news as $new)
+            <div class="single-features card-bg-a1dbd2">
+                <a href="{{route('newsShow',['id'=>$new->id])}}">
+                    <img style="object-fit: cover; width: 100%; height: 230px;"
+                         src="{{ 'uploads/news/'.$new->user_image }}" alt="">
+                </a>
+                <div class="features-content">
+                    <h3>{{$new->title_uz}}</h3>
+                    <p>"InnoWeek-2022" regional exhibition of innovative ideas was held in ...
+                    </p>
+                </div>
             </div>
-        </div>
-        <div class="single-features card-bg-a1dbd2">
-            <a href="{{route('m-news2')}}"">
-                <img style="object-fit: cover; width: 100%; height: 230px;"
-                    src="{{ asset('/assets/images/image/img2.jpg') }}" alt="">
-            </a>
-            <div class="features-content">
-                <h3>Italiyalik biznes hamkorlar bilan INNO Texnoparkda uchrashuv o’tkazildi</h3>
-                <p>"InnoWeek-2022" regional exhibition of innovative ideas was held in ...
-                </p>
-            </div>
-        </div>
-        <div class="single-features card-bg-a1dbd2">
-            <a href="{{route('m-news3')}}">
-                <img style="object-fit: cover; width: 100%; height: 230px;"
-                    src="{{ asset('/assets/images/image/img3.jpg') }}" alt="">
-            </a>
-            <div class="features-content">
-                <h3>Italiyalik biznes hamkorlar bilan INNO Texnoparkda uchrashuv o’tkazildi</h3>
-                <p>"InnoWeek-2022" regional exhibition of innovative ideas was held in ...
-                </p>
-            </div>
-        </div>
+        @endforeach
     </div>
 </div>
 <!-- End Features News -->
@@ -154,64 +134,22 @@
         <div class="section-title mt-3">
             <h2 style="margin-bottom: 2rem;">Tadbirlar</h2>
         </div>
-        <a href="./tadbir.html">
+        @foreach($conferens as $conf)
+        <a href="{{route('conferensShow',['id'=>$conf->id])}}">
             <div class="components-support d-flex align-items-center mb-4">
-                <img src="{{ asset('/assets/images/image/1.webp') }}" alt="Images">
+                <img src="{{ asset('/uploads/conference/'.$conf->user_image) }}" alt="Images">
                 <div class="components-content">
-                    <h6>“InnoWeek-2022” innovatsion g’oyalar hududiy ko’rgazmasi Namangan viloyatida bo'lib o'tdi</h6>
+                    <h6>{{$conf->title_uz}}</h6>
 
                     <div class="icon d-flex align-items-center">
                         <i class="fa-solid fa-calendar-days"></i>
-                        <p>2022-08-09</p>
+                        <p>{{$conf->created_at->format('Y:m:d')}}</p>
                     </div>
 
                 </div>
             </div>
         </a>
-
-        <a href="./tadbir.html">
-            <div class="components-support d-flex align-items-center mb-4">
-                <img src="{{ asset('/assets/images/image/2.webp') }}" alt="Images">
-                <div class="components-content">
-                    <h6>“InnoWeek-2022” innovatsion g’oyalar hududiy ko’rgazmasi Namangan viloyatida bo'lib o'tdi</h6>
-
-                    <div class="icon d-flex align-items-center">
-                        <i class="fa-solid fa-calendar-days"></i>
-                        <p>2022-08-09</p>
-                    </div>
-                </div>
-            </div>
-        </a>
-
-        <a href="./tadbir.html">
-            <div class="components-support d-flex align-items-center mb-4">
-                <img src="{{ asset('/assets/images/image/6.webp') }}" alt="Images">
-                <div class="components-content">
-                    <h6>“InnoWeek-2022” innovatsion g’oyalar hududiy ko’rgazmasi Namangan viloyatida bo'lib o'tdi</h6>
-
-                    <div class="icon d-flex align-items-center">
-                        <i class="fa-solid fa-calendar-days"></i>
-                        <p>2022-08-09</p>
-                    </div>
-                </div>
-            </div>
-        </a>
-
-        <a href="./tadbir.html">
-            <div class="components-support d-flex align-items-center">
-                <img src="{{ asset('assets/images/image/7.webp') }}" alt="Images">
-                <div class="components-content">
-                    <h6>“InnoWeek-2022” innovatsion g’oyalar hududiy ko’rgazmasi Namangan viloyatida bo'lib o'tdi</h6>
-
-                    <div class="icon d-flex align-items-center">
-                        <i class="fa-solid fa-calendar-days"></i>
-                        <p>2022-08-09</p>
-                    </div>
-                </div>
-            </div>
-        </a>
-
-
+        @endforeach
     </div>
 </div>
 <!-- End Speakers Area -->
@@ -223,61 +161,19 @@
     <h2 style="text-align: center; margin: .5rem 0 2rem 0;">So'zlovchilar</h2>
     <div class="owl-carousel-wrap">
         <div class="slide-style-four owl-carousel owl-theme">
+            @foreach($speakers as $speaker)
             <div class="slide-item">
-                <a href="./speaker.html">
+                <a href="{{route('speakerShow',['id'=>$speaker->id])}}">
                     <img style="margin-right: 0; margin-top: 10px; width: 100%;
 					height: 180px;
-					object-fit: cover; border-radius: 5px;" src="{{ asset('/assets/images/image/speak1.jpg') }}" alt="Images">
+					object-fit: cover; border-radius: 5px;" src="{{ asset('/uploads/speaker/'.$speaker->image) }}" alt="Images">
                 </a>
                 <div class="customer-content d-flex flex-column align-items-center">
-                    <h4 style="margin-top: 10px; text-align: center; font-size: 15px;">Muhammad Ali Eshonqulov</h4>
-                    <span>Rag'bar</span>
+                    <h4 style="margin-top: 10px; text-align: center; font-size: 15px;">{{$speaker->full_name}}</h4>
+                    <span>{{$speaker->job}}</span>
                 </div>
             </div>
-            <div class="slide-item">
-                <a href="./speaker.html">
-                    <img style="margin-right: 0; border-radius: 5px; margin-top: 10px; width: 100%;
-					height: 180px;
-					object-fit: cover;" src="{{ asset('/assets/images/image/speak2.jpg') }}" alt="Images">
-                </a>
-                <div class="customer-content d-flex flex-column align-items-center">
-                    <h4 style="margin-top: 10px; text-align: center; font-size: 15px;">Midkhat Shagiakhmetov</h4>
-                    <span>Dasturchi</span>
-                </div>
-            </div>
-            <div class="slide-item">
-                <a href="./speaker.html">
-                    <img style="margin-right: 0; border-radius: 5px; margin-top: 10px; width: 100%;
-					height: 180px;
-					object-fit: cover;" src="{{ asset('/assets/images/image/speak3.jpg') }}" alt="Images">
-                </a>
-                <div class="customer-content d-flex flex-column align-items-center">
-                    <h4 style="margin-top: 10px; text-align: center; font-size: 15px;">Muzaffar Jalolov</h4>
-                    <span>Tadbirkor</span>
-                </div>
-            </div>
-            <div class="slide-item">
-                <a href="./speaker.html">
-                    <img style="margin-right: 0; border-radius: 5px; margin-top: 10px; width: 100%;
-					height: 180px;
-					object-fit: cover;" src="{{ asset('/assets/images/image/speak4.jpg') }}" alt="Images">
-                </a>
-                <div class="customer-content d-flex flex-column align-items-center">
-                    <h4 style="margin-top: 10px; text-align: center; font-size: 15px;">Alexander Borisov</h4>
-                    <span>Enjiner</span>
-                </div>
-            </div>
-            <div class="slide-item">
-                <a href="./speaker.html">
-                    <img style="margin-right: 0; border-radius: 5px; margin-top: 10px; width: 100%;
-					height: 180px;
-					object-fit: cover;" src="{{ asset('/assets/images/image/speak5.jpg') }}" alt="Images">
-                </a>
-                <div class="customer-content d-flex flex-column align-items-center">
-                    <h4 style="margin-top: 10px; text-align: center; font-size: 15px;">Mixail Abramskiy</h4>
-                    <span>Muttaxasist</span>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
 </div>
