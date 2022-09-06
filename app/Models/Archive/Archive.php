@@ -19,7 +19,7 @@ class Archive extends Model
         'is_active',
     ];
 
-    public function archive()
+    public function archiveTable()
     {
         return $this->belongsTo(User::class, 'user_id');
     }
