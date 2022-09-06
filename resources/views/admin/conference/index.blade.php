@@ -63,7 +63,7 @@
                               @foreach ($conferences as $conference)
                                   <tr>
                                     <td>{{($conferences->currentpage() - 1) * $conferences->perpage() + ($loop->index+1)}}</td>
-                                    <td>{{$conference->usersTable->first_name}}</td>
+                                    <td>{{$conference->conferenceTable->first_name}}</td>
                                     <td>{{$conference->archiveTable->year}}</td>
                                     <td>{{$conference->started_at}}</td>
                                     <td>{{$conference->title_uz}}</td>
