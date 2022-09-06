@@ -56,8 +56,8 @@ class SpeakerController extends Controller
         if (!file_exists('uploads/speaker')) {
             mkdir('uploads/speaker', 0777, true);
         }
-        if (!file_exists('uploads/speaker/description')) {
-            mkdir('uploads/speaker/description', 0777, true);
+        if (!file_exists('uploads/speaker/description_image')) {
+            mkdir('uploads/speaker/description_image', 0777, true);
         }
 
         $validator = Validator::make($data, $rule);
