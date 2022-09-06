@@ -182,12 +182,9 @@ class NewsController extends Controller
     public function show($id)
     {
         $news = News::find($id);
-        $users = User::all();
-        $news_categories = NewsCategory::all();
+
         return view('admin.news.show', [
             'news' => $news,
-            'users' => $users,
-            'news_categories' => $news_categories,
         ]);
     }
 
@@ -256,13 +253,13 @@ class NewsController extends Controller
 
         $news->description_uz = $inputs['description_uz'];
 
-        if ($request->hasFile('image')) {
-            $file = $request->file('image');
+        if ($request->hasFile('user_image')) {
+            $file = $request->file('user_image');
             $ex = $file->getClientOriginalExtension();
             $imageName = md5(rand(100, 999999) . microtime()) . "." . $ex;
             $file->move(public_path('uploads/news'), $imageName);
             // unlink($userticket->ticket_image);
-            $data['image'] = 'uploads/news/' . $imageName;
+            $data['user_image'] = 'uploads/news/' . $imageName;
         }
 
         if (!empty($news->description_uz)) {

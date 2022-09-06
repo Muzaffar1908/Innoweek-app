@@ -7,7 +7,7 @@
         <div class="card">
             <div class="card-header">
                 <h4 class="card-title">Form grid</h4>
-                <a href="{{route('admin.speaker.index')}}" class="btn btn-primary"><i class="bi bi-arrow-left-short"></i>Back</a>
+                <a href="{{route('admin.speakers.index')}}" class="btn btn-primary"><i class="bi bi-arrow-left-short"></i>Back</a>
             </div>
 
             @if (count($errors) > 0)
@@ -37,7 +37,7 @@
 
             <div class="card-body">
                 <div class="basic-form">
-                <form action="{{route('admin.speaker.update', $speaker->id)}}" method="POST" enctype="multipart/form-data">
+                <form action="{{route('admin.speakers.update', $speaker->id)}}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
 
@@ -54,10 +54,18 @@
                             @endforeach
                         </select>
                     </div>
+                    <div class="mb-3">
+                        <label for="archive_id">User</label>
+                        <select name="user_id" class="form-control" id="user_id">
+                            @foreach ($users as $user)
+                                <option value="{{$user->id}}">{{$user->first_name}}</option>
+                            @endforeach
+                        </select>
+                    </div>
 
                     <div class="mb-3">
-                        <label for="fullname">Fullname</label>
-                        <input type="text" name="fullname" class="form-control" id="fullname" placeholder="Fullname enter" value="{{$speaker->fullname}}" />
+                        <label for="full_name">Fullname</label>
+                        <input type="text" name="full_name" class="form-control" id="full_name" placeholder="Fullname enter" value="{{$speaker->full_name}}" />
                     </div>
 
                     <div class="mb-3">
@@ -83,12 +91,12 @@
 
                     <div class="mb-3">
                         <label for="facebook_url">Facebook url</label>
-                        <input type="text" name="facebook_url" class="form-control" id="facebook_url" placeholder="facebook_url enter" value="{{$speaker->facebook_url}}" />
+                        <input type="text" name="facebook_url" class="form-control" id="facebook_url" placeholder="facebook_url enter" value="{{$speaker->facebook_ur}}" />
                     </div>
 
                     <div class="mb-3">
-                        <label for="instagram_url">Instagram url</label>
-                        <input type="text" name="instagram_url" class="form-control" id="instagram_url" placeholder="instagram_url enter" value="{{$speaker->instagram_url}}" />
+                        <label for="youtube_url">Youtube url</label>
+                        <input type="text" name="youtube_url" class="form-control" id="youtube_url" placeholder="youtube_url enter" value="{{$speaker->youtube_url}}" />
                     </div>
 {{--                    {{dd($speaker)}}--}}
 

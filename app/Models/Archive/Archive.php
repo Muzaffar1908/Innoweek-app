@@ -12,17 +12,17 @@ class Archive extends Model
 
     protected $fillable = [
         'user_id',
-        'yera',
-        'descriptio_en',
-        'descriptio_ru',
-        'descriptio_uz',
+        'year',
+        'description_en',
+        'description_ru',
+        'description_uz',
         'is_active',
     ];
 
-    public function archiveTable()
+    public function archive()
     {
         return $this->belongsTo(User::class, 'user_id');
     }
 
-    
+
 }

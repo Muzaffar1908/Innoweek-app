@@ -8,11 +8,11 @@
                 <table class="table">
                     <tr>
                         <th>Username</th>
-                        <td>{{$new->usersTable->first_name}}</td>
+                        <td>{{$news->usersTable->first_name}}</td>
                     </tr>
                     <tr>
                         <th>Categoryname</th>
-                        <td>{{$new->newsTable->title_uz}}</td>
+                        <td>{{$news->newsTable->title_uz}}</td>
                     </tr>
                     <tr>
                         <th>Title uz</th>

@@ -23,4 +23,8 @@ class NewsCategory extends Model
     {
         return $this->belongsTo(User::class,'user_id');
     }
+    public function newss()
+    {
+        return $this->hasMany(News::class,'cat_id',);
+    }
 }

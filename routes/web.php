@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ArchiveController;
 use App\Http\Controllers\ConferenceController;
+use App\Http\Controllers\SpeakerController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Mobile\IndexController;
 use App\Http\Controllers\Mobile\AuthController;
@@ -35,13 +36,14 @@ Route::prefix('admin')->name('admin.')->group(function(){
     Route::resource('/news', NewsController::class);
     Route::resource('/archive', ArchiveController::class);
     Route::resource('/conference', ConferenceController::class);
+    Route::resource('/speakers', SpeakerController::class);
 });
 
 Auth::routes();
 
 
 Route::group(['prefix' => 'mobile-v'], function () {
-    
+
     Route::controller(IndexController::class)->group(function () {
         Route::get('/', 'home')->name('m-home');
         Route::get('/dashboard', 'dashboard')->name('m-dashboard');

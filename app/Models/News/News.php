@@ -2,6 +2,7 @@
 
 namespace App\Models\News;
 
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -25,13 +26,13 @@ class News extends Model
 
     public function usersTable()
     {
-        return $this->belongsTo(User::class,'user_id','id');
+        return $this->belongsTo(User::class,'user_id');
     }
 
     public function newsTable()
     {
-        return $this->belongsTo(User::class,'cat_id');
+        return $this->belongsTo(NewsCategory::class,'cat_id');
     }
 
-    
+
 }

@@ -12,7 +12,9 @@
         "laravel/tinker": "^2.7",
         "laravel/ui": "^4.0",
         "laravelcollective/html": "^6.3",
-        "mimaxuz/role-manager": "^2.0"
+        "mimaxuz/role-manager": "^2.0",
+      "ext-dom": "*",
+        "ext-libxml": "*"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",

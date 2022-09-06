@@ -7,7 +7,7 @@
         <div class="card">
             <div class="card-header">
                 <h4 class="card-title">Form grid</h4>
-                <a href="{{route('admin.speaker.index')}}" class="btn btn-primary"><i class="bi bi-arrow-left-short"></i>Back</a>
+                <a href="{{route('admin.speakers.index')}}" class="btn btn-primary"><i class="bi bi-arrow-left-short"></i>Back</a>
             </div>
 
                 @if (count($errors) > 0)
@@ -34,12 +34,20 @@
 
             <div class="card-body">
                 <div class="basic-form">
-                <form action="{{route('admin.speaker.store')}}" method="POST" enctype="multipart/form-data" >
+                <form action="{{route('admin.speakers.store')}}" method="POST" enctype="multipart/form-data" >
                     @csrf
 
                     <div class="mb-3">
                         {{-- <label for="id">id</label> --}}
                         <input type="hidden" name="id"  id="id"  value="{{old('id')}}" />
+                    </div>
+                    <div class="mb-3">
+                        <label for="archive_id">UserName</label>
+                        <select name="user_id" class="form-control" id="archive_id">
+                            @foreach ($users as $user)
+                                <option value="{{$user->id}}">{{$user->first_name}}</option>
+                            @endforeach
+                        </select>
                     </div>
 
                     <div class="mb-3">
@@ -52,8 +60,8 @@
                     </div>
 
                     <div class="mb-3">
-                        <label for="fullname">Fullname</label>
-                        <input type="text" name="fullname"  class="form-control" id="fullname" placeholder="Fullname enter" value="{{old('fullname')}}" />
+                        <label for="full_name">Fullname</label>
+                        <input type="text" name="full_name"  class="form-control" id="full_name" placeholder="Fullname enter" value="{{old('full_name')}}" />
                     </div>
 
                     <div class="mb-3">
@@ -62,7 +70,7 @@
                     </div>
 
                     <div class="mb-3">
-                        <label for="ticket_image">image</label>
+                        <label for="image">image</label>
                         <input type="file" name="image"  class="form-control" id="image" placeholder="image enter" value="{{old('image')}}" />
                     </div>
 
@@ -88,8 +96,8 @@
                     </div>
 
                     <div class="mb-3">
-                        <label for="instagram_url">Instagram url</label>
-                        <input type="text" name="instagram_url"  class="form-control" id="instagram_url" placeholder="Instagram url enter" value="{{old('instagram_url')}}" />
+                        <label for="youtube_url">Youtube url</label>
+                        <input type="text" name="youtube_url"  class="form-control" id="youtube_url" placeholder="Instagram url enter" value="{{old('instagram_url')}}" />
                     </div>
 
                     <div class="mb-3">

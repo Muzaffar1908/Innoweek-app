@@ -51,7 +51,7 @@
                             @endforeach
                         </select>
                     </div>
-                    
+
                     <div class="mb-3">
                         <label for="cat_id">Categoryname</label>
                         <select name="cat_id" class="form-control" id="cat_id">

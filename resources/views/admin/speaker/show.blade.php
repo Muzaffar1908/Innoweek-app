@@ -10,21 +10,34 @@
                         <th>Archive title uz</th>
                         <td>{{$speaker->archiveTable->year}}</td>
                     </tr>
-{{--                    {{dd($speaker->description_uz)}}--}}
+                    <tr>
+                        <th>User</th>
+                        <td>{{$speaker->usersTable->first_name}}</td>
+                    </tr>
                     <tr>
                         <th>Fullname</th>
-                        <td>{{$speaker->fullname}}</td>
+                        <td>{{$speaker->full_name}}</td>
+                    </tr>
+                    <tr>
+                        <th>Job</th>
+                        <td>{{$speaker->job}}</td>
+                    </tr>
+                    <tr>
+                        <th>Image</th>
+                        <td>
+                            <img src="{{asset('uploads/speaker/' .$speaker->image)}}" alt="img" with="100px" height="60px">
+                        </td>
                     </tr>
                     <tr>
                         <th>Description uz</th>
                         <td>{!!$speaker->description_uz!!}</td>
                     </tr>
                         <th>Facebook url</th>
-                        <td>{{$speaker->facebook_url}}</td>
+                        <td>{{$speaker->facebook_ur}}</td>
                     </tr>
                     <tr>
-                        <th>Instagram url</th>
-                        <td>{{$speaker->instagram_url}}</td>
+                        <th>Youtube url</th>
+                        <td>{{$speaker->youtube_url}}</td>
                     </tr>
                     <tr>
                         <th>Twitter url</th>
@@ -35,7 +48,7 @@
                         <td>{{$speaker->linkedin_url }}</td>
                     </tr>
                 </table>
-                <a href="{{route('admin.speaker.index')}}" class="btn btn-primary"><i class="bi bi-arrow-left-short"></i>Back</a>
+                <a href="{{route('admin.speakers.index')}}" class="btn btn-primary"><i class="bi bi-arrow-left-short"></i>Back</a>
             </div>
         </div>
     </div>
