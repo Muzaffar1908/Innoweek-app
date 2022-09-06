@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Archive;
-use App\Models\Speaker;
+
+
+use App\Models\Archive\Archive;
+use App\Models\Archive\Speakers;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Session;
@@ -18,7 +21,7 @@ class SpeakerController extends Controller
      */
     public function index()
     {
-        $speakers = Speaker::paginate(5);
+        $speakers = Speakers::paginate(5);
         $archives = Archive::all();
         return view('admin.speaker.index', compact('speakers', 'archives'));
     }
@@ -31,7 +34,8 @@ class SpeakerController extends Controller
     public function create()
     {
         $archives = Archive::all();
-        return view('admin.speaker.create', compact('archives'));
+        $users = User::all();
+        return view('admin.speaker.create', compact('archives','users'));
     }
 
     /**
@@ -42,9 +46,11 @@ class SpeakerController extends Controller
      */
     public function store(Request $request)
     {
+
+
         $data = $request->except(array('_token'));
         $rule = array(
-            'fullname' => 'required',
+            'full_name' => 'required',
             'description_uz' => 'required',
         );
         if (!file_exists('uploads/speaker')) {
@@ -60,16 +66,16 @@ class SpeakerController extends Controller
 
         $inputs = $request->all();
         if (!empty($inputs['id'])) {
-            $speakers = Speaker::findOrFail($inputs['id']);
+            $speakers = Speakers::findOrFail($inputs['id']);
         } else {
-            $speakers = new Speaker;
+            $speakers = new Speakers;
         }
-
+        $speakers->user_id = $inputs['user_id'];
         $speakers->archive_id = $inputs['archive_id'];
-        $speakers->fullname = $inputs['fullname'];
+        $speakers->full_name = $inputs['full_name'];
         $speakers->job = $inputs['job'];
-        $speakers->facebook_url = $inputs['facebook_url'];
-        $speakers->instagram_url = $inputs['instagram_url'];
+        $speakers->facebook_ur = $inputs['facebook_url'];
+        $speakers->youtube_url = $inputs['youtube_url'];
         $speakers->twitter_url = $inputs['twitter_url'];
         $speakers->linkedin_url = $inputs['linkedin_url'];
 
@@ -153,10 +159,10 @@ class SpeakerController extends Controller
 
         if (!empty($inputs['id'])) {
             Session::flash('warning', __('ALL_CHANGES_SUCCESSFUL_SAVED'));
-            return redirect('admin/speaker');
+            return redirect('admin/speakers');
         } else {
             Session::flash('warning', __('ALL_SUCCESSFUL_SAVED'));
-            return redirect('admin/speaker');
+            return redirect('admin/speakers');
         }
     }
 
@@ -168,7 +174,7 @@ class SpeakerController extends Controller
      */
     public function show($id)
     {
-        $speaker = Speaker::find($id);
+        $speaker = Speakers::find($id);
         return view('admin.speaker.show')->with('speaker', $speaker);
     }
 
@@ -180,11 +186,13 @@ class SpeakerController extends Controller
      */
     public function edit($id)
     {
-        $speaker = Speaker::find($id);
+        $speaker = Speakers::find($id);
         $archives = Archive::all();
+        $users = User::all();
         return view('admin.speaker.edit', [
             'speaker' => $speaker,
             'archives' => $archives,
+            'users' => $users,
         ]);
     }
 
@@ -195,11 +203,11 @@ class SpeakerController extends Controller
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Speaker $speakers)
+    public function update(Request $request, Speakers $speakers)
     {
         $data = $request->except(array('_token'));
         $rule = array(
-            'fullname' => 'required',
+            'full_name' => 'required',
             'description_uz' => 'required',
         );
 
@@ -212,15 +220,15 @@ class SpeakerController extends Controller
 
         $inputs = $request->all();
         if (!empty($inputs['id'])) {
-            $speakers = Speaker::findOrFail($inputs['id']);
+            $speakers = Speakers::findOrFail($inputs['id']);
         } else {
-            $speakers = new Speaker;
+            $speakers = new Speakers();
         }
 
         $speakers->archive_id = $inputs['archive_id'];
-        $speakers->fullname = $inputs['fullname'];
-        $speakers->facebook_url = $inputs['facebook_url'];
-        $speakers->instagram_url = $inputs['instagram_url'];
+        $speakers->full_name = $inputs['full_name'];
+        $speakers->facebook_ur = $inputs['facebook_url'];
+        $speakers->youtube_url = $inputs['youtube_url'];
         $speakers->twitter_url = $inputs['twitter_url'];
         $speakers->linkedin_url = $inputs['linkedin_url'];
 
@@ -305,10 +313,10 @@ class SpeakerController extends Controller
 
         if (!empty($inputs['id'])) {
             Session::flash('warning', __('ALL_CHANGES_SUCCESSFUL_SAVED'));
-            return redirect('admin/speaker');
+            return redirect('admin/speakers');
         } else {
             Session::flash('warning', __('ALL_SUCCESSFUL_SAVED'));
-            return redirect('admin/speaker');
+            return redirect('admin/speakers');
         }
     }
 
@@ -320,7 +328,7 @@ class SpeakerController extends Controller
      */
     public function destroy($id)
     {
-        Speaker::destroy($id);
-        return redirect('admin/speaker')->with('warning', 'SPEAKER_TABLES_DELETED');
+        Speakers::destroy($id);
+        return redirect('admin/speakers')->with('warning', 'SPEAKER_TABLES_DELETED');
     }
 }

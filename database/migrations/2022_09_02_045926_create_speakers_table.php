@@ -18,6 +18,8 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained('users')->onDelete('restrict');
             $table->foreignId('archive_id')->constrained('archives')->onDelete('restrict');
             $table->string('full_name');
+            $table->string('job');
+            $table->string('image');
             $table->string('facebook_ur')->nullable();
             $table->string('twitter_url')->nullable();
             $table->string('linkedin_url')->nullable();

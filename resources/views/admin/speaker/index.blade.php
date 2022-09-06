@@ -7,7 +7,7 @@
             <div class="card">
                 <div class="card-header">
                     <h1 class="card-title">Speakers</h1>
-                    <a href="{{route('admin.speaker.create')}}" class="btn btn-success"><i class="bi bi-plus"></i>Add</a>
+                    <a href="{{route('admin.speakers.create')}}" class="btn btn-success"><i class="bi bi-plus"></i>Add</a>
                 </div>
 
                 @if (count($errors) > 0)
@@ -51,34 +51,37 @@
                                 <tr>
                                   <th>№</th>
                                   <th>Archive year</th>
+                                  <th>User</th>
                                   <th>Fullname</th>
                                   <th>Description</th>
                                   <th>image</th>
                                   <th>Facebook url</th>
-                                  <th>Instagram url</th>
+                                  <th>Youtube url</th>
                                   <th>Twitter url</th>
                                   <th>Linkedin url</th>
                                   <th>Action</th>
                                 </tr>
                               </thead>
                               @foreach ($speakers as $speaker)
+
                                   <tr>
                                     <td>{{($speakers->currentpage() - 1) * $speakers->perpage() + ($loop->index+1)}}</td>
                                     <td>{{$speaker->archiveTable->year}}</td>
-                                    <td>{{$speaker->fullname}}</td>
+                                    <td>{{$speaker->usersTable->first_name}}</td>
+                                    <td>{{$speaker->full_name}}</td>
                                     <td>{{Str::limit(strip_tags($speaker->description_uz), 20)}}</td>
                                       <td>
                                           <img src="{{asset('uploads/speaker/' .$speaker->image)}}" alt="img" with="100px" height="60px">
                                       </td>
-                                    <td>{{$speaker->facebook_url}}</td>
-                                    <td>{{$speaker->instagram_url}}</td>
+                                    <td>{{$speaker->facebook_ur}}</td>
+                                    <td>{{$speaker->youtube_url}}</td>
                                     <td>{{$speaker->twitter_url}}</td>
                                     <td>{{$speaker->linkedin_url}}</td>
                                     <td>
                                         <div class="btn-group">
-                                            <a href="{{route('admin.speaker.show', $speaker->id)}}" type="button" class="btn btn-info"><i class="bi bi-eye"></i></a>
-                                            <a href="{{route('admin.speaker.edit', $speaker->id)}}" type="button" class="btn btn-success"><i class="bi bi-pencil"></i></a>
-                                            <form action="{{route('admin.speaker.destroy', $speaker->id)}}" method="POST">
+                                            <a href="{{route('admin.speakers.show', $speaker->id)}}" type="button" class="btn btn-info"><i class="bi bi-eye"></i></a>
+                                            <a href="{{route('admin.speakers.edit', $speaker->id)}}" type="button" class="btn btn-success"><i class="bi bi-pencil"></i></a>
+                                            <form action="{{route('admin.speakers.destroy', $speaker->id)}}" method="POST">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit" class="btn btn-danger"><i class="bi bi-trash"></i></button>

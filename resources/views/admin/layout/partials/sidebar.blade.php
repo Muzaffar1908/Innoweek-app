@@ -17,6 +17,7 @@
             <li><a href="{{route('admin.user.index')}}">User</a></li>
             <li><a href="{{route('admin.archive.index')}}">Archive</a></li>
             <li><a href="{{route('admin.conference.index')}}">Conference</a></li>
+            <li><a href="{{route('admin.speakers.index')}}">Speakers</a></li>
           </ul>
         </li>
         <li>

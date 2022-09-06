@@ -5,6 +5,7 @@ namespace App\Models;
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 
 use App\Models\Archive\Archive;
+use App\Models\Archive\Speakers;
 use App\Models\News\News;
 use App\Models\News\NewsCategory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -53,6 +54,10 @@ class User extends Authenticatable
     public function conference()
     {
         return $this->hasMany(Conference::class, 'user_id', 'id');
+    }
+    public function speaker()
+    {
+        return $this->hasMany(Speakers::class, 'user_id', 'id');
     }
 
 
