@@ -53,6 +53,7 @@
                                   <th>Archive year</th>
                                   <th>User</th>
                                   <th>Fullname</th>
+                                  <th>Job</th>
                                   <th>Description</th>
                                   <th>image</th>
                                   <th>Facebook url</th>
@@ -69,6 +70,7 @@
                                     <td>{{$speaker->archiveTable->year}}</td>
                                     <td>{{$speaker->usersTable->first_name}}</td>
                                     <td>{{$speaker->full_name}}</td>
+                                    <td>{{$speaker->job}}</td>
                                     <td>{{Str::limit(strip_tags($speaker->description_uz), 20)}}</td>
                                       <td>
                                           <img src="{{asset('uploads/speaker/' .$speaker->image)}}" alt="img" with="100px" height="60px">
