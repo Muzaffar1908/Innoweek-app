@@ -110,7 +110,7 @@
                         <input type="text" name="linkedin_url"  class="form-control" id="linkedin_url" placeholder="Linkedin url enter" value="{{old('linkedin_url')}}" />
                     </div>
 
-                        <button type="submit" class="btn btn-success sweet-confirm">Save</button>
+                        <button type="submit" class="btn btn-success">Save</button>
 
                 </form>
                 </div>
