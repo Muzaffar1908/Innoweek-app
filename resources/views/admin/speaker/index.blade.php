@@ -73,7 +73,7 @@
                                     <td>{{$speaker->job}}</td>
                                     <td>{{Str::limit(strip_tags($speaker->description_uz), 20)}}</td>
                                       <td>
-                                          <img src="{{asset('uploads/speaker/' .$speaker->image)}}" alt="img" with="100px" height="60px">
+                                          <img src="{{asset('uploads/speaker/' .$speaker->image.'-d.png')}}" alt="img" with="100px" height="60px">
                                       </td>
                                     <td>{{$speaker->facebook_ur}}</td>
                                     <td>{{$speaker->youtube_url}}</td>

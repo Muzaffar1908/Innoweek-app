@@ -37,7 +37,7 @@
                     <tr>
                         <th>User Image</th>
                         <td>
-                            <img src="{{asset('uploads/conference/' .$conference->user_image)}}" alt="img" with="100px" height="60px">
+                            <img src="{{asset('uploads/conference/' .$conference->user_image.'-d.png')}}" alt="img" with="100px" height="60px">
                         </td>
                     </tr>
                     <tr>
