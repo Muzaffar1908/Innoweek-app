@@ -8,6 +8,8 @@ use App\Models\News\NewsCategory;
 use App\Models\User;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Str;
+use Intervention\Image\Facades\Image;
 
 class NewsController extends Controller
 {
@@ -85,17 +87,22 @@ class NewsController extends Controller
 
         $news->description_uz = $inputs['description_uz'];
 
-        if ($request->hasFile('user_image')) {
-            $file = $request->file('user_image');
-            $ex = $file->getClientOriginalExtension();
+        $image = $request->file('user_image');
+        if ($image) {
+            if (empty($inputs['id'])) {
+                \File::delete(public_path() .'/uploads/news/'.$news->image.'-m.png');
+                \File::delete(public_path() .'/uploads/news/'.$news->image.'-d.png');
+            }
+            $tmpFilePath = 'uploads/news/';
+            $hardPath =  Str::slug('news', '-').'-'.md5(time());
+            $img = Image::make($image);
+            $img1 = Image::make($image);
+//            $img->fit(360, 640)->save($tmpFilePath.$hardPath.'-m.png');
+            $img1->save($tmpFilePath.$hardPath.'-d.png');
 
-            $imageName = md5(rand(100, 999999) . microtime()) . "." . $ex;
-            $file->move(public_path('uploads/news'), $imageName);
-            // unlink($userticket->ticket_image);
-            $data['user_image'] = 'uploads/news/' . $imageName;
+
+            $news->user_image = $hardPath;
         }
-
-        $news->user_image = $imageName;
 
         if (!empty($news->description_uz)) {
             $dom_save_uz = new \DomDocument();
@@ -254,13 +261,21 @@ class NewsController extends Controller
 
         $news->description_uz = $inputs['description_uz'];
 
-        if ($request->hasFile('user_image')) {
-            $file = $request->file('user_image');
-            $ex = $file->getClientOriginalExtension();
-            $imageName = md5(rand(100, 999999) . microtime()) . "." . $ex;
-            $file->move(public_path('uploads/news'), $imageName);
-            // unlink($userticket->ticket_image);
-            $data['user_image'] = 'uploads/news/' . $imageName;
+        $image = $request->file('user_image');
+        if ($image) {
+            if (empty($inputs['id'])) {
+                \File::delete(public_path() .'/uploads/news/'.$news->image.'-m.png');
+                \File::delete(public_path() .'/uploads/news/'.$news->image.'-d.png');
+            }
+            $tmpFilePath = 'uploads/news/';
+            $hardPath =  Str::slug('news', '-').'-'.md5(time());
+            $img = Image::make($image);
+            $img1 = Image::make($image);
+//            $img->fit(360, 640)->save($tmpFilePath.$hardPath.'-m.png');
+            $img1->save($tmpFilePath.$hardPath.'-d.png');
+
+
+            $news->user_image = $hardPath;
         }
 
         if (!empty($news->description_uz)) {
@@ -329,7 +344,7 @@ class NewsController extends Controller
             $news->description_en = str_replace('<?xml encoding="UTF-8">', "",$dom_save_en->saveHTML());
         }
 
-        $news->user_image = $imageName;
+
 
         $news->save();
 
