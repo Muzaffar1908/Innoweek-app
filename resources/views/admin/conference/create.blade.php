@@ -82,6 +82,11 @@
                     </div>
 
                     <div class="mb-3">
+                        <label for="live_url">Live url</label>
+                        <input type="text" name="live_url" class="form-control" id="live_url" placeholder="Live url enter" value="{{old('live_url')}}" />
+                    </div>
+
+                    <div class="mb-3">
                         <label for="user_image">User image</label>
                         <input type="file" name="user_image"  class="form-control" id="user_image" placeholder="User image enter" />
                     </div>

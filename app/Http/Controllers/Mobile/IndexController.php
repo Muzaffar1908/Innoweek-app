@@ -42,6 +42,18 @@ class IndexController extends Controller
         return view('mobile.speakerShow', ['speakerShow' => $speakerShow]);
     }
 
+    public function youtobe_list()
+    {
+        $conferences = Conference::all();
+        return view('mobile.youtobe_list', ['conferences' => $conferences]);
+    }
+
+    public function youtobe($id)
+    {
+        $conferences = Conference::where(['id' => $id])->first();
+        return view('mobile.you_tobe', ['conferences' => $conferences]);
+    }
+
 
     public function profile()
     {

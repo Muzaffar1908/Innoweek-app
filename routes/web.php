@@ -56,6 +56,8 @@ Route::group(['prefix' => 'mobile-v'], function () {
         Route::get('/speakerShow/{id}', 'speakerShow')->name('speakerShow');
         Route::get('/newsShow/{id}', 'newsShow')->name('newsShow');
         Route::get('/profile', 'profile')->name('m-profile');
+        Route::get('/youtobe-list', 'youtobe_list')->name('m-youtobe_list');
+        Route::get('/youtobe/{id}', 'youtobe')->name('m-youtobe');
         Route::post('/profile/update/{id}', [UserController::class, 'profileUpdate']);
     });
 

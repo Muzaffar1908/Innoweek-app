@@ -54,6 +54,7 @@
                                   <th>Archive year</th>
                                   <th>Started At</th>
                                   <th>Title</th>
+                                  <th>Live url</th>
                                   <th>User Image</th>
                                   <th>Description</th>
                                   <th>Is Active</th>
@@ -67,6 +68,7 @@
                                     <td>{{$conference->archiveTable->year}}</td>
                                     <td>{{$conference->started_at}}</td>
                                     <td>{{$conference->title_uz}}</td>
+                                    <td>{{$conference->live_url}}</td>
                                       <td>
                                           <img src="{{asset('uploads/conference/' .$conference->user_image)}}" alt="img" with="100px" height="60px">
                                       </td>

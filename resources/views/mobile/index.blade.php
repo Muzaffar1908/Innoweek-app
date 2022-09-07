@@ -185,7 +185,7 @@
     <div class="container">
         <ul class="d-flex justify-content-between align-items-end">
             <li>
-                <a href="./you-tube-list.html">
+                <a href="{{route('m-youtobe_list')}}">
                     <div class="icon">
                         <img src="{{ asset('/assets/images/page.png') }}" alt="Images" style="height: 20px;">
                     </div>

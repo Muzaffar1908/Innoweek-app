@@ -80,7 +80,8 @@
                     </div>
 
                     <div class="mb-3">
-                        <label for="user_image">User image</label>
+                        <label for="user_image">User image</label><br>
+                        <img src="{{asset('uploads/news/' .$news->user_image)}}" alt="img" with="100px" height="60px">
                         <input type="file" name="user_image"  class="form-control" id="user_image" placeholder="User image enter" />
                     </div>
 
@@ -106,7 +107,7 @@
 
                     <div class="mb-3">
                         <label for="tags">Tags</label>
-                        <input type="text" name="tags" class="form-control" id="tags" placeholder="Tags enter" value="{{old('tags')}}" />
+                        <input type="text" name="tags" class="form-control" id="tags" placeholder="Tags enter" value="{{$news->tags}}" />
                     </div>
 
                     <button type="submit" class="btn btn-success">Save</button>

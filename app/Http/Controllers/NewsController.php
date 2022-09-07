@@ -249,7 +249,6 @@ class NewsController extends Controller
         $news->title_uz = $inputs['title_uz'];
         $news->title_ru = $inputs['title_ru'];
         $news->title_en = $inputs['title_en'];
-        // $news->user_image = $inputs['user_image'];
         $news->tags = $inputs['tags'];
 
         $news->description_uz = $inputs['description_uz'];
@@ -257,11 +256,14 @@ class NewsController extends Controller
         if ($request->hasFile('user_image')) {
             $file = $request->file('user_image');
             $ex = $file->getClientOriginalExtension();
+
             $imageName = md5(rand(100, 999999) . microtime()) . "." . $ex;
             $file->move(public_path('uploads/news'), $imageName);
             // unlink($userticket->ticket_image);
             $data['user_image'] = 'uploads/news/' . $imageName;
         }
+
+        $news->user_image = $imageName;
 
         if (!empty($news->description_uz)) {
             $dom_save_uz = new \DomDocument();
@@ -328,8 +330,6 @@ class NewsController extends Controller
             }
             $news->description_en = str_replace('<?xml encoding="UTF-8">', "",$dom_save_en->saveHTML());
         }
-
-        $news->user_image = $imageName;
 
         $news->save();
 
