@@ -8,6 +8,8 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Str;
+use Intervention\Image\Facades\Image;
 
 class ConferenceController extends Controller
 {
@@ -97,16 +99,22 @@ class ConferenceController extends Controller
 
         $conferences->description_uz = $inputs['description_uz'];
 
-        if ($request->hasFile('user_image')) {
-            $file = $request->file('user_image');
-            $ex = $file->getClientOriginalExtension();
-            $imageName = md5(rand(100, 999999) . microtime()) . "." . $ex;
-            $file->move(public_path('uploads/conference'), $imageName);
-            // unlink($userticket->ticket_image);
-            $data['user_image'] = 'uploads/conference/' . $imageName;
-        }
+       $image = $request->file('user_image');
+        if ($image) {
+            if (empty($inputs['id'])) {
+                \File::delete(public_path() .'/uploads/conference/'.$conferences->image.'-m.png');
+                \File::delete(public_path() .'/uploads/conference/'.$conferences->image.'-d.png');
+            }
+            $tmpFilePath = 'uploads/conference/';
+            $hardPath =  Str::slug('conference', '-').'-'.md5(time());
+            $img = Image::make($image);
+            $img1 = Image::make($image);
+//            $img->fit(360, 640)->save($tmpFilePath.$hardPath.'-m.png');
+            $img1->save($tmpFilePath.$hardPath.'-d.png');
 
-        $conferences->user_image = $imageName;
+
+            $conferences->image = $hardPath;
+        }
 
         if (!empty($conferences->description_uz)) {
             $dom_save_uz = new \DomDocument();
@@ -268,16 +276,22 @@ class ConferenceController extends Controller
 
         $conferences->description_uz = $inputs['description_uz'];
 
-        if ($request->hasFile('user_image')) {
-            $file = $request->file('user_image');
-            $ex = $file->getClientOriginalExtension();
-            $imageName = md5(rand(100, 999999) . microtime()) . "." . $ex;
-            $file->move(public_path('uploads/conference'), $imageName);
-            // unlink($userticket->ticket_image);
-            $data['user_image'] = 'uploads/conference/' . $imageName;
-        }
+        $image = $request->file('user_image');
+        if ($image) {
+            if (empty($inputs['id'])) {
+                \File::delete(public_path() .'/uploads/conference/'.$conferences->image.'-m.png');
+                \File::delete(public_path() .'/uploads/conference/'.$conferences->image.'-d.png');
+            }
+            $tmpFilePath = 'uploads/conference/';
+            $hardPath =  Str::slug('conference', '-').'-'.md5(time());
+            $img = Image::make($image);
+            $img1 = Image::make($image);
+//            $img->fit(360, 640)->save($tmpFilePath.$hardPath.'-m.png');
+            $img1->save($tmpFilePath.$hardPath.'-d.png');
 
-        $conferences->user_image = $imageName;
+
+            $conferences->image = $hardPath;
+        }
 
         if (!empty($conferences->description_uz)) {
             $dom_save_uz = new \DomDocument();
