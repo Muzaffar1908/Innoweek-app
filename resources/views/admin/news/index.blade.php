@@ -67,7 +67,7 @@
                                      <td>{{$new->newsTable->title_uz}}</td>
                                     <td>{{$new->title_uz}}</td>
                                       <td>
-                                          <img src="{{asset('uploads/news/' .$new->user_image)}}" alt="img" with="100px" height="60px">
+                                          <img src="{{asset('uploads/news/' .$new->user_image.'-d.png')}}" alt="img" with="100px" height="60px">
                                       </td>
                                     <td>{!!Str::limit(strip_tags($new->description_uz),20)!!}</td>
                                     <td>
