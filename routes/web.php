@@ -60,10 +60,12 @@ Route::group(['prefix' => 'mobile-v'], function () {
         Route::get('/calendar', 'calendar')->name('m-calendar');
         Route::get('/qrkod', 'qrkod')->name('m-qrkod');
         Route::get('/setting', 'setting')->name('m-setting');
-        Route::get('/news-1', 'news1')->name('m-news1');
-        Route::get('/news-2', 'news2')->name('m-news2');
-        Route::get('/news-3', 'news3')->name('m-news3');
+        Route::get('/conferensShow/{id}', 'conferensShow')->name('conferensShow');
+        Route::get('/speakerShow/{id}', 'speakerShow')->name('speakerShow');
+        Route::get('/newsShow/{id}', 'newsShow')->name('newsShow');
         Route::get('/profile', 'profile')->name('m-profile');
+        Route::get('/youtobe-list', 'youtobe_list')->name('m-youtobe_list');
+        Route::get('/youtobe/{id}', 'youtobe')->name('m-youtobe');
         Route::post('/profile/update/{id}', [UserController::class, 'profileUpdate']);
     });
 
