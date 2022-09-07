@@ -31,6 +31,10 @@
                         <td>{{$conference->title_en}}</td>
                     </tr>
                     <tr>
+                        <th>Live url</th>
+                        <td>{{$conference->live_url}}</td>
+                    </tr>
+                    <tr>
                         <th>User Image</th>
                         <td>
                             <img src="{{asset('uploads/conference/' .$conference->user_image)}}" alt="img" with="100px" height="60px">

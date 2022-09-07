@@ -26,6 +26,18 @@ class ConferenceController extends Controller
         return view('admin.conference.index', compact('conferences', 'users', 'archives'));
     }
 
+    public function is_active($id)
+    {
+        $update=Conference::find($id);
+        if($update->is_active==1){
+            $update->is_active=0;
+        }else{
+            $update->is_active=1;
+        }
+        $update->save();
+        return redirect()->back();
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -52,6 +64,7 @@ class ConferenceController extends Controller
         $data = $request->except(array('_token'));
         $rule = array(
           'title_uz' => 'required',
+          'live_url' => 'required',
         );
 
         if (!file_exists('uploads/conference')) {
@@ -82,6 +95,7 @@ class ConferenceController extends Controller
         $conferences->title_uz = $inputs['title_uz'];
         $conferences->title_ru = $inputs['title_ru'];
         $conferences->title_en = $inputs['title_en'];
+        $conferences->live_url = $inputs['live_url'];
 
         $conferences->description_uz = $inputs['description_uz'];
 
@@ -227,6 +241,7 @@ class ConferenceController extends Controller
         $data = $request->except(array('_token'));
         $rule = array(
           'title_uz' => 'required',
+          'live_url' => 'required',
         );
 
         if (!file_exists('uploads/conference')) {
@@ -257,6 +272,7 @@ class ConferenceController extends Controller
         $conferences->title_uz = $inputs['title_uz'];
         $conferences->title_ru = $inputs['title_ru'];
         $conferences->title_en = $inputs['title_en'];
+        $conferences->live_url = $inputs['live_url'];
 
         $conferences->description_uz = $inputs['description_uz'];
 

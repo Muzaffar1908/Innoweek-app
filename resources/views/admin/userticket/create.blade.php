@@ -53,16 +53,18 @@
                             @endforeach
                         </select>
                     </div>
-
                     <div class="mb-3">
-                        <label for="ticket_serial">Ticket serial</label>
-                        <input type="text" name="ticket_serial"  class="form-control" id="ticket_serial" placeholder="Ticket serial enter" value="{{old('ticket_serial')}}" />
+                        <label for="archive_id">Archive Year</label>
+                        <select name="archive_id" class="form-control" id="archive_id">
+                            @foreach ($archives as $archive)
+                                <option value="{{$archive->id}}">{{$archive->year}}</option>
+                            @endforeach
+                        </select>
                     </div>
 
-                    <div class="mb-3">
-                        <label for="ticket_url">Ticket url</label>
-                        <input type="text" name="ticket_url"  class="form-control" id="ticket_url" placeholder="Ticket url enter" value="{{old('ticket_url')}}" />
-                    </div>
+
+
+
 
                     <div class="mb-3">
                         <label for="ticket_image">Ticket image</label>
@@ -74,14 +76,14 @@
                 </form>
                 </div>
             </div>
-          
+
 
         </div>
      </div>
   </div>
 
-@endsection  
+@endsection
 
 
 
-    
+

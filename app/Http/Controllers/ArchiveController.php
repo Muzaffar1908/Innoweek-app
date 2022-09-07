@@ -22,6 +22,18 @@ class ArchiveController extends Controller
         return view('admin.archive.index', compact('archives', 'users'));
     }
 
+    public function is_active($id)
+    {
+        $update=Archive::find($id);
+        if($update->is_active==1){
+            $update->is_active=0;
+        }else{
+            $update->is_active=1;
+        }
+        $update->save();
+        return redirect()->back();
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -62,7 +74,7 @@ class ArchiveController extends Controller
 
         $archives->user_id = $inputs['user_id'];
         $archives->year = $inputs['year'];
-    
+
         $archives->description_uz = $inputs['description_uz'];
         if (!empty($archives->description_uz)) {
             $dom_save_uz = new \DomDocument();
@@ -202,7 +214,7 @@ class ArchiveController extends Controller
 
         $archives->user_id = $inputs['user_id'];
         $archives->year = $inputs['year'];
-    
+
         $archives->description_uz = $inputs['description_uz'];
         if (!empty($archives->description_uz)) {
             $dom_save_uz = new \DomDocument();

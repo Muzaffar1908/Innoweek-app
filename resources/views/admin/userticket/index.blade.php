@@ -7,7 +7,7 @@
             <div class="card">
                 <div class="card-header">
                     <h1 class="card-title">UserTicket</h1>
-                    <a href="{{route('admin.userticket.create')}}" class="btn btn-success"><i class="bi bi-plus"></i>Add</a>
+                    <a href="{{ route('admin.userticket.create') }}" class="btn btn-success"><i class="bi bi-plus"></i>Add</a>
                 </div>
 
                 @if (count($errors) > 0)
@@ -16,7 +16,7 @@
                                 aria-hidden="true">&times;</span></button>
                         <ul>
                             @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
+                                <li>{{ $error }}</li>
                             @endforeach
                         </ul>
                     </div>
@@ -38,54 +38,76 @@
                 <div class="card-body">
                     <div class="card">
                         <div class="card-header">
-                          <h4 class="card-title">UserTicket Datatable</h4>
+                            <h4 class="card-title">UserTicket Datatable</h4>
                         </div>
                         <div class="card-body">
-                          <div class="table-responsive">
-                            <table class="table"
-                              id="example3"
-                              class="display"
-                              style="min-width: 845px"
-                            >
-                              <thead>
-                                <tr>
-                                  <th>№</th>
-                                  <th>User name</th>
-                                  <th>Ticket serial</th>
-                                  <th>Ticket url</th>
-                                  <th>Ticket image</th>
-                                  <th>Is Active</th>
-                                  <th>Action</th>
-                                </tr>
-                              </thead>
-                              @foreach ($usertickets as $userticket)
-                                  <tr>
-                                    <td>{{($usertickets->currentpage()-1)*$usertickets->perpage()+ ($loop->index+1)}}</td>
-                                    <td>{{$userticket->userTable->first_name}}</td>
-                                    <td>{{$userticket->ticket_serial}}</td>
-                                    <td>{{$userticket->ticket_url}}</td>
-                                    <td>
-                                        <img src="{{asset('uploads/ticket_image/' .$userticket->ticket_image)}}" alt="img" with="100px" height="60px">
-                                    </td>
-                                    <td>{{$userticket->is_active}}</td>
-                                    <td>
-                                        <div class="btn-group">
-                                            <a href="{{route('admin.userticket.show', $userticket->id)}}" type="button" class="btn btn-info"><i class="bi bi-eye"></i></a>
-                                            <a href="{{route('admin.userticket.edit', $userticket->id)}}" type="button" class="btn btn-success"><i class="bi bi-pencil"></i></a>
-                                            <form action="{{route('admin.userticket.destroy', $userticket->id)}}" method="POST" enctype="multipart/form-data">
-                                                @csrf
-                                                @method('DELETE')
-                                                <div class="sweetalert">
-                                                    <button type="button" class="btn btn-danger sweet-confirm"><i class="bi bi-trash"></i></button>
+                            <div class="table-responsive">
+                                <table class="table" id="example3" class="display" style="min-width: 845px">
+                                    <thead>
+                                        <tr>
+                                            <th>№</th>
+                                            <th>User name</th>
+                                            <th>Archive year</th>
+                                            <th>Ticket image</th>
+                                            <th>Is Active</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    @foreach ($usertickets as $userticket)
+                                        <tr>
+                                            <td>{{ ($usertickets->currentpage() - 1) * $usertickets->perpage() + ($loop->index + 1) }}
+                                            </td>
+                                            <td>{{ $userticket->usersTable->first_name }}</td>
+                                            <td>{{ $userticket->archiveTable->year }}</td>
+
+                                            <td>
+                                                <img src="{{ asset($userticket->user_image) }}" alt="img"
+                                                    with="100px" height="60px">
+                                            </td>
+                                            <td>
+                                                <form action="{{ asset('/admin/userticket/isactive/' . $userticket->id) }}"
+                                                    method="POST" enctype="multipart/form-data">
+                                                    @csrf
+                                                    <div class="sweetalert">
+                                                        <button type="button"
+                                                            class="
+                                                @if ($userticket->is_active == 1) btn-success @endif
+                                            @if ($userticket->is_active == 0) btn-danger @endif
+                                                btn sweet-confirm">
+                                                            @if ($userticket->is_active == 1)
+                                                                Active
+                                                            @endif
+                                                            @if ($userticket->is_active == 0)
+                                                                Not Active
+                                                            @endif
+                                                        </button>
+                                                    </div>
+                                                </form>
+
+                                            </td>
+                                            <td>
+                                                <div class="btn-group">
+                                                    <a href="{{ route('admin.userticket.show', $userticket->id) }}"
+                                                        type="button" class="btn btn-info"><i class="bi bi-eye"></i></a>
+                                                    <a href="{{ route('admin.userticket.edit', $userticket->id) }}"
+                                                        type="button" class="btn btn-success"><i
+                                                            class="bi bi-pencil"></i></a>
+                                                    <form action="{{ route('admin.userticket.destroy', $userticket->id) }}"
+                                                        method="POST" enctype="multipart/form-data">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <div class="sweetalert">
+                                                            <button type="button" class="btn btn-danger sweet-confirm"><i
+                                                                    class="bi bi-trash"></i></button>
+                                                        </div>
+                                                    </form>
                                                 </div>
-                                            </form>
-                                        </div>
-                                    </td>
-                                  </tr>
-                              @endforeach
-                            </table>
-                            {{$usertickets->links()}}
-                          </div>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                </table>
+                                {{ $usertickets->links() }}
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -54,6 +54,7 @@
                                   <th>Archive year</th>
                                   <th>Started At</th>
                                   <th>Title</th>
+                                  <th>Live url</th>
                                   <th>User Image</th>
                                   <th>Description</th>
                                   <th>Is Active</th>
@@ -67,11 +68,32 @@
                                     <td>{{$conference->archiveTable->year}}</td>
                                     <td>{{$conference->started_at}}</td>
                                     <td>{{$conference->title_uz}}</td>
+                                    <td>{{$conference->live_url}}</td>
                                       <td>
                                           <img src="{{asset('uploads/conference/' .$conference->user_image)}}" alt="img" with="100px" height="60px">
                                       </td>
                                     <td>{!!Str::limit(strip_tags($conference->description_uz),20)!!}</td>
-                                    <td>{{$conference->is_active}}</td>
+                                    <td>
+                                        <form action="{{ asset('/admin/conference/isactive/' . $conference->id) }}"
+                                            method="POST" enctype="multipart/form-data">
+                                            @csrf
+                                            <div class="sweetalert">
+                                                <button type="button"
+                                                    class="
+                                        @if ($conference->is_active == 1) btn-success @endif
+                                    @if ($conference->is_active == 0) btn-danger @endif
+                                        btn sweet-confirm">
+                                                    @if ($conference->is_active == 1)
+                                                        Active
+                                                    @endif
+                                                    @if ($conference->is_active == 0)
+                                                        Not Active
+                                                    @endif
+                                                </button>
+                                            </div>
+                                        </form>
+
+                                    </td>
                                     <td>
                                         <div class="btn-group">
                                             <a href="{{route('admin.conference.show', $conference->id)}}" type="button" class="btn btn-info"><i class="bi bi-eye"></i></a>

@@ -70,7 +70,27 @@
                                           <img src="{{asset('uploads/news/' .$new->user_image)}}" alt="img" with="100px" height="60px">
                                       </td>
                                     <td>{!!Str::limit(strip_tags($new->description_uz),20)!!}</td>
-                                    <td>{{$new->is_active}}</td>
+                                    <td>
+                                        <form action="{{ asset('/admin/news/isactive/' . $new->id) }}"
+                                            method="POST" enctype="multipart/form-data">
+                                            @csrf
+                                            <div class="sweetalert">
+                                                <button type="button"
+                                                    class="
+                                        @if ($new->is_active == 1) btn-success @endif
+                                    @if ($new->is_active == 0) btn-danger @endif
+                                        btn sweet-confirm">
+                                                    @if ($new->is_active == 1)
+                                                        Active
+                                                    @endif
+                                                    @if ($new->is_active == 0)
+                                                        Not Active
+                                                    @endif
+                                                </button>
+                                            </div>
+                                        </form>
+
+                                    </td>
                                     <td>{{$new->tags}}</td>
                                     <td>
                                         <div class="btn-group">

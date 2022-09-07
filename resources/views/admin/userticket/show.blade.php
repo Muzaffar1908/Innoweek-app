@@ -8,20 +8,17 @@
                 <table class="table">
                     <tr>
                         <th>User name</th>
-                        <td>{{$userticket->userTable->first_name}}</td>
+                        <td>{{$userticket->usersTable->first_name}}</td>
                     </tr>
                     <tr>
-                        <th>Ticket serial</th>
-                        <td>{{$userticket->ticket_serial}}</td>
+                        <th>Archive year</th>
+                        <td>{{$userticket->archiveTable->year}}</td>
                     </tr>
-                    <tr>
-                        <th>Ticket url</th>
-                        <td>{{$userticket->ticket_url}}</td>
-                    </tr>
+
                     <tr>
                         <th>Ticket image</th>
                         <td>
-                            <img src="{{asset('uploads/ticket_image/' .$userticket->ticket_image)}}" alt="img" with="100px" height="60px">
+                            <img src="{{asset($userticket->user_image)}}" alt="img" with="100px" height="60px">
                         </td>
                     </tr>
                 </table>

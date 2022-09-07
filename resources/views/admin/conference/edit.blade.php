@@ -83,9 +83,14 @@
                     </div>
 
                     <div class="mb-3">
+                        <label for="live_url">Live url</label>
+                        <input type="text" name="live_url" class="form-control" id="live_url" placeholder="Live url enter" value="{{$conference->live_url}}" />
+                    </div>
+
+                    <div class="mb-3">
                         <label for="user_image">User image</label><br>
                         <img src="{{asset('uploads/conference/' .$conference->user_image)}}" alt="img" with="100px" height="60px">
-                        <input type="file" name="user_image"  class="form-control" id="user_image" placeholder="User image enter" />
+                        <input type="file" name="user_image"  class="form-control" id="user_image" placeholder="User image enter" value="{{$conference->file}}" />
                     </div>
 
                     <div class="mb-3">
