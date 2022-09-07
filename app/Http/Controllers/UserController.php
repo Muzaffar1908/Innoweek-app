@@ -20,6 +20,7 @@ class UserController extends Controller
         return view('admin.user.index', compact('users'));
     }
 
+
     public function is_active($id)
     {
         $update=User::find($id);
@@ -143,13 +144,22 @@ class UserController extends Controller
          } else {
              $users = new User;
          }
+         if ($request->hasFile('user_image')) {
+            $file = $request->file('user_image');
+            $ex = $file->getClientOriginalExtension();
+            $imageName = md5(rand(100, 999999) . microtime()) . "." . $ex;
+            $file->move(public_path('uploads/config'), $imageName);
+            // unlink($userticket->ticket_image);
+            $data['user_image'] = 'uploads/config/' . $imageName;
+            $users->user_image = $data['user_image'];
+        }
 
          $users->first_name = $inputs['first_name'];
          $users->last_name = $inputs['last_name'];
          $users->middle_name = $inputs['middle_name'];
          $users->gender = $inputs['gender'];
          $users->birth_date = $inputs['birth_date'];
-         $users->user_image = $inputs['user_image'];
+
          $users->address = $inputs['address'];
          $users->balance = $inputs['balance'];
          $users->email = $inputs['email'];
@@ -158,14 +168,7 @@ class UserController extends Controller
          $users->provider_name = $inputs['provider_name'];
          $users->provider_id = $inputs['provider_id'];
 
-         if ($request->hasFile('user_image')) {
-            $file = $request->file('user_image');
-            $ex = $file->getClientOriginalExtension();
-            $imageName = md5(rand(100, 999999) . microtime()) . "." . $ex;
-            $file->move(public_path('uploads/config'), $imageName);
-            // unlink($userticket->ticket_image);
-            $data['user_image'] = 'uploads/config/' . $imageName;
-        }
+
 
          $users->save();
 
@@ -219,7 +222,7 @@ class UserController extends Controller
           'birth_date' => 'required',
           'email' => 'required',
           'phone' => 'required',
-          'password' => 'required',
+
          );
 
         if (!file_exists('uploads/config')) {
@@ -245,23 +248,29 @@ class UserController extends Controller
          $users->middle_name = $inputs['middle_name'];
          $users->gender = $inputs['gender'];
          $users->birth_date = $inputs['birth_date'];
-         $users->user_image = $inputs['user_image'];
+
          $users->address = $inputs['address'];
          $users->balance = $inputs['balance'];
          $users->email = $inputs['email'];
          $users->phone = $inputs['phone'];
-         $users->password = $inputs['password'];
+
          $users->provider_name = $inputs['provider_name'];
          $users->provider_id = $inputs['provider_id'];
 
+
          if ($request->hasFile('user_image')) {
+            $rule = array(
+                'user_image' => 'required',
+               );
             $file = $request->file('user_image');
             $ex = $file->getClientOriginalExtension();
             $imageName = md5(rand(100, 999999) . microtime()) . "." . $ex;
             $file->move(public_path('uploads/config'), $imageName);
             // unlink($userticket->ticket_image);
-            $data['user_image'] = 'uploads/config/' . $imageName;
+            $inputs['user_image'] = 'uploads/config/' . $imageName;
+            $users->user_image = $inputs['user_image'];
         }
+
 
          $users->save();
 
