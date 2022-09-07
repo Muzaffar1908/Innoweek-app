@@ -88,6 +88,7 @@ class NewsController extends Controller
         if ($request->hasFile('user_image')) {
             $file = $request->file('user_image');
             $ex = $file->getClientOriginalExtension();
+
             $imageName = md5(rand(100, 999999) . microtime()) . "." . $ex;
             $file->move(public_path('uploads/news'), $imageName);
             // unlink($userticket->ticket_image);
