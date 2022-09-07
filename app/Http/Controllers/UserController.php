@@ -16,10 +16,21 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::paginate(5);
+        $users = User::where('is_blocked','=',0)->paginate(5);
         return view('admin.user.index', compact('users'));
     }
 
+    public function is_active($id)
+    {
+        $update=User::find($id);
+        if($update->is_active==1){
+            $update->is_active=0;
+        }else{
+            $update->is_active=1;
+        }
+        $update->save();
+        return redirect()->back();
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -67,12 +78,12 @@ class UserController extends Controller
          $users->email = $inputs['email'];
          $users->phone = $inputs['phone'];
          $users->password ="0";
-    
+
 
 
          if ($request->hasFile('user_image')) {
             $rule = array(
-                'user_image' => 'required',             
+                'user_image' => 'required',
                );
             $file = $request->file('user_image');
             $ex = $file->getClientOriginalExtension();
@@ -83,7 +94,7 @@ class UserController extends Controller
             $users->user_image = $data['user_image'];
         }
 
-          
+
 
          $users->save();
 
@@ -271,7 +282,9 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        User::destroy($id);
+        $user=User::find($id);
+        $user->is_blocked=1;
+        $user->save();
         return redirect('admin/user')->with('warning', 'USER TABLES DELETED');
     }
 }

@@ -44,6 +44,7 @@ Route::prefix('admin')->name('admin.')->group(function(){
     Route::POST('/news_cat/isactive/{id}',[NewsCategoryController::class,'is_active']);
     Route::POST('/archive/isactive/{id}',[ArchiveController::class,'is_active']);
     Route::POST('/conference/isactive/{id}',[ConferenceController::class,'is_active']);
+    Route::POST('/user/isactive/{id}',[UserController::class,'is_active']);
 
 });
 
