@@ -64,7 +64,24 @@
                                     <td>{{$archive->year}}</td>
                                     <td>{{Str::limit(strip_tags($archive->description_uz),20)}}</td>
                                     <td>
-                                        {{$archive->is_active}}
+                                        <form action="{{ asset('/admin/archive/isactive/' . $archive->id) }}"
+                                            method="POST" enctype="multipart/form-data">
+                                            @csrf
+                                            <div class="sweetalert">
+                                                <button type="button"
+                                                    class="
+                                        @if ($archive->is_active == 1) btn-success @endif
+                                    @if ($archive->is_active == 0) btn-danger @endif
+                                        btn sweet-confirm">
+                                                    @if ($archive->is_active == 1)
+                                                        Active
+                                                    @endif
+                                                    @if ($archive->is_active == 0)
+                                                        Not Active
+                                                    @endif
+                                                </button>
+                                            </div>
+                                        </form>
                                     </td>
                                     <td>
                                         <div class="btn-group">

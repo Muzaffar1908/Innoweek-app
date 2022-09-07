@@ -6,6 +6,7 @@ namespace App\Models;
 
 use App\Models\Archive\Archive;
 use App\Models\Archive\Speakers;
+use App\Models\Archive\UserTicket;
 use App\Models\News\News;
 use App\Models\News\NewsCategory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -46,6 +47,7 @@ class User extends Authenticatable
         return $this->hasMany(NewsCategory::class,'user_id','id');
     }
 
+
     public function archive()
     {
         return $this->hasMany(Archive::class, 'user_id','id');
@@ -60,6 +62,10 @@ class User extends Authenticatable
         return $this->hasMany(Speakers::class, 'user_id', 'id');
     }
 
+    public function userticket()
+    {
+        return $this->hasMany(UserTicket::class, 'user_id', 'id');
+    }
 
 
     /**

@@ -25,6 +25,19 @@ class NewsController extends Controller
         return view('admin.news.index', compact('news', 'users', 'news_categories'));
     }
 
+    public function is_active($id)
+    {
+        $update=News::find($id);
+        if($update->is_active==1){
+            $update->is_active=0;
+        }else{
+            $update->is_active=1;
+        }
+        $update->save();
+        return redirect()->back();
+    }
+
+
     /**
      * Show the form for creating a new resource.
      *

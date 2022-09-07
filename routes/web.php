@@ -10,6 +10,7 @@ use App\Http\Controllers\NewsCategoryController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\UserController;
 use App\Models\News\NewsCategory;
+use App\Http\Controllers\UserTicketController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,6 +38,13 @@ Route::prefix('admin')->name('admin.')->group(function(){
     Route::resource('/archive', ArchiveController::class);
     Route::resource('/conference', ConferenceController::class);
     Route::resource('/speakers', SpeakerController::class);
+    Route::resource('/userticket', UserTicketController::class);
+    Route::POST('/userticket/isactive/{id}',[UserTicketController::class,'is_active']);
+    Route::POST('/news/isactive/{id}',[NewsController::class,'is_active']);
+    Route::POST('/news_cat/isactive/{id}',[NewsCategoryController::class,'is_active']);
+    Route::POST('/archive/isactive/{id}',[ArchiveController::class,'is_active']);
+    Route::POST('/conference/isactive/{id}',[ConferenceController::class,'is_active']);
+
 });
 
 Auth::routes();

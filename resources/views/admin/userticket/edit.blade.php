@@ -41,6 +41,7 @@
                     @csrf
                     @method('PUT')
 
+
                     <div class="mb-3">
                         {{-- <label for="ticket_serial">Ticket serial</label> --}}
                         <input type="hidden" name="id"  class="form-control" id="id" placeholder="Ticket serial enter" value="{{$userticket->id}}" />
@@ -54,20 +55,17 @@
                             @endforeach
                         </select>
                     </div>
-
                     <div class="mb-3">
-                        <label for="ticket_serial">Ticket serial</label>
-                        <input type="text" name="ticket_serial"  class="form-control" id="ticket_serial" placeholder="Ticket serial enter" value="{{$userticket->ticket_serial}}" />
+                        <label for="archive_id">Archive Year</label>
+                        <select name="archive_id" class="form-control" id="archive_id">
+                            @foreach ($archives as $archive)
+                                <option value="{{$archive->id}}">{{$archive->year}}</option>
+                            @endforeach
+                        </select>
                     </div>
-
-                    <div class="mb-3">
-                        <label for="ticket_url">Ticket url</label>
-                        <input type="text" name="ticket_url"  class="form-control" id="ticket_url" placeholder="Ticket url enter" value="{{$userticket->ticket_url}}" />
-                    </div>
-
                     <div class="mb-3">
                         <label for="ticket_image">Ticket image</label>
-                        <img src="{{asset('uploads/ticket_image/' .$userticket->ticket_image)}}" alt="img" with="100px" height="60px ">
+                        <img src="{{asset($userticket->user_image)}}" alt="img" with="100px" height="60px ">
                         <input type="file" name="ticket_image"  class="form-control" id="ticket_image" placeholder="Ticket image enter" value="{{$userticket->ticket_image}}" />
                     </div>
 

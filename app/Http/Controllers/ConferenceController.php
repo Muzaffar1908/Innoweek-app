@@ -24,6 +24,18 @@ class ConferenceController extends Controller
         return view('admin.conference.index', compact('conferences', 'users', 'archives'));
     }
 
+    public function is_active($id)
+    {
+        $update=Conference::find($id);
+        if($update->is_active==1){
+            $update->is_active=0;
+        }else{
+            $update->is_active=1;
+        }
+        $update->save();
+        return redirect()->back();
+    }
+
     /**
      * Show the form for creating a new resource.
      *
