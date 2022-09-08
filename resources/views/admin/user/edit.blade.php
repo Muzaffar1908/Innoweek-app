@@ -78,7 +78,7 @@
 
                     <div class="mb-3">
                         <label for="user_image">User image</label>
-                        <img src="{{ asset('/uploads/config/'.$user->user_image) }}" alt="img" with="100px" height="60px">                    
+                        <img src="{{ asset($user->user_image) }}" alt="img" with="100px" height="60px">
                         <input type="file" name="user_image"  class="form-control" id="user_image" placeholder="User image enter" />
                     </div>
 

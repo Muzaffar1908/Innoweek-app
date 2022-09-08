@@ -166,7 +166,7 @@ class UserController extends Controller
             // unlink($userticket->ticket_image);
             $data['user_image'] = 'uploads/config/' . $imageName;
         }
-         $users->user_image = $imageName;
+         $users->user_image ='uploads/config/'.$imageName;
          $users->save();
 
          if (!empty($inputs['id'])) {
@@ -260,7 +260,7 @@ class UserController extends Controller
             // unlink($userticket->ticket_image);
             $data['user_image'] = 'uploads/config/' . $imageName;
         }
-         $users->user_image = $imageName;
+         $users->user_image = 'uploads/config/'.$imageName;
          $users->save();
 
          if (!empty($inputs['id'])) {
