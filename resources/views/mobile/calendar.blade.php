@@ -11,7 +11,7 @@
                 <h2 class="mb-0">
                     <a href="{{route('m-home')}}">
                         <i class="ri-arrow-left-s-line"></i>
-                        Taqvim
+
                     </a>
                 </h2>
             </div>
@@ -30,11 +30,11 @@
                     <div class="col-md-12">
                         <div class="calendar calendar-first" id="calendar_first">
                         <div class="calendar_header">
-                            <button class="switch-month switch-left"> 
+                            <button class="switch-month switch-left">
                                 <i class="ri-arrow-left-s-line"></i>
                             </button>
                             <h2></h2>
-                            <button class="switch-month switch-right"> 
+                            <button class="switch-month switch-right">
                                 <i class="ri-arrow-right-s-line"></i>
                             </button>
                         </div>
