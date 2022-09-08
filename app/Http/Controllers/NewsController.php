@@ -10,10 +10,6 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Str;
 use Intervention\Image\Facades\Image;
-<<<<<<< HEAD
-use SebastianBergmann\CodeCoverage\Node\File;
-=======
->>>>>>> 68887ede7003d5764f9ef34166a4f7111844ea4b
 
 class NewsController extends Controller
 {
@@ -84,10 +80,6 @@ class NewsController extends Controller
 
         $user_image = $request->file('user_image');
         if ($user_image) {
-            if (empty($inputs['id'])) {
-                File::delete(public_path() .'/upload/news/'.$news->user_image.'-b.png');
-                File::delete(public_path() .'/upload/news/'.$news->user_image.'-s.png');
-            }
             $tmpFilePath = 'uploads/news/';
             $hardPath =  Str::slug('news', '-').'-'.'-'.md5(time());
             $img = Image::make($user_image);
@@ -267,10 +259,6 @@ class NewsController extends Controller
 
         $user_image = $request->file('user_image');
         if ($user_image) {
-            if (empty($inputs['id'])) {
-                File::delete(public_path() .'/upload/blogs/'.$news->user_image.'-b.png');
-                File::delete(public_path() .'/upload/blogs/'.$news->user_image.'-s.png');
-            }
             $tmpFilePath = 'upload/blogs/banner/';
             $hardPath =  Str::slug('news', '-').'-'.'-'.md5(time());
             $img = Image::make($user_image);
