@@ -112,7 +112,7 @@
                         <label for="provider_id">Provider ID</label>
                         <input type="number" name="provider_id"  class="form-control" id="provider_id"  placeholder="Provider ID enter" value="{{old('provider_id')}}" />
                     </div>
-                    
+
                     <button type="submit" class="btn btn-success">Save</button>
 
                 </form>

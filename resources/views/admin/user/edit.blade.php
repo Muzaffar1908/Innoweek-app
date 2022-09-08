@@ -65,7 +65,7 @@
                     <div class="mb-3">
                         <label for="erkak">Erkak</label>
                         <input type="radio" name="gender"   id="erkak"  @if ($user->gander == 1) checked @endif  value="1" />
-                            
+
 
                         <label for="ayol">Ayol</label>
                         <input type="radio" name="gender"   id="ayol"  @if($user->gander == 0) checked @endif  value="0" />
@@ -78,8 +78,8 @@
 
                     <div class="mb-3">
                         <label for="user_image">User image</label>
-                        <img src="{{asset('uploads/config/' .$user->user_image)}}" alt="img" with="100px" height="60px">
-                        <input type="file" name="user_image"  class="form-control" id="user_image" placeholder="User image enter" value="{{$user->user_image}}" />
+                        <img src="{{asset($user->user_image)}}" alt="img" with="100px" height="60px">
+                        <input type="file" name="user_image"  class="form-control" id="user_image" placeholder="User image enter" />
                     </div>
 
                     <div class="mb-3">
@@ -113,7 +113,7 @@
                     </div>
 
                     <button type="submit" class="btn btn-success">Save</button>
-            
+
                 </form>
                 </div>
             </div>

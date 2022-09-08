@@ -10,6 +10,10 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Str;
 use Intervention\Image\Facades\Image;
+<<<<<<< HEAD
+use SebastianBergmann\CodeCoverage\Node\File;
+=======
+>>>>>>> 68887ede7003d5764f9ef34166a4f7111844ea4b
 
 class NewsController extends Controller
 {
@@ -76,6 +80,22 @@ class NewsController extends Controller
             $news = News::findOrFail($inputs['id']);
         } else {
             $news = new News;
+        }
+
+        $user_image = $request->file('user_image');
+        if ($user_image) {
+            if (empty($inputs['id'])) {
+                File::delete(public_path() .'/upload/news/'.$news->user_image.'-b.png');
+                File::delete(public_path() .'/upload/news/'.$news->user_image.'-s.png');
+            }
+            $tmpFilePath = 'uploads/news/';
+            $hardPath =  Str::slug('news', '-').'-'.'-'.md5(time());
+            $img = Image::make($user_image);
+            $img1 = Image::make($user_image);
+            $img->fit(1100, 550)->save($tmpFilePath.$hardPath.'-b.png');
+            $img1->fit(700, 530)->save($tmpFilePath.$hardPath.'-s.png');
+            // $saved = $tmpFilePath.$hardPath. '-s.jpg';
+            $news->user_image = $tmpFilePath.$hardPath;
         }
 
         $news->user_id = $inputs['user_id'];
@@ -245,6 +265,22 @@ class NewsController extends Controller
             $news = new News;
         }
 
+        $user_image = $request->file('user_image');
+        if ($user_image) {
+            if (empty($inputs['id'])) {
+                File::delete(public_path() .'/upload/blogs/'.$news->user_image.'-b.png');
+                File::delete(public_path() .'/upload/blogs/'.$news->user_image.'-s.png');
+            }
+            $tmpFilePath = 'upload/blogs/banner/';
+            $hardPath =  Str::slug('news', '-').'-'.'-'.md5(time());
+            $img = Image::make($user_image);
+            $img1 = Image::make($user_image);
+            $img->fit(1100, 550)->save($tmpFilePath.$hardPath.'-b.png');
+            $img1->fit(700, 530)->save($tmpFilePath.$hardPath.'-s.png');
+            // $saved = $tmpFilePath.$hardPath. '-s.jpg';
+            $news->user_image = $tmpFilePath.$hardPath;
+        }
+
         $news->user_id = $inputs['user_id'];
         $news->cat_id = $inputs['cat_id'];
         $news->title_uz = $inputs['title_uz'];
@@ -353,7 +389,10 @@ class NewsController extends Controller
      */
     public function destroy($id)
     {
-        News::destroy($id);
-        return redirect('admin/news')->with('warning', 'NEWS TABLES DELETED');
+        $news = News::findOrFail($id);
+        $image_path = public_path().'/'.$news->user_image;
+        unlink($image_path);
+        $news->delete();
+        return redirect('admin/news')->with('warning','NEWS TABLES DELETED');
     }
 }

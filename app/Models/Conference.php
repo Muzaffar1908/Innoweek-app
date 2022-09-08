@@ -17,6 +17,7 @@ class Conference extends Model
         'title_uz',
         'title_ru',
         'title_en',
+        'live_url',
         'user_image',
         'description_en',
         'description_ru',
