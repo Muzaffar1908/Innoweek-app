@@ -2,7 +2,7 @@
 
     "MENU": "Menu",
     "NEWS":"News" ,
-    "SPEAKERS":"Spiakers" ,
+    "SPEAKERS":"Speakers" ,
     "LIVE":"Live" ,
     "HOME":"Home" ,
     "SETTINGS":"Settings" ,
@@ -18,6 +18,12 @@
     "Weekofinnovativeideas":"Week of innovative ideas",
     "Currentlyunder":"Currently under maintenance!",
     "MYPROFILE":"My profile",
-    "Live Broadcast Lists":"Live Broadcast Lists"
+    "Live Broadcast Lists":"Live Broadcast Lists",
+    "fills to be filled": "fills to be filled",
+    "GUEST": "Guest,",
+    "ERKAK": "Male",
+    "AYOL": "Female",
+    "JINSI": "Gender"
+
 
 }

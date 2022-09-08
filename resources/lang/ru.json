@@ -11,12 +11,18 @@
     "CONFERENCE":"Конференция" ,
     "LOGIN":"Авторизоваться" ,
     "REGISTRATSIYA" : "Регистрация",
-    "ABOUT":"About ru" ,
+    "ABOUT":"О" ,
     "MAP":"КАРТА" ,
     "CALENDAR":"Календарь" ,
     "QRKOD":"QR КОД",
     "Weekofinnovativeideas":"Неделя инновационных идей",
     "Currentlyunder":"В настоящее время на обслуживании!",
     "MYPROFILE":"Мой профиль",
-    "Live Broadcast Lists":"Списки прямых трансляций"
+    "Live Broadcast Lists":"Списки прямых трансляций",
+    "fills to be filled": "заполняется, чтобы быть заполненным",
+    "GUEST": "Гость,",
+    "ERKAK": "Мужской",
+    "AYOL": "Женщина",
+    "JINSI": "Пол"
+
 }

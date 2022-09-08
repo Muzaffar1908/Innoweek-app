@@ -28,7 +28,7 @@
 						<div style="width: 80px; margin-top:-16px; height:80px;border-radius: 50%; margin-right: 1rem; object-fit: cover; overflow:hidden;">
                             <img  style="width: 100%; height:100%" src="{{ asset(Auth::user()->user_image)}}" alt="">
                         </div>
-						<h5>{{ Auth::user()->first_name }} {{ Auth::user()->last_name }} <br> <span sstyle="color: grey; font-size: 13px; font-weight: 400;">Mehmon</span></h5><br>
+						<h5>{{ Auth::user()->first_name }} {{ Auth::user()->last_name }} <br> <span sstyle="color: grey; font-size: 13px; font-weight: 400;">{{__('GUEST')}}</span></h5><br>
 					</div>
 					<form  action="/mobile-v/profile/update/{{Auth::user()->id}}" method="POST" enctype="multipart/form-data">
 						 @csrf
@@ -57,23 +57,23 @@
 							<input type="number" name="phone" id="phone_number" required data-error="Please enter your number" class="form-control" placeholder="Telefon raqam*" autocomplete="off" value="{{ Auth::user()->phone }}">
 							<div class="help-block with-errors"></div>
 						</div>
-						<h6 style="font-size: 14px;    font-weight: 500;">Jinsi: </h6>
+						<h6 style="font-size: 14px;    font-weight: 500;">{{__('JINSI')}}: </h6>
 						<div class="d-flex">
 							<div class="form-check">
 								<input class="form-check-input" type="radio" data-error="Please enter your radio" name="gender" id="erkak" @if(Auth::user()->gender==1) checked @endif  value="1">
 								<label class="form-check-label" for="erkak">
-									Erkak
+									{{__('ERKAK')}}
 								</label>
 							</div>
 							<div class="form-check mb-3 px-5">
 								<input class="form-check-input" type="radio" data-error="Please enter your radio" name="gender" id="ayol" value="0"  @if(Auth::user()->gender==0) checked @endif>
 								<label class="form-check-label" for="ayol">
-									Ayol
+									{{__('AYOL')}}
 								</label>
 							</div>
 						</div>
 						<div class="must-filt">
-							<p>* to'ldirish kerak bo'lgan filtlar</p>
+							<p>* {{__('fills to be filled')}}</p>
 						</div>
 
 						<div class="form-group">
