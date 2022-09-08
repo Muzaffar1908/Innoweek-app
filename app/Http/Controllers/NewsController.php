@@ -89,18 +89,12 @@ class NewsController extends Controller
 
         $image = $request->file('user_image');
         if ($image) {
-            if (empty($inputs['id'])) {
-                \File::delete(public_path() .'/uploads/news/'.$news->image.'-m.png');
-                \File::delete(public_path() .'/uploads/news/'.$news->image.'-d.png');
-            }
             $tmpFilePath = 'uploads/news/';
             $hardPath =  Str::slug('news', '-').'-'.md5(time());
             $img = Image::make($image);
             $img1 = Image::make($image);
 //            $img->fit(360, 640)->save($tmpFilePath.$hardPath.'-m.png');
             $img1->save($tmpFilePath.$hardPath.'-d.png');
-
-
             $news->user_image = $hardPath;
         }
 
@@ -263,18 +257,12 @@ class NewsController extends Controller
 
         $image = $request->file('user_image');
         if ($image) {
-            if (empty($inputs['id'])) {
-                \File::delete(public_path() .'/uploads/news/'.$news->image.'-m.png');
-                \File::delete(public_path() .'/uploads/news/'.$news->image.'-d.png');
-            }
             $tmpFilePath = 'uploads/news/';
             $hardPath =  Str::slug('news', '-').'-'.md5(time());
             $img = Image::make($image);
             $img1 = Image::make($image);
 //            $img->fit(360, 640)->save($tmpFilePath.$hardPath.'-m.png');
             $img1->save($tmpFilePath.$hardPath.'-d.png');
-
-
             $news->user_image = $hardPath;
         }
 

@@ -86,18 +86,12 @@ class SpeakerController extends Controller
 
         $image = $request->file('image');
         if ($image) {
-            if (empty($inputs['id'])) {
-                \File::delete(public_path() .'/uploads/speaker/'.$speakers->image.'-m.png');
-                \File::delete(public_path() .'/uploads/speaker/'.$speakers->image.'-d.png');
-            }
             $tmpFilePath = 'uploads/speaker/';
             $hardPath =  Str::slug('speaker', '-').'-'.md5(time());
             $img = Image::make($image);
             $img1 = Image::make($image);
 //            $img->fit(360, 640)->save($tmpFilePath.$hardPath.'-m.png');
             $img1->save($tmpFilePath.$hardPath.'-d.png');
-
-
             $speakers->image = $hardPath;
         }
 
@@ -249,24 +243,14 @@ class SpeakerController extends Controller
         $image = $request->file('image');
 
         if ($image) {
-            if (empty($inputs['id'])) {
-                \File::delete(public_path() .'/uploads/speaker/'.$speakers->image.'-m.png');
-                \File::delete(public_path() .'/uploads/speaker/'.$speakers->image.'-d.png');
-            }
             $tmpFilePath = 'uploads/speaker/';
             $hardPath =  Str::slug('speaker', '-').'-'.md5(time());
             $img = Image::make($image);
             $img1 = Image::make($image);
 //            $img->fit(360, 640)->save($tmpFilePath.$hardPath.'-m.png');
             $img1->save($tmpFilePath.$hardPath.'-d.png');
-
-
             $speakers->image = $hardPath;
         }
-
-
-
-
 
         if (!empty($speakers->description_uz)) {
             $dom_save_uz = new \DomDocument();
