@@ -11,17 +11,17 @@
                 <h2 class="mb-0">
                     <a href="{{route('m-youtobe_list')}}">
                         <i class="ri-arrow-left-s-line"></i>
-                        Jonli Efir
+                        {{__('LIVE')}}
                     </a>
                 </h2>
-                
+
             </div>
         </div>
     </div>
     <!-- End Section-title Area -->
 
     <div class="container my-4">
-        
+
         <div class="video-container">
             <iframe width="100%" height="350" src="https://www.youtube.com/embed/{{$conferences->live_url}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>

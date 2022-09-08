@@ -11,14 +11,14 @@
 				<h2 class="mb-0">
 					<a href="{{route('m-home')}}">
 						<i class="ri-arrow-left-s-line"></i>
-						Mening profilm
+						{{__('MYPROFILE')}}
 					</a>
 				</h2>
 			</div>
 		</div>
 	</div>
 	<!-- End Section-title Area -->
-	
+
 	<div>
 		<!-- Start Form Validation Page Area -->
 		<div class="form-validation-area ptb-30">
@@ -31,7 +31,7 @@
 						<h5>{{ Auth::user()->first_name }} {{ Auth::user()->last_name }} <br> <span sstyle="color: grey; font-size: 13px; font-weight: 400;">Mehmon</span></h5><br>
 					</div>
 					<form  action="/mobile-v/profile/update/{{Auth::user()->id}}" method="POST" enctype="multipart/form-data">
-						 @csrf   
+						 @csrf
                         <div class="form-group">
 							<!-- <label>Ismi</label> -->
 							<input type="text" name="first_name" id="name" class="form-control" required data-error="Please enter your Ismi" placeholder="Ismi*" autocomplete="off" value="{{ Auth::user()->first_name }}">
@@ -75,10 +75,10 @@
 						<div class="must-filt">
 							<p>* to'ldirish kerak bo'lgan filtlar</p>
 						</div>
-						
+
 						<div class="form-group">
-							
-							
+
+
 							<div class="file-upload-wrap style-two">
 								<label for="et_pb_contact_brand_file_request_0" class="et_pb_contact_form_label" style="display: flex;
 								align-items: center;
@@ -87,11 +87,11 @@
 								<div class="help-block with-errors"></div>
 							</div>
 						</div>
-						
-						
+
+
 						<div>
 							<button type="submit" class="default-btn">
-								Submit
+								{{__('SAVE')}}
 							</button>
 						</div>
 					</form>

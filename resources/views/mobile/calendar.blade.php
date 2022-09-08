@@ -11,7 +11,7 @@
                 <h2 class="mb-0">
                     <a href="{{route('m-home')}}">
                         <i class="ri-arrow-left-s-line"></i>
-
+                        {{__('CALENDAR')}}
                     </a>
                 </h2>
             </div>
@@ -24,7 +24,7 @@
         <div class="event-calendar-area ptb-30">
             <div class="container">
                 <div class="section-title left-title">
-                    <h2 class="text-center">Taqvim</h2>
+                    <h2 class="text-center">{{__('CALENDAR')}}</h2>
                 </div>
                 <div class="row">
                     <div class="col-md-12">
