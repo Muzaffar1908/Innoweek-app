@@ -12,7 +12,7 @@
                     <a href="{{route('m-home')}}">
                         <i class="ri-arrow-left-s-line"></i>
                         {{__('Live Broadcast Lists')}}
-                        Jonli Efir Listlar
+
                     </a>
                 </h2>
 

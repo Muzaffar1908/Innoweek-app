@@ -34,17 +34,17 @@ use Illuminate\Support\Facades\URL;
 
 
             <div class="radio-wrap pb-30">
-                <label class="single-radio">Uzbek tili
+                <label class="single-radio"> {{__('UZ')}}
                     <input type="radio" @if(\Illuminate\Support\Facades\Lang::getLocale()=='uz') checked
                            @endif name="radio" id="uz" value="uz">
                     <span class="checkmark"></span>
                 </label>
-                <label class="single-radio">Rus tili
+                <label class="single-radio">{{__('RU')}}
                     <input type="radio" @if(\Illuminate\Support\Facades\Lang::getLocale()=='ru') checked
                            @endif name="radio" id="ru" value="ru">
                     <span class="checkmark"></span>
                 </label>
-                <label class="single-radio">Ingliz tili
+                <label class="single-radio">{{__('EN')}}
                     <input type="radio" @if(\Illuminate\Support\Facades\Lang::getLocale()=='en') checked
                            @endif name="radio" id="en" value="en">
                     <span class="checkmark"></span>

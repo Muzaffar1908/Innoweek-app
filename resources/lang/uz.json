@@ -19,9 +19,12 @@
     "MYPROFILE":"Mening profilim",
     "Live Broadcast Lists":"Jonli Efir Listlar",
     "fills to be filled": "to'ldirish kerak bo'lgan filtlar",
-    "GUEST": "Mehmon,",
+    "GUEST": "Mehmon",
     "ERKAK": "Erkak",
     "AYOL": "Ayol",
-    "JINSI": "Jinsi"
+    "JINSI": "Jinsi",
+    "UZ": "O'zbek tili",
+    "RU": "Rus tili",
+    "EN": "Ingiliz tili"
 
 }

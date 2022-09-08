@@ -203,7 +203,7 @@
             <li>
                 <div class="icon ma5menu__toggle">
                     <img width="20px" src="{{ asset('/assets/images/icon/hamburger-men.png') }}" alt="Images">
-                    <span>Menu</span>
+                    <span>{{__('MENU')}}</span>
                 </div>
             </li>
         </ul>

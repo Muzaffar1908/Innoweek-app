@@ -20,10 +20,14 @@
     "MYPROFILE":"My profile",
     "Live Broadcast Lists":"Live Broadcast Lists",
     "fills to be filled": "fills to be filled",
-    "GUEST": "Guest,",
+    "GUEST": "Guest",
     "ERKAK": "Male",
     "AYOL": "Female",
-    "JINSI": "Gender"
+    "JINSI": "Gender",
+    "UZ": "Uzbek language",
+    "RU": "Russian language",
+    "EN": "English language"
+
 
 
 }
