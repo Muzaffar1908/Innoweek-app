@@ -283,7 +283,7 @@ class ConferenceController extends Controller
             $img1->save($tmpFilePath.$hardPath.'-d.png');
 
 
-            $conferences->image = $hardPath;
+            $conferences->user_image = $hardPath;
         }
 
         if (!empty($conferences->description_uz)) {
