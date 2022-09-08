@@ -26,6 +26,10 @@ use App\Http\Controllers\UserTicketController;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('locale/{locale}', function ($locale) {
+    Session::put('locale', $locale);
+    return redirect()->back();
+});
 
 Route::prefix('admin')->name('admin.')->group(function(){
     Route::get('/dashboard', function(){

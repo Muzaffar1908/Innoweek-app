@@ -11,7 +11,7 @@
 				<h2 class="mb-0">
 					<a href="{{route('m-home')}}">
 						<i class="ri-arrow-left-s-line"></i>
-						Yangiliklar
+						{{__('NEWS')}}
 					</a>
 				</h2>
 
@@ -23,10 +23,10 @@
 	<div class="cards-area ptb-30">
 		<div class="container">
 			<div class="section-title left-title">
-				<h2 style="text-align: center; margin: 10px 0;">{{$newsShow->title_uz}}</h2>
+				<h2 style="text-align: center; margin: 10px 0;">{!! $newsShow->{'title_'.App::getLocale()} !!}</h2>
 			</div>
 			<div class="single-card-item p-0 bg-transparent">
-				<img src="{{asset('uploads/news/'.$newsShow->user_image)}}" alt="Images">
+				<img src="{{asset('uploads/news/'.$newsShow->user_image.'-d.png')}}" alt="Images">
 				<ul class="d-flex align-items-center justify-content-between">
 					<li class="d-flex align-items-center">
 						<i style="font-size: 18px;" class="fa-solid fa-calendar-days"></i>
@@ -34,7 +34,7 @@
 					</li>
 
 				</ul>
-				<p>{!! $newsShow->description_uz !!} </p>
+				<p>{!! $newsShow->{'description_'.App::getLocale()} !!} </p>
 			</div>
 		</div>
 	</div>
@@ -53,7 +53,7 @@
                         </a>
                     </div>
                     <div class="title-news ps-3">
-                        <p>{{$new->title_uz}}</p>
+                        <p>{!! $new->{'title'.App::getLocale()} !!}</p>
                         <div class="icon d-flex align-items-center">
                             <i class="fa-solid fa-calendar-days"></i>
                             <span style="font-size: 12px; padding-left: 7px;">{{$new->created_at->format('Y:m:d')}}</span>
