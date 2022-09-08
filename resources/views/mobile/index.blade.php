@@ -25,7 +25,7 @@
                 <div class="brand-wrap">
                     <button style="display: none;" class="ma5menu__toggle" type="button">
                         <span class="ma5menu__icon-toggle"></span>
-                        <span class="ma5menu__sr-only">Menu</span>
+                        <span class="ma5menu__sr-only">{{__('MENU')}}</span>
                     </button>
                     <h2>
                         <a href="{{route('m-home')}}">
@@ -45,38 +45,38 @@
                         </a>
                         @else
                         <a href="{{ route('m-login') }}">
-                            TIZIMGA KIRISH
+                            {{__('LOGIN')}}
                         </a>
                         @endif
                     </li>
                     <li>
                         <img src="{{ asset('/assets/images/menu-icon/icon-2.png') }}" alt="Images">
                         <a href="{{ route('m-about') }}">
-                            HAQIDA
+                            {{__('ABOUT')}}
                         </a>
                     </li>
                     <li>
                         <img src="{{ asset('/assets/images/menu-icon/icon-2.png') }}" alt="Images">
                         <a href="{{route('m-map')}}">
-                            HARITA
+                            {{__('MAP')}}
                         </a>
                     </li>
                     <li>
                         <img src="{{ asset('/assets/images/menu-icon/icon-2.png') }}" alt="Images">
                         <a href="{{route('m-calendar')}}">
-                            TAQVIM
+                            {{__('CALENDAR')}}
                         </a>
                     </li>
                     <li>
                         <img src="{{ asset('/assets/images/menu-icon/icon-2.png') }}" alt="Images">
                         <a href="{{route('m-qrkod')}}">
-                            QR KOD
+                            {{__('QRKOD')}}
                         </a>
                     </li>
                     <li>
                         <img src="{{ asset('/assets/images/menu-icon/icon-2.png') }}" alt="Images">
                         <a href="{{route('m-setting')}}">
-                            SOZLAMALAR
+                            {{__('SETTINGS')}}
                         </a>
                     </li>
                 </ul>
@@ -108,18 +108,18 @@
 <!-- Start Features News -->
 <div class="features-area ptb-10">
     <div class="section-title">
-        <h2 style="margin: 4rem 0 2rem 0;">Yangiliklar</h2>
+        <h2 style="margin: 4rem 0 2rem 0;">{{__('NEWS')}}</h2>
     </div>
     <div class="features-slide owl-carousel owl-theme">
         @foreach($news as $new)
             <div class="single-features card-bg-a1dbd2">
                 <a href="{{route('newsShow',['id'=>$new->id])}}">
                     <img style="object-fit: cover; width: 100%; height: 230px;"
-                         src="{{asset('uploads/news/' .$new->user_image.'-d.png')}}" alt="">
+                         src="{{ 'uploads/news/'.$new->user_image }}" alt="">
                 </a>
                 <div class="features-content">
-                    <h3>{!!Str::limit(strip_tags($new->title_uz),50)!!}</h3>
-                    <p>{!!Str::limit(strip_tags($new->description_uz),50)!!}
+                    <h3>{{$new->title_uz}}</h3>
+                    <p>"InnoWeek-2022" regional exhibition of innovative ideas was held in ...
                     </p>
                 </div>
             </div>
@@ -132,14 +132,14 @@
 <div class="components-area">
     <div class="container">
         <div class="section-title mt-3">
-            <h2 style="margin-bottom: 2rem;">Tadbirlar</h2>
+            <h2 style="margin-bottom: 2rem;">{{__('CONFERENCE')}}</h2>
         </div>
         @foreach($conferens as $conf)
         <a href="{{route('conferensShow',['id'=>$conf->id])}}">
             <div class="components-support d-flex align-items-center mb-4">
-                <img src="{{asset('uploads/conference/' .$conf->user_image.'-d.png')}}" alt="Images">
+                <img src="{{ asset('/uploads/conference/'.$conf->user_image) }}" alt="Images">
                 <div class="components-content">
-                    <h6>{{$conf->title_uz}}</h6>
+                    <h6>{!! $conf->{'title_'.App::getLocale()} !!}</h6>
 
                     <div class="icon d-flex align-items-center">
                         <i class="fa-solid fa-calendar-days"></i>
@@ -158,7 +158,7 @@
 
 <!-- Start Customer Area -->
 <div class="customer-area">
-    <h2 style="text-align: center; margin: .5rem 0 2rem 0;">So'zlovchilar</h2>
+    <h2 style="text-align: center; margin: .5rem 0 2rem 0;">{{__('SPEAKERS')}}</h2>
     <div class="owl-carousel-wrap">
         <div class="slide-style-four owl-carousel owl-theme">
             @foreach($speakers as $speaker)
@@ -166,7 +166,7 @@
                 <a href="{{route('speakerShow',['id'=>$speaker->id])}}">
                     <img style="margin-right: 0; margin-top: 10px; width: 100%;
 					height: 180px;
-					object-fit: cover; border-radius: 5px;" src="{{asset('uploads/speaker/' .$speaker->image.'-d.png')}}" alt="Images">
+					object-fit: cover; border-radius: 5px;" src="{{ asset('/uploads/speaker/'.$speaker->image) }}" alt="Images">
                 </a>
                 <div class="customer-content d-flex flex-column align-items-center">
                     <h4 style="margin-top: 10px; text-align: center; font-size: 15px;">{{$speaker->full_name}}</h4>
@@ -189,7 +189,7 @@
                     <div class="icon">
                         <img src="{{ asset('/assets/images/page.png') }}" alt="Images" style="height: 20px;">
                     </div>
-                    <span>Jonli efir</span>
+                    <span>{{__('LIVE')}}</span>
                 </a>
             </li>
             <li>
@@ -197,7 +197,7 @@
                     <div class="icon">
                         <img src="{{ asset('/assets/images/home.png') }}" style="height: 30px;" alt="Images">
                     </div>
-                    <span>Home</span>
+                    <span>{{__('HOME')}}</span>
                 </a>
             </li>
             <li>

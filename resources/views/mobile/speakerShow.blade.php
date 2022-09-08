@@ -8,7 +8,7 @@
                 <h2 class="mb-0">
                     <a href="{{route('m-home')}}">
                         <i class="ri-arrow-left-s-line"></i>
-                        So'zlovchilar
+                        {{__('SPEAKERS')}}
                     </a>
                 </h2>
 
@@ -37,7 +37,7 @@
                     </li>
 
                 </ul>
-                <p>{!! $speakerShow->description_uz !!}</p>
+                <p>{!! $speakerShow->{'description_'.App::getLocale()} !!}</p>
             </div>
         </div>
     </div>

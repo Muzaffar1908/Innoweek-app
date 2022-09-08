@@ -1,0 +1,18 @@
+{
+    "MENU": "Меню",
+    "NEWS":"Новости" ,
+    "SPEAKERS":"Оратор" ,
+    "LIVE":"Жить" ,
+    "HOME":"Дом" ,
+    "SETTINGS":"Настройки" ,
+    "DarkMode":"Темный режим" ,
+    "SAVE":"Сохранять" ,
+    "SelectTheLanguage":"Язык" ,
+    "CONFERENCE":"Конференция" ,
+    "LOGIN":"Авторизоваться" ,
+    "REGISTRATSIYA" : "Регистрация",
+    "ABOUT":"About ru" ,
+    "MAP":"КАРТА" ,
+    "CALENDAR":"Календарь" ,
+    "QRKOD":"QR КОД"
+}

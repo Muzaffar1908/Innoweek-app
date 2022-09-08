@@ -11,7 +11,7 @@
                 <h2 class="mb-0">
                     <a href="{{route('m-home')}}">
                         <i class="ri-arrow-left-s-line"></i>
-                        Tadbirlar
+                       {{__('CONFERENCE')}}
                     </a>
                 </h2>
 
@@ -23,7 +23,7 @@
     <div class="cards-area ptb-30">
         <div class="container">
             <div class="section-title left-title">
-                <h2 style="text-align: center; margin: 10px 0;">{{$conferensShow->title_uz}}</h2>
+                <h2 style="text-align: center; margin: 10px 0;">{!! $conferensShow->{'title_'.App::getLocale()} !!}</h2>
             </div>
             <div class="single-card-item p-0 bg-transparent">
                 <img src="{{asset('uploads/conference/' .$conferensShow->user_image.'-d.png')}}" alt="Images">
@@ -34,7 +34,7 @@
                     </li>
 
                 </ul>
-                <p>{!! $conferensShow->description_uz !!}</p>
+                <p>{!! $conferensShow->{'description_'.App::getLocale()} !!}</p>
             </div>
         </div>
     </div>

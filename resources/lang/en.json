@@ -1,0 +1,19 @@
+{
+
+    "MENU": "Menu",
+    "NEWS":"News" ,
+    "SPEAKERS":"Spiakers" ,
+    "LIVE":"Live" ,
+    "HOME":"Home" ,
+    "SETTINGS":"Settings" ,
+    "DarkMode":"Dark Mode" ,
+    "SAVE":"Save" ,
+    "SelectTheLanguage":"Language" ,
+    "CONFERENCE":"Conference" ,
+    "LOGIN":"Log in" ,
+    "ABOUT":"About" ,
+    "MAP":"Map" ,
+    "CALENDAR":"CALENDAR" ,
+    "QRKOD":"QR KODE"
+
+}
