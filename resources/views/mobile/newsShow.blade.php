@@ -26,11 +26,7 @@
 				<h2 style="text-align: center; margin: 10px 0;">{!! $newsShow->{'title_'.App::getLocale()} !!}</h2>
 			</div>
 			<div class="single-card-item p-0 bg-transparent">
-<<<<<<< HEAD
 				<img src="{{asset('uploads/news/' .$newsShow->user_image.'-d.png')}}" alt="Images">
-=======
-				<img src="{{asset('uploads/news/'.$newsShow->user_image.'-d.png')}}" alt="Images">
->>>>>>> 0f30f100cf90cb7dc70303c745d64292f97da20a
 				<ul class="d-flex align-items-center justify-content-between">
 					<li class="d-flex align-items-center">
 						<i style="font-size: 18px;" class="fa-solid fa-calendar-days"></i>
