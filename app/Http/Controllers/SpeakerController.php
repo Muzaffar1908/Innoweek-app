@@ -51,7 +51,6 @@ class SpeakerController extends Controller
         $data = $request->except(array('_token'));
         $rule = array(
             'full_name' => 'required',
-            'description_uz' => 'required',
         );
         if (!file_exists('uploads/speaker')) {
             mkdir('uploads/speaker', 0777, true);
@@ -214,7 +213,6 @@ class SpeakerController extends Controller
         $data = $request->except(array('_token'));
         $rule = array(
             'full_name' => 'required',
-            'description_uz' => 'required',
         );
 
         $validator = Validator::make($data, $rule);
@@ -233,6 +231,7 @@ class SpeakerController extends Controller
 
         $speakers->archive_id = $inputs['archive_id'];
         $speakers->full_name = $inputs['full_name'];
+        $speakers->job = $inputs['job'];
         $speakers->facebook_ur = $inputs['facebook_url'];
         $speakers->youtube_url = $inputs['youtube_url'];
         $speakers->twitter_url = $inputs['twitter_url'];

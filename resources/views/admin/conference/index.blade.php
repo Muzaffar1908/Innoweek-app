@@ -96,7 +96,7 @@
                                     </td>
                                     <td>
                                         <div class="btn-group">
-                                            <a href="{{route('admin.conference.show', $conference->id)}}" type="button" class="btn btn-info"><i class="bi bi-eye"></i></a>
+                                            {{-- <a href="{{route('admin.conference.show', $conference->id)}}" type="button" class="btn btn-info"><i class="bi bi-eye"></i></a> --}}
                                             <a href="{{route('admin.conference.edit', $conference->id)}}" type="button" class="btn btn-success"><i class="bi bi-pencil"></i></a>
                                             <form action="{{route('admin.conference.destroy', $conference->id)}}" method="POST">
                                                 @csrf

@@ -69,6 +69,11 @@
                     </div>
 
                     <div class="mb-3">
+                        <label for="job">Job</label>
+                        <input type="text" name="job" class="form-control" id="job" placeholder="Job enter" value="{{$speaker->job}}" />
+                    </div>
+
+                    <div class="mb-3">
                         <img src="{{asset('uploads/speaker/' .$speaker->image.'-d.png')}}" alt="img" with="100px" height="60px ">
                         <label for="ticket_image">image</label>
                         <input type="file" name="image"  class="form-control" id="image" placeholder="image enter" value="{{$speaker->image}}" />

@@ -219,7 +219,6 @@ class UserController extends Controller
           'birth_date' => 'required',
           'email' => 'required',
           'phone' => 'required',
-          'password' => 'required',
          );
 
         if (!file_exists('uploads/config')) {
@@ -250,7 +249,6 @@ class UserController extends Controller
          $users->balance = $inputs['balance'];
          $users->email = $inputs['email'];
          $users->phone = $inputs['phone'];
-         $users->password = $inputs['password'];
          $users->provider_name = $inputs['provider_name'];
          $users->provider_id = $inputs['provider_id'];
 
@@ -262,7 +260,7 @@ class UserController extends Controller
             // unlink($userticket->ticket_image);
             $data['user_image'] = 'uploads/config/' . $imageName;
         }
-
+         $users->user_image = $imageName;
          $users->save();
 
          if (!empty($inputs['id'])) {

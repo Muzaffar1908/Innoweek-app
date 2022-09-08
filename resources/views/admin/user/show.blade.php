@@ -28,7 +28,10 @@
                     </tr>
                     <tr>
                         <th>User image</th>
-                        <td>{{$user->user_image}}</td>
+                        <td>
+                            <img src="{{ asset('/uploads/config/'.$user->user_image) }}" alt="img" with="100px"
+                                                    height="60px">
+                        </td>
                     </tr>
                     <tr>
                         <th>Address</th>

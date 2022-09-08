@@ -4,7 +4,8 @@
 
     <div class="content-body">
         <div class="container-fluid">
-            <div class="card">
+            <div class="card table-responsive">
+            <a href="{{route('admin.news.index')}}" class="btn btn-primary"><i class="bi bi-arrow-left-short"></i>Back</a>
                 <table class="table">
                     <tr>
                         <th>Username</th>
@@ -54,7 +55,6 @@
                     </tr>
 
                 </table>
-                <a href="{{route('admin.news.index')}}" class="btn btn-primary"><i class="bi bi-arrow-left-short"></i>Back</a>
             </div>
         </div>
     </div>

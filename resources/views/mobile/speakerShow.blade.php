@@ -29,7 +29,7 @@
     border-radius: 5px;
     display: flex;
     margin: 0 auto 1rem auto;
-                " src="{{ asset('uploads/speaker/'.$speakerShow->image)}}" alt="Images">
+                " src="{{asset('uploads/speaker/' .$speakerShow->image.'-d.png')}}" alt="Images">
                 <ul class="d-flex align-items-center justify-content-between">
                     <li class="d-flex align-items-center">
                         <i style="font-size: 18px;" class="fa-solid fa-calendar-days"></i>
