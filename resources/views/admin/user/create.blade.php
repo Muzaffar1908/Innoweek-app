@@ -37,7 +37,7 @@
 
             <div class="card-body">
                 <div class="basic-form">
-                <form action="{{route('admin.user.store')}}" method="POST">
+                <form action="{{route('admin.user.store')}}" method="POST" enctype="multipart/form-data">
                     @csrf
 
                     <div class="mb-3">
@@ -112,7 +112,7 @@
                         <label for="provider_id">Provider ID</label>
                         <input type="number" name="provider_id"  class="form-control" id="provider_id"  placeholder="Provider ID enter" value="{{old('provider_id')}}" />
                     </div>
-                    
+
                     <button type="submit" class="btn btn-success">Save</button>
 
                 </form>
