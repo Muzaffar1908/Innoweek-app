@@ -73,8 +73,7 @@
                                             <td>{{ $user->gender }}</td>
                                             <td>{{ $user->birth_date }}</td>
                                             <td>
-                                                <img src="{{ asset($user->user_image) }}" alt="img" with="100px"
-                                                    height="60px">
+                                                <img src="{{asset('uploads/config/' .$user->user_image.'-d.png')}}" alt="img" with="100px" height="60px">
                                             </td>
                                             <td>{{ $user->address }}</td>
                                             <td>{{ $user->balance }}</td>
@@ -89,10 +88,10 @@
                                                     @csrf
                                                     <div class="sweetalert">
                                                         <button type="button"
-                                                            class="
-                                    @if ($user->is_active == 1) btn-success @endif
-                                @if ($user->is_active == 0) btn-danger @endif
-                                    btn sweet-confirm">
+                                                                            class="
+                                                    @if ($user->is_active == 1) btn-success @endif
+                                                @if ($user->is_active == 0) btn-danger @endif
+                                                    btn sweet-confirm">
                                                             @if ($user->is_active == 1)
                                                                 Active
                                                             @endif

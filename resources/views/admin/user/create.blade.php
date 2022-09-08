@@ -37,7 +37,7 @@
 
             <div class="card-body">
                 <div class="basic-form">
-                <form action="{{route('admin.user.store')}}" method="POST">
+                <form action="{{route('admin.user.store')}}" method="POST" enctype="multipart/form-data">
                     @csrf
 
                     <div class="mb-3">
