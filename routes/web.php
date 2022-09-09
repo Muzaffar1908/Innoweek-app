@@ -10,6 +10,7 @@ use App\Http\Controllers\NewsCategoryController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\UserController;
 use App\Models\News\NewsCategory;
+use Illuminate\Support\Facades\Session;
 use App\Http\Controllers\UserTicketController;
 
 /*
@@ -36,6 +37,7 @@ Route::prefix('admin')->name('admin.')->group(function(){
         return view('admin.layout.app');
     });
 
+    
     Route::resource('/user', UserController::class);
     Route::resource('/news_category', NewsCategoryController::class);
     Route::resource('/news', NewsController::class);
