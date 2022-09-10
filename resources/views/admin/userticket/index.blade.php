@@ -87,8 +87,8 @@
                                             </td>
                                             <td>
                                                 <div class="btn-group">
-                                                    <a href="{{ route('admin.userticket.show', $userticket->id) }}"
-                                                        type="button" class="btn btn-info"><i class="bi bi-eye"></i></a>
+                                                    {{-- <a href="{{ route('admin.userticket.show', $userticket->id) }}"
+                                                        type="button" class="btn btn-info"><i class="bi bi-eye"></i></a> --}}
                                                     <a href="{{ route('admin.userticket.edit', $userticket->id) }}"
                                                         type="button" class="btn btn-success"><i
                                                             class="bi bi-pencil"></i></a>

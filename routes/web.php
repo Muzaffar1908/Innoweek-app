@@ -33,9 +33,9 @@ Route::get('locale/{locale}', function ($locale) {
 });
 
 Route::prefix('admin')->name('admin.')->group(function(){
-    Route::get('/dashboard', function(){
-        return view('admin.layout.app');
-    });
+    Route::get('/dashboard/', function(){
+        return view('admin.layout.index');
+    })->name('index');
 
     
     Route::resource('/user', UserController::class);

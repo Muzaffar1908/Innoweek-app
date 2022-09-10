@@ -83,8 +83,8 @@
                                             </td>
                                             <td>
                                                 <div class="btn-group">
-                                                    <a href="{{ route('admin.news_category.show', $news_category->id) }}"
-                                                        type="button" class="btn btn-info"><i class="bi bi-eye"></i></a>
+                                                    {{-- <a href="{{ route('admin.news_category.show', $news_category->id) }}"
+                                                        type="button" class="btn btn-info"><i class="bi bi-eye"></i></a> --}}
                                                     <a href="{{ route('admin.news_category.edit', $news_category->id) }}"
                                                         type="button" class="btn btn-success"><i
                                                             class="bi bi-pencil"></i></a>
