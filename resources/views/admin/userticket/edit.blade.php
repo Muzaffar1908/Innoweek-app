@@ -46,7 +46,6 @@
                         {{-- <label for="ticket_serial">Ticket serial</label> --}}
                         <input type="hidden" name="id"  class="form-control" id="id" placeholder="Ticket serial enter" value="{{$userticket->id}}" />
                     </div>
-
                     <div class="mb-3">
                         <label for="user_id">User name</label>
                         <select name="user_id" class="form-control" id="user_id">
