@@ -2,7 +2,7 @@
     <div class="dlabnav-scroll">
       <ul class="metismenu" id="menu">
         <li>
-          <a href="" class="" aria-expanded="false">
+          <a href="{{route('admin.index')}}" class="" aria-expanded="false">
             <i class="bi bi-grid"></i>
             <span class="nav-text">Dashboard</span>
           </a>

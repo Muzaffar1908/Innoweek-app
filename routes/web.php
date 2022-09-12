@@ -37,7 +37,7 @@ Route::prefix('admin')->name('admin.')->group(function(){
         return view('admin.layout.index');
     })->name('index');
 
-    
+
     Route::resource('/user', UserController::class);
     Route::resource('/news_category', NewsCategoryController::class);
     Route::resource('/news', NewsController::class);
