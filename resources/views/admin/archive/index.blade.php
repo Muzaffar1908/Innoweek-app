@@ -85,7 +85,7 @@
                                     </td>
                                     <td>
                                         <div class="btn-group">
-                                            <a href="{{route('admin.archive.show', $archive->id)}}" type="button" class="btn btn-info"><i class="bi bi-eye"></i></a>
+                                            {{-- <a href="{{route('admin.archive.show', $archive->id)}}" type="button" class="btn btn-info"><i class="bi bi-eye"></i></a> --}}
                                             <a href="{{route('admin.archive.edit', $archive->id)}}" type="button" class="btn btn-success"><i class="bi bi-pencil"></i></a>
                                             <form action="{{route('admin.archive.destroy', $archive->id)}}" method="POST">
                                                 @csrf

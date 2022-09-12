@@ -81,7 +81,7 @@
                                     <td>{{$speaker->linkedin_url}}</td>
                                     <td>
                                         <div class="btn-group">
-                                            <a href="{{route('admin.speakers.show', $speaker->id)}}" type="button" class="btn btn-info"><i class="bi bi-eye"></i></a>
+                                            {{-- <a href="{{route('admin.speakers.show', $speaker->id)}}" type="button" class="btn btn-info"><i class="bi bi-eye"></i></a> --}}
                                             <a href="{{route('admin.speakers.edit', $speaker->id)}}" type="button" class="btn btn-success"><i class="bi bi-pencil"></i></a>
                                             <form action="{{route('admin.speakers.destroy', $speaker->id)}}" method="POST">
                                                 @csrf

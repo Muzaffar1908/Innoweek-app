@@ -10,6 +10,7 @@ use App\Http\Controllers\NewsCategoryController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\UserController;
 use App\Models\News\NewsCategory;
+use Illuminate\Support\Facades\Session;
 use App\Http\Controllers\UserTicketController;
 
 /*
@@ -26,11 +27,16 @@ use App\Http\Controllers\UserTicketController;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('locale/{locale}', function ($locale) {
+    Session::put('locale', $locale);
+    return redirect()->back();
+});
 
 Route::prefix('admin')->name('admin.')->group(function(){
-    Route::get('/dashboard', function(){
-        return view('admin.layout.app');
-    });
+    Route::get('/dashboard/', function(){
+        return view('admin.layout.index');
+    })->name('index');
+
 
     Route::resource('/user', UserController::class);
     Route::resource('/news_category', NewsCategoryController::class);

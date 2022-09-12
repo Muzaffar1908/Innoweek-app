@@ -11,9 +11,12 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Str;
 use Intervention\Image\Facades\Image;
+<<<<<<< HEAD
 
 
 
+=======
+>>>>>>> 27925317e0873fa5156c15645fef870ed9c354f9
 
 class NewsController extends Controller
 {
@@ -84,10 +87,6 @@ class NewsController extends Controller
 
         $user_image = $request->file('user_image');
         if ($user_image) {
-            if (empty($inputs['id'])) {
-                File::delete(public_path() .'/upload/news/'.$news->user_image.'-b.png');
-                File::delete(public_path() .'/upload/news/'.$news->user_image.'-s.png');
-            }
             $tmpFilePath = 'uploads/news/';
             $hardPath =  Str::slug('news', '-').'-'.'-'.md5(time());
             $img = Image::make($user_image);
@@ -109,18 +108,12 @@ class NewsController extends Controller
 
         $image = $request->file('user_image');
         if ($image) {
-            if (empty($inputs['id'])) {
-                \File::delete(public_path() .'/uploads/news/'.$news->image.'-m.png');
-                \File::delete(public_path() .'/uploads/news/'.$news->image.'-d.png');
-            }
             $tmpFilePath = 'uploads/news/';
             $hardPath =  Str::slug('news', '-').'-'.md5(time());
             $img = Image::make($image);
             $img1 = Image::make($image);
 //            $img->fit(360, 640)->save($tmpFilePath.$hardPath.'-m.png');
             $img1->save($tmpFilePath.$hardPath.'-d.png');
-
-
             $news->user_image = $hardPath;
         }
 
@@ -283,10 +276,6 @@ class NewsController extends Controller
 
         $user_image = $request->file('user_image');
         if ($user_image) {
-            if (empty($inputs['id'])) {
-                File::delete(public_path() .'/upload/blogs/'.$news->user_image.'-b.png');
-                File::delete(public_path() .'/upload/blogs/'.$news->user_image.'-s.png');
-            }
             $tmpFilePath = 'upload/blogs/banner/';
             $hardPath =  Str::slug('news', '-').'-'.'-'.md5(time());
             $img = Image::make($user_image);
@@ -309,18 +298,12 @@ class NewsController extends Controller
 
         $image = $request->file('user_image');
         if ($image) {
-            if (empty($inputs['id'])) {
-                \File::delete(public_path() .'/uploads/news/'.$news->image.'-m.png');
-                \File::delete(public_path() .'/uploads/news/'.$news->image.'-d.png');
-            }
             $tmpFilePath = 'uploads/news/';
             $hardPath =  Str::slug('news', '-').'-'.md5(time());
             $img = Image::make($image);
             $img1 = Image::make($image);
 //            $img->fit(360, 640)->save($tmpFilePath.$hardPath.'-m.png');
             $img1->save($tmpFilePath.$hardPath.'-d.png');
-
-
             $news->user_image = $hardPath;
         }
 

@@ -73,8 +73,7 @@
                                             <td>{{ $user->gender }}</td>
                                             <td>{{ $user->birth_date }}</td>
                                             <td>
-                                                <img src="{{ asset($user->user_image) }}" alt="img" with="100px"
-                                                    height="60px">
+                                                <img src="{{ asset( $user->user_image) }}" alt="img" with="100px" height="60px">
                                             </td>
                                             <td>{{ $user->address }}</td>
                                             <td>{{ $user->balance }}</td>
@@ -105,10 +104,8 @@
                                             </td>
                                             <td>
                                                 <div class="btn-group">
-                                                    <a href="{{ route('admin.user.show', $user->id) }}" type="button"
-                                                        class="btn btn-info"><i class="bi bi-eye"></i></a>
-                                                    <a href="{{ route('admin.user.edit', $user->id) }}" type="button"
-                                                        class="btn btn-success"><i class="bi bi-pencil"></i></a>
+                                                    {{-- <a href="{{ route('admin.user.show', $user->id) }}" type="button" class="btn btn-info"><i class="bi bi-eye"></i></a> --}}
+                                                    <a href="{{ route('admin.user.edit', $user->id) }}" type="button" class="btn btn-success"><i class="bi bi-pencil"></i></a>
                                                     <form action="{{ route('admin.user.destroy', $user->id) }}"
                                                         method="POST" enctype="multipart/form-data">
                                                         @csrf

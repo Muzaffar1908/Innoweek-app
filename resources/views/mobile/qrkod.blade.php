@@ -11,14 +11,14 @@
                     <h2 class="mb-0">
                         <a href="{{route('m-home')}}">
                             <i class="ri-arrow-left-s-line"></i>
-                            QR kod
+                        {{__('QRKOD')}}
                         </a>
                     </h2>
                 </div>
             </div>
         </div>
         <!-- End Section-title Area -->
-        
+
         <div class="qrcode pt-5">
             <h2 style="text-align: center;">Sizning QR kodingiz</h2>
             <div class="qr-image mt-4" style="display: flex;

@@ -89,9 +89,6 @@ class UserTicketController extends Controller
 
          $usertickets->ticket_id = "464564";
 
-
-
-
          if ($request->hasFile('ticket_image')) {
             $file = $request->file('ticket_image');
             $ex = $file->getClientOriginalExtension();
@@ -182,7 +179,7 @@ class UserTicketController extends Controller
          }
 
 
-         $usertickets->user_id = $inputs['user_id'];
+        $usertickets->user_id = $inputs['user_id'];
         $usertickets->archive_id = $inputs['archive_id'];
          if ($request->hasFile('ticket_image')) {
             $rule = array(

@@ -94,7 +94,7 @@
                                     <td>{{$new->tags}}</td>
                                     <td>
                                         <div class="btn-group">
-                                            <a href="{{route('admin.news.show', $new->id)}}" type="button" class="btn btn-info"><i class="bi bi-eye"></i></a>
+                                            {{-- <a href="{{route('admin.news.show', $new->id)}}" type="button" class="btn btn-info"><i class="bi bi-eye"></i></a> --}}
                                             <a href="{{route('admin.news.edit', $new->id)}}" type="button" class="btn btn-success"><i class="bi bi-pencil"></i></a>
                                             <form action="{{route('admin.news.destroy', $new->id)}}" method="POST">
                                                 @csrf

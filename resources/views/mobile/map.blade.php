@@ -9,7 +9,7 @@
                 <h2 class="mb-0">
                     <a href="{{route('m-home')}}">
                         <i class="ri-arrow-left-s-line"></i>
-                        Harita
+                        {{__('MAP')}}
                     </a>
                 </h2>
 
@@ -21,8 +21,8 @@
 
     <div class="qrcode d-flex align-items-center justify-content-center px-3" style="padding-top:200px;">
         <div class="alert alert-primary custom custom-bg-ed1c24 mb-0" role="alert">
-            <p style="font-size: 18px;">Hozirda texnik ishlar olib borilyapti!</p>
+            <p style="font-size: 18px;">{{__('Currentlyunder')}}</p>
         </div>
-        
+
     </div>
 @endsection

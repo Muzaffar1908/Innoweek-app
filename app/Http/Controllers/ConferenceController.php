@@ -101,10 +101,7 @@ class ConferenceController extends Controller
 
        $image = $request->file('user_image');
         if ($image) {
-            if (empty($inputs['id'])) {
-                \File::delete(public_path() .'/uploads/conference/'.$conferences->image.'-m.png');
-                \File::delete(public_path() .'/uploads/conference/'.$conferences->image.'-d.png');
-            }
+         
             $tmpFilePath = 'uploads/conference/';
             $hardPath =  Str::slug('conference', '-').'-'.md5(time());
             $img = Image::make($image);
@@ -113,7 +110,7 @@ class ConferenceController extends Controller
             $img1->save($tmpFilePath.$hardPath.'-d.png');
 
 
-            $conferences->image = $hardPath;
+            $conferences->user_image = $hardPath;
         }
 
         if (!empty($conferences->description_uz)) {
@@ -278,10 +275,6 @@ class ConferenceController extends Controller
 
         $image = $request->file('user_image');
         if ($image) {
-            if (empty($inputs['id'])) {
-                \File::delete(public_path() .'/uploads/conference/'.$conferences->image.'-m.png');
-                \File::delete(public_path() .'/uploads/conference/'.$conferences->image.'-d.png');
-            }
             $tmpFilePath = 'uploads/conference/';
             $hardPath =  Str::slug('conference', '-').'-'.md5(time());
             $img = Image::make($image);
@@ -290,7 +283,7 @@ class ConferenceController extends Controller
             $img1->save($tmpFilePath.$hardPath.'-d.png');
 
 
-            $conferences->image = $hardPath;
+            $conferences->user_image = $hardPath;
         }
 
         if (!empty($conferences->description_uz)) {
