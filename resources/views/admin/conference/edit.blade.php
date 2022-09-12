@@ -48,7 +48,7 @@
                         <label for="user_id">Username</label>
                         <select name="user_id" class="form-control" id="user_id">
                             @foreach($users as $user)
-                             <option value="{{$user->id}}">{{$user->first_name}}</option>
+                             <option value="{{$user->id}}" @if($user->id==$conference->user_id) selected @endif>{{$user->first_name}}</option>
                             @endforeach
                         </select>
                     </div>
@@ -57,7 +57,7 @@
                         <label for="archive_id">Archive Year</label>
                         <select name="archive_id" class="form-control" id="archive_id">
                             @foreach($archives as $archive)
-                             <option value="{{$archive->id}}">{{$archive->year}}</option>
+                             <option value="{{$archive->id}}" @if($conference->archive_id==$archive->id) selected @endif>{{$archive->year}}</option>
                             @endforeach
                         </select>
                     </div>

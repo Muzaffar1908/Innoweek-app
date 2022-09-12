@@ -11,12 +11,6 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Str;
 use Intervention\Image\Facades\Image;
-<<<<<<< HEAD
-
-
-
-=======
->>>>>>> 27925317e0873fa5156c15645fef870ed9c354f9
 
 class NewsController extends Controller
 {

@@ -60,6 +60,7 @@
                                   <th>Youtube url</th>
                                   <th>Twitter url</th>
                                   <th>Linkedin url</th>
+                                  <th>Is Active</th>
                                   <th>Action</th>
                                 </tr>
                               </thead>
@@ -79,6 +80,26 @@
                                     <td>{{$speaker->youtube_url}}</td>
                                     <td>{{$speaker->twitter_url}}</td>
                                     <td>{{$speaker->linkedin_url}}</td>
+                                    <td>
+                                        <form action="{{ asset('/admin/speaker/isactive/' . $speaker->id) }}"
+                                            method="POST" enctype="multipart/form-data">
+                                            @csrf
+                                            <div class="sweetalert">
+                                                <button type="button"
+                                                    class="
+                                            @if ($speaker->is_active == 1) btn-success @endif
+                                            @if ($speaker->is_active == 0) btn-danger @endif
+                                            btn sweet-confirm">
+                                                    @if ($speaker->is_active == 1)
+                                                        Active
+                                                    @endif
+                                                    @if ($speaker->is_active == 0)
+                                                        Not Active
+                                                    @endif
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </td>
                                     <td>
                                         <div class="btn-group">
                                             {{-- <a href="{{route('admin.speakers.show', $speaker->id)}}" type="button" class="btn btn-info"><i class="bi bi-eye"></i></a> --}}
