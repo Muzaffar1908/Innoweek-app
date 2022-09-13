@@ -270,7 +270,7 @@ class NewsController extends Controller
 
         $user_image = $request->file('user_image');
         if ($user_image) {
-            $tmpFilePath = 'upload/blogs/banner/';
+            $tmpFilePath = 'uploads/news/';
             $hardPath =  Str::slug('news', '-').'-'.'-'.md5(time());
             $img = Image::make($user_image);
             $img1 = Image::make($user_image);

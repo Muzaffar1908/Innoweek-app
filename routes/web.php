@@ -29,7 +29,7 @@ Route::get('/', function () {
 });
 Route::get('locale/{locale}', function ($locale) {
     Session::put('locale', $locale);
-    return redirect()->back();
+    return redirect('mobile-v');
 });
 
 Route::prefix('admin')->name('admin.')->group(function(){

@@ -2,6 +2,10 @@
 @section('styles')
 @endsection
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+        integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 @section('content')
 
     <!-- Start Section-title Area -->
@@ -31,7 +35,7 @@
                 </a>
                 <ul class="d-flex align-items-center justify-content-between">
                     <li class="d-flex align-items-center">
-                        <i style="font-size: 18px;" class="fa-solid fa-calendar-days"></i>
+                        <i class="fa-solid fa-calendar-days"></i>
                         <p>{{$newsShow->created_at->format('Y:m:d')}}</p>
                     </li>
 
