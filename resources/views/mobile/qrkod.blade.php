@@ -23,13 +23,10 @@
         <h2 style="text-align: center;">{{__('QRCODE')}}
            </h2>
         @if (auth()->check())
-            <div class="qr-image mt-4" style="display: flex;
-            align-items: center;
-            justify-content: center;">
-                <img width="70%" style="box-shadow: 2px 5px 13px 0 #171d4114;
-            padding: 10px;
-            border-radius: 5px;" src="{{asset('./assets/images/qrcode.png')}}" alt="">
-            </div>
+            <h2 style="text-align: center; margin-top: 1rem;">
+                {!! QrCode::size(300)->generate(Auth::user()->first_name.' '. Auth::user()->last_name) !!}
+
+            </h2>
             <h2 style="text-align: center; margin-top: 1rem;">
 
                 {{ Auth::user()->first_name }} {{ Auth::user()->last_name }}
@@ -42,7 +39,17 @@
 
             </h2>
          @endif
-
+{{--        <div class="container mt-4">--}}
+{{--            <div class="card">--}}
+{{--                <div class="card-header">--}}
+{{--                    <h2>Simple QR Code</h2>--}}
+{{--                </div>--}}
+{{--                <div class="card-body">--}}
+{{--                    {!! QrCode::size(300)->generate('hghgjhgjhghjv') !!}--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--         --}}
+{{--        </div>--}}
 @endsection
 
 
