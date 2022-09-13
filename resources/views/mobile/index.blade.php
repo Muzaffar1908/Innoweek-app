@@ -115,7 +115,7 @@
             <div class="single-features card-bg-a1dbd2">
                 <a href="{{route('newsShow',['id'=>$new->id])}}">
                     <img style="object-fit: cover; width: 100%; height: 230px;"
-                         src="{{asset('upload/news/' .$new->user_image.'-d.png')}}" alt="">
+                         src="{{asset('/upload/news/' .$new->user_image.'-d.png')}}" alt="">
                 </a>
                 <div class="features-content">
                     <h3>{!! substr($new->{'title_'.App::getLocale()},0,90).'...' !!}</h3>
