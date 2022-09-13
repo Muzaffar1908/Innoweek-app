@@ -49,12 +49,12 @@
 						</div>
 						<div class="form-group">
 							<!-- <label>Otasining ismi</label> -->
-							<input type="text" name="middle_name" id="email" class="form-control" required data-error="Please enter your Otasining ismi" placeholder="Otasining ismi" autocomplete="off" value="{{ Auth::user()->middle_name }}">
+							<input type="text" name="middle_name" id="email" class="form-control"  data-error="Please enter your Otasining ismi" placeholder="Otasining ismi" autocomplete="off" value="{{ Auth::user()->middle_name }}">
 							<div class="help-block with-errors"></div>
 						</div>
 						<div class="form-group">
 							<!-- <label>Email</label> -->
-							<input type="em" name="email" id="email" class="form-control" required data-error="Please enter your email" placeholder="Email*" autocomplete="off" value="{{ Auth::user()->email }}">
+							<input type="em" name="email" id="email" class="form-control"  data-error="Please enter your email" placeholder="Email*" autocomplete="off" value="{{ Auth::user()->email }}">
 							<div class="help-block with-errors"></div>
 						</div>
 						<div class="form-group">

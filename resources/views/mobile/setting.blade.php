@@ -55,7 +55,7 @@ use Illuminate\Support\Facades\URL;
         <!-- Start Dark Mode Area -->
         <div class="dark-mode-area pb-30">
             <div class="container">
-                <div class="bg-color-ffffff">
+                <div class="bg-color-000">
                     <div class="row align-items-center">
                         <div class="col">
                             <div class="dark-btn d-flex align-items-center">

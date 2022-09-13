@@ -48,8 +48,6 @@ class UserController extends Controller
           'first_name' => 'required',
           'last_name' => 'required',
           'gender' => 'required',
-          'middle_name' => 'required',
-          'email' => 'required',
           'phone' => 'required',
          );
 
