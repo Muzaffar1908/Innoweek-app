@@ -74,7 +74,7 @@
                     </div>
 
                     <div class="mb-3">
-                        <img src="{{asset('uploads/speaker/' .$speaker->image.'-d.png')}}" alt="img" with="100px" height="60px ">
+                        <img src="{{asset('upload/speaker/' .$speaker->image.'-d.png')}}" alt="img" with="100px" height="60px ">
                         <label for="ticket_image">image</label>
                         <input type="file" name="image"  class="form-control" id="image" placeholder="image enter" value="{{$speaker->image}}" />
                     </div>

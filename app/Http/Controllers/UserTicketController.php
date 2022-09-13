@@ -65,8 +65,8 @@ class UserTicketController extends Controller
           'ticket_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
          );
 
-         if (!file_exists('uploads/ticket_image')) {
-            mkdir('uploads/ticket_image', 0777, true);
+         if (!file_exists('upload/ticket_image')) {
+            mkdir('upload/ticket_image', 0777, true);
         }
 
          $validator = Validator::make($data, $rule);
@@ -93,9 +93,9 @@ class UserTicketController extends Controller
             $file = $request->file('ticket_image');
             $ex = $file->getClientOriginalExtension();
             $imageName = md5(rand(100, 999999) . microtime()) . "." . $ex;
-            $file->move(public_path('uploads/ticket_image'), $imageName);
+            $file->move(public_path('upload/ticket_image'), $imageName);
             // unlink($userticket->ticket_image);
-            $data['image'] = 'uploads/ticket_image/' . $imageName;
+            $data['image'] = 'upload/ticket_image/' . $imageName;
           }
 
          $usertickets->user_image =$data['image'];
@@ -160,8 +160,8 @@ class UserTicketController extends Controller
             'archive_id' => 'required',
          );
 
-         if (!file_exists('uploads/ticket_image')) {
-            mkdir('uploads/ticket_image', 0777, true);
+         if (!file_exists('upload/ticket_image')) {
+            mkdir('upload/ticket_image', 0777, true);
         }
 
          $validator = Validator::make($data, $rule);
@@ -188,9 +188,9 @@ class UserTicketController extends Controller
             $file = $request->file('ticket_image');
             $ex = $file->getClientOriginalExtension();
             $imageName = md5(rand(100, 999999) . microtime()) . "." . $ex;
-            $file->move(public_path('uploads/ticket_image'), $imageName);
+            $file->move(public_path('upload/ticket_image'), $imageName);
             // unlink($userticket->ticket_image);
-            $data['image'] = 'uploads/ticket_image/' . $imageName;
+            $data['image'] = 'upload/ticket_image/' . $imageName;
             $usertickets->user_image = $data['image'];
           }
   /* shunchaki default qiymat berildi */
@@ -216,7 +216,7 @@ class UserTicketController extends Controller
      */
     public function destroy(UserTicket $userticket)
     {
-    //    unlink('uploads/ticket_image/' .$userticket->ticket_image);
+    //    unlink('upload/ticket_image/' .$userticket->ticket_image);
     $eduhub = UserTicket::findOrFail($userticket->id);
     $eduhub->delete();
 

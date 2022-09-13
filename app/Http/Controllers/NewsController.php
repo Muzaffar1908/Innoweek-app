@@ -56,12 +56,12 @@ class NewsController extends Controller
         'title_uz' => 'required',
         );
 
-        if (!file_exists('uploads/news')) {
-            mkdir('uploads/news', 0777, true);
+        if (!file_exists('upload/news')) {
+            mkdir('upload/news', 0777, true);
         }
 
-        if (!file_exists('uploads/news/description_image')) {
-            mkdir('uploads/news/description_image', 0777, true);
+        if (!file_exists('upload/news/description_image')) {
+            mkdir('upload/news/description_image', 0777, true);
         }
 
 
@@ -81,7 +81,7 @@ class NewsController extends Controller
 
         $user_image = $request->file('user_image');
         if ($user_image) {
-            $tmpFilePath = 'uploads/news/';
+            $tmpFilePath = 'upload/news/';
             $hardPath =  Str::slug('news', '-').'-'.'-'.md5(time());
             $img = Image::make($user_image);
             $img1 = Image::make($user_image);
@@ -102,7 +102,7 @@ class NewsController extends Controller
 
         $image = $request->file('user_image');
         if ($image) {
-            $tmpFilePath = 'uploads/news/';
+            $tmpFilePath = 'upload/news/';
             $hardPath =  Str::slug('news', '-').'-'.md5(time());
             $img = Image::make($image);
             $img1 = Image::make($image);
@@ -122,7 +122,7 @@ class NewsController extends Controller
                     list($type, $data) = explode(';', $data);
                     list(, $data)      = explode(',', $data);
                     $data = base64_decode($data);
-                    $image_name= "/uploads/news/description_image/uz_" . time().$k.'.jpg';
+                    $image_name= "/upload/news/description_image/uz_" . time().$k.'.jpg';
                     $path = public_path() . $image_name;
                     file_put_contents($path, $data);
                     $img->removeAttribute('src');
@@ -144,7 +144,7 @@ class NewsController extends Controller
                     list($type, $data) = explode(';', $data);
                     list(, $data)      = explode(',', $data);
                     $data = base64_decode($data);
-                    $image_name= "/uploads/news/description_image/ru_".'_'.time().'.jpg';
+                    $image_name= "/upload/news/description_image/ru_".'_'.time().'.jpg';
                     $path = public_path() . $image_name;
                     file_put_contents($path, $data);
                     $img->removeAttribute('src');
@@ -167,7 +167,7 @@ class NewsController extends Controller
                     list($type, $data) = explode(';', $data);
                     list(, $data)      = explode(',', $data);
                     $data = base64_decode($data);
-                    $image_name= "/uploads/news/description_image/en_".'_'.time().'.jpg';
+                    $image_name= "/upload/news/description_image/en_".'_'.time().'.jpg';
                     $path = public_path() . $image_name;
                     file_put_contents($path, $data);
                     $img->removeAttribute('src');
@@ -245,12 +245,12 @@ class NewsController extends Controller
         'title_uz' => 'required',
         );
 
-        if (!file_exists('uploads/news')) {
-            mkdir('uploads/news', 0777, true);
+        if (!file_exists('upload/news')) {
+            mkdir('upload/news', 0777, true);
         }
 
-        if (!file_exists('uploads/news/description_image')) {
-            mkdir('uploads/news/description_image', 0777, true);
+        if (!file_exists('upload/news/description_image')) {
+            mkdir('upload/news/description_image', 0777, true);
         }
 
 
@@ -292,7 +292,7 @@ class NewsController extends Controller
 
         $image = $request->file('user_image');
         if ($image) {
-            $tmpFilePath = 'uploads/news/';
+            $tmpFilePath = 'upload/news/';
             $hardPath =  Str::slug('news', '-').'-'.md5(time());
             $img = Image::make($image);
             $img1 = Image::make($image);
@@ -312,7 +312,7 @@ class NewsController extends Controller
                     list($type, $data) = explode(';', $data);
                     list(, $data)      = explode(',', $data);
                     $data = base64_decode($data);
-                    $image_name= "/uploads/news/description_image/uz_" . time().$k.'.jpg';
+                    $image_name= "/upload/news/description_image/uz_" . time().$k.'.jpg';
                     $path = public_path() . $image_name;
                     file_put_contents($path, $data);
                     $img->removeAttribute('src');
@@ -334,7 +334,7 @@ class NewsController extends Controller
                     list($type, $data) = explode(';', $data);
                     list(, $data)      = explode(',', $data);
                     $data = base64_decode($data);
-                    $image_name= "/uploads/news/description_image/ru_".'_'.time().'.jpg';
+                    $image_name= "/upload/news/description_image/ru_".'_'.time().'.jpg';
                     $path = public_path() . $image_name;
                     file_put_contents($path, $data);
                     $img->removeAttribute('src');
@@ -357,7 +357,7 @@ class NewsController extends Controller
                     list($type, $data) = explode(';', $data);
                     list(, $data)      = explode(',', $data);
                     $data = base64_decode($data);
-                    $image_name= "/uploads/news/description_image/en_".'_'.time().'.jpg';
+                    $image_name= "/upload/news/description_image/en_".'_'.time().'.jpg';
                     $path = public_path() . $image_name;
                     file_put_contents($path, $data);
                     $img->removeAttribute('src');
