@@ -13,9 +13,9 @@ class IndexController extends Controller
 {
     public function home()
     {
-        $news = News::orderBy('created_at', 'desc')->paginate(5);
-        $conferens = Conference::orderBy('created_at', 'desc')->paginate(4);
-        $speakers = Speakers::orderBy('created_at', 'desc')->paginate(5);
+        $news = News::orderBy('created_at', 'desc')->where('is_active','=',1)->paginate(5);
+        $conferens = Conference::orderBy('created_at', 'desc')->where('is_active','=',1)->paginate(4);
+        $speakers = Speakers::orderBy('created_at', 'desc')->where('is_active','=',1)->paginate(5);
         return view('mobile.index', [
             'news' => $news,
             'conferens' => $conferens,
@@ -25,7 +25,7 @@ class IndexController extends Controller
 
     public function newsShow($id)
     {
-        $news = News::orderBy('created_at', 'desc')->paginate(5);
+        $news = News::orderBy('created_at', 'desc')->where('is_active','=',1)->paginate(5);
         $newsShow = News::where(['id' => $id])->first();
         return view('mobile.newsShow', ['newsShow' => $newsShow, 'news' => $news]);
     }
@@ -44,7 +44,7 @@ class IndexController extends Controller
 
     public function youtobe_list()
     {
-        $conferences = Conference::all();
+        $conferences = Conference::where('is_active','=',1)->get();
         return view('mobile.youtobe_list', ['conferences' => $conferences]);
     }
 

@@ -46,12 +46,11 @@
                         {{-- <label for="ticket_serial">Ticket serial</label> --}}
                         <input type="hidden" name="id"  class="form-control" id="id" placeholder="Ticket serial enter" value="{{$userticket->id}}" />
                     </div>
-
                     <div class="mb-3">
                         <label for="user_id">User name</label>
                         <select name="user_id" class="form-control" id="user_id">
                             @foreach ($users as $user)
-                                <option value="{{$user->id}}">{{$user->first_name}}</option>
+                                <option value="{{$user->id}}" @if($user->id==$userticket->user_id) selected @endif>{{$user->first_name}}</option>
                             @endforeach
                         </select>
                     </div>
@@ -59,7 +58,7 @@
                         <label for="archive_id">Archive Year</label>
                         <select name="archive_id" class="form-control" id="archive_id">
                             @foreach ($archives as $archive)
-                                <option value="{{$archive->id}}">{{$archive->year}}</option>
+                                <option @if($archive->id==$userticket->archive_id) selected @endif value="{{$archive->id}}">{{$archive->year}}</option>
                             @endforeach
                         </select>
                     </div>

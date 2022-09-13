@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\News\News;
 use App\Models\News\NewsCategory;
 use App\Models\User;
+use Faker\Core\File;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Str;
@@ -218,6 +219,16 @@ class NewsController extends Controller
             'users' => $users,
             'news_categories' => $news_categories,
         ]);
+    }
+    public function is_active($id){
+        $change=News::find($id);
+        if($change->is_active==1){
+            $change->is_active=0;
+        }else{
+            $change->is_active=1;
+        }
+        $change->save();
+        return redirect()->back();
     }
 
     /**

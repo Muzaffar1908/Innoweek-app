@@ -50,7 +50,7 @@
                         <label for="user_id">Username</label>
                         <select name="user_id" class="form-control" id="user_id">
                             @foreach($users as $user)
-                             <option value="{{$user->id}}">{{$user->first_name}}</option>
+                             <option value="{{$user->id}}" @if($user->id==$news->user_id) selected @endif>{{$user->first_name}}</option>
                             @endforeach
                         </select>
                     </div>
@@ -59,7 +59,7 @@
                         <label for="cat_id">Categoryname</label>
                         <select name="cat_id" class="form-control" id="cat_id">
                             @foreach($news_categories as $news_cat)
-                             <option value="{{$news_cat->id}}">{{$news_cat->title_uz}}</option>
+                             <option value="{{$news_cat->id}}" @if($news_cat->id==$news->cat_id) selected @endif>{{$news_cat->title_uz}}</option>
                             @endforeach
                         </select>
                     </div>

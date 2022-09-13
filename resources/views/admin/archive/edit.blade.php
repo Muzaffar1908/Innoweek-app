@@ -50,11 +50,11 @@
                         <label for="user_id">Username</label>
                         <select name="user_id" class="form-control" id="user_id">
                             @foreach($users as $user)
-                             <option value="{{$user->id}}">{{$user->first_name}}</option>
+                             <option value="{{$user->id}}" @if($user->id==$archive->user_id) selected @endif>{{$user->first_name}}</option>
                             @endforeach
                         </select>
                     </div>
-                    
+
                     <div class="mb-3">
                         <label for="year">Year</label>
                         <input type="text" name="year" class="form-control" id="year" placeholder="Year" value="{{$archive->year}}">
@@ -85,14 +85,14 @@
                 </form>
                 </div>
             </div>
-          
+
 
         </div>
      </div>
   </div>
 
-@endsection  
+@endsection
 
 
 
-    
+

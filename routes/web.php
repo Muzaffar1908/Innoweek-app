@@ -51,6 +51,8 @@ Route::prefix('admin')->name('admin.')->group(function(){
     Route::POST('/archive/isactive/{id}',[ArchiveController::class,'is_active']);
     Route::POST('/conference/isactive/{id}',[ConferenceController::class,'is_active']);
     Route::POST('/user/isactive/{id}',[UserController::class,'is_active']);
+    Route::POST('/speaker/isactive/{id}',[SpeakerController::class,'is_active']);
+    Route::POST('/speaker/isactive/{id}',[SpeakerController::class,'is_active']);
 
 });
 
@@ -97,8 +99,8 @@ Route::group(['prefix' => 'mobile-v'], function () {
     });
 
     // API route for logout user
-    Route::post('/logout', [AuthController::class, 'logout']);
 });
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 
 

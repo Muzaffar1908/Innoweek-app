@@ -40,6 +40,16 @@ class SpeakerController extends Controller
         return view('admin.speaker.create', compact('archives','users'));
     }
 
+    public function is_active($id){
+        $change=Speakers::find($id);
+        if($change->is_active==1){
+            $change->is_active=0;
+        }else{
+            $change->is_active=1;
+        }
+        $change->save();
+        return redirect()->back();
+    }
     /**
      * Store a newly created resource in storage.
      *

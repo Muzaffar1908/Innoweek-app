@@ -13,7 +13,11 @@
 						<i class="ri-arrow-left-s-line"></i>
 						{{__('MYPROFILE')}}
 					</a>
-				</h2>
+                </h2>
+                <form action="{{route('logout')}}" method="POST" >
+                    @csrf
+                    <button type="submit"  class="logout-btn">{{__('Logout')}}</button>
+                </form>
 			</div>
 		</div>
 	</div>
