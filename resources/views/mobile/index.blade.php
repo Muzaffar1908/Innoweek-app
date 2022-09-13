@@ -118,8 +118,8 @@
                          src="{{asset('uploads/news/' .$new->user_image.'-d.png')}}" alt="">
                 </a>
                 <div class="features-content">
-                    <h3>{!! substr($new->{'title_'.App::getLocale()},0,50).'...' !!}</h3>
-                    <p>{!! substr($new->{'description_'.App::getLocale()},0,50).'...' !!}
+                    <h3>{!! substr($new->{'title_'.App::getLocale()},0,90).'...' !!}</h3>
+                    <p>{!! substr($new->{'description_'.App::getLocale()},0,90).'...' !!}
                     </p>
                 </div>
             </div>
