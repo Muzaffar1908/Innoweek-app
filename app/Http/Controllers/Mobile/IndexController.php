@@ -85,6 +85,10 @@ class IndexController extends Controller
     {
         return view('mobile.setting');
     }
+    public function isregqr($id)
+    {
+
+    }
 
 
 }
