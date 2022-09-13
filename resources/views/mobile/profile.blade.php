@@ -12,9 +12,13 @@
 					<a href="{{route('m-home')}}">
 						<i class="ri-arrow-left-s-line"></i>
 						{{__('MYPROFILE')}}
-						<i class="ri-logout-box-r-line log-icon"></i>
 					</a>
+					
                 </h2>
+                <form action="{{route('logout')}}" method="POST" >
+                    @csrf
+                    <button type="submit"  class="logout-btn"><i class="ri-logout-box-r-line log-icon"></i></button>
+                </form>
 			</div>
 		</div>
 	</div>
