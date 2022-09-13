@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Archive\Speakers;
 use App\Models\Conference;
 use App\Models\News\News;
+use App\Models\UserTicket;
 use Illuminate\Http\Request;
 use Illuminate\View\ViewName;
 
@@ -87,7 +88,8 @@ class IndexController extends Controller
     }
     public function isregqr($id)
     {
-
+        $ids=UserTicket::where(['user_id'=>$id]);
+        return view('mobile.isregqr',['id'=>$ids]);
     }
 
 

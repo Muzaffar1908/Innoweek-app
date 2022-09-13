@@ -76,7 +76,7 @@ Route::group(['prefix' => 'mobile-v'], function () {
         Route::get('/youtobe-list', 'youtobe_list')->name('m-youtobe_list');
         Route::get('/youtobe/{id}', 'youtobe')->name('m-youtobe');
         Route::post('/profile/update/{id}', [UserController::class, 'profileUpdate']);
-        Route::post('/isregqr/{id}', [UserController::class, 'isregqr']);
+        Route::get('/isregqr/{id}', 'isregqr')->name('isregqr');
     });
 
      Route::controller(AuthController::class)->group(function () {
