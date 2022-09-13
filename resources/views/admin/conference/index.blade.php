@@ -70,7 +70,7 @@
                                     <td>{{$conference->title_uz}}</td>
                                     <td>{{$conference->live_url}}</td>
                                       <td>
-                                          <img src="{{asset('uploads/conference/' .$conference->user_image.'-d.png')}}" alt="img" with="100px" height="60px">
+                                          <img src="{{asset('upload/conference/' .$conference->user_image.'-d.png')}}" alt="img" with="100px" height="60px">
                                       </td>
                                     <td>{!!Str::limit(strip_tags($conference->description_uz),20)!!}</td>
                                     <td>

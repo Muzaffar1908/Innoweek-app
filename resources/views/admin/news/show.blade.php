@@ -30,7 +30,7 @@
                     <tr>
                         <th>User image</th>
                         <td>
-                            <img src="{{asset('uploads/news/' .$news->user_image.'-d.png')}}" alt="img" with="100px" height="60px">
+                            <img src="{{asset('upload/news/' .$news->user_image.'-d.png')}}" alt="img" with="100px" height="60px">
                         </td>
                     </tr>
                     <tr>

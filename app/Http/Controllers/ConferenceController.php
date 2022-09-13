@@ -67,12 +67,12 @@ class ConferenceController extends Controller
           'live_url' => 'required',
         );
 
-        if (!file_exists('uploads/conference')) {
-            mkdir('uploads/conference', 0777, true);
+        if (!file_exists('upload/conference')) {
+            mkdir('upload/conference', 0777, true);
         }
 
-        if (!file_exists('uploads/conference/description_image')) {
-            mkdir('uploads/conference/description_image', 0777, true);
+        if (!file_exists('upload/conference/description_image')) {
+            mkdir('upload/conference/description_image', 0777, true);
         }
 
         $validator = Validator::make($data, $rule);
@@ -101,8 +101,8 @@ class ConferenceController extends Controller
 
        $image = $request->file('user_image');
         if ($image) {
-         
-            $tmpFilePath = 'uploads/conference/';
+
+            $tmpFilePath = 'upload/conference/';
             $hardPath =  Str::slug('conference', '-').'-'.md5(time());
             $img = Image::make($image);
             $img1 = Image::make($image);
@@ -124,7 +124,7 @@ class ConferenceController extends Controller
                     list($type, $data) = explode(';', $data);
                     list(, $data)      = explode(',', $data);
                     $data = base64_decode($data);
-                    $image_name= "/uploads/conference/description_image/uz_" . time().$k.'.jpg';
+                    $image_name= "/upload/conference/description_image/uz_" . time().$k.'.jpg';
                     $path = public_path() . $image_name;
                     file_put_contents($path, $data);
                     $img->removeAttribute('src');
@@ -146,7 +146,7 @@ class ConferenceController extends Controller
                     list($type, $data) = explode(';', $data);
                     list(, $data)      = explode(',', $data);
                     $data = base64_decode($data);
-                    $image_name= "/uploads/conference/description_image/ru_".'_'.time().'.jpg';
+                    $image_name= "/upload/conference/description_image/ru_".'_'.time().'.jpg';
                     $path = public_path() . $image_name;
                     file_put_contents($path, $data);
                     $img->removeAttribute('src');
@@ -169,7 +169,7 @@ class ConferenceController extends Controller
                     list($type, $data) = explode(';', $data);
                     list(, $data)      = explode(',', $data);
                     $data = base64_decode($data);
-                    $image_name= "/uploads/conference/description_image/en_".'_'.time().'.jpg';
+                    $image_name= "/upload/conference/description_image/en_".'_'.time().'.jpg';
                     $path = public_path() . $image_name;
                     file_put_contents($path, $data);
                     $img->removeAttribute('src');
@@ -241,12 +241,12 @@ class ConferenceController extends Controller
           'live_url' => 'required',
         );
 
-        if (!file_exists('uploads/conference')) {
-            mkdir('uploads/conference', 0777, true);
+        if (!file_exists('upload/conference')) {
+            mkdir('upload/conference', 0777, true);
         }
 
-        if (!file_exists('uploads/conference/description_image')) {
-            mkdir('uploads/conference/description_image', 0777, true);
+        if (!file_exists('upload/conference/description_image')) {
+            mkdir('upload/conference/description_image', 0777, true);
         }
 
         $validator = Validator::make($data, $rule);
@@ -275,7 +275,7 @@ class ConferenceController extends Controller
 
         $image = $request->file('user_image');
         if ($image) {
-            $tmpFilePath = 'uploads/conference/';
+            $tmpFilePath = 'upload/conference/';
             $hardPath =  Str::slug('conference', '-').'-'.md5(time());
             $img = Image::make($image);
             $img1 = Image::make($image);
@@ -297,7 +297,7 @@ class ConferenceController extends Controller
                     list($type, $data) = explode(';', $data);
                     list(, $data)      = explode(',', $data);
                     $data = base64_decode($data);
-                    $image_name= "/uploads/conference/description_image/uz_" . time().$k.'.jpg';
+                    $image_name= "/upload/conference/description_image/uz_" . time().$k.'.jpg';
                     $path = public_path() . $image_name;
                     file_put_contents($path, $data);
                     $img->removeAttribute('src');
@@ -319,7 +319,7 @@ class ConferenceController extends Controller
                     list($type, $data) = explode(';', $data);
                     list(, $data)      = explode(',', $data);
                     $data = base64_decode($data);
-                    $image_name= "/uploads/conference/description_image/ru_".'_'.time().'.jpg';
+                    $image_name= "/upload/conference/description_image/ru_".'_'.time().'.jpg';
                     $path = public_path() . $image_name;
                     file_put_contents($path, $data);
                     $img->removeAttribute('src');
@@ -342,7 +342,7 @@ class ConferenceController extends Controller
                     list($type, $data) = explode(';', $data);
                     list(, $data)      = explode(',', $data);
                     $data = base64_decode($data);
-                    $image_name= "/uploads/conference/description_image/en_".'_'.time().'.jpg';
+                    $image_name= "/upload/conference/description_image/en_".'_'.time().'.jpg';
                     $path = public_path() . $image_name;
                     file_put_contents($path, $data);
                     $img->removeAttribute('src');

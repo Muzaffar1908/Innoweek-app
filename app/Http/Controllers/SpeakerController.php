@@ -62,11 +62,11 @@ class SpeakerController extends Controller
         $rule = array(
             'full_name' => 'required',
         );
-        if (!file_exists('uploads/speaker')) {
-            mkdir('uploads/speaker', 0777, true);
+        if (!file_exists('upload/speaker')) {
+            mkdir('upload/speaker', 0777, true);
         }
-        if (!file_exists('uploads/speaker/description_image')) {
-            mkdir('uploads/speaker/description_image', 0777, true);
+        if (!file_exists('upload/speaker/description_image')) {
+            mkdir('upload/speaker/description_image', 0777, true);
         }
 
         $validator = Validator::make($data, $rule);
@@ -95,7 +95,7 @@ class SpeakerController extends Controller
 
         $image = $request->file('image');
         if ($image) {
-            $tmpFilePath = 'uploads/speaker/';
+            $tmpFilePath = 'upload/speaker/';
             $hardPath =  Str::slug('speaker', '-').'-'.md5(time());
             $img = Image::make($image);
             $img1 = Image::make($image);
@@ -115,7 +115,7 @@ class SpeakerController extends Controller
                     list($type, $data) = explode(';', $data);
                     list(, $data) = explode(',', $data);
                     $data = base64_decode($data);
-                    $image_name = "/uploads/speaker/description_image/uz_" . time() . $k . '.jpg';
+                    $image_name = "/upload/speaker/description_image/uz_" . time() . $k . '.jpg';
                     $path = public_path() . $image_name;
                     file_put_contents($path, $data);
                     $img->removeAttribute('src');
@@ -137,7 +137,7 @@ class SpeakerController extends Controller
                     list($type, $data) = explode(';', $data);
                     list(, $data) = explode(',', $data);
                     $data = base64_decode($data);
-                    $image_name = "/uploads/speaker/description_image/ru_" . '_' . time() . '.jpg';
+                    $image_name = "/upload/speaker/description_image/ru_" . '_' . time() . '.jpg';
                     $path = public_path() . $image_name;
                     file_put_contents($path, $data);
                     $img->removeAttribute('src');
@@ -159,7 +159,7 @@ class SpeakerController extends Controller
                     list($type, $data) = explode(';', $data);
                     list(, $data) = explode(',', $data);
                     $data = base64_decode($data);
-                    $image_name = "/uploads/speaker/description_image/en_" . '_' . time() . '.jpg';
+                    $image_name = "/upload/speaker/description_image/en_" . '_' . time() . '.jpg';
                     $path = public_path() . $image_name;
                     file_put_contents($path, $data);
                     $img->removeAttribute('src');
@@ -252,7 +252,7 @@ class SpeakerController extends Controller
         $image = $request->file('image');
 
         if ($image) {
-            $tmpFilePath = 'uploads/speaker/';
+            $tmpFilePath = 'upload/speaker/';
             $hardPath =  Str::slug('speaker', '-').'-'.md5(time());
             $img = Image::make($image);
             $img1 = Image::make($image);
@@ -272,7 +272,7 @@ class SpeakerController extends Controller
                     list($type, $data) = explode(';', $data);
                     list(, $data) = explode(',', $data);
                     $data = base64_decode($data);
-                    $image_name = "/uploads/speaker/description_image/uz_" . time() . $k . '.jpg';
+                    $image_name = "/upload/speaker/description_image/uz_" . time() . $k . '.jpg';
                     $path = public_path() . $image_name;
                     file_put_contents($path, $data);
                     $img->removeAttribute('src');
@@ -294,7 +294,7 @@ class SpeakerController extends Controller
                     list($type, $data) = explode(';', $data);
                     list(, $data) = explode(',', $data);
                     $data = base64_decode($data);
-                    $image_name = "/uploads/speaker/description_image/ru_" . '_' . time() . '.jpg';
+                    $image_name = "/upload/speaker/description_image/ru_" . '_' . time() . '.jpg';
                     $path = public_path() . $image_name;
                     file_put_contents($path, $data);
                     $img->removeAttribute('src');
@@ -316,7 +316,7 @@ class SpeakerController extends Controller
                     list($type, $data) = explode(';', $data);
                     list(, $data) = explode(',', $data);
                     $data = base64_decode($data);
-                    $image_name = "/uploads/speaker/description_image/en_" . '_' . time() . '.jpg';
+                    $image_name = "/upload/speaker/description_image/en_" . '_' . time() . '.jpg';
                     $path = public_path() . $image_name;
                     file_put_contents($path, $data);
                     $img->removeAttribute('src');

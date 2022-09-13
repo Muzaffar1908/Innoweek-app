@@ -25,7 +25,7 @@
                     <tr>
                         <th>Image</th>
                         <td>
-                            <img src="{{asset('uploads/speaker/' .$speaker->image.'-d.png')}}" alt="img" with="100px" height="60px">
+                            <img src="{{asset('upload/speaker/' .$speaker->image.'-d.png')}}" alt="img" with="100px" height="60px">
                         </td>
                     </tr>
                     <tr>

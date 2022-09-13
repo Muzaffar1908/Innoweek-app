@@ -26,8 +26,8 @@
                 <h2 style="text-align: center; margin: 10px 0;">{!! $newsShow->{'title_'.App::getLocale()} !!}</h2>
             </div>
             <div class="single-card-item p-0 bg-transparent">
-                <a href="{{asset('uploads/news/' .$newsShow->user_image.'-d.png')}}">
-                    <img src="{{asset('uploads/news/' .$newsShow->user_image.'-d.png')}}" alt="Images">
+                <a href="{{asset('upload/news/' .$newsShow->user_image.'-d.png')}}">
+                    <img src="{{asset('upload/news/' .$newsShow->user_image.'-d.png')}}" alt="Images">
                 </a>
                 <ul class="d-flex align-items-center justify-content-between">
                     <li class="d-flex align-items-center">
@@ -52,7 +52,7 @@
                     <div class="img-news">
                         <a href="{{route('newsShow',['id'=>$new->id])}}">
                             <img width="300px" style=" height: 100px; object-fit: cover;"
-                                 src="{{asset('uploads/news/' .$new->user_image.'-d.png')}}" alt="Image">
+                                 src="{{asset('upload/news/' .$new->user_image.'-d.png')}}" alt="Image">
                         </a>
                     </div>
                     <div class="title-news ps-3">

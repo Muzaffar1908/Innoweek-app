@@ -87,7 +87,7 @@ class ArchiveController extends Controller
                     list($type, $data) = explode(';', $data);
                     list(, $data)      = explode(',', $data);
                     $data = base64_decode($data);
-                    $image_name= "/uploads/archive/uz_" . time().$k.'.jpg';
+                    $image_name= "/upload/archive/uz_" . time().$k.'.jpg';
                     $path = public_path() . $image_name;
                     file_put_contents($path, $data);
                     $img->removeAttribute('src');
@@ -109,7 +109,7 @@ class ArchiveController extends Controller
                     list($type, $data) = explode(';', $data);
                     list(, $data)      = explode(',', $data);
                     $data = base64_decode($data);
-                    $image_name= "/uploads/archive/ru_".'_'.time().'.jpg';
+                    $image_name= "/upload/archive/ru_".'_'.time().'.jpg';
                     $path = public_path() . $image_name;
                     file_put_contents($path, $data);
                     $img->removeAttribute('src');
@@ -131,7 +131,7 @@ class ArchiveController extends Controller
                     list($type, $data) = explode(';', $data);
                     list(, $data)      = explode(',', $data);
                     $data = base64_decode($data);
-                    $image_name= "/uploads/archive/en_".'_'.time().'.jpg';
+                    $image_name= "/upload/archive/en_".'_'.time().'.jpg';
                     $path = public_path() . $image_name;
                     file_put_contents($path, $data);
                     $img->removeAttribute('src');
@@ -227,7 +227,7 @@ class ArchiveController extends Controller
                     list($type, $data) = explode(';', $data);
                     list(, $data)      = explode(',', $data);
                     $data = base64_decode($data);
-                    $image_name= "/uploads/archive/uz_" . time().$k.'.jpg';
+                    $image_name= "/upload/archive/uz_" . time().$k.'.jpg';
                     $path = public_path() . $image_name;
                     file_put_contents($path, $data);
                     $img->removeAttribute('src');
@@ -249,7 +249,7 @@ class ArchiveController extends Controller
                     list($type, $data) = explode(';', $data);
                     list(, $data)      = explode(',', $data);
                     $data = base64_decode($data);
-                    $image_name= "/uploads/archive/ru_".'_'.time().'.jpg';
+                    $image_name= "/upload/archive/ru_".'_'.time().'.jpg';
                     $path = public_path() . $image_name;
                     file_put_contents($path, $data);
                     $img->removeAttribute('src');
@@ -271,7 +271,7 @@ class ArchiveController extends Controller
                     list($type, $data) = explode(';', $data);
                     list(, $data)      = explode(',', $data);
                     $data = base64_decode($data);
-                    $image_name= "/uploads/archive/en_".'_'.time().'.jpg';
+                    $image_name= "/upload/archive/en_".'_'.time().'.jpg';
                     $path = public_path() . $image_name;
                     file_put_contents($path, $data);
                     $img->removeAttribute('src');

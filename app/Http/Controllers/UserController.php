@@ -53,8 +53,8 @@ class UserController extends Controller
           'phone' => 'required',
          );
 
-        if (!file_exists('uploads/config')) {
-            mkdir('uploads/config', 0777, true);
+        if (!file_exists('upload/config')) {
+            mkdir('upload/config', 0777, true);
         }
 
          $validator = Validator::make($data, $rule);
@@ -88,9 +88,9 @@ class UserController extends Controller
             $file = $request->file('user_image');
             $ex = $file->getClientOriginalExtension();
             $imageName = md5(rand(100, 999999) . microtime()) . "." . $ex;
-            $file->move(public_path('uploads/config'), $imageName);
+            $file->move(public_path('upload/config'), $imageName);
             // unlink($userticket->ticket_image);
-            $data['user_image'] = 'uploads/config/' . $imageName;
+            $data['user_image'] = 'upload/config/' . $imageName;
             $users->user_image = $data['user_image'];
         }
 
@@ -126,8 +126,8 @@ class UserController extends Controller
           'password' => 'required',
          );
 
-        if (!file_exists('uploads/config')) {
-            mkdir('uploads/config', 0777, true);
+        if (!file_exists('upload/config')) {
+            mkdir('upload/config', 0777, true);
         }
 
          $validator = Validator::make($data, $rule);
@@ -162,11 +162,11 @@ class UserController extends Controller
             $file = $request->file('user_image');
             $ex = $file->getClientOriginalExtension();
             $imageName = md5(rand(100, 999999) . microtime()) . "." . $ex;
-            $file->move(public_path('uploads/config'), $imageName);
+            $file->move(public_path('upload/config'), $imageName);
             // unlink($userticket->ticket_image);
-            $data['user_image'] = 'uploads/config/' . $imageName;
+            $data['user_image'] = 'upload/config/' . $imageName;
         }
-         $users->user_image ='uploads/config/'.$imageName;
+         $users->user_image ='upload/config/'.$imageName;
          $users->save();
 
          if (!empty($inputs['id'])) {
@@ -221,8 +221,8 @@ class UserController extends Controller
           'phone' => 'required',
          );
 
-        if (!file_exists('uploads/config')) {
-            mkdir('uploads/config', 0777, true);
+        if (!file_exists('upload/config')) {
+            mkdir('upload/config', 0777, true);
         }
 
          $validator = Validator::make($data, $rule);
@@ -256,11 +256,11 @@ class UserController extends Controller
             $file = $request->file('user_image');
             $ex = $file->getClientOriginalExtension();
             $imageName = md5(rand(100, 999999) . microtime()) . "." . $ex;
-            $file->move(public_path('uploads/config'), $imageName);
+            $file->move(public_path('upload/config'), $imageName);
             // unlink($userticket->ticket_image);
-            $data['user_image'] = 'uploads/config/' . $imageName;
+            $data['user_image'] = 'upload/config/' . $imageName;
         }
-         $users->user_image = 'uploads/config/'.$imageName;
+         $users->user_image = 'upload/config/'.$imageName;
          $users->save();
 
          if (!empty($inputs['id'])) {

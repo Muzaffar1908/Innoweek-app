@@ -115,7 +115,7 @@
             <div class="single-features card-bg-a1dbd2">
                 <a href="{{route('newsShow',['id'=>$new->id])}}">
                     <img style="object-fit: cover; width: 100%; height: 230px;"
-                         src="{{asset('uploads/news/' .$new->user_image.'-d.png')}}" alt="">
+                         src="{{asset('upload/news/' .$new->user_image.'-d.png')}}" alt="">
                 </a>
                 <div class="features-content">
                     <h3>{!! substr($new->{'title_'.App::getLocale()},0,50).'...' !!}</h3>
@@ -137,7 +137,7 @@
         @foreach($conferens as $conf)
         <a href="{{route('conferensShow',['id'=>$conf->id])}}">
             <div class="components-support d-flex align-items-center mb-4">
-                <img src="{{asset('uploads/conference/' .$conf->user_image.'-d.png')}}" alt="Images">
+                <img src="{{asset('upload/conference/' .$conf->user_image.'-d.png')}}" alt="Images">
                 <div class="components-content">
                     <h6>{!! $conf->{'title_'.App::getLocale()} !!}</h6>
 
@@ -166,7 +166,7 @@
                 <a href="{{route('speakerShow',['id'=>$speaker->id])}}">
                     <img style="margin-right: 0; margin-top: 10px; width: 100%;
 					height: 180px;
-					object-fit: cover; border-radius: 5px;" src="{{asset('uploads/speaker/' .$speaker->image.'-d.png')}}" alt="Images">
+					object-fit: cover; border-radius: 5px;" src="{{asset('upload/speaker/' .$speaker->image.'-d.png')}}" alt="Images">
                 </a>
                 <div class="customer-content d-flex flex-column align-items-center">
                     <h4 style="margin-top: 10px; text-align: center; font-size: 15px;">{{$speaker->full_name}}</h4>
