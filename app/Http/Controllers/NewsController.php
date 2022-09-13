@@ -98,6 +98,7 @@ class NewsController extends Controller
         $news->title_en = $inputs['title_en'];
         $news->tags = $inputs['tags'];
 
+
         $news->description_uz = $inputs['description_uz'];
 
         $image = $request->file('user_image');
