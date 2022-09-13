@@ -18,8 +18,8 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained('users')->onDelete('restrict');
             $table->foreignId('archive_id')->constrained('archives')->onDelete('restrict');
             $table->string('ticket_id');
-            $table->string('user_image')->nullable()->default('upload/config/ticket.png');
             $table->boolean('is_active')->nullable()->default(true);
+            $table->boolean('is_delete')->nullable()->default(false);
             $table->timestamps();
         });
     }
