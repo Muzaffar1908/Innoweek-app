@@ -24,7 +24,7 @@
            </h2>
         @if (auth()->check())
             <h2 style="text-align: center; margin-top: 1rem;">
-                {!! QrCode::size(300)->generate(Auth::user()->first_name.' '. Auth::user()->last_name) !!}
+                {!! QrCode::size(300)->generate(\http\Env::class.Auth::user()->id) !!}
 
             </h2>
             <h2 style="text-align: center; margin-top: 1rem;">
