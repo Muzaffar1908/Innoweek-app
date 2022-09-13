@@ -30,7 +30,7 @@
                 <ul class="d-flex align-items-center justify-content-between">
                     <li class="d-flex align-items-center">
                         <i style="font-size: 18px;" class="fa-solid fa-calendar-days"></i>
-                        <p> {{$conferensShow->started_at}}</p>
+                        <p> {{$conferensShow->created_at->format('Y:m:d')}}</p>
                     </li>
 
                 </ul>

@@ -143,7 +143,7 @@
 
                     <div class="icon d-flex align-items-center">
                         <i class="fa-solid fa-calendar-days"></i>
-                        <p>{{$conf->started_at}}</p>
+                        <p>{{$conf->created_at->format('Y:m:d')}}</p>
                     </div>
 
                 </div>

@@ -44,7 +44,7 @@ class IndexController extends Controller
 
     public function youtobe_list()
     {
-        $conferences = Conference::where('is_active','=',1)->all();
+        $conferences = Conference::where('is_active','=',1)->get();
         return view('mobile.youtobe_list', ['conferences' => $conferences]);
     }
 
