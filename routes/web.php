@@ -2,9 +2,10 @@
 
 use App\Http\Controllers\ArchiveController;
 use App\Http\Controllers\ConferenceController;
+use App\Http\Controllers\Mobile\IndexController;
 use App\Http\Controllers\SpeakerController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Mobile\IndexController;
+
 use App\Http\Controllers\Mobile\AuthController;
 use App\Http\Controllers\NewsCategoryController;
 use App\Http\Controllers\NewsController;
