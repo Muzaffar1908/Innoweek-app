@@ -14,6 +14,7 @@ class Conference extends Model
         'user_id',
         'archive_id',
         'started_at',
+        'stoped_at',
         'title_uz',
         'title_ru',
         'title_en',
@@ -22,6 +23,7 @@ class Conference extends Model
         'description_en',
         'description_ru',
         'description_uz',
+        'address',
         'is_active',
     ];
 

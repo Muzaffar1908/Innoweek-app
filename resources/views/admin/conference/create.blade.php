@@ -67,6 +67,11 @@
                     </div>
 
                     <div class="mb-3">
+                        <label for="stoped_at">Stoped At</label>
+                        <input type="date" name="stoped_at" class="form-control" id="stoped_at" placeholder="Stoped At enter" value="{{old('stoped_at')}}" />
+                    </div>
+
+                    <div class="mb-3">
                         <label for="title_uz">Title uz</label>
                         <input type="text" name="title_uz" class="form-control" id="title_uz" placeholder="Title uz enter" value="{{old('title_uz')}}" />
                     </div>
@@ -89,6 +94,11 @@
                     <div class="mb-3">
                         <label for="user_image">User image</label>
                         <input type="file" name="user_image"  class="form-control" id="user_image" placeholder="User image enter" />
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="address">Address</label>
+                        <input type="text" name="address"  class="form-control" id="address" placeholder="Address enter" value="{{old('address')}}" />
                     </div>
 
                     <div class="mb-3">

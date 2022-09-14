@@ -92,10 +92,12 @@ class ConferenceController extends Controller
         $conferences->user_id = $inputs['user_id'];
         $conferences->archive_id = $inputs['archive_id'];
         $conferences->started_at = $inputs['started_at'];
+        $conferences->stoped_at = $inputs['stoped_at'];
         $conferences->title_uz = $inputs['title_uz'];
         $conferences->title_ru = $inputs['title_ru'];
         $conferences->title_en = $inputs['title_en'];
         $conferences->live_url = $inputs['live_url'];
+        $conferences->address = $inputs['address'];
 
         $conferences->description_uz = $inputs['description_uz'];
 
@@ -266,10 +268,12 @@ class ConferenceController extends Controller
         $conferences->user_id = $inputs['user_id'];
         $conferences->archive_id = $inputs['archive_id'];
         $conferences->started_at = $inputs['started_at'];
+        $conferences->stoped_at = $inputs['stoped_at'];
         $conferences->title_uz = $inputs['title_uz'];
         $conferences->title_ru = $inputs['title_ru'];
         $conferences->title_en = $inputs['title_en'];
         $conferences->live_url = $inputs['live_url'];
+        $conferences->address = $inputs['address'];
 
         $conferences->description_uz = $inputs['description_uz'];
 

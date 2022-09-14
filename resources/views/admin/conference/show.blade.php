@@ -19,6 +19,10 @@
                         <td>{{$conference->started_at}}</td>
                     </tr>
                     <tr>
+                        <th>Stoped At</th>
+                        <td>{{$conference->stoped_at}}</td>
+                    </tr>
+                    <tr>
                         <th>Title uz</th>
                         <td>{{$conference->title_uz}}</td>
                     </tr>
@@ -39,6 +43,10 @@
                         <td>
                             <img src="{{asset('upload/conference/' .$conference->user_image.'-d.png')}}" alt="img" with="100px" height="60px">
                         </td>
+                    </tr>
+                    <tr>
+                        <th>Address</th>
+                        <td>{{$conference->address}}</td>
                     </tr>
                     <tr>
                         <th>Description uz</th>
