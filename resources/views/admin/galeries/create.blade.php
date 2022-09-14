@@ -39,7 +39,7 @@
                     @csrf
 
                     <div class="mb-3">
-                        <label for="image">image</label>
+                        <label for="image">Image</label>
                         <input type="file" name="image"  class="form-control" id="image" placeholder=" image enter" />
                     </div>
 

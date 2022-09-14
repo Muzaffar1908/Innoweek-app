@@ -51,6 +51,7 @@
                                     <tr>
                                         <th>№</th>
                                         <th>Image</th>
+                                        <th>Action</th>
                                     </tr>
                                     </thead>
                                     @foreach ($galeries as $galerie)
