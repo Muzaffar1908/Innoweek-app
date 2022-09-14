@@ -64,12 +64,12 @@
 
                     <div class="mb-3">
                         <label for="started_at">Started At</label>
-                        <input type="date" name="started_at" class="form-control" id="started_at" placeholder="Started At enter" value="{{$conference->started_at}}" />
+                        <input type="datetime-local" name="started_at" class="form-control" id="started_at" placeholder="Started At enter" value="{{$conference->started_at}}" />
                     </div>
 
                     <div class="mb-3">
                         <label for="stoped_at">Stoped At</label>
-                        <input type="date" name="stoped_at" class="form-control" id="stoped_at" placeholder="Stoped At enter" value="{{$conference->stoped_at}}" />
+                        <input type="datetime-local" name="stoped_at" class="form-control" id="stoped_at" placeholder="Stoped At enter" value="{{$conference->stoped_at}}" />
                     </div>
 
                     <div class="mb-3">
