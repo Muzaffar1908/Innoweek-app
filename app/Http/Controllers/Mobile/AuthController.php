@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Mobile;
 
 use App\Http\Controllers\Controller;
+use App\Models\UserTicket;
 use Illuminate\Http\Request;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
@@ -159,6 +160,7 @@ class AuthController extends Controller
             $user = User::findOrFail($inputs['id']);
         } else {
             $user = new User;
+
         }
 
         $user->first_name = $inputs['first_name'];
@@ -166,15 +168,24 @@ class AuthController extends Controller
         $user->phone = $inputs['email'] ?? $inputs['phone'];
         $user->birth_date = Carbon::parse($inputs['birth_date']);
         $user->password = Hash::make(Str::random(12));
+
+
         $sentSMS = self::SendSMSVerify($user->phone);
         if ($sentSMS) {
             $user->save();
+            $userticket= new UserTicket();
+            $userticket->user_id=$user->id;
+            $userticket->ticket_id=$user->id+1000;
+            $userticket->archive_id=1;
+//        @dd($userticket->all());
+            $userticket->save();
             session([
                 'userID' => $user->id,
             ]);
             \Session::flash('warning', __('ALL_SUCCESSFUL_SAVED'));
             return redirect()->route('m-verify');
         }
+
 
         \Session::flash('warning', "Ma'lumotlar xato kiritilgan...");
         return \Redirect::back();

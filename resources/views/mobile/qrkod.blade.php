@@ -24,7 +24,7 @@
            </h2>
         @if (auth()->check())
             <h2 style="text-align: center; margin-top: 1rem;">
-                {!! QrCode::size(300)->generate(Auth::user()->first_name.' '. Auth::user()->last_name) !!}
+                {!! QrCode::size(300)->generate(config('app.url').'/mobile-v/isregqr/'.Auth::user()->id) !!}
 
             </h2>
             <h2 style="text-align: center; margin-top: 1rem;">
@@ -39,17 +39,7 @@
 
             </h2>
          @endif
-{{--        <div class="container mt-4">--}}
-{{--            <div class="card">--}}
-{{--                <div class="card-header">--}}
-{{--                    <h2>Simple QR Code</h2>--}}
-{{--                </div>--}}
-{{--                <div class="card-body">--}}
-{{--                    {!! QrCode::size(300)->generate('hghgjhgjhghjv') !!}--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--         --}}
-{{--        </div>--}}
+
 @endsection
 
 
