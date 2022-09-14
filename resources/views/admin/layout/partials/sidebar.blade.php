@@ -33,6 +33,7 @@
           <ul aria-expanded="false">
             <li><a href="{{route('admin.news_category.index')}}">News Category</a></li>
             <li><a href="{{route('admin.news.index')}}">News</a></li>
+            <li><a href="{{route('admin.galeries.index')}}">Galeries</a></li>
           </ul>
         </li>
         <li>

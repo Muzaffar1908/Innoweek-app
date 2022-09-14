@@ -7,7 +7,7 @@
             <div class="card">
                 <div class="card-header">
                     <h1 class="card-title">UserTicket</h1>
-                    <a href="{{ route('admin.userticket.create') }}" class="btn btn-success"><i class="bi bi-plus"></i>Add</a>
+                    {{-- <a href="{{ route('admin.userticket.create') }}" class="btn btn-success"><i class="bi bi-plus"></i>Add</a> --}}
                 </div>
 
                 @if (count($errors) > 0)
@@ -48,7 +48,7 @@
                                             <th>№</th>
                                             <th>User name</th>
                                             <th>Archive year</th>
-                                            <th>Ticket image</th>
+                                            <th>Ticket ID</th>
                                             <th>Is Active</th>
                                             <th>Action</th>
                                         </tr>
@@ -59,11 +59,7 @@
                                             </td>
                                             <td>{{ $userticket->usersTable->first_name }}</td>
                                             <td>{{ $userticket->archiveTable->year }}</td>
-
-                                            <td>
-                                                <img src="{{ asset($userticket->user_image) }}" alt="img"
-                                                    with="100px" height="60px">
-                                            </td>
+                                            <td>{{ $userticket->ticket_id }}</td>
                                             <td>
                                                 <form action="{{ asset('/admin/userticket/isactive/' . $userticket->id) }}"
                                                     method="POST" enctype="multipart/form-data">
@@ -89,7 +85,7 @@
                                                 <div class="btn-group">
                                                     {{-- <a href="{{ route('admin.userticket.show', $userticket->id) }}"
                                                         type="button" class="btn btn-info"><i class="bi bi-eye"></i></a> --}}
-                                                    <a href="{{ route('admin.userticket.edit', $userticket->id) }}"
+                                                    {{-- <a href="{{ route('admin.userticket.edit', $userticket->id) }}"
                                                         type="button" class="btn btn-success"><i
                                                             class="bi bi-pencil"></i></a>
                                                     <form action="{{ route('admin.userticket.destroy', $userticket->id) }}"
@@ -100,7 +96,7 @@
                                                             <button type="button" class="btn btn-danger sweet-confirm"><i
                                                                     class="bi bi-trash"></i></button>
                                                         </div>
-                                                    </form>
+                                                    </form> --}}
                                                 </div>
                                             </td>
                                         </tr>

@@ -62,13 +62,9 @@
                         </select>
                     </div>
 
-
-
-
-
                     <div class="mb-3">
-                        <label for="ticket_image">Ticket image</label>
-                        <input type="file" name="ticket_image"  class="form-control" id="ticket_image" placeholder="Ticket image enter" value="{{old('ticket_image')}}" />
+                        <label for="ticket_id">Ticket ID</label>
+                        <input type="text" name="ticket_id"  class="form-control" id="ticket_id" placeholder="Ticket image enter" value="{{old('ticket_id')}}" />
                     </div>
 
                     <button type="submit" class="btn btn-success">Save</button>

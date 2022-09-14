@@ -175,7 +175,7 @@ class AuthController extends Controller
             $user->save();
             $userticket= new UserTicket();
             $userticket->user_id=$user->id;
-            $userticket->ticket_id=$user->id+1000;
+            $userticket->ticket_id=$user->id+1000000;
             $userticket->archive_id=1;
 //        @dd($userticket->all());
             $userticket->save();
