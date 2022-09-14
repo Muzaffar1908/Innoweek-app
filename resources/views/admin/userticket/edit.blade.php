@@ -63,9 +63,8 @@
                         </select>
                     </div>
                     <div class="mb-3">
-                        <label for="ticket_image">Ticket image</label>
-                        <img src="{{asset($userticket->user_image)}}" alt="img" with="100px" height="60px ">
-                        <input type="file" name="ticket_image"  class="form-control" id="ticket_image" placeholder="Ticket image enter" value="{{$userticket->ticket_image}}" />
+                        <label for="ticket_id">Ticket ID</label>
+                        <input type="text" name="ticket_id"  class="form-control" id="ticket_id" placeholder="Ticket image enter" value="{{$userticket->ticket_id}}" />
                     </div>
 
                       <button type="submit" class="btn btn-success">Save</button>

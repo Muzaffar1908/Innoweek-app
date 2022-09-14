@@ -18,7 +18,7 @@
                     <tr>
                         <th>Ticket image</th>
                         <td>
-                            <img src="{{asset($userticket->user_image)}}" alt="img" with="100px" height="60px">
+                            {{$userticket->ticket_id}}
                         </td>
                     </tr>
                 </table>
