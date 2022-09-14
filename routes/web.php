@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ArchiveController;
 use App\Http\Controllers\ConferenceController;
+use App\Http\Controllers\GaleriesController;
 use App\Http\Controllers\Mobile\IndexController;
 use App\Http\Controllers\SpeakerController;
 use Illuminate\Support\Facades\Route;
@@ -42,6 +43,7 @@ Route::prefix('admin')->name('admin.')->group(function(){
     Route::resource('/user', UserController::class);
     Route::resource('/news_category', NewsCategoryController::class);
     Route::resource('/news', NewsController::class);
+    Route::resource('/galeries', GaleriesController::class);
     Route::resource('/archive', ArchiveController::class);
     Route::resource('/conference', ConferenceController::class);
     Route::resource('/speakers', SpeakerController::class);
