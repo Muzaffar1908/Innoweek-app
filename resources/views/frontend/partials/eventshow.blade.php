@@ -1,0 +1,78 @@
+<section class="event-single-wrap">
+    <div class="container">
+      <div class="section-heading style-four">
+        <h2 class="title wow fadeInUp animated" data-wow-delay="0.1s" data-wow-duration="1s">Events</h2>
+      </div>
+      <div class="row">
+        <div class="col-lg-8">
+          <div class="event-single-box">
+            <div class="figure-box wow fadeInUp animated" data-wow-delay="0.2s" data-wow-duration="1s">
+              <img src="{{asset('frontend/image/image.jpg')}}" alt="Event">
+            </div>
+            <div class="content-box">
+              <div class="sub-title wow fadeInUp animated" data-wow-delay="0.3s" data-wow-duration="1s">
+                2022-08-29 10:13:44</div>
+              <h2 class="title wow fadeInUp animated" data-wow-delay="0.4s" data-wow-duration="1s">COMMERCIAL FORUM</h2>
+              <p class="description wow fadeInUp animated" data-wow-delay="0.5s" data-wow-duration="1s">Exhibition of innovative products and technologies created as a result of scientific developments implemented within the framework of agreements signed by regions and industries, as well as pre-commercial preparation projects within the framework of the Spring Forum
+                
+                </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 template-sidebar wow fadeInUp animated" data-wow-delay="0.3s" data-wow-duration="1s">
+          <div class="widget widget-border">
+            <div class="widget-heading">
+              <h3 class="title">Recent Events</h3>
+            </div>
+            <div class="widget-recent-post">
+              <div class="single-post">
+                <div class="figure-box">
+                  <a href="blog-single.html" class="link-item"><img width="150" src="{{asset('frontend/image/image.jpg')}}" alt="Post"></a>
+                </div>
+                <div class="content-box">
+                  <h3 class="entry-title"><a href="blog-single.html">“Mirzo Ulug`bek vorislari” Respublika tanloviga arizalar qabuli yakunlandi.</a></h3>
+                  <div class="entry-date">2022-06-10 13:44:23</div>
+                </div>
+              </div>
+              <div class="single-post">
+                <div class="figure-box">
+                  <a href="blog-single.html" class="link-item"><img width="150" src="{{asset('frontend/image/image.jpg')}}" alt="Post"></a>
+                </div>
+                <div class="content-box">
+                  <h3 class="entry-title"><a href="blog-single.html">“INNO texnopark” hamda “Chemist” MCHJ o‘rtasida hamkorlik memorandumi imzolandi</a></h3>
+                  <div class="entry-date">2022-06-10 13:44:23</div>
+                </div>
+              </div>
+              <div class="single-post">
+                <div class="figure-box">
+                  <a href="blog-single.html" class="link-item"><img width="150" src="{{asset('frontend/image/image.jpg')}}" alt="Post"></a>
+                </div>
+                <div class="content-box">
+                  <h3 class="entry-title"><a href="blog-single.html">“Mirzo Ulug`bek vorislari” Respublika tanloviga arizalar qabuli yakunlandi.</a></h3>
+                  <div class="entry-date">2022-06-10 13:44:23</div>
+                </div>
+              </div>
+              <div class="single-post">
+                <div class="figure-box">
+                  <a href="blog-single.html" class="link-item"><img width="150" src="{{asset('frontend/image/image.jpg')}}" alt="Post"></a>
+                </div>
+                <div class="content-box">
+                  <h3 class="entry-title"><a href="blog-single.html">“INNO texnopark” hamda “Chemist” MCHJ o‘rtasida hamkorlik memorandumi imzolandi</a></h3>
+                  <div class="entry-date">2022-06-10 13:44:23</div>
+                </div>
+              </div>
+              <div class="single-post">
+                <div class="figure-box">
+                  <a href="blog-single.html" class="link-item"><img width="150" src="{{asset('frontend/image/image.jpg')}}" alt="Post"></a>
+                </div>
+                <div class="content-box">
+                  <h3 class="entry-title"><a href="blog-single.html">“Mirzo Ulug`bek vorislari” Respublika tanloviga arizalar qabuli yakunlandi.</a></h3>
+                  <div class="entry-date">2022-06-10 13:44:23</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</section>

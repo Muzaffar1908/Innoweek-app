@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Mobile\AuthController;
 use App\Http\Controllers\NewsCategoryController;
 use App\Http\Controllers\NewsController;
+use App\Http\Controllers\PageController;
 use App\Http\Controllers\UserController;
 use App\Models\News\NewsCategory;
 use Illuminate\Support\Facades\Session;
@@ -26,13 +27,28 @@ use App\Http\Controllers\UserTicketController;
 |
 */
 
-Route::get('/', function () {
+Route::get('/welcome', function () {
     return view('welcome');
 });
 Route::get('locale/{locale}', function ($locale) {
     Session::put('locale', $locale);
     return redirect('mobile-v');
 });
+
+// Frontend  start !!!
+
+
+
+// Frontend  stop !!!
+
+Route::group(['prefix' => '/'], function(){
+    Route::controller(PageController::class)->group(function(){
+        Route::get('/', 'index')->name('index');
+    });
+});
+
+
+// Backend  start !!!
 
 Route::prefix('admin')->name('admin.')->group(function(){
     Route::get('/dashboard/', function(){
@@ -59,8 +75,13 @@ Route::prefix('admin')->name('admin.')->group(function(){
 
 });
 
+// Backend  stop !!!
+
+
 Auth::routes();
 
+
+// Mobile view start !!!
 
 Route::group(['prefix' => 'mobile-v'], function () {
 
@@ -109,3 +130,6 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+// Mobile view stop !!!
+
