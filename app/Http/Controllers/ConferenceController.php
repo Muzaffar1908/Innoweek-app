@@ -51,12 +51,15 @@ class ConferenceController extends Controller
     public function is_active($id)
     {
         $update=Conference::find($id);
-        if($update->is_active==1){
-            $update->is_active=0;
-        }else{
-            $update->is_active=1;
+        $archive=Archive::find($update->archive_id);
+        if($archive->is_active==1){
+            if($update->is_active==1){
+                $update->is_active=0;
+            }else{
+                $update->is_active=1;
+            }
+            $update->save();
         }
-        $update->save();
         return redirect()->back();
     }
 

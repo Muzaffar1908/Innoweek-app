@@ -41,13 +41,17 @@ class SpeakerController extends Controller
     }
 
     public function is_active($id){
-        $change=Speakers::find($id);
-        if($change->is_active==1){
-            $change->is_active=0;
-        }else{
-            $change->is_active=1;
+        $update=Speakers::find($id);
+
+        $archive=Archive::find($update->archive_id);
+        if($archive->is_active==1){
+            if($update->is_active==1){
+                $update->is_active=0;
+            }else{
+                $update->is_active=1;
+            }
+            $update->save();
         }
-        $change->save();
         return redirect()->back();
     }
     /**

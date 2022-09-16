@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Archive\Archive;
+use App\Models\Archive\Speakers;
+use App\Models\Conference;
 use App\Models\User;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Session;
@@ -24,13 +26,29 @@ class ArchiveController extends Controller
 
     public function is_active($id)
     {
-        $update=Archive::find($id);
-        if($update->is_active==1){
-            $update->is_active=0;
-        }else{
-            $update->is_active=1;
+        $update = Archive::find($id);
+        if ($update->is_active == 1) {
+            $update->is_active = 0;
+        } else {
+            $update->is_active = 1;
         }
         $update->save();
+
+        $conferences = Conference::where('archive_id', '=', $id)->where('is_active', '!=', $update->is_active)->get();
+        foreach ($conferences as $conference) {
+            if (!($conference->is_active == $update->is_active)) {
+                $conference->is_active = $update->is_active;
+            }
+            $conference->save();
+        }
+
+        $speakers = Speakers::where('archive_id', '=', $id)->where('is_active', '!=', $update->is_active)->get();
+        foreach ($speakers as $speaker) {
+            if (!($speaker->is_active == $update->is_active)) {
+                $speaker->is_active = $update->is_active;
+            }
+            $speaker->save();
+        }
         return redirect()->back();
     }
 
@@ -55,7 +73,7 @@ class ArchiveController extends Controller
     {
         $data = $request->except(array('_token'));
         $rule = array(
-        'year' => 'required',
+            'year' => 'required',
         );
 
         $validator = Validator::make($data, $rule);
@@ -79,7 +97,7 @@ class ArchiveController extends Controller
         if (!empty($archives->description_uz)) {
             $dom_save_uz = new \DomDocument();
             libxml_use_internal_errors(true);
-            $dom_save_uz->loadHtml('<?xml encoding="UTF-8">'.$archives->description_uz, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
+            $dom_save_uz->loadHtml('<?xml encoding="UTF-8">' . $archives->description_uz, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
             $dom_image_save_uz = $dom_save_uz->getElementsByTagName('img');
             foreach ($dom_image_save_uz as $k => $img) {
                 $data = $img->getAttribute('src');
@@ -87,21 +105,21 @@ class ArchiveController extends Controller
                     list($type, $data) = explode(';', $data);
                     list(, $data)      = explode(',', $data);
                     $data = base64_decode($data);
-                    $image_name= "/upload/archive/uz_" . time().$k.'.jpg';
+                    $image_name = "/upload/archive/uz_" . time() . $k . '.jpg';
                     $path = public_path() . $image_name;
                     file_put_contents($path, $data);
                     $img->removeAttribute('src');
                     $img->setAttribute('src', $image_name);
                 }
             }
-            $archives->description_uz = str_replace('<?xml encoding="UTF-8">', "",$dom_save_uz->saveHTML());
+            $archives->description_uz = str_replace('<?xml encoding="UTF-8">', "", $dom_save_uz->saveHTML());
         }
 
         $archives->description_ru = $inputs['description_ru'];
         if (!empty($archives->description_ru)) {
             $dom_save_ru = new \DomDocument();
             libxml_use_internal_errors(true);
-            $dom_save_ru->loadHtml('<?xml encoding="UTF-8">'.$archives->description_ru, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
+            $dom_save_ru->loadHtml('<?xml encoding="UTF-8">' . $archives->description_ru, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
             $dom_image_save_ru = $dom_save_ru->getElementsByTagName('img');
             foreach ($dom_image_save_ru as $k => $img) {
                 $data = $img->getAttribute('src');
@@ -109,21 +127,21 @@ class ArchiveController extends Controller
                     list($type, $data) = explode(';', $data);
                     list(, $data)      = explode(',', $data);
                     $data = base64_decode($data);
-                    $image_name= "/upload/archive/ru_".'_'.time().'.jpg';
+                    $image_name = "/upload/archive/ru_" . '_' . time() . '.jpg';
                     $path = public_path() . $image_name;
                     file_put_contents($path, $data);
                     $img->removeAttribute('src');
                     $img->setAttribute('src', $image_name);
                 }
             }
-            $archives->description_ru = str_replace('<?xml encoding="UTF-8">', "",$dom_save_ru->saveHTML());
+            $archives->description_ru = str_replace('<?xml encoding="UTF-8">', "", $dom_save_ru->saveHTML());
         }
 
         $archives->description_en = $inputs['description_en'];
         if (!empty($archives->description_en)) {
             $dom_save_en = new \DomDocument();
             libxml_use_internal_errors(true);
-            $dom_save_en->loadHtml('<?xml encoding="UTF-8">'.$archives->description_en, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
+            $dom_save_en->loadHtml('<?xml encoding="UTF-8">' . $archives->description_en, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
             $dom_image_save_en = $dom_save_en->getElementsByTagName('img');
             foreach ($dom_image_save_en as $k => $img) {
                 $data = $img->getAttribute('src');
@@ -131,14 +149,14 @@ class ArchiveController extends Controller
                     list($type, $data) = explode(';', $data);
                     list(, $data)      = explode(',', $data);
                     $data = base64_decode($data);
-                    $image_name= "/upload/archive/en_".'_'.time().'.jpg';
+                    $image_name = "/upload/archive/en_" . '_' . time() . '.jpg';
                     $path = public_path() . $image_name;
                     file_put_contents($path, $data);
                     $img->removeAttribute('src');
                     $img->setAttribute('src', $image_name);
                 }
             }
-            $archives->description_en = str_replace('<?xml encoding="UTF-8">', "",$dom_save_en->saveHTML());
+            $archives->description_en = str_replace('<?xml encoding="UTF-8">', "", $dom_save_en->saveHTML());
         }
 
         $archives->save();
@@ -195,7 +213,7 @@ class ArchiveController extends Controller
     {
         $data = $request->except(array('_token'));
         $rule = array(
-        'year' => 'required',
+            'year' => 'required',
         );
 
         $validator = Validator::make($data, $rule);
@@ -219,7 +237,7 @@ class ArchiveController extends Controller
         if (!empty($archives->description_uz)) {
             $dom_save_uz = new \DomDocument();
             libxml_use_internal_errors(true);
-            $dom_save_uz->loadHtml('<?xml encoding="UTF-8">'.$archives->description_uz, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
+            $dom_save_uz->loadHtml('<?xml encoding="UTF-8">' . $archives->description_uz, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
             $dom_image_save_uz = $dom_save_uz->getElementsByTagName('img');
             foreach ($dom_image_save_uz as $k => $img) {
                 $data = $img->getAttribute('src');
@@ -227,21 +245,21 @@ class ArchiveController extends Controller
                     list($type, $data) = explode(';', $data);
                     list(, $data)      = explode(',', $data);
                     $data = base64_decode($data);
-                    $image_name= "/upload/archive/uz_" . time().$k.'.jpg';
+                    $image_name = "/upload/archive/uz_" . time() . $k . '.jpg';
                     $path = public_path() . $image_name;
                     file_put_contents($path, $data);
                     $img->removeAttribute('src');
                     $img->setAttribute('src', $image_name);
                 }
             }
-            $archives->description_uz = str_replace('<?xml encoding="UTF-8">', "",$dom_save_uz->saveHTML());
+            $archives->description_uz = str_replace('<?xml encoding="UTF-8">', "", $dom_save_uz->saveHTML());
         }
 
         $archives->description_ru = $inputs['description_ru'];
         if (!empty($archives->description_ru)) {
             $dom_save_ru = new \DomDocument();
             libxml_use_internal_errors(true);
-            $dom_save_ru->loadHtml('<?xml encoding="UTF-8">'.$archives->description_ru, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
+            $dom_save_ru->loadHtml('<?xml encoding="UTF-8">' . $archives->description_ru, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
             $dom_image_save_ru = $dom_save_ru->getElementsByTagName('img');
             foreach ($dom_image_save_ru as $k => $img) {
                 $data = $img->getAttribute('src');
@@ -249,21 +267,21 @@ class ArchiveController extends Controller
                     list($type, $data) = explode(';', $data);
                     list(, $data)      = explode(',', $data);
                     $data = base64_decode($data);
-                    $image_name= "/upload/archive/ru_".'_'.time().'.jpg';
+                    $image_name = "/upload/archive/ru_" . '_' . time() . '.jpg';
                     $path = public_path() . $image_name;
                     file_put_contents($path, $data);
                     $img->removeAttribute('src');
                     $img->setAttribute('src', $image_name);
                 }
             }
-            $archives->description_ru = str_replace('<?xml encoding="UTF-8">', "",$dom_save_ru->saveHTML());
+            $archives->description_ru = str_replace('<?xml encoding="UTF-8">', "", $dom_save_ru->saveHTML());
         }
 
         $archives->description_en = $inputs['description_en'];
         if (!empty($archives->description_en)) {
             $dom_save_en = new \DomDocument();
             libxml_use_internal_errors(true);
-            $dom_save_en->loadHtml('<?xml encoding="UTF-8">'.$archives->description_en, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
+            $dom_save_en->loadHtml('<?xml encoding="UTF-8">' . $archives->description_en, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
             $dom_image_save_en = $dom_save_en->getElementsByTagName('img');
             foreach ($dom_image_save_en as $k => $img) {
                 $data = $img->getAttribute('src');
@@ -271,14 +289,14 @@ class ArchiveController extends Controller
                     list($type, $data) = explode(';', $data);
                     list(, $data)      = explode(',', $data);
                     $data = base64_decode($data);
-                    $image_name= "/upload/archive/en_".'_'.time().'.jpg';
+                    $image_name = "/upload/archive/en_" . '_' . time() . '.jpg';
                     $path = public_path() . $image_name;
                     file_put_contents($path, $data);
                     $img->removeAttribute('src');
                     $img->setAttribute('src', $image_name);
                 }
             }
-            $archives->description_en = str_replace('<?xml encoding="UTF-8">', "",$dom_save_en->saveHTML());
+            $archives->description_en = str_replace('<?xml encoding="UTF-8">', "", $dom_save_en->saveHTML());
         }
 
         $archives->save();
