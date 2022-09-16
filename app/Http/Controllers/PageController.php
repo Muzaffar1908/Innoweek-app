@@ -14,5 +14,6 @@ class PageController extends Controller
        return view('frontend.app');
 
 
+
     }
 }
