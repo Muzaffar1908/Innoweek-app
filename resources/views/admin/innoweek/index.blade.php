@@ -6,8 +6,8 @@
         <div class="container-fluid">
             <div class="card">
                 <div class="card-header">
-                    <h1 class="card-title">Conference</h1>
-                    <a href="{{ route('admin.conference.create') }}" class="btn btn-success"><i class="bi bi-plus"></i>Add</a>
+                    <h1 class="card-title">Innoweek</h1>
+                    <a href="{{ route('admin.innoweek.create') }}" class="btn btn-success"><i class="bi bi-plus"></i>Add</a>
                 </div>
 
                 @if (count($errors) > 0)
@@ -49,7 +49,10 @@
                                             <th>Adress</th>
                                             <th>Phone</th>
                                             <th>Email</th>
-                                            <th>Links</th>
+                                            <th>Telegram</th>
+                                            <th>Instagram</th>
+                                            <th>Facebook</th>
+                                            <th>YouTube</th>
                                             <th>Description</th>
                                             <th>Is Active</th>
                                             <th>Action</th>
@@ -63,14 +66,19 @@
                                             <td>{{ $inno->phone }}</td>
                                             <td>{{ $inno->email }}</td>
                                             <td>
-                                                <p>{{ $inno->telegram }}</p>
+                                                <p>{{ $inno->telegram }}</p>                                                                                        </td>
+                                            <td>
                                                 <p>{{ $inno->instagram }}</p>
+                                            </td>
+                                            <td>
                                                 <p>{{ $inno->facebook }}</p>
+                                            </td>
+                                            <td>
                                                 <p>{{ $inno->you_tube }}</p>
                                             </td>
                                             <td>{!! Str::limit(strip_tags($inno->description_uz), 20) !!}</td>
                                             <td>
-                                                <form action="{{ asset('/admin/innoweek/isactive/' . $conference->id) }}"
+                                                <form action="{{ asset('/admin/innoweek/isactive/'. $inno->id) }}"
                                                     method="POST" enctype="multipart/form-data">
                                                     @csrf
                                                     <div class="sweetalert">
@@ -93,10 +101,10 @@
                                             <td>
                                                 <div class="btn-group">
                                                     {{-- <a href="{{route('admin.conference.show', $conference->id)}}" type="button" class="btn btn-info"><i class="bi bi-eye"></i></a> --}}
-                                                    <a href="{{ route('admin.innoweek.edit', $conference->id) }}"
+                                                    <a href="{{ route('admin.innoweek.edit', $inno->id) }}"
                                                         type="button" class="btn btn-success"><i
                                                             class="bi bi-pencil"></i></a>
-                                                    <form action="{{ route('admin.innoweek.destroy', $conference->id) }}"
+                                                    <form action="{{ route('admin.innoweek.destroy', $inno->id) }}"
                                                         method="POST">
                                                         @csrf
                                                         @method('DELETE')
