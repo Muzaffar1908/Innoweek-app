@@ -42,5 +42,6 @@ class PageController extends Controller
 
         return view('frontend.app', ['condates' => $condates,'condate'=>$condate]);
 
+
     }
 }

@@ -3,6 +3,8 @@
 use App\Http\Controllers\ArchiveController;
 use App\Http\Controllers\ConferenceController;
 use App\Http\Controllers\GaleriesController;
+
+use App\Http\Controllers\InnoweekController;
 use App\Http\Controllers\PartnerController;
 use App\Http\Controllers\Mobile\IndexController;
 use App\Http\Controllers\SpeakerController;
@@ -64,6 +66,7 @@ Route::prefix('admin')->name('admin.')->group(function(){
     Route::resource('/news_category', NewsCategoryController::class);
     Route::resource('/news', NewsController::class);
     Route::resource('/galeries', GaleriesController::class);
+    Route::resource('/innoweek', InnoweekController::class);
     Route::resource('/archive', ArchiveController::class);
     Route::resource('/conference', ConferenceController::class);
     Route::resource('/speakers', SpeakerController::class);
@@ -77,8 +80,13 @@ Route::prefix('admin')->name('admin.')->group(function(){
     Route::POST('/user/isactive/{id}',[UserController::class,'is_active']);
     Route::POST('/speaker/isactive/{id}',[SpeakerController::class,'is_active']);
     Route::POST('/speaker/isactive/{id}',[SpeakerController::class,'is_active']);
+
+    Route::POST('/innoweek/isactive/{id}',[InnoweekController::class,'is_active']);
+
+
     Route::POST('/galeries/is_active/{id}', [GaleriesController::class, 'is_active']);
     Route::POST('/partner/is_active/{id}', [PartnerController::class, 'is_active']);
+
 
 });
 

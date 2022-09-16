@@ -27,17 +27,42 @@ class ConferenceController extends Controller
 //        @dd($condate);
         $archives = Archive::all();
         return view('admin.conference.index', compact('conferences', 'users', 'archives'));
+
+        /*
+           $conferences = Conference::first();
+
+        $date=$conferences->created_at;
+        /*echo(Carbon::createFromFormat('Y-m-d H:i:s', $date)->format('D, M d').'th');
+             Wed, Sep 14th
+
+              echo(Carbon::createFromFormat('Y-m-d H:i:s', $date)->format('d'));
+            14
+
+             echo(Carbon::createFromFormat('Y-m-d H:i:s', $date)->format('H:i'));
+             17:45
+
+               echo(Carbon::createFromFormat('Y-m-d H:i:s', $date)->isoFormat('h:mm a'));
+            11:58 am
+            echo(Carbon::createFromFormat('Y-m-d H:i:s', $date)->isoFormat('MMMM'));
+
+            September
+        */
+
+
     }
 
     public function is_active($id)
     {
         $update=Conference::find($id);
-        if($update->is_active==1){
-            $update->is_active=0;
-        }else{
-            $update->is_active=1;
+        $archive=Archive::find($update->archive_id);
+        if($archive->is_active==1){
+            if($update->is_active==1){
+                $update->is_active=0;
+            }else{
+                $update->is_active=1;
+            }
+            $update->save();
         }
-        $update->save();
         return redirect()->back();
     }
 

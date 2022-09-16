@@ -1,11 +1,23 @@
 <div class="dlabnav">
     <div class="dlabnav-scroll">
+
+
       <ul class="metismenu" id="menu">
         <li>
           <a href="{{route('admin.index')}}" class="" aria-expanded="false">
             <i class="bi bi-grid"></i>
             <span class="nav-text">Dashboard</span>
           </a>
+        </li>
+        <li>
+            <a class="has-arrow" href="javascript:void(0);" aria-expanded="false">
+                <i class="bi bi-grid"></i>
+                <span class="nav-text">Innoweek</span>
+            </a>
+            <ul aria-expanded="false">
+                <li><a href="{{ route('admin.innoweek.index') }}">Innoweek</a></li>
+
+            </ul>
         </li>
         <li>
           <a
@@ -101,6 +113,6 @@
           </ul>
         </li>
       </ul>
+
     </div>
 </div>
-
