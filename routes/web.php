@@ -3,6 +3,7 @@
 use App\Http\Controllers\ArchiveController;
 use App\Http\Controllers\ConferenceController;
 use App\Http\Controllers\GaleriesController;
+use App\Http\Controllers\PartnerController;
 use App\Http\Controllers\Mobile\IndexController;
 use App\Http\Controllers\SpeakerController;
 use Illuminate\Support\Facades\Route;
@@ -30,10 +31,12 @@ use App\Http\Controllers\UserTicketController;
 Route::get('/welcome', function () {
     return view('welcome');
 });
+
 Route::get('locale/{locale}', function ($locale) {
     Session::put('locale', $locale);
-    return redirect('mobile-v');
+    return redirect()->back();
 });
+
 
 // Frontend  start !!!
 
@@ -64,6 +67,7 @@ Route::prefix('admin')->name('admin.')->group(function(){
     Route::resource('/conference', ConferenceController::class);
     Route::resource('/speakers', SpeakerController::class);
     Route::resource('/userticket', UserTicketController::class);
+    Route::resource('/partner', PartnerController::class);
     Route::POST('/userticket/isactive/{id}',[UserTicketController::class,'is_active']);
     Route::POST('/news/isactive/{id}',[NewsController::class,'is_active']);
     Route::POST('/news_cat/isactive/{id}',[NewsCategoryController::class,'is_active']);

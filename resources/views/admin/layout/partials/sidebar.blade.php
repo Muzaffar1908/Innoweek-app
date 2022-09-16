@@ -33,7 +33,32 @@
           <ul aria-expanded="false">
             <li><a href="{{route('admin.news_category.index')}}">News Category</a></li>
             <li><a href="{{route('admin.news.index')}}">News</a></li>
+          </ul>
+        </li>
+        <li>
+          <a
+            class="has-arrow"
+            href="javascript:void(0);"
+            aria-expanded="false"
+            >
+              <i class="bi bi-grid"></i>
+              <span class="nav-text">Gallareya</span>
+          </a>
+          <ul aria-expanded="false">
             <li><a href="{{route('admin.galeries.index')}}">Galeries</a></li>
+          </ul>
+        </li>
+        <li>
+          <a
+            class="has-arrow"
+            href="javascript:void(0);"
+            aria-expanded="false"
+            >
+              <i class="bi bi-grid"></i>
+              <span class="nav-text">Partners</span>
+          </a>
+          <ul aria-expanded="false">
+            <li><a href="{{route('admin.partner.index')}}">Partner</a></li>
           </ul>
         </li>
         <li>
