@@ -60,7 +60,8 @@ class SpeakerController extends Controller
     {
         $data = $request->except(array('_token'));
         $rule = array(
-            'full_name' => 'required',
+            'full_name_uz' => 'required',
+            'job_uz' => 'required',
         );
         if (!file_exists('upload/speaker')) {
             mkdir('upload/speaker', 0777, true);
@@ -84,8 +85,12 @@ class SpeakerController extends Controller
         }
         $speakers->user_id = $inputs['user_id'];
         $speakers->archive_id = $inputs['archive_id'];
-        $speakers->full_name = $inputs['full_name'];
-        $speakers->job = $inputs['job'];
+        $speakers->full_name_uz = $inputs['full_name_uz'];
+        $speakers->full_name_ru = $inputs['full_name_ru'];
+        $speakers->full_name_en = $inputs['full_name_en'];
+        $speakers->job_uz = $inputs['job_uz'];
+        $speakers->job_ru = $inputs['job_ru'];
+        $speakers->job_en = $inputs['job_en'];
         $speakers->facebook_ur = $inputs['facebook_url'];
         $speakers->youtube_url = $inputs['youtube_url'];
         $speakers->twitter_url = $inputs['twitter_url'];
@@ -222,8 +227,15 @@ class SpeakerController extends Controller
     {
         $data = $request->except(array('_token'));
         $rule = array(
-            'full_name' => 'required',
+            'full_name_uz' => 'required',
+            'job_uz' => 'required',
         );
+        if (!file_exists('upload/speaker')) {
+            mkdir('upload/speaker', 0777, true);
+        }
+        if (!file_exists('upload/speaker/description_image')) {
+            mkdir('upload/speaker/description_image', 0777, true);
+        }
 
         $validator = Validator::make($data, $rule);
 
@@ -236,12 +248,16 @@ class SpeakerController extends Controller
         if (!empty($inputs['id'])) {
             $speakers = Speakers::findOrFail($inputs['id']);
         } else {
-            $speakers = new Speakers();
+            $speakers = new Speakers;
         }
-
+        $speakers->user_id = $inputs['user_id'];
         $speakers->archive_id = $inputs['archive_id'];
-        $speakers->full_name = $inputs['full_name'];
-        $speakers->job = $inputs['job'];
+        $speakers->full_name_uz = $inputs['full_name_uz'];
+        $speakers->full_name_ru = $inputs['full_name_ru'];
+        $speakers->full_name_en = $inputs['full_name_en'];
+        $speakers->job_uz = $inputs['job_uz'];
+        $speakers->job_ru = $inputs['job_ru'];
+        $speakers->job_en = $inputs['job_en'];
         $speakers->facebook_ur = $inputs['facebook_url'];
         $speakers->youtube_url = $inputs['youtube_url'];
         $speakers->twitter_url = $inputs['twitter_url'];
@@ -250,7 +266,6 @@ class SpeakerController extends Controller
         $speakers->description_uz = $inputs['description_uz'];
 
         $image = $request->file('image');
-
         if ($image) {
             $tmpFilePath = 'upload/speaker/';
             $hardPath =  Str::slug('speaker', '-').'-'.md5(time());
@@ -325,6 +340,7 @@ class SpeakerController extends Controller
             }
             $speakers->description_en = str_replace('<?xml encoding="UTF-8">', "", $dom_save_en->saveHTML());
         }
+
 
         $speakers->save();
 

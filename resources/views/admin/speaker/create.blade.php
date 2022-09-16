@@ -60,17 +60,37 @@
                     </div>
 
                     <div class="mb-3">
-                        <label for="full_name">Fullname</label>
-                        <input type="text" name="full_name"  class="form-control" id="full_name" placeholder="Fullname enter" value="{{old('full_name')}}" />
+                        <label for="full_name_uz">Fullname Uz</label>
+                        <input type="text" name="full_name_uz"  class="form-control" id="full_name_uz" placeholder="Fullname Uz enter" value="{{old('full_name_uz')}}" />
                     </div>
 
                     <div class="mb-3">
-                        <label for="job">Job</label>
-                        <input name="job" id="job" class="form-control" cols="10" rows="5">{{old('job')}}</input>
+                        <label for="full_name_ru">Fullname Ru</label>
+                        <input type="text" name="full_name_ru"  class="form-control" id="full_name_ru" placeholder="Fullname Ru enter" value="{{old('full_name_ru')}}" />
                     </div>
 
                     <div class="mb-3">
-                        <label for="image">image</label>
+                        <label for="full_name_en">Fullname En</label>
+                        <input type="text" name="full_name_en"  class="form-control" id="full_name_en" placeholder="Fullname En enter" value="{{old('full_name_en')}}" />
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="job_uz">Job Uz</label>
+                        <input type="text" name="job_uz" class="form-control" id="job_uz" placeholder="Job Uz enter" value="{{old('job_uz')}}">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="job_ru">Job Ru</label>
+                        <input type="text" name="job_ru" class="form-control" id="job_ru" placeholder="Job Ru enter" value="{{old('job_ru')}}">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="job_en">Job En</label>
+                        <input type="text" name="job_en" class="form-control" id="job_en" placeholder="Job En enter" value="{{old('job_en')}}">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="image">Image</label>
                         <input type="file" name="image"  class="form-control" id="image" placeholder="image enter" value="{{old('image')}}" />
                     </div>
 

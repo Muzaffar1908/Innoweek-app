@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Archive\Archive;
 use App\Models\Partner;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\Session;
@@ -20,7 +22,9 @@ class PartnerController extends Controller
     public function index()
     {
         $partners = Partner::paginate(5);
-        return view('admin.partner.index', compact('partners'));
+        $users = User::all();
+        $archives = Archive::all();
+        return view('admin.partner.index', compact(['partners', 'users', 'archives']));
     }
 
     public function is_active($id){
@@ -41,7 +45,9 @@ class PartnerController extends Controller
      */
     public function create()
     {
-        return view('admin.partner.create');
+        $users = User::all();
+        $archives = Archive::all();
+        return view('admin.partner.create', compact(['users', 'archives']));
     }
 
     /**
@@ -87,6 +93,8 @@ class PartnerController extends Controller
             $partners->image = $hardPath;
         }
 
+        $partners->user_id = $inputs['user_id']; 
+        $partners->archive_id = $inputs['archive_id']; 
         $partners->image_url = $inputs['image_url']; 
         $partners->save();
 
@@ -119,7 +127,13 @@ class PartnerController extends Controller
     public function edit($id)
     {
         $partners = Partner::find($id);
-        return view('admin.partner.edit')->with('partners', $partners);
+        $users = User::all();
+        $archives = Archive::all();
+        return view('admin.partner.edit', [
+            'partners' => $partners,
+            'users' => $users,
+            'archives' => $archives,
+        ]);
     }
 
     /**
@@ -156,6 +170,8 @@ class PartnerController extends Controller
             $partners = new Partner();
         }
 
+        $del_img = $partners->image;
+
         $image = $request->file('image');
         if ($image) {
             $tmpFilePath = 'upload/partners/';
@@ -164,8 +180,12 @@ class PartnerController extends Controller
             $img1 = Image::make($image);
             $img1->save($tmpFilePath . $hardPath . '-d.png');
             $partners->image = $hardPath;
+            $image_path = public_path() . '/upload/galeries/' . $del_img . '-d.png';
+            unlink($image_path);
         }
 
+        $partners->user_id = $inputs['user_id']; 
+        $partners->archive_id = $inputs['archive_id']; 
         $partners->image_url = $inputs['image_url']; 
         $partners->save();
 
@@ -190,6 +210,6 @@ class PartnerController extends Controller
         $image_path = public_path() . '/upload/partners/' . $partners->image . '-d.png';
         unlink($image_path);
         $partners->delete();
-        return redirect('admin/partners')->with('warning', 'NEWS TABLES DELETED');
+        return redirect('admin/partner')->with('warning', 'NEWS TABLES DELETED');
     }
 }

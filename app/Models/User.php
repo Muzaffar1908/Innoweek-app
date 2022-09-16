@@ -7,6 +7,7 @@ namespace App\Models;
 use App\Models\Archive\Archive;
 use App\Models\Archive\Speakers;
 use App\Models\Archive\UserTicket;
+use App\Models\News\Galeries;
 use App\Models\News\News;
 use App\Models\News\NewsCategory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -67,6 +68,16 @@ class User extends Authenticatable
     public function userticket()
     {
         return $this->hasMany(UserTicket::class, 'user_id', 'id');
+    }
+
+    public function gallery()
+    {
+        return $this->hasMany(Galeries::class, 'user_id', 'id');
+    }
+
+    public function partner()
+    {
+        return $this->hasMany(Partner::class, 'user_id', 'id');
     }
 
 

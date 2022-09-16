@@ -50,6 +50,8 @@
                                     <thead>
                                     <tr>
                                         <th>№</th>
+                                        <th>Username</th>
+                                        <th>Archive Year</th>
                                         <th>Image</th>
                                         <th>Is Active</th>
                                         <th>Action</th>
@@ -58,6 +60,8 @@
                                     @foreach ($galeries as $galerie)
                                         <tr>
                                             <td>{{($galeries->currentpage() - 1) * $galeries->perpage() + ($loop->index+1)}}</td>
+                                            <td>{{$galerie->galleryTable->first_name}}</td>
+                                            <td>{{$galerie->galleyarchiveTable->year}}</td>
                                             <td>
                                                 <img src="{{asset('upload/galeries/' .$galerie->image.'-d.png')}}" alt="img" with="100px" height="60px">
                                             </td>

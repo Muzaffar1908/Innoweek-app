@@ -53,11 +53,12 @@ Route::group(['prefix' => '/'], function(){
 
 // Backend  start !!!
 
+
+
 Route::prefix('admin')->name('admin.')->group(function(){
     Route::get('/dashboard/', function(){
         return view('admin.layout.index');
     })->name('index');
-
 
     Route::resource('/user', UserController::class);
     Route::resource('/news_category', NewsCategoryController::class);
@@ -80,6 +81,7 @@ Route::prefix('admin')->name('admin.')->group(function(){
     Route::POST('/partner/is_active/{id}', [PartnerController::class, 'is_active']);
 
 });
+
 
 // Backend  stop !!!
 

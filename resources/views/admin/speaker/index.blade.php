@@ -70,8 +70,8 @@
                                     <td>{{($speakers->currentpage() - 1) * $speakers->perpage() + ($loop->index+1)}}</td>
                                     <td>{{$speaker->archiveTable->year}}</td>
                                     <td>{{$speaker->usersTable->first_name}}</td>
-                                    <td>{{$speaker->full_name}}</td>
-                                    <td>{{$speaker->job}}</td>
+                                    <td>{{$speaker->full_name_uz}}</td>
+                                    <td>{{$speaker->job_uz}}</td>
                                     <td>{{Str::limit(strip_tags($speaker->description_uz), 20)}}</td>
                                       <td>
                                           <img src="{{asset('upload/speaker/' .$speaker->image.'-d.png')}}" alt="img" with="100px" height="60px">
