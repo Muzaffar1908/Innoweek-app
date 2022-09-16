@@ -50,20 +50,21 @@
             <h3 class="widget-title wow fadeInLeft animated" data-wow-delay="0.6s" data-wow-duration="1s">Contacts</h3>
             <div class="footer-menu">
               <ul>
-                <li class="wow fadeInLeft animated" data-wow-delay="0.7s" data-wow-duration="1s"><a href="#"><svg width="12" height="16" viewBox="0 0 12 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <li class="wow fadeInLeft animated" data-wow-delay="0.7s" data-wow-duration="1s"><a class="inno-cursor"><svg width="12" height="16" viewBox="0 0 12 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path d="M0 15.875L5.625 12.5938L11.25 15.875V2.28125C11.25 1.51953 10.6055 0.875 9.84375 0.875H1.40625C0.615234 0.875 0 1.51953 0 2.28125V15.875Z" />
                     </svg>Address:</a>
                     <p class="description">100174, Tashkent, Almazar district, University street, 7</p>
                   </li>
-                <li class="wow fadeInLeft animated" data-wow-delay="0.8s" data-wow-duration="1s"><a href="#"><svg width="12" height="16" viewBox="0 0 12 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <li class="wow fadeInLeft animated" data-wow-delay="0.8s" data-wow-duration="1s"><a class="inno-cursor"><svg width="12" height="16" viewBox="0 0 12 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path d="M0 15.875L5.625 12.5938L11.25 15.875V2.28125C11.25 1.51953 10.6055 0.875 9.84375 0.875H1.40625C0.615234 0.875 0 1.51953 0 2.28125V15.875Z" />
-                    </svg>Phone: </a>
-                    <p class="description">+998(71) 203-32-00</p>
+                    </svg>Phone: 
+                    <p class="description"><a href="tel:+998712033200">+998(71) 203-32-00</p>
+                  </a>
                   </li>    
-                  <li class="wow fadeInLeft animated" data-wow-delay="0.9s" data-wow-duration="1s"><a href="#"><svg width="12" height="16" viewBox="0 0 12 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <li class="wow fadeInLeft animated" data-wow-delay="0.9s" data-wow-duration="1s"><a class="inno-cursor"><svg width="12" height="16" viewBox="0 0 12 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M0 15.875L5.625 12.5938L11.25 15.875V2.28125C11.25 1.51953 10.6055 0.875 9.84375 0.875H1.40625C0.615234 0.875 0 1.51953 0 2.28125V15.875Z" />
                   </svg>Email:</a>
-                  <p class="description">info.innoweek.uz@gmail.com</p>
+                  <p class="description"> <a href="mailto:innoweekuz2021@gmail.com">info.innoweek.uz@gmail.com</a></p>
                 </li>                   
               </ul>
             </div>
@@ -76,5 +77,5 @@
   <div class="footer1 footer-bottom">
     <div class="copyright-text wow fadeInLeftBig animated p-xl-1" data-wow-delay="1s" data-wow-duration="1s">&copy; <span id="currentYear"></span> INNOWEEK All
       Rights Reserved. Developed by </div>
-      <span class="wow fadeInLeftBig animated" data-wow-delay="1.3s" data-wow-duration="2s"> <a href="http://www.mimaxgroup.com/" class="link-text">"MIMAX SOFTWARE GROUP"</a></span>
+      <span class="wow fadeInLeftBig animated" data-wow-delay="1.3s" data-wow-duration="2s"> <a href="http://www.mimaxgroup.com/" class="link-text">"MIMAX SOFTWARE GROUP".</a></span>
   </div>

@@ -18,7 +18,7 @@
                 </div>
                 <h3 class="title">Email Address</h3>
                 <ul class="address-details">
-                  <li>info.innoweek.uz@gmail.com</li>
+                  <li><a href="mailto:innoweekuz2021@gmail.com">info.innoweek.uz@gmail.com</a></li>
                 </ul>
               </div>
             </div>
@@ -50,7 +50,7 @@
                 </div>
                 <h3 class="title">Contact No</h3>
                 <ul class="address-details">
-                  <li>+998(71) 203-32-00</li>
+                  <li><a href="tel:+998712033200">+998(71) 203-32-00</a></li>
                 </ul>
               </div>
             </div>

@@ -110,11 +110,47 @@
             slideToClickedSlide: true,
             spaceBetween: 30,
             autoplay: {
-                delay: 200000,
+                delay: 3000,
             },
             pagination: {
                 el: '.swiper-pagination',
                 clickable: true
+            },
+            speed: 800,
+            breakpoints: {
+                0: {
+                    slidesPerView: 1,
+                },
+                576: {
+                    slidesPerView: 2,
+                },
+                768: {
+                    slidesPerView: 2,
+                },
+                992: {
+                    slidesPerView: 2,
+                },
+                1200: {
+                    slidesPerView: 3,
+                },
+                1440: {
+                    slidesPerView: 4,
+                },
+            },
+        });
+    }
+
+    // sliderPartnerOne
+
+    let sliderPartnerOne = $('.sliderPartnerOne');
+    if (sliderEventOne) {
+        let sliderPartnerOne = new Swiper(".sliderPartnerOne", {
+            slidesPerView: 4,
+            loop: true,
+            slideToClickedSlide: true,
+            spaceBetween: 30,
+            autoplay: {
+                delay: 2000,
             },
             speed: 800,
             breakpoints: {

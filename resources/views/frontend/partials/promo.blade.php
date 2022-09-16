@@ -15,10 +15,11 @@
             <a href="https://www.youtube.com/watch?v=AHtW5Xi6Md0" class="icon-box-link play-btn">
               <div class="icon-box">
                 <img src="{{asset('frontend/image/blog/1.jpg')}}" alt="">
+                <div class="player"></div>
               </div>
             </a>
             <h3 class="title">
-              <p>Innoweek 2021</p>
+              <p> <a href="https://www.youtube.com/watch?v=AHtW5Xi6Md0" class="icon-box-link play-btn">Innoweek 2021</a></p>
             </h3>
           </div>
         </div>
@@ -27,10 +28,11 @@
             <a href="https://www.youtube.com/watch?v=qFi4OYuUeQI" class="icon-box-link play-btn">
               <div class="icon-box">
                 <img src="{{asset('frontend/image/blog/2.jpg')}}" alt="">
+                <div class="player"></div>
               </div>
             </a>
             <h3 class="title">
-              <p>Innoweek 2020</p>
+              <p><a href="https://www.youtube.com/watch?v=qFi4OYuUeQI" class="icon-box-link play-btn">Innoweek 2020</a></p>
             </h3>
           </div>
         </div>
@@ -39,10 +41,11 @@
             <a href="https://www.youtube.com/watch?v=UaaEkX5GF-Y" class="icon-box-link play-btn">
               <div class="icon-box">
                 <img src="{{asset('frontend/image/blog/3.jpg')}}" alt="">
+                <div class="player"></div>
               </div>
             </a>
             <h3 class="title">
-              <p>Innoweek 2019</p>
+              <p><a href="https://www.youtube.com/watch?v=UaaEkX5GF-Y" class="icon-box-link play-btn">Innoweek 2019</a></p>
             </h3>
           </div>
         </div>
@@ -51,10 +54,11 @@
             <a href="https://www.youtube.com/watch?v=Tg0hxyjiqDQ" class="icon-box-link play-btn">
               <div class="icon-box">
                 <img src="{{asset('frontend/image/blog/4.jpg')}}" alt="">
+                <div class="player"></div>
               </div>
             </a>
             <h3 class="title">
-              <p>Innoweek 2018</p>
+              <p><a href="https://www.youtube.com/watch?v=Tg0hxyjiqDQ" class="icon-box-link play-btn">Innoweek 2018</a></p>
             </h3>
           </div>
         </div>

@@ -27,46 +27,46 @@
             <div class="widget-recent-post">
               <div class="single-post">
                 <div class="figure-box">
-                  <a href="blog-single.html" class="link-item"><img width="150" src="{{asset('frontend/image/image.jpg')}}" alt="Post"></a>
+                  <a href="#" class="link-item"><img width="150" src="{{asset('frontend/image/image.jpg')}}" alt="Post"></a>
                 </div>
                 <div class="content-box">
-                  <h3 class="entry-title"><a href="blog-single.html">“Mirzo Ulug`bek vorislari” Respublika tanloviga arizalar qabuli yakunlandi.</a></h3>
+                  <h3 class="entry-title"><a href="#">“Mirzo Ulug`bek vorislari” Respublika tanloviga arizalar qabuli yakunlandi.</a></h3>
                   <div class="entry-date">2022-06-10 13:44:23</div>
                 </div>
               </div>
               <div class="single-post">
                 <div class="figure-box">
-                  <a href="blog-single.html" class="link-item"><img width="150" src="{{asset('frontend/image/image.jpg')}}" alt="Post"></a>
+                  <a href="#" class="link-item"><img width="150" src="{{asset('frontend/image/image.jpg')}}" alt="Post"></a>
                 </div>
                 <div class="content-box">
-                  <h3 class="entry-title"><a href="blog-single.html">“INNO texnopark” hamda “Chemist” MCHJ o‘rtasida hamkorlik memorandumi imzolandi</a></h3>
+                  <h3 class="entry-title"><a href="#">“INNO texnopark” hamda “Chemist” MCHJ o‘rtasida hamkorlik memorandumi imzolandi</a></h3>
                   <div class="entry-date">2022-06-10 13:44:23</div>
                 </div>
               </div>
               <div class="single-post">
                 <div class="figure-box">
-                  <a href="blog-single.html" class="link-item"><img width="150" src="{{asset('frontend/image/image.jpg')}}" alt="Post"></a>
+                  <a href="#" class="link-item"><img width="150" src="{{asset('frontend/image/image.jpg')}}" alt="Post"></a>
                 </div>
                 <div class="content-box">
-                  <h3 class="entry-title"><a href="blog-single.html">“Mirzo Ulug`bek vorislari” Respublika tanloviga arizalar qabuli yakunlandi.</a></h3>
+                  <h3 class="entry-title"><a href="#">“Mirzo Ulug`bek vorislari” Respublika tanloviga arizalar qabuli yakunlandi.</a></h3>
                   <div class="entry-date">2022-06-10 13:44:23</div>
                 </div>
               </div>
               <div class="single-post">
                 <div class="figure-box">
-                  <a href="blog-single.html" class="link-item"><img width="150" src="{{asset('frontend/image/image.jpg')}}" alt="Post"></a>
+                  <a href="#" class="link-item"><img width="150" src="{{asset('frontend/image/image.jpg')}}" alt="Post"></a>
                 </div>
                 <div class="content-box">
-                  <h3 class="entry-title"><a href="blog-single.html">“INNO texnopark” hamda “Chemist” MCHJ o‘rtasida hamkorlik memorandumi imzolandi</a></h3>
+                  <h3 class="entry-title"><a href="#">“INNO texnopark” hamda “Chemist” MCHJ o‘rtasida hamkorlik memorandumi imzolandi</a></h3>
                   <div class="entry-date">2022-06-10 13:44:23</div>
                 </div>
               </div>
               <div class="single-post">
                 <div class="figure-box">
-                  <a href="blog-single.html" class="link-item"><img width="150" src="{{asset('frontend/image/image.jpg')}}" alt="Post"></a>
+                  <a href="#" class="link-item"><img width="150" src="{{asset('frontend/image/image.jpg')}}" alt="Post"></a>
                 </div>
                 <div class="content-box">
-                  <h3 class="entry-title"><a href="blog-single.html">“Mirzo Ulug`bek vorislari” Respublika tanloviga arizalar qabuli yakunlandi.</a></h3>
+                  <h3 class="entry-title"><a href="#">“Mirzo Ulug`bek vorislari” Respublika tanloviga arizalar qabuli yakunlandi.</a></h3>
                   <div class="entry-date">2022-06-10 13:44:23</div>
                 </div>
               </div>

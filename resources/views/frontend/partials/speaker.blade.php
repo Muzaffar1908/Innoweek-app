@@ -7,17 +7,17 @@
         <div class="speaker-box-layout3 animated-bg-wrap">
           <span class="animated-bg"></span>
           <div class="figure-box">
-            <a href="speaker-single.html"><img src="{{asset('frontend/image/speaker/speak.jpg')}}" alt="Speaker" width="267" height="267"></a>
+            <a href="speaker.html"><img src="{{asset('frontend/image/speaker/speak.jpg')}}" alt="Speaker" width="267" height="267"></a>
           </div>
           <div class="content-box">
-            <h3 class="title"><a href="speaker-single.html">Muhammad Ali Eshonqulov</a></h3>
+            <h3 class="title"><a href="speaker.html">Muhammad Ali Eshonqulov</a></h3>
             <div class="sub-title">Lecturer at IMC Krems and the University of World Economy and Diplomacy in Uzbekistan</div>
             <div class="speaker-social">
               <ul>
-                <li><a target="_blank" href="https://www.facebook.com/radiustheme"><i class="fab fa-facebook-f"></i></a></li>
-                <li><a target="_blank" href="https://twitter.com/radiustheme"><i class="fab fa-instagram"></i></a></li>
-                <li><a target="_blank" href="https://www.facebook.com/radiustheme"><i class="fab fa-telegram"></i></a></li>
-                <li><a target="_blank" href="https://www.pinterest.com/radius_theme"><i class="fab fa-youtube"></i></a></li>
+                <li><a target="_blank" href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a></li>
+                <li><a target="_blank" href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a></li>
+                <li><a target="_blank" href="https://telegram.org/"><i class="fab fa-telegram"></i></a></li>
+                <li><a target="_blank" href="https://www.youtube.com/"><i class="fab fa-youtube"></i></a></li>
               </ul>
             </div>
           </div>
@@ -27,17 +27,17 @@
         <div class="speaker-box-layout3 animated-bg-wrap">
           <span class="animated-bg"></span>
           <div class="figure-box">
-            <a href="speaker-single.html"><img src="{{asset('frontend/image/speaker/speak.jpg')}}" alt="Speaker" width="267" height="267"></a>
+            <a href="speaker.html"><img src="{{asset('frontend/image/speaker/speak.jpg')}}" alt="Speaker" width="267" height="267"></a>
           </div>
           <div class="content-box">
-            <h3 class="title"><a href="speaker-single.html">Muhammad Ali Eshonqulov</a></h3>
+            <h3 class="title"><a href="speaker.html">Muhammad Ali Eshonqulov</a></h3>
             <div class="sub-title">Lecturer at IMC Krems and the University of World Economy and Diplomacy in Uzbekistan</div>
             <div class="speaker-social">
               <ul>
-                <li><a target="_blank" href="https://www.facebook.com/radiustheme"><i class="fab fa-facebook-f"></i></a></li>
-                <li><a target="_blank" href="https://twitter.com/radiustheme"><i class="fab fa-instagram"></i></a></li>
-                <li><a target="_blank" href="https://www.facebook.com/radiustheme"><i class="fab fa-telegram"></i></a></li>
-                <li><a target="_blank" href="https://www.pinterest.com/radius_theme"><i class="fab fa-youtube"></i></a></li>
+                <li><a target="_blank" href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a></li>
+                <li><a target="_blank" href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a></li>
+                <li><a target="_blank" href="https://telegram.org/"><i class="fab fa-telegram"></i></a></li>
+                <li><a target="_blank" href="https://www.youtube.com/"><i class="fab fa-youtube"></i></a></li>
               </ul>
             </div>
           </div>
@@ -47,17 +47,17 @@
         <div class="speaker-box-layout3 animated-bg-wrap">
           <span class="animated-bg"></span>
           <div class="figure-box">
-            <a href="speaker-single.html"><img src="{{asset('frontend/image/speaker/speak.jpg')}}" alt="Speaker" width="267" height="267"></a>
+            <a href="speaker.html"><img src="{{asset('frontend/image/speaker/speak.jpg')}}" alt="Speaker" width="267" height="267"></a>
           </div>
           <div class="content-box">
-            <h3 class="title"><a href="speaker-single.html">Muhammad Ali Eshonqulov</a></h3>
+            <h3 class="title"><a href="speaker.html">Muhammad Ali Eshonqulov</a></h3>
             <div class="sub-title">Lecturer at IMC Krems and the University of World Economy and Diplomacy in Uzbekistan</div>
             <div class="speaker-social">
               <ul>
-                <li><a target="_blank" href="https://www.facebook.com/radiustheme"><i class="fab fa-facebook-f"></i></a></li>
-                <li><a target="_blank" href="https://twitter.com/radiustheme"><i class="fab fa-instagram"></i></a></li>
-                <li><a target="_blank" href="https://www.facebook.com/radiustheme"><i class="fab fa-telegram"></i></a></li>
-                <li><a target="_blank" href="https://www.pinterest.com/radius_theme"><i class="fab fa-youtube"></i></a></li>
+                <li><a target="_blank" href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a></li>
+                <li><a target="_blank" href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a></li>
+                <li><a target="_blank" href="https://telegram.org/"><i class="fab fa-telegram"></i></a></li>
+                <li><a target="_blank" href="https://www.youtube.com/"><i class="fab fa-youtube"></i></a></li>
               </ul>
             </div>
           </div>
@@ -67,17 +67,17 @@
         <div class="speaker-box-layout3 animated-bg-wrap">
           <span class="animated-bg"></span>
           <div class="figure-box">
-            <a href="speaker-single.html"><img src="{{asset('frontend/image/speaker/speak.jpg')}}" alt="Speaker" width="267" height="267"></a>
+            <a href="speaker.html"><img src="{{asset('frontend/image/speaker/speak.jpg')}}" alt="Speaker" width="267" height="267"></a>
           </div>
           <div class="content-box">
-            <h3 class="title"><a href="speaker-single.html">Muhammad Ali Eshonqulov</a></h3>
+            <h3 class="title"><a href="speaker.html">Muhammad Ali Eshonqulov</a></h3>
             <div class="sub-title">Lecturer at IMC Krems and the University of World Economy and Diplomacy in Uzbekistan</div>
             <div class="speaker-social">
               <ul>
-                <li><a target="_blank" href="https://www.facebook.com/radiustheme"><i class="fab fa-facebook-f"></i></a></li>
-                <li><a target="_blank" href="https://twitter.com/radiustheme"><i class="fab fa-instagram"></i></a></li>
-                <li><a target="_blank" href="https://www.facebook.com/radiustheme"><i class="fab fa-telegram"></i></a></li>
-                <li><a target="_blank" href="https://www.pinterest.com/radius_theme"><i class="fab fa-youtube"></i></a></li>
+                <li><a target="_blank" href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a></li>
+                <li><a target="_blank" href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a></li>
+                <li><a target="_blank" href="https://telegram.org/"><i class="fab fa-telegram"></i></a></li>
+                <li><a target="_blank" href="https://www.youtube.com/"><i class="fab fa-youtube"></i></a></li>
               </ul>
             </div>
           </div>
@@ -87,17 +87,17 @@
         <div class="speaker-box-layout3 animated-bg-wrap">
           <span class="animated-bg"></span>
           <div class="figure-box">
-            <a href="speaker-single.html"><img src="{{asset('frontend/image/speaker/speak.jpg')}}" alt="Speaker" width="267" height="267"></a>
+            <a href="speaker.html"><img src="{{asset('frontend/image/speaker/speak.jpg')}}" alt="Speaker" width="267" height="267"></a>
           </div>
           <div class="content-box">
-            <h3 class="title"><a href="speaker-single.html">Muhammad Ali Eshonqulov</a></h3>
+            <h3 class="title"><a href="speaker.html">Muhammad Ali Eshonqulov</a></h3>
             <div class="sub-title">Lecturer at IMC Krems and the University of World Economy and Diplomacy in Uzbekistan</div>
             <div class="speaker-social">
               <ul>
-                <li><a target="_blank" href="https://www.facebook.com/radiustheme"><i class="fab fa-facebook-f"></i></a></li>
-                <li><a target="_blank" href="https://twitter.com/radiustheme"><i class="fab fa-instagram"></i></a></li>
-                <li><a target="_blank" href="https://www.facebook.com/radiustheme"><i class="fab fa-telegram"></i></a></li>
-                <li><a target="_blank" href="https://www.pinterest.com/radius_theme"><i class="fab fa-youtube"></i></a></li>
+                <li><a target="_blank" href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a></li>
+                <li><a target="_blank" href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a></li>
+                <li><a target="_blank" href="https://telegram.org/"><i class="fab fa-telegram"></i></a></li>
+                <li><a target="_blank" href="https://www.youtube.com/"><i class="fab fa-youtube"></i></a></li>
               </ul>
             </div>
           </div>
@@ -107,21 +107,22 @@
         <div class="speaker-box-layout3 animated-bg-wrap">
           <span class="animated-bg"></span>
           <div class="figure-box">
-            <a href="speaker-single.html"><img src="{{asset('frontend/image/speaker/speak.jpg')}}" alt="Speaker" width="267" height="267"></a>
+            <a href="speaker.html"><img src="{{asset('frontend/image/speaker/speak.jpg')}}" alt="Speaker" width="267" height="267"></a>
           </div>
           <div class="content-box">
-            <h3 class="title"><a href="speaker-single.html">Muhammad Ali Eshonqulov</a></h3>
+            <h3 class="title"><a href="speaker.html">Muhammad Ali Eshonqulov</a></h3>
             <div class="sub-title">Lecturer at IMC Krems and the University of World Economy and Diplomacy in Uzbekistan</div>
             <div class="speaker-social">
               <ul>
-                <li><a target="_blank" href="https://www.facebook.com/radiustheme"><i class="fab fa-facebook-f"></i></a></li>
-                <li><a target="_blank" href="https://twitter.com/radiustheme"><i class="fab fa-instagram"></i></a></li>
-                <li><a target="_blank" href="https://www.facebook.com/radiustheme"><i class="fab fa-telegram"></i></a></li>
-                <li><a target="_blank" href="https://www.pinterest.com/radius_theme"><i class="fab fa-youtube"></i></a></li>
+                <li><a target="_blank" href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a></li>
+                <li><a target="_blank" href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a></li>
+                <li><a target="_blank" href="https://telegram.org/"><i class="fab fa-telegram"></i></a></li>
+                <li><a target="_blank" href="https://www.youtube.com/"><i class="fab fa-youtube"></i></a></li>
               </ul>
             </div>
           </div>
         </div>
       </div>
+
     </div>
 </div>

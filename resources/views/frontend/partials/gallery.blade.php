@@ -5,62 +5,62 @@
     <div class="row">
       <div class="col-xl-3 col-md-4 col-sm-6 col-12">
         <div class="gallery-box-layout3 has-animation">
-          <a href="./image/banner/pic1.webp" class="rt-mfp-gallery-item"><img src="{{asset('frontend/image/banner/pic1.jpg')}}" alt="Gallery" width="900" height="780"></a>
+          <a href="./image/banner/pic1.webp" class="rt-mfp-gallery-item"><img src="{{asset('frontend/image/banner/pic1.webp')}}" alt="Gallery" width="900" height="780"></a>
         </div>
       </div>
       <div class="col-xl-3 col-md-4 col-sm-6 col-12">
         <div class="gallery-box-layout3 has-animation">
-          <a href="./image/banner/pic1.webp" class="rt-mfp-gallery-item"><img src="{{asset('frontend/image/banner/pic1.jpg')}}" alt="Gallery" width="900" height="780"></a>
+          <a href="./image/banner/pic1.webp" class="rt-mfp-gallery-item"><img src="{{asset('frontend/image/banner/pic1.webp')}}" alt="Gallery" width="900" height="780"></a>
         </div>
       </div>
       <div class="col-xl-3 col-md-4 col-sm-6 col-12">
         <div class="gallery-box-layout3 has-animation">
-          <a href="./image/banner/pic1.webp" class="rt-mfp-gallery-item"><img src="{{asset('frontend/image/banner/pic1.jpg')}}" alt="Gallery" width="900" height="780"></a>
+          <a href="./image/banner/pic1.webp" class="rt-mfp-gallery-item"><img src="{{asset('frontend/image/banner/pic1.webp')}}" alt="Gallery" width="900" height="780"></a>
         </div>
       </div>
       <div class="col-xl-3 col-md-4 col-sm-6 col-12">
         <div class="gallery-box-layout3 has-animation">
-          <a href="./image/banner/pic1.webp" class="rt-mfp-gallery-item"><img src="{{asset('frontend/image/banner/pic1.jpg')}}" alt="Gallery" width="900" height="780"></a>
+          <a href="./image/banner/pic1.webp" class="rt-mfp-gallery-item"><img src="{{asset('frontend/image/banner/pic1.webp')}}" alt="Gallery" width="900" height="780"></a>
         </div>
       </div>
       <div class="col-xl-3 col-md-4 col-sm-6 col-12">
         <div class="gallery-box-layout3 has-animation">
-          <a href="./image/banner/pic1.webp" class="rt-mfp-gallery-item"><img src="{{asset('frontend/image/banner/pic1.jpg')}}" alt="Gallery" width="900" height="780"></a>
+          <a href="./image/banner/pic1.webp" class="rt-mfp-gallery-item"><img src="{{asset('frontend/image/banner/pic1.webp')}}" alt="Gallery" width="900" height="780"></a>
         </div>
       </div>
       <div class="col-xl-3 col-md-4 col-sm-6 col-12">
         <div class="gallery-box-layout3 has-animation">
-          <a href="./image/banner/pic1.webp" class="rt-mfp-gallery-item"><img src="{{asset('frontend/image/banner/pic1.jpg')}}" alt="Gallery" width="900" height="780"></a>
+          <a href="./image/banner/pic1.webp" class="rt-mfp-gallery-item"><img src="{{asset('frontend/image/banner/pic1.webp')}}" alt="Gallery" width="900" height="780"></a>
         </div>
       </div>
       <div class="col-xl-3 col-md-4 col-sm-6 col-12">
         <div class="gallery-box-layout3 has-animation">
-          <a href="./image/banner/pic1.webp" class="rt-mfp-gallery-item"><img src="{{asset('frontend/image/banner/pic1.jpg')}}" alt="Gallery" width="900" height="780"></a>
+          <a href="./image/banner/pic1.webp" class="rt-mfp-gallery-item"><img src="{{asset('frontend/image/banner/pic1.webp')}}" alt="Gallery" width="900" height="780"></a>
         </div>
       </div>
       <div class="col-xl-3 col-md-4 col-sm-6 col-12">
         <div class="gallery-box-layout3 has-animation">
-          <a href="./image/banner/pic1.webp" class="rt-mfp-gallery-item"><img src="{{asset('frontend/image/banner/pic1.jpg')}}" alt="Gallery" width="900" height="780"></a>
+          <a href="./image/banner/pic1.webp" class="rt-mfp-gallery-item"><img src="{{asset('frontend/image/banner/pic1.webp')}}" alt="Gallery" width="900" height="780"></a>
         </div>
       </div>
       <div class="col-xl-3 col-md-4 col-sm-6 col-12">
         <div class="gallery-box-layout3 has-animation">
-          <a href="./image/banner/pic1.webp" class="rt-mfp-gallery-item"><img src="{{asset('frontend/image/banner/pic1.jpg')}}" alt="Gallery" width="900" height="780"></a>
+          <a href="./image/banner/pic1.webp" class="rt-mfp-gallery-item"><img src="{{asset('frontend/image/banner/pic1.webp')}}" alt="Gallery" width="900" height="780"></a>
         </div>
       </div>
       <div class="col-xl-3 col-md-4 col-sm-6 col-12">
         <div class="gallery-box-layout3 has-animation">
-          <a href="./image/banner/pic1.webp" class="rt-mfp-gallery-item"><img src="{{asset('frontend/image/banner/pic1.jpg')}}" alt="Gallery" width="900" height="780"></a>
+          <a href="./image/banner/pic1.webp" class="rt-mfp-gallery-item"><img src="{{asset('frontend/image/banner/pic1.webp')}}" alt="Gallery" width="900" height="780"></a>
         </div>
       </div>
       <div class="col-xl-3 col-md-4 col-sm-6 col-12">
         <div class="gallery-box-layout3 has-animation">
-          <a href="./image/banner/pic1.webp" class="rt-mfp-gallery-item"><img src="{{asset('frontend/image/banner/pic1.jpg')}}" alt="Gallery" width="900" height="780"></a>
+          <a href="./image/banner/pic1.webp" class="rt-mfp-gallery-item"><img src="{{asset('frontend/image/banner/pic1.webp')}}" alt="Gallery" width="900" height="780"></a>
         </div>
       </div>
       <div class="col-xl-3 col-md-4 col-sm-6 col-12">
         <div class="gallery-box-layout3 has-animation">
-          <a href="./image/banner/pic1.webp" class="rt-mfp-gallery-item"><img src="{{asset('frontend/image/banner/pic1.jpg')}}" alt="Gallery" width="900" height="780"></a>
+          <a href="./image/banner/pic1.webp" class="rt-mfp-gallery-item"><img src="{{asset('frontend/image/banner/pic1.webp')}}" alt="Gallery" width="900" height="780"></a>
         </div>
       </div>
     </div>
