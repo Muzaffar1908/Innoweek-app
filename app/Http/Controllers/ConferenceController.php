@@ -6,6 +6,7 @@ use App\Models\Archive\Archive;
 use App\Models\Conference;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Str;
@@ -22,6 +23,8 @@ class ConferenceController extends Controller
     {
         $conferences = Conference::paginate(5);
         $users = User::all();
+//        $condate=Conference::whereDate('started_at','=','2022-09-15')->get();
+//        @dd($condate);
         $archives = Archive::all();
         return view('admin.conference.index', compact('conferences', 'users', 'archives'));
     }
