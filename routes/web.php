@@ -3,11 +3,9 @@
 use App\Http\Controllers\ArchiveController;
 use App\Http\Controllers\ConferenceController;
 use App\Http\Controllers\GaleriesController;
-<<<<<<< HEAD
+
 use App\Http\Controllers\InnoweekController;
-=======
 use App\Http\Controllers\PartnerController;
->>>>>>> d19a2bc6395a8c34944ae7be37f5926175c710d5
 use App\Http\Controllers\Mobile\IndexController;
 use App\Http\Controllers\SpeakerController;
 use Illuminate\Support\Facades\Route;
@@ -82,13 +80,13 @@ Route::prefix('admin')->name('admin.')->group(function(){
     Route::POST('/user/isactive/{id}',[UserController::class,'is_active']);
     Route::POST('/speaker/isactive/{id}',[SpeakerController::class,'is_active']);
     Route::POST('/speaker/isactive/{id}',[SpeakerController::class,'is_active']);
-<<<<<<< HEAD
+
     Route::POST('/innoweek/isactive/{id}',[InnoweekController::class,'is_active']);
 
-=======
+
     Route::POST('/galeries/is_active/{id}', [GaleriesController::class, 'is_active']);
     Route::POST('/partner/is_active/{id}', [PartnerController::class, 'is_active']);
->>>>>>> d19a2bc6395a8c34944ae7be37f5926175c710d5
+
 
 });
 
