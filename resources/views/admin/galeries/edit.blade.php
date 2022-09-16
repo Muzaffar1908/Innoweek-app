@@ -45,16 +45,28 @@
                     </div>
 
                     <div class="mb-3">
+                        <label for="archive_id">User</label>
+                        <select name="user_id" class="form-control" id="user_id">
+                            @foreach ($users as $user)
+                                <option value="{{$user->id}}" @if($user->id==$galeries->user_id) selected @endif>{{$user->first_name}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="archive_id">Archvie year</label>
+                        <select name="archive_id" class="form-control" id="archive_id">
+                            @foreach ($archives as $archive)
+                                <option value="{{$archive->id}} " @if($archive->id==$galeries->archive_id) selected @endif>{{$archive->year}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
                         <label for="image">Image</label><br>
                         <img src="{{asset('upload/galeries/' .$galeries->image.'-d.png')}}" alt="img" with="100px" height="60px">
                         <input type="file" name="image"  class="form-control" id="image" placeholder="User image enter" value="{{$galeries->image}}" />
                     </div>
-
-                    <div class="mb-3">
-                        <label for="is_active">Is Active</label>
-                        <input type="checkbox" name="is_active"  id="is_active"  value="{{$galeries->is_active}}" />
-                    </div>
-
 
                     <button type="submit" class="btn btn-success">Save</button>
 

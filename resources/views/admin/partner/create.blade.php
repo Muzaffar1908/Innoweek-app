@@ -39,6 +39,29 @@
                     @csrf
 
                     <div class="mb-3">
+                        {{-- <label for="id">Title uz</label> --}}
+                        <input type="hidden" name="id" class="form-control"  value="{{old('id')}}" />
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="archive_id">Username</label>
+                        <select name="user_id" class="form-control" id="archive_id">
+                            @foreach ($users as $user)
+                                <option value="{{$user->id}}">{{$user->first_name}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="archive_id">Archvie year</label>
+                        <select name="archive_id" class="form-control" id="archive_id">
+                            @foreach ($archives as $archive)
+                                <option value="{{$archive->id}}">{{$archive->year}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
                         <label for="image">Image</label>
                         <input type="file" name="image"  class="form-control" id="image" placeholder=" image enter" />
                     </div>

@@ -15,6 +15,8 @@ return new class extends Migration
     {
         Schema::create('partners', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained('users')->onDelete('restrict');
+            $table->foreignId('archive_id')->constrained('archives')->onDelete('restrict');
             $table->string('image');
             $table->string('image_url');
             $table->boolean('is_active')->nullable()->default(true);

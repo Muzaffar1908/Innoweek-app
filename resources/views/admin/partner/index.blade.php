@@ -50,6 +50,8 @@
                                     <thead>
                                     <tr>
                                         <th>№</th>
+                                        <th>Username</th>
+                                        <th>Archive Year</th>
                                         <th>Image</th>
                                         <th>Image Url</th>
                                         <th>Is Active</th>
@@ -59,6 +61,8 @@
                                     @foreach ($partners as $partner)
                                         <tr>
                                             <td>{{($partners->currentpage() - 1) * $partners->perpage() + ($loop->index+1)}}</td>
+                                            <td>{{$partner->partnerTable->first_name}}</td>
+                                            <td>{{$partner->partnerarchiveTable->year}}</td>
                                             <td>
                                                 <img src="{{asset('upload/partners/' .$partner->image.'-d.png')}}" alt="img" with="100px" height="60px">
                                             </td>
