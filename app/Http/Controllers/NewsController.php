@@ -221,6 +221,7 @@ class NewsController extends Controller
             'news_categories' => $news_categories,
         ]);
     }
+    
     public function is_active($id){
         $change=News::find($id);
         if($change->is_active==1){

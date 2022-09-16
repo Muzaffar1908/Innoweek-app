@@ -38,9 +38,28 @@
                 <form action="{{route('admin.galeries.update',['galery'=>$galeries->id]) }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
+
                     <div class="mb-3">
                         {{-- <label for="id">Title uz</label> --}}
                         <input type="hidden" name="id" class="form-control"  value="{{$galeries->id}}" />
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="archive_id">User</label>
+                        <select name="user_id" class="form-control" id="user_id">
+                            @foreach ($users as $user)
+                                <option value="{{$user->id}}" @if($user->id==$galeries->user_id) selected @endif>{{$user->first_name}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="archive_id">Archvie year</label>
+                        <select name="archive_id" class="form-control" id="archive_id">
+                            @foreach ($archives as $archive)
+                                <option value="{{$archive->id}} " @if($archive->id==$galeries->archive_id) selected @endif>{{$archive->year}}</option>
+                            @endforeach
+                        </select>
                     </div>
 
                     <div class="mb-3">
@@ -48,7 +67,6 @@
                         <img src="{{asset('upload/galeries/' .$galeries->image.'-d.png')}}" alt="img" with="100px" height="60px">
                         <input type="file" name="image"  class="form-control" id="image" placeholder="User image enter" value="{{$galeries->image}}" />
                     </div>
-
 
                     <button type="submit" class="btn btn-success">Save</button>
 

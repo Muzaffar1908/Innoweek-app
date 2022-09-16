@@ -3,7 +3,11 @@
 use App\Http\Controllers\ArchiveController;
 use App\Http\Controllers\ConferenceController;
 use App\Http\Controllers\GaleriesController;
+<<<<<<< HEAD
 use App\Http\Controllers\InnoweekController;
+=======
+use App\Http\Controllers\PartnerController;
+>>>>>>> d19a2bc6395a8c34944ae7be37f5926175c710d5
 use App\Http\Controllers\Mobile\IndexController;
 use App\Http\Controllers\SpeakerController;
 use Illuminate\Support\Facades\Route;
@@ -31,10 +35,12 @@ use App\Http\Controllers\UserTicketController;
 Route::get('/welcome', function () {
     return view('welcome');
 });
+
 Route::get('locale/{locale}', function ($locale) {
     Session::put('locale', $locale);
-    return redirect('mobile-v');
+    return redirect()->back();
 });
+
 
 // Frontend  start !!!
 
@@ -51,11 +57,12 @@ Route::group(['prefix' => '/'], function(){
 
 // Backend  start !!!
 
+
+
 Route::prefix('admin')->name('admin.')->group(function(){
     Route::get('/dashboard/', function(){
         return view('admin.layout.index');
     })->name('index');
-
 
     Route::resource('/user', UserController::class);
     Route::resource('/news_category', NewsCategoryController::class);
@@ -66,6 +73,7 @@ Route::prefix('admin')->name('admin.')->group(function(){
     Route::resource('/conference', ConferenceController::class);
     Route::resource('/speakers', SpeakerController::class);
     Route::resource('/userticket', UserTicketController::class);
+    Route::resource('/partner', PartnerController::class);
     Route::POST('/userticket/isactive/{id}',[UserTicketController::class,'is_active']);
     Route::POST('/news/isactive/{id}',[NewsController::class,'is_active']);
     Route::POST('/news_cat/isactive/{id}',[NewsCategoryController::class,'is_active']);
@@ -74,10 +82,16 @@ Route::prefix('admin')->name('admin.')->group(function(){
     Route::POST('/user/isactive/{id}',[UserController::class,'is_active']);
     Route::POST('/speaker/isactive/{id}',[SpeakerController::class,'is_active']);
     Route::POST('/speaker/isactive/{id}',[SpeakerController::class,'is_active']);
+<<<<<<< HEAD
     Route::POST('/innoweek/isactive/{id}',[InnoweekController::class,'is_active']);
 
+=======
+    Route::POST('/galeries/is_active/{id}', [GaleriesController::class, 'is_active']);
+    Route::POST('/partner/is_active/{id}', [PartnerController::class, 'is_active']);
+>>>>>>> d19a2bc6395a8c34944ae7be37f5926175c710d5
 
 });
+
 
 // Backend  stop !!!
 

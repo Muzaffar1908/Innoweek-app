@@ -7,7 +7,7 @@
         <div class="card">
             <div class="card-header">
                 <h4 class="card-title">Form grid</h4>
-                <a href="{{route('admin.conference.index')}}" class="btn btn-primary"><i class="bi bi-arrow-left-short"></i>Back</a>
+                <a href="{{route('admin.partner.index')}}" class="btn btn-primary"><i class="bi bi-arrow-left-short"></i>Back</a>
             </div>
 
                 @if (count($errors) > 0)
@@ -39,11 +39,32 @@
                     @csrf
 
                     <div class="mb-3">
+                        {{-- <label for="id">Title uz</label> --}}
+                        <input type="hidden" name="id" class="form-control"  value="{{old('id')}}" />
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="user_id">Username</label>
+                        <select name="user_id" class="form-control" id="user_id">
+                            @foreach ($users as $user)
+                                <option value="{{$user->id}}">{{$user->first_name}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="archive_id">Archvie year</label>
+                        <select name="archive_id" class="form-control" id="archive_id">
+                            @foreach ($archives as $archive)
+                                <option value="{{$archive->id}}">{{$archive->year}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
                         <label for="image">Image</label>
                         <input type="file" name="image"  class="form-control" id="image" placeholder=" image enter" />
                     </div>
-
-
 
                     <button type="submit" class="btn btn-success">Save</button>
 

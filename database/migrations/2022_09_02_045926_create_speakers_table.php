@@ -17,8 +17,12 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained('users')->onDelete('restrict');
             $table->foreignId('archive_id')->constrained('archives')->onDelete('restrict');
-            $table->string('full_name');
-            $table->string('job');
+            $table->string('full_name_uz')->index();
+            $table->string('full_name_ru')->index()->nullable();
+            $table->string('full_name_en')->index()->nullable();
+            $table->string('job_uz')->index();
+            $table->string('job_ru')->index()->nullable();
+            $table->string('job_en')->index()->nullable();
             $table->string('image');
             $table->string('facebook_ur')->nullable();
             $table->string('twitter_url')->nullable();

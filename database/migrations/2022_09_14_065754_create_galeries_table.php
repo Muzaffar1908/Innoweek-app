@@ -15,7 +15,10 @@ return new class extends Migration
     {
         Schema::create('galeries', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained('users')->onDelete('restrict');
+            $table->foreignId('archive_id')->constrained('archives')->onDelete('restrict');
             $table->string('image')->nullable();
+            $table->boolean('is_active')->nullable()->default(true);
             $table->timestamps();
         });
     }
