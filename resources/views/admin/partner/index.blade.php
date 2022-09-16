@@ -52,6 +52,7 @@
                                         <th>№</th>
                                         <th>Image</th>
                                         <th>Image Url</th>
+                                        <th>Is Active</th>
                                         <th>Action</th>
                                     </tr>
                                     </thead>
@@ -62,6 +63,26 @@
                                                 <img src="{{asset('upload/partners/' .$partner->image.'-d.png')}}" alt="img" with="100px" height="60px">
                                             </td>
                                             <td>{{$partner->image_url}}</td>
+                                            <td>
+                                                <form action="{{ asset('/admin/partner/is_active/' . $partner->id) }}"
+                                                    method="POST" enctype="multipart/form-data">
+                                                    @csrf
+                                                    <div class="sweetalert">
+                                                        <button type="button"
+                                                            class="
+                                                        @if ($partner->is_active == 1) btn-success @endif
+                                                        @if ($partner->is_active == 0) btn-danger @endif
+                                                          btn sweet-confirm">
+                                                            @if ($partner->is_active == 1)
+                                                                Active
+                                                            @endif
+                                                            @if ($partner->is_active == 0)
+                                                                Not Active
+                                                            @endif
+                                                        </button>
+                                                    </div>
+                                                </form>
+                                            </td>
                                             <td>
                                                 <div class="btn-group">
                                                     <a href="{{route('admin.partner.edit', $partner->id)}}" type="button" class="btn btn-success"><i class="bi bi-pencil"></i></a>

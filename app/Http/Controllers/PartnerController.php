@@ -23,6 +23,17 @@ class PartnerController extends Controller
         return view('admin.partner.index', compact('partners'));
     }
 
+    public function is_active($id){
+        $change=Partner::find($id);
+        if($change->is_active==1){
+            $change->is_active=0;
+        }else{
+            $change->is_active=1;
+        }
+        $change->save();
+        return redirect()->back();
+    }
+
     /**
      * Show the form for creating a new resource.
      *

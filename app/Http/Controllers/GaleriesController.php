@@ -19,6 +19,17 @@ class GaleriesController extends Controller
         return view('admin.galeries.index', ['galeries' => $galeries]);
     }
 
+    public function is_active($id){
+        $change=Galeries::find($id);
+        if($change->is_active==1){
+            $change->is_active=0;
+        }else{
+            $change->is_active=1;
+        }
+        $change->save();
+        return redirect()->back();
+    }
+
     public function create()
     {
         return view('admin.galeries.create');
@@ -28,7 +39,7 @@ class GaleriesController extends Controller
     {
         $data = $request->except(array('_token'));
         $rule = array(
-            'image' => 'nullable',
+            'image' => 'required',
         );
 
         if (!file_exists('upload/galeries')) {
@@ -86,10 +97,8 @@ class GaleriesController extends Controller
     {
         $data = $request->except(array('_token'));
         $rule = array(
-            'image' => 'nullable',
+            'image' => 'required',
         );
-
-
 
         $validator = Validator::make($data, $rule);
 
@@ -134,7 +143,7 @@ class GaleriesController extends Controller
     {
         $galeries = Galeries::findOrFail($id);
         $image_path = public_path() . '/upload/galeries/' . $galeries->image . '-d.png';
-        unlink($image_path);
+        // unlink($image_path);
         $galeries->delete();
         return redirect('admin/galeries')->with('warning', 'NEWS TABLES DELETED');
     }

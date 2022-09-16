@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('galeries', function (Blueprint $table) {
             $table->id();
             $table->string('image')->nullable();
+            $table->boolean('is_active')->nullable()->default(true);
             $table->timestamps();
         });
     }

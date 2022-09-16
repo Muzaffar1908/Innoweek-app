@@ -38,6 +38,7 @@
                 <form action="{{route('admin.galeries.update',['galery'=>$galeries->id]) }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
+
                     <div class="mb-3">
                         {{-- <label for="id">Title uz</label> --}}
                         <input type="hidden" name="id" class="form-control"  value="{{$galeries->id}}" />
@@ -47,6 +48,11 @@
                         <label for="image">Image</label><br>
                         <img src="{{asset('upload/galeries/' .$galeries->image.'-d.png')}}" alt="img" with="100px" height="60px">
                         <input type="file" name="image"  class="form-control" id="image" placeholder="User image enter" value="{{$galeries->image}}" />
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="is_active">Is Active</label>
+                        <input type="checkbox" name="is_active"  id="is_active"  value="{{$galeries->is_active}}" />
                     </div>
 
 

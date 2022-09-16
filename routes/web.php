@@ -76,6 +76,8 @@ Route::prefix('admin')->name('admin.')->group(function(){
     Route::POST('/user/isactive/{id}',[UserController::class,'is_active']);
     Route::POST('/speaker/isactive/{id}',[SpeakerController::class,'is_active']);
     Route::POST('/speaker/isactive/{id}',[SpeakerController::class,'is_active']);
+    Route::POST('/galeries/is_active/{id}', [GaleriesController::class, 'is_active']);
+    Route::POST('/partner/is_active/{id}', [PartnerController::class, 'is_active']);
 
 });
 

@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('image');
             $table->string('image_url');
+            $table->boolean('is_active')->nullable()->default(true);
             $table->timestamps();
         });
     }
