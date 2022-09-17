@@ -23,7 +23,7 @@ class AdminMiddleware
                 return $next($request);
             }
             else {
-                return redirect('/mobile-v/register')->with('massage',"Siz admin emassiz");
+                return redirect('/login')->with('massage',"Siz admin emassiz");
             }
         }
         else {
