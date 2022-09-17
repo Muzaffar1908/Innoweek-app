@@ -50,11 +50,11 @@
 
                     <div class="mb-3">
                         <label for="phone">Phone</label>
-                        <input type="tel" name="phone" class="form-control" id="phone" placeholder="Phone enter" value="{{old('phone')}}" />
+                        <input type="tel" name="phone" class="form-control" id="phone" placeholder="Tel format +998991234567 yoki 991234567 kabi" value="{{old('phone')}}" />
                     </div>
 
                     <div class="mb-3">
-                        <label for="email"></label>
+                        <label for="email">Email</label>
                         <input type="email" name="email" class="form-control" id="email" placeholder="Email enter" value="{{old('email')}}" />
                     </div>
 
