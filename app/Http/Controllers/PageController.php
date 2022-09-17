@@ -37,8 +37,10 @@ class PageController extends Controller
         $partners = Partner::all();
 
         $innoweeks = Innoweek::first();
+
+        $events = Conference::all();
     
-        return view('frontend.app', ['condate' => $condate,'condate_data'=>$condate_data, 'promo' => $promo, 'news' => $news, 'speakers' => $speakers, 'galleries' => $galleries, 'partners' => $partners, 'innoweeks' => $innoweeks]);
+        return view('frontend.app', ['condate' => $condate,'condate_data'=>$condate_data, 'promo' => $promo, 'news' => $news, 'speakers' => $speakers, 'galleries' => $galleries, 'partners' => $partners, 'innoweeks' => $innoweeks, 'events' => $events]);
 
 
     }
@@ -58,8 +60,26 @@ class PageController extends Controller
     }
 
 
-    public function newsShow()
+    public function newsShow($id)
     {
+        $innoweeks = Innoweek::first();
+    
+        $news = News::where(['id' => $id])->get();
+        return view('frontend.partials.newshow', compact('news','innoweeks'));
+    }
 
+    public function eventShow($id)
+    {
+        $innoweeks = Innoweek::first();
+
+        $events = Conference::where(['id' => $id])->get();
+        return view('frontend.partials.eventshow', compact('events', 'innoweeks'));
+    }
+
+    public function speakerShow($id)
+    {
+        $innoweeks = Innoweek::first();
+        $speakers = Speakers::where(['id' => $id])->first();
+        return view('frontend.partials.speakershow', compact('speakers', 'innoweeks'));
     }
 }

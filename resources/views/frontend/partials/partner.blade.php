@@ -1,7 +1,7 @@
 <section id="partner" class="testimonials-wrap-layout2">
   <!-- <div class="container"> -->
     <div class="section-heading style-four">
-      <h2 class="title wow fadeInUp animated" data-wow-delay="0.2s" data-wow-duration="1s">Partners</h2>
+      <h2 class="title wow fadeInUp animated" data-wow-delay="0.2s" data-wow-duration="1s">{{__('Partners')}}</h2>
     </div>
     <div class="sliderPartnerOne swiper-container mb-5">
           <div class="swiper-wrapper align-items-center">

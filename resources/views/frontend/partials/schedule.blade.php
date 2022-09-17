@@ -3,7 +3,7 @@
   ?>
 <div class="container">
     <div class="section-heading style-five">
-      <h2 class="title wow fadeInUp animated" data-wow-delay="0.2s" data-wow-duration="1s">Schedule</h2>
+      <h2 class="title wow fadeInUp animated" data-wow-delay="0.2s" data-wow-duration="1s">{{__('Schedule')}}</h2>
     </div>
     <div class="row justify-content-center">
       <div class="col-lg-10">

@@ -5,22 +5,22 @@
           <div class="footer-widgets">
             <a href="#home" class="logo logo-light"><img src="{{asset('frontend/image/min.webp')}}" alt="Logo" width="50"></a>
                 <a href="#home" class="logo logo-light"><img src="{{asset('frontend/image/logo.webp')}}" alt="Logo" width="120"></a>
-            <p class="description mt-2 wow fadeInLeft animated" data-wow-delay="0.2s" data-wow-duration="1s">InnoWeek.Uz is the premier event for local and foreign research centers, investment funds, technology agencies, technological parks and business incubators. In 2021, Uzbekistan was held the annual International Week of Innovative Ideas in traditional and online formats.</p>
+            <p class="description mt-2 wow fadeInLeft animated" data-wow-delay="0.2s" data-wow-duration="1s">{!! substr($innoweeks->{'description_'.App::getLocale()},0,90).'...' !!}</p>
             <ul class="footer-social wow fadeInLeft animated" data-wow-delay="0.3s" data-wow-duration="1s">
               <li class="wow fadeInLeft animated" data-wow-delay="0.7s" data-wow-duration="1s">
-                <a target="_blank" href="https://www.facebook.com/" class="facebook"><i
+                <a target="_blank" href="{{$innoweeks->facebook}}" class="facebook"><i
                                   class="fab fa-facebook-f"></i></a>
               </li>
               <li class="wow fadeInLeft animated" data-wow-delay="0.6s" data-wow-duration="1s">
-                <a target="_blank" href="https://www.instagram.com/" class="twitter"><i
+                <a target="_blank" href="{{$innoweeks->instagram}}" class="twitter"><i
                                   class="fab fa-instagram"></i></a>
               </li>
               <li class="wow fadeInLeft animated" data-wow-delay="0.5s" data-wow-duration="1s">
-                <a target="_blank" href="https://telegram.org/" class="linkedin"><i
+                <a target="_blank" href="{{$innoweeks->linkedin}}" class="linkedin"><i
                                   class="fab fa-telegram"></i></a>
               </li>
               <li class="wow fadeInLeft animated" data-wow-delay="0.4s" data-wow-duration="1s">
-                <a target="_blank" href="https://www.youtube.com/" class="instagram"><i
+                <a target="_blank" href="{{$innoweeks->youtobe}}" class="instagram"><i
                                   class="fab fa-youtube"></i></a>
               </li>
             </ul>
@@ -29,17 +29,17 @@
         <div class="col-lg-1"></div>
         <div class="col-lg-3 col-md-4 col-12 wow fadeInLeft animated" data-wow-delay="0.3s" data-wow-duration="1s">
           <div class="footer-widgets">
-            <h3 class="widget-title wow fadeInLeft animated" data-wow-delay="0.4s" data-wow-duration="1s">Useful Links</h3>
+            <h3 class="widget-title wow fadeInLeft animated" data-wow-delay="0.4s" data-wow-duration="1s">{{__('Useful Links')}}</h3>
             <div class="footer-menu">
               <ul>
                 <li class=" wow fadeInLeft animated" data-wow-delay="0.5s" data-wow-duration="1s">
                   <a href="#home"><svg width="12" height="16" viewBox="0 0 12 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path d="M0 15.875L5.625 12.5938L11.25 15.875V2.28125C11.25 1.51953 10.6055 0.875 9.84375 0.875H1.40625C0.615234 0.875 0 1.51953 0 2.28125V15.875Z" />
-                    </svg>Home</a>
+                    </svg>{{__('Home')}}</a>
                 </li>
                 <li class=" wow fadeInLeft animated" data-wow-delay="0.6s" data-wow-duration="1s"><a href="#"><svg width="12" height="16" viewBox="0 0 12 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path d="M0 15.875L5.625 12.5938L11.25 15.875V2.28125C11.25 1.51953 10.6055 0.875 9.84375 0.875H1.40625C0.615234 0.875 0 1.51953 0 2.28125V15.875Z" />
-                    </svg>Technoways</a></li>
+                    </svg>{{__('Technoways')}}</a></li>
                 
               </ul>
             </div>
@@ -52,19 +52,19 @@
               <ul>
                 <li class="wow fadeInLeft animated" data-wow-delay="0.7s" data-wow-duration="1s"><a class="inno-cursor"><svg width="12" height="16" viewBox="0 0 12 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path d="M0 15.875L5.625 12.5938L11.25 15.875V2.28125C11.25 1.51953 10.6055 0.875 9.84375 0.875H1.40625C0.615234 0.875 0 1.51953 0 2.28125V15.875Z" />
-                    </svg>Address:</a>
-                    <p class="description">100174, Tashkent, Almazar district, University street, 7</p>
+                    </svg>{{__('Address')}}:</a>
+                    <p class="description">{{$innoweeks->address}}</p>
                   </li>
                 <li class="wow fadeInLeft animated" data-wow-delay="0.8s" data-wow-duration="1s"><a class="inno-cursor"><svg width="12" height="16" viewBox="0 0 12 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path d="M0 15.875L5.625 12.5938L11.25 15.875V2.28125C11.25 1.51953 10.6055 0.875 9.84375 0.875H1.40625C0.615234 0.875 0 1.51953 0 2.28125V15.875Z" />
-                    </svg>Phone: 
-                    <p class="description"><a href="tel:+998712033200">+998(71) 203-32-00</p>
+                    </svg>{{__('Phone')}}: 
+                    <p class="description"><a href="tel:+998712033200">{{$innoweeks->phone}}</p>
                   </a>
                   </li>    
                   <li class="wow fadeInLeft animated" data-wow-delay="0.9s" data-wow-duration="1s"><a class="inno-cursor"><svg width="12" height="16" viewBox="0 0 12 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M0 15.875L5.625 12.5938L11.25 15.875V2.28125C11.25 1.51953 10.6055 0.875 9.84375 0.875H1.40625C0.615234 0.875 0 1.51953 0 2.28125V15.875Z" />
-                  </svg>Email:</a>
-                  <p class="description"> <a href="mailto:innoweekuz2021@gmail.com">info.innoweek.uz@gmail.com</a></p>
+                  </svg>{{$innoweeks->email}}:</a>
+                  <p class="description"> <a href="mailto:innoweekuz2021@gmail.com">{{$innoweeks->email}}</a></p>
                 </li>                   
               </ul>
             </div>
