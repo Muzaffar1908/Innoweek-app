@@ -57,7 +57,7 @@ Route::group(['prefix' => '/'], function(){
 
 
 
-Route::prefix('admin')->name('admin.')->group(function(){
+Route::prefix('admin')->name('admin.')->middleware('auth','isAdmin')->group(function(){
     Route::get('/dashboard/', function(){
         return view('admin.layout.index');
     })->name('index');
@@ -80,10 +80,7 @@ Route::prefix('admin')->name('admin.')->group(function(){
     Route::POST('/user/isactive/{id}',[UserController::class,'is_active']);
     Route::POST('/speaker/isactive/{id}',[SpeakerController::class,'is_active']);
     Route::POST('/speaker/isactive/{id}',[SpeakerController::class,'is_active']);
-
     Route::POST('/innoweek/isactive/{id}',[InnoweekController::class,'is_active']);
-
-
     Route::POST('/galeries/is_active/{id}', [GaleriesController::class, 'is_active']);
     Route::POST('/partner/is_active/{id}', [PartnerController::class, 'is_active']);
 
