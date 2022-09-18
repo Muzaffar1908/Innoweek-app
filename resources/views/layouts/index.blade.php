@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>International Week of Innovative Ideas
+    <title>{{__('International Week of Innovative Ideas')}}
     </title>
     <!-- Favicons -->
     <link href="{{asset('frontend/image/favicon.ico')}}" rel="icon">
