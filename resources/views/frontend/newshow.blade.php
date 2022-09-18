@@ -1,6 +1,7 @@
 @extends('layouts.index')
 
 @section('content')
+
   <section class="event-single-wrap">
     <div class="container">
       <div class="section-heading style-four">
