@@ -5131,7 +5131,7 @@ section:hover .section-heading.style-three:after {
 }
 
 .event-single-wrap {
-  padding-top: 130px;
+  padding-top: 150px;
   padding-bottom: 100px;
 }
 
@@ -13474,7 +13474,7 @@ body.slidemenuon .sidebarBtn .bar:nth-child(4) {
 }
 
 .speaker-single-wrap {
-  padding-top: 130px;
+  padding-top: 150px;
   padding-bottom: 106px;
 }
 
@@ -14487,7 +14487,7 @@ input[type = "radio"] {
   transition: all .2s ease-out;
   border: 1px solid #fff;
   font-size: 18px;
-  
+
 }
 
 .rt-slide-nav {
