@@ -1,5 +1,12 @@
 @extends('layouts.index')
-
+<style>
+    .header-menu{
+        background-color: #0e1c41;
+}
+.container-fluid{
+        background-color: #0e1c41;
+}
+</style>
 @section('content')
 
   <section class="event-single-wrap">
@@ -18,7 +25,7 @@
                 {{$news->started_at}}</div>
               <h2 class="title wow fadeInUp animated" data-wow-delay="0.4s" data-wow-duration="1s">{!! substr($news->{'title_'.App::getLocale()},0,90).'...' !!}</h2>
               <p class="description wow fadeInUp animated" data-wow-delay="0.5s" data-wow-duration="1s">
-                {!! substr($news->{'description_'.App::getLocale()},0,90).'...' !!}  
+                {!! substr($news->{'description_'.App::getLocale()},0,90).'...' !!}
               </p>
             </div>
           </div>

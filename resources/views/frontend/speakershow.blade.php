@@ -1,5 +1,12 @@
 @extends('layouts.index')
-
+<style>
+    .header-menu{
+        background-color: #0e1c41;
+}
+.container-fluid{
+        background-color: #0e1c41;
+}
+</style>
 @section('content')
 
   <section class="speaker-single-wrap">
