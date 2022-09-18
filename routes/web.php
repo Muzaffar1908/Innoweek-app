@@ -55,9 +55,10 @@ Route::group(['prefix' => '/'], function(){
         Route::get('/eventshow/{id}', 'eventShow')->name('eventshowx');
         Route::get('/speakershow/{id}', 'speakerShow')->name('speakershowx');
         Route::get('/code', 'register')->name('code');
+        Route::get('/qr', 'qr')->name('qr');
     });
 
-    
+
 
 });
 
