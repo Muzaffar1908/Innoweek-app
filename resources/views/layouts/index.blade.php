@@ -226,10 +226,10 @@
                 </div>
                 <input id="emailOrNumber" type="text" name="phone_or_email" placeholder="{{__('Email or Phone')}}"
                 autocomplete="off" required>
-                
+
                 <input id="datepicker" type="text" name="birth_date" autocomplete="off" required placeholder="{{__('day/month/year')}}"/>
-                
-                
+
+
                 <div class="input-radio">
                     <label for="gender">{{__('JINSI')}}:</label>
                     <div class="d-flex-radio">
@@ -241,7 +241,7 @@
             </form>
             </div>
           </div>
-      
+
           <div id="template-search" class="template-search">
             <button type="button" class="close">×</button>
             <form class="search-form">

@@ -39,20 +39,23 @@ class PageController extends Controller
         $innoweeks = Innoweek::first();
 
         $events = Conference::all();
-    
+
+
         return view('frontend.app', ['condate' => $condate,'condate_data'=>$condate_data, 'promo' => $promo, 'news' => $news, 'speakers' => $speakers, 'galleries' => $galleries, 'partners' => $partners, 'innoweeks' => $innoweeks, 'events' => $events]);
 
     }
 
-    // public function Indexx()
-    // {
-    //     $innoweeks = Innoweek::first();
-    //     return view('layouts.index', compact('innoweeks'));
-    // }
+
 
     public function register()
     {
-        return view('frontend.register');
+        $innoweeks = Innoweek::first();
+        return view('frontend.register',['innoweeks'=>$innoweeks]);
+    }
+    public function qr()
+    {
+        $innoweeks = Innoweek::first();
+        return view('frontend.qr',['innoweeks'=>$innoweeks]);
     }
 
     public function schedule($id)
@@ -73,7 +76,7 @@ class PageController extends Controller
     public function newsShow($id)
     {
         $innoweeks = Innoweek::first();
-    
+
         $news = News::where(['id' => $id])->first();
 
         $newsx = Speakers::orderBy('created_at', 'desc')->paginate(5);
@@ -97,6 +100,7 @@ class PageController extends Controller
         $innoweeks = Innoweek::first();
         $speakers = Speakers::where(['id' => $id])->first();
 
-        return view('frontend.speakershow', compact('innoweeks', 'speakers'));  
+        return view('frontend.speakershow', compact('innoweeks', 'speakers'));
     }
+
 }
