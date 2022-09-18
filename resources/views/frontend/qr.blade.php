@@ -27,7 +27,7 @@
 <div class="regpanel" data-bg-image="{{asset('frontend/image/back.png')}}" style="background-image:{{'frontend/image/back.png'}};" >
     <div class="boxes">
         <form class="reg-box">
-            <h5> Ushbu QR code orqali "Innoweek 2022" ilovasini yuklab oling </h5>
+            <h5> {{__('Download QR code')}} </h5>
             <img  src="{{asset('frontend/image/qr.png')}}" class="mx-auto d-block img"  alt="">
             <div class="d-flex py-3">
                 <button> <img src="{{asset('frontend/image/icon/appstoree.png')}}" alt=""> </button>

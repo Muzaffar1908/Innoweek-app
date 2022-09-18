@@ -24,12 +24,12 @@
 </head>
 <body>
 
-<div class="regpanel" data-bg-image="frontend/image/back.png" style="background-image:{{'frontend/image/back.png'}};" >
+<div class="regpanel" data-bg-image="{{asset('frontend/image/back.png')}}" style="background-image:{{'frontend/image/back.png'}};" >
     <div class="boxes">
         <form class="reg-box" action="{{route('qr')}}">
-            <h5> <h5>Ko'rsatilgan elektron po'chta yoki telefon raqamiga yuborilgan maxfiy parolni kiriting </h5> </h5>
+            <h5> <h5>{{__('Enter the secret password sent to the specified email or phone number')}} </h5> </h5>
             <input type="password" placeholder="password" required>
-            <button class="reg-btn"> Next </button>
+            <button class="reg-btn"> {{__('Next')}} </button>
         </form>
     </div>
 </div>
