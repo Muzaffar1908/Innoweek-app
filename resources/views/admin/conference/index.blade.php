@@ -56,6 +56,7 @@
                                   <th>Stoped At</th>
                                   <th>Title</th>
                                   <th>Live url</th>
+                                  <th>Innoweek Video</th>
                                   <th>User Image</th>
                                   <th>Address</th>
                                   <th>Description</th>
@@ -72,6 +73,7 @@
                                     <td>{{$conference->stoped_at}}</td>
                                     <td>{{$conference->title_uz}}</td>
                                     <td>{{$conference->live_url}}</td>
+                                    <td>{{$conference->innoweek_video}}</td>
                                       <td>
                                           <img src="{{asset('upload/conference/' .$conference->user_image.'-d.png')}}" alt="img" with="100px" height="60px">
                                       </td>

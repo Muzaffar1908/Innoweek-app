@@ -93,6 +93,11 @@
                     </div>
 
                     <div class="mb-3">
+                        <label for="innoweek_video">Innoweek video</label>
+                        <input type="url" name="innoweek_video" class="form-control" id="innoweek_video" placeholder="Live url enter" value="{{$conference->innoweek_video}}" />
+                    </div>
+
+                    <div class="mb-3">
                         <label for="user_image">User image</label><br>
                         <img src="{{asset('upload/conference/' .$conference->user_image.'-d.png')}}" alt="img" with="100px" height="60px">
                         <input type="file" name="user_image"  class="form-control" id="user_image" placeholder="User image enter" value="{{$conference->file}}" />

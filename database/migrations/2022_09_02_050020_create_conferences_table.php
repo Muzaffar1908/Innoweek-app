@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('title_ru')->nullable()->default('');
             $table->string('title_en')->nullable()->default('');
             $table->string('live_url');
+            $table->string('innoweek_video')->nullable();
             $table->string('user_image')->nullable()->default('upload/config/conference.png');
             $table->longText('description_en')->nullable();
             $table->longText('description_ru')->nullable();

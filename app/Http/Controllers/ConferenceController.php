@@ -125,6 +125,7 @@ class ConferenceController extends Controller
         $conferences->title_ru = $inputs['title_ru'];
         $conferences->title_en = $inputs['title_en'];
         $conferences->live_url = $inputs['live_url'];
+        $conferences->innoweek_video = $inputs['innoweek_video'];
         $conferences->address = $inputs['address'];
 
         $conferences->description_uz = $inputs['description_uz'];
@@ -301,6 +302,7 @@ class ConferenceController extends Controller
         $conferences->title_ru = $inputs['title_ru'];
         $conferences->title_en = $inputs['title_en'];
         $conferences->live_url = $inputs['live_url'];
+        $conferences->innoweek_video = $inputs['innoweek_video'];
         $conferences->address = $inputs['address'];
 
         $conferences->description_uz = $inputs['description_uz'];

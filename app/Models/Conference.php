@@ -19,6 +19,7 @@ class Conference extends Model
         'title_ru',
         'title_en',
         'live_url',
+        'innoweek_video',
         'user_image',
         'description_en',
         'description_ru',

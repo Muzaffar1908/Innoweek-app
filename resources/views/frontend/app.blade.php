@@ -42,7 +42,7 @@
                         <div class="me-3">
                         <div class="sub-title">
                         <h3 class="title"><a href="#">{!! substr($item->{'title_'.App::getLocale()},0,90).'...' !!}</a></h3>
-                        {!! substr($item->{'description_'.App::getLocale()},0,90).'...' !!}
+                        {!! substr($item->{'description_'.App::getLocale()},0,30).'...' !!}
                             </div>
                         </div>
                         <a href="{{route('eventshowx', ['id'=>$item->id])}}" class="btn-icon">
@@ -76,14 +76,14 @@
                 @foreach ($promo as $item)
                 <div class="col-xl-3 col-md-6 wow fadeInLeft animated" data-wow-delay="0.1s" data-wow-duration="1s">
                     <div class="process-box-layout1 color-one">
-                    <a href="{{$item->live_url}}" class="icon-box-link play-btn">
+                    <a href="{{$item->innoweek_video}}" class="icon-box-link play-btn">
                         <div class="icon-box">
                         <img src="{{asset('upload/conference/' .$item->user_image.'-d.png')}}" alt="img" with="100px" height="60px">
                         <div class="player"></div>
                         </div>
                     </a>
                     <h3 class="title">
-                        <p> <a href="{{$item->live_url}}" class="icon-box-link play-btn">{{$item->archiveTable->year}}</a></p>
+                        <p> <a href="{{$item->innoweek_video}}" class="icon-box-link play-btn">{{$item->archiveTable->year}}</a></p>
                     </h3>
                     </div>
                 </div>

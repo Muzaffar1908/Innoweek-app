@@ -284,8 +284,7 @@
                 </div>
             </div>
             <div class="footer1 footer-bottom">
-                <div class="copyright-text wow fadeInLeftBig animated p-xl-1" data-wow-delay="1s" data-wow-duration="1s">&copy; <span id="currentYear"></span> INNOWEEK All
-                Rights Reserved. Developed by </div>
+                <div class="copyright-text wow fadeInLeftBig animated p-xl-1" data-wow-delay="1s" data-wow-duration="1s">&copy; <span id="currentYear"></span>  {{__('INNOWEEK All Rights Reserved. Developed by')}}</div>
                 <span class="wow fadeInLeftBig animated" data-wow-delay="1.3s" data-wow-duration="2s"> <a href="http://www.mimaxgroup.com/" class="link-text">"MIMAX SOFTWARE GROUP".</a></span>
             </div>
           </footer>
