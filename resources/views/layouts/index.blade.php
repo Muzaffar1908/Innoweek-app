@@ -47,13 +47,13 @@
                                     <a href="{{route('index')}}">{{__('HOME')}}</a>
                                 </li>
                                 <li class="menu-item menu-item-has-children mega-menu mega-menu-col-2 wow fadeInUp animated" data-wow-delay="0.2s">
-                                    <a href="event.html">{{__('EVENTS')}}</a>
+                                    <a href="#event">{{__('EVENTS')}}</a>
                                 </li>
                                 <li class="menu-item menu-item-has-children wow fadeInUp animated" data-wow-delay="0.3s">
-                                    <a href="news.html">{{__('NEWS')}}</a>
+                                    <a href="#new">{{__('NEWS')}}</a>
                                 </li>
                                 <li class="menu-item menu-item-has-children wow fadeInUp animated" data-wow-delay="0.4s">
-                                    <a href="speaker.html">{{__('SPEAKERS')}}</a>
+                                    <a href="#speaker">{{__('SPEAKERS')}}</a>
                                 </li>
                                 <li class="menu-item menu-item-has-children wow fadeInUp animated" data-wow-delay="0.5s">
                                     <a href="#schedule">{{__('SCHEDULE')}}</a>
