@@ -64,22 +64,29 @@ class PageController extends Controller
     {
         $innoweeks = Innoweek::first();
     
-        $news = News::where(['id' => $id])->get();
-        return view('frontend.partials.newshow', compact('news','innoweeks'));
+        $news = News::where(['id' => $id])->first();
+
+        $newsx = Speakers::orderBy('created_at', 'desc')->paginate(5);
+
+        return view('frontend.newshow', compact('news','innoweeks', 'newsx'));
     }
 
     public function eventShow($id)
     {
         $innoweeks = Innoweek::first();
 
-        $events = Conference::where(['id' => $id])->get();
-        return view('frontend.partials.eventshow', compact('events', 'innoweeks'));
+        $events = Conference::where(['id' => $id])->first();
+
+        $eventsx = Conference::orderBy('created_at', 'desc')->paginate(5);
+
+        return view('frontend.eventshow', compact('events', 'innoweeks', 'eventsx'));
     }
 
     public function speakerShow($id)
     {
         $innoweeks = Innoweek::first();
         $speakers = Speakers::where(['id' => $id])->first();
-        return view('frontend.partials.speakershow', compact('speakers', 'innoweeks'));
+
+        return view('frontend.speakershow', compact('innoweeks', 'speakers'));  
     }
 }
