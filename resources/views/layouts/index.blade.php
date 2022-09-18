@@ -11,7 +11,7 @@
     <!-- Favicons -->
     <link href="{{asset('frontend/image/favicon.ico')}}" rel="icon">
     <link href="{{asset('frontend/image/apple-touch-icon.ico')}}" rel="apple-touch-icon">
-  
+
     <!-- Dependency Styles -->
     <link rel="stylesheet" href="{{asset('frontend/assets/wow/animate.css')}}">
     <link rel="stylesheet" href="{{asset('frontend/assets/bootstrap/css/bootstrap.min.css')}}">
@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="{{asset('frontend/assets/swiper/css/swiper.min.css')}}">
     <link rel="stylesheet" href="{{asset('frontend/css/app.css')}}">
     <!-- Google Web Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">  
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -29,10 +29,11 @@
        <div class="main_content">
           <header id="home" class="header header1 sticky-on trheader">
             <div id="navbar-wrap" class="navbar-wrap">
-                <div class="header-menu">
-                    <div class="header-width">
-                        <div class="container-fluid">
+                <div class="header-menu" >
+                    <div class="header-width" >
+                        <div class="container-fluid" >
                         <div class="inner-wrap">
+
                             <div class="d-flex align-items-center justify-content-between">
                             <div class="site-branding">
                                 <a href="{{route('index')}}" class="logo logo-light wow fadeInUp animated" data-wow-delay="0.20s"><img src="{{asset('frontend/image/min.webp')}}" alt="Logo" width="50"></a>
@@ -135,7 +136,7 @@
                                         </li>
                                     @break
                                     @default
-                                        
+
                                 @endswitch
                                 </ul>
                                 <ul class="header-action-items">
@@ -151,10 +152,11 @@
                         </div>
                     </div>
                 </div>
+
             </div>
           </header>
 
-          <div class="rt-header-menu mean-container" id="meanmenu">
+          <div class="rt-header-menu mean-container"  id="meanmenu" >
             <div class="mean-bar">
             <a href="index.html">
                 <img src="{{asset('frontend/image/min.webp')}}" alt="Logo" width="30">
@@ -249,7 +251,7 @@
                             <li class=" wow fadeInLeft animated" data-wow-delay="0.6s" data-wow-duration="1s"><a href="#"><svg width="12" height="16" viewBox="0 0 12 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M0 15.875L5.625 12.5938L11.25 15.875V2.28125C11.25 1.51953 10.6055 0.875 9.84375 0.875H1.40625C0.615234 0.875 0 1.51953 0 2.28125V15.875Z" />
                                 </svg>{{__('Technoways')}}</a></li>
-                            
+
                         </ul>
                         </div>
                     </div>
@@ -266,20 +268,20 @@
                             </li>
                             <li class="wow fadeInLeft animated" data-wow-delay="0.8s" data-wow-duration="1s"><a class="inno-cursor"><svg width="12" height="16" viewBox="0 0 12 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M0 15.875L5.625 12.5938L11.25 15.875V2.28125C11.25 1.51953 10.6055 0.875 9.84375 0.875H1.40625C0.615234 0.875 0 1.51953 0 2.28125V15.875Z" />
-                                </svg>{{__('Phone')}}: 
+                                </svg>{{__('Phone')}}:
                                 <p class="description"><a href="tel:+998712033200">{{$innoweeks->phone}}</p>
                             </a>
-                            </li>    
+                            </li>
                             <li class="wow fadeInLeft animated" data-wow-delay="0.9s" data-wow-duration="1s"><a class="inno-cursor"><svg width="12" height="16" viewBox="0 0 12 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M0 15.875L5.625 12.5938L11.25 15.875V2.28125C11.25 1.51953 10.6055 0.875 9.84375 0.875H1.40625C0.615234 0.875 0 1.51953 0 2.28125V15.875Z" />
                             </svg>{{$innoweeks->email}}:</a>
                             <p class="description"> <a href="mailto:innoweekuz2021@gmail.com">{{$innoweeks->email}}</a></p>
-                            </li>                   
+                            </li>
                         </ul>
                         </div>
                     </div>
                     </div>
-                    
+
                 </div>
                 </div>
             </div>
