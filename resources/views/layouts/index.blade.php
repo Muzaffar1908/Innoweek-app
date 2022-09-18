@@ -35,15 +35,15 @@
                     <div class="inner-wrap">
                         <div class="d-flex align-items-center justify-content-between">
                         <div class="site-branding">
-                            <a href="index.html" class="logo logo-light wow fadeInUp animated" data-wow-delay="0.20s"><img src="{{asset('frontend/image/min.webp')}}" alt="Logo" width="50"></a>
-                            <a href="index.html" class="logo logo-light wow fadeInUp animated" data-wow-delay="0.40s"><img src="{{asset('frontend/image/logo.webp')}}" alt="Logo" width="120"></a>
-                            <a href="index.html" class="logo logo-dark"><img src="{{asset('frontend/image/min.webp')}}" alt="Logo" width="50"></a>
-                            <a href="index.html" class="logo logo-dark"><img src="{{asset('frontend/image/logo.webp')}}" alt="Logo" width="120"></a>
+                            <a href="{{route('index')}}" class="logo logo-light wow fadeInUp animated" data-wow-delay="0.20s"><img src="{{asset('frontend/image/min.webp')}}" alt="Logo" width="50"></a>
+                            <a href="{{route('index')}}" class="logo logo-light wow fadeInUp animated" data-wow-delay="0.40s"><img src="{{asset('frontend/image/logo.webp')}}" alt="Logo" width="120"></a>
+                            <a href="{{route('index')}}" class="logo logo-dark"><img src="{{asset('frontend/image/min.webp')}}" alt="Logo" width="50"></a>
+                            <a href="{{route('index')}}" class="logo logo-dark"><img src="{{asset('frontend/image/logo.webp')}}" alt="Logo" width="120"></a>
                         </div>
                         <nav id="dropdown" class="template-main-menu menu-text-light">
                             <ul class="menu">
                             <li class="menu-item active menu-item-has-children wow fadeInUp animated" data-wow-delay="0.1s">
-                                <a href="#home">{{__('HOME')}}</a>
+                                <a href="{{route('index')}}">{{__('HOME')}}</a>
                             </li>
                             <li class="menu-item menu-item-has-children mega-menu mega-menu-col-2 wow fadeInUp animated" data-wow-delay="0.2s">
                                 <a href="event.html">{{__('EVENTS')}}</a>
