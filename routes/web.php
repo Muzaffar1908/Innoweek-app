@@ -6,6 +6,7 @@ use App\Http\Controllers\GaleriesController;
 
 use App\Http\Controllers\InnoweekController;
 use App\Http\Controllers\PartnerController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Mobile\IndexController;
 use App\Http\Controllers\SpeakerController;
 use Illuminate\Support\Facades\Route;
@@ -49,7 +50,13 @@ Route::get('locale/{locale}', function ($locale) {
 Route::group(['prefix' => '/'], function(){
     Route::controller(PageController::class)->group(function(){
         Route::get('/', 'index')->name('index');
+        Route::get('/newsshow/{id}', 'newsshow')->name('newsshowx');
+        Route::get('/eventshow/{id}', 'eventShow')->name('eventshowx');
+        Route::get('/speakershow/{id}', 'speakerShow')->name('speakershowx');
     });
+
+    
+
 });
 
 
@@ -142,7 +149,7 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 // Mobile view stop !!!
 
