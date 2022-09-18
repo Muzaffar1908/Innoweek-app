@@ -2,8 +2,11 @@
 <style>
     .header-menu{
         background-color: #0e1c41;
-
-}</style>
+}
+.container-fluid{
+        background-color: #0e1c41;
+}
+</style>
 @section('content')
 
   <section class="event-single-wrap">
