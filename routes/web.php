@@ -50,9 +50,11 @@ Route::get('locale/{locale}', function ($locale) {
 Route::group(['prefix' => '/'], function(){
     Route::controller(PageController::class)->group(function(){
         Route::get('/', 'index')->name('index');
+        // Route::get('/index', 'Index')->name('indexx');
         Route::get('/newsshow/{id}', 'newsshow')->name('newsshowx');
         Route::get('/eventshow/{id}', 'eventShow')->name('eventshowx');
         Route::get('/speakershow/{id}', 'speakerShow')->name('speakershowx');
+        Route::get('/code', 'register')->name('code');
     });
 
     

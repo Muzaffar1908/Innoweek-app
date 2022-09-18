@@ -42,7 +42,17 @@ class PageController extends Controller
     
         return view('frontend.app', ['condate' => $condate,'condate_data'=>$condate_data, 'promo' => $promo, 'news' => $news, 'speakers' => $speakers, 'galleries' => $galleries, 'partners' => $partners, 'innoweeks' => $innoweeks, 'events' => $events]);
 
+    }
 
+    // public function Indexx()
+    // {
+    //     $innoweeks = Innoweek::first();
+    //     return view('layouts.index', compact('innoweeks'));
+    // }
+
+    public function register()
+    {
+        return view('frontend.register');
     }
 
     public function schedule($id)
