@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ArchiveController;
 use App\Http\Controllers\ConferenceController;
+use App\Http\Controllers\Front\AuthController as FrontAuthController;
 use App\Http\Controllers\GaleriesController;
 
 use App\Http\Controllers\InnoweekController;
@@ -58,8 +59,12 @@ Route::group(['prefix' => '/'], function(){
         Route::get('/qr', 'qr')->name('qr');
     });
 
-
-
+    Route::controller(FrontAuthController::class)->group(function(){
+        Route::post('/ticket/register', 'register')->name('d-register');
+        Route::get('/ticket/verify', 'VerifyPage')->name('d-verify');
+        Route::post('/ticket/verify', 'VerifyMessage')->name('d-verified');
+        Route::get('/ticket/login', 'LoginPage')->name('d-login');
+    });
 });
 
 
@@ -155,4 +160,3 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 // Mobile view stop !!!
-
