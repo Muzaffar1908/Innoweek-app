@@ -191,20 +191,13 @@
                 <div class="schedule-slider-thumbnail-style-1 swiper-container schedule-box-layout3 schedule-nav">
                     <div class="swiper-wrapper">
                     @foreach ($condate as $con)
-<<<<<<< HEAD
-
-=======
->>>>>>> fxed
                     <div class="swiper-slide">
                         {{-- S4: Mon, Mar 28th --}}
                         {{Carbon::parse($con->date)->format('D ,M dS')}}
                     </div>
                     @endforeach
-<<<<<<< HEAD
 
 
-=======
->>>>>>> fxed
                     </div>
                 </div>
                 <span class="slider-btn slider-btn-prev">

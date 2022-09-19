@@ -26,25 +26,18 @@ class PageController extends Controller
 
 
         $condate_data = Conference::all();
-<<<<<<< HEAD
 
 
 
-=======
-        $promo = Conference::all();
->>>>>>> fxed
         $news =News::orderBy('created_at', 'desc')->paginate(3);
         $speakers = Speakers::all();
         $galleries = Galeries::all();
         $partners = Partner::all();
         $innoweeks = Innoweek::first();
         $events = Conference::all();
-<<<<<<< HEAD
 
         $promo=Promo::paginate(4);
 
-=======
->>>>>>> fxed
         return view('frontend.app', ['condate' => $condate,'condate_data'=>$condate_data, 'promo' => $promo, 'news' => $news, 'speakers' => $speakers, 'galleries' => $galleries, 'partners' => $partners, 'innoweeks' => $innoweeks, 'events' => $events]);
 
     }
