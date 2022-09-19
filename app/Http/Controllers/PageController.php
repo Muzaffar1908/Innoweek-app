@@ -38,7 +38,7 @@ class PageController extends Controller
 
         $innoweeks = Innoweek::first();
 
-        $events = Conference::all();
+        $events = Conference::paginate(3);
 
 
         return view('frontend.app', ['condate' => $condate,'condate_data'=>$condate_data, 'promo' => $promo, 'news' => $news, 'speakers' => $speakers, 'galleries' => $galleries, 'partners' => $partners, 'innoweeks' => $innoweeks, 'events' => $events]);
@@ -79,7 +79,7 @@ class PageController extends Controller
 
         $news = News::where(['id' => $id])->first();
 
-        $newsx = Speakers::orderBy('created_at', 'desc')->paginate(5);
+        $newsx = News::orderBy('created_at', 'desc')->paginate(5);
 
         return view('frontend.newshow', compact('news','innoweeks', 'newsx'));
     }

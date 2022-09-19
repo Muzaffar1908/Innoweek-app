@@ -12,14 +12,14 @@ sticky
         <div class="col-lg-8">
           <div class="event-single-box">
             <div class="figure-box wow fadeInUp animated" data-wow-delay="0.2s" data-wow-duration="1s">
-              <img src="{{asset('frontend/image/image.jpg')}}" alt="Event">
+              <img src="{{asset('/upload/news/' . $news->user_image.'-d.png')}}" width="100%" alt="Speaker" width="267" height="267">
             </div>
             <div class="content-box">
               <div class="sub-title wow fadeInUp animated" data-wow-delay="0.3s" data-wow-duration="1s">
                 {{$news->started_at}}</div>
               <h2 class="title wow fadeInUp animated" data-wow-delay="0.4s" data-wow-duration="1s">{!! substr($news->{'title_'.App::getLocale()},0,90).'...' !!}</h2>
               <p class="description wow fadeInUp animated" data-wow-delay="0.5s" data-wow-duration="1s">
-                {!! substr($news->{'description_'.App::getLocale()},0,90).'...' !!}
+                {!! ($news->{'description_'.App::getLocale()}) !!}
               </p>
             </div>
           </div>
@@ -33,10 +33,10 @@ sticky
               @foreach($newsx as $item)
                 <div class="single-post">
                   <div class="figure-box">
-                    <a href="{{route('newsshowx', ['id' => $item])}}" class="link-item"><img width="150" src="{{asset('frontend/image/image.jpg')}}" alt="Post"></a>
+                    <a href="{{route('newsshowx', ['id' => $item->id])}}" class="link-item"><img src="{{asset('/upload/news/'.$item->user_image.'-d.png')}}" alt="Speaker" width="267" height="267"></a>
                   </div>
                   <div class="content-box">
-                    <h3 class="entry-title"><a href="{{route('newsshowx', ['id' => $item])}}"></a>{!! substr($item->{'title_'.App::getLocale()},0,90).'...' !!}</h3>
+                    <h3 class="entry-title"><a href="{{route('newsshowx', ['id' => $item->id])}}"></a>{!! ($item->{'title_'.App::getLocale()}) !!}</h3>
                     <div class="entry-date">{{$item->started_at}}</div>
                   </div>
                 </div>
