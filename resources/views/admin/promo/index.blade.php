@@ -60,8 +60,8 @@
                                     @foreach ($promo as $galerie)
                                         <tr>
                                             <td>{{($promo->currentpage() - 1) * $promo->perpage() + ($loop->index+1)}}</td>
-                                            <td>{{$galerie->galleryTable->first_name}}</td>
-                                            <td>{{$galerie->galleyarchiveTable->year}}</td>
+                                            <td>{{$galerie->UserTable->first_name}}</td>
+                                            <td>{{$galerie->archiveTable->year}}</td>
 
                                                 <td>{{$galerie->url}}</td>
 
