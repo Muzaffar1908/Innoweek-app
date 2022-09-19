@@ -18,7 +18,7 @@
         <div class="col-lg-2 col-12">
           <div class="speaker-single-box">
             <div class="figure-box wow fadeInLeft animated" data-wow-delay="0.3s" data-wow-duration="1s">
-              <img src="{{asset('frontend/image/speaker/speak.jpg')}}" alt="Speaker">
+              <img src="{{asset('upload/speaker/' .$speakers->image.'-d.png')}}" alt="img" with="100px" height="60px">
             </div>
           </div>
         </div>
@@ -26,9 +26,9 @@
           <div class="speaker-single-box">
             <div class="content-box wow fadeInRight animated" data-wow-delay="0.3s" data-wow-duration="1s">
               <div>
-                <h2 class="title">{!! substr($speakers->{'full_name_'.App::getLocale()},0,90).'...' !!}</h2>
-                <div class="sub-title">{!! substr($speakers->{'job_'.App::getLocale()},0,90).'...' !!}</div>
-                <p class="description">{!! substr($speakers->{'description_'.App::getLocale()},0,90).'...' !!}
+                <h2 class="title">{!!$speakers->{'full_name_'.App::getLocale()}!!}</h2>
+                <div class="sub-title">{!!$speakers->{'job_'.App::getLocale()}!!}</div>
+                <p class="description">{!!$speakers->{'description_'.App::getLocale()}!!}
                 </p>
                 <ul class="social">
                   <li>

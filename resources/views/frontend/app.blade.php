@@ -42,9 +42,9 @@
                     <div class="content-box">
                         <div class="me-3">
                         <div class="sub-title">
-                        <h3 class="title"><a href="#">{!! substr($item->{'title_'.App::getLocale()},0,90).'...' !!}</a></h3>
-                        {!! substr($item->{'description_'.App::getLocale()},0,30).'...' !!}
-                            </div>
+                        <h3 class="title"><a href="#">{!! substr($item->{'title_'.App::getLocale()},0,30) !!}</a></h3>
+                        {!! substr($item->{'description_'.App::getLocale()},0,24). '...' !!}
+                        </div>
                         </div>
                         <a href="{{route('eventshowx', ['id'=>$item->id])}}" class="btn-icon">
                         <svg width="13" height="14" viewBox="0 0 13 14" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -223,7 +223,7 @@
                                 </div>
                                 <div class="content-box-wrap">
                                     <div class="figure-box">
-                                    <img src="{{asset('frontend/image/speaker/37.jpg')}}" alt="Speaker" width="60" height="60">
+                                        <img src="{{asset('upload/conference/' .$dd->user_image.'-d.png')}}" alt="img" with="100px" height="60px">
                                     </div>
                                     <div class="inner-box">
                                     <h3 class="title">{{($dd->{'title_'.App::getLocale()})}}</h3>
@@ -237,7 +237,7 @@
                             </div>
                             <div id="collapseOne{{Carbon::parse($dd->started_at)->format('Ymd')}}" class="accordion-collapse collapse" aria-labelledby="headingOne{{Carbon::parse($dd->started_at)->format('Ymd')}}" data-bs-parent="#accordionExample{{Carbon::parse($dd->started_at)->format('Ymd')}}">
                                 <div class="panel-body">
-                                <p class="description">{!! substr($dd->{'description_'.App::getLocale()},0,90).'...' !!}</p>
+                                <p class="description">{!!$dd->{'description_'.App::getLocale()}!!}</p>
                                 <div class="address-wrap">
                                     <div class="icon-box">
                                     <svg width="14" height="19" viewBox="0 0 14 19" fill="none" xmlns="http://www.w3.org/2000/svg">

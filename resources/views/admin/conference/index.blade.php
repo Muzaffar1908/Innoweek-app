@@ -77,7 +77,7 @@
                                       <td>
                                           <img src="{{asset('upload/conference/' .$conference->user_image.'-d.png')}}" alt="img" with="100px" height="60px">
                                       </td>
-                                    <td>{{$conference->address}}</td>
+                                    <td>{{$conference->address_uz}}</td>
                                     <td>{!!Str::limit(strip_tags($conference->description_uz),20)!!}</td>
                                     <td>
                                         <form action="{{ asset('/admin/conference/isactive/' . $conference->id) }}"

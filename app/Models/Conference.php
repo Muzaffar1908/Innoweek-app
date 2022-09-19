@@ -24,7 +24,9 @@ class Conference extends Model
         'description_en',
         'description_ru',
         'description_uz',
-        'address',
+        'address_uz',
+        'address_ru',
+        'address_en',
         'is_active',
     ];
 

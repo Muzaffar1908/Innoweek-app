@@ -22,13 +22,15 @@ return new class extends Migration
             $table->string('title_uz');
             $table->string('title_ru')->nullable()->default('');
             $table->string('title_en')->nullable()->default('');
-            $table->string('live_url');
+            $table->string('live_url')->nullable();
             $table->string('innoweek_video')->nullable();
             $table->string('user_image')->nullable()->default('upload/config/conference.png');
             $table->longText('description_en')->nullable();
             $table->longText('description_ru')->nullable();
             $table->longText('description_uz')->nullable();
-            $table->string('address', 255)->nullable();
+            $table->string('address_uz', 255)->nullable();
+            $table->string('address_ru', 255)->nullable();
+            $table->string('address_en', 255)->nullable();
             $table->boolean('is_active')->nullable()->default(true);
             $table->timestamps();
         });

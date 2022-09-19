@@ -102,8 +102,18 @@
                     </div>
 
                     <div class="mb-3">
-                        <label for="address">Address</label>
-                        <input type="text" name="address"  class="form-control" id="address" placeholder="Address enter" value="{{old('address')}}" />
+                        <label for="address_uz">Address Uz</label>
+                        <input type="text" name="address_uz"  class="form-control" id="address_uz" placeholder="Address uz enter" value="{{old('address_uz')}}" />
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="address_ru">Address Ru</label>
+                        <input type="text" name="address_ru"  class="form-control" id="address_ru" placeholder="Address ru enter" value="{{old('address_ru')}}" />
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="address_en">Address En</label>
+                        <input type="text" name="address_en"  class="form-control" id="address_en" placeholder="Address en enter" value="{{old('address_en')}}" />
                     </div>
 
                     <div class="mb-3">

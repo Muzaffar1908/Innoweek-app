@@ -92,7 +92,6 @@ class ConferenceController extends Controller
         $data = $request->except(array('_token'));
         $rule = array(
           'title_uz' => 'required',
-          'live_url' => 'required',
         );
 
         if (!file_exists('upload/conference')) {
@@ -126,7 +125,9 @@ class ConferenceController extends Controller
         $conferences->title_en = $inputs['title_en'];
         $conferences->live_url = $inputs['live_url'];
         $conferences->innoweek_video = $inputs['innoweek_video'];
-        $conferences->address = $inputs['address'];
+        $conferences->address_uz = $inputs['address_uz'];
+        $conferences->address_ru = $inputs['address_ru'];
+        $conferences->address_en = $inputs['address_en'];
 
         $conferences->description_uz = $inputs['description_uz'];
 
@@ -269,7 +270,6 @@ class ConferenceController extends Controller
         $data = $request->except(array('_token'));
         $rule = array(
           'title_uz' => 'required',
-          'live_url' => 'required',
         );
 
         if (!file_exists('upload/conference')) {
@@ -303,7 +303,9 @@ class ConferenceController extends Controller
         $conferences->title_en = $inputs['title_en'];
         $conferences->live_url = $inputs['live_url'];
         $conferences->innoweek_video = $inputs['innoweek_video'];
-        $conferences->address = $inputs['address'];
+        $conferences->address_uz = $inputs['address_uz'];
+        $conferences->address_ru = $inputs['address_ru'];
+        $conferences->address_en = $inputs['address_en'];
 
         $conferences->description_uz = $inputs['description_uz'];
 
