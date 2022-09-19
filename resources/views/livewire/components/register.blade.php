@@ -43,7 +43,8 @@
                 <input class="surname" name="last_name" type="text" placeholder="{{__('Lastname')}}" autocomplete="on" required>
             </div>
             <input id="emailOrNumber" type="text" name="phone_or_email" placeholder="{{__('Email or Phone')}}" autocomplete="off" required>
-            <input id="datepicker" type="text" name="birth_date" autocomplete="off" required placeholder="{{__('day/month/year')}}" />
+            {{-- <input id="datepicker" type="text" name="birth_date" autocomplete="off" required placeholder="{{__('day/month/year')}}" /> --}}
+            <input class="form-control" type="datetime-local" name="birth_date" autocomplete="off" required placeholder="{{__('day/month/year')}}"" />
 
             <div class="input-radio">
                 <label for="gender">{{ __('JINSI')}}:</label>
