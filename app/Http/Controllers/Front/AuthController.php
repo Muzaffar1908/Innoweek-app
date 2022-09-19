@@ -157,7 +157,6 @@ class AuthController extends Controller
             $user = User::findOrFail($inputs['id']);
         } else {
             $user = new User;
-
         }
 
         $user->first_name = $inputs['first_name'];
@@ -170,8 +169,8 @@ class AuthController extends Controller
         if (!empty($inputs['email'])) {
             $verify_code = rand(1000, 9999);
             $mailData = [
-                'title' => 'Mail from ItSolutionStuff.com',
-                'body' => 'This is for testing email using smtp.',
+                //'title' => 'Mail from ItSolutionStuff.com',
+                //'body' => 'This is for testing email using smtp.',
                 'code' => $verify_code,
             ];
 
