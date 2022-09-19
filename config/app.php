@@ -97,8 +97,8 @@ return [
 
     'fallback_locale' => 'en',
     'locales' => [
-        'en' => 'English',
         'uz' => 'Uzbek',
+        'en' => 'English',
         'ru' => 'Russian'
     ],
 
