@@ -18,6 +18,8 @@
     <link rel="stylesheet" href="{{ asset('/frontend/assets/magnific-popup/css/magnific-popup.css') }}">
     <link rel="stylesheet" href="{{ asset('/frontend/assets/swiper/css/swiper.min.css') }}">
     <link rel="stylesheet" href="{{ asset('/frontend/css/app.css') }}">
+    <!-- flatpickr -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <!-- Google Web Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
 </head>
@@ -148,6 +150,8 @@
     <script src="{{ asset('/frontend/assets/isotope-layout/isotope.pkgd.min.js') }}"></script>
     <script src="{{ asset('/frontend/assets/swiper/js/swiper.min.js') }}"></script>
     <script src="{{ asset('/frontend/assets/validator/validator.min.js') }}"></script>
+    <!-- flatpickr -->
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <!-- Custom Script -->
     @yield('scripts')
     </body>
