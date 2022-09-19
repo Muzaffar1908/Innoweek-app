@@ -9,6 +9,7 @@
     <title>{{__('International Week of Innovative Ideas')}}
     </title>
     <!-- Favicons -->
+<<<<<<< HEAD
     <link href="{{asset('/frontend/image/favicon.ico')}}" rel="icon">
     <link href="{{asset('/frontend/image/apple-touch-icon.ico')}}" rel="apple-touch-icon">
 
@@ -19,15 +20,34 @@
     <link rel="stylesheet" href="{{asset('/frontend/assets/magnific-popup/css/magnific-popup.css')}}">
     <link rel="stylesheet" href="{{asset('/frontend/assets/swiper/css/swiper.min.css')}}">
     <link rel="stylesheet" href="{{asset('/frontend/css/app.css')}}">
+=======
+    <link href="{{asset('frontend/image/favicon.ico')}}" rel="icon">
+    <link href="{{asset('frontend/image/apple-touch-icon.ico')}}" rel="apple-touch-icon">
+
+    <!-- Dependency Styles -->
+    <link rel="stylesheet" href="{{asset('frontend/assets/wow/animate.css')}}">
+    <link rel="stylesheet" href="{{asset('frontend/assets/bootstrap/css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{asset('frontend/assets/fontawesome/css/all.min.css')}}">
+    <link rel="stylesheet" href="{{asset('frontend/assets/magnific-popup/css/magnific-popup.css')}}">
+    <link rel="stylesheet" href="{{asset('frontend/assets/swiper/css/swiper.min.css')}}">
+    <link rel="stylesheet" href="{{asset('frontend/css/app.css')}}">
+>>>>>>> fixed
     <!-- Google Web Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
+<<<<<<< HEAD
     <div class="wrapper" id="wrapper">
        <div class="main_content">
         {{-- Header Nav --}}
           <header id="home" class="header header1 sticky-on trheader sticky">
+=======
+
+    <div class="wrapper" id="wrapper">
+       <div class="main_content">
+          <header id="home" class="header header1 sticky-on trheader">
+>>>>>>> fixed
             <div id="navbar-wrap" class="navbar-wrap">
                 <div class="header-menu" >
                     <div class="header-width" >
@@ -36,10 +56,17 @@
 
                             <div class="d-flex align-items-center justify-content-between">
                             <div class="site-branding">
+<<<<<<< HEAD
                                 <a href="{{route('index')}}" class="logo logo-light wow fadeInUp animated" data-wow-delay="0.20s"><img src="{{asset('/frontend/image/min.webp')}}" alt="Logo" width="50"></a>
                                 <a href="{{route('index')}}" class="logo logo-light wow fadeInUp animated" data-wow-delay="0.40s"><img src="{{asset('/frontend/image/logo.webp')}}" alt="Logo" width="120"></a>
                                 <a href="{{route('index')}}" class="logo logo-dark"><img src="{{asset('/frontend/image/min.webp')}}" alt="Logo" width="50"></a>
                                 <a href="{{route('index')}}" class="logo logo-dark"><img src="{{asset('/frontend/image/logo.webp')}}" alt="Logo" width="120"></a>
+=======
+                                <a href="{{route('index')}}" class="logo logo-light wow fadeInUp animated" data-wow-delay="0.20s"><img src="{{asset('frontend/image/min.webp')}}" alt="Logo" width="50"></a>
+                                <a href="{{route('index')}}" class="logo logo-light wow fadeInUp animated" data-wow-delay="0.40s"><img src="{{asset('frontend/image/logo.webp')}}" alt="Logo" width="120"></a>
+                                <a href="{{route('index')}}" class="logo logo-dark"><img src="{{asset('frontend/image/min.webp')}}" alt="Logo" width="50"></a>
+                                <a href="{{route('index')}}" class="logo logo-dark"><img src="{{asset('frontend/image/logo.webp')}}" alt="Logo" width="120"></a>
+>>>>>>> fixed
                             </div>
                             <nav id="dropdown" class="template-main-menu menu-text-light">
                                 <ul class="menu">
@@ -67,9 +94,15 @@
                                 <li class="menu-item menu-item-has-children wow fadeInUp animated" data-wow-delay="0.8s">
                                     <a class="inno-cursor">INNOWEEK 2022</a>
                                     <ul class="sub-menu menu-w">
+<<<<<<< HEAD
                                     <li class="menu-item"><a href="{{asset('/frontend/pdf/inno.pdf')}}" target="_blank">{{__('Innoweek 2022 Invitation')}}</a>
                                     </li>
                                     <li class="menu-item"><a href="{{asset('/frontend/pdf/Innoen.pdf')}}" target="_blank">{{__('Innoweek 2022 Presentation')}}</a>
+=======
+                                    <li class="menu-item"><a href="{{asset('frontend/pdf/inno.pdf')}}" target="_blank">{{__('Innoweek 2022 Invitation')}}</a>
+                                    </li>
+                                    <li class="menu-item"><a href="{{asset('frontend/pdf/Innoen.pdf')}}" target="_blank">{{__('Innoweek 2022 Presentation')}}</a>
+>>>>>>> fixed
                                     </li>
                                     </ul>
                                 </li>
@@ -82,6 +115,7 @@
                                     @case('')
                                         <li class="menu-item menu-item-has-children wow fadeInUp animated" data-wow-delay="0.9s">
                                         <a href="{{ URL::to('locale/en') }}" class="d-flex align-items-center justify-content-center inno-cursor">
+<<<<<<< HEAD
                                             <img class="mx-2" width="30" src="{{asset('/frontend/image/en.png')}}" alt="English">
                                             <i class="fa fa-angle-down"></i>
                                         </a>
@@ -89,6 +123,15 @@
                                             <li class="menu-item text-center"><a href="{{ URL::to('locale/ru') }}"><img class="mx-2" width="30" src="{{asset('/frontend/image/ru.png')}}" alt="Russian"></a>
                                             </li>
                                             <li class="menu-item text-center"><a href="{{ URL::to('locale/uz') }}"><img class="mx-2" width="30" src="{{asset('/frontend/image/uz.png')}}" alt="Uzbek"></a>
+=======
+                                            <img class="mx-2" width="30" src="{{asset('frontend/image/en.png')}}" alt="English">
+                                            <i class="fa fa-angle-down"></i>
+                                        </a>
+                                        <ul class="sub-menu menu-color">
+                                            <li class="menu-item text-center"><a href="{{ URL::to('locale/ru') }}"><img class="mx-2" width="30" src="{{asset('frontend/image/ru.png')}}" alt="Russian"></a>
+                                            </li>
+                                            <li class="menu-item text-center"><a href="{{ URL::to('locale/uz') }}"><img class="mx-2" width="30" src="{{asset('frontend/image/uz.png')}}" alt="Uzbek"></a>
+>>>>>>> fixed
                                             </li>
                                         </ul>
                                         </li>
@@ -96,6 +139,7 @@
                                     @case('uz')
                                         <li class="menu-item menu-item-has-children wow fadeInUp animated" data-wow-delay="0.9s">
                                         <a href="{{ URL::to('locale/uz') }}" class="d-flex align-items-center justify-content-center inno-cursor">
+<<<<<<< HEAD
                                             <img class="mx-2" width="30" src="{{asset('/frontend/image/uz.png')}}" alt="Uzbek">
                                             <i class="fa fa-angle-down"></i>
                                         </a>
@@ -103,6 +147,15 @@
                                             <li class="menu-item text-center"><a href="{{ URL::to('locale/ru') }}"><img class="mx-2" width="30" src="{{asset('/frontend/image/ru.png')}}" alt="Russian"></a>
                                             </li>
                                             <li class="menu-item text-center"><a href="{{ URL::to('locale/en') }}"><img class="mx-2" width="30" src="{{asset('/frontend/image/en.png')}}" alt="English"></a>
+=======
+                                            <img class="mx-2" width="30" src="{{asset('frontend/image/uz.png')}}" alt="Uzbek">
+                                            <i class="fa fa-angle-down"></i>
+                                        </a>
+                                        <ul class="sub-menu menu-color">
+                                            <li class="menu-item text-center"><a href="{{ URL::to('locale/ru') }}"><img class="mx-2" width="30" src="{{asset('frontend/image/ru.png')}}" alt="Russian"></a>
+                                            </li>
+                                            <li class="menu-item text-center"><a href="{{ URL::to('locale/en') }}"><img class="mx-2" width="30" src="{{asset('frontend/image/en.png')}}" alt="English"></a>
+>>>>>>> fixed
                                             </li>
                                         </ul>
                                         </li>
@@ -110,6 +163,7 @@
                                     @case('ru')
                                         <li class="menu-item menu-item-has-children wow fadeInUp animated" data-wow-delay="0.9s">
                                         <a href="{{ URL::to('locale/ru') }}" class="d-flex align-items-center justify-content-center inno-cursor">
+<<<<<<< HEAD
                                             <img class="mx-2" width="30" src="{{asset('/frontend/image/ru.png')}}" alt="Russian">
                                             <i class="fa fa-angle-down"></i>
                                         </a>
@@ -117,6 +171,15 @@
                                             <li class="menu-item text-center"><a href="{{ URL::to('locale/en') }}"><img class="mx-2" width="30" src="{{asset('/frontend/image/en.png')}}" alt="English"></a>
                                             </li>
                                             <li class="menu-item text-center"><a href="{{ URL::to('locale/uz') }}"><img class="mx-2" width="30" src="{{asset('/frontend/image/uz.png')}}" alt="Uzbek"></a>
+=======
+                                            <img class="mx-2" width="30" src="{{asset('frontend/image/ru.png')}}" alt="Russian">
+                                            <i class="fa fa-angle-down"></i>
+                                        </a>
+                                        <ul class="sub-menu menu-color">
+                                            <li class="menu-item text-center"><a href="{{ URL::to('locale/en') }}"><img class="mx-2" width="30" src="{{asset('frontend/image/en.png')}}" alt="English"></a>
+                                            </li>
+                                            <li class="menu-item text-center"><a href="{{ URL::to('locale/uz') }}"><img class="mx-2" width="30" src="{{asset('frontend/image/uz.png')}}" alt="Uzbek"></a>
+>>>>>>> fixed
                                             </li>
                                         </ul>
                                         </li>
@@ -124,6 +187,7 @@
                                     @case('en')
                                         <li class="menu-item menu-item-has-children wow fadeInUp animated" data-wow-delay="0.9s">
                                         <a href="{{ URL::to('locale/en') }}" class="d-flex align-items-center justify-content-center inno-cursor">
+<<<<<<< HEAD
                                             <img class="mx-2" width="30" src="{{asset('/frontend/image/en.png')}}" alt="English">
                                             <i class="fa fa-angle-down"></i>
                                         </a>
@@ -131,6 +195,15 @@
                                             <li class="menu-item text-center"><a href="{{ URL::to('locale/uz') }}"><img class="mx-2" width="30" src="{{asset('/frontend/image/uz.png')}}" alt="Uzbek"></a>
                                             </li>
                                             <li class="menu-item text-center"><a href="{{ URL::to('locale/ru') }}"><img class="mx-2" width="30" src="{{asset('/frontend/image/ru.png')}}" alt="Russian"></a>
+=======
+                                            <img class="mx-2" width="30" src="{{asset('frontend/image/en.png')}}" alt="English">
+                                            <i class="fa fa-angle-down"></i>
+                                        </a>
+                                        <ul class="sub-menu menu-color">
+                                            <li class="menu-item text-center"><a href="{{ URL::to('locale/uz') }}"><img class="mx-2" width="30" src="{{asset('frontend/image/uz.png')}}" alt="Uzbek"></a>
+                                            </li>
+                                            <li class="menu-item text-center"><a href="{{ URL::to('locale/ru') }}"><img class="mx-2" width="30" src="{{asset('frontend/image/ru.png')}}" alt="Russian"></a>
+>>>>>>> fixed
                                             </li>
                                         </ul>
                                         </li>
@@ -159,8 +232,13 @@
           <div class="rt-header-menu mean-container"  id="meanmenu" >
             <div class="mean-bar">
             <a href="index.html">
+<<<<<<< HEAD
                 <img src="{{asset('/frontend/image/min.webp')}}" alt="Logo" width="30">
                 <img src="{{asset('/frontend/image/logo.webp')}}" alt="Logo" width="80">
+=======
+                <img src="{{asset('frontend/image/min.webp')}}" alt="Logo" width="30">
+                <img src="{{asset('frontend/image/logo.webp')}}" alt="Logo" width="80">
+>>>>>>> fixed
             </a>
             <span class="sidebarBtn">
                 <span class="bar"></span>
@@ -195,10 +273,17 @@
                     <a class="animation" href="#contact">{{__('CONTACTS')}}</a>
                     </li>
                     <li class="list">
+<<<<<<< HEAD
                     <a class="animation scliked" href="{{asset('/frontend/pdf/inno.pdf')}}" target="_blank">{{__('Innoweek 2022 Invitation')}}</a>
                     </li>
                     <li class="list">
                     <a class="animation scliked" href="{{asset('/frontend/pdf/Innoen.pdf')}}" target="_blank">{{__('Innoweek 2022 Presentation')}}</a>
+=======
+                    <a class="animation scliked" href="{{asset('frontend/pdf/inno.pdf')}}" target="_blank">{{__('Innoweek 2022 Invitation')}}</a>
+                    </li>
+                    <li class="list">
+                    <a class="animation scliked" href="{{asset('frontend/pdf/Innoen.pdf')}}" target="_blank">{{__('Innoweek 2022 Presentation')}}</a>
+>>>>>>> fixed
                     </li>
                 </ul>
                 </nav>
@@ -261,8 +346,13 @@
                 <div class="row">
                     <div class="col-lg-5 col-md-4 col-12 wow fadeInLeft animated" data-wow-delay="0.1s" data-wow-duration="1s">
                     <div class="footer-widgets">
+<<<<<<< HEAD
                         <a href="#home" class="logo logo-light"><img src="{{asset('/frontend/image/min.webp')}}" alt="Logo" width="50"></a>
                             <a href="#home" class="logo logo-light"><img src="{{asset('/frontend/image/logo.webp')}}" alt="Logo" width="120"></a>
+=======
+                        <a href="#home" class="logo logo-light"><img src="{{asset('frontend/image/min.webp')}}" alt="Logo" width="50"></a>
+                            <a href="#home" class="logo logo-light"><img src="{{asset('frontend/image/logo.webp')}}" alt="Logo" width="120"></a>
+>>>>>>> fixed
                         <p class="description mt-2 wow fadeInLeft animated" data-wow-delay="0.2s" data-wow-duration="1s">{!! substr($innoweeks->{'description_'.App::getLocale()},0,90).'...' !!}</p>
                         <ul class="footer-social wow fadeInLeft animated" data-wow-delay="0.3s" data-wow-duration="1s">
                         <li class="wow fadeInLeft animated" data-wow-delay="0.7s" data-wow-duration="1s">
@@ -342,6 +432,7 @@
 
 
   <!-- Dependency Scripts -->
+<<<<<<< HEAD
   <script src="{{asset('/frontend/assets/jquery/jquery.min.js')}}"></script>
   <script src="{{asset('/frontend/assets/bootstrap/js/bootstrap.min.js')}}"></script>
   <script src="{{asset('/frontend/assets/imagesloaded/imagesloaded.pkgd.min.js')}}"></script>
@@ -353,6 +444,19 @@
   <script src="{{asset('/frontend/assets/validator/validator.min.js')}}"></script>
   <!-- Custom Script -->
   <script src="{{asset('/frontend/js/app.js')}}"></script>
+=======
+  <script src="{{asset('frontend/assets/jquery/jquery.min.js')}}"></script>
+  <script src="{{asset('frontend/assets/bootstrap/js/bootstrap.min.js')}}"></script>
+  <script src="{{asset('frontend/assets/imagesloaded/imagesloaded.pkgd.min.js')}}"></script>
+  <script src="{{asset('frontend/assets/magnific-popup/js/magnific-popup.min.js')}}"></script>
+  <script src="{{asset('frontend/assets/countdown/js/jquery.countdown.min.js')}}"></script>
+  <script src="{{asset('frontend/assets/wow/wow.min.js')}}"></script>
+  <script src="{{asset('frontend/assets/isotope-layout/isotope.pkgd.min.js')}}"></script>
+  <script src="{{asset('frontend/assets/swiper/js/swiper.min.js')}}"></script>
+  <script src="{{asset('frontend/assets/validator/validator.min.js')}}"></script>
+  <!-- Custom Script -->
+  <script src="{{asset('frontend/js/app.js')}}"></script>
+>>>>>>> fixed
 </body>
 
 </html>

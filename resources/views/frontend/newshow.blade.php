@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 @extends('layouts.index')
 <style>
     .header-menu{
@@ -9,6 +10,13 @@
 </style>
 @section('content')
 
+=======
+@extends('layouts.main')
+@section('sticky')
+sticky
+@endsection
+@section('content')
+>>>>>>> fixed
   <section class="event-single-wrap">
     <div class="container">
       <div class="section-heading style-four">
@@ -55,3 +63,9 @@
   </section>
 
 @endsection
+<<<<<<< HEAD
+=======
+@section('scripts')
+<script src="{{ asset('/frontend/js/main.js') }}"></script>
+@endsection
+>>>>>>> fixed
