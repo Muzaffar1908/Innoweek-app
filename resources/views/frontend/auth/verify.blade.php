@@ -26,10 +26,11 @@
 
 <div class="regpanel" data-bg-image="{{asset('frontend/image/back.png')}}" style="background-image:{{'frontend/image/back.png'}};" >
     <div class="boxes">
-        <form class="reg-box" action="{{route('qr')}}">
+        <form class="reg-box" action="{{route('d-verified')}}" method="POST">
+            @csrf
             <h5> <h5>{{__('Enter the secret password sent to the specified email or phone number')}} </h5> </h5>
-            <input type="password" placeholder="password" required>
-            <button class="reg-btn"> {{__('Next')}} </button>
+            <input type="number" name="code" placeholder="{{ __('VERIFIY_CODE')}}" required autofocus>
+            <button class="reg-btn"> {{ __('Next')}} </button>
         </form>
     </div>
 </div>
