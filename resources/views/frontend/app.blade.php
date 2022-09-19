@@ -74,22 +74,28 @@
                 <h2 class="title wow fadeInUp animated" data-wow-delay="0.3s" data-wow-duration="1s">{{__('Video about Innoweek 2021')}}</h2>
             </div>
             <div class="row">
-                {{-- @foreach ($promo as $item)
+                @foreach ($promo as $item)
                 <div class="col-xl-3 col-md-6 wow fadeInLeft animated" data-wow-delay="0.1s" data-wow-duration="1s">
                     <div class="process-box-layout1 color-one">
-                    <a href="{{$item->innoweek_video}}" class="icon-box-link play-btn">
+                    <a href="{{$item->url}}" class="icon-box-link play-btn">
                         <div class="icon-box">
+
+                        <img src="{{asset($item->userTable->user_image)}}" alt="img" with="100px" height="60px">
                         <img src="{{asset('/upload/conference/' .$item->user_image.'-d.png')}}" alt="img" with="100px" height="60px">
+
                         <div class="player"></div>
                         </div>
                     </a>
                     <h3 class="title">
-                        <p> <a href="{{$item->innoweek_video}}" class="icon-box-link play-btn">{{$item->archiveTable->year}}</a></p>
+                        <p> <a href="{{$item->url}}" class="icon-box-link play-btn">{{$item->archiveTable->year}}</a></p>
                     </h3>
                     </div>
                 </div>
-                @endforeach --}}
-                
+
+                @endforeach
+
+
+
             </div>
             </div>
         </div>
@@ -168,7 +174,7 @@
                     </div>
                     </div>
                 </div>
-                </div>  
+                </div>
             @endforeach
             </div>
         </div>
@@ -184,16 +190,14 @@
                 <div class="schedule-slider-main-wrap">
                 <div class="schedule-slider-thumbnail-style-1 swiper-container schedule-box-layout3 schedule-nav">
                     <div class="swiper-wrapper">
-
                     @foreach ($condate as $con)
-                    
                     <div class="swiper-slide">
                         {{-- S4: Mon, Mar 28th --}}
                         {{Carbon::parse($con->date)->format('D ,M dS')}}
                     </div>
                     @endforeach
-                    
-                    
+
+
                     </div>
                 </div>
                 <span class="slider-btn slider-btn-prev">
@@ -208,8 +212,8 @@
 
                     @foreach ($condate as $cons)
                     <div class="swiper-slide">
-                        @foreach( $condate_data as $dd)
-                        @if($cons->date==Carbon::parse($dd->started_at)->format('Y-m-d'))
+                        @foreach($condate_data as $dd)
+                        @if(Carbon::parse($cons->date)->format('Y-m-d') == Carbon::parse($dd->started_at)->format('Y-m-d'))
                             <div class="panel-group" id="accordionExample{{Carbon::parse($dd->started_at)->format('Ymd')}}">
                             <div class="panel panel-default wow fadeInUp animated" data-wow-delay="0.3s" data-wow-duration="1s">
                             <div class="panel-heading" id="headingOne{{Carbon::parse($dd->started_at)->format('Ymd')}}">
@@ -249,13 +253,13 @@
                                 </div>
                             </div>
                             </div>
-                        
+
                             </div>
                         @endif
                         @endforeach
                     </div>
                     @endforeach
-                    
+
                 </div>
                 </div>
             </div>
@@ -279,7 +283,7 @@
             </div>
         </div>
     </div>
-    
+
     <section id="partner" class="testimonials-wrap-layout2">
         <section id="partner" class="testimonials-wrap-layout2">
             <!-- <div class="container"> -->
@@ -308,12 +312,12 @@
             <h2 class="title wow fadeInUp animated" data-wow-delay="0.2s" data-wow-duration="1s">{{__('Contacts')}}</h2>
         </div>
         <div class="container">
-            
+
             <section class="contact-wrap-layout2">
             <div class="container">
                 <div class="row">
-                
-                
+
+
                 <div class="col-lg-4 wow fadeInLeft animated" data-wow-delay="0.5s" data-wow-duration="1s">
                     <div class="contact-box-layout2">
                     <div class="address-box color-two">
@@ -364,14 +368,14 @@
                 </div>
             </div>
             </section>
-        
+
             <div class="location-box-layout1 has-animation">
             <iframe class="map" style="height: 600px;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6078.272327453513!2d69.2113345533416!3d41.352176589801374!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38ae8d755132b921%3A0x3d2c94a22bdea876!2sMinistry%20of%20Innovative%20Development%20of%20the%20Republic%20of%20Uzbekistan!5e0!3m2!1sen!2s!4v1662747000746!5m2!1sen!2s" style="border:0;" allowfullscreen="" loading="lazy" width="600" height="450">
             </iframe>
             </div>
         </div>
     </section>
-        
+
 @endsection
 @section('scripts')
     <script src="{{ asset('/frontend/js/app.js') }}"></script>

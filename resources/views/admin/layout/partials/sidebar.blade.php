@@ -112,6 +112,19 @@
             <li><a href="{{route('admin.conference.index')}}">Conference</a></li>
           </ul>
         </li>
+        <li>
+            <a
+              class="has-arrow"
+              href="javascript:void(0);"
+              aria-expanded="false"
+              >
+                <i class="bi bi-grid"></i>
+                <span class="nav-text">Promo</span>
+            </a>
+            <ul aria-expanded="false">
+              <li><a href="{{route('admin.promo.index')}}">Promo</a></li>
+            </ul>
+          </li>
       </ul>
 
     </div>

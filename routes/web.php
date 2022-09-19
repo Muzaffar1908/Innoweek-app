@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Mobile\AuthController;
 use App\Http\Controllers\NewsCategoryController;
 use App\Http\Controllers\NewsController;
+use App\Http\Controllers\PromoController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\UserController;
 use App\Models\News\NewsCategory;
@@ -87,6 +88,7 @@ Route::prefix('admin')->name('admin.')->middleware('auth','isAdmin')->group(func
     Route::resource('/speakers', SpeakerController::class);
     Route::resource('/userticket', UserTicketController::class);
     Route::resource('/partner', PartnerController::class);
+    Route::resource('/promo', PromoController::class);
     Route::POST('/userticket/isactive/{id}',[UserTicketController::class,'is_active']);
     Route::POST('/news/isactive/{id}',[NewsController::class,'is_active']);
     Route::POST('/news_cat/isactive/{id}',[NewsCategoryController::class,'is_active']);
@@ -98,6 +100,8 @@ Route::prefix('admin')->name('admin.')->middleware('auth','isAdmin')->group(func
     Route::POST('/innoweek/isactive/{id}',[InnoweekController::class,'is_active']);
     Route::POST('/galeries/is_active/{id}', [GaleriesController::class, 'is_active']);
     Route::POST('/partner/is_active/{id}', [PartnerController::class, 'is_active']);
+    Route::POST('/promo/is_active/{id}', [PromoController::class, 'is_active']);
+
 
 
 });
