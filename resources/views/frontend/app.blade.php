@@ -190,16 +190,21 @@
                 <div class="schedule-slider-main-wrap">
                 <div class="schedule-slider-thumbnail-style-1 swiper-container schedule-box-layout3 schedule-nav">
                     <div class="swiper-wrapper">
-
                     @foreach ($condate as $con)
+<<<<<<< HEAD
 
+=======
+>>>>>>> fxed
                     <div class="swiper-slide">
                         {{-- S4: Mon, Mar 28th --}}
                         {{Carbon::parse($con->date)->format('D ,M dS')}}
                     </div>
                     @endforeach
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> fxed
                     </div>
                 </div>
                 <span class="slider-btn slider-btn-prev">
@@ -214,8 +219,8 @@
 
                     @foreach ($condate as $cons)
                     <div class="swiper-slide">
-                        @foreach( $condate_data as $dd)
-                        @if($cons->date==Carbon::parse($dd->started_at)->format('Y-m-d'))
+                        @foreach($condate_data as $dd)
+                        @if(Carbon::parse($cons->date)->format('Y-m-d') == Carbon::parse($dd->started_at)->format('Y-m-d'))
                             <div class="panel-group" id="accordionExample{{Carbon::parse($dd->started_at)->format('Ymd')}}">
                             <div class="panel panel-default wow fadeInUp animated" data-wow-delay="0.3s" data-wow-duration="1s">
                             <div class="panel-heading" id="headingOne{{Carbon::parse($dd->started_at)->format('Ymd')}}">
