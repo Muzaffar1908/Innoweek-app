@@ -79,25 +79,25 @@
                             </div>
                         </div>
                         @endif
-                        <h5>Tizimda ro'yxatdan o'tish uchun quyida ko'rsatilgan maydonlarni to'ldiring</h5>
+                        <h5>{{__("Tizimda ro'yxatdan o'tish uchun quyida ko'rsatilgan maydonlarni to'ldiring")}}}</h5>
                         <div class="input-names">
                             <input class="name" name="first_name"  type="text" placeholder="Ism" autocomplete="on" required autofocus>
                             <input class="surname" name="last_name" type="text" placeholder="Familya" autocomplete="on" required>
                         </div>
-                        <input id="emailOrNumber" type="text" name="phone_or_email" placeholder="Email yoki telefon "
+                        <input id="emailOrNumber" type="text" name="phone_or_email" placeholder="{{__('Email or Phone')}} "
                             autocomplete="on" required>
 
                             <input id="datepicker" name="birth_date" type="text" autocomplete="on" required placeholder="kun/oy/yil" />
                         <div class="input-radio">
-                            <label for="gender">Jinsi:</label>
+                            <label for="gender">{{__('JINSI')}}:</label>
                             <div class="d-flex-radio">
-                                <input name="gender" type="radio" id="gender" value="1"><label>Ayol</label>
-                                <input name="gender" type="radio" id="gender" value="2"><label>Erkak</label>
+                                <input name="gender" type="radio" id="gender" value="1"><label>{{__('AYOL')}}</label>
+                                <input name="gender" type="radio" id="gender" value="2"><label>{{_('Erkak')}}</label>
                             </div>
                         </div>
-                        <button type="submit" class="btnB btn-input">Ro'yxatdan o'tish</button>
+                        <button type="submit" class="btnB btn-input">{{__('Sign up')}}</button>
                     </form>
-                    <a href="{{ route('m-login') }}" class="dnthave">Tizimga kirish</a>
+                    <a href="{{ route('m-login') }}" class="dnthave">{{__('LOGIN')}}</a>
                 </div>
             </div>
         </div>

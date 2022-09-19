@@ -30,7 +30,7 @@
     "Venue Info" : "Joy haqida ma'lumot",
     "Contact No" : "Aloqa raqami",
     "Useful Links" : "Foydali havolalar",
-    "INNOWEEK All Rights Reserved. Developed by" : "INNOWEEK Barcha huquqlari himoyalangan. Ishlab chiqilgan: ", 
+    "INNOWEEK All Rights Reserved. Developed by" : "INNOWEEK Barcha huquqlari himoyalangan. Ishlab chiqilgan: ",
     "Home" : "Bosh sahifa",
     "Technoways" : "Technoways",
     "Recent News" : "So'nggi yangiliklar",
@@ -72,6 +72,10 @@
     "Innoweekabout": "INNOWEEK.UZ – innovatsion g‘oyalar haftaligi 2018-yildan buyon har yili O‘zbekiston Respublikasi Innovatsion rivojlanish vazirligi tomonidan o‘tkazilib kelinmoqda. Unda   mahalliy va xorijiy kompaniyalar, investorlar, xorijiy diplomatik vakolatxona vakillari, tadbirkorlar, shuningdek, vazirlik va idora vakillari faol ishtirok etib kelmoqda. Ko‘rgazmaning maqsadi mahalliy va xorijiy vakillardan turli xil biznes yo‘nalishlari uchun eng ilg‘or innovatsion texnologiyalar, mahsulotlar, loyihalar, prototiplar yoki modellarni namoyish etish va targ‘ib qilish uchun ishonchli platforma yaratishdir. So‘nggi ikki yil ichida haftalik doirasida hamkorlik maqsadida bir qator  muvaffaqiyatli sarmoyaviy shartnomalar, memorandumlar imzolandi, ishbilarmon shaxslar doirasida aloqalar  o‘rnatildi, iqtidorli yoshlar va boshlang‘ich tadbirkorlar potensial investorlar bilan tanishish   imkoniyatiga ega bo‘lishdi. ",
     "QRCODE": " Sizning QR kodingiz",
     "HaliOTM": "Hali Ro'yhatdan o'tmagansiz!!!",
-    "Logout": "Chiqish"
+    "Logout": "Chiqish",
+    "VERIFIY_CODE": "TASDIQLASH KODINI KIRITING",
+    "Tizimga kirish uchun ro'yxatdan o'tgan email yo'ki telefon raqamingizni kiriting": "Tizimga kirish uchun ro'yxatdan o'tgan email yo'ki telefon raqamingizni kiriting",
+    "Tizimda ro'yxatdan o'tish uchun quyida ko'rsatilgan maydonlarni to'ldiring": "Tizimda ro'yxatdan o'tish uchun quyida ko'rsatilgan maydonlarni to'ldiring",
+    "ORTGA": "Ortga"
 
 }

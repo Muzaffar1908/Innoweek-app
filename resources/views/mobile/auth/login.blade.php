@@ -18,7 +18,7 @@
         <!-- Favicons -->
         <link href="{{ asset('/assets/images/icon/favicon.ico') }}" rel="icon">
         <link href="{{ asset('/assets/images/icon/apple-touch-icon.ico') }}" rel="apple-touch-icon">
-        <title>INNOWEEK LOGIN</title>
+        <title>INNOWEEK {{__('LOGIN')}}</title>
     </head>
 
     <body>
@@ -76,11 +76,11 @@
                         </div>
                         @endif
                         <h4>WEEK OF <span>INNOVATIVE</span> IDEAS</h4>
-                        <h5>Tizimga kirish uchun ro'yxatdan o'tgan email yo'ki telefon raqamingizni kiriting</h5>
-                        <input type="text" name="phone_or_email" placeholder="Email yoki telefon" autocomplete="on" required autofocus>
-                        <button type="submit" class="btn btn-input">Tizimga kirish</button>
+                        <h5>{{__("Tizimga kirish uchun ro'yxatdan o'tgan email yo'ki telefon raqamingizni kiriting")}}</h5>
+                        <input type="text" name="phone_or_email" placeholder="{{__('Email or Phone')}}" autocomplete="on" required autofocus>
+                        <button type="submit" class="btn btn-input">{{__('LOGIN')}}</button>
                     </form>
-                    <a href="{{ route('m-register') }}" class="dnthave">Ro'yxatdan o'tish</a>
+                    <a href="{{ route('m-register') }}" class="dnthave">{{__('Sign up')}}</a>
                 </div>
             </div>
         </div>

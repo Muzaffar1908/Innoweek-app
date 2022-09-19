@@ -58,8 +58,8 @@
     "ERKAK": "Male",
     "AYOL": "Female",
     "JINSI": "Gender",
-    "Firstname" : "Firstname",
-    "Lastname" : "Lastname",
+    "Firstname" : "Firs tname",
+    "Lastname" : "Las tname",
     "Email or Phone" : "Email or Phone",
     "day/month/year" : "day/month/year",
     "Enter the secret password sent to the specified email or phone number" : "Enter the secret password sent to the specified email or phone number",
@@ -72,7 +72,12 @@
     "Innoweekabout": "INNOWEEK.UZ is a week of innovative ideas every year since 2018   is held by the Ministry of Innovative Development of the Republic of Uzbekistan. In it   domestic and foreign companies, investors, representatives of foreign diplomatic missions, entrepreneurs,   representatives of the ministry and the office are also actively participating. The purpose of the exhibition is local and   the most advanced innovative technologies for various business lines from foreign representatives,   reliable for displaying and promoting products, projects, prototypes or models   is to create a platform. In the past two years, there are a number of weekly collaborations   successful investment contracts, memoranda were signed, contacts within businessmen   established, talented young people and start-up entrepreneurs meet potential investors   they had a chance.",
     "QRCODE": " Your QR code",
     "HaliOTM": "You are not registered yet!!!",
-    "Logout": "Logout"
+    "Logout": "Logout",
+    "VERIFIY_CODE": "VERIFIY_CODE",
+    "Tizimga kirish uchun ro'yxatdan o'tgan email yo'ki telefon raqamingizni kiriting": "Enter your registered email or phone number to log in",
+    "Tizimda ro'yxatdan o'tish uchun quyida ko'rsatilgan maydonlarni to'ldiring": "Fill in the fields below to register in the system",
+    "ORTGA": "Back"
+
 
 
 
