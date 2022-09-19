@@ -35,7 +35,7 @@ class PageController extends Controller
         $partners = Partner::all();
         $innoweeks = Innoweek::first();
 
-        $events = Conference::all();
+        $events = Conference::paginate(3);
 
         $promo=Promo::paginate(4);
 
