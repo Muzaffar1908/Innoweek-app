@@ -1,4 +1,7 @@
-@extends('layouts.index')
+@extends('layouts.main')
+@section('sticky')
+sticky
+@endsection
 @section('content')
     <section class="speaker-single-wrap">
         <div class="container">
@@ -304,4 +307,7 @@
             </div>
         </div>
     </section>
+@endsection
+@section('scripts')
+<script src="{{ asset('/frontend/js/main.js') }}"></script>
 @endsection
