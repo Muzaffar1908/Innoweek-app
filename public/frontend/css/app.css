@@ -14626,20 +14626,27 @@ input[type = "radio"] {
 
 .boxes {
   padding: 10px;
-  width: 25%;
-  height: 25%;
+  width: 400px;
+  /* height: 300px; */
   background-color: #041A57;
   border: 1px solid #041A57;
   border-radius: 10px;
 }
 
-.boxes h5 {
+.boxes h3 {
   color: #fff;
   text-align: center;
 }
 
+.reg-box{
+  padding: 10px;
+}
+
 .reg-box input {
-  border: 2px solid #c4c3ff;
+  margin: 14px auto;
+  border: 2px solid #c4c3ff !important;
+  padding: 12px 12px 12px 17px;
+
   border-radius: 40px;
   outline: none;
   color: #fff;
@@ -14651,20 +14658,21 @@ input[type = "radio"] {
 }
 
 .reg-box .reg-btn {
+  color: #fff;
+  border-radius: 40px;
+  padding: 12px 10px;
   font-weight: 400;
   margin-top: 5px;
   width: 100%;
   border: 2px solid rgb(42, 7, 249);
-  border-radius: 40px;
   outline: none;
-  color: #fff;
   transition: all .2s ease-out;
   font-size: 18px;
   text-align: center;
   background: rgb(42, 7, 249);
 }
 
-.reg-box .btn:hover {
+.reg-box .reg-btn:hover{
   background-color: #4484ce;
   border: 2px solid #4484ce;
 }
@@ -14684,3 +14692,19 @@ input[type = "radio"] {
 .reg-box button img {
   width: 35%;
 }
+
+.boxes .reg-box .downloads{
+  border-radius: 10px;
+}
+
+.playM{
+  height: 79px;
+  margin-right: 10px;
+}
+
+.playS{
+  margin-left: 10px;
+}
+
+
+/*# sourceMappingURL=maps/app.css.map */
