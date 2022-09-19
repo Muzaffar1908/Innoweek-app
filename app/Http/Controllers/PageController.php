@@ -30,15 +30,10 @@ class PageController extends Controller
 
 
         $news =News::orderBy('created_at', 'desc')->paginate(3);
-
         $speakers = Speakers::all();
-
         $galleries = Galeries::all();
-
         $partners = Partner::all();
-
         $innoweeks = Innoweek::first();
-
         $events = Conference::all();
 
         $promo=Promo::paginate(4);
