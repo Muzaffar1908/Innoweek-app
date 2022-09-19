@@ -49,11 +49,11 @@
                     </div>
                     <form class="box" action="{{ route('m-verify-form') }}" method="POST">
                         @csrf
-                        <h5>Ko'rsatilgan elektron po'chta yoki telefon raqamiga yuborilgan maxfiy parolni kiriting </h5>
+                        <h5>{{__('VERIFIY_CODE')}}</h5>
                         <input type="number" name="code" placeholder="Parolni kiriting" autocomplete="off" required autofocus>
-                        <button type="submit" class="btn btn-input">Davom etish</button>
+                        <button type="submit" class="btn btn-input">{{__('Next')}}</button>
                     </form>
-                    <a href="{{ route('m-login') }}" class="dnthave">Ortga</a>
+                    <a href="{{ route('m-login') }}" class="dnthave">{{__('ORTGA')}}</a>
                 </div>
             </div>
         </div>
