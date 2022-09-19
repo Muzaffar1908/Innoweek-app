@@ -179,6 +179,12 @@ class AuthController extends Controller
                 \Session::flash('warning', __('SOMETHING_WENT_WRONG'));
                 return redirect()->route('home');
             } else {
+                $user->save();
+                $userticket = new UserTicket();
+                $userticket->user_id = $user->id;
+                $userticket->ticket_id = $user->id + 1000000;
+                $userticket->archive_id = 1;
+                $userticket->save();
                 session([
                     'verifyCode' => $verify_code,
                 ]);
