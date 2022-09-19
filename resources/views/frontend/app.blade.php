@@ -37,7 +37,7 @@
                 <div class="swiper-slide">
                     <div class="event-box-layout1">
                     <div class="figure-box">
-                        <a href="{{route('eventshowx', ['id'=>$item->id])}}"><img src="{{asset('upload/conference/'.$item->user_image.'-d.png')}}" alt="Event"></a>
+                        <a href="{{route('eventshowx', ['id'=>$item->id])}}"><img src="{{asset('/upload/conference/'.$item->user_image.'-d.png')}}" alt="Event"></a>
                     </div>
                     <div class="content-box">
                         <div class="me-3">
@@ -74,12 +74,16 @@
                 <h2 class="title wow fadeInUp animated" data-wow-delay="0.3s" data-wow-duration="1s">{{__('Video about Innoweek 2021')}}</h2>
             </div>
             <div class="row">
-                @foreach ($promo as $item)
+                {{-- @foreach ($promo as $item)
                 <div class="col-xl-3 col-md-6 wow fadeInLeft animated" data-wow-delay="0.1s" data-wow-duration="1s">
                     <div class="process-box-layout1 color-one">
                     <a href="{{$item->url}}" class="icon-box-link play-btn">
                         <div class="icon-box">
+<<<<<<< HEAD
                         <img src="{{asset($item->userTable->user_image)}}" alt="img" with="100px" height="60px">
+=======
+                        <img src="{{asset('/upload/conference/' .$item->user_image.'-d.png')}}" alt="img" with="100px" height="60px">
+>>>>>>> 3da95ff8dd78ef14c208f141fcf1dddeeb8fb5ae
                         <div class="player"></div>
                         </div>
                     </a>
@@ -88,8 +92,13 @@
                     </h3>
                     </div>
                 </div>
+<<<<<<< HEAD
                 @endforeach
 
+=======
+                @endforeach --}}
+                
+>>>>>>> 3da95ff8dd78ef14c208f141fcf1dddeeb8fb5ae
             </div>
             </div>
         </div>
@@ -223,7 +232,7 @@
                                 </div>
                                 <div class="content-box-wrap">
                                     <div class="figure-box">
-                                        <img src="{{asset('upload/conference/' .$dd->user_image.'-d.png')}}" alt="img" with="100px" height="60px">
+                                        <img src="{{asset('/upload/conference/' .$dd->user_image.'-d.png')}}" alt="img" with="100px" height="60px">
                                     </div>
                                     <div class="inner-box">
                                     <h3 class="title">{{($dd->{'title_'.App::getLocale()})}}</h3>
