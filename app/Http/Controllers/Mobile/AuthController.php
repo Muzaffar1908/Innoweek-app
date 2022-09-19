@@ -11,6 +11,8 @@ use App\Models\User;
 use App\Models\UserRole;
 use Illuminate\Support\Str;
 use Auth;
+use Mail;
+use App\Mail\RegisterMail;
 use Illuminate\Support\Facades\Hash;
 //use Laravel\Socialite\Facades\Socialite;
 use Validator;
@@ -89,6 +91,26 @@ class AuthController extends Controller
         //dd($request->all());
         if (!empty($inputs['email'])) {
             $user = User::where(['email' => $inputs['email']])->first();
+            if (!empty($user)) {
+                $verify_code = rand(1000, 9999);
+                $mailData = [
+                    //'title' => 'Mail from ItSolutionStuff.com',
+                    //'body' => 'This is for testing email using smtp.',
+                    'code' => $verify_code,
+                ];
+
+                Mail::to($inputs['email'])->send(new RegisterMail($mailData));
+                if (Mail::flushMacros()) {
+                    \Session::flash('warning', "Ma'lumotlar xato kiritilgan...");
+                    return \Redirect::back();
+                } else {
+                    session([
+                        'verifyCode' => $verify_code,
+                    ]);
+                    \Session::flash('warning', __('ALL_SUCCESSFUL_SAVED'));
+                    return redirect()->route('m-verify');
+                }
+            }
         } else {
             $user = User::where(['phone' => $inputs['phone']])->first();
             if (!empty($user)) {
@@ -108,11 +130,6 @@ class AuthController extends Controller
         }
         \Session::flash('warning', "Ma'lumotlar xato kiritilgan...");
         return \Redirect::back();
-
-        // UserRole::create([
-        //     'user_id' => $user->id,
-        //     'x_roles_id' => 6,
-        // ]);
     }
 
     public function RegisterPage()
@@ -160,24 +177,50 @@ class AuthController extends Controller
             $user = User::findOrFail($inputs['id']);
         } else {
             $user = new User;
-
         }
 
         $user->first_name = $inputs['first_name'];
         $user->last_name = $inputs['last_name'];
-        $user->phone = $inputs['email'] ?? $inputs['phone'];
+        $user->email = $inputs['email'] ?? null;
+        $user->phone = $inputs['phone'] ?? null;
         $user->birth_date = Carbon::parse($inputs['birth_date']);
         $user->password = Hash::make(Str::random(12));
 
+        if (!empty($inputs['email'])) {
+            $verify_code = rand(1000, 9999);
+            $mailData = [
+                //'title' => 'Mail from ItSolutionStuff.com',
+                //'body' => 'This is for testing email using smtp.',
+                'code' => $verify_code,
+            ];
+
+            Mail::to($inputs['email'])->send(new RegisterMail($mailData));
+            if (Mail::flushMacros()) {
+                \Session::flash('warning', "Ma'lumotlar xato kiritilgan...");
+                return \Redirect::back();
+            } else {
+                $user->save();
+                $userticket = new UserTicket();
+                $userticket->user_id = $user->id;
+                $userticket->ticket_id = $user->id + 1000000;
+                $userticket->archive_id = 1;
+                $userticket->save();
+                session([
+                    'verifyCode' => $verify_code,
+                ]);
+                \Session::flash('warning', __('ALL_SUCCESSFUL_SAVED'));
+                return redirect()->route('m-verify');
+            }
+        }
 
         $sentSMS = self::SendSMSVerify($user->phone);
         if ($sentSMS) {
             $user->save();
-            $userticket= new UserTicket();
-            $userticket->user_id=$user->id;
-            $userticket->ticket_id=$user->id+1000000;
-            $userticket->archive_id=1;
-//        @dd($userticket->all());
+            $userticket = new UserTicket();
+            $userticket->user_id = $user->id;
+            $userticket->ticket_id = $user->id + 1000000;
+            $userticket->archive_id = 1;
+            //        @dd($userticket->all());
             $userticket->save();
             session([
                 'userID' => $user->id,

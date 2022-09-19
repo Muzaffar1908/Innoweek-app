@@ -1,23 +1,69 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
     <head>
-        <title>INNOWEEK.UZ</title>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>INNOWEEK - Verification Code</title>
     </head>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            color: #fff;
+            font-family: sans-serif;
+        }
+
+        body {
+            background-color: #041A57;
+        }
+
+        .box {
+            text-align: center;
+            margin-top: 10rem;
+            width: 600px;
+            margin: 10rem auto 0;
+        }
+
+        .box-icons {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .title {
+            margin-top: 20px;
+        }
+
+        .title h1 {
+            margin-bottom: 30px;
+        }
+
+        @media(min-width: 0) and (max-width: 474.9px) {
+            .box {
+                width: 80%;
+                margin-top: 7rem;
+            }
+        }
+    </style>
 
     <body>
-        <h1>{{ $mailData['title'] }}</h1>
-        <p>{{ $mailData['body'] }}</p>
-        <p>{{ $mailData['code'] }}</p>
-
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
-        <p>Thank you</p>
+        <div class="box">
+            <div class="box-icons">
+                <img src="{{ asset('/email/img/min.webp') }}" width="80px" alt="">
+                <img src="{{ asset('/email/img/logo.webp') }}" width="180px" alt="">
+            </div>
+            <div class="title">
+                <h1>{{ __('WELCOME TO INTERNATIONAL WEEK OF INNOVATIVE IDEAS 2022')}}</h1>
+                <h3>{{ __('Your varification code')}}: <h1>{{ $mailData['code'] }}</h1>
+                </h3>
+                <p>&copy;
+                    <span id="currentYear">2022</span> INNOWEEK.UZ All Rights Reserved.
+                </p>
+            </div>
+        </div>
     </body>
 
 </html>
