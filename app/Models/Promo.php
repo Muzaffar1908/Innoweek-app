@@ -9,12 +9,12 @@ use Illuminate\Database\Eloquent\Model;
 class Promo extends Model
 {
     use HasFactory;
-    public function galleryTable()
+    public function userTable()
     {
         return $this->belongsTo(User::class, 'user_id');
     }
 
-    public function galleyarchiveTable()
+    public function archiveTable()
     {
         return $this->belongsTo(Archive::class, 'archive_id');
     }

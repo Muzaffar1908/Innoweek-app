@@ -9,6 +9,7 @@ use App\Models\Innoweek;
 use App\Models\News\Galeries;
 use App\Models\News\News;
 use App\Models\Partner;
+use App\Models\Promo;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
 
@@ -26,7 +27,7 @@ class PageController extends Controller
 
         $condate_data = Conference::all();
 
-        $promo = Conference::all();
+
 
         $news = News::all();
 
@@ -40,6 +41,7 @@ class PageController extends Controller
 
         $events = Conference::all();
 
+        $promo=Promo::paginate(4);
 
         return view('frontend.app', ['condate' => $condate,'condate_data'=>$condate_data, 'promo' => $promo, 'news' => $news, 'speakers' => $speakers, 'galleries' => $galleries, 'partners' => $partners, 'innoweeks' => $innoweeks, 'events' => $events]);
 
