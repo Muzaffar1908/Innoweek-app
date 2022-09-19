@@ -37,7 +37,7 @@
                 <div class="swiper-slide">
                     <div class="event-box-layout1">
                     <div class="figure-box">
-                        <a href="{{route('eventshowx', ['id'=>$item->id])}}"><img src="{{asset('/upload/conference/'.$item->user_image.'-d.png')}}" alt="Event"></a>
+                        <a href="{{route('eventshowx', ['id'=>$item->id])}}"><img src="{{asset('/upload/conference/'. $item->user_image .'-d.png')}}" alt="Event"></a>
                     </div>
                     <div class="content-box">
                         <div class="me-3">
@@ -80,14 +80,14 @@
                     <a href="{{$item->url}}" class="icon-box-link play-btn">
                         <div class="icon-box">
 
-                        <img src="{{asset($item->userTable->user_image)}}" alt="img" with="100px" height="60px">
-                        <img src="{{asset('/upload/conference/' .$item->user_image.'-d.png')}}" alt="img" with="100px" height="60px">
+                        <img src="https://img.youtube.com/vi/9ogVDbRmifw/hqdefault.jpg" alt="img" with="100px" height="60px">
+                        {{-- <img src="{{asset('/upload/conference/' .$item->user_image.'-d.png')}}" alt="img" with="100px" height="60px"> --}}
 
                         <div class="player"></div>
                         </div>
                     </a>
                     <h3 class="title">
-                        <p> <a href="{{$item->url}}" class="icon-box-link play-btn">{{$item->archiveTable->year}}</a></p>
+                        <p> <a href="{{$item->url}}" class="icon-box-link play-btn">INNOWEEK {{$item->archiveTable->year}}</a></p>
                     </h3>
                     </div>
                 </div>
