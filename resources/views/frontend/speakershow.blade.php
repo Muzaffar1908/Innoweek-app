@@ -1,14 +1,8 @@
-@extends('layouts.index')
-<style>
-    .header-menu{
-        background-color: #0e1c41;
-}
-.container-fluid{
-        background-color: #0e1c41;
-}
-</style>
+@extends('layouts.main')
+@section('sticky')
+sticky
+@endsection
 @section('content')
-
   <section class="speaker-single-wrap">
     <div class="container">
       <div class="section-heading style-four">
@@ -56,4 +50,7 @@
     </div>
   </section>
 
+@endsection
+@section('scripts')
+<script src="{{ asset('/frontend/js/main.js') }}"></script>
 @endsection
