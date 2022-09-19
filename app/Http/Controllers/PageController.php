@@ -29,7 +29,7 @@ class PageController extends Controller
 
 
 
-        $news =News::orderBy('created_at', 'desc')->paginate(3);
+        $news = News::orderBy('created_at', 'desc')->paginate(3);
         $speakers = Speakers::all();
         $galleries = Galeries::all();
         $partners = Partner::all();
@@ -39,21 +39,21 @@ class PageController extends Controller
 
         $promo=Promo::paginate(4);
 
-        return view('frontend.app', ['condate' => $condate,'condate_data'=>$condate_data, 'promo' => $promo, 'news' => $news, 'speakers' => $speakers, 'galleries' => $galleries, 'partners' => $partners, 'innoweeks' => $innoweeks, 'events' => $events]);
+        return view('frontend.app', ['condate' => $condate, 'condate_data' => $condate_data, 'promo' => $promo, 'news' => $news, 'speakers' => $speakers, 'galleries' => $galleries, 'partners' => $partners, 'innoweeks' => $innoweeks, 'events' => $events]);
 
     }
-
 
 
     public function register()
     {
         $innoweeks = Innoweek::first();
-        return view('frontend.register',['innoweeks'=>$innoweeks]);
+        return view('frontend.register', ['innoweeks' => $innoweeks]);
     }
+
     public function qr()
     {
         $innoweeks = Innoweek::first();
-        return view('frontend.qr',['innoweeks'=>$innoweeks]);
+        return view('frontend.qr', ['innoweeks' => $innoweeks]);
     }
 
     public function schedule($id)
@@ -67,7 +67,7 @@ class PageController extends Controller
             ->get();
 
 
-        return view('frontend.app', ['condates' => $condates,'condate' => $condate]);
+        return view('frontend.app', ['condates' => $condates, 'condate' => $condate]);
     }
 
 
@@ -79,7 +79,7 @@ class PageController extends Controller
 
         $newsx = News::orderBy('created_at', 'desc')->paginate(5);
 
-        return view('frontend.newshow', compact('news','innoweeks', 'newsx'));
+        return view('frontend.newshow', compact('news', 'innoweeks', 'newsx'));
     }
 
     public function eventShow($id)
@@ -101,5 +101,23 @@ class PageController extends Controller
         return view('frontend.speakershow', compact('innoweeks', 'speakers'));
     }
 
+    public function speakers()
+    {
+        $speaker = Speakers::first();
+        $speakers = Speakers::orderBy('created_at', 'desc')->paginate(5);
+        return view('frontend.speakers', ['speakers' => $speakers,'speaker'=>$speaker]);
+    }
+    public function events()
+    {
+        $conference =Conference::first();
+        $conferences = Conference::orderBy('created_at', 'desc')->paginate(5);
+        return view('frontend.events', ['conference' => $conference,'conferences'=>$conferences]);
+    }
+    public function news()
+    {
+        $new = News::orderBy('created_at', 'desc')->paginate(2);
+        $news = News::orderBy('created_at', 'desc')->paginate(5);
+        return view('frontend.news', ['news' => $news,'new'=>$new]);
+    }
 
 }

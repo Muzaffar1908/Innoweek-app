@@ -56,8 +56,10 @@ Route::group(['prefix' => '/'], function(){
         Route::get('/newsshow/{id}', 'newsshow')->name('newsshowx');
         Route::get('/eventshow/{id}', 'eventShow')->name('eventshowx');
         Route::get('/speakershow/{id}', 'speakerShow')->name('speakershowx');
+        Route::get('/speakers', 'speakers')->name('speakersx');
         Route::get('/code', 'register')->name('code');
-        Route::get('/qr', 'qr')->name('qr');
+        Route::get('/events', 'events')->name('eventsx');
+        Route::get('/news', 'news')->name('newsx');
     });
 
     Route::controller(FrontAuthController::class)->group(function(){

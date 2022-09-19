@@ -1,5 +1,7 @@
 @extends('layouts.main')
-
+@section('sticky')
+    sticky
+@endsection
 @section('content')
     <section class="event-single-wrap">
         <div class="container">
@@ -10,7 +12,7 @@
                 <div class="col-lg-8">
                     <div class="event-single-box">
                         <div class="figure-box wow fadeInUp animated" data-wow-delay="0.2s" data-wow-duration="1s">
-                            <img src="image/image.jpg" alt="Event">
+                            <img src="{{asset('frontend/image/image.jpg')}}" alt="Event">
                         </div>
                         <div class="content-box">
                             <div class="sub-title wow fadeInUp animated" data-wow-delay="0.3s" data-wow-duration="1s">
@@ -30,7 +32,7 @@
                         <div class="widget-recent-post">
                             <div class="single-post">
                                 <div class="figure-box">
-                                    <a href="#" class="link-item"><img width="150" src="image/image.jpg" alt="Post"></a>
+                                    <a href="#" class="link-item"><img width="150" src="{{asset('frontend/image/image.jpg')}}" alt="Post"></a>
                                 </div>
                                 <div class="content-box">
                                     <h3 class="entry-title"><a href="#">“Mirzo Ulug`bek vorislari” Respublika tanloviga arizalar qabuli yakunlandi.</a></h3>
@@ -39,7 +41,7 @@
                             </div>
                             <div class="single-post">
                                 <div class="figure-box">
-                                    <a href="#" class="link-item"><img width="150" src="image/image.jpg" alt="Post"></a>
+                                    <a href="#" class="link-item"><img width="150" src="{{asset('frontend/image/image.jpg')}}" alt="Post"></a>
                                 </div>
                                 <div class="content-box">
                                     <h3 class="entry-title"><a href="#">“INNO texnopark” hamda “Chemist” MCHJ o‘rtasida hamkorlik memorandumi imzolandi</a></h3>
@@ -48,7 +50,7 @@
                             </div>
                             <div class="single-post">
                                 <div class="figure-box">
-                                    <a href="#" class="link-item"><img width="150" src="image/image.jpg" alt="Post"></a>
+                                    <a href="#" class="link-item"><img width="150" src="{{asset('frontend/image/image.jpg')}}" alt="Post"></a>
                                 </div>
                                 <div class="content-box">
                                     <h3 class="entry-title"><a href="#">“Mirzo Ulug`bek vorislari” Respublika tanloviga arizalar qabuli yakunlandi.</a></h3>
@@ -57,7 +59,7 @@
                             </div>
                             <div class="single-post">
                                 <div class="figure-box">
-                                    <a href="#" class="link-item"><img width="150" src="image/image.jpg" alt="Post"></a>
+                                    <a href="#" class="link-item"><img width="150" src="{{asset('frontend/image/image.jpg')}}" alt="Post"></a>
                                 </div>
                                 <div class="content-box">
                                     <h3 class="entry-title"><a href="#">“INNO texnopark” hamda “Chemist” MCHJ o‘rtasida hamkorlik memorandumi imzolandi</a></h3>
@@ -66,7 +68,7 @@
                             </div>
                             <div class="single-post">
                                 <div class="figure-box">
-                                    <a href="#" class="link-item"><img width="150" src="image/image.jpg" alt="Post"></a>
+                                    <a href="#" class="link-item"><img width="150" src="{{asset('frontend/image/image.jpg')}}" alt="Post"></a>
                                 </div>
                                 <div class="content-box">
                                     <h3 class="entry-title"><a href="#">“Mirzo Ulug`bek vorislari” Respublika tanloviga arizalar qabuli yakunlandi.</a></h3>
@@ -82,7 +84,7 @@
                 <div class="col-lg-8">
                     <div class="event-single-box">
                         <div class="figure-box wow fadeInUp animated" data-wow-delay="0.2s" data-wow-duration="1s">
-                            <img src="image/image.jpg" alt="Event">
+                            <img src="{{asset('frontend/image/image.jpg')}}" alt="Event">
                         </div>
                         <div class="content-box">
                             <div class="sub-title wow fadeInUp animated" data-wow-delay="0.3s" data-wow-duration="1s">
@@ -99,7 +101,7 @@
                 <div class="col-lg-8">
                     <div class="event-single-box">
                         <div class="figure-box wow fadeInUp animated" data-wow-delay="0.2s" data-wow-duration="1s">
-                            <img src="image/image.jpg" alt="Event">
+                            <img src="{{asset('frontend/image/image.jpg')}}" alt="Event">
                         </div>
                         <div class="content-box">
                             <div class="sub-title wow fadeInUp animated" data-wow-delay="0.3s" data-wow-duration="1s">
@@ -112,17 +114,14 @@
                     </div>
                 </div>
             </div>
+
 
             <div class="text-center">
-                <ul class="pagination-layout1">
-                    <li><a href="speaker.html"><i class="fas fa-arrow-left"></i></a></li>
-                    <li class="active"><a href="speaker.html">1</a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">4</a></li>
-                    <li><a href="#"><i class="fas fa-arrow-right"></i></a></li>
-                </ul>
+                {{$conferences->links()}}
             </div>
         </div>
     </section>
+@endsection
+@section('scripts')
+    <script src="{{ asset('/frontend/js/main.js') }}"></script>
 @endsection

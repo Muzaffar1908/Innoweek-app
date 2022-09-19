@@ -13,7 +13,7 @@
 						<i class="ri-arrow-left-s-line"></i>
 						{{__('MYPROFILE')}}
 					</a>
-					
+
                 </h2>
                 <form action="{{route('logout')}}" method="POST" >
                     @csrf
@@ -33,7 +33,7 @@
 						<div style="width: 80px; margin-top:-16px; height:80px;border-radius: 50%; margin-right: 1rem; object-fit: cover; overflow:hidden;">
                             <img  style="width: 100%; height:100%" src="{{ asset(Auth::user()->user_image)}}" alt="">
                         </div>
-						<h5>{{ Auth::user()->first_name }} {{ Auth::user()->last_name }} <br> <span sstyle="color: grey; font-size: 13px; font-weight: 400;">{{__('GUEST')}}</span></h5><br>
+						<h5>{{ Auth::user()->first_name }} {{ Auth::user()->last_name }} <br> <span style="color: grey; font-size: 13px; font-weight: 400;">{{__('GUEST')}}</span></h5><br>
 					</div>
 					<form  action="/mobile-v/profile/update/{{Auth::user()->id}}" method="POST" enctype="multipart/form-data">
 						 @csrf

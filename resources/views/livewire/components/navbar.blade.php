@@ -25,15 +25,15 @@
                                     </li>
                                     <li class="menu-item active menu-item-has-children mega-menu mega-menu-col-2 wow fadeInUp animated"
                                         data-wow-delay="0.2s">
-                                        <a href="{{ url('/') }}#event">{{__('EVENTS')}}</a>
+                                        <a href="{{ route('eventsx') }}">{{__('EVENTS')}}</a>
                                     </li>
                                     <li class="menu-item menu-item-has-children wow fadeInUp animated"
                                         data-wow-delay="0.3s">
-                                        <a href="{{ url('/') }}#new">{{__('NEWS')}}</a>
+                                        <a href="{{ route('newsx') }}">{{__('NEWS')}}</a>
                                     </li>
                                     <li class="menu-item menu-item-has-children wow fadeInUp animated"
                                         data-wow-delay="0.4s">
-                                        <a href="{{ url('/') }}#speaker">{{__('SPEAKERS')}}</a>
+                                        <a href="{{ route('speakersx') }}">{{__('SPEAKERS')}}</a>
                                     </li>
                                     <li class="menu-item menu-item-has-children wow fadeInUp animated"
                                         data-wow-delay="0.5s">

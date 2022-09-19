@@ -12,7 +12,7 @@ sticky
                 <div class="col-lg-2 col-12">
                     <div class="speaker-single-box">
                         <div class="figure-box wow fadeInLeft animated" data-wow-delay="0.3s" data-wow-duration="1s">
-                            <img src="image/speaker/speak.jpg" alt="Speaker">
+                            <img src="{{asset('frontend/image/speaker/speak.jpg')}}" alt="Speaker">
                         </div>
                     </div>
                 </div>
@@ -53,10 +53,10 @@ sticky
                     <div class="speaker-box-layout3 animated-bg-wrap">
                         <span class="animated-bg"></span>
                         <div class="figure-box">
-                            <a href="speaker.html"><img src="./image/speaker/speak.jpg" alt="Speaker" width="267" height="267"></a>
+                            <a href="#"><img src="{{asset('frontend/image/speaker/speak.jpg')}}" alt="Speaker" width="267" height="267"></a>
                         </div>
                         <div class="content-box">
-                            <h3 class="title"><a href="speaker.html">Muhammad Ali Eshonqulov</a></h3>
+                            <h3 class="title"><a href="#">Muhammad Ali Eshonqulov</a></h3>
                             <div class="sub-title">Lecturer at IMC Krems and the University of World Economy and Diplomacy in Uzbekistan</div>
                             <div class="speaker-social">
                                 <ul>
@@ -73,10 +73,10 @@ sticky
                     <div class="speaker-box-layout3 animated-bg-wrap">
                         <span class="animated-bg"></span>
                         <div class="figure-box">
-                            <a href="speaker.html"><img src="./image/speaker/speak.jpg" alt="Speaker" width="267" height="267"></a>
+                            <a href="#"><img src="{{asset('frontend/image/speaker/speak.jpg')}}" alt="Speaker" width="267" height="267"></a>
                         </div>
                         <div class="content-box">
-                            <h3 class="title"><a href="speaker.html">Muhammad Ali Eshonqulov</a></h3>
+                            <h3 class="title"><a href="#">Muhammad Ali Eshonqulov</a></h3>
                             <div class="sub-title">Lecturer at IMC Krems and the University of World Economy and Diplomacy in Uzbekistan</div>
                             <div class="speaker-social">
                                 <ul>
@@ -93,10 +93,10 @@ sticky
                     <div class="speaker-box-layout3 animated-bg-wrap">
                         <span class="animated-bg"></span>
                         <div class="figure-box">
-                            <a href="speaker.html"><img src="./image/speaker/speak.jpg" alt="Speaker" width="267" height="267"></a>
+                            <a href="#"><img src="{{asset('frontend/image/speaker/speak.jpg')}}" alt="Speaker" width="267" height="267"></a>
                         </div>
                         <div class="content-box">
-                            <h3 class="title"><a href="speaker.html">Muhammad Ali Eshonqulov</a></h3>
+                            <h3 class="title"><a href="#">Muhammad Ali Eshonqulov</a></h3>
                             <div class="sub-title">Lecturer at IMC Krems and the University of World Economy and Diplomacy in Uzbekistan</div>
                             <div class="speaker-social">
                                 <ul>
@@ -113,10 +113,10 @@ sticky
                     <div class="speaker-box-layout3 animated-bg-wrap">
                         <span class="animated-bg"></span>
                         <div class="figure-box">
-                            <a href="speaker.html"><img src="./image/speaker/speak.jpg" alt="Speaker" width="267" height="267"></a>
+                            <a href="#"><img src="{{asset('frontend/image/speaker/speak.jpg')}}" alt="Speaker" width="267" height="267"></a>
                         </div>
                         <div class="content-box">
-                            <h3 class="title"><a href="speaker.html">Muhammad Ali Eshonqulov</a></h3>
+                            <h3 class="title"><a href="#">Muhammad Ali Eshonqulov</a></h3>
                             <div class="sub-title">Lecturer at IMC Krems and the University of World Economy and Diplomacy in Uzbekistan</div>
                             <div class="speaker-social">
                                 <ul>
@@ -133,10 +133,10 @@ sticky
                     <div class="speaker-box-layout3 animated-bg-wrap">
                         <span class="animated-bg"></span>
                         <div class="figure-box">
-                            <a href="speaker.html"><img src="./image/speaker/speak.jpg" alt="Speaker" width="267" height="267"></a>
+                            <a href="#"><img src="{{asset('frontend/image/speaker/speak.jpg')}}" alt="Speaker" width="267" height="267"></a>
                         </div>
                         <div class="content-box">
-                            <h3 class="title"><a href="speaker.html">Muhammad Ali Eshonqulov</a></h3>
+                            <h3 class="title"><a href="#">Muhammad Ali Eshonqulov</a></h3>
                             <div class="sub-title">Lecturer at IMC Krems and the University of World Economy and Diplomacy in Uzbekistan</div>
                             <div class="speaker-social">
                                 <ul>
@@ -153,10 +153,10 @@ sticky
                     <div class="speaker-box-layout3 animated-bg-wrap">
                         <span class="animated-bg"></span>
                         <div class="figure-box">
-                            <a href="speaker.html"><img src="./image/speaker/speak.jpg" alt="Speaker" width="267" height="267"></a>
+                            <a href="#"><img src="{{asset('frontend/image/speaker/speak.jpg')}}" alt="Speaker" width="267" height="267"></a>
                         </div>
                         <div class="content-box">
-                            <h3 class="title"><a href="speaker.html">Muhammad Ali Eshonqulov</a></h3>
+                            <h3 class="title"><a href="#">Muhammad Ali Eshonqulov</a></h3>
                             <div class="sub-title">Lecturer at IMC Krems and the University of World Economy and Diplomacy in Uzbekistan</div>
                             <div class="speaker-social">
                                 <ul>
@@ -176,10 +176,10 @@ sticky
                     <div class="speaker-box-layout3 animated-bg-wrap">
                         <span class="animated-bg"></span>
                         <div class="figure-box">
-                            <a href="speaker.html"><img src="./image/speaker/speak.jpg" alt="Speaker" width="267" height="267"></a>
+                            <a href="#"><img src="{{asset('frontend/image/speaker/speak.jpg')}}" alt="Speaker" width="267" height="267"></a>
                         </div>
                         <div class="content-box">
-                            <h3 class="title"><a href="speaker.html">Muhammad Ali Eshonqulov</a></h3>
+                            <h3 class="title"><a href="#">Muhammad Ali Eshonqulov</a></h3>
                             <div class="sub-title">Lecturer at IMC Krems and the University of World Economy and Diplomacy in Uzbekistan</div>
                             <div class="speaker-social">
                                 <ul>
@@ -196,10 +196,10 @@ sticky
                     <div class="speaker-box-layout3 animated-bg-wrap">
                         <span class="animated-bg"></span>
                         <div class="figure-box">
-                            <a href="speaker.html"><img src="./image/speaker/speak.jpg" alt="Speaker" width="267" height="267"></a>
+                            <a href="#"><img src="{{asset('frontend/image/speaker/speak.jpg')}}" alt="Speaker" width="267" height="267"></a>
                         </div>
                         <div class="content-box">
-                            <h3 class="title"><a href="speaker.html">Muhammad Ali Eshonqulov</a></h3>
+                            <h3 class="title"><a href="#">Muhammad Ali Eshonqulov</a></h3>
                             <div class="sub-title">Lecturer at IMC Krems and the University of World Economy and Diplomacy in Uzbekistan</div>
                             <div class="speaker-social">
                                 <ul>
@@ -216,10 +216,10 @@ sticky
                     <div class="speaker-box-layout3 animated-bg-wrap">
                         <span class="animated-bg"></span>
                         <div class="figure-box">
-                            <a href="speaker.html"><img src="./image/speaker/speak.jpg" alt="Speaker" width="267" height="267"></a>
+                            <a href="#"><img src="{{asset('frontend/image/speaker/speak.jpg')}}" alt="Speaker" width="267" height="267"></a>
                         </div>
                         <div class="content-box">
-                            <h3 class="title"><a href="speaker.html">Muhammad Ali Eshonqulov</a></h3>
+                            <h3 class="title"><a href="#">Muhammad Ali Eshonqulov</a></h3>
                             <div class="sub-title">Lecturer at IMC Krems and the University of World Economy and Diplomacy in Uzbekistan</div>
                             <div class="speaker-social">
                                 <ul>
@@ -236,10 +236,10 @@ sticky
                     <div class="speaker-box-layout3 animated-bg-wrap">
                         <span class="animated-bg"></span>
                         <div class="figure-box">
-                            <a href="speaker.html"><img src="./image/speaker/speak.jpg" alt="Speaker" width="267" height="267"></a>
+                            <a href="#"><img src="{{asset('frontend/image/speaker/speak.jpg')}}" alt="Speaker" width="267" height="267"></a>
                         </div>
                         <div class="content-box">
-                            <h3 class="title"><a href="speaker.html">Muhammad Ali Eshonqulov</a></h3>
+                            <h3 class="title"><a href="#">Muhammad Ali Eshonqulov</a></h3>
                             <div class="sub-title">Lecturer at IMC Krems and the University of World Economy and Diplomacy in Uzbekistan</div>
                             <div class="speaker-social">
                                 <ul>
@@ -256,10 +256,10 @@ sticky
                     <div class="speaker-box-layout3 animated-bg-wrap">
                         <span class="animated-bg"></span>
                         <div class="figure-box">
-                            <a href="speaker.html"><img src="./image/speaker/speak.jpg" alt="Speaker" width="267" height="267"></a>
+                            <a href="#"><img src="{{asset('frontend/image/speaker/speak.jpg')}}" alt="Speaker" width="267" height="267"></a>
                         </div>
                         <div class="content-box">
-                            <h3 class="title"><a href="speaker.html">Muhammad Ali Eshonqulov</a></h3>
+                            <h3 class="title"><a href="#">Muhammad Ali Eshonqulov</a></h3>
                             <div class="sub-title">Lecturer at IMC Krems and the University of World Economy and Diplomacy in Uzbekistan</div>
                             <div class="speaker-social">
                                 <ul>
@@ -276,10 +276,10 @@ sticky
                     <div class="speaker-box-layout3 animated-bg-wrap">
                         <span class="animated-bg"></span>
                         <div class="figure-box">
-                            <a href="speaker.html"><img src="./image/speaker/speak.jpg" alt="Speaker" width="267" height="267"></a>
+                            <a href="#"><img src="{{asset('frontend/image/speaker/speak.jpg')}}" alt="Speaker" width="267" height="267"></a>
                         </div>
                         <div class="content-box">
-                            <h3 class="title"><a href="speaker.html">Muhammad Ali Eshonqulov</a></h3>
+                            <h3 class="title"><a href="#">Muhammad Ali Eshonqulov</a></h3>
                             <div class="sub-title">Lecturer at IMC Krems and the University of World Economy and Diplomacy in Uzbekistan</div>
                             <div class="speaker-social">
                                 <ul>
@@ -296,14 +296,7 @@ sticky
             </div>
 
             <div class="text-center mt-5">
-                <ul class="pagination-layout1">
-                    <li><a href="speaker.html"><i class="fas fa-arrow-left"></i></a></li>
-                    <li class="active"><a href="speaker.html">1</a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">4</a></li>
-                    <li><a href="#"><i class="fas fa-arrow-right"></i></a></li>
-                </ul>
+                {{$speakers->links()}}
             </div>
         </div>
     </section>
