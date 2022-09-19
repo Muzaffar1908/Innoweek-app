@@ -28,7 +28,7 @@ class PageController extends Controller
 
         $promo = Conference::all();
 
-        $news = News::all();
+        $news =News::orderBy('created_at', 'desc')->paginate(3);
 
         $speakers = Speakers::all();
 
@@ -102,5 +102,6 @@ class PageController extends Controller
 
         return view('frontend.speakershow', compact('innoweeks', 'speakers'));
     }
+
 
 }

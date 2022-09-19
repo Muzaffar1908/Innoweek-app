@@ -582,3 +582,5 @@
 
 
 })(jQuery);
+
+flatpickr("input[type=datetime-local]", {});
