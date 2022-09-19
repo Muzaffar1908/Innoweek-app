@@ -15,10 +15,7 @@
         "laravel/tinker": "^2.7",
         "laravel/ui": "^4.0",
         "laravelcollective/html": "^6.3",
-<<<<<<< HEAD
-=======
         "livewire/livewire": "^2.10",
->>>>>>> fixed
         "mimaxuz/role-manager": "^2.0",
         "nesbot/carbon": "^2.62",
         "simplesoftwareio/simple-qrcode": "^4.2"

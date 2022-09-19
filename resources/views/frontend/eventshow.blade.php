@@ -1,20 +1,12 @@
-<<<<<<< HEAD
-@extends('layouts.index')
-=======
 @extends('layouts.main')
 @section('sticky')
  sticky   
 @endsection
->>>>>>> fixed
 @section('content')
   <section class="event-single-wrap">
     <div class="container">
       <div class="section-heading style-four">
-<<<<<<< HEAD
-        <h2 class="title wow fadeInUp animated" data-wow-delay="0.1s" data-wow-duration="1s">{{__('Event')}}</h2>
-=======
         <h2 class="title wow fadeInUp animated" data-wow-delay="0.1s" data-wow-duration="1s">{{__('Events')}}</h2>
->>>>>>> fixed
       </div>
       <div class="row">
         <div class="col-lg-8">
@@ -57,9 +49,6 @@
   </section>
 
 @endsection
-<<<<<<< HEAD
-=======
 @section('scripts')
 <script src="{{ asset('/frontend/js/main.js') }}"></script>
 @endsection
->>>>>>> fixed

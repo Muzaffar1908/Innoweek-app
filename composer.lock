@@ -4,11 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-<<<<<<< HEAD
-    "content-hash": "7de4ac14756912e81f79213e8e7480bc",
-=======
     "content-hash": "621efe3ff975bc8c1c8c7622aec332e6",
->>>>>>> fixed
     "packages": [
         {
             "name": "bacon/bacon-qr-code",
@@ -1928,8 +1924,6 @@
             "time": "2022-04-17T13:12:02+00:00"
         },
         {
-<<<<<<< HEAD
-=======
             "name": "livewire/livewire",
             "version": "v2.10.7",
             "source": {
@@ -2003,7 +1997,6 @@
             "time": "2022-08-08T13:52:53+00:00"
         },
         {
->>>>>>> fixed
             "name": "mimaxuz/role-manager",
             "version": "v2.0.4",
             "source": {

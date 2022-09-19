@@ -1,27 +1,9 @@
-<<<<<<< HEAD
-@extends('layouts.index')
-
-=======
 @extends('layouts.main')
->>>>>>> fixed
 @section('content')
 
     <section class="rt-header-menu hero-wrap-layout1" data-bg-image="{{asset('frontend/image/back.png')}}">
         <div class="container">
             <div class="row justify-content-center">
-<<<<<<< HEAD
-                <div class="col-lg-12">
-                    <div class="hero-box-layout1 has-animation">
-                        <h1 class="title mt-5 wow fadeInUp animated" data-wow-delay="1s">{{__('INTERNATIONAL WEEK OF')}}
-                            <span>{{__('INNOVATIVE')}}</span> {{__('IDEAS 2022')}}</h1>
-                        <p class="description wow fadeInUp animated" data-wow-delay="1.3s">
-                            “{{__('Green innovations for sustainable development')}}” <br>{{__('October 17-21')}}
-                        <ul>
-                            <li class="d-flex justify-content-center align-items-center wow fadeInUp animated" data-wow-delay="1.4s">
-                            <a href="#promo" class="play-btn-primary wh-down">
-                                <i class="fa fa-arrow-down"></i>
-                            </a>
-=======
                 <div class="col-lg-9">
                     <div class="hero-box-layout1 has-animation">
                         <h1 class="title mt-5 wow fadeInUp animated" data-wow-delay="1s">
@@ -35,7 +17,6 @@
                                 <a href="#promo" class="play-btn-primary wh-down">
                                     <i class="fa fa-arrow-down"></i>
                                 </a>
->>>>>>> fixed
                             </li>
                         </ul>
                         </p>
@@ -391,10 +372,7 @@
         </div>
     </section>
         
-<<<<<<< HEAD
-=======
 @endsection
 @section('scripts')
     <script src="{{ asset('/frontend/js/app.js') }}"></script>
->>>>>>> fixed
 @endsection

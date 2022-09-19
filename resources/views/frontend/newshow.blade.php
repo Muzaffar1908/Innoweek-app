@@ -1,22 +1,8 @@
-<<<<<<< HEAD
-@extends('layouts.index')
-<style>
-    .header-menu{
-        background-color: #0e1c41;
-}
-.container-fluid{
-        background-color: #0e1c41;
-}
-</style>
-@section('content')
-
-=======
 @extends('layouts.main')
 @section('sticky')
 sticky
 @endsection
 @section('content')
->>>>>>> fixed
   <section class="event-single-wrap">
     <div class="container">
       <div class="section-heading style-four">
@@ -63,9 +49,6 @@ sticky
   </section>
 
 @endsection
-<<<<<<< HEAD
-=======
 @section('scripts')
 <script src="{{ asset('/frontend/js/main.js') }}"></script>
 @endsection
->>>>>>> fixed
