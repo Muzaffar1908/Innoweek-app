@@ -34,7 +34,8 @@ class PageController extends Controller
         $galleries = Galeries::all();
         $partners = Partner::all();
         $innoweeks = Innoweek::first();
-        $events = Conference::all();
+
+        $events = Conference::paginate(3);
 
         $promo=Promo::paginate(4);
 
@@ -76,7 +77,7 @@ class PageController extends Controller
 
         $news = News::where(['id' => $id])->first();
 
-        $newsx = Speakers::orderBy('created_at', 'desc')->paginate(5);
+        $newsx = News::orderBy('created_at', 'desc')->paginate(5);
 
         return view('frontend.newshow', compact('news','innoweeks', 'newsx'));
     }

@@ -43,7 +43,7 @@
                         <div class="me-3">
                         <div class="sub-title">
                         <h3 class="title"><a href="#">{!! substr($item->{'title_'.App::getLocale()},0,30) !!}</a></h3>
-                        {!! substr($item->{'description_'.App::getLocale()},0,24). '...' !!}
+                        {{-- {!! substr($item->{'description_'.App::getLocale()},0,30). '...' !!} --}}
                         </div>
                         </div>
                         <a href="{{route('eventshowx', ['id'=>$item->id])}}" class="btn-icon">
