@@ -27,6 +27,9 @@
     </section>
 
     <section id="event" class="event-wrap-layout1 mb-5">
+        <?php
+          use Carbon\Carbon;
+        ?>
         <div class="container-fluid mb-4">
             <div class="section-heading style-four">
             <h2 class="title wow fadeInUp animated" data-wow-delay="0.2s" data-wow-duration="1s">{{__('Events')}}</h2>
@@ -117,9 +120,6 @@
     </section>
 
     <section id="new" class="blog-wrap-layout1">
-        <?php
-        use Carbon\Carbon;
-        ?>
         <div class="container">
             <div class="section-heading style-four">
             <h2 class="title wow fadeInUp animated" data-wow-delay="0.2s" data-wow-duration="1s">{{__('News')}}</h2>

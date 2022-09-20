@@ -19,11 +19,11 @@
                             </div>
                             <nav id="dropdown" class="template-main-menu menu-text-light">
                                 <ul class="menu">
-                                    <li class="menu-item menu-item-has-children wow fadeInUp animated"
+                                    <li class="menu-item active menu-item-has-children wow fadeInUp animated"
                                         data-wow-delay="0.1s">
                                         <a href="{{ url('/') }}">{{__('HOME')}}</a>
                                     </li>
-                                    <li class="menu-item active menu-item-has-children mega-menu mega-menu-col-2 wow fadeInUp animated"
+                                    <li class="menu-item menu-item-has-children mega-menu mega-menu-col-2 wow fadeInUp animated"
                                         data-wow-delay="0.2s">
                                         <a href="{{ route('eventsx') }}">{{__('EVENTS')}}</a>
                                     </li>
@@ -47,13 +47,11 @@
                                         data-wow-delay="0.8s">
                                         <a class="inno-cursor">INNOWEEK 2022</a>
                                         <ul class="sub-menu menu-w">
-                                            <li class="menu-item"><a href="{{asset('frontend/pdf/inno.pdf')}}"
-                                                    target="_blank">{{__('Innoweek 2022
-                                                    Invitation')}}</a>
+                                            <li class="menu-item"><a href="{{__('Invitation_pdf')}}" target="_blank">{{__('Innoweek 2022 Invitation')}}</a>
                                             </li>
-                                            <li class="menu-item"><a href="{{asset('frontend/pdf/Innoen.pdf')}}"
-                                                    target="_blank">{{__('Innoweek 2022
-                                                    Presentation')}}</a>
+                                            <li class="menu-item"><a href="{{__('Presentation_pdf')}}" target="_blank">{{__('Innoweek 2022 Presentation')}}</a>
+                                            </li>
+                                            <li class="menu-item"><a href="{{__('Program_pdf')}}" target="_blank">{{__('Innoweek 2022 Program')}}</a>
                                             </li>
                                         </ul>
                                     </li>

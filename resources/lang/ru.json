@@ -1,4 +1,7 @@
 {
+    "Invitation_pdf" : "/upload/pdf/Innoen.pdf",
+    "Presentation_pdf" : "/upload/pdf/Innoweekru.pdf",
+    "Program_pdf" : "/upload/pdf/dasturru.pdf",
     "MENU": "Меню",
     "HOME" : "ГЛАВНАЯ СТРАНИЦА",
     "EVENTS" : "СОБЫТИЯ",
@@ -9,6 +12,7 @@
     "CONTACTS" : "КОНТАКТЫ",
     "Innoweek 2022 Invitation" : "Приглашение на Innoweek 2022",
     "Innoweek 2022 Presentation" : "Презентация Innoweek 2022",
+    "Innoweek 2022 Program" : "Программа Innoweek 2022",
     "REGISTRATION" : "РЕГИСТРАЦИЯ",
     "INTERNATIONAL WEEK OF" : "МЕЖДУНАРОДНАЯ НЕДЕЛЯ",
     "INNOVATIVE" : "ИННОВАЦИОННЫХ",

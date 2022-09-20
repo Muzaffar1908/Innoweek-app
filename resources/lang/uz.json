@@ -1,4 +1,7 @@
 {
+    "Invitation_pdf" : "/upload/pdf/Innoen.pdf",
+    "Presentation_pdf" : "/upload/pdf/Innoweekuz.pdf",
+    "Program_pdf" : "/upload/pdf/dasturuz.pdf",
     "MENU": "Menyu",
     "HOME" : "BOSH SAHIFA",
     "EVENTS" : "TADBIRLAR",
@@ -9,6 +12,7 @@
     "CONTACTS" : "BOG`LANISH",
     "Innoweek 2022 Invitation" : "Taklifnoma Innoweek 2022",
     "Innoweek 2022 Presentation" : "Prezentatsiya Innoweek 2022",
+    "Innoweek 2022 Program" : "Dastur Innoweek 2022",
     "REGISTRATION" : "RO`YXATDAN O`TISH",
     "INTERNATIONAL WEEK OF" : "XALQARO",
     "INNOVATIVE" : "INNOVATSION",

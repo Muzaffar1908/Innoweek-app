@@ -1,4 +1,7 @@
 {
+    "Invitation_pdf" : "/upload/pdf/Innoen.pdf",
+    "Presentation_pdf" : "/upload/pdf/Innoweeken.pdf",
+    "Program_pdf" : "/upload/pdf/dasturen.pdf",
     "MENU": "Menu",
     "HOME" : "HOME",
     "EVENTS" : "EVENTS",
@@ -9,6 +12,7 @@
     "CONTACTS" : "CONTACTS",
     "Innoweek 2022 Invitation" : "Innoweek 2022 Invitation",
     "Innoweek 2022 Presentation" : "Innoweek 2022 Presentation",
+    "Innoweek 2022 Program" : "Innoweek 2022 Program",
     "REGISTRATION" : "REGISTRATION",
     "INTERNATIONAL WEEK OF" : "INTERNATIONAL WEEK OF",
     "INNOVATIVE" : "INNOVATIVE",

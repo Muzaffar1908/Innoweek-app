@@ -43,36 +43,38 @@
                             </div>
                             <nav id="dropdown" class="template-main-menu menu-text-light">
                                 <ul class="menu">
-                                <li class="menu-item active menu-item-has-children wow fadeInUp animated" data-wow-delay="0.1s">
-                                    <a href="{{route('index')}}">{{__('HOME')}}</a>
-                                </li>
-                                <li class="menu-item menu-item-has-children mega-menu mega-menu-col-2 wow fadeInUp animated" data-wow-delay="0.2s">
-                                    <a href="#event">{{__('EVENTS')}}</a>
-                                </li>
-                                <li class="menu-item menu-item-has-children wow fadeInUp animated" data-wow-delay="0.3s">
-                                    <a href="#new">{{__('NEWS')}}</a>
-                                </li>
-                                <li class="menu-item menu-item-has-children wow fadeInUp animated" data-wow-delay="0.4s">
-                                    <a href="#speaker">{{__('SPEAKERS')}}</a>
-                                </li>
-                                <li class="menu-item menu-item-has-children wow fadeInUp animated" data-wow-delay="0.5s">
-                                    <a href="#schedule">{{__('SCHEDULE')}}</a>
-                                </li>
-                                <li class="menu-item menu-item-has-children wow fadeInUp animated" data-wow-delay="0.6s">
-                                    <a href="#gallery">{{__('GALLERY')}}</a>
-                                </li>
-                                <li class="menu-item menu-item-has-children wow fadeInUp animated" data-wow-delay="0.7s">
-                                    <a href="#contact">{{__('GALLERY')}}</a>
-                                </li>
-                                <li class="menu-item menu-item-has-children wow fadeInUp animated" data-wow-delay="0.8s">
-                                    <a class="inno-cursor">INNOWEEK 2022</a>
-                                    <ul class="sub-menu menu-w">
-                                    <li class="menu-item"><a href="{{asset('frontend/pdf/inno.pdf')}}" target="_blank">{{__('Innoweek 2022 Invitation')}}</a>
+                                    <li class="menu-item active menu-item-has-children wow fadeInUp animated" data-wow-delay="0.1s">
+                                        <a href="{{route('index')}}">{{__('HOME')}}</a>
                                     </li>
-                                    <li class="menu-item"><a href="{{asset('frontend/pdf/Innoen.pdf')}}" target="_blank">{{__('Innoweek 2022 Presentation')}}</a>
+                                    <li class="menu-item menu-item-has-children mega-menu mega-menu-col-2 wow fadeInUp animated" data-wow-delay="0.2s">
+                                        <a href="#event">{{__('EVENTS')}}</a>
                                     </li>
-                                    </ul>
-                                </li>
+                                    <li class="menu-item menu-item-has-children wow fadeInUp animated" data-wow-delay="0.3s">
+                                        <a href="#new">{{__('NEWS')}}</a>
+                                    </li>
+                                    <li class="menu-item menu-item-has-children wow fadeInUp animated" data-wow-delay="0.4s">
+                                        <a href="#speaker">{{__('SPEAKERS')}}</a>
+                                    </li>
+                                    <li class="menu-item menu-item-has-children wow fadeInUp animated" data-wow-delay="0.5s">
+                                        <a href="#schedule">{{__('SCHEDULE')}}</a>
+                                    </li>
+                                    <li class="menu-item menu-item-has-children wow fadeInUp animated" data-wow-delay="0.6s">
+                                        <a href="#gallery">{{__('GALLERY')}}</a>
+                                    </li>
+                                    <li class="menu-item menu-item-has-children wow fadeInUp animated" data-wow-delay="0.7s">
+                                        <a href="#contact">{{__('GALLERY')}}</a>
+                                    </li>
+                                    <li class="menu-item menu-item-has-children wow fadeInUp animated" data-wow-delay="0.8s">
+                                        <a class="inno-cursor">INNOWEEK 2022</a>
+                                        <ul class="sub-menu menu-w">
+                                            <li class="menu-item"><a href="{{__('Invitation_pdf')}}" target="_blank">{{__('Innoweek 2022 Invitation')}}</a>
+                                            </li>
+                                            <li class="menu-item"><a href="{{__('Presentation_pdf')}}" target="_blank">{{__('Innoweek 2022 Presentation')}}</a>
+                                            </li>
+                                            <li class="menu-item"><a href="{{__('Program_pdf')}}" target="_blank">{{__('Innoweek 2022 Program')}}</a>
+                                            </li>
+                                        </ul>
+                                    </li>
                                 </ul>
                             </nav>
                             <nav id="dropdown" class="template-main-menu menu-text-light d-flex align-items-center justify-content-center">
