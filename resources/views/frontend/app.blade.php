@@ -272,7 +272,7 @@
             @foreach ($galleries as $item)
                 <div class="col-xl-3 col-md-4 col-sm-6 col-12">
                 <div class="gallery-box-layout3 has-animation">
-                    <a href="{{asset('/upload/galeries/' . $item->image.'-d.png')}}" class="rt-mfp-gallery-item"><img src="{{asset('/upload/galeries/' . $item->image.'-d.png')}}" alt="Gallery" width="900" height="780"></a>
+                    <a href="{{asset('/upload/galeries/' . $item->image.'-d.png')}}" class="rt-mfp-gallery-item"><img class="galery-img" src="{{asset('/upload/galeries/' . $item->image.'-d.png')}}" alt="Gallery" width="900" height="780"></a>
                 </div>
                 </div>
             @endforeach

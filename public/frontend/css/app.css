@@ -4819,6 +4819,9 @@ section:hover .section-heading.style-three:after {
 .event-box-layout1 .figure-box img {
   transform: scale(1);
   transition: all 0.3s ease-in-out;
+  width: 415px;
+  height: 250px;
+  object-fit: cover;
 }
 
 .event-box-layout1 .content-box {
@@ -14715,6 +14718,12 @@ input[type = "radio"] {
 
 .playS{
   margin-left: 10px;
+}
+
+.galery-img {
+  width: 450px;
+  height: 250px;
+  object-fit: cover;
 }
 
 

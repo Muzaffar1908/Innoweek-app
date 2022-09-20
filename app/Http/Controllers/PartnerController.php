@@ -181,7 +181,7 @@ class PartnerController extends Controller
             $img1->save($tmpFilePath . $hardPath . '-d.png');
             $partners->image = $hardPath;
             $image_path = public_path() . '/upload/galeries/' . $del_img . '-d.png';
-            unlink($image_path);
+            // unlink($image_path);
         }
 
         $partners->user_id = $inputs['user_id']; 

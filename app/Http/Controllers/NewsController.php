@@ -392,7 +392,7 @@ class NewsController extends Controller
     {
         $news = News::findOrFail($id);
         $image_path = public_path().'/'.$news->user_image;
-        unlink($image_path);
+        // unlink($image_path);
         $news->delete();
         return redirect('admin/news')->with('warning','NEWS TABLES DELETED');
     }
