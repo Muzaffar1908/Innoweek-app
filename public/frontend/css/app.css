@@ -5188,6 +5188,8 @@ section:hover .section-heading.style-three:after {
 
 .event-single-box .figure-box img {
   border-radius: 20px;
+  height: 500px;
+  width: 100%;
 }
 
 .event-single-box .content-box .sub-title {
@@ -12624,6 +12626,8 @@ body.slidemenuon .sidebarBtn .bar:nth-child(4) {
 
 .widget-recent-post .single-post .figure-box img {
   border-radius: 5px;
+  height: 120px;
+  object-fit: cover;
 }
 
 .widget-recent-post .single-post .content-box {
