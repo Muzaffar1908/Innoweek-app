@@ -52,7 +52,7 @@
                                         <th>№</th>
                                         <th>Username</th>
                                         <th>Archive Year</th>
-                                        <th>YouTube Link</th>
+                                        <th>YouTube video ID</th>
                                         <th>Is Active</th>
                                         <th>Action</th>
                                     </tr>
