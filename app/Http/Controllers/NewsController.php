@@ -79,17 +79,7 @@ class NewsController extends Controller
             $news = new News;
         }
 
-        $user_image = $request->file('user_image');
-        if ($user_image) {
-            $tmpFilePath = 'upload/news/';
-            $hardPath =  Str::slug('news', '-').'-'.'-'.md5(time());
-            $img = Image::make($user_image);
-            $img1 = Image::make($user_image);
-            $img->fit(1100, 550)->save($tmpFilePath.$hardPath.'-b.png');
-            $img1->fit(700, 530)->save($tmpFilePath.$hardPath.'-s.png');
-            // $saved = $tmpFilePath.$hardPath. '-s.jpg';
-            $news->user_image = $tmpFilePath.$hardPath;
-        }
+
 
         $news->user_id = $inputs['user_id'];
         $news->cat_id = $inputs['cat_id'];
@@ -221,7 +211,7 @@ class NewsController extends Controller
             'news_categories' => $news_categories,
         ]);
     }
-    
+
     public function is_active($id){
         $change=News::find($id);
         if($change->is_active==1){
@@ -270,16 +260,16 @@ class NewsController extends Controller
             $news = new News;
         }
 
-       
-        $image = $request->file('user_image');
-        if ($image) {
-            $tmpFilePath = 'upload/news/';
-            $hardPath =  Str::slug('news', '-').'-'.md5(time());
-            $img = Image::make($image);
-            $img1 = Image::make($image);
-//            $img->fit(360, 640)->save($tmpFilePath.$hardPath.'-m.png');
-            $img1->save($tmpFilePath.$hardPath.'-d.png');
-            $news->user_image = $hardPath;
+        $user_image = $request->file('user_image');
+        if ($user_image) {
+            $tmpFilePath = 'uploads/news/';
+            $hardPath =  Str::slug('news', '-').'-'.'-'.md5(time());
+            $img = Image::make($user_image);
+            $img1 = Image::make($user_image);
+            $img->fit(1100, 550)->save($tmpFilePath.$hardPath.'-b.png');
+            $img1->fit(700, 530)->save($tmpFilePath.$hardPath.'-s.png');
+            // $saved = $tmpFilePath.$hardPath. '-s.jpg';
+            $news->user_image = $tmpFilePath.$hardPath;
         }
 
         $news->user_id = $inputs['user_id'];
@@ -289,10 +279,12 @@ class NewsController extends Controller
         $news->title_en = $inputs['title_en'];
         // $news->user_image = $inputs['user_image'];
         $news->tags = $inputs['tags'];
-
         $news->description_uz = $inputs['description_uz'];
-        $del_img = $news->image;
+
         $image = $request->file('user_image');
+
+
+
         if ($image) {
             $tmpFilePath = 'upload/news/';
             $hardPath =  Str::slug('news', '-').'-'.md5(time());
@@ -304,6 +296,7 @@ class NewsController extends Controller
             $image_path = public_path() . '/upload/news/' . $del_img . '-d.png';
             unlink($image_path);
         }
+
 
         if (!empty($news->description_uz)) {
             $dom_save_uz = new \DomDocument();
