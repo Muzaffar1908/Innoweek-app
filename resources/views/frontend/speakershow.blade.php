@@ -22,7 +22,9 @@ sticky
               <div>
                 <h2 class="title">{!!$speakers->{'full_name_'.App::getLocale()}!!}</h2>
                 <div class="sub-title">{!!$speakers->{'job_'.App::getLocale()}!!}</div>
-                <p class="description">{!!$speakers->{'description_'.App::getLocale()}!!}
+                <p class="description">
+                    {{strip_tags($speakers->{'description_'.App::getLocale()})}}
+
                 </p>
                 <ul class="social">
                   <li>

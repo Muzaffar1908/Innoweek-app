@@ -21,7 +21,8 @@
                             <h2 class="title wow fadeInUp animated" data-wow-delay="0.4s"
                                 data-wow-duration="1s">{!!$events->{'title_'.App::getLocale()}!!}</h2>
                             <p class="description wow fadeInUp animated" data-wow-delay="0.5s" data-wow-duration="1s">
-                                {!! $events->{'description_'.App::getLocale()} !!}
+                                {{strip_tags($events->{'description_'.App::getLocale()})}}
+
                             </p>
                         </div>
                     </div>

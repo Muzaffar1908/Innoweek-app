@@ -17,9 +17,9 @@ sticky
             <div class="content-box">
               <div class="sub-title wow fadeInUp animated" data-wow-delay="0.3s" data-wow-duration="1s">
                 {{$news->started_at}}</div>
-              <h2 class="title wow fadeInUp animated" data-wow-delay="0.4s" data-wow-duration="1s">{!! substr($news->{'title_'.App::getLocale()},0,90).'...' !!}</h2>
+              <h2 class="title wow fadeInUp animated" data-wow-delay="0.4s" data-wow-duration="1s">{!! $news->{'title_'.App::getLocale()} !!}</h2>
               <p class="description wow fadeInUp animated" data-wow-delay="0.5s" data-wow-duration="1s">
-                {!! ($news->{'description_'.App::getLocale()}) !!}
+                      {{strip_tags($news->{'description_'.App::getLocale()})}}
               </p>
             </div>
           </div>

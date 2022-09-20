@@ -18,7 +18,8 @@
                         <div class="content-box">
                             <div class="sub-title wow fadeInUp animated" data-wow-delay="0.3s" data-wow-duration="1s">
                                {{$conf->created_at}}</div>
-                            <a href="{{route('eventshowx',['id'=>$conf->id])}}"><h2 class="title wow fadeInUp animated" data-wow-delay="0.4s" data-wow-duration="1s">{!! ($conf->{'title_'.App::getLocale()}) !!}</h2></a>
+                            <a href="{{route('eventshowx',['id'=>$conf->id])}}"><h2 class="title wow fadeInUp animated" data-wow-delay="0.4s" data-wow-duration="1s">{!! substr($conf->{'title_'.App::getLocale()},0,110).'...'
+                        !!}</h2></a>
                             <p class="description wow fadeInUp animated" data-wow-delay="0.5s" data-wow-duration="1s">
 {{--                                {!! ($conf->{'description_'.App::getLocale()}) !!}--}}
                             </p>
@@ -38,7 +39,8 @@
                                     <a href="{{route('eventshowx',['id'=>$recent->id])}}" class="link-item"><img width="150" src="{{asset('/upload/conference/' . $recent->user_image.'-d.png')}}" alt="Post"></a>
                                 </div>
                                 <div class="content-box">
-                                    <h3 class="entry-title"><a href="{{route('eventshowx',['id'=>$recent->id])}}"> {!! ($conf->{'title_'.App::getLocale()}) !!}</a></h3>
+                                    <h3 class="entry-title"><a href="{{route('eventshowx',['id'=>$recent->id])}}"> {!! substr($conf->{'title_'.App::getLocale()},0,50).'...'
+                        !!}</a></h3>
                                     <div class="entry-date">{{$recent->created_at}}</div>
                                 </div>
                             </div>
