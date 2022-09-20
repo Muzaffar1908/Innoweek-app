@@ -90,7 +90,6 @@ class NewsController extends Controller
 
 
         $news->description_uz = $inputs['description_uz'];
-
         $image = $request->file('user_image');
         if ($image) {
             $tmpFilePath = 'upload/news/';
