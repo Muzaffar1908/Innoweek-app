@@ -13178,7 +13178,6 @@ body.slidemenuon .sidebarBtn .bar:nth-child(4) {
 
 .speaker-box-layout3 .figure-box img {
   border-radius: 50%;
-  filter: grayscale(100%);
   transition: all 0.3s ease-in-out;
 }
 
