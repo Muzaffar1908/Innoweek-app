@@ -9,7 +9,6 @@
                 <h2 class="title wow fadeInUp animated" data-wow-delay="0.1s" data-wow-duration="1s">{{__('News')}}</h2>
             </div>
             <div class="row">
-
                     <div class="col-lg-8">
                         @foreach($news as $new)
                         <div class="event-single-box">
@@ -24,9 +23,7 @@
                                 <a href="{{route('newsshowx',['id'=>$new->id])}}"><h2 class="title wow fadeInUp animated" data-wow-delay="0.4s" data-wow-duration="1s">
                                         {!! substr($new->{'title_'.App::getLocale()},0,110).'...'
                          !!}</h2></a>
-{{--                                <p class="description wow fadeInUp animated" data-wow-delay="0.5s"--}}
-{{--                                   data-wow-duration="1s">{!! ($new->{'description_'.App::getLocale()}) !!}--}}
-{{--                                </p>--}}
+                         <p>{{ strip_tags(substr($new->{'description_'.App::getLocale()},0, 255). '...')}}</p>
                             </div>
                         </div>
                         @endforeach

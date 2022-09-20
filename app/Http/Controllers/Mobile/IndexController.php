@@ -16,7 +16,7 @@ class IndexController extends Controller
     {
         $news = News::orderBy('created_at', 'desc')->where('is_active','=',1)->paginate(5);
         $conferens = Conference::orderBy('created_at', 'desc')->where('is_active','=',1)->paginate(4);
-        $speakers = Speakers::orderBy('created_at', 'desc')->where('is_active','=',1)->paginate(5);
+        $speakers = Speakers::orderBy('created_at', 'desc')->where('is_active','=',1)->get();
         return view('mobile.index', [
             'news' => $news,
             'conferens' => $conferens,
