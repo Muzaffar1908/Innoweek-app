@@ -24,7 +24,11 @@
            </h2>
         @if (auth()->check())
             <h2 style="text-align: center; margin-top: 1rem;">
-                {!! QrCode::size(300)->generate(url('/').'/check/ticket/'.Auth::user()->id) !!}
+                @foreach(Auth::user()->userticket as $ticket)
+                    @if(Auth::user()->id==$ticket->user_id)
+                        {!! QrCode::size(300)->generate(url('/').'/check/ticket/'.$ticket->ticket_id) !!}
+                    @endif
+                @endforeach
 
             </h2>
             <h2 style="text-align: center; margin-top: 1rem;">

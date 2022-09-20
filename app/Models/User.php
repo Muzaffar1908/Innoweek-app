@@ -6,7 +6,7 @@ namespace App\Models;
 
 use App\Models\Archive\Archive;
 use App\Models\Archive\Speakers;
-use App\Models\Archive\UserTicket;
+use App\Models\UserTicket;
 use App\Models\News\Galeries;
 use App\Models\News\News;
 use App\Models\News\NewsCategory;
