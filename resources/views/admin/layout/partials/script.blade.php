@@ -13,7 +13,7 @@
     <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
 
 
-<script>
+{{-- <script>
     var useDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
     tinymce.init({
@@ -81,6 +81,38 @@
         skin: useDarkMode ? 'oxide-dark' : 'oxide',
         content_css: useDarkMode ? 'dark' : 'default',
         content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }'
+    });
+</script> --}}
+<script src="{{ asset('admin/vendor/tinymce/tinymce.min.js') }}"></script>
+<script>
+    tinymce.init({
+        selector: "#mytextarea",
+        plugins: [
+            "advlist",
+            "autolink",
+            "link",
+            "image",
+            "lists",
+            "charmap",
+            "preview",
+            "anchor",
+            "pagebreak",
+            "searchreplace",
+            "wordcount",
+            "visualblocks",
+            "visualchars",
+            "code",
+            "fullscreen",
+            "insertdatetime",
+            "media",
+            "table",
+            "emoticons",
+            "template",
+            "help",
+        ],
+        toolbar_mode: "floating",
+        tinycomments_mode: "embedded",
+        tinycomments_author: "Author name",
     });
 </script>
 
