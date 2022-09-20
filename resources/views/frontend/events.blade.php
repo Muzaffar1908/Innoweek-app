@@ -6,118 +6,49 @@
     <section class="event-single-wrap">
         <div class="container">
             <div class="section-heading style-four">
-                <h2 class="title wow fadeInUp animated" data-wow-delay="0.1s" data-wow-duration="1s">Events</h2>
+                <h2 class="title wow fadeInUp animated" data-wow-delay="0.1s" data-wow-duration="1s">{{__('CONFERENCE')}}</h2>
             </div>
             <div class="row">
                 <div class="col-lg-8">
+                    @foreach($conference as $conf)
                     <div class="event-single-box">
                         <div class="figure-box wow fadeInUp animated" data-wow-delay="0.2s" data-wow-duration="1s">
-                            <img src="{{asset('frontend/image/image.jpg')}}" alt="Event">
+                            <a href="{{route('eventshowx',['id'=>$conf->id])}}"><img src="{{asset('/upload/conference/' . $conf->user_image.'-d.png')}}" alt="Event"></a>
                         </div>
                         <div class="content-box">
                             <div class="sub-title wow fadeInUp animated" data-wow-delay="0.3s" data-wow-duration="1s">
-                                2022-08-29 10:13:44</div>
-                            <h2 class="title wow fadeInUp animated" data-wow-delay="0.4s" data-wow-duration="1s">COMMERCIAL FORUM</h2>
-                            <p class="description wow fadeInUp animated" data-wow-delay="0.5s" data-wow-duration="1s">Exhibition of innovative products and technologies created as a result of scientific developments implemented within the framework of agreements signed by regions and industries, as well as pre-commercial preparation projects within the framework of the Spring Forum
-
+                               {{$conf->created_at}}</div>
+                            <a href="{{route('eventshowx',['id'=>$conf->id])}}"><h2 class="title wow fadeInUp animated" data-wow-delay="0.4s" data-wow-duration="1s">{!! ($conf->{'title_'.App::getLocale()}) !!}</h2></a>
+                            <p class="description wow fadeInUp animated" data-wow-delay="0.5s" data-wow-duration="1s">
+{{--                                {!! ($conf->{'description_'.App::getLocale()}) !!}--}}
                             </p>
                         </div>
                     </div>
+                    @endforeach
                 </div>
                 <div class="col-lg-4 template-sidebar wow fadeInUp animated" data-wow-delay="0.3s" data-wow-duration="1s">
                     <div class="widget widget-border">
                         <div class="widget-heading">
-                            <h3 class="title">Recent Events</h3>
+                            <h3 class="title">{{__('Recent Events')}}</h3>
                         </div>
                         <div class="widget-recent-post">
+                            @foreach($conferencesrecent as $recent)
                             <div class="single-post">
                                 <div class="figure-box">
-                                    <a href="#" class="link-item"><img width="150" src="{{asset('frontend/image/image.jpg')}}" alt="Post"></a>
+                                    <a href="{{route('eventshowx',['id'=>$recent->id])}}" class="link-item"><img width="150" src="{{asset('/upload/conference/' . $recent->user_image.'-d.png')}}" alt="Post"></a>
                                 </div>
                                 <div class="content-box">
-                                    <h3 class="entry-title"><a href="#">“Mirzo Ulug`bek vorislari” Respublika tanloviga arizalar qabuli yakunlandi.</a></h3>
-                                    <div class="entry-date">2022-06-10 13:44:23</div>
+                                    <h3 class="entry-title"><a href="{{route('eventshowx',['id'=>$recent->id])}}"> {!! ($conf->{'title_'.App::getLocale()}) !!}</a></h3>
+                                    <div class="entry-date">{{$recent->created_at}}</div>
                                 </div>
                             </div>
-                            <div class="single-post">
-                                <div class="figure-box">
-                                    <a href="#" class="link-item"><img width="150" src="{{asset('frontend/image/image.jpg')}}" alt="Post"></a>
-                                </div>
-                                <div class="content-box">
-                                    <h3 class="entry-title"><a href="#">“INNO texnopark” hamda “Chemist” MCHJ o‘rtasida hamkorlik memorandumi imzolandi</a></h3>
-                                    <div class="entry-date">2022-06-10 13:44:23</div>
-                                </div>
-                            </div>
-                            <div class="single-post">
-                                <div class="figure-box">
-                                    <a href="#" class="link-item"><img width="150" src="{{asset('frontend/image/image.jpg')}}" alt="Post"></a>
-                                </div>
-                                <div class="content-box">
-                                    <h3 class="entry-title"><a href="#">“Mirzo Ulug`bek vorislari” Respublika tanloviga arizalar qabuli yakunlandi.</a></h3>
-                                    <div class="entry-date">2022-06-10 13:44:23</div>
-                                </div>
-                            </div>
-                            <div class="single-post">
-                                <div class="figure-box">
-                                    <a href="#" class="link-item"><img width="150" src="{{asset('frontend/image/image.jpg')}}" alt="Post"></a>
-                                </div>
-                                <div class="content-box">
-                                    <h3 class="entry-title"><a href="#">“INNO texnopark” hamda “Chemist” MCHJ o‘rtasida hamkorlik memorandumi imzolandi</a></h3>
-                                    <div class="entry-date">2022-06-10 13:44:23</div>
-                                </div>
-                            </div>
-                            <div class="single-post">
-                                <div class="figure-box">
-                                    <a href="#" class="link-item"><img width="150" src="{{asset('frontend/image/image.jpg')}}" alt="Post"></a>
-                                </div>
-                                <div class="content-box">
-                                    <h3 class="entry-title"><a href="#">“Mirzo Ulug`bek vorislari” Respublika tanloviga arizalar qabuli yakunlandi.</a></h3>
-                                    <div class="entry-date">2022-06-10 13:44:23</div>
-                                </div>
-                            </div>
+                            @endforeach
                         </div>
                     </div>
                 </div>
             </div>
-
-            <div class="row">
-                <div class="col-lg-8">
-                    <div class="event-single-box">
-                        <div class="figure-box wow fadeInUp animated" data-wow-delay="0.2s" data-wow-duration="1s">
-                            <img src="{{asset('frontend/image/image.jpg')}}" alt="Event">
-                        </div>
-                        <div class="content-box">
-                            <div class="sub-title wow fadeInUp animated" data-wow-delay="0.3s" data-wow-duration="1s">
-                                2022-08-29 10:13:44</div>
-                            <h2 class="title wow fadeInUp animated" data-wow-delay="0.4s" data-wow-duration="1s">COMMERCIAL FORUM</h2>
-                            <p class="description wow fadeInUp animated" data-wow-delay="0.5s" data-wow-duration="1s">Exhibition of innovative products and technologies created as a result of scientific developments implemented within the framework of agreements signed by regions and industries, as well as pre-commercial preparation projects within the framework of the Spring Forum
-
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-8">
-                    <div class="event-single-box">
-                        <div class="figure-box wow fadeInUp animated" data-wow-delay="0.2s" data-wow-duration="1s">
-                            <img src="{{asset('frontend/image/image.jpg')}}" alt="Event">
-                        </div>
-                        <div class="content-box">
-                            <div class="sub-title wow fadeInUp animated" data-wow-delay="0.3s" data-wow-duration="1s">
-                                2022-08-29 10:13:44</div>
-                            <h2 class="title wow fadeInUp animated" data-wow-delay="0.4s" data-wow-duration="1s">COMMERCIAL FORUM</h2>
-                            <p class="description wow fadeInUp animated" data-wow-delay="0.5s" data-wow-duration="1s">Exhibition of innovative products and technologies created as a result of scientific developments implemented within the framework of agreements signed by regions and industries, as well as pre-commercial preparation projects within the framework of the Spring Forum
-
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
             <div class="text-center">
-                {{$conferences->links()}}
+                {{$conference->links()}}
             </div>
         </div>
     </section>

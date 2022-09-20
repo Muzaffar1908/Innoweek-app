@@ -84,40 +84,40 @@ class PageController extends Controller
 
     public function eventShow($id)
     {
-        $innoweeks = Innoweek::first();
+
 
         $events = Conference::where(['id' => $id])->first();
 
-        $eventsx = Conference::orderBy('created_at', 'desc')->paginate(5);
+        $eventsrecent = Conference::orderBy('created_at', 'desc')->paginate(5);
 
-        return view('frontend.eventshow', compact('events', 'innoweeks', 'eventsx'));
+        return view('frontend.eventshow', compact('events',  'eventsrecent'));
     }
 
     public function speakerShow($id)
     {
-        $innoweeks = Innoweek::first();
+
         $speakers = Speakers::where(['id' => $id])->first();
 
-        return view('frontend.speakershow', compact('innoweeks', 'speakers'));
+        return view('frontend.speakershow', compact( 'speakers'));
     }
 
     public function speakers()
     {
-        $speaker = Speakers::first();
-        $speakers = Speakers::orderBy('created_at', 'desc')->paginate(5);
-        return view('frontend.speakers', ['speakers' => $speakers,'speaker'=>$speaker]);
+        $speaker = Speakers::paginate(10);
+        $speakersrecent = Speakers::orderBy('created_at', 'desc')->paginate(5);
+        return view('frontend.speakers', ['speakersrecent' => $speakersrecent,'speaker'=>$speaker]);
     }
     public function events()
     {
-        $conference =Conference::first();
-        $conferences = Conference::orderBy('created_at', 'desc')->paginate(5);
-        return view('frontend.events', ['conference' => $conference,'conferences'=>$conferences]);
+        $conference =Conference::paginate(10);
+        $conferencesrecent = Conference::orderBy('created_at', 'desc')->paginate(5);
+        return view('frontend.events', ['conference' => $conference,'conferencesrecent'=>$conferencesrecent]);
     }
     public function news()
     {
-        $new = News::orderBy('created_at', 'desc')->paginate(2);
-        $news = News::orderBy('created_at', 'desc')->paginate(5);
-        return view('frontend.news', ['news' => $news,'new'=>$new]);
+        $news = News::paginate(10);
+        $newsresent = News::orderBy('created_at', 'desc')->paginate(5);
+        return view('frontend.news', ['news' => $news,'newsresent'=>$newsresent]);
     }
 
 }
