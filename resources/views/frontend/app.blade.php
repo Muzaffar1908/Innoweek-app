@@ -206,14 +206,14 @@
                 <div class="shcedule-slider-style-1 swiper-container schedule-box-layout3 schedule-content">
                 <div class="swiper-wrapper">
 
-                    @foreach ($condate as $cons)
+                    @foreach ($condate as $i => $cons)
                     <div class="swiper-slide">
-                        @foreach($condate_data as $dd)
+                        @foreach($condate_data as $k => $dd)
                         @if(Carbon::parse($cons->date)->format('Y-m-d') == Carbon::parse($dd->started_at)->format('Y-m-d'))
-                            <div class="panel-group" id="accordionExample{{Carbon::parse($dd->started_at)->format('Ymd')}}">
+                            <div class="panel-group" id="accordionExample{{$i + $k }}">
                             <div class="panel panel-default wow fadeInUp animated" data-wow-delay="0.3s" data-wow-duration="1s">
-                            <div class="panel-heading" id="headingOne{{Carbon::parse($dd->started_at)->format('Ymd')}}">
-                                <div class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#collapseOne{{Carbon::parse($dd->started_at)->format('Ymd')}}" aria-expanded="true" aria-controls="collapseOne" role="button">
+                            <div class="panel-heading" id="headingOne{{ $i + $k }}">
+                                <div class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#collapseOne{{ $i + $k }}" aria-expanded="true" aria-controls="collapseOne" role="button">
                                 <div class="date-time-wrap">
                                     <div class="date">{{Carbon::parse($dd->started_at)->format('d')}}</div>
                                     <div>
@@ -235,7 +235,7 @@
                                 </div>
                                 </div>
                             </div>
-                            <div id="collapseOne{{Carbon::parse($dd->started_at)->format('Ymd')}}" class="accordion-collapse collapse" aria-labelledby="headingOne{{Carbon::parse($dd->started_at)->format('Ymd')}}" data-bs-parent="#accordionExample{{Carbon::parse($dd->started_at)->format('Ymd')}}">
+                            <div id="collapseOne{{ $i + $k }}" class="accordion-collapse collapse" aria-labelledby="headingOne{{ $i + $k }}" data-bs-parent="#accordionExample{{ $i + $k }}">
                                 <div class="panel-body">
                                 <p class="description">{!!$dd->{'description_'.App::getLocale()}!!}</p>
                                 <div class="address-wrap">
