@@ -19,27 +19,27 @@
                             </div>
                             <nav id="dropdown" class="template-main-menu menu-text-light">
                                 <ul class="menu">
-                                    <li class="menu-item active menu-item-has-children wow fadeInUp animated"
+                                    <li class="menu-item {{ (request()->is('/')) ? 'active' : '' }} menu-item-has-children wow fadeInUp animated"
                                         data-wow-delay="0.1s">
                                         <a href="{{ url('/') }}">{{__('HOME')}}</a>
                                     </li>
-                                    <li class="menu-item menu-item-has-children mega-menu mega-menu-col-2 wow fadeInUp animated"
+                                    <li class="menu-item menu-item-has-children mega-menu mega-menu-col-2 wow fadeInUp animated {{ (request()->is('events')) ? 'active' : '' }}"
                                         data-wow-delay="0.2s">
                                         <a href="{{ route('eventsx') }}">{{__('EVENTS')}}</a>
                                     </li>
-                                    <li class="menu-item menu-item-has-children wow fadeInUp animated"
+                                    <li class="menu-item menu-item-has-children wow fadeInUp animated {{ (request()->is('news')) ? 'active' : '' }}"
                                         data-wow-delay="0.3s">
                                         <a href="{{ route('newsx') }}">{{__('NEWS')}}</a>
                                     </li>
-                                    <li class="menu-item menu-item-has-children wow fadeInUp animated"
+                                    <li class="menu-item menu-item-has-children wow fadeInUp animated {{ (request()->is('speakers')) ? 'active' : '' }}"
                                         data-wow-delay="0.4s">
                                         <a href="{{ route('speakersx') }}">{{__('SPEAKERS')}}</a>
                                     </li>
-                                    <li class="menu-item menu-item-has-children wow fadeInUp animated"
+                                    <li class="menu-item menu-item-has-children wow fadeInUp animated {{ (request()->is('/#schedule')) ? 'active' : '' }}"
                                         data-wow-delay="0.5s">
                                         <a href="{{ url('/') }}#schedule">{{__('SCHEDULE')}}</a>
                                     </li>
-                                    <li class="menu-item menu-item-has-children wow fadeInUp animated"
+                                    <li class="menu-item menu-item-has-children wow fadeInUp animated {{ (request()->is('/#gallery')) ? 'active' : '' }}"
                                         data-wow-delay="0.6s">
                                         <a href="{{ url('/') }}#gallery">{{__('GALLERY')}}</a>
                                     </li>
