@@ -26,20 +26,20 @@ sticky
                 </p>
                 <ul class="social">
                   <li>
-                    <a target="_blank" href="{{$innoweeks->facebook}}" class="facebook"><i
+                    <a target="_blank" href="{{$speakers->facebook_ur}}" class="facebook"><i
                                         class="fab fa-facebook-f"></i></a>
                   </li>
                   <li>
-                    <a target="_blank" href="{{$innoweeks->twitter}}" class="twitter"><i
+                    <a target="_blank" href="{{$speakers->twitter_url}}" class="twitter"><i
                                         class="fab fa-twitter"></i></a>
                   </li>
                   <li>
-                    <a target="_blank" href="{{$innoweeks->linkedin}}" class="linkedin"><i
+                    <a target="_blank" href="{{$speakers->linkedin_url}}" class="linkedin"><i
                                         class="fab fa-linkedin"></i></a>
                   </li>
                   <li>
-                    <a target="_blank" href="{{$innoweeks->instagram}}" class="instagram"><i
-                                        class="fab fa-instagram"></i></a>
+                    <a target="_blank" href="{{$speakers->youtube_url}}" class="youtube"><i
+                                        class="fab fa-youtube"></i></a>
                   </li>
                 </ul>
               </div>
