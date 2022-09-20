@@ -282,7 +282,7 @@ class NewsController extends Controller
 
         $image = $request->file('user_image');
 
-
+        $del_img = $image->user_image;
 
         if ($image) {
             $tmpFilePath = 'upload/news/';
