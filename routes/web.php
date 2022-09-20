@@ -45,10 +45,6 @@ Route::get('locale/{locale}', function ($locale) {
 
 // Frontend  start !!!
 
-
-
-// Frontend  stop !!!
-
 Route::group(['prefix' => '/'], function(){
     Route::controller(PageController::class)->group(function(){
         Route::get('/', 'index')->name('index');
@@ -69,6 +65,10 @@ Route::group(['prefix' => '/'], function(){
         Route::get('/ticket/login', 'LoginPage')->name('d-login');
     });
 });
+
+// Frontend  stop !!!
+
+
 
 
 // Backend  start !!!
