@@ -252,24 +252,45 @@ class InnoweekController extends Controller
 
         $news->description_ru = $inputs['description_ru'];
         if (!empty($news->description_ru)) {
-            $dom_save_ru = new \DomDocument();
-            libxml_use_internal_errors(true);
-            $dom_save_ru->loadHtml('<?xml encoding="UTF-8">'.$news->description_ru, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
+            $dom_save_ru = new \DomDocument('1.0', 'UTF-8');
+            $dom_save_ru->loadHTML(mb_convert_encoding($news, 'HTML-ENTITIES', 'UTF-8'));
+            print $dom_save_ru->saveHTML($dom_save_ru->documentElement) . PHP_EOL . PHP_EOL;
+
             $dom_image_save_ru = $dom_save_ru->getElementsByTagName('img');
-            foreach ($dom_image_save_ru as $k => $img) {
-                $data = $img->getAttribute('src');
-                if (preg_match('/data:image/', $data)) {
-                    list($type, $data) = explode(';', $data);
-                    list(, $data)      = explode(',', $data);
-                    $data = base64_decode($data);
-                    $image_name= "/upload/news/description_image/ru_".'_'.time().'.jpg';
-                    $path = public_path() . $image_name;
-                    file_put_contents($path, $data);
-                    $img->removeAttribute('src');
-                    $img->setAttribute('src', $image_name);
-                }
+        foreach ($dom_image_save_ru as $k => $img) {
+            $data = $img->getAttribute('src');
+            if (preg_match('/data:image/', $data)) {
+                list($type, $data) = explode(';', $data);
+                list(, $data) = explode(',', $data);
+                $data = base64_decode($data);
+                $image_name = "/upload/news/description_image/ru_" . '_' . time() . '.jpg';
+                $path = public_path() . $image_name;
+                file_put_contents($path, $data);
+                $img->removeAttribute('src');
+                $img->setAttribute('src', $image_name);
             }
-            $news->description_ru = str_replace('<?xml encoding="UTF-8">', "",$dom_save_ru->saveHTML());
+        }
+        //str_replace('<?xml encoding="UTF-8">', "",$dom_save_ru->saveHTML());
+        foreach ($dom_save_ru->childNodes as $item) {
+            if ($item->nodeType == XML_PI_NODE) {
+                $dom_save_ru->removeChild($item);
+            }
+        }
+
+
+            // $dom_save_ru = new \DomDocument();
+            // libxml_use_internal_errors(true);
+
+            //$dom_save_ru->loadHtml($news->description_ru);
+            // $dom_save_ru->loadHtml('<?xml encoding="UTF-8">'.$news->description_ru, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
+            //$dom_save_ru->loadHTML('<?xml encoding="UTF-8">' . $news->description_ru);
+            // dirty fix
+            
+           
+            // remove hack
+            //str_replace('<?xml encoding="UTF-8">', "",$dom_save_ru->saveHTML());
+            // $dom_save_ru->encoding ='UTF-8'; // insert proper
+            // $news->description_ru = str_replace('<?xml encoding="UTF-8">', "",$dom_save_ru->saveHTML() . PHP_EOL . PHP_EOL);
         }
 
         $news->description_en = $inputs['description_en'];
