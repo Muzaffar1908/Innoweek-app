@@ -55,8 +55,8 @@
                     </div>
 
                     <div class="mb-3">
-                        <label for="email"></label>
-                        <input type="email" name="email" class="form-control" id="email" placeholder="Email enter" value="{{$innoweek->email}}"
+                        <label for="email">Email</label>
+                        <input type="email" name="email" class="form-control" id="email" placeholder="Email enter" value="{{$innoweek->email}}" />
                     </div>
 
                     <div class="mb-3">

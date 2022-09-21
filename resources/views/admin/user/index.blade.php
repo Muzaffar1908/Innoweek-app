@@ -48,17 +48,11 @@
                                             <th>№</th>
                                             <th>Firstname</th>
                                             <th>Lastname</th>
-                                            <th>Middlename</th>
                                             <th>Gender</th>
                                             <th>Birth Date</th>
                                             <th>User image</th>
-                                            <th>Address</th>
-                                            <th>Balance</th>
                                             <th>Email</th>
                                             <th>Phone</th>
-                                            <th>Password</th>
-                                            <th>Provider name</th>
-                                            <th>Provider id</th>
                                             <th>Is Active</th>
                                             <th>Action</th>
                                         </tr>
@@ -69,19 +63,13 @@
                                             </td>
                                             <td>{{ $user->first_name }}</td>
                                             <td>{{ $user->last_name }}</td>
-                                            <td>{{ $user->middle_name }}</td>
                                             <td>{{ $user->gender }}</td>
                                             <td>{{ $user->birth_date }}</td>
                                             <td>
                                                 <img src="{{ asset( $user->user_image) }}" alt="img" with="100px" height="60px">
                                             </td>
-                                            <td>{{ $user->address }}</td>
-                                            <td>{{ $user->balance }}</td>
                                             <td>{{ $user->email ?: 'Kiritilmagan' }}</td>
                                             <td>{{ $user->phone ?: 'Kiritilmagan' }}</td>
-                                            <td>{{ $user->password }}</td>
-                                            <td>{{ $user->provider_name }}</td>
-                                            <td>{{ $user->provider_id }}</td>
                                             <td>
                                                 <form action="{{ asset('/admin/user/isactive/' . $user->id) }}"
                                                     method="POST" enctype="multipart/form-data">

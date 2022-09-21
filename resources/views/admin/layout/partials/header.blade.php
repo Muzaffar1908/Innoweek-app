@@ -55,7 +55,7 @@
                             </li>
                             <li class="nav-item mt-4">
                                 <div class="search-coundry d-flex align-items-center">
-                                    <img src="images/United.png" alt="" />
+                                    <img src="{{asset('admin/images/United.png')}}" alt="" />
                                     <select class="default-select dashboard-select image-select">
                                         <option data-display="Eng">Eng</option>
                                         <option value="2">Af</option>

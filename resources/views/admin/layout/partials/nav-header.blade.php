@@ -1,6 +1,6 @@
 <div class="nav-header">
     <a href="index.html" class="brand-logo">
-      <h3 class="text-white">Innoweek elektron platforma</h3>
+      <h3 class="text-white">Innoweek</h3>
     </a>
     <div class="nav-control">
       <div class="hamburger">
