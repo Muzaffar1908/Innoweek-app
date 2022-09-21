@@ -34,12 +34,13 @@ class InnoweekController extends Controller
     }
 
 
-    public function is_active($id){
-        $change=Innoweek::find($id);
-        if($change->is_active==1){
-            $change->is_active=0;
-        }else{
-            $change->is_active=1;
+    public function is_active($id)
+    {
+        $change = Innoweek::find($id);
+        if ($change->is_active == 1) {
+            $change->is_active = 0;
+        } else {
+            $change->is_active = 1;
         }
         $change->save();
         return redirect()->back();
@@ -54,13 +55,13 @@ class InnoweekController extends Controller
     {
         $data = $request->except(array('_token'));
         $rule = array(
-        'email' => 'required',
-        'phone'=>'required',
-        'address'=>'required',
-        'description_uz'=>'required'
+            'email' => 'required',
+            'phone' => 'required',
+            'address' => 'required',
+            'description_uz' => 'required'
         );
         $validator = Validator::make($data, $rule);
-        $validator=Validator::make($data, $rule);
+        $validator = Validator::make($data, $rule);
         if ($validator->fails()) {
             Session::flash('warning', $validator->messages());
             return redirect()->back();
@@ -89,7 +90,7 @@ class InnoweekController extends Controller
         if (!empty($news->description_uz)) {
             $dom_save_uz = new \DomDocument();
             libxml_use_internal_errors(true);
-            $dom_save_uz->loadHtml('<?xml encoding="UTF-8">'.$news->description_uz, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
+            $dom_save_uz->loadHtml('<?xml encoding="UTF-8">' . $news->description_uz, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
             $dom_image_save_uz = $dom_save_uz->getElementsByTagName('img');
             foreach ($dom_image_save_uz as $k => $img) {
                 $data = $img->getAttribute('src');
@@ -97,21 +98,21 @@ class InnoweekController extends Controller
                     list($type, $data) = explode(';', $data);
                     list(, $data)      = explode(',', $data);
                     $data = base64_decode($data);
-                    $image_name= "/upload/news/description_image/uz_" . time().$k.'.jpg';
+                    $image_name = "/upload/news/description_image/uz_" . time() . $k . '.jpg';
                     $path = public_path() . $image_name;
                     file_put_contents($path, $data);
                     $img->removeAttribute('src');
                     $img->setAttribute('src', $image_name);
                 }
             }
-            $news->description_uz = str_replace('<?xml encoding="UTF-8">', "",$dom_save_uz->saveHTML());
+            $news->description_uz = str_replace('<?xml encoding="UTF-8">', "", $dom_save_uz->saveHTML());
         }
 
         $news->description_ru = $inputs['description_ru'];
         if (!empty($news->description_ru)) {
             $dom_save_ru = new \DomDocument();
             libxml_use_internal_errors(true);
-            $dom_save_ru->loadHtml('<?xml encoding="UTF-8">'.$news->description_ru, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
+            $dom_save_ru->loadHtml('<?xml encoding="UTF-8">' . $news->description_ru, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
             $dom_image_save_ru = $dom_save_ru->getElementsByTagName('img');
             foreach ($dom_image_save_ru as $k => $img) {
                 $data = $img->getAttribute('src');
@@ -119,21 +120,21 @@ class InnoweekController extends Controller
                     list($type, $data) = explode(';', $data);
                     list(, $data)      = explode(',', $data);
                     $data = base64_decode($data);
-                    $image_name= "/upload/news/description_image/ru_".'_'.time().'.jpg';
+                    $image_name = "/upload/news/description_image/ru_" . '_' . time() . '.jpg';
                     $path = public_path() . $image_name;
                     file_put_contents($path, $data);
                     $img->removeAttribute('src');
                     $img->setAttribute('src', $image_name);
                 }
             }
-            $news->description_ru = str_replace('<?xml encoding="UTF-8">', "",$dom_save_ru->saveHTML());
+            $news->description_ru = str_replace('<?xml encoding="UTF-8">', "", $dom_save_ru->saveHTML());
         }
 
         $news->description_en = $inputs['description_en'];
         if (!empty($news->description_en)) {
             $dom_save_en = new \DomDocument();
             libxml_use_internal_errors(true);
-            $dom_save_en->loadHtml('<?xml encoding="UTF-8">'.$news->description_en, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
+            $dom_save_en->loadHtml('<?xml encoding="UTF-8">' . $news->description_en, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
             //$dom_save_en->loadHTML($news->description_en);
             $dom_image_save_en = $dom_save_en->getElementsByTagName('img');
             foreach ($dom_image_save_en as $k => $img) {
@@ -142,14 +143,14 @@ class InnoweekController extends Controller
                     list($type, $data) = explode(';', $data);
                     list(, $data)      = explode(',', $data);
                     $data = base64_decode($data);
-                    $image_name= "/upload/news/description_image/en_".'_'.time().'.jpg';
+                    $image_name = "/upload/news/description_image/en_" . '_' . time() . '.jpg';
                     $path = public_path() . $image_name;
                     file_put_contents($path, $data);
                     $img->removeAttribute('src');
                     $img->setAttribute('src', $image_name);
                 }
             }
-            $news->description_en = str_replace('<?xml encoding="UTF-8">', "",$dom_save_en->saveHTML());
+            $news->description_en = str_replace('<?xml encoding="UTF-8">', "", $dom_save_en->saveHTML());
         }
 
         $news->save();
@@ -182,8 +183,8 @@ class InnoweekController extends Controller
      */
     public function edit($id)
     {
-        $innoweek=Innoweek::find($id);
-        return view('admin.innoweek.edit', ['innoweek'=>$innoweek]);
+        $innoweek = Innoweek::find($id);
+        return view('admin.innoweek.edit', ['innoweek' => $innoweek]);
     }
 
     /**
@@ -197,13 +198,13 @@ class InnoweekController extends Controller
     {
         $data = $request->except(array('_token'));
         $rule = array(
-        'email' => 'required',
-        'phone'=>'required',
-        'address'=>'required',
-        'description_uz'=>'required'
+            'email' => 'required',
+            'phone' => 'required',
+            'address' => 'required',
+            'description_uz' => 'required'
         );
         $validator = Validator::make($data, $rule);
-        $validator=Validator::make($data, $rule);
+        $validator = Validator::make($data, $rule);
         if ($validator->fails()) {
             Session::flash('warning', $validator->messages());
             return redirect()->back();
@@ -232,7 +233,7 @@ class InnoweekController extends Controller
         if (!empty($news->description_uz)) {
             $dom_save_uz = new \DomDocument();
             libxml_use_internal_errors(true);
-            $dom_save_uz->loadHtml('<?xml encoding="UTF-8">'.$news->description_uz, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
+            $dom_save_uz->loadHtml('<?xml encoding="UTF-8">' . $news->description_uz, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
             $dom_image_save_uz = $dom_save_uz->getElementsByTagName('img');
             foreach ($dom_image_save_uz as $k => $img) {
                 $data = $img->getAttribute('src');
@@ -240,64 +241,50 @@ class InnoweekController extends Controller
                     list($type, $data) = explode(';', $data);
                     list(, $data)      = explode(',', $data);
                     $data = base64_decode($data);
-                    $image_name= "/upload/news/description_image/uz_" . time().$k.'.jpg';
+                    $image_name = "/upload/news/description_image/uz_" . time() . $k . '.jpg';
                     $path = public_path() . $image_name;
                     file_put_contents($path, $data);
                     $img->removeAttribute('src');
                     $img->setAttribute('src', $image_name);
                 }
             }
-            $news->description_uz = str_replace('<?xml encoding="UTF-8">', "",$dom_save_uz->saveHTML());
+            $news->description_uz = str_replace('<?xml encoding="UTF-8">', "", $dom_save_uz->saveHTML());
         }
 
         $news->description_ru = $inputs['description_ru'];
         if (!empty($news->description_ru)) {
             $dom_save_ru = new \DomDocument('1.0', 'UTF-8');
             $dom_save_ru->loadHTML(mb_convert_encoding($news, 'HTML-ENTITIES', 'UTF-8'));
-            print $dom_save_ru->saveHTML($dom_save_ru->documentElement) . PHP_EOL . PHP_EOL;
 
             $dom_image_save_ru = $dom_save_ru->getElementsByTagName('img');
-        foreach ($dom_image_save_ru as $k => $img) {
-            $data = $img->getAttribute('src');
-            if (preg_match('/data:image/', $data)) {
-                list($type, $data) = explode(';', $data);
-                list(, $data) = explode(',', $data);
-                $data = base64_decode($data);
-                $image_name = "/upload/news/description_image/ru_" . '_' . time() . '.jpg';
-                $path = public_path() . $image_name;
-                file_put_contents($path, $data);
-                $img->removeAttribute('src');
-                $img->setAttribute('src', $image_name);
+            foreach ($dom_image_save_ru as $k => $img) {
+                $data = $img->getAttribute('src');
+                if (preg_match('/data:image/', $data)) {
+                    list($type, $data) = explode(';', $data);
+                    list(, $data) = explode(',', $data);
+                    $data = base64_decode($data);
+                    $image_name = "/upload/news/description_image/ru_" . '_' . time() . '.jpg';
+                    $path = public_path() . $image_name;
+                    file_put_contents($path, $data);
+                    $img->removeAttribute('src');
+                    $img->setAttribute('src', $image_name);
+                }
             }
-        }
-        //str_replace('<?xml encoding="UTF-8">', "",$dom_save_ru->saveHTML());
-        foreach ($dom_save_ru->childNodes as $item) {
-            if ($item->nodeType == XML_PI_NODE) {
-                $dom_save_ru->removeChild($item);
-            }
-        }
-
-
-            // $dom_save_ru = new \DomDocument();
-            // libxml_use_internal_errors(true);
-
-            //$dom_save_ru->loadHtml($news->description_ru);
-            // $dom_save_ru->loadHtml('<?xml encoding="UTF-8">'.$news->description_ru, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
-            //$dom_save_ru->loadHTML('<?xml encoding="UTF-8">' . $news->description_ru);
-            // dirty fix
-            
-           
-            // remove hack
             //str_replace('<?xml encoding="UTF-8">', "",$dom_save_ru->saveHTML());
-            // $dom_save_ru->encoding ='UTF-8'; // insert proper
-            // $news->description_ru = str_replace('<?xml encoding="UTF-8">', "",$dom_save_ru->saveHTML() . PHP_EOL . PHP_EOL);
+            foreach ($dom_save_ru->childNodes as $item) {
+                if ($item->nodeType == XML_PI_NODE) {
+                    $dom_save_ru->removeChild($item);
+                }
+            }
+            $news->description_ru = $dom_save_ru->saveHTML($dom_save_ru->documentElement) . PHP_EOL . PHP_EOL;
+            //$news->description_ru = str_replace('<?xml encoding="UTF-8">', "",$dom_save_ru->saveHTML() . PHP_EOL . PHP_EOL);
         }
 
         $news->description_en = $inputs['description_en'];
         if (!empty($news->description_en)) {
             $dom_save_en = new \DomDocument();
             libxml_use_internal_errors(true);
-            $dom_save_en->loadHtml('<?xml encoding="UTF-8">'.$news->description_en, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
+            $dom_save_en->loadHtml('<?xml encoding="UTF-8">' . $news->description_en, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
             //$dom_save_en->loadHTML($news->description_en);
             $dom_image_save_en = $dom_save_en->getElementsByTagName('img');
             foreach ($dom_image_save_en as $k => $img) {
@@ -306,14 +293,14 @@ class InnoweekController extends Controller
                     list($type, $data) = explode(';', $data);
                     list(, $data)      = explode(',', $data);
                     $data = base64_decode($data);
-                    $image_name= "/upload/news/description_image/en_".'_'.time().'.jpg';
+                    $image_name = "/upload/news/description_image/en_" . '_' . time() . '.jpg';
                     $path = public_path() . $image_name;
                     file_put_contents($path, $data);
                     $img->removeAttribute('src');
                     $img->setAttribute('src', $image_name);
                 }
             }
-            $news->description_en = str_replace('<?xml encoding="UTF-8">', "",$dom_save_en->saveHTML());
+            $news->description_en = str_replace('<?xml encoding="UTF-8">', "", $dom_save_en->saveHTML());
         }
 
         $news->save();
@@ -325,7 +312,6 @@ class InnoweekController extends Controller
             Session::flash('warning', __('ALL_SUCCESSFUL_SAVED'));
             return redirect('admin/innoweek');
         }
-
     }
 
     /**
@@ -336,8 +322,8 @@ class InnoweekController extends Controller
      */
     public function destroy($id)
     {
-        $innoweek=Innoweek::find($id);
+        $innoweek = Innoweek::find($id);
         $innoweek->delete();
-        return redirect('admin/innoweek')->with('warning','NEWS TABLES DELETED');
+        return redirect('admin/innoweek')->with('warning', 'NEWS TABLES DELETED');
     }
 }
