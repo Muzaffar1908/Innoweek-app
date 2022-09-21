@@ -81,7 +81,7 @@
 
                     <div class="mb-3">
                         <label for="mytextarea">Description uz</label>
-                        <textarea name="description_uz" id="mytextarea" cols="10" rows="5">{{$innoweek->description_uz}}</textarea>
+                        <textarea name="description_uz" id="mytextarea"  cols="10" rows="5">{{$innoweek->description_uz}}</textarea>
                     </div>
 
                     <div class="mb-3">

@@ -200,6 +200,7 @@
             content_css: useDarkMode ? 'dark' : 'default',
             content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }'
         });
+
     </script>
 
     <script src="{{asset('//cdn.jsdelivr.net/npm/sweetalert2@11')}}"></script>
