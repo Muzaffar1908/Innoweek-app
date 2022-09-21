@@ -58,7 +58,9 @@ class InnoweekController extends Controller
             'email' => 'required',
             'phone' => 'required',
             'address' => 'required',
-            'description_uz' => 'required'
+            'description_uz' => 'required',
+            'description_ru' => 'required',
+            'description_en' => 'required',
         );
         $validator = Validator::make($data, $rule);
         $validator = Validator::make($data, $rule);
@@ -82,78 +84,80 @@ class InnoweekController extends Controller
         $news->facebook = $request['facebook'];
         $news->instagram = $request['instagram'];
         $news->you_tube = $request['you_tube'];
-
         $news->description_uz = $inputs['description_uz'];
-
-
-
-        if (!empty($news->description_uz)) {
-            $dom_save_uz = new \DomDocument();
-            libxml_use_internal_errors(true);
-            $dom_save_uz->loadHtml('<?xml encoding="UTF-8">' . $news->description_uz, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
-            $dom_image_save_uz = $dom_save_uz->getElementsByTagName('img');
-            foreach ($dom_image_save_uz as $k => $img) {
-                $data = $img->getAttribute('src');
-                if (preg_match('/data:image/', $data)) {
-                    list($type, $data) = explode(';', $data);
-                    list(, $data)      = explode(',', $data);
-                    $data = base64_decode($data);
-                    $image_name = "/upload/news/description_image/uz_" . time() . $k . '.jpg';
-                    $path = public_path() . $image_name;
-                    file_put_contents($path, $data);
-                    $img->removeAttribute('src');
-                    $img->setAttribute('src', $image_name);
-                }
-            }
-            $news->description_uz = str_replace('<?xml encoding="UTF-8">', "", $dom_save_uz->saveHTML());
-        }
-
         $news->description_ru = $inputs['description_ru'];
-        if (!empty($news->description_ru)) {
-            $dom_save_ru = new \DomDocument();
-            libxml_use_internal_errors(true);
-            $dom_save_ru->loadHtml('<?xml encoding="UTF-8">' . $news->description_ru, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
-            $dom_image_save_ru = $dom_save_ru->getElementsByTagName('img');
-            foreach ($dom_image_save_ru as $k => $img) {
-                $data = $img->getAttribute('src');
-                if (preg_match('/data:image/', $data)) {
-                    list($type, $data) = explode(';', $data);
-                    list(, $data)      = explode(',', $data);
-                    $data = base64_decode($data);
-                    $image_name = "/upload/news/description_image/ru_" . '_' . time() . '.jpg';
-                    $path = public_path() . $image_name;
-                    file_put_contents($path, $data);
-                    $img->removeAttribute('src');
-                    $img->setAttribute('src', $image_name);
-                }
-            }
-            $news->description_ru = str_replace('<?xml encoding="UTF-8">', "", $dom_save_ru->saveHTML());
-        }
-
         $news->description_en = $inputs['description_en'];
-        if (!empty($news->description_en)) {
-            $dom_save_en = new \DomDocument();
-            libxml_use_internal_errors(true);
-            $dom_save_en->loadHtml('<?xml encoding="UTF-8">' . $news->description_en, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
-            //$dom_save_en->loadHTML($news->description_en);
-            $dom_image_save_en = $dom_save_en->getElementsByTagName('img');
-            foreach ($dom_image_save_en as $k => $img) {
-                $data = $img->getAttribute('src');
-                if (preg_match('/data:image/', $data)) {
-                    list($type, $data) = explode(';', $data);
-                    list(, $data)      = explode(',', $data);
-                    $data = base64_decode($data);
-                    $image_name = "/upload/news/description_image/en_" . '_' . time() . '.jpg';
-                    $path = public_path() . $image_name;
-                    file_put_contents($path, $data);
-                    $img->removeAttribute('src');
-                    $img->setAttribute('src', $image_name);
-                }
-            }
-            $news->description_en = str_replace('<?xml encoding="UTF-8">', "", $dom_save_en->saveHTML());
-        }
-
         $news->save();
+
+
+
+        // if (!empty($news->description_uz)) {
+        //     $dom_save_uz = new \DomDocument();
+        //     libxml_use_internal_errors(true);
+        //     $dom_save_uz->loadHtml('<?xml encoding="UTF-8">' . $news->description_uz, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
+        //     $dom_image_save_uz = $dom_save_uz->getElementsByTagName('img');
+        //     foreach ($dom_image_save_uz as $k => $img) {
+        //         $data = $img->getAttribute('src');
+        //         if (preg_match('/data:image/', $data)) {
+        //             list($type, $data) = explode(';', $data);
+        //             list(, $data)      = explode(',', $data);
+        //             $data = base64_decode($data);
+        //             $image_name = "/upload/news/description_image/uz_" . time() . $k . '.jpg';
+        //             $path = public_path() . $image_name;
+        //             file_put_contents($path, $data);
+        //             $img->removeAttribute('src');
+        //             $img->setAttribute('src', $image_name);
+        //         }
+        //     }
+        //     $news->description_uz = str_replace('<?xml encoding="UTF-8">', "", $dom_save_uz->saveHTML());
+        // }
+
+        // $news->description_ru = $inputs['description_ru'];
+        // if (!empty($news->description_ru)) {
+        //     $dom_save_ru = new \DomDocument();
+        //     libxml_use_internal_errors(true);
+        //     $dom_save_ru->loadHtml('<?xml encoding="UTF-8">' . $news->description_ru, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
+        //     $dom_image_save_ru = $dom_save_ru->getElementsByTagName('img');
+        //     foreach ($dom_image_save_ru as $k => $img) {
+        //         $data = $img->getAttribute('src');
+        //         if (preg_match('/data:image/', $data)) {
+        //             list($type, $data) = explode(';', $data);
+        //             list(, $data)      = explode(',', $data);
+        //             $data = base64_decode($data);
+        //             $image_name = "/upload/news/description_image/ru_" . '_' . time() . '.jpg';
+        //             $path = public_path() . $image_name;
+        //             file_put_contents($path, $data);
+        //             $img->removeAttribute('src');
+        //             $img->setAttribute('src', $image_name);
+        //         }
+        //     }
+        //     $news->description_ru = str_replace('<?xml encoding="UTF-8">', "", $dom_save_ru->saveHTML());
+        // }
+
+        // $news->description_en = $inputs['description_en'];
+        // if (!empty($news->description_en)) {
+        //     $dom_save_en = new \DomDocument();
+        //     libxml_use_internal_errors(true);
+        //     $dom_save_en->loadHtml('<?xml encoding="UTF-8">' . $news->description_en, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
+        //     //$dom_save_en->loadHTML($news->description_en);
+        //     $dom_image_save_en = $dom_save_en->getElementsByTagName('img');
+        //     foreach ($dom_image_save_en as $k => $img) {
+        //         $data = $img->getAttribute('src');
+        //         if (preg_match('/data:image/', $data)) {
+        //             list($type, $data) = explode(';', $data);
+        //             list(, $data)      = explode(',', $data);
+        //             $data = base64_decode($data);
+        //             $image_name = "/upload/news/description_image/en_" . '_' . time() . '.jpg';
+        //             $path = public_path() . $image_name;
+        //             file_put_contents($path, $data);
+        //             $img->removeAttribute('src');
+        //             $img->setAttribute('src', $image_name);
+        //         }
+        //     }
+        //     $news->description_en = str_replace('<?xml encoding="UTF-8">', "", $dom_save_en->saveHTML());
+        // }
+
+        
 
         if (!empty($inputs['id'])) {
             Session::flash('warning', __('ALL_CHANGES_SUCCESSFUL_SAVED'));

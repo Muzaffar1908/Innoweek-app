@@ -53,7 +53,6 @@
                                             <path
                                                 d="M0 15.875L5.625 12.5938L11.25 15.875V2.28125C11.25 1.51953 10.6055 0.875 9.84375 0.875H1.40625C0.615234 0.875 0 1.51953 0 2.28125V15.875Z" />
                                         </svg>{{__('Technoways')}}</a></li>
-
                             </ul>
                         </div>
                     </div>
@@ -62,7 +61,7 @@
                     data-wow-duration="1s">
                     <div class="footer-widgets">
                         <h3 class="widget-title wow fadeInLeft animated" data-wow-delay="0.6s" data-wow-duration="1s">
-                            Contacts</h3>
+                            Contacts\</h3>
                         <div class="footer-menu">
                             <ul>
                                 <li class="wow fadeInLeft animated" data-wow-delay="0.7s" data-wow-duration="1s"><a
@@ -87,7 +86,7 @@
                                             xmlns="http://www.w3.org/2000/svg">
                                             <path -d="M0 15.875L5.625 12.5938L11.25 15.875V2.28125C11.25 1.51953 10.6055 0.875 9.84375 0.875H1.40625C0.615234 0.875 0 1.51953 0 2.28125V15.875Z" />
                                         </svg>{{ __('Email')}}:</a>
-                                    <p class="description"> <a
+                                    <p class="description"><a
                                             href="mailto:innoweekuz2021@gmail.com">{{$innoweeks->email}}</a></p>
                                 </li>
                             </ul>

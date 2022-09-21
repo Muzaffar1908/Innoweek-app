@@ -79,18 +79,18 @@
                     </div>
 
                     <div class="mb-3">
-                        <label for="mytextarea">Description uz</label>
-                        <textarea name="description_uz" id="mytextarea" cols="10" rows="5">{{old('description_uz')}}</textarea>
+                        <label for="desc_uz">Description uz</label>
+                        <textarea name="description_uz" id="desc_uz" class="form-control" cols="10" rows="5">{{old('description_uz')}}</textarea>
                     </div>
 
                     <div class="mb-3">
-                        <label for="mytextarea">Description ru</label>
-                        <textarea name="description_ru" id="mytextarea"  cols="10" rows="5">{{old('description_ru')}}</textarea>
+                        <label for="desc_ru">Description ru</label>
+                        <textarea name="description_ru" id="desc_ru" class="form-control" cols="10" rows="5">{{old('description_ru')}}</textarea>
                     </div>
 
                     <div class="mb-3">
-                        <label for="mytextarea">Description en</label>
-                        <textarea name="description_en" id="mytextarea" class="summernote" cols="10" rows="5">{{old('description_en')}}</textarea>
+                        <label for="desc_en">Description en</label>
+                        <textarea name="description_en" id="desc_en" class="form-control" cols="10" rows="5">{{old('description_en')}}</textarea>
                     </div>
 
                     <button type="submit" class="btn btn-success">Save</button>

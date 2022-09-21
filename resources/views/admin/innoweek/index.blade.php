@@ -49,10 +49,6 @@
                                             <th>Adress</th>
                                             <th>Phone</th>
                                             <th>Email</th>
-                                            <th>Telegram</th>
-                                            <th>Instagram</th>
-                                            <th>Facebook</th>
-                                            <th>YouTube</th>
                                             <th>Description</th>
                                             <th>Is Active</th>
                                             <th>Action</th>
@@ -65,17 +61,6 @@
                                             <td>{{ $inno->address }}</td>
                                             <td>{{ $inno->phone }}</td>
                                             <td>{{ $inno->email }}</td>
-                                            <td>
-                                                <p>{{ $inno->telegram }}</p>                                                                                        </td>
-                                            <td>
-                                                <p>{{ $inno->instagram }}</p>
-                                            </td>
-                                            <td>
-                                                <p>{{ $inno->facebook }}</p>
-                                            </td>
-                                            <td>
-                                                <p>{{ $inno->you_tube }}</p>
-                                            </td>
                                             <td>{!! Str::limit(strip_tags($inno->description_uz), 20) !!}</td>
                                             <td>
                                                 <form action="{{ asset('/admin/innoweek/isactive/'. $inno->id) }}"
