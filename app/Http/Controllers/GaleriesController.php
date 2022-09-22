@@ -16,7 +16,7 @@ class GaleriesController extends Controller
 {
     public function index()
     {
-        $galeries = Galeries::paginate(20);
+        $galeries = Galeries::paginate(5);
         $users = User::all();
         $archives = Archive::all();
         return view('admin.galeries.index', ['galeries' => $galeries, 'users' => $users, 'archives' => $archives]);
