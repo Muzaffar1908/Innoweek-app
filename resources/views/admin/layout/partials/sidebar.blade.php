@@ -1,7 +1,5 @@
 <div class="dlabnav">
     <div class="dlabnav-scroll">
-
-
       <ul class="metismenu" id="menu">
         <li>
           <a href="{{route('admin.index')}}" class="" aria-expanded="false">

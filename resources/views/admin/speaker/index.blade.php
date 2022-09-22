@@ -54,7 +54,6 @@
                                   <th>User</th>
                                   <th>Fullname</th>
                                   <th>Job</th>
-                                  <th>Description</th>
                                   <th>Image</th>
                                   <th>Is Active</th>
                                   <th>Action</th>
@@ -67,8 +66,7 @@
                                     <td>{{$speaker->archiveTable->year}}</td>
                                     <td>{{$speaker->usersTable->first_name}}</td>
                                     <td>{{$speaker->full_name_uz}}</td>
-                                    <td>{{Str::limit(strip_tags($speaker->job_uz), 20)}}</td>
-                                    <td>{{Str::limit(strip_tags($speaker->description_uz), 20)}}</td>
+                                    <td>{{Str::limit(strip_tags($speaker->job_uz), 30)}}</td>
                                       <td>
                                           <img src="{{asset('upload/speaker/' .$speaker->image.'-d.png')}}" alt="img" with="100px" height="60px">
                                       </td>

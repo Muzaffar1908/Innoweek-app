@@ -32,29 +32,29 @@
         ?>
         <div class="container-fluid mb-4">
             <div class="section-heading style-four">
-            <h2 class="title wow fadeInUp animated" data-wow-delay="0.2s" data-wow-duration="1s">{{__('Events')}}</h2>
+               <h2 class="title wow fadeInUp animated" data-wow-delay="0.2s" data-wow-duration="1s">{{__('Events')}}</h2>
             </div>
             <div class="sliderEventOne swiper-container">
             <div class="swiper-wrapper large">
                 @foreach ($news_event as $item)
                 <div class="swiper-slide">
                     <div class="event-box-layout1">
-                    <div class="figure-box">
-                        <a href="{{route('newsshowx',['id'=>$item->id])}}"><img style="object-fit: cover;" src="{{asset('/upload/news/'. $item->user_image.'-d.png')}}" alt="Event"></a>
-                    </div>
-                    <div class="content-box">
-                        <div class="me-3">
-                        <div class="sub-title">
-                        <h3 class="title"><a href="#">{!! substr($item->{'title_'.App::getLocale()},0,30) !!}</a></h3>
-                        {{ strip_tags(substr($item->{'description_'.App::getLocale()},0,90). '...')}}
+                        <div class="figure-box">
+                            <a href="{{route('newsshowx',['id'=>$item->id])}}"><img style="object-fit: cover;" src="{{asset('/upload/news/'. $item->user_image.'-d.png')}}" alt="Event"></a>
                         </div>
+                        <div class="content-box">
+                            <div class="me-3">
+                                <div class="sub-title">
+                                    <h3 class="title"><a href="#">{{$item->title}}</a></h3>
+                                    {{$item->desc}}
+                                </div>
+                            </div>
+                            <a href="{{route('newsshowx',['id'=>$item->id])}}" class="btn-icon">
+                                <svg width="13" height="14" viewBox="0 0 13 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M11.0322 7.04186L6.23594 11.3482C6.19912 11.381 6.15215 11.3994 6.10264 11.3994H4.9791C4.88516 11.3994 4.84199 11.2786 4.91309 11.2156L9.35898 7.22309H1.92969C1.87383 7.22309 1.82812 7.17581 1.82812 7.11803V6.33004C1.82812 6.27226 1.87383 6.22498 1.92969 6.22498H9.35771L4.91182 2.23252C4.84072 2.16817 4.88389 2.04866 4.97783 2.04866H6.13945C6.16357 2.04866 6.1877 2.05785 6.20547 2.07493L11.0322 6.40622C11.0762 6.44575 11.1114 6.49458 11.1356 6.54941C11.1597 6.60424 11.1722 6.66379 11.1722 6.72404C11.1722 6.78429 11.1597 6.84384 11.1356 6.89866C11.1114 6.95349 11.0762 7.00232 11.0322 7.04186Z" />
+                                </svg>
+                            </a>
                         </div>
-                        <a href="{{route('newsshowx',['id'=>$item->id])}}" class="btn-icon">
-                        <svg width="13" height="14" viewBox="0 0 13 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M11.0322 7.04186L6.23594 11.3482C6.19912 11.381 6.15215 11.3994 6.10264 11.3994H4.9791C4.88516 11.3994 4.84199 11.2786 4.91309 11.2156L9.35898 7.22309H1.92969C1.87383 7.22309 1.82812 7.17581 1.82812 7.11803V6.33004C1.82812 6.27226 1.87383 6.22498 1.92969 6.22498H9.35771L4.91182 2.23252C4.84072 2.16817 4.88389 2.04866 4.97783 2.04866H6.13945C6.16357 2.04866 6.1877 2.05785 6.20547 2.07493L11.0322 6.40622C11.0762 6.44575 11.1114 6.49458 11.1356 6.54941C11.1597 6.60424 11.1722 6.66379 11.1722 6.72404C11.1722 6.78429 11.1597 6.84384 11.1356 6.89866C11.1114 6.95349 11.0762 7.00232 11.0322 7.04186Z" />
-                        </svg>
-                        </a>
-                    </div>
                     </div>
                 </div>
                 @endforeach
@@ -133,8 +133,7 @@
                     </div>
                     </div>
                     <div class="content-box">
-                    <h3 class="entry-title"><a>{!! substr($item->{'title_'.App::getLocale()},0,50).'...'
-                        !!}</a></h3>
+                    <h3 class="entry-title"><a>{{$item->title}}</a></h3>
                     <a href="{{route('newsshowx',['id'=>$item->id])}}" class="btn-text style-one">{{__('READ MORE')}}</a>
                     </div>
                 </div>
@@ -158,8 +157,8 @@
                     <a href="{{route('speakershowx', ['id'=>$spek->id])}}"><img src="{{asset('/upload/speaker/' . $spek->image.'-d.png')}}" alt="Speaker" width="267" height="267"></a>
                     </div>
                     <div class="content-box">
-                    <h3 class="title"><a href="{{route('speakershowx', ['id'=>$spek->id])}}">{!!$spek->{'full_name_'.App::getLocale()}!!}</a></h3>
-                    <div class="sub-title">{!! ($spek->{'description_'.App::getLocale()}) !!}</div>
+                    <h3 class="title"><a href="{{route('speakershowx', ['id'=>$spek->id])}}">{{$spek->name}}</a></h3>
+                    <div class="sub-title">{{$spek->desc}}</div>
                     <div class="speaker-social">
                         <ul>
                         <li><a target="_blank" href="{{$spek->facebook_url}}"><i class="fab fa-facebook-f"></i></a></li>
@@ -226,7 +225,7 @@
                                         <img src="{{asset('/upload/conference/' .$dd->user_image.'-d.png')}}" alt="img" with="100px" height="60px">
                                     </div>
                                     <div class="inner-box">
-                                    <h3 class="title">{{($dd->{'title_'.App::getLocale()})}}</h3>
+                                    <h3 class="title">{{$dd->title}}</h3>
                                     {{-- <div class="sub-title">By <span>Kathryn
                                                             Murphy</span> VP
                                         Design Microsoft
@@ -237,14 +236,14 @@
                             </div>
                             <div id="collapseOne{{ $i + $k }}" class="accordion-collapse collapse" aria-labelledby="headingOne{{ $i + $k }}" data-bs-parent="#accordionExample{{ $i + $k }}">
                                 <div class="panel-body">
-                                <p class="description">{{ strip_tags($dd->{'description_'.App::getLocale()})}}</p>
+                                <p class="description">{{$dd->desc}}</p>
                                 <div class="address-wrap">
                                     <div class="icon-box">
                                     <svg width="14" height="19" viewBox="0 0 14 19" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M6.04688 17.8984C6.36328 18.3906 7.10156 18.3906 7.41797 17.8984C12.5508 10.5156 13.5 9.74219 13.5 7C13.5 3.27344 10.4766 0.25 6.75 0.25C2.98828 0.25 0 3.27344 0 7C0 9.74219 0.914062 10.5156 6.04688 17.8984ZM6.75 9.8125C5.16797 9.8125 3.9375 8.58203 3.9375 7C3.9375 5.45312 5.16797 4.1875 6.75 4.1875C8.29688 4.1875 9.5625 5.45312 9.5625 7C9.5625 8.58203 8.29688 9.8125 6.75 9.8125Z" />
                                     </svg>
                                     </div>
-                                    <div class="address-text">{{ strip_tags($dd->address)}}</div>
+                                    <div class="address-text">{{$dd->address}}</div>
                                 </div>
                                 </div>
                             </div>
