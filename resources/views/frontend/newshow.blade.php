@@ -16,10 +16,10 @@ sticky
             </div>
             <div class="content-box">
               <div class="sub-title wow fadeInUp animated" data-wow-delay="0.3s" data-wow-duration="1s">
-                {{$news->started_at}}</div>
-              <h2 class="title wow fadeInUp animated" data-wow-delay="0.4s" data-wow-duration="1s">{!! $news->{'title_'.App::getLocale()} !!}</h2>
+                </div>
+              <h2 class="title wow fadeInUp animated" data-wow-delay="0.4s" data-wow-duration="1s">{{$news->title}}</h2>
               <p class="description wow fadeInUp animated" data-wow-delay="0.5s" data-wow-duration="1s">
-                      {{strip_tags($news->{'description_'.App::getLocale()})}}
+                {{strip_tags($news->text)}}
               </p>
             </div>
           </div>
@@ -36,8 +36,8 @@ sticky
                     <a href="{{route('newsshowx', ['id' => $item->id])}}" class="link-item"><img src="{{asset('/upload/news/'.$item->user_image.'-d.png')}}" alt="Speaker" width="267" height="267"></a>
                   </div>
                   <div class="content-box">
-                    <h3 class="entry-title"><a href="{{route('newsshowx', ['id' => $item->id])}}"></a>{!! ($item->{'title_'.App::getLocale()}) !!}</h3>
-                    <div class="entry-date">{{$item->started_at}}</div>
+                    <h3 class="entry-title"><a href="{{route('newsshowx', ['id' => $item->id])}}"></a>{{$item->title}}</h3>
+                    <div class="entry-date"></div>
                   </div>
                 </div>
               @endforeach

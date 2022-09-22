@@ -21,9 +21,9 @@
                                     {{$new->created_at}}
                                 </div>
                                 <a href="{{route('newsshowx',['id'=>$new->id])}}"><h2 class="title wow fadeInUp animated" data-wow-delay="0.4s" data-wow-duration="1s">
-                                        {!! substr($new->{'title_'.App::getLocale()},0,110).'...'
-                         !!}</h2></a>
-                         <p>{{ strip_tags(substr($new->{'description_'.App::getLocale()},0, 255). '...')}}</p>
+                                        {{$new->title}}
+                         </h2></a>
+                         <p>{{strip_tags($new->text)}}</p>
                             </div>
                         </div>
                         @endforeach
@@ -47,23 +47,17 @@
                                                                            alt="Post"></a>
                                     </div>
                                     <div class="content-box">
-                                        <h3 class="entry-title"><a href="{{route('newsshowx',['id'=>$recent->id])}}">{!! substr($new->{'title_'.App::getLocale()},0,110).'...'
-                        !!}</a></h3>
+                                        <h3 class="entry-title"><a href="{{route('newsshowx',['id'=>$recent->id])}}">{{$recent->title}}</a></h3>
                                         <div class="entry-date"> {{$recent->created_at}}</div>
                                     </div>
                                 </div>
                                 @endforeach
                             </div>
-
                         </div>
-
-                    </div>
-
+                     </div>
             </div>
-
-
             <div class="text-center">
-                {{$news->links()}}
+              {{-- {{$news->links()}} --}}
             </div>
         </div>
     </section>

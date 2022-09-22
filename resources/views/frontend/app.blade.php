@@ -88,7 +88,7 @@
                         </div>
                     </a>
                     <h3 class="title">
-                        <p> <a href="{{$item->url}}" class="icon-box-link play-btn">INNOWEEK {{$item->archiveTable->year}}</a></p>
+                        <p> <a href="{{$item->url}}" class="icon-box-link play-btn">INNOWEEK </a></p>
                     </h3>
                     </div>
                 </div>
@@ -105,7 +105,7 @@
             <div class="col-lg-12 order-lg-2">
                 <div class="about-box-layout1 content-box">
                 <div>
-                    <h2 class="title text-center mb-5 wow fadeInUp animated" data-wow-delay="0.2s" data-wow-duration="1s">{{ _config('address') }}INNOWEEK 2022 / 2021 / 2020 / 2019 / 2018</h2>
+                    <h2 class="title text-center mb-5 wow fadeInUp animated" data-wow-delay="0.2s" data-wow-duration="1s">INNOWEEK 2022 / 2021 / 2020 / 2019 / 2018</h2>
                     <h3 class="sub-description text-dark text-center wow fadeInUp animated" data-wow-delay="0.5s" data-wow-duration="1s">{{__('INNOWEEK/2022..')}}</h3>
                 </div>
                 </div>
@@ -157,14 +157,14 @@
                     <a href="{{route('speakershowx', ['id'=>$spek->id])}}"><img src="{{asset('/upload/speaker/' . $spek->image.'-d.png')}}" alt="Speaker" width="267" height="267"></a>
                     </div>
                     <div class="content-box">
-                    <h3 class="title"><a href="{{route('speakershowx', ['id'=>$spek->id])}}">{{$spek->name}}</a></h3>
-                    <div class="sub-title">{{$spek->desc}}</div>
+                    <h3 class="title"><a href="{{route('speakershowx', ['id'=>$spek->id])}}">{{$spek->fullname}}</a></h3>
+                    <div class="sub-title">{{strip_tags($spek->text)}}</div>
                     <div class="speaker-social">
                         <ul>
-                        <li><a target="_blank" href="{{$spek->facebook_url}}"><i class="fab fa-facebook-f"></i></a></li>
-                        <li><a target="_blank" href="{{$spek->instagram_url}}"><i class="fab fa-instagram"></i></a></li>
+                        <li><a target="_blank" href="{{$spek->facebook_ur}}"><i class="fab fa-facebook-f"></i></a></li>
+                        <li><a target="_blank" href="{{$spek->twitter_url}}"><i class="fab fa-twitter"></i></a></li>
                         <li><a target="_blank" href="{{$spek->linkedin_url}}"><i class="fab fa-linkedin"></i></a></li>
-                        <li><a target="_blank" href="{{$spek->youtobe_url}}"><i class="fab fa-youtube"></i></a></li>
+                        <li><a target="_blank" href="{{$spek->youtube_url}}"><i class="fab fa-youtube"></i></a></li>
                         </ul>
                     </div>
                     </div>
@@ -185,7 +185,7 @@
                 <div class="schedule-slider-main-wrap">
                 <div class="schedule-slider-thumbnail-style-1 swiper-container schedule-box-layout3 schedule-nav">
                     <div class="swiper-wrapper">
-                    @foreach ($condate as $con)
+                    @foreach ($ConfSchedules as $con)
                     <div class="swiper-slide">
                         {{-- S4: Mon, Mar 28th --}}
                         {{Carbon::parse($con->date)->format('D ,M dS')}}
@@ -205,7 +205,7 @@
                 <div class="shcedule-slider-style-1 swiper-container schedule-box-layout3 schedule-content scroll-div">
                 <div class="swiper-wrapper">
 
-                    @foreach ($condate as $i => $cons)
+                    @foreach ($ConfSchedules as $i => $cons)
                     <div class="swiper-slide">
                         @foreach($condate_data as $k => $dd)
                         @if(Carbon::parse($cons->date)->format('Y-m-d') == Carbon::parse($dd->started_at)->format('Y-m-d'))
@@ -225,7 +225,7 @@
                                         <img src="{{asset('/upload/conference/' .$dd->user_image.'-d.png')}}" alt="img" with="100px" height="60px">
                                     </div>
                                     <div class="inner-box">
-                                    <h3 class="title">{{$dd->title}}</h3>
+                                    <h3 class="title">{{ strip_tags(substr($dd->{'title_'.App::getLocale()},0,50).'...') }}</h3>
                                     {{-- <div class="sub-title">By <span>Kathryn
                                                             Murphy</span> VP
                                         Design Microsoft
@@ -236,14 +236,14 @@
                             </div>
                             <div id="collapseOne{{ $i + $k }}" class="accordion-collapse collapse" aria-labelledby="headingOne{{ $i + $k }}" data-bs-parent="#accordionExample{{ $i + $k }}">
                                 <div class="panel-body">
-                                <p class="description">{{$dd->desc}}</p>
+                                <p class="description">{{ strip_tags(substr($dd->{'description_'.App::getLocale()},0,255).'...') }}</p>
                                 <div class="address-wrap">
                                     <div class="icon-box">
                                     <svg width="14" height="19" viewBox="0 0 14 19" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M6.04688 17.8984C6.36328 18.3906 7.10156 18.3906 7.41797 17.8984C12.5508 10.5156 13.5 9.74219 13.5 7C13.5 3.27344 10.4766 0.25 6.75 0.25C2.98828 0.25 0 3.27344 0 7C0 9.74219 0.914062 10.5156 6.04688 17.8984ZM6.75 9.8125C5.16797 9.8125 3.9375 8.58203 3.9375 7C3.9375 5.45312 5.16797 4.1875 6.75 4.1875C8.29688 4.1875 9.5625 5.45312 9.5625 7C9.5625 8.58203 8.29688 9.8125 6.75 9.8125Z" />
                                     </svg>
                                     </div>
-                                    <div class="address-text">{{$dd->address}}</div>
+                                    <div class="address-text">{{ strip_tags(substr($dd->{'address_'.App::getLocale()},0,255).'...') }}</div>
                                 </div>
                                 </div>
                             </div>
