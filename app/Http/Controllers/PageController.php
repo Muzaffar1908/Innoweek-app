@@ -18,35 +18,28 @@ class PageController extends Controller
 {
     public function index()
     {
-        $condate = DB::table('conferences')
+        $ConfSchedules = DB::table('conferences')
             ->select(DB::raw('DATE(started_at) as date'))
             ->groupBy('date')
             ->get();
-
-
         $condate_data = Conference::all();
 
         $lang = \App::getLocale();
-
         $news = News::where('cat_id', 1)->orderBy('created_at', 'DESC')->take(3);
-        $news_event = News::select('id', 'user_image', 'title_'. $lang .' as title', 'description_'. $lang .' as desc')->where('cat_id', 2)->orderBy('created_at', 'DESC')->take(5); 
-        $speakers = Speakers::select('id', 'image', 'title_' .$lang. ' as title', 'fullname_' .$lang. ' as name', 'description_' .$lang. ' as desc', 'facebook_url', 'instagram_url', 'linkedin_url', 'youtobe_url')->orderBy('create_at', 'DESC')->take(5);
-        $galleries = Galeries::select('id', 'image')->orderBy('created_at', 'DESC')->take(10); 
+        $news_event = News::select('id', 'user_image', 'title_' . $lang . ' as title', DB::raw('SUBSTRING(`description_' . $lang . '`, 1, 70) as text'))->where('cat_id', 2)->orderBy('created_at', 'DESC')->take(5)->get();
+        $speakers = Speakers::select('id', 'image', 'title_' . $lang . ' as title', 'fullname_' . $lang . ' as name', 'description_' . $lang . ' as desc', 'facebook_url', 'instagram_url', 'linkedin_url', 'youtobe_url')->orderBy('create_at', 'DESC')->take(5);
+        $galleries = Galeries::select('id', 'image')->orderBy('created_at', 'DESC')->take(10);
         $partners = Partner::select('id', 'image', 'image_url')->orderBy('created_at', 'DESC')->take(10);
         $innoweeks = Innoweek::first();
-
-        $events = Conference::select('id', 'user_image', 'title_' .$lang. ' as title', 'description_' .$lang. ' as desc', 'address_' .$lang. ' as address')->orderBy('created_at', 'DESC')->take(5);
-
+        $events = Conference::select('id', 'user_image', 'title_' . $lang . ' as title', 'description_' . $lang . ' as desc', 'address_' . $lang . ' as address')->orderBy('created_at', 'DESC')->take(5);
         $promo = Promo::select('id', 'url')->orderBy('created_at', 'DESC')->take(4);
-
-        return view('frontend.app', ['condate' => $condate, 'condate_data' => $condate_data, 'promo' => $promo, 'news' => $news, 'news_event' => $news_event,'speakers' => $speakers, 'galleries' => $galleries, 'partners' => $partners, 'innoweeks' => $innoweeks, 'events' => $events, 'lang' => $lang]);
-
+        return view('frontend.app', ['condate' => $condate, 'condate_data' => $condate_data, 'promo' => $promo, 'news' => $news, 'news_event' => $news_event, 'speakers' => $speakers, 'galleries' => $galleries, 'partners' => $partners, 'innoweeks' => $innoweeks, 'events' => $events, 'lang' => $lang]);
     }
 
 
     public function register()
     {
-        $innoweeks = Innoweek::first();
+        $innoweeks = Innoeek::first();
         return view('frontend.register', ['innoweeks' => $innoweeks]);
     }
 
@@ -98,14 +91,14 @@ class PageController extends Controller
 
         $speakers = Speakers::where(['id' => $id])->first();
 
-        return view('frontend.speakershow', compact( 'speakers'));
+        return view('frontend.speakershow', compact('speakers'));
     }
 
     public function speakers()
     {
         $speaker = Speakers::paginate(10);
         $speakersrecent = Speakers::orderBy('created_at', 'desc')->paginate(5);
-        return view('frontend.speakers', ['speakersrecent' => $speakersrecent,'speaker'=>$speaker]);
+        return view('frontend.speakers', ['speakersrecent' => $speakersrecent, 'speaker' => $speaker]);
     }
     public function events()
     {
@@ -114,13 +107,12 @@ class PageController extends Controller
         // return view('frontend.events', ['conference' => $conference,'conferencesrecent'=>$conferencesrecent]);
         $news = News::where('cat_id', 2)->paginate(10);
         $newsresent = News::where('cat_id', 2)->orderBy('created_at', 'desc')->paginate(5);
-        return view('frontend.events', ['news' => $news,'newsresent'=>$newsresent]);
+        return view('frontend.events', ['news' => $news, 'newsresent' => $newsresent]);
     }
     public function news()
     {
         $news = News::where('cat_id', 1)->paginate(10);
         $newsresent = News::where('cat_id', 2)->orderBy('created_at', 'desc')->paginate(5);
-        return view('frontend.news', ['news' => $news,'newsresent'=>$newsresent]);
+        return view('frontend.news', ['news' => $news, 'newsresent' => $newsresent]);
     }
-
 }
