@@ -37,7 +37,7 @@ class PageController extends Controller
 
         $events = Conference::select('id', 'user_image', 'title_' .$lang. ' as title', 'description_' .$lang. ' as desc', 'address_' .$lang. ' as address')->orderBy('created_at', 'DESC')->take(5);
 
-        $promo = Promo::select('id', 'url')->orderBy('created_at', 'DESC')->take(4);
+        $promo = Promo::select('id', 'archive_id' 'url')->orderBy('created_at', 'DESC')->take(4);
 
         return view('frontend.app', ['condate' => $condate, 'condate_data' => $condate_data, 'promo' => $promo, 'news' => $news, 'news_event' => $news_event,'speakers' => $speakers, 'galleries' => $galleries, 'partners' => $partners, 'innoweeks' => $innoweeks, 'events' => $events, 'lang' => $lang]);
 
