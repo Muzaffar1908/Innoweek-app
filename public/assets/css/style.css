@@ -6,7 +6,7 @@ is the file you need to edit to change the look of the template.
 
 This files table contents are outlined below>>>>>
 
-*******************************************
+******************************************* 
 ** - DEFAULT AREA STYLE - **
 
 ** - Default Btn Area Style
@@ -32,7 +32,7 @@ Default Style
 @import url('https://fonts.googleapis.com/css2?family=Alumni+Sans+Collegiate+One&family=Dancing+Script:wght@400;500;600;700&family=Poppins&family=Roboto:ital,wght@1,100;1,400&display=swap');
 
 * {
-
+  
   font-family: 'Poppins', sans-serif;
   padding: 0;
   margin: 0;
@@ -141,13 +141,6 @@ img {
 .form-control::-webkit-input-placeholder {
   color: #c6c7cc;
   font-size: 13px;
-}
-.logout-btn {
-    padding: 3px 10px;
-    margin-left: 4rem;
-    background: rgba(255, 255, 255, 0.1);
-    color: #fff;
-    border-radius: 5px;
 }
 
 .form-control:-ms-input-placeholder {
@@ -2244,7 +2237,7 @@ button.switch-month:hover {
   font-size: 14px;
 }
 
-/*
+/* 
 Main Contact Area Style
 =====================================================*/
 .contact-form .form-group {
@@ -2326,7 +2319,7 @@ Main Contact Area Style
   font-size: 14px;
 }
 
-/*
+/* 
 Log In Area Style
 =====================================================*/
 .logon-form .form-group {
@@ -2811,7 +2804,7 @@ Blog Details Area CSS
   color: #5350ff;
 }
 
-/*
+/* 
 Main Content Text Style
 =====================================================*/
 .main-content-text {
@@ -2889,7 +2882,7 @@ Main Content Text Style
   margin-bottom: 20px;
 }
 
-/*
+/* 
 Csomponents Style
 =====================================================*/
 .components-list {
@@ -3456,7 +3449,7 @@ Csomponents Style
 
 .slide-style-four .owl-item {
   margin-top: 25px;
-
+  
   -webkit-transition: all ease 0.5s;
   transition: all ease 0.5s;
 }
@@ -4646,7 +4639,7 @@ Csomponents Style
     position: absolute;
     /* background-image: url(../../assets/images/upload.png); */
     /* padding: 57px 10px; */
-    top: 106px;
+    top: 121.99999px;
     background-color: #2125296b;
     border-radius: 50%;
     left: 12px;
@@ -5943,7 +5936,26 @@ Page-navigation Area Style*/
 
 .file_names{
   position: absolute !important;
-  object-fit: cover;
-  height: 100%;
-  width: 100%;
 }
+
+/* Responsive */
+
+@media(min-width: 500px) and (max-width: 850px){
+  .features-slide.owl-carousel .owl-item img{
+    height: 400px !important;
+  }
+  .features-content h3{
+    position: unset;
+  }
+  .owl-carousel .owl-item img{
+    height: 350px !important;
+  }
+  .components-support{
+    padding: 30px 10px;
+  }
+  .components-support img{
+    max-width: 200px;
+  }
+} 
+
+/*# sourceMappingURL=style.css.map */

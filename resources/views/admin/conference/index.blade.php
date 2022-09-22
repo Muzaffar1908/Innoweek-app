@@ -55,11 +55,6 @@
                                   <th>Started At</th>
                                   <th>Stoped At</th>
                                   <th>Title</th>
-                                  <th>Live url</th>
-                                  <th>Innoweek Video</th>
-                                  <th>User Image</th>
-                                  <th>Address</th>
-                                  <th>Description</th>
                                   <th>Is Active</th>
                                   <th>Action</th>
                                 </tr>
@@ -71,14 +66,7 @@
                                     <td>{{$conference->archiveTable->year}}</td>
                                     <td>{{$conference->started_at}}</td>
                                     <td>{{$conference->stoped_at}}</td>
-                                    <td>{{$conference->title_uz}}</td>
-                                    <td>{{$conference->live_url}}</td>
-                                    <td>{{$conference->innoweek_video}}</td>
-                                      <td>
-                                          <img src="{{asset('upload/conference/' .$conference->user_image.'-d.png')}}" alt="img" with="100px" height="60px">
-                                      </td>
-                                    <td>{{$conference->address_uz}}</td>
-                                    <td>{!!Str::limit(strip_tags($conference->description_uz),20)!!}</td>
+                                    <td>{!!Str::limit(strip_tags($conference->title_uz),20)!!}</td>
                                     <td>
                                         <form action="{{ asset('/admin/conference/isactive/' . $conference->id) }}"
                                             method="POST" enctype="multipart/form-data">

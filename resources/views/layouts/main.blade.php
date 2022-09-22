@@ -41,7 +41,7 @@
                                         alt="Logo" width="120"></a>
                                 <p class="description mt-2 wow fadeInLeft animated" data-wow-delay="0.2s"
                                     data-wow-duration="1s">
-                                    {{ strip_tags(substr($innoweeks->{'description_'.App::getLocale()},0,255).'...') }}
+                                    {{ strip_tags(substr($innoweeks->{'description_'.App::getLocale()},0,500).'...') }}
                                     </p>
                                 <ul class="footer-social wow fadeInLeft animated" data-wow-delay="0.3s" data-wow-duration="1s">
                                     <li class="wow fadeInLeft animated" data-wow-delay="0.7s" data-wow-duration="1s">

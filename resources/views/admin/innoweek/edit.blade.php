@@ -81,17 +81,17 @@
 
                     <div class="mb-3">
                         <label for="mytextarea">Description uz</label>
-                        <textarea name="description_uz" id="mytextarea" cols="10" rows="5">{{$innoweek->description_uz}}</textarea>
+                        <textarea name="description_uz"  class="form-control" cols="10" rows="5">{{$innoweek->description_uz}}</textarea>
                     </div>
 
                     <div class="mb-3">
                         <label for="mytextarea">Description ru</label>
-                        <textarea name="description_ru" cols="10" rows="5">{{$innoweek->description_ru}}</textarea>
+                        <textarea name="description_ru" class="form-control" cols="10" rows="5">{{$innoweek->description_ru}}</textarea>
                     </div>
 
                     <div class="mb-3">
                         <label for="mytextarea">Description en</label>
-                        <textarea name="description_en" class="summernote" cols="10" rows="5">{{$innoweek->description_en}}</textarea>
+                        <textarea name="description_en" class="form-control" cols="10" rows="5">{{$innoweek->description_en}}</textarea>
                     </div>
 
 

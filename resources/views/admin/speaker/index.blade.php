@@ -55,11 +55,7 @@
                                   <th>Fullname</th>
                                   <th>Job</th>
                                   <th>Description</th>
-                                  <th>image</th>
-                                  <th>Facebook url</th>
-                                  <th>Youtube url</th>
-                                  <th>Twitter url</th>
-                                  <th>Linkedin url</th>
+                                  <th>Image</th>
                                   <th>Is Active</th>
                                   <th>Action</th>
                                 </tr>
@@ -71,15 +67,11 @@
                                     <td>{{$speaker->archiveTable->year}}</td>
                                     <td>{{$speaker->usersTable->first_name}}</td>
                                     <td>{{$speaker->full_name_uz}}</td>
-                                    <td>{{$speaker->job_uz}}</td>
+                                    <td>{{Str::limit(strip_tags($speaker->job_uz), 20)}}</td>
                                     <td>{{Str::limit(strip_tags($speaker->description_uz), 20)}}</td>
                                       <td>
                                           <img src="{{asset('upload/speaker/' .$speaker->image.'-d.png')}}" alt="img" with="100px" height="60px">
                                       </td>
-                                    <td>{{$speaker->facebook_ur}}</td>
-                                    <td>{{$speaker->youtube_url}}</td>
-                                    <td>{{$speaker->twitter_url}}</td>
-                                    <td>{{$speaker->linkedin_url}}</td>
                                     <td>
                                         <form action="{{ asset('/admin/speaker/isactive/' . $speaker->id) }}"
                                             method="POST" enctype="multipart/form-data">

@@ -54,9 +54,7 @@
                                   <th>Categoryname</th>
                                   <th>Title</th>
                                   <th>User image</th>
-                                  <th>Description</th>
                                   <th>Is Active</th>
-                                  <th>Tags</th>
                                   <th>Action</th>
                                 </tr>
                               </thead>
@@ -65,11 +63,10 @@
                                     <td>{{($news->currentpage() - 1) * $news->perpage() + ($loop->index+1)}}</td>
                                     <td>{{$new->usersTable->first_name}}</td>
                                      <td>{{$new->newsTable->title_uz}}</td>
-                                    <td>{{$new->title_uz}}</td>
+                                    <td>{!!Str::limit(strip_tags($new->title_uz),30)!!}</td>
                                       <td>
                                           <img src="{{asset('upload/news/' .$new->user_image.'-d.png')}}" alt="img" with="100px" height="60px">
                                       </td>
-                                    <td>{!!Str::limit(strip_tags($new->description_uz),20)!!}</td>
                                     <td>
                                         <form action="{{ asset('/admin/news/isactive/' . $new->id) }}"
                                             method="POST" enctype="multipart/form-data">
@@ -91,7 +88,6 @@
                                         </form>
 
                                     </td>
-                                    <td>{{$new->tags}}</td>
                                     <td>
                                         <div class="btn-group">
                                             {{-- <a href="{{route('admin.news.show', $new->id)}}" type="button" class="btn btn-info"><i class="bi bi-eye"></i></a> --}}

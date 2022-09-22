@@ -66,7 +66,7 @@
                                             <td>
                                                 <img src="{{asset('upload/partners/' .$partner->image.'-d.png')}}" alt="img" with="100px" height="60px">
                                             </td>
-                                            <td>{{$partner->image_url}}</td>
+                                            <td>{!!Str::limit(strip_tags($partner->image_url),20)!!}</td>
                                             <td>
                                                 <form action="{{ asset('/admin/partner/is_active/' . $partner->id) }}"
                                                     method="POST" enctype="multipart/form-data">

@@ -39,8 +39,6 @@ body, html {
     text-align: center;
     transform: translateX(-50%);
     border-radius: 10px;
-    border-top: 14px solid #79a6fe;
-    border-bottom: 14px solid #79a6fe;
     width: 400px;
     height: 530px;
 }
@@ -383,10 +381,20 @@ a:hover {
     }
 }
 
-@media(min-width: 500px){
-    #inno, #loader{
-        display: none;
+@media(min-width: 500px) and (max-width: 850px){
+    .form-container{
+        margin: 10rem auto 0;
     }
-}
+    .box{
+        display: flex;
+        flex-direction: column;
+    }
+    .btn-input2{
+        margin-top: 15px !important;
+    }
+    .input-group .form-control:first-child, .input-group-addon:first-child, .input-group-btn:first-child>.btn, .input-group-btn:first-child>.btn-group>.btn, .input-group-btn:first-child>.dropdown-toggle, .input-group-btn:last-child>.btn-group:not(:last-child)>.btn, .input-group-btn:last-child>.btn:not(:last-child):not(.dropdown-toggle){
+        width: -webkit-fill-available;
+    }
+  } 
 
 

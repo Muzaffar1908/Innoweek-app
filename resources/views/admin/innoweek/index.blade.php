@@ -49,7 +49,6 @@
                                             <th>Adress</th>
                                             <th>Phone</th>
                                             <th>Email</th>
-                                            <th>Description</th>
                                             <th>Is Active</th>
                                             <th>Action</th>
                                         </tr>
@@ -61,7 +60,6 @@
                                             <td>{{ $inno->address }}</td>
                                             <td>{{ $inno->phone }}</td>
                                             <td>{{ $inno->email }}</td>
-                                            <td>{!! Str::limit(strip_tags($inno->description_uz), 20) !!}</td>
                                             <td>
                                                 <form action="{{ asset('/admin/innoweek/isactive/'. $inno->id) }}"
                                                     method="POST" enctype="multipart/form-data">
