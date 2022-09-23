@@ -1,4 +1,4 @@
-@extends('layouts.main')
+div@extends('layouts.main')
 @section('sticky')
     sticky
 @endsection
@@ -52,6 +52,11 @@
                     </div>
                 </div>
             </div>
+
+            <div class="text-center">
+                {{$events->links()}}
+            </div>
+
         </div>
     </section>
 

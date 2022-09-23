@@ -57,7 +57,7 @@
             
             
             <div class="text-center">
-                {{-- {{$news->links()}} --}}
+                {{$events->links()}}
             </div>
         </div>
     </section>
