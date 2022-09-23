@@ -14804,5 +14804,28 @@ select option { color: black; }
   border-color: transparent;
 }
 
+.accordion-button:focus{
+  box-shadow: unset;
+}
+
+.accordion-button{
+  color: #041A57;
+  font-size: 1.2rem;
+}
+
+.accordion-flush{
+  width: 65%;
+  float: left;
+}
+
+#gallery{
+  clear: both;
+}
+
+.accordion-pone{
+  width: 30%;
+  float: right;
+}
+
 
 /*# sourceMappingURL=maps/app.css.map */

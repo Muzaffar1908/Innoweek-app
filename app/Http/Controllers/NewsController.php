@@ -276,7 +276,7 @@ class NewsController extends Controller
             $img1->save($tmpFilePath.$hardPath.'-d.png');
             $news->user_image = $hardPath;
             $image_path = public_path() . '/upload/news/' . $del_img . '-d.png';
-            unlink($image_path);
+            // unlink($image_path);
         }
 
 

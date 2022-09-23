@@ -262,6 +262,75 @@
         </div>
     </section>
 
+    <section class="about-wrap-layout1">
+        <div class="container">
+          <div class="section-heading style-four">
+            <h2 class="title wow fadeInUp animated" data-wow-delay="0.2s" data-wow-duration="1s">AccordionFlushExample</h2>
+          </div>
+          <div class="row">
+            <div class="col-lg-12 order-lg-2">
+              <div class="about-box-layout1 content-box">
+                <div class="accordion accordion-flush container" id="accordionFlushExample">
+                  <div class="accordion-item">
+                    <h2 class="accordion-header" id="flush-headingOne">
+                      <button class="accordion-button collapsed acc-title" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                        Accordion Item #1
+                      </button>
+                    </h2>
+                    <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                      <p class="accordion-body">Lorem, ipsum. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Provident molestias maiores necessitatibus pariatur. Quaerat eum, quibusdam corporis natus tempore repellendus aliquam velit quia, debitis at ipsum rerum rem adipisci! Perspiciatis.</p>
+                    </div>
+                  </div>
+                  <div class="accordion-item">
+                    <h2 class="accordion-header" id="flush-headingTwo">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                        Accordion Item #2
+                      </button>
+                    </h2>
+                    <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+                      <p class="accordion-body">Lorem, ipsum. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Provident molestias maiores necessitatibus pariatur. Quaerat eum, quibusdam corporis natus tempore repellendus aliquam velit quia, debitis at ipsum rerum rem adipisci! Perspiciatis.</p>
+                    </div>
+                  </div>
+                  <div class="accordion-item">
+                    <h2 class="accordion-header" id="flush-headingThree">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+                        Accordion Item #3
+                      </button>
+                    </h2>
+                    <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+                      <p class="accordion-body">Lorem, ipsum. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Provident molestias maiores necessitatibus pariatur. Quaerat eum, quibusdam corporis natus tempore repellendus aliquam velit quia, debitis at ipsum rerum rem adipisci! Perspiciatis.</p>
+                    </div>
+                  </div>
+                  <div class="accordion-item">
+                    <h2 class="accordion-header" id="flush-headingFour">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseThree">
+                        Accordion Item #4
+                      </button>
+                    </h2>
+                    <div id="flush-collapseFour" class="accordion-collapse collapse" aria-labelledby="flush-headingFour" data-bs-parent="#accordionFlushExample">
+                        <p class="accordion-body">Lorem, ipsum. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Provident molestias maiores necessitatibus pariatur. Quaerat eum, quibusdam corporis natus tempore repellendus aliquam velit quia, debitis at ipsum rerum rem adipisci! Perspiciatis.</p>
+                    </div>
+                  </div>
+                  <div class="accordion-item">
+                    <h2 class="accordion-header" id="flush-headingFive">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFive" aria-expanded="false" aria-controls="flush-collapseThree">
+                        Accordion Item #5
+                      </button>
+                    </h2>
+                    <div id="flush-collapseFive" class="accordion-collapse collapse" aria-labelledby="flush-headingFive data-bs-parent="#accordionFlushExample">
+                      <p class="accordion-body">Lorem, ipsum. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Provident molestias maiores necessitatibus pariatur. Quaerat eum, quibusdam corporis natus tempore repellendus aliquam velit quia, debitis at ipsum rerum rem adipisci! Perspiciatis.</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-pone">
+                  <img width="280" src="{{asset('frontend/image/phone.jpg')}}" alt="">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </section>
+
     <div id="gallery" class="gallery-wrap-layout3">
         <div class="section-heading style-four">
             <h2 class="title wow fadeInUp animated" data-wow-delay="0.2s" data-wow-duration="1s">{{__('Gallery')}}</h2>

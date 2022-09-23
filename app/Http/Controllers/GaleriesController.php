@@ -142,7 +142,7 @@ class GaleriesController extends Controller
             $img1->save($tmpFilePath . $hardPath . '-d.png');
             $galeries->image = $hardPath;
             $image_path = public_path() . '/upload/galeries/' . $del_img . '-d.png';
-            unlink($image_path);
+            // unlink($image_path);
         }
 
         $galeries->user_id = $inputs['user_id'];
