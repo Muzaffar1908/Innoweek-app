@@ -83,6 +83,8 @@ class PartnerController extends Controller
             $partners = new Partner();
         }
 
+
+
         $image = $request->file('image');
         if ($image) {
             $tmpFilePath = 'upload/partners/';
@@ -91,11 +93,12 @@ class PartnerController extends Controller
             $img1 = Image::make($image);
             $img1->save($tmpFilePath . $hardPath . '-d.png');
             $partners->image = $hardPath;
+
         }
 
-        $partners->user_id = $inputs['user_id']; 
-        $partners->archive_id = $inputs['archive_id']; 
-        $partners->image_url = $inputs['image_url']; 
+        $partners->user_id = $inputs['user_id'];
+        $partners->archive_id = $inputs['archive_id'];
+        $partners->image_url = $inputs['image_url'];
         $partners->save();
 
         if (!empty($inputs['id'])) {
@@ -180,13 +183,13 @@ class PartnerController extends Controller
             $img1 = Image::make($image);
             $img1->save($tmpFilePath . $hardPath . '-d.png');
             $partners->image = $hardPath;
-            $image_path = public_path() . '/upload/galeries/' . $del_img . '-d.png';
-            // unlink($image_path);
+            $image_path = public_path() . '/upload/partners/' . $del_img . '-d.png';
+             unlink($image_path);
         }
 
-        $partners->user_id = $inputs['user_id']; 
-        $partners->archive_id = $inputs['archive_id']; 
-        $partners->image_url = $inputs['image_url']; 
+        $partners->user_id = $inputs['user_id'];
+        $partners->archive_id = $inputs['archive_id'];
+        $partners->image_url = $inputs['image_url'];
         $partners->save();
 
         if (!empty($inputs['id'])) {
