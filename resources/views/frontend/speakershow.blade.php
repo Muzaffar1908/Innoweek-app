@@ -20,10 +20,10 @@ sticky
           <div class="speaker-single-box">
             <div class="content-box wow fadeInRight animated" data-wow-delay="0.3s" data-wow-duration="1s">
               <div>
-                <h2 class="title">{!!$speakers->{'full_name_'.App::getLocale()}!!}</h2>
-                <div class="sub-title">{!!$speakers->{'job_'.App::getLocale()}!!}</div>
+                <h2 class="title">{{$speakers->title}}</h2>
+                <div class="sub-title">{{$speakers->job}}</div>
                 <p class="description">
-                    {{strip_tags($speakers->{'description_'.App::getLocale()})}}
+                    {{strip_tags($speakers->text)}}
 
                 </p>
                 <ul class="social">

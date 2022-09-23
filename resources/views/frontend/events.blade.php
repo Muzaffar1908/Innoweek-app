@@ -38,11 +38,11 @@
                             @foreach($eventresent as $recent)
                             <div class="single-post">
                                 <div class="figure-box">
-                                    <a href="{{route('newsshowx',['id'=>$recent->id])}}" class="link-item"><img width="150"
+                                    <a href="{{route('eventshowx',['id'=>$recent->id])}}" class="link-item"><img width="150"
                                             src="{{asset('upload/news/'.$recent->user_image.'-d.png')}}" alt="Post"></a>
                                 </div>
                                 <div class="content-box">
-                                    <h3 class="entry-title"><a href="{{route('newsshowx',['id'=>$recent->id])}}">{{$recent->title}}</a></h3>
+                                    <h3 class="entry-title"><a href="{{route('eventshowx',['id'=>$recent->id])}}">{{$recent->title}}</a></h3>
                                     <div class="entry-date"> {{$recent->created_at}}</div>
                                 </div>
                             </div>

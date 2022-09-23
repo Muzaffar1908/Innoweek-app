@@ -1,6 +1,6 @@
 <div class="offcanvas-menu-wrap" id="offcanvas-wrap" data-position="right">
     <div class="offcanvas-header">
-      <span class="header-text">Close</span>
+      <span class="header-text">{{__('Close')}}</span>
       <button type="button" class="offcanvas-menu-btn menu-status-close offcanvas-close">
         <span class="menu-btn-icon">
             <span></span>
@@ -12,42 +12,42 @@
     <div class="offcanvas-content">
 
     <div class="tab-content">
-      <h5 class="top-content">Tizimda ro'yxatdan o'tish uchun quyida ko'rsatilgan maydonlarni to'ldiring</h5>
+      <h5 class="top-content">{{__('Fill in the fields below to register in the system')}}</h5>
       <div class="tab">
         <button class="tablinks" id="defaultOpen" onclick="openCity(event, 'res')">Resident</button>
         <button class="tablinks" onclick="openCity(event, 'nores')">No Resident</button>
       </div>
       
       <div id="res" class="tabcontent">
-        <form class="box " action="./regpanel.html">
+        <form class="box " action="{{route('d-verify')}}">
           <div class="input-names">
-              <input class="name" type="text" placeholder="Ism" autocomplete="off" required>
-              <input class="surname" type="text" placeholder="Familya" autocomplete="off" required>
+              <input class="name" type="text" placeholder="{{__('Firstname')}}" autocomplete="off" required>
+              <input class="surname" type="text" placeholder="{{__('Lastname')}}" autocomplete="off" required>
           </div>
-          <input id="emailOrNumber" type="text" name="email" placeholder="Email yoki telefon "
+          <input id="emailOrNumber" type="text" name="email" placeholder="{{__('Email or Phone')}} "
           autocomplete="off" required>
           
-          <input class="form-control" type="datetime-local" autocomplete="off" required placeholder="kun/oy/yil"/>
+          <input class="form-control" type="datetime-local" autocomplete="off" required placeholder="{{__('day/month/year')}}"/>
           
           
           <div class="input-radio">
-              <label for="gender">Jinsi:</label>
+              <label for="gender">{{__('JINSI')}}:</label>
               <div class="d-flex-radio">
-                  <input type="radio" name="Gender" id="gender"><label>Ayol</label>
-                  <input type="radio" name="Gender" id="gender"><label>Erkak</label>
+                  <input type="radio" name="Gender" id="gender"><label>{{__('AYOL')}}</label>
+                  <input type="radio" name="Gender" id="gender"><label>{{__('ERKAK')}}</label>
               </div>
           </div>
-          <button type="submit" class="btnB btn-input">Ro'yxatdan o'tish</button>
+          <button type="submit" class="btnB btn-input">{{__('Sign up')}}</button>
       </form>
       </div>
       
       <div id="nores" class="tabcontent">
-        <form class="box " action="./regpanel.html">
+        <form class="box " action="{{route('d-verify')}}">
           <div class="input-names">
-              <input class="name" type="text" placeholder="Ism" autocomplete="off" required>
-              <input class="surname" type="text" placeholder="Familya" autocomplete="off" required>
+              <input class="name" type="text" placeholder="{{__('Firstname')}}" autocomplete="off" required>
+              <input class="surname" type="text" placeholder="{{__('Lastname')}}" autocomplete="off" required>
           </div>
-          <input id="emailOrNumber" type="text" name="email" placeholder="Email yoki telefon "
+          <input id="emailOrNumber" type="text" name="email" placeholder="{{__('Email or Phone')}}"
           autocomplete="off" required>
 
           <select name="country" id="country">
@@ -64,19 +64,19 @@
             <option value="5">Developer</option>
           </select>
 
-          <input id="emailOrNumber" type="text" name="email" placeholder="Required"
+          <input id="comment" type="text" name="text" placeholder="Required"
           autocomplete="off" required>
           
-          <input class="form-control" type="datetime-local" autocomplete="off" required placeholder="kun/oy/yil"/>
+          <input class="form-control" type="datetime-local" autocomplete="off" required placeholder="{{__('day/month/year')}}"/>
 
           <div class="input-radio">
-            <label for="gender">Jinsi:</label>
+            <label for="gender">{{__('JINSI')}}:</label>
             <div class="d-flex-radio">
-                <input type="radio" name="Gender" id="gender"><label>Ayol</label>
-                <input type="radio" name="Gender" id="gender"><label>Erkak</label>
+                <input type="radio" name="Gender" id="gender"><label>{{__('AYOL')}}</label>
+                <input type="radio" name="Gender" id="gender"><label>{{__('ERKAK')}}</label>
             </div>
         </div>
-          <button type="submit" class="btnB btn-input">Ro'yxatdan o'tish</button>
+          <button type="submit" class="btnB btn-input">{{__('Sign up')}}</button>
       </form> 
       </div>
     </div>
