@@ -1,4 +1,4 @@
-div@extends('layouts.main')
+@extends('layouts.main')
 @section('sticky')
     sticky
 @endsection
