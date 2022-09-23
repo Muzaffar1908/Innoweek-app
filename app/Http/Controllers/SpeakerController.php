@@ -254,6 +254,8 @@ class SpeakerController extends Controller
         } else {
             $speakers = new Speakers;
         }
+        $del_img = $speakers->image;
+
         $speakers->user_id = $inputs['user_id'];
         $speakers->archive_id = $inputs['archive_id'];
         $speakers->full_name_uz = $inputs['full_name_uz'];
@@ -278,6 +280,8 @@ class SpeakerController extends Controller
 //            $img->fit(360, 640)->save($tmpFilePath.$hardPath.'-m.png');
             $img1->save($tmpFilePath.$hardPath.'-d.png');
             $speakers->image = $hardPath;
+            $image_path = public_path() . '/upload/speaker/' . $del_img . '-d.png';
+            unlink($image_path);
         }
 
         if (!empty($speakers->description_uz)) {
@@ -365,7 +369,12 @@ class SpeakerController extends Controller
      */
     public function destroy($id)
     {
-        Speakers::destroy($id);
+
+        $speakers = Speakers::findOrFail($id);
+        $image_path = public_path() . '/upload/speaker/' . $speakers->image . '-d.png';
+        unlink($image_path);
+        $speakers->delete();
+
         return redirect('admin/speakers')->with('warning', 'SPEAKER_TABLES_DELETED');
     }
 }
