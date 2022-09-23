@@ -69,24 +69,21 @@ class PageController extends Controller
     public function newsShow($id)
     {
         // $innoweeks = Innoweek::first();
-
         $lang = \App::getLocale();
 
-        $news = News::select('id', 'title_'. $lang . ' as title', 'user_image', DB::raw('SUBSTRING(`description_' . $lang . '`, 1, 255) as text'))->take(1)->get();
-        $newsx = News::select('id', 'title_'. $lang . ' as title', 'user_image')->orderBy('created_at', 'desc')->take(5)->get();
+        $news = News::select('id', 'title_'. $lang . ' as title', 'user_image', DB::raw('SUBSTRING(`description_' . $lang . '`, 1, 255) as text'), 'created_at')->orderBy('created_at', 'DESC')->take(10)->get();
+        $newsresent = News::select('id', 'user_image', 'title_' . $lang . ' as title', 'created_at')->orderBy('created_at', 'desc')->take(5)->get();
+        return view('frontend.newshow', ['news' => $news, 'newsresent' => $newsresent]);
 
-        return view('frontend.newshow', compact('news', 'newsx'));
     }
 
     public function eventShow($id)
     {
-        $lang = \App::getLocale();  
+        $lang = \App::getLocale();
 
-        $events = Conference::where(['id' => $id])->first();
-
-        $eventsrecent = Conference::orderBy('created_at', 'desc')->paginate(5);
-
-        return view('frontend.eventshow', compact('events',  'eventsrecent'));
+        $events = News::select('id', 'title_'. $lang . ' as title', 'user_image', DB::raw('SUBSTRING(`description_' . $lang . '`, 1, 255) as text'), 'created_at')->orderBy('created_at', 'DESC')->take(10)->get();
+        $eventresent = News::select('id', 'user_image', 'title_' . $lang . ' as title', 'created_at')->orderBy('created_at', 'desc')->take(5)->get();
+        return view('frontend.eventshow', ['events' => $events, 'eventresent' => $eventresent]);
     }
 
     public function speakerShow($id)
@@ -113,9 +110,9 @@ class PageController extends Controller
         // return view('frontend.events', ['conference' => $conference,'conferencesrecent'=>$conferencesrecent]);
         $lang = \App::getLocale();
 
-        $news = News::select('id', 'title_'. $lang . ' as title', 'user_image', DB::raw('SUBSTRING(`description_' . $lang . '`, 1, 255) as text'), 'tags', 'created_at')->where('cat_id', 2)->orderBy('created_at', 'DESC')->take(10)->get();
-        $newsresent = News::select('id', 'user_image', 'title_' . $lang . ' as title', 'created_at')->where('cat_id', 2)->orderBy('created_at', 'desc')->take(5)->get();
-        return view('frontend.events', ['news' => $news, 'newsresent' => $newsresent]);
+        $events = News::select('id', 'title_'. $lang . ' as title', 'user_image', DB::raw('SUBSTRING(`description_' . $lang . '`, 1, 255) as text'), 'tags', 'created_at')->where('cat_id', 2)->orderBy('created_at', 'DESC')->take(10)->get();
+        $eventresent = News::select('id', 'user_image', 'title_' . $lang . ' as title', 'created_at')->where('cat_id', 2)->orderBy('created_at', 'desc')->take(5)->get();
+        return view('frontend.events', ['events' => $events, 'eventresent' => $eventresent]);
     }
 
     public function news()
@@ -123,7 +120,7 @@ class PageController extends Controller
         $lang = \App::getLocale();
 
         $news = News::select('id', 'title_'. $lang . ' as title', 'user_image', DB::raw('SUBSTRING(`description_' . $lang . '`, 1, 255) as text'), 'tags', 'created_at')->where('cat_id', 1)->orderBy('created_at', 'DESC')->take(10)->get();
-        $newsresent = News::select('id', 'user_image', 'title_' . $lang . ' as title', 'created_at')->where('cat_id', 2)->orderBy('created_at', 'desc')->take(5)->get();
+        $newsresent = News::select('id', 'user_image', 'title_' . $lang . ' as title', 'created_at')->where('cat_id', 1)->orderBy('created_at', 'desc')->take(5)->get();
         return view('frontend.news', ['news' => $news, 'newsresent' => $newsresent]);
     }
 }

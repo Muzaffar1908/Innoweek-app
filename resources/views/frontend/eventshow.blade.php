@@ -13,15 +13,15 @@
                 <div class="col-lg-8">
                     <div class="event-single-box">
                         <div class="figure-box wow fadeInUp animated" data-wow-delay="0.2s" data-wow-duration="1s">
-                            <img src="{{asset('/upload/conference/'.$events->user_image.'-d.png')}}" alt="Event">
+                            <img src="{{asset('/upload/news/'.$events->user_image.'-d.png')}}" alt="Event">
                         </div>
                         <div class="content-box">
                             <div class="sub-title wow fadeInUp animated" data-wow-delay="0.3s" data-wow-duration="1s">
-                                {{$events->started_at}}</div>
+                                {{$events->created_at}}</div>
                             <h2 class="title wow fadeInUp animated" data-wow-delay="0.4s"
-                                data-wow-duration="1s">{!!$events->{'title_'.App::getLocale()}!!}</h2>
+                                data-wow-duration="1s">{{$events->title}}</h2>
                             <p class="description wow fadeInUp animated" data-wow-delay="0.5s" data-wow-duration="1s">
-                                {{strip_tags($events->{'description_'.App::getLocale()})}}
+                                {{strip_tags($events->text)}}
 
                             </p>
                         </div>
@@ -34,17 +34,17 @@
                             <h3 class="title">{{__('Recent News')}}</h3>
                         </div>
                         <div class="widget-recent-post">
-                            @foreach($eventsrecent as $item)
+                            @foreach($eventresent as $item)
                                 <div class="single-post">
                                     <div class="figure-box">
                                         <a href="{{route('eventshowx', ['id' => $item])}}" class="link-item"><img
-                                                width="150" src="{{asset("upload/conference/".$item->user_image.'-d.png')}}" alt="Post"></a>
+                                                width="150" src="{{asset("upload/news/".$item->user_image.'-d.png')}}" alt="Post"></a>
                                     </div>
                                     <div class="content-box">
                                         <h3 class="entry-title"><a
-                                                href="{{route('eventshowx', ['id' => $item])}}"></a>{!! substr($item->{'title_'.App::getLocale()},0,90).'...' !!}
+                                                href="{{route('eventshowx', ['id' => $item])}}"></a>{{$item->title}}
                                         </h3>
-                                        <div class="entry-date">{{$item->started_at}}</div>
+                                        <div class="entry-date">{{$item->created_at}}</div>
                                     </div>
                                 </div>
                             @endforeach
