@@ -30,14 +30,14 @@ sticky
               <h3 class="title">{{__('Recent News')}}</h3>
             </div>
             <div class="widget-recent-post">
-              @foreach($newsx as $item)
+              @foreach($newsresent as $item)
                 <div class="single-post">
                   <div class="figure-box">
-                    <a href="{{route('newsshowx', ['id' => $item->id])}}" class="link-item"><img src="{{asset('/upload/news/'.$item->user_image.'-d.png')}}" alt="Speaker" width="267" height="267"></a>
+                    <a href="{{route('newsshowx', ['id' =>$item->id])}}" class="link-item"><img src="{{asset('/upload/news/'.$item->user_image.'-d.png')}}" alt="Speaker" width="267" height="267"></a>
                   </div>
                   <div class="content-box">
                     <h3 class="entry-title"><a href="{{route('newsshowx', ['id' => $item->id])}}"></a>{{$item->title}}</h3>
-                    <div class="entry-date"></div>
+                    <div class="entry-date">{{$item->created_at}}</div>
                   </div>
                 </div>
               @endforeach

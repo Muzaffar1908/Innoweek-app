@@ -37,12 +37,12 @@
                             @foreach($eventresent as $item)
                                 <div class="single-post">
                                     <div class="figure-box">
-                                        <a href="{{route('eventshowx', ['id' => $item])}}" class="link-item"><img
+                                        <a href="{{route('eventshowx', ['id' => $item->id])}}" class="link-item"><img
                                                 width="150" src="{{asset("upload/news/".$item->user_image.'-d.png')}}" alt="Post"></a>
                                     </div>
                                     <div class="content-box">
                                         <h3 class="entry-title"><a
-                                                href="{{route('eventshowx', ['id' => $item])}}"></a>{{$item->title}}
+                                                href="{{route('eventshowx', ['id' => $item->id])}}"></a>{{$item->title}}
                                         </h3>
                                         <div class="entry-date">{{$item->created_at}}</div>
                                     </div>
@@ -54,7 +54,7 @@
             </div>
 
             <div class="text-center">
-                {{$events->links()}}
+                {{-- {{$events->links()}} --}}
             </div>
 
         </div>

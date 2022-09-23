@@ -71,8 +71,8 @@ class PageController extends Controller
         // $innoweeks = Innoweek::first();
         $lang = \App::getLocale();
 
-        $news = News::select('id', 'title_'. $lang . ' as title', 'user_image', DB::raw('SUBSTRING(`description_' . $lang . '`, 1, 255) as text'), 'created_at')->orderBy('created_at', 'DESC')->take(10)->get();
-        $newsresent = News::select('id', 'user_image', 'title_' . $lang . ' as title', 'created_at')->orderBy('created_at', 'desc')->take(5)->get();
+        $news = News::select('id', 'title_'. $lang . ' as title', 'user_image', DB::raw('SUBSTRING(`description_' . $lang . '`, 1, 255) as text'), 'created_at')->where('cat_id', 1)->findOrFail($id)->first();
+        $newsresent = News::select('id', 'user_image', 'title_' . $lang . ' as title', 'created_at')->orderBy('created_at', 'desc')->where('cat_id', 1)->take(5)->get();
         return view('frontend.newshow', ['news' => $news, 'newsresent' => $newsresent]);
 
     }
@@ -81,14 +81,13 @@ class PageController extends Controller
     {
         $lang = \App::getLocale();
 
-        $events = News::select('id', 'title_'. $lang . ' as title', 'user_image', DB::raw('SUBSTRING(`description_' . $lang . '`, 1, 255) as text'), 'created_at')->findOrFail($id)->first();
-        $eventresent = News::select('id', 'user_image', 'title_' . $lang . ' as title', 'created_at')->orderBy('created_at', 'desc')->take(5)->get();
+        $events = News::select('id', 'title_'. $lang . ' as title', 'user_image', DB::raw('SUBSTRING(`description_' . $lang . '`, 1, 255) as text'), 'created_at')->where('cat_id', 2)->findOrFail($id)->first();
+        $eventresent = News::select('id', 'user_image', 'title_' . $lang . ' as title', 'created_at')->where('cat_id', 2)->orderBy('created_at', 'desc')->take(5)->get();
         return view('frontend.eventshow', ['events' => $events, 'eventresent' => $eventresent]);
     }
 
     public function speakerShow($id)
     {
-
         $speakers = Speakers::where(['id' => $id])->first();
 
         return view('frontend.speakershow', compact('speakers'));
@@ -120,7 +119,7 @@ class PageController extends Controller
         $lang = \App::getLocale();
 
         $news = News::select('id', 'title_'. $lang . ' as title', 'user_image', DB::raw('SUBSTRING(`description_' . $lang . '`, 1, 255) as text'), 'tags', 'created_at')->where('cat_id', 1)->orderBy('created_at', 'DESC')->paginate(2);
-        $newsresent = News::select('id', 'user_image', 'title_' . $lang . ' as title', 'created_at')->where('cat_id', 1)->orderBy('created_at', 'desc')->take(5)->get();
+        $newsresent = News::select('id', 'user_image', 'title_' . $lang . ' as title', 'created_at')->where('cat_id', 1)->orderBy('created_at', 'desc')->take(3)->get();
         return view('frontend.news', ['news' => $news, 'newsresent' => $newsresent]);
     }
 }
