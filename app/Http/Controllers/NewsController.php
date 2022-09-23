@@ -259,30 +259,13 @@ class NewsController extends Controller
             $news = new News;
         }
 
-        $user_image = $request->file('user_image');
-        if ($user_image) {
-            $tmpFilePath = 'uploads/news/';
-            $hardPath =  Str::slug('news', '-').'-'.'-'.md5(time());
-            $img = Image::make($user_image);
-            $img1 = Image::make($user_image);
-            $img->fit(1100, 550)->save($tmpFilePath.$hardPath.'-b.png');
-            $img1->fit(700, 530)->save($tmpFilePath.$hardPath.'-s.png');
-            // $saved = $tmpFilePath.$hardPath. '-s.jpg';
-            $news->user_image = $tmpFilePath.$hardPath;
-        }
 
-        $news->user_id = $inputs['user_id'];
-        $news->cat_id = $inputs['cat_id'];
-        $news->title_uz = $inputs['title_uz'];
-        $news->title_ru = $inputs['title_ru'];
-        $news->title_en = $inputs['title_en'];
-        // $news->user_image = $inputs['user_image'];
-        $news->tags = $inputs['tags'];
-        $news->description_uz = $inputs['description_uz'];
 
+
+        $del_img = $news->user_image;
         $image = $request->file('user_image');
 
-        $del_img = $image->user_image;
+
 
         if ($image) {
             $tmpFilePath = 'upload/news/';
@@ -385,8 +368,8 @@ class NewsController extends Controller
     public function destroy($id)
     {
         $news = News::findOrFail($id);
-        $image_path = public_path().'/'.$news->user_image;
-        // unlink($image_path);
+        $image_path = public_path() . '/upload/news/' . $news->user_image . '-d.png';
+        unlink($image_path);
         $news->delete();
         return redirect('admin/news')->with('warning','NEWS TABLES DELETED');
     }
