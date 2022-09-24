@@ -184,6 +184,11 @@ class AuthController extends Controller
         $user->email = $inputs['email'] ?? null;
         $user->phone = $inputs['phone'] ?? null;
         $user->birth_date = Carbon::parse($inputs['birth_date']);
+        $user->gender = $inputs['gender'] ?? 1;
+        $user->country_id = $request->has('country_id') && $inputs['country_id'] ? $inputs['country_id'] : null;
+        $user->profession_id = $request->has('profession_id') && $inputs['profession_id'] ? $inputs['profession_id'] : null;
+        $user->organization = $request->has('organization') && $inputs['organization'] ? $inputs['organization'] : null;
+        $user->birth_date = Carbon::parse($inputs['birth_date']);
         $user->password = Hash::make(Str::random(12));
 
         if (!empty($inputs['email'])) {
