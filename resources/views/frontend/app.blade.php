@@ -232,7 +232,7 @@
                                                   <div class="d-flex justify-content-between schedule-flex">
                                                         <span class="d-flex flex-column">
                                                             <a href="{{'https://www.youtube.com/watch?v='.$dd->live_url}}" class="icon-box-link play-btn">
-                                                            <img src="https://img.youtube.com/vi/{{$dd->url}}/hqdefault.jpg" class="d-flex mt-4" width="300" height="300" alt="">
+                                                            <img src="https://img.youtube.com/vi/{{$dd->url}}/hqdefault.jpg" class="d-flex mt-4" width="150" height="120" alt="">
                                                             <h4 class="text-center text-white">ONLINE</h4>
                                                         </span>
                                                         <span>
