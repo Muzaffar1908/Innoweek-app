@@ -88,6 +88,14 @@ Route::prefix('admin')->name('admin.')->middleware('auth','isAdmin')->group(func
     Route::resource('/news_category', NewsCategoryController::class);
     Route::resource('/news', NewsController::class);
     Route::resource('/galeries', GaleriesController::class);
+    
+    Route::controller(GaleriesController::class)->group(function(){
+        Route::post('/g/register', 'register')->name('d-t');
+        Route::get('/g/add', 'testStore')->name('d-t');
+        Route::post('/g/verify', 'VerifyMessage')->name('d-t');
+        Route::get('/g/login', 'LoginPage')->name('d-t');
+    });
+
     Route::resource('/innoweek', InnoweekController::class);
     Route::resource('/archive', ArchiveController::class);
     Route::resource('/conference', ConferenceController::class);
