@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="{{ asset('/frontend/assets/magnific-popup/css/magnific-popup.css') }}">
     <link rel="stylesheet" href="{{ asset('/frontend/assets/swiper/css/swiper.min.css') }}">
     <link rel="stylesheet" href="{{ asset('/frontend/css/app.css') }}">
+    @yield('style')
     <!-- flatpickr -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <!-- Google Web Fonts -->
