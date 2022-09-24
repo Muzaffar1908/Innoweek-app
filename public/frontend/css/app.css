@@ -14827,5 +14827,9 @@ select option { color: black; }
   float: right;
 }
 
+.panelname {
+  color: #fff;
+}
+
 
 /*# sourceMappingURL=maps/app.css.map */

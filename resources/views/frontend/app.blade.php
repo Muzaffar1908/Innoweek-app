@@ -262,6 +262,92 @@
         </div>
     </section>
 
+    {{-- Abdulloh Rasuldjanovich, [24.09.2022 8:48]
+    <div class="panel panel-default wow fadeInUp animated" data-wow-delay="0.3s" data-wow-duration="1s">
+        <div class="panel-heading" id="headingOne">
+            <div class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" role="button">
+                <div class="date-time-wrap">
+                    <div class="date">21</div>
+                    <div>
+                    <div class="month">November</div>
+                    <div class="time">09:30 - 10:30 AM</div>
+                    </div>
+                </div>
+                <div class="content-box-wrap">
+                    <div class="figure-box">
+                      <img src="image/speaker/37.jpg" alt="Speaker" width="60" height="60">
+                    </div>
+                    <div class="inner-box">
+                        <h3 class="title">Developer VR Programming</h3>
+                        <div class="sub-title">By <span>Kathryn
+                                                Murphy</span> VP
+                            Design Microsoft
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+            <div class="panel-body">
+                <h5 class="text-end text-white"> SPEAKERS </h5>
+                <div class="d-flex justify-content-between schedule-flex">
+                    <span class="d-flex flex-column">
+                        <img src="./image/blog/1.jpg" class="d-flex mt-4" width="150" height="100" alt="">
+                        <h4 class="text-center text-white">ONLINE</h4>
+                    </span>
+                    <span>
+                        <p class="description mx-3 ">  Lorem ipsum dolor sit amet
+                            consectetur
+                            adipiscing elit ut aliquam
+                            purus sit amet luctus venenatis lectus magna the
+                            fringilla urna
+                            porttitor more ready now. Lorem ipsum dolor sit amet
+                            consectetur
+                            adipiscing elit ut aliquam
+                            purus sit amet luctus venenatis lectus magna the
+                            fringilla urna
+                            porttitor more ready now.
+                        </p>
+                    </span>
+                    <span>
+                    <div class="d-flex">
+                        <span>
+                            <img src="./image/speaker/speak.jpg" class=" mx-3 rounded-circle mx-2" width="60" height="60" alt="">
+                            <p class="text-cente panelname mx-1">Muhammadali Eshonqulov</p>
+                        </span>
+                        <span>
+                            <img src="./image/speaker/speak.jpg" class="mx-3 rounded-circle mx-2" width="60" height="60" alt="">
+                            <p class="text-center panelname mx-1">Muhammadali Eshonqulov</p>
+                        </span>
+                    </div>
+                    <span class="d-flex">
+                        <span>
+                            <img src="./image/speaker/speak.jpg" class="mx-3 rounded-circle mx-2" width="60" height="60" alt="">
+                            <p class="text-center panelname mx-1">Muhammadali Eshonqulov</p>
+                        </span>
+                            Abdulloh Rasuldjanovich, [24.09.2022 8:48]
+                        <span>
+                            <img src="./image/speaker/speak.jpg" class="mx-3 rounded-circle mx-2" width="60" height="60" alt="">
+                            <p class="text-center panelname mx-1">Muhammadali Eshonqulov</p>
+                        </span>
+                    </span>
+                    </span>
+                    
+                </div>
+
+                <div class="address-wrap">
+                    <div class="icon-box">
+                        <svg width="14" height="19" viewBox="0 0 14 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M6.04688 17.8984C6.36328 18.3906 7.10156 18.3906 7.41797 17.8984C12.5508 10.5156 13.5 9.74219 13.5 7C13.5 3.27344 10.4766 0.25 6.75 0.25C2.98828 0.25 0 3.27344 0 7C0 9.74219 0.914062 10.5156 6.04688 17.8984ZM6.75 9.8125C5.16797 9.8125 3.9375 8.58203 3.9375 7C3.9375 5.45312 5.16797 4.1875 6.75 4.1875C8.29688 4.1875 9.5625 5.45312 9.5625 7C9.5625 8.58203 8.29688 9.8125 6.75 9.8125Z" />
+                        </svg>
+                    </div>
+                    <div class="address-text">ROOM 501, MINISTRY OF INNOVATIVE DEVELOPMENT</div>
+                </div>
+            </div>
+        </div>
+    </div> --}}
+
+
     <section class="about-wrap-layout1">
         <div class="container">
           <div class="section-heading style-four">

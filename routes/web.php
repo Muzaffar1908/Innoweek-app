@@ -37,6 +37,10 @@ Route::get('/welcome', function () {
     return view('welcome');
 });
 
+Route::get('/info/privacy', function () {
+    return view('private');
+});
+
 Route::get('locale/{locale}', function ($locale) {
     Session::put('locale', $locale);
     return redirect()->back();
