@@ -63,7 +63,7 @@
                                             <td>{{$galerie->galleryTable->first_name}}</td>
                                             <td>{{$galerie->galleyarchiveTable->year}}</td>
                                             <td>
-                                                <img src="{{asset('upload/galeries/' .$galerie->image.'-d.png')}}" alt="img" with="100px" height="60px">
+                                                <img src="{{asset('/upload/gallery/' . $galerie->image.'_big_1920.png')}}" alt="img" with="100px" height="60px">
                                             </td>
                                             
                                             <td>

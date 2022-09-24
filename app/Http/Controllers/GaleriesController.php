@@ -45,18 +45,6 @@ class GaleriesController extends Controller
         ]);
     }
 
-    public function testStore(Request $request)
-    {
-        $imagine = new \Imagine\Gd\Imagine();
-        $image = $imagine->open('C:\Users\oktam\Downloads\Telegram Desktop\1.png');
-        $thumbnail = $image->thumbnail(new \Imagine\Image\Box(450, 250));
-        $thumbnail->save('C:\Users\oktam\Downloads\Telegram Desktop\example.1.png');
-        return redirect()->back();
-        // $img = Image::make('C:\Users\oktam\Downloads\Telegram Desktop\113Fon uchun.jpg')->resize(180);
-        // $img->save('C:\Users\oktam\Downloads\Telegram Desktop\d-d.png');
-        // return redirect()->back();
-    }
-
     public function store(Request $request)
     {
         $data = $request->except(array('_token'));
@@ -72,7 +60,7 @@ class GaleriesController extends Controller
 
         $inputs = $request->all();
         if (!empty($inputs['id'])) {
-            $galeries = galeries::findOrFail($inputs['id']);
+            $galeries = Galeries::findOrFail($inputs['id']);
         } else {
             $galeries = new Galeries();
         }
@@ -87,8 +75,6 @@ class GaleriesController extends Controller
             $thumbnail->save($tmpFilePath . $hardPath . '_thumbnail_450.png');
             $bigImg = $image->thumbnail(new \Imagine\Image\Box(1920, 1080));
             $bigImg->save($tmpFilePath . $hardPath . '_big_1920.png');
-            // $img1 = Image::make($image);
-            // $img1->save($tmpFilePath . $hardPath . '-d.png');
             $galeries->image = $hardPath;
         }
 
@@ -98,10 +84,10 @@ class GaleriesController extends Controller
 
         if (!empty($inputs['id'])) {
             Session::flash('warning', __('ALL_CHANGES_SUCCESSFUL_SAVED'));
-            return redirect()->back();
+            return redirect('admin/galeries');
         } else {
             Session::flash('warning', __('ALL_SUCCESSFUL_SAVED'));
-            return redirect()->back();
+            return redirect('admin/galeries');
         }
     }
 
@@ -118,20 +104,14 @@ class GaleriesController extends Controller
         ]);
     }
 
-    public function update(Request $request, Galeries $galery)
+    public function update(Request $request, Galeries $galeries)
     {
         $data = $request->except(array('_token'));
         $rule = array(
             'image' => 'required',
         );
 
-        if (!file_exists('upload/galeries')) {
-            mkdir('upload/galeries', 0777, true);
-        }
-
-
         $validator = Validator::make($data, $rule);
-
         if ($validator->fails()) {
             Session::flash('warning', $validator->messages());
             return redirect()->back();
@@ -139,23 +119,22 @@ class GaleriesController extends Controller
 
         $inputs = $request->all();
         if (!empty($inputs['id'])) {
-            $galeries = galeries::findOrFail($inputs['id']);
+            $galeries = Galeries::findOrFail($inputs['id']);
         } else {
             $galeries = new Galeries();
         }
 
-        $del_img = $galeries->image;
-
         $image = $request->file('image');
         if ($image) {
-            $tmpFilePath = 'upload/galeries/';
-            $hardPath = Str::slug('galeries', '-') . '-' . '-' . md5(time());
-//            $img = Image::make($image);
-            $img1 = Image::make($image);
-            $img1->save($tmpFilePath . $hardPath . '-d.png');
+            $tmpFilePath = 'upload/gallery/';
+            $hardPath = Str::slug('gallery_', '-') . '-' . '-' . md5(time());
+            $imagine = new \Imagine\Gd\Imagine();
+            $image = $imagine->open($image);
+            $thumbnail = $image->thumbnail(new \Imagine\Image\Box(450, 250));
+            $thumbnail->save($tmpFilePath . $hardPath . '_thumbnail_450.png');
+            $bigImg = $image->thumbnail(new \Imagine\Image\Box(1920, 1080));
+            $bigImg->save($tmpFilePath . $hardPath . '_big_1920.png');
             $galeries->image = $hardPath;
-            $image_path = public_path() . '/upload/galeries/' . $del_img . '-d.png';
-            // unlink($image_path);
         }
 
         $galeries->user_id = $inputs['user_id'];
