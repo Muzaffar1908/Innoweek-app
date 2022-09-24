@@ -28,7 +28,7 @@ class PageController extends Controller
         $lang = \App::getLocale();
         $news = News::select('id', 'title_'. $lang . ' as title', 'user_image')->where('cat_id', 1)->orderBy('created_at', 'DESC')->take(3)->get();
         $news_event = News::select('id', 'user_image', 'title_' . $lang . ' as title', DB::raw('SUBSTRING(`description_' . $lang . '`, 1, 70) as text'))->where('cat_id', 2)->orderBy('created_at', 'DESC')->take(5)->get();
-        $speakers = Speakers::select('id', 'image', 'full_name_' . $lang . ' as name', DB::raw('SUBSTRING(`description_' . $lang . '`, 1, 255) as text'), 'facebook_ur', 'twitter_url', 'linkedin_url', 'youtube_url')->orderBy('created_at', 'DESC')->take(5)->get();
+        $speakers = Speakers::select('id', 'image', 'full_name_' . $lang . ' as name', DB::raw('SUBSTRING(`description_' . $lang . '`, 1, 255) as text'), 'facebook_ur', 'twitter_url', 'linkedin_url', 'youtube_url')->orderBy('created_at', 'DESC')->take(6)->get();
         $galleries = Galeries::select('id', 'image')->orderBy('created_at', 'DESC')->take(12)->get();
         $partners = Partner::select('id', 'image', 'image_url')->orderBy('created_at', 'DESC')->take(10)->get();
         // $innoweeks = Innoweek::first();

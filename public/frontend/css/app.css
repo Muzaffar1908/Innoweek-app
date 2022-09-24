@@ -14831,5 +14831,13 @@ select option { color: black; }
   color: #fff;
 }
 
+@media (max-width: 575px) {
+  .accordion-flush{
+    width: 100%;
+  }
+  .accordion-pone{
+    display: none;
+  }
+}
 
 /*# sourceMappingURL=maps/app.css.map */
