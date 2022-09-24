@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -53,55 +54,113 @@
                         <img width="70px" src="{{ asset('/assets/images/min.webp') }}" alt="">
                         <img width="130px" src="{{ asset('/assets/images/logo.webp') }}" alt="">
                     </div>
-                    <form class="box" action="{{ route('m-register-form') }}" method="POST">
-                        @csrf
-                        @if (count($errors) > 0)
-                        <div class="alert alert-danger">
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
-                                    aria-hidden="true">&times;</span></button>
-                            <ul>
-                                @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                        </div>
-                        @endif
-                        @if (session('warning'))
-                        <div class="col-md-12">
-                            <div class="alert alert-info alert-has-icon">
-                                <div class="alert-icon">
-                                    <i class="far fa-lightbulb"></i>
-                                </div>
-                                <div class="alert-body">
-                                    <div class="alert-title">Info</div>
-                                    {{ session('warning') }}
-                                </div>
+                    @if (count($errors) > 0)
+                    <div class="alert alert-danger">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+                                aria-hidden="true">&times;</span></button>
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                    @endif
+                    @if (session('warning'))
+                    <div class="col-md-12">
+                        <div class="alert alert-info alert-has-icon">
+                            <div class="alert-icon">
+                                <i class="far fa-lightbulb"></i>
+                            </div>
+                            <div class="alert-body">
+                                <div class="alert-title">Info</div>
+                                {{ session('warning') }}
                             </div>
                         </div>
-                        @endif
-                        <h5>{{__("Tizimda ro'yxatdan o'tish uchun quyida ko'rsatilgan maydonlarni to'ldiring")}}}</h5>
-                        <div class="input-names">
-                            <input class="name" name="first_name"  type="text" placeholder="Ism" autocomplete="on" required autofocus>
-                            <input class="surname" name="last_name" type="text" placeholder="Familya" autocomplete="on" required>
-                        </div>
-                        <input id="emailOrNumber" type="text" name="phone_or_email" placeholder="{{__('Email or Phone')}} "
-                            autocomplete="on" required>
+                    </div>
+                    @endif
+                    <h5>{{__("Tizimda ro'yxatdan o'tish uchun quyida ko'rsatilgan maydonlarni to'ldiring")}}}</h5>
+                    <div class="tab">
+                        <button class="tablinks" id="defaultOpen" onclick="openCity(event, 'res')">{{
+                            __('Resident')}}</button>
+                        <button class="tablinks" onclick="openCity(event, 'nores')">{{ __('No Resident')}}</button>
+                    </div>
+                    <div id="res" class="tabcontent">
+                        <form class="box" action="{{ route('m-register-form') }}" method="POST">
+                            @csrf
+                            <div class="input-names">
+                                <input class="name" name="first_name" type="text" placeholder="{{__('Firstname')}} *"
+                                    autocomplete="on" required autofocus>
+                                <input class="surname" name="last_name" type="text" placeholder="{{__('Lastname')}} *"
+                                    autocomplete="on" required>
+                            </div>
+                            <input id="emailOrNumber" type="text" name="phone_or_email" placeholder="{{__('Email or Phone')}} *"
+                                autocomplete="off" required>
+                            <input id="datepicker" name="birth_date"  type="text" autocomplete="off" required
+                                placeholder="{{__('Date of birth')}} *" />
+                            <div class="input-radio">
+                                <label for="gender">{{__('JINSI')}}:</label>
+                                <div class="d-flex-radio">
+                                    <input type="radio" name="gender" value="1" id="gender"
+                                        checked><label>{{__('ERKAK')}}</label>
+                                    <input type="radio" name="gender" value="2"
+                                        id="gender"><label>{{__('AYOL')}}</label>
+                                </div>
+                            </div>
+                            <button type="submit" class="btnB btn-input">{{__('Sign up')}}</button>
+                        </form>
+                        <a href="{{ route('m-login') }}" class="dnthave">{{__('LOGIN')}}</a>
+                    </div>
 
-                            <input id="datepicker" name="birth_date" type="text" autocomplete="on" required placeholder="kun/oy/yil" />
-                        <div class="input-radio">
-                            <label for="gender">{{__('JINSI')}}:</label>
-                            <div class="d-flex-radio">
-                                <input name="gender" type="radio" id="gender" value="1"><label>{{__('AYOL')}}</label>
-                                <input name="gender" type="radio" id="gender" value="2"><label>{{_('Erkak')}}</label>
+                    <div id="nores" class="tabcontent">
+                        <form class="box" action="{{ route('m-register-form') }}" method="POST">
+                            @csrf
+                            <div class="input-names">
+                                <input class="name" name="first_name" type="text" placeholder="{{__('Firstname')}} *"
+                                    autocomplete="on" required autofocus>
+                                <input class="surname" name="last_name" type="text" placeholder="{{__('Lastname')}} *"
+                                    autocomplete="on" required>
                             </div>
-                        </div>
-                        <button type="submit" class="btnB btn-input">{{__('Sign up')}}</button>
-                    </form>
-                    <a href="{{ route('m-login') }}" class="dnthave">{{__('LOGIN')}}</a>
+                            <input id="emailOrNumber" type="email" name="phone_or_email" placeholder="{{__('Email')}} *"
+                                autocomplete="off" required>
+                            <input id="datepicker" name="birth_date" type="text" autocomplete="off" required
+                                placeholder="{{__('Date of birth')}} *" />
+
+                            <select name="country_id" id="country" required>
+                                <option selected>{{ __('Choose your country')}} *</option>
+                                <option value="1">Uzbekistan</option>
+                                <option value="1">Uzbekistan</option>
+                                <option value="2">Russia</option>
+                                <option value="3">Usa</option>
+                                <option value="4">Paris</option>
+                            </select>
+
+                            <select name="profession_id" id="profesion">
+                                <option selected>{{('Choose your profession')}} *</option>
+                                <option value="1">Director</option>
+                                <option value="2">Programmer</option>
+                                <option value="4">Engineer</option>
+                                <option value="5">Developer</option>
+                            </select>
+                            <input id="organization" type="text" name="organization" placeholder="organization"
+                                autocomplete="off">
+                            <div class="input-radio">
+                                <label for="gender">Jinsi:</label>
+                                <div class="d-flex-radio">
+                                    <input type="radio" name="gender" id="gender" value="1"
+                                        checked><label>{{__('ERKAK')}}</label>
+                                    <input type="radio" name="gender" id="gender"
+                                        value="2"><label>{{__('AYOL')}}</label>
+                                </div>
+                            </div>
+                            <button type="submit" class="btnB btn-input">{{__('Sign up')}}</button>
+                        </form>
+                        <a href="{{ route('m-login') }}" class="dnthave">{{__('LOGIN')}}</a>
+                    </div>
                 </div>
             </div>
         </div>
         <script src="{{ asset('/assets/js/loader.js') }}"></script>
         <script src="{{ asset('/assets/js/registerForm.js') }}"></script>
     </body>
+
 </html>

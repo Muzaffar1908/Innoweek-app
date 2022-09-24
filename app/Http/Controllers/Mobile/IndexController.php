@@ -7,8 +7,7 @@ use App\Models\Archive\Speakers;
 use App\Models\Conference;
 use App\Models\News\News;
 use App\Models\UserTicket;
-use Illuminate\Http\Request;
-use Illuminate\View\ViewName;
+use Auth;
 
 class IndexController extends Controller
 {
@@ -79,7 +78,11 @@ class IndexController extends Controller
 
     public function qrkod()
     {
-        return view('mobile.qrkod');
+        $userTicket = null;
+        if (isset(Auth::user()->id)) {
+            $userTicket = UserTicket::where('user_id', Auth::user()->id)->first();
+        }
+        return view('mobile.qrkod', ['ticket' => $userTicket]);
     }
 
     public function setting()
