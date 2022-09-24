@@ -15,7 +15,7 @@
       <h5 class="top-content">{{__('Fill in the fields below to register in the system')}}</h5>
       <div class="tab">
         <button class="tablinks" id="defaultOpen" onclick="openCity(event, 'res')">{{ __('Resident')}}</button>
-        <button class="tablinks" onclick="openCity(event, 'nores')">{{ _('No Resident')}}</button>
+        <button class="tablinks" onclick="openCity(event, 'nores')">{{ __('No Resident')}}</button>
       </div>
 
       <div id="res" class="tabcontent">
@@ -64,13 +64,13 @@
           </select>
 
           <select name="profession_id" id="profesion">
-            <option selected>{{('Choose your profession')}} *</option>
+            <option selected>{{__('Choose your profession')}} *</option>
             <option value="1">Director</option>
             <option value="2">Programmer</option>
             <option value="4">Engineer</option>
             <option value="5">Developer</option>
           </select>
-          <input id="organization" type="text" name="organization" placeholder="organization" autocomplete="off">
+          <input id="organization" type="text" name="organization" placeholder="{{__('Tashkilot')}}" autocomplete="off">
           <input class="form-control" type="datetime-local" name="birth_date" autocomplete="off" required
             placeholder="{{__('Date of birth')}} *" />
           <div class="input-radio">

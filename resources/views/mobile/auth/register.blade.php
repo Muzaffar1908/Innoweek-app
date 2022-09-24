@@ -80,8 +80,7 @@
                     @endif
                     <h5>{{__("Tizimda ro'yxatdan o'tish uchun quyida ko'rsatilgan maydonlarni to'ldiring")}}}</h5>
                     <div class="tab">
-                        <button class="tablinks" id="defaultOpen" onclick="openCity(event, 'res')">{{
-                            __('Resident')}}</button>
+                        <button class="tablinks" id="defaultOpen" onclick="openCity(event, 'res')">{{__('Resident')}}</button>
                         <button class="tablinks" onclick="openCity(event, 'nores')">{{ __('No Resident')}}</button>
                     </div>
                     <div id="res" class="tabcontent">

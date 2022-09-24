@@ -68,7 +68,7 @@
                                     <td>{{$speaker->full_name_uz}}</td>
                                     <td>{{Str::limit(strip_tags($speaker->job_uz), 30)}}</td>
                                       <td>
-                                          <img src="{{asset('upload/speaker/' .$speaker->image.'-d.png')}}" alt="img" with="100px" height="60px">
+                                          <img src="{{asset('upload/speaker/' .$speaker->image.'_thumbnail_267.png')}}" alt="img" with="100px" height="60px">
                                       </td>
                                     <td>
                                         <form action="{{ asset('/admin/speaker/isactive/' . $speaker->id) }}"

@@ -64,7 +64,7 @@
 
                     <div class="mb-3">
                         <label for="image">Image</label><br>
-                        <img src="{{asset('upload/partners/' .$partners->image.'-d.png')}}" alt="img" with="100px" height="60px">
+                        <img src="{{asset('upload/partners/' .$partners->image.'_thumbnail_130.png')}}" alt="img" with="100px" height="60px">
                         <input type="file" name="image"  class="form-control" id="image" placeholder="User image enter" value="{{$partners->image}}" />
                     </div>
 

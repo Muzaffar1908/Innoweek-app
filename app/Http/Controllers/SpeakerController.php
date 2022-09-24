@@ -89,7 +89,9 @@ class SpeakerController extends Controller
             $imagine = new \Imagine\Gd\Imagine();
             $image = $imagine->open($image);
             $thumbnail = $image->thumbnail(new \Imagine\Image\Box(267, 267));
-            $thumbnail->save($tmpFilePath . $hardPath . '_thumbnail_450.png');
+            $thumbnail->save($tmpFilePath . $hardPath . '_thumbnail_267.png');
+            $BigImage = $image->thumbnail(new \Imagine\Image\Box(1920, 1080));
+            $BigImage->save($tmpFilePath . $hardPath . '_big_1920.png');
             $speakers->image = $hardPath;
         }
 
@@ -262,7 +264,9 @@ class SpeakerController extends Controller
             $imagine = new \Imagine\Gd\Imagine();
             $image = $imagine->open($image);
             $thumbnail = $image->thumbnail(new \Imagine\Image\Box(267, 267));
-            $thumbnail->save($tmpFilePath . $hardPath . '_thumbnail_450.png');
+            $thumbnail->save($tmpFilePath . $hardPath . '_thumbnail_267.png');
+            $BigImage = $image->thumbnail(new \Imagine\Image\Box(1920, 1080));
+            $BigImage->save($tmpFilePath . $hardPath . '_big_1920.png');
             $speakers->image = $hardPath;
         }
 
@@ -379,10 +383,9 @@ class SpeakerController extends Controller
     {
 
         $speakers = Speakers::findOrFail($id);
-        $image_path = public_path() . '/upload/speaker/' . $speakers->image . '-d.png';
-        unlink($image_path);
+        // $image_path = public_path() . '/upload/speaker/' . $speakers->image . '-d.png';
+        // unlink($image_path);
         $speakers->delete();
-
         return redirect('admin/speakers')->with('warning', 'SPEAKER_TABLES_DELETED');
     }
 }

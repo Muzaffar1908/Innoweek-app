@@ -15,7 +15,7 @@ sticky
                         <div class="speaker-box-layout3 animated-bg-wrap">
                             <span class="animated-bg"></span>
                             <div class="figure-box">
-                                <a href="{{route('speakershowx',['id'=>$speak->id])}}"><img src="{{asset('upload/speaker/'.$speak->image.'-d.png')}}" alt="Speaker" width="267" height="267"></a>
+                                <a href="{{route('speakershowx',['id'=>$speak->id])}}"><img src="{{asset('upload/speaker/' .$speak->image.'_big_1920.png')}}" alt="Speaker" width="267" height="267"></a>
                             </div>
                             <div class="content-box">
                                 <h3 class="title"><a href="{{route('speakershowx',['id'=>$speak->id])}}">{{$speak->name}}</a></h3>

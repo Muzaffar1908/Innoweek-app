@@ -22,8 +22,10 @@ class PageController extends Controller
             ->select(DB::raw('DATE(started_at) as date'))
             ->groupBy('date')
             ->get();
-            
-        $condate_data = Conference::all();
+
+        $lang = \App::getLocale();
+             
+        $condate_data = Conference::select('id', 'started_at', 'stoped_at', 'title_'. $lang . ' as title', 'live_url', 'user_image', DB::raw('SUBSTRING(`description_' . $lang . '`, 1, 70) as text'), 'address_'. $lang . ' as address')->orderBy('created_at', 'DESC')->take(5)->get();
 
         $lang = \App::getLocale();
         $news = News::select('id', 'title_'. $lang . ' as title', 'user_image')->where('cat_id', 1)->orderBy('created_at', 'DESC')->take(3)->get();
@@ -100,7 +102,7 @@ class PageController extends Controller
         $lang = \App::getLocale();
 
         $speaker = Speakers::select('id', 'full_name_'. $lang . ' as name', 'job_'. $lang . ' as job', 'image', 'facebook_ur', 'twitter_url', 'linkedin_url', 'youtube_url', DB::raw('SUBSTRING(`description_' . $lang . '`, 1, 255) as text'))->orderBy('created_at', 'DESC')->take(10)->get();
-        // $speakersrecent = Speakers::orderBy('created_at', 'desc')->paginate(5);
+        $speakersrecent = Speakers::orderBy('created_at', 'desc')->paginate(5);
         return view('frontend.speakers', ['speakersrecent' => $speakersrecent, 'speaker' => $speaker]);
     }
 

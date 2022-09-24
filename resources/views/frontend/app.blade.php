@@ -40,7 +40,7 @@
                 <div class="swiper-slide">
                     <div class="event-box-layout1">
                         <div class="figure-box">
-                            <a href="{{route('eventshowx',['id'=>$item->id])}}"><img style="object-fit: cover;" src="{{asset('/upload/news/' . $item->user_image.'_big_728.png')}}" alt="Event"></a>
+                            <a href="{{route('eventshowx',['id'=>$item->id])}}"><img style="object-fit: cover;" src="{{asset('/upload/news/'. $item->user_image.'_big_728.png')}}" alt="Event"></a>
                         </div>
                         <div class="content-box">
                             <div class="me-3">
@@ -154,7 +154,7 @@
                 <div class="speaker-box-layout3 animated-bg-wrap">
                     <span class="animated-bg"></span>
                     <div class="figure-box">
-                    <a href="{{route('speakershowx', ['id'=>$spek->id])}}"><img src="{{asset('/upload/speaker/' . $spek->image.'-d.png')}}" alt="Speaker" width="267" height="267"></a>
+                    <a href="{{route('speakershowx', ['id'=>$spek->id])}}"><img src="{{asset('upload/speaker/' .$spek->image.'_thumbnail_267.png')}}" alt="Speaker" width="267" height="267"></a>
                     </div>
                     <div class="content-box">
                     <h3 class="title"><a href="{{route('speakershowx', ['id'=>$spek->id])}}">{{$spek->fullname}}</a></h3>
@@ -178,7 +178,7 @@
     <section id="schedule" class="schedule-wrap-layout5">
         <div class="container">
         <div class="section-heading style-five">
-            <h2 class="title wow fadeInUp animated" data-wow-delay="0.2s" data-wow-duration="1s">Schedule</h2>
+            <h2 class="title wow fadeInUp animated" data-wow-delay="0.2s" data-wow-duration="1s">{{__('Schedule')}}</h2>
         </div>
         <div class="row justify-content-center">
             <div class="col-lg-10">
@@ -219,11 +219,11 @@
                                                     </div>
                                                     <div class="content-box-wrap">
                                                         <div class="figure-box">
-                                                            <img src="{{asset('/upload/config/schedule.png')}}" alt="img" with="100px" height="60px">
+                                                            <img src="{{asset('upload/conference/' .$dd->user_image.'_thumbnail_267.png')}}" alt="img" with="100px" height="60px">
                                                             {{-- <img src="{{asset('/upload/conference/' .$dd->user_image.'-d.png')}}" alt="img" with="100px" height="60px"> --}}
                                                         </div>
                                                         <div class="inner-box">
-                                                        <h3 class="title">{{ strip_tags(substr($dd->{'title_'.App::getLocale()},0,50).'...') }}</h3>
+                                                        <h3 class="title">{{$dd->title}}</h3>
                                                         {{-- <div class="sub-title">By <span>Kathryn
                                                                                 Murphy</span> VP
                                                             Design Microsoft
@@ -234,19 +234,19 @@
                                             </div>
                                             <div id="collapseOne{{ $i + $k }}" class="accordion-collapse collapse" aria-labelledby="headingOne{{ $i + $k }}" data-bs-parent="#accordionExample{{ $i + $k }}">
                                                 <div class="panel-body">
-                                                <p class="description">{{ strip_tags(substr($dd->{'description_'.App::getLocale()},0,255).'...') }}</p>
+                                                <p class="description">{{strip_tags($dd->text)}}</p>
                                                 <div class="address-wrap">
                                                     <div class="icon-box">
                                                     <svg width="14" height="19" viewBox="0 0 14 19" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                         <path d="M6.04688 17.8984C6.36328 18.3906 7.10156 18.3906 7.41797 17.8984C12.5508 10.5156 13.5 9.74219 13.5 7C13.5 3.27344 10.4766 0.25 6.75 0.25C2.98828 0.25 0 3.27344 0 7C0 9.74219 0.914062 10.5156 6.04688 17.8984ZM6.75 9.8125C5.16797 9.8125 3.9375 8.58203 3.9375 7C3.9375 5.45312 5.16797 4.1875 6.75 4.1875C8.29688 4.1875 9.5625 5.45312 9.5625 7C9.5625 8.58203 8.29688 9.8125 6.75 9.8125Z" />
                                                     </svg>
                                                     </div>
-                                                    <div class="address-text">{{ strip_tags(substr($dd->{'address_'.App::getLocale()},0,255).'...') }}</div>
+                                                    <div class="address-text">{{ strip_tags($dd->address) }}</div>
                                                 </div>
                                                 </div>
                                             </div>
                                         </div>
-    
+
                                     </div>
                                 @endif
                             @endforeach
@@ -357,7 +357,7 @@
                     <div class="swiper-slide">
                         <div class="col">
                         <div class="brand-box-layout4">
-                            <a href="{{$item->image_url}}" target="_blank"><img src="{{asset('/upload/partners/'.$item->image.'-d.png')}}" class="mt-4" alt="Brand" width="130" height="112"></a>
+                            <a href="{{$item->image_url}}" target="_blank"><img src="{{asset('upload/partners/' .$item->image.'_thumbnail_130.png')}}" class="mt-4" alt="Brand" width="130" height="112"></a>
                         </div>
                         </div>
                     </div>

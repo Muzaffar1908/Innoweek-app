@@ -83,17 +83,15 @@ class PartnerController extends Controller
             $partners = new Partner();
         }
 
-
-
         $image = $request->file('image');
         if ($image) {
             $tmpFilePath = 'upload/partners/';
-            $hardPath = Str::slug('partners', '-') . '-' . '-' . md5(time());
-//            $img = Image::make($image);
-            $img1 = Image::make($image);
-            $img1->save($tmpFilePath . $hardPath . '-d.png');
+            $hardPath = Str::slug('partners_', '-') . '-' . '-' . md5(time());
+            $imagine = new \Imagine\Gd\Imagine();
+            $image = $imagine->open($image);
+            $thumbnail = $image->thumbnail(new \Imagine\Image\Box(130, 112));
+            $thumbnail->save($tmpFilePath . $hardPath . '_thumbnail_130.png');
             $partners->image = $hardPath;
-
         }
 
         $partners->user_id = $inputs['user_id'];
@@ -173,18 +171,15 @@ class PartnerController extends Controller
             $partners = new Partner();
         }
 
-        $del_img = $partners->image;
-
         $image = $request->file('image');
         if ($image) {
             $tmpFilePath = 'upload/partners/';
-            $hardPath = Str::slug('partners', '-') . '-' . '-' . md5(time());
-//            $img = Image::make($image);
-            $img1 = Image::make($image);
-            $img1->save($tmpFilePath . $hardPath . '-d.png');
+            $hardPath = Str::slug('partners_', '-') . '-' . '-' . md5(time());
+            $imagine = new \Imagine\Gd\Imagine();
+            $image = $imagine->open($image);
+            $thumbnail = $image->thumbnail(new \Imagine\Image\Box(130, 112));
+            $thumbnail->save($tmpFilePath . $hardPath . '_thumbnail_130.png');
             $partners->image = $hardPath;
-            $image_path = public_path() . '/upload/partners/' . $del_img . '-d.png';
-             unlink($image_path);
         }
 
         $partners->user_id = $inputs['user_id'];
@@ -210,8 +205,8 @@ class PartnerController extends Controller
     public function destroy($id)
     {
         $partners = Partner::findOrFail($id);
-        $image_path = public_path() . '/upload/partners/' . $partners->image . '-d.png';
-        unlink($image_path);
+        // $image_path = public_path() . '/upload/partners/' . $partners->image . '-d.png';
+        // unlink($image_path);
         $partners->delete();
         return redirect('admin/partner')->with('warning', 'NEWS TABLES DELETED');
     }

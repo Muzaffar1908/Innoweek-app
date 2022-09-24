@@ -23,32 +23,8 @@ class ConferenceController extends Controller
     {
         $conferences = Conference::paginate(5);
         $users = User::all();
-//        $condate=Conference::whereDate('started_at','=','2022-09-15')->get();
-//        @dd($condate);
         $archives = Archive::all();
         return view('admin.conference.index', compact('conferences', 'users', 'archives'));
-
-        /*
-           $conferences = Conference::first();
-
-        $date=$conferences->created_at;
-        /*echo(Carbon::createFromFormat('Y-m-d H:i:s', $date)->format('D, M d').'th');
-             Wed, Sep 14th
-
-              echo(Carbon::createFromFormat('Y-m-d H:i:s', $date)->format('d'));
-            14
-
-             echo(Carbon::createFromFormat('Y-m-d H:i:s', $date)->format('H:i'));
-             17:45
-
-               echo(Carbon::createFromFormat('Y-m-d H:i:s', $date)->isoFormat('h:mm a'));
-            11:58 am
-            echo(Carbon::createFromFormat('Y-m-d H:i:s', $date)->isoFormat('MMMM'));
-
-            September
-        */
-
-
     }
 
     public function is_active($id)
@@ -94,14 +70,6 @@ class ConferenceController extends Controller
           'title_uz' => 'required',
         );
 
-        if (!file_exists('upload/conference')) {
-            mkdir('upload/conference', 0777, true);
-        }
-
-        if (!file_exists('upload/conference/description_image')) {
-            mkdir('upload/conference/description_image', 0777, true);
-        }
-
         $validator = Validator::make($data, $rule);
 
         if ($validator->fails()) {
@@ -114,6 +82,17 @@ class ConferenceController extends Controller
             $conferences = Conference::findOrFail($inputs['id']);
         } else {
             $conferences = new Conference;
+        }
+
+        $image = $request->file('user_image');
+        if ($image) {
+            $tmpFilePath = 'upload/conference/';
+            $hardPath =  Str::slug('conference', '-') . '-' . md5(time());
+            $imagine = new \Imagine\Gd\Imagine();
+            $image = $imagine->open($image);
+            $thumbnail = $image->thumbnail(new \Imagine\Image\Box(267, 267));
+            $thumbnail->save($tmpFilePath . $hardPath . '_thumbnail_267.png');
+            $conferences->user_image = $hardPath;
         }
 
         $conferences->user_id = $inputs['user_id'];
@@ -130,21 +109,6 @@ class ConferenceController extends Controller
         $conferences->address_en = $inputs['address_en'];
 
         $conferences->description_uz = $inputs['description_uz'];
-
-       $image = $request->file('user_image');
-        if ($image) {
-
-            $tmpFilePath = 'upload/conference/';
-            $hardPath =  Str::slug('conference', '-').'-'.md5(time());
-            $img = Image::make($image);
-            $img1 = Image::make($image);
-//            $img->fit(360, 640)->save($tmpFilePath.$hardPath.'-m.png');
-            $img1->save($tmpFilePath.$hardPath.'-d.png');
-
-
-            $conferences->user_image = $hardPath;
-        }
-
         if (!empty($conferences->description_uz)) {
             $dom_save_uz = new \DomDocument();
             libxml_use_internal_errors(true);
@@ -156,9 +120,13 @@ class ConferenceController extends Controller
                     list($type, $data) = explode(';', $data);
                     list(, $data)      = explode(',', $data);
                     $data = base64_decode($data);
-                    $image_name= "/upload/conference/description_image/uz_" . time().$k.'.jpg';
+                    $image_name = "/upload/description/description_image/uz_" . time() . $k . '.jpg';
                     $path = public_path() . $image_name;
                     file_put_contents($path, $data);
+                    $imagine = new \Imagine\Gd\Imagine();
+                    $image = $imagine->open($path);
+                    $bigImg = $image->thumbnail(new \Imagine\Image\Box(560, 420));
+                    $bigImg->save($path);
                     $img->removeAttribute('src');
                     $img->setAttribute('src', $image_name);
                 }
@@ -178,9 +146,13 @@ class ConferenceController extends Controller
                     list($type, $data) = explode(';', $data);
                     list(, $data)      = explode(',', $data);
                     $data = base64_decode($data);
-                    $image_name= "/upload/conference/description_image/ru_".'_'.time().'.jpg';
+                    $image_name = "/upload/description/description_image/ru_" . time() . $k . '.jpg';
                     $path = public_path() . $image_name;
                     file_put_contents($path, $data);
+                    $imagine = new \Imagine\Gd\Imagine();
+                    $image = $imagine->open($path);
+                    $bigImg = $image->thumbnail(new \Imagine\Image\Box(560, 420));
+                    $bigImg->save($path);
                     $img->removeAttribute('src');
                     $img->setAttribute('src', $image_name);
                 }
@@ -201,9 +173,13 @@ class ConferenceController extends Controller
                     list($type, $data) = explode(';', $data);
                     list(, $data)      = explode(',', $data);
                     $data = base64_decode($data);
-                    $image_name= "/upload/conference/description_image/en_".'_'.time().'.jpg';
+                    $image_name = "/upload/description/description_image/en_" . time() . $k . '.jpg';
                     $path = public_path() . $image_name;
                     file_put_contents($path, $data);
+                    $imagine = new \Imagine\Gd\Imagine();
+                    $image = $imagine->open($path);
+                    $bigImg = $image->thumbnail(new \Imagine\Image\Box(560, 420));
+                    $bigImg->save($path);
                     $img->removeAttribute('src');
                     $img->setAttribute('src', $image_name);
                 }
@@ -272,14 +248,6 @@ class ConferenceController extends Controller
           'title_uz' => 'required',
         );
 
-        if (!file_exists('upload/conference')) {
-            mkdir('upload/conference', 0777, true);
-        }
-
-        if (!file_exists('upload/conference/description_image')) {
-            mkdir('upload/conference/description_image', 0777, true);
-        }
-
         $validator = Validator::make($data, $rule);
 
         if ($validator->fails()) {
@@ -292,6 +260,17 @@ class ConferenceController extends Controller
             $conferences = Conference::findOrFail($inputs['id']);
         } else {
             $conferences = new Conference;
+        }
+
+        $image = $request->file('user_image');
+        if ($image) {
+            $tmpFilePath = 'upload/conference/';
+            $hardPath =  Str::slug('conference', '-') . '-' . md5(time());
+            $imagine = new \Imagine\Gd\Imagine();
+            $image = $imagine->open($image);
+            $thumbnail = $image->thumbnail(new \Imagine\Image\Box(267, 267));
+            $thumbnail->save($tmpFilePath . $hardPath . '_thumbnail_267.png');
+            $conferences->user_image = $hardPath;
         }
 
         $conferences->user_id = $inputs['user_id'];
@@ -308,20 +287,6 @@ class ConferenceController extends Controller
         $conferences->address_en = $inputs['address_en'];
 
         $conferences->description_uz = $inputs['description_uz'];
-
-        $image = $request->file('user_image');
-        if ($image) {
-            $tmpFilePath = 'upload/conference/';
-            $hardPath =  Str::slug('conference', '-').'-'.md5(time());
-            $img = Image::make($image);
-            $img1 = Image::make($image);
-//            $img->fit(360, 640)->save($tmpFilePath.$hardPath.'-m.png');
-            $img1->save($tmpFilePath.$hardPath.'-d.png');
-
-
-            $conferences->user_image = $hardPath;
-        }
-
         if (!empty($conferences->description_uz)) {
             $dom_save_uz = new \DomDocument();
             libxml_use_internal_errors(true);
@@ -333,9 +298,13 @@ class ConferenceController extends Controller
                     list($type, $data) = explode(';', $data);
                     list(, $data)      = explode(',', $data);
                     $data = base64_decode($data);
-                    $image_name= "/upload/conference/description_image/uz_" . time().$k.'.jpg';
+                    $image_name = "/upload/description/description_image/uz_" . time() . $k . '.jpg';
                     $path = public_path() . $image_name;
                     file_put_contents($path, $data);
+                    $imagine = new \Imagine\Gd\Imagine();
+                    $image = $imagine->open($path);
+                    $bigImg = $image->thumbnail(new \Imagine\Image\Box(560, 420));
+                    $bigImg->save($path);
                     $img->removeAttribute('src');
                     $img->setAttribute('src', $image_name);
                 }
@@ -355,9 +324,13 @@ class ConferenceController extends Controller
                     list($type, $data) = explode(';', $data);
                     list(, $data)      = explode(',', $data);
                     $data = base64_decode($data);
-                    $image_name= "/upload/conference/description_image/ru_".'_'.time().'.jpg';
+                    $image_name = "/upload/description/description_image/ru_" . time() . $k . '.jpg';
                     $path = public_path() . $image_name;
                     file_put_contents($path, $data);
+                    $imagine = new \Imagine\Gd\Imagine();
+                    $image = $imagine->open($path);
+                    $bigImg = $image->thumbnail(new \Imagine\Image\Box(560, 420));
+                    $bigImg->save($path);
                     $img->removeAttribute('src');
                     $img->setAttribute('src', $image_name);
                 }
@@ -378,9 +351,13 @@ class ConferenceController extends Controller
                     list($type, $data) = explode(';', $data);
                     list(, $data)      = explode(',', $data);
                     $data = base64_decode($data);
-                    $image_name= "/upload/conference/description_image/en_".'_'.time().'.jpg';
+                    $image_name = "/upload/description/description_image/en_" . time() . $k . '.jpg';
                     $path = public_path() . $image_name;
                     file_put_contents($path, $data);
+                    $imagine = new \Imagine\Gd\Imagine();
+                    $image = $imagine->open($path);
+                    $bigImg = $image->thumbnail(new \Imagine\Image\Box(560, 420));
+                    $bigImg->save($path);
                     $img->removeAttribute('src');
                     $img->setAttribute('src', $image_name);
                 }

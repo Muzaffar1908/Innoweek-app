@@ -64,7 +64,7 @@
                                             <td>{{$partner->partnerTable->first_name}}</td>
                                             <td>{{$partner->partnerarchiveTable->year}}</td>
                                             <td>
-                                                <img src="{{asset('upload/partners/' .$partner->image.'-d.png')}}" alt="img" with="100px" height="60px">
+                                                <img src="{{asset('upload/partners/' .$partner->image.'_thumbnail_130.png')}}" alt="img" with="100px" height="60px">
                                             </td>
                                             <td>{!!Str::limit(strip_tags($partner->image_url),20)!!}</td>
                                             <td>
