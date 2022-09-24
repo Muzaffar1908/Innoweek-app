@@ -13,7 +13,7 @@
                 <div class="col-lg-8">
                     <div class="event-single-box">
                         <div class="figure-box wow fadeInUp animated" data-wow-delay="0.2s" data-wow-duration="1s">
-                            <img src="{{asset('/upload/news/'.$events->user_image.'-d.png')}}" alt="Event">
+                            <img src="{{asset('/upload/news/' . $events->user_image.'_big_728.png')}}" alt="Event">
                         </div>
                         <div class="content-box">
                             <div class="sub-title wow fadeInUp animated" data-wow-delay="0.3s" data-wow-duration="1s">
@@ -38,7 +38,7 @@
                                 <div class="single-post">
                                     <div class="figure-box">
                                         <a href="{{route('eventshowx', ['id' => $item->id])}}" class="link-item"><img
-                                                width="150" src="{{asset("upload/news/".$item->user_image.'-d.png')}}" alt="Post"></a>
+                                                width="150" src="{{asset('/upload/news/' . $item->user_image.'_thumbnail_450.png')}}" alt="Post"></a>
                                     </div>
                                     <div class="content-box">
                                         <h3 class="entry-title"><a

@@ -56,15 +56,6 @@ class NewsController extends Controller
             'title_uz' => 'required',
         );
 
-        if (!file_exists('upload/news')) {
-            mkdir('upload/news', 0777, true);
-        }
-
-        if (!file_exists('upload/news/description_image')) {
-            mkdir('upload/news/description_image', 0777, true);
-        }
-
-
         $validator = Validator::make($data, $rule);
 
         if ($validator->fails()) {
@@ -87,8 +78,8 @@ class NewsController extends Controller
             $image = $imagine->open($image);
             $thumbnail = $image->thumbnail(new \Imagine\Image\Box(450, 250));
             $thumbnail->save($tmpFilePath . $hardPath . '_thumbnail_450.png');
-            $bigImg = $image->thumbnail(new \Imagine\Image\Box(500, 360));
-            $bigImg->save($tmpFilePath . $hardPath . '_big_500.png');
+            $bigImg = $image->thumbnail(new \Imagine\Image\Box(728, 480));
+            $bigImg->save($tmpFilePath . $hardPath . '_big_728.png');
             $news->user_image = $hardPath;
         }
 
@@ -137,9 +128,13 @@ class NewsController extends Controller
                     list($type, $data) = explode(';', $data);
                     list(, $data)      = explode(',', $data);
                     $data = base64_decode($data);
-                    $image_name = "/upload/news/description_image/ru_" . '_' . time() . '.jpg';
+                    $image_name = "/upload/news/description_image/ru_" . time() . $k . '.jpg';
                     $path = public_path() . $image_name;
                     file_put_contents($path, $data);
+                    $imagine = new \Imagine\Gd\Imagine();
+                    $image = $imagine->open($path);
+                    $bigImg = $image->thumbnail(new \Imagine\Image\Box(560, 420));
+                    $bigImg->save($path);
                     $img->removeAttribute('src');
                     $img->setAttribute('src', $image_name);
                 }
@@ -160,9 +155,13 @@ class NewsController extends Controller
                     list($type, $data) = explode(';', $data);
                     list(, $data)      = explode(',', $data);
                     $data = base64_decode($data);
-                    $image_name = "/upload/news/description_image/en_" . '_' . time() . '.jpg';
+                    $image_name = "/upload/news/description_image/en_" . time() . $k . '.jpg';
                     $path = public_path() . $image_name;
                     file_put_contents($path, $data);
+                    $imagine = new \Imagine\Gd\Imagine();
+                    $image = $imagine->open($path);
+                    $bigImg = $image->thumbnail(new \Imagine\Image\Box(560, 420));
+                    $bigImg->save($path);
                     $img->removeAttribute('src');
                     $img->setAttribute('src', $image_name);
                 }
@@ -240,15 +239,6 @@ class NewsController extends Controller
             'title_uz' => 'required',
         );
 
-        if (!file_exists('upload/news')) {
-            mkdir('upload/news', 0777, true);
-        }
-
-        if (!file_exists('upload/news/description_image')) {
-            mkdir('upload/news/description_image', 0777, true);
-        }
-
-
         $validator = Validator::make($data, $rule);
 
         if ($validator->fails()) {
@@ -263,27 +253,27 @@ class NewsController extends Controller
             $news = new News;
         }
 
-
-
-
-        $del_img = $news->user_image;
         $image = $request->file('user_image');
-
-
-
         if ($image) {
             $tmpFilePath = 'upload/news/';
             $hardPath =  Str::slug('news', '-') . '-' . md5(time());
-            $img = Image::make($image);
-            $img1 = Image::make($image);
-            //            $img->fit(360, 640)->save($tmpFilePath.$hardPath.'-m.png');
-            $img1->save($tmpFilePath . $hardPath . '-d.png');
+            $imagine = new \Imagine\Gd\Imagine();
+            $image = $imagine->open($image);
+            $thumbnail = $image->thumbnail(new \Imagine\Image\Box(450, 250));
+            $thumbnail->save($tmpFilePath . $hardPath . '_thumbnail_450.png');
+            $bigImg = $image->thumbnail(new \Imagine\Image\Box(728, 480));
+            $bigImg->save($tmpFilePath . $hardPath . '_big_728.png');
             $news->user_image = $hardPath;
-            $image_path = public_path() . '/upload/news/' . $del_img . '-d.png';
-            // unlink($image_path);
         }
 
+        $news->user_id = $inputs['user_id'];
+        $news->cat_id = $inputs['cat_id'];
+        $news->title_uz = $inputs['title_uz'];
+        $news->title_ru = $inputs['title_ru'];
+        $news->title_en = $inputs['title_en'];
+        $news->tags = $inputs['tags'];
 
+        $news->description_uz = $inputs['description_uz'];
         if (!empty($news->description_uz)) {
             $dom_save_uz = new \DomDocument();
             libxml_use_internal_errors(true);
@@ -298,6 +288,10 @@ class NewsController extends Controller
                     $image_name = "/upload/news/description_image/uz_" . time() . $k . '.jpg';
                     $path = public_path() . $image_name;
                     file_put_contents($path, $data);
+                    $imagine = new \Imagine\Gd\Imagine();
+                    $image = $imagine->open($path);
+                    $bigImg = $image->thumbnail(new \Imagine\Image\Box(560, 420));
+                    $bigImg->save($path);
                     $img->removeAttribute('src');
                     $img->setAttribute('src', $image_name);
                 }
@@ -317,9 +311,13 @@ class NewsController extends Controller
                     list($type, $data) = explode(';', $data);
                     list(, $data)      = explode(',', $data);
                     $data = base64_decode($data);
-                    $image_name = "/upload/news/description_image/ru_" . '_' . time() . '.jpg';
+                    $image_name = "/upload/news/description_image/ru_" . time() . $k . '.jpg';
                     $path = public_path() . $image_name;
                     file_put_contents($path, $data);
+                    $imagine = new \Imagine\Gd\Imagine();
+                    $image = $imagine->open($path);
+                    $bigImg = $image->thumbnail(new \Imagine\Image\Box(560, 420));
+                    $bigImg->save($path);
                     $img->removeAttribute('src');
                     $img->setAttribute('src', $image_name);
                 }
@@ -340,17 +338,19 @@ class NewsController extends Controller
                     list($type, $data) = explode(';', $data);
                     list(, $data)      = explode(',', $data);
                     $data = base64_decode($data);
-                    $image_name = "/upload/news/description_image/en_" . '_' . time() . '.jpg';
+                    $image_name = "/upload/news/description_image/en_" . time() . $k . '.jpg';
                     $path = public_path() . $image_name;
                     file_put_contents($path, $data);
+                    $imagine = new \Imagine\Gd\Imagine();
+                    $image = $imagine->open($path);
+                    $bigImg = $image->thumbnail(new \Imagine\Image\Box(560, 420));
+                    $bigImg->save($path);
                     $img->removeAttribute('src');
                     $img->setAttribute('src', $image_name);
                 }
             }
             $news->description_en = str_replace('<?xml encoding="UTF-8">', "", $dom_save_en->saveHTML());
         }
-
-
 
         $news->save();
 
@@ -372,8 +372,8 @@ class NewsController extends Controller
     public function destroy($id)
     {
         $news = News::findOrFail($id);
-        $image_path = public_path() . '/upload/news/' . $news->user_image . '-d.png';
-        unlink($image_path);
+        // $image_path = public_path() . '/upload/news/' . $news->user_image . '-d.png';
+        // unlink($image_path);
         $news->delete();
         return redirect('admin/news')->with('warning', 'NEWS TABLES DELETED');
     }

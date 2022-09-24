@@ -15,7 +15,7 @@
                     <div class="event-single-box">
                         <div class="figure-box wow fadeInUp animated" data-wow-delay="0.2s" data-wow-duration="1s">
                             <a href="{{route('newsshowx',['id'=>$event->id])}}"><img
-                                    src="{{asset('upload/news/'.$event->user_image.'-d.png')}}" alt="Event"></a>
+                                    src="{{asset('/upload/news/' . $event->user_image.'_big_728.png')}}" alt="Event"></a>
                         </div>
                         <div class="content-box">
                             <div class="sub-title wow fadeInUp animated" data-wow-delay="0.3s" data-wow-duration="1s">
@@ -39,7 +39,7 @@
                             <div class="single-post">
                                 <div class="figure-box">
                                     <a href="{{route('eventshowx',['id'=>$recent->id])}}" class="link-item"><img width="150"
-                                            src="{{asset('upload/news/'.$recent->user_image.'-d.png')}}" alt="Post"></a>
+                                            src="{{asset('/upload/news/' . $recent->user_image.'_thumbnail_450.png')}}" alt="Post"></a>
                                 </div>
                                 <div class="content-box">
                                     <h3 class="entry-title"><a href="{{route('eventshowx',['id'=>$recent->id])}}">{{$recent->title}}</a></h3>
@@ -54,8 +54,7 @@
                 </div>
             
             </div>
-            
-            
+             
             <div class="text-center">
                 {{$events->links()}}
             </div>

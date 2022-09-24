@@ -12,7 +12,7 @@ sticky
         <div class="col-lg-8">
           <div class="event-single-box">
             <div class="figure-box wow fadeInUp animated" data-wow-delay="0.2s" data-wow-duration="1s">
-              <img src="{{asset('/upload/news/' . $news->user_image.'-d.png')}}" width="100%" alt="Speaker" width="267" height="267">
+              <img src="{{asset('/upload/news/' . $news->user_image.'_big_728.png')}}" width="100%" alt="Speaker" width="267" height="267">
             </div>
             <div class="content-box">
               <div class="sub-title wow fadeInUp animated" data-wow-delay="0.3s" data-wow-duration="1s">
@@ -33,7 +33,7 @@ sticky
               @foreach($newsresent as $item)
                 <div class="single-post">
                   <div class="figure-box">
-                    <a href="{{route('newsshowx', ['id' =>$item->id])}}" class="link-item"><img src="{{asset('/upload/news/'.$item->user_image.'-d.png')}}" alt="Speaker" width="267" height="267"></a>
+                    <a href="{{route('newsshowx', ['id' =>$item->id])}}" class="link-item"><img src="{{asset('/upload/news/' . $item->user_image.'_thumbnail_450.png')}}" alt="Speaker" width="267" height="267"></a>
                   </div>
                   <div class="content-box">
                     <h3 class="entry-title"><a href="{{route('newsshowx', ['id' => $item->id])}}"></a>{{$item->title}}</h3>

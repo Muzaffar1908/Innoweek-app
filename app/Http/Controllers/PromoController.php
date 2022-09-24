@@ -48,8 +48,6 @@ class PromoController extends Controller
             'url' => 'required',
         );
 
-
-
         $validator = Validator::make($data, $rule);
 
         if ($validator->fails()) {
@@ -63,8 +61,6 @@ class PromoController extends Controller
         } else {
             $promo = new Promo();
         }
-
-
 
         $promo->user_id = $inputs['user_id'];
         $promo->archive_id = $inputs['archive_id'];
@@ -114,10 +110,6 @@ class PromoController extends Controller
         } else {
             $promo = new Promo();
         }
-
-
-
-
 
         $promo->user_id = $inputs['user_id'];
         $promo->archive_id = $inputs['archive_id'];

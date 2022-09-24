@@ -65,7 +65,7 @@
                                      <td>{{$new->newsTable->title_uz}}</td>
                                     <td>{!!Str::limit(strip_tags($new->title_uz),30)!!}</td>
                                       <td>
-                                          <img src="{{asset('upload/news/' .$new->user_image.'-d.png')}}" alt="img" with="100px" height="60px">
+                                          <img src="{{asset('/upload/news/' . $new->user_image.'_thumbnail_450.png')}}" alt="img" with="100px" height="60px">
                                       </td>
                                     <td>
                                         <form action="{{ asset('/admin/news/isactive/' . $new->id) }}"

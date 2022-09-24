@@ -67,12 +67,6 @@ class SpeakerController extends Controller
             'full_name_uz' => 'required',
             'job_uz' => 'required',
         );
-        if (!file_exists('upload/speaker')) {
-            mkdir('upload/speaker', 0777, true);
-        }
-        if (!file_exists('upload/speaker/description_image')) {
-            mkdir('upload/speaker/description_image', 0777, true);
-        }
 
         $validator = Validator::make($data, $rule);
 
@@ -87,6 +81,18 @@ class SpeakerController extends Controller
         } else {
             $speakers = new Speakers;
         }
+
+        $image = $request->file('image');
+        if ($image) {
+            $tmpFilePath = 'upload/speaker/';
+            $hardPath = Str::slug('speaker_', '-') . '-' . '-' . md5(time());
+            $imagine = new \Imagine\Gd\Imagine();
+            $image = $imagine->open($image);
+            $thumbnail = $image->thumbnail(new \Imagine\Image\Box(267, 267));
+            $thumbnail->save($tmpFilePath . $hardPath . '_thumbnail_450.png');
+            $speakers->image = $hardPath;
+        }
+
         $speakers->user_id = $inputs['user_id'];
         $speakers->archive_id = $inputs['archive_id'];
         $speakers->full_name_uz = $inputs['full_name_uz'];
@@ -101,18 +107,6 @@ class SpeakerController extends Controller
         $speakers->linkedin_url = $inputs['linkedin_url'];
 
         $speakers->description_uz = $inputs['description_uz'];
-
-        $image = $request->file('image');
-        if ($image) {
-            $tmpFilePath = 'upload/speaker/';
-            $hardPath =  Str::slug('speaker', '-').'-'.md5(time());
-            $img = Image::make($image);
-            $img1 = Image::make($image);
-//            $img->fit(360, 640)->save($tmpFilePath.$hardPath.'-m.png');
-            $img1->save($tmpFilePath.$hardPath.'-d.png');
-            $speakers->image = $hardPath;
-        }
-
         if (!empty($speakers->description_uz)) {
             $dom_save_uz = new \DomDocument();
             libxml_use_internal_errors(true);
@@ -122,11 +116,15 @@ class SpeakerController extends Controller
                 $data = $img->getAttribute('src');
                 if (preg_match('/data:image/', $data)) {
                     list($type, $data) = explode(';', $data);
-                    list(, $data) = explode(',', $data);
+                    list(, $data)      = explode(',', $data);
                     $data = base64_decode($data);
                     $image_name = "/upload/speaker/description_image/uz_" . time() . $k . '.jpg';
                     $path = public_path() . $image_name;
                     file_put_contents($path, $data);
+                    $imagine = new \Imagine\Gd\Imagine();
+                    $image = $imagine->open($path);
+                    $bigImg = $image->thumbnail(new \Imagine\Image\Box(560, 420));
+                    $bigImg->save($path);
                     $img->removeAttribute('src');
                     $img->setAttribute('src', $image_name);
                 }
@@ -144,11 +142,15 @@ class SpeakerController extends Controller
                 $data = $img->getAttribute('src');
                 if (preg_match('/data:image/', $data)) {
                     list($type, $data) = explode(';', $data);
-                    list(, $data) = explode(',', $data);
+                    list(, $data)      = explode(',', $data);
                     $data = base64_decode($data);
-                    $image_name = "/upload/speaker/description_image/ru_" . '_' . time() . '.jpg';
+                    $image_name = "/upload/speaker/description_image/ru_" . time() . $k . '.jpg';
                     $path = public_path() . $image_name;
                     file_put_contents($path, $data);
+                    $imagine = new \Imagine\Gd\Imagine();
+                    $image = $imagine->open($path);
+                    $bigImg = $image->thumbnail(new \Imagine\Image\Box(560, 420));
+                    $bigImg->save($path);
                     $img->removeAttribute('src');
                     $img->setAttribute('src', $image_name);
                 }
@@ -166,11 +168,15 @@ class SpeakerController extends Controller
                 $data = $img->getAttribute('src');
                 if (preg_match('/data:image/', $data)) {
                     list($type, $data) = explode(';', $data);
-                    list(, $data) = explode(',', $data);
+                    list(, $data)      = explode(',', $data);
                     $data = base64_decode($data);
-                    $image_name = "/upload/speaker/description_image/en_" . '_' . time() . '.jpg';
+                    $image_name = "/upload/speaker/description_image/en_" . time() . $k . '.jpg';
                     $path = public_path() . $image_name;
                     file_put_contents($path, $data);
+                    $imagine = new \Imagine\Gd\Imagine();
+                    $image = $imagine->open($path);
+                    $bigImg = $image->thumbnail(new \Imagine\Image\Box(560, 420));
+                    $bigImg->save($path);
                     $img->removeAttribute('src');
                     $img->setAttribute('src', $image_name);
                 }
@@ -234,12 +240,6 @@ class SpeakerController extends Controller
             'full_name_uz' => 'required',
             'job_uz' => 'required',
         );
-        if (!file_exists('upload/speaker')) {
-            mkdir('upload/speaker', 0777, true);
-        }
-        if (!file_exists('upload/speaker/description_image')) {
-            mkdir('upload/speaker/description_image', 0777, true);
-        }
 
         $validator = Validator::make($data, $rule);
 
@@ -254,7 +254,17 @@ class SpeakerController extends Controller
         } else {
             $speakers = new Speakers;
         }
-        $del_img = $speakers->image;
+
+        $image = $request->file('image');
+        if ($image) {
+            $tmpFilePath = 'upload/speaker/';
+            $hardPath = Str::slug('speaker_', '-') . '-' . '-' . md5(time());
+            $imagine = new \Imagine\Gd\Imagine();
+            $image = $imagine->open($image);
+            $thumbnail = $image->thumbnail(new \Imagine\Image\Box(267, 267));
+            $thumbnail->save($tmpFilePath . $hardPath . '_thumbnail_450.png');
+            $speakers->image = $hardPath;
+        }
 
         $speakers->user_id = $inputs['user_id'];
         $speakers->archive_id = $inputs['archive_id'];
@@ -270,20 +280,6 @@ class SpeakerController extends Controller
         $speakers->linkedin_url = $inputs['linkedin_url'];
 
         $speakers->description_uz = $inputs['description_uz'];
-
-        $image = $request->file('image');
-        if ($image) {
-            $tmpFilePath = 'upload/speaker/';
-            $hardPath =  Str::slug('speaker', '-').'-'.md5(time());
-            $img = Image::make($image);
-            $img1 = Image::make($image);
-//            $img->fit(360, 640)->save($tmpFilePath.$hardPath.'-m.png');
-            $img1->save($tmpFilePath.$hardPath.'-d.png');
-            $speakers->image = $hardPath;
-            $image_path = public_path() . '/upload/speaker/' . $del_img . '-d.png';
-            unlink($image_path);
-        }
-
         if (!empty($speakers->description_uz)) {
             $dom_save_uz = new \DomDocument();
             libxml_use_internal_errors(true);
@@ -293,11 +289,15 @@ class SpeakerController extends Controller
                 $data = $img->getAttribute('src');
                 if (preg_match('/data:image/', $data)) {
                     list($type, $data) = explode(';', $data);
-                    list(, $data) = explode(',', $data);
+                    list(, $data)      = explode(',', $data);
                     $data = base64_decode($data);
                     $image_name = "/upload/speaker/description_image/uz_" . time() . $k . '.jpg';
                     $path = public_path() . $image_name;
                     file_put_contents($path, $data);
+                    $imagine = new \Imagine\Gd\Imagine();
+                    $image = $imagine->open($path);
+                    $bigImg = $image->thumbnail(new \Imagine\Image\Box(560, 420));
+                    $bigImg->save($path);
                     $img->removeAttribute('src');
                     $img->setAttribute('src', $image_name);
                 }
@@ -315,11 +315,15 @@ class SpeakerController extends Controller
                 $data = $img->getAttribute('src');
                 if (preg_match('/data:image/', $data)) {
                     list($type, $data) = explode(';', $data);
-                    list(, $data) = explode(',', $data);
+                    list(, $data)      = explode(',', $data);
                     $data = base64_decode($data);
-                    $image_name = "/upload/speaker/description_image/ru_" . '_' . time() . '.jpg';
+                    $image_name = "/upload/speaker/description_image/ru_" . time() . $k . '.jpg';
                     $path = public_path() . $image_name;
                     file_put_contents($path, $data);
+                    $imagine = new \Imagine\Gd\Imagine();
+                    $image = $imagine->open($path);
+                    $bigImg = $image->thumbnail(new \Imagine\Image\Box(560, 420));
+                    $bigImg->save($path);
                     $img->removeAttribute('src');
                     $img->setAttribute('src', $image_name);
                 }
@@ -337,11 +341,15 @@ class SpeakerController extends Controller
                 $data = $img->getAttribute('src');
                 if (preg_match('/data:image/', $data)) {
                     list($type, $data) = explode(';', $data);
-                    list(, $data) = explode(',', $data);
+                    list(, $data)      = explode(',', $data);
                     $data = base64_decode($data);
-                    $image_name = "/upload/speaker/description_image/en_" . '_' . time() . '.jpg';
+                    $image_name = "/upload/speaker/description_image/en_" . time() . $k . '.jpg';
                     $path = public_path() . $image_name;
                     file_put_contents($path, $data);
+                    $imagine = new \Imagine\Gd\Imagine();
+                    $image = $imagine->open($path);
+                    $bigImg = $image->thumbnail(new \Imagine\Image\Box(560, 420));
+                    $bigImg->save($path);
                     $img->removeAttribute('src');
                     $img->setAttribute('src', $image_name);
                 }

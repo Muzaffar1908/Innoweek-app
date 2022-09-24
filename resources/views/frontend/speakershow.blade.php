@@ -12,7 +12,7 @@ sticky
         <div class="col-lg-2 col-12">
           <div class="speaker-single-box">
             <div class="figure-box wow fadeInLeft animated" data-wow-delay="0.3s" data-wow-duration="1s">
-              <img src="{{asset('upload/speaker/' .$speakers->image.'-d.png')}}" alt="img" with="100px" height="60px">
+              <img src="{{asset('upload/speaker/' .$speakers->image.'-d.png')}}" alt="img" with="267" height="267">
             </div>
           </div>
         </div>
