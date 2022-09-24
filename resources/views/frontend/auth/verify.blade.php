@@ -1,6 +1,8 @@
-@extends('layouts.index')
+@extends('layouts.main')
+@section('sticky')
+sticky
+@endsection
 @section('content')
-
 <div class="regpanel" data-bg-image="{{asset('frontend/image/back.png')}}" style="background-image:{{'frontend/image/back.png'}};" >
     <div class="boxes">
         <form class="reg-box" action="{{route('d-verified')}}" method="POST">
@@ -11,6 +13,7 @@
         </form>
     </div>
 </div>
-
-
+@endsection
+@section('scripts')
+<script src="{{ asset('/frontend/js/main.js') }}"></script>
 @endsection

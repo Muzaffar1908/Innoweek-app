@@ -222,7 +222,8 @@
                                 </div>
                                 <div class="content-box-wrap">
                                     <div class="figure-box">
-                                        <img src="{{asset('/upload/conference/' .$dd->user_image.'-d.png')}}" alt="img" with="100px" height="60px">
+                                        <img src="{{asset('/upload/config/schedule.png')}}" alt="img" with="100px" height="60px">
+                                        {{-- <img src="{{asset('/upload/conference/' .$dd->user_image.'-d.png')}}" alt="img" with="100px" height="60px"> --}}
                                     </div>
                                     <div class="inner-box">
                                     <h3 class="title">{{ strip_tags(substr($dd->{'title_'.App::getLocale()},0,50).'...') }}</h3>
