@@ -159,9 +159,9 @@ class AuthController extends Controller
             'email' => $inputs['email'] ?? null,
             'phone' => $inputs['phone'] ?? null,
             "gender" => $inputs['gender'] ?? 1,
-            "country_id" => $request->has('country_id') && $inputs['country_id'] ? $inputs['country_id'] : null,
-            "profession_id" => $request->has('profession_id') && $inputs['profession_id'] ? $inputs['profession_id'] : null,
-            "organization" => $request->has('organization') && $inputs['organization'] ? $inputs['organization'] : null,
+            "country_id" => $request->has('country_id') && $inputs['country_id'] ? $inputs['country_id'] : 0,
+            "profession_id" => $request->has('profession_id') && $inputs['profession_id'] ? $inputs['profession_id'] : 0,
+            "organization" => $request->has('organization') && $inputs['organization'] ? $inputs['organization'] : "",
             'birth_date' => Carbon::parse($inputs['birth_date']),
             'password' => Hash::make(Str::random(12)),
         ]);
@@ -211,9 +211,9 @@ class AuthController extends Controller
             $user->email = session()->get('email');
             $user->phone = session()->get('phone');
             $user->gender = session()->get('gender');
-            $user->country_id = session()->get('country_id');
-            $user->profession_id = session()->get('profession_id');
-            $user->organization = session()->get('organization');
+            $user->country_id = session()->get('country_id') ?? null;
+            $user->profession_id = session()->get('profession_id') ?? null;
+            $user->organization = session()->get('organization') ?? "";
             $user->birth_date = session()->get('birth_date');
             $user->password = session()->get('password');
             $user->save();
@@ -222,6 +222,9 @@ class AuthController extends Controller
             $userticket->ticket_id = $user->id + 1000000;
             $userticket->archive_id = 1;
             $userticket->save();
+            //Remove all data from session
+            session()->flush();
+
 
             //Auth::loginUsingId($userID, $remember = true);
             return redirect()->route('d-login');
