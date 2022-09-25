@@ -78,7 +78,7 @@ class NewsController extends Controller
             $image = $imagine->open($image);
             $thumbnail = $image->thumbnail(new \Imagine\Image\Box(450, 250));
             $thumbnail->save($tmpFilePath . $hardPath . '_thumbnail_450.png');
-            $bigImg = $image->thumbnail(new \Imagine\Image\Box(728, 480));
+            $bigImg = $image->thumbnail(new \Imagine\Image\Box(720, 450));
             $bigImg->save($tmpFilePath . $hardPath . '_big_728.png');
             $news->user_image = $hardPath;
         }
@@ -107,7 +107,7 @@ class NewsController extends Controller
                     file_put_contents($path, $data);
                     $imagine = new \Imagine\Gd\Imagine();
                     $image = $imagine->open($path);
-                    $bigImg = $image->thumbnail(new \Imagine\Image\Box(560, 420));
+                    $bigImg = $image->thumbnail(new \Imagine\Image\Box(450, 250));
                     $bigImg->save($path);
                     $img->removeAttribute('src');
                     $img->setAttribute('src', $image_name);
@@ -133,7 +133,7 @@ class NewsController extends Controller
                     file_put_contents($path, $data);
                     $imagine = new \Imagine\Gd\Imagine();
                     $image = $imagine->open($path);
-                    $bigImg = $image->thumbnail(new \Imagine\Image\Box(560, 420));
+                    $bigImg = $image->thumbnail(new \Imagine\Image\Box(450, 250));
                     $bigImg->save($path);
                     $img->removeAttribute('src');
                     $img->setAttribute('src', $image_name);
@@ -160,7 +160,7 @@ class NewsController extends Controller
                     file_put_contents($path, $data);
                     $imagine = new \Imagine\Gd\Imagine();
                     $image = $imagine->open($path);
-                    $bigImg = $image->thumbnail(new \Imagine\Image\Box(560, 420));
+                    $bigImg = $image->thumbnail(new \Imagine\Image\Box(450, 250));
                     $bigImg->save($path);
                     $img->removeAttribute('src');
                     $img->setAttribute('src', $image_name);
@@ -261,7 +261,7 @@ class NewsController extends Controller
             $image = $imagine->open($image);
             $thumbnail = $image->thumbnail(new \Imagine\Image\Box(450, 250));
             $thumbnail->save($tmpFilePath . $hardPath . '_thumbnail_450.png');
-            $bigImg = $image->thumbnail(new \Imagine\Image\Box(728, 480));
+            $bigImg = $image->thumbnail(new \Imagine\Image\Box(720, 450));
             $bigImg->save($tmpFilePath . $hardPath . '_big_728.png');
             $news->user_image = $hardPath;
         }
@@ -290,7 +290,7 @@ class NewsController extends Controller
                     file_put_contents($path, $data);
                     $imagine = new \Imagine\Gd\Imagine();
                     $image = $imagine->open($path);
-                    $bigImg = $image->thumbnail(new \Imagine\Image\Box(560, 420));
+                    $bigImg = $image->thumbnail(new \Imagine\Image\Box(450, 250));
                     $bigImg->save($path);
                     $img->removeAttribute('src');
                     $img->setAttribute('src', $image_name);
@@ -316,7 +316,7 @@ class NewsController extends Controller
                     file_put_contents($path, $data);
                     $imagine = new \Imagine\Gd\Imagine();
                     $image = $imagine->open($path);
-                    $bigImg = $image->thumbnail(new \Imagine\Image\Box(560, 420));
+                    $bigImg = $image->thumbnail(new \Imagine\Image\Box(450, 250));
                     $bigImg->save($path);
                     $img->removeAttribute('src');
                     $img->setAttribute('src', $image_name);
@@ -343,7 +343,7 @@ class NewsController extends Controller
                     file_put_contents($path, $data);
                     $imagine = new \Imagine\Gd\Imagine();
                     $image = $imagine->open($path);
-                    $bigImg = $image->thumbnail(new \Imagine\Image\Box(560, 420));
+                    $bigImg = $image->thumbnail(new \Imagine\Image\Box(450, 250));
                     $bigImg->save($path);
                     $img->removeAttribute('src');
                     $img->setAttribute('src', $image_name);
