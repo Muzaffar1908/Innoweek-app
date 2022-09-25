@@ -119,7 +119,7 @@
                 </a>
                 <div class="features-content">
                     <h3>{{$new->title}}</h3>
-                    <p>{{$new->text}}
+                    <p>{{strip_tags($new->text)}}
                     </p>
                 </div>
             </div>
@@ -137,10 +137,9 @@
         @foreach($conferens as $conf)
         <a href="{{route('conferensShow',['id'=>$conf->id])}}">
             <div class="components-support d-flex align-items-center mb-4">
-                <img src="{{asset('upload/conference/' .$conf->user_image.'-d.png')}}" alt="Images">
+                <img src="{{asset('upload/conference/' .$conf->user_image.'_thumbnail_267.png')}}" alt="Images">
                 <div class="components-content">
-                    <h6>{!! $conf->{'title_'.App::getLocale()} !!}</h6>
-
+                    <h6>{{$conf->title}}</h6>
                     <div class="icon d-flex align-items-center">
                         <i class="fa-solid fa-calendar-days"></i>
                         <p>{{$conf->created_at->format('Y:m:d')}}</p>
@@ -166,10 +165,10 @@
                 <a href="{{route('speakerShow',['id'=>$speaker->id])}}">
                     <img style="margin-right: 0; margin-top: 10px; width: 100%;
 					height: 180px;
-					object-fit: cover; border-radius: 5px;" src="{{asset('upload/speaker/' .$speaker->image.'-d.png')}}" alt="Images">
+					object-fit: cover; border-radius: 5px;" src="{{asset('upload/speaker/' .$speaker->image.'_thumbnail_267.png')}}" alt="Images">
                 </a>
                 <div class="customer-content d-flex flex-column align-items-center">
-                    <h4 style="margin-top: 10px; text-align: center; font-size: 15px;">{{$speaker->full_name}}</h4>
+                    <h4 style="margin-top: 10px; text-align: center; font-size: 15px;">{{$speaker->name}}</h4>
                     <span>{{$speaker->job}}</span>
                 </div>
             </div>

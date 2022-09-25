@@ -154,8 +154,8 @@ class GaleriesController extends Controller
     public function destroy($id)
     {
         $galeries = Galeries::findOrFail($id);
-        $image_path = public_path() . '/upload/galeries/' . $galeries->image . '-d.png';
-        unlink($image_path);
+        // $image_path = public_path() . '/upload/galeries/' . $galeries->image . '-d.png';
+        // unlink($image_path);
         $galeries->delete();
         return redirect('admin/galeries')->with('warning', 'NEWS TABLES DELETED');
     }

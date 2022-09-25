@@ -27,7 +27,7 @@
     <div class="cards-area ptb-30">
         <div class="container">
             <div class="section-title left-title">
-                <h2 style="text-align: center; margin: 10px 0;">{!! $newsShow->{'title_'.App::getLocale()} !!}</h2>
+                <h2 style="text-align: center; margin: 10px 0;">{{$newsShow->title}}</h2>
             </div>
             <div class="single-card-item p-0 bg-transparent">
                 <a href="">
@@ -40,7 +40,7 @@
                     </li>
 
                 </ul>
-                <p>{!! $newsShow->{'description_'.App::getLocale()} !!} </p>
+                <p>{{strip_tags($newsShow->text)}}</p>
             </div>
         </div>
     </div>
@@ -54,12 +54,12 @@
                 border-radius: 5px;" class="d-flex align-items-center justify-content-center my-4">
                     <div class="img-news">
                         <a href="{{route('newsShow',['id'=>$new->id])}}">
-                            <img width="300px" style=" height: 100px; object-fit: cover;"
-                            src="{{asset('/upload/news/' .$new->user_image.'_thumbnail_450.png')}}" alt="Image">
+                            <img width="300px"  style="height: 120px; object-fit: cover;"
+                            src="{{asset('/upload/news/' .$new->user_image.'_phone_300.png')}}" alt="Image">
                         </a>
                     </div>
                     <div class="title-news ps-3">
-                        <p>{!! substr($new->{'title_'.App::getLocale()},0,50).'...' !!}</p>
+                        <p>{{$new->title}}</p>
                         <div class="icon d-flex align-items-center">
                             <i class="fa-solid fa-calendar-days"></i>
                             <span

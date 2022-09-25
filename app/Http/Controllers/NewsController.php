@@ -76,6 +76,8 @@ class NewsController extends Controller
             $hardPath =  Str::slug('news', '-') . '-' . md5(time());
             $imagine = new \Imagine\Gd\Imagine();
             $image = $imagine->open($image);
+            $phone_img = $image->thumbnail(new \Imagine\Image\Box(300, 300));
+            $phone_img->save($tmpFilePath . $hardPath . '_phone_300.png');
             $thumbnail = $image->thumbnail(new \Imagine\Image\Box(450, 250));
             $thumbnail->save($tmpFilePath . $hardPath . '_thumbnail_450.png');
             $bigImg = $image->thumbnail(new \Imagine\Image\Box(720, 450));
@@ -113,7 +115,8 @@ class NewsController extends Controller
                     $img->setAttribute('src', $image_name);
                 }
             }
-            $news->description_uz = str_replace('<?xml encoding="UTF-8">', "", $dom_save_uz->saveHTML());
+            $news->description_uz = str_replace('<?xml encoding="UTF-8">', "", $dom_save_uz->saveHTML((new \DOMXPath($dom_save_uz))->query('/')->item(0)));
+
         }
 
         $news->description_ru = $inputs['description_ru'];
@@ -168,7 +171,7 @@ class NewsController extends Controller
                     $img->setAttribute('src', $image_name);
                 }
             }
-            $news->description_en = str_replace('<?xml encoding="UTF-8">', "", $dom_save_en->saveHTML());
+            $news->description_en = str_replace('<?xml encoding="UTF-8">', "", $dom_save_en->saveHTML((new \DOMXPath($dom_save_en))->query('/')->item(0)));
         }
 
         $news->save();
@@ -261,10 +264,12 @@ class NewsController extends Controller
             $hardPath =  Str::slug('news', '-') . '-' . md5(time());
             $imagine = new \Imagine\Gd\Imagine();
             $image = $imagine->open($image);
+            $phone_img = $image->thumbnail(new \Imagine\Image\Box(300, 300));
+            $phone_img->save($tmpFilePath . $hardPath . '_phone_300.png');
             $thumbnail = $image->thumbnail(new \Imagine\Image\Box(450, 250));
             $thumbnail->save($tmpFilePath . $hardPath . '_thumbnail_450.png');
             $bigImg = $image->thumbnail(new \Imagine\Image\Box(720, 450));
-            $bigImg->save($tmpFilePath . $hardPath . '_big_728.png');
+            $bigImg->save($tmpFilePath . $hardPath . '_big_720.png');
             $news->user_image = $hardPath;
         }
 
@@ -298,7 +303,9 @@ class NewsController extends Controller
                     $img->setAttribute('src', $image_name);
                 }
             }
-            $news->description_uz = str_replace('<?xml encoding="UTF-8">', "", $dom_save_uz->saveHTML());
+            
+            $news->description_uz = str_replace('<?xml encoding="UTF-8">', "", $dom_save_uz->saveHTML((new \DOMXPath($dom_save_uz))->query('/')->item(0)));
+
         }
 
         $news->description_ru = $inputs['description_ru'];
@@ -324,7 +331,9 @@ class NewsController extends Controller
                     $img->setAttribute('src', $image_name);
                 }
             }
-            $news->description_ru = str_replace('<?xml encoding="UTF-8">', "", $dom_save_ru->saveHTML());
+            //fixed bug
+            //dd(str_replace('<?xml encoding="UTF-8">', "", $dom_save_ru->saveHTML((new \DOMXPath($dom_save_ru))->query('/')->item(0))));
+            $news->description_ru = str_replace('<?xml encoding="UTF-8">', "", $dom_save_ru->saveHTML((new \DOMXPath($dom_save_ru))->query('/')->item(0)));
         }
 
         $news->description_en = $inputs['description_en'];
@@ -351,7 +360,7 @@ class NewsController extends Controller
                     $img->setAttribute('src', $image_name);
                 }
             }
-            $news->description_en = str_replace('<?xml encoding="UTF-8">', "", $dom_save_en->saveHTML());
+            $news->description_en = str_replace('<?xml encoding="UTF-8">', "", $dom_save_en->saveHTML((new \DOMXPath($dom_save_en))->query('/')->item(0)));
         }
 
         $news->save();

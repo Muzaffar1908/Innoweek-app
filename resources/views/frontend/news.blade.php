@@ -13,7 +13,7 @@
                         @foreach($news as $new)
                         <div class="event-single-box">
                             <div class="figure-box wow fadeInUp animated" data-wow-delay="0.2s" data-wow-duration="1s">
-                                <a href="{{route('newsshowx',['id'=>$new->id])}}"><img  src="{{asset('/upload/news/' . $new->user_image.'_big_728.png')}}" alt="Event"></a>
+                                <a href="{{route('newsshowx',['id'=>$new->id])}}"><img  src="{{asset('/upload/news/' . $new->user_image.'_big_720.png')}}" alt="Event"></a>
                             </div>
                             <div class="content-box">
                                 <div class="sub-title wow fadeInUp animated" data-wow-delay="0.3s"

@@ -131,7 +131,8 @@ class SpeakerController extends Controller
                     $img->setAttribute('src', $image_name);
                 }
             }
-            $speakers->description_uz = str_replace('<?xml encoding="UTF-8">', "", $dom_save_uz->saveHTML());
+
+            $speakers->description_uz = str_replace('<?xml encoding="UTF-8">', "", $dom_save_uz->saveHTML((new \DOMXPath($dom_save_uz))->query('/')->item(0)));
         }
 
         $speakers->description_ru = $inputs['description_ru'];
@@ -157,7 +158,8 @@ class SpeakerController extends Controller
                     $img->setAttribute('src', $image_name);
                 }
             }
-            $speakers->description_ru = str_replace('<?xml encoding="UTF-8">', "", $dom_save_ru->saveHTML());
+
+            $speakers->description_ru = str_replace('<?xml encoding="UTF-8">', "", $dom_save_ru->saveHTML((new \DOMXPath($dom_save_ru))->query('/')->item(0)));
         }
 
         $speakers->description_en = $inputs['description_en'];
@@ -183,7 +185,8 @@ class SpeakerController extends Controller
                     $img->setAttribute('src', $image_name);
                 }
             }
-            $speakers->description_en = str_replace('<?xml encoding="UTF-8">', "", $dom_save_en->saveHTML());
+
+            $speakers->description_en = str_replace('<?xml encoding="UTF-8">', "", $dom_save_en->saveHTML((new \DOMXPath($dom_save_en))->query('/')->item(0)));
         }
 
 
@@ -306,7 +309,8 @@ class SpeakerController extends Controller
                     $img->setAttribute('src', $image_name);
                 }
             }
-            $speakers->description_uz = str_replace('<?xml encoding="UTF-8">', "", $dom_save_uz->saveHTML());
+
+            $speakers->description_uz = str_replace('<?xml encoding="UTF-8">', "", $dom_save_uz->saveHTML((new \DOMXPath($dom_save_uz))->query('/')->item(0)));
         }
 
         $speakers->description_ru = $inputs['description_ru'];
@@ -332,7 +336,8 @@ class SpeakerController extends Controller
                     $img->setAttribute('src', $image_name);
                 }
             }
-            $speakers->description_ru = str_replace('<?xml encoding="UTF-8">', "", $dom_save_ru->saveHTML());
+
+            $speakers->description_ru = str_replace('<?xml encoding="UTF-8">', "", $dom_save_ru->saveHTML((new \DOMXPath($dom_save_ru))->query('/')->item(0)));
         }
 
         $speakers->description_en = $inputs['description_en'];
@@ -358,7 +363,9 @@ class SpeakerController extends Controller
                     $img->setAttribute('src', $image_name);
                 }
             }
-            $speakers->description_en = str_replace('<?xml encoding="UTF-8">', "", $dom_save_en->saveHTML());
+
+            $speakers->description_en = str_replace('<?xml encoding="UTF-8">', "", $dom_save_en->saveHTML((new \DOMXPath($dom_save_en))->query('/')->item(0)));
+
         }
 
 

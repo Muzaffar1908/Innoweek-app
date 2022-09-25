@@ -112,7 +112,8 @@ class ArchiveController extends Controller
                     $img->setAttribute('src', $image_name);
                 }
             }
-            $archives->description_uz = str_replace('<?xml encoding="UTF-8">', "", $dom_save_uz->saveHTML());
+            $archives->description_uz = str_replace('<?xml encoding="UTF-8">', "", $dom_save_uz->saveHTML((new \DOMXPath($dom_save_uz))->query('/')->item(0)));
+
         }
 
         $archives->description_ru = $inputs['description_ru'];
@@ -134,7 +135,7 @@ class ArchiveController extends Controller
                     $img->setAttribute('src', $image_name);
                 }
             }
-            $archives->description_ru = str_replace('<?xml encoding="UTF-8">', "", $dom_save_ru->saveHTML());
+            $archives->description_ru = str_replace('<?xml encoding="UTF-8">', "", $dom_save_ru->saveHTML((new \DOMXPath($dom_save_ru))->query('/')->item(0)));
         }
 
         $archives->description_en = $inputs['description_en'];
@@ -156,7 +157,7 @@ class ArchiveController extends Controller
                     $img->setAttribute('src', $image_name);
                 }
             }
-            $archives->description_en = str_replace('<?xml encoding="UTF-8">', "", $dom_save_en->saveHTML());
+            $archives->description_en = str_replace('<?xml encoding="UTF-8">', "", $dom_save_en->saveHTML((new \DOMXPath($dom_save_en))->query('/')->item(0)));
         }
 
         $archives->save();
@@ -252,7 +253,8 @@ class ArchiveController extends Controller
                     $img->setAttribute('src', $image_name);
                 }
             }
-            $archives->description_uz = str_replace('<?xml encoding="UTF-8">', "", $dom_save_uz->saveHTML());
+
+            $archives->description_uz = str_replace('<?xml encoding="UTF-8">', "", $dom_save_uz->saveHTML((new \DOMXPath($dom_save_uz))->query('/')->item(0)));
         }
 
         $archives->description_ru = $inputs['description_ru'];
@@ -274,7 +276,9 @@ class ArchiveController extends Controller
                     $img->setAttribute('src', $image_name);
                 }
             }
-            $archives->description_ru = str_replace('<?xml encoding="UTF-8">', "", $dom_save_ru->saveHTML());
+
+            $archives->description_ru = str_replace('<?xml encoding="UTF-8">', "", $dom_save_ru->saveHTML((new \DOMXPath($dom_save_ru))->query('/')->item(0)));
+
         }
 
         $archives->description_en = $inputs['description_en'];
@@ -296,7 +300,9 @@ class ArchiveController extends Controller
                     $img->setAttribute('src', $image_name);
                 }
             }
-            $archives->description_en = str_replace('<?xml encoding="UTF-8">', "", $dom_save_en->saveHTML());
+
+            $archives->description_en = str_replace('<?xml encoding="UTF-8">', "", $dom_save_en->saveHTML((new \DOMXPath($dom_save_en))->query('/')->item(0)));
+
         }
 
         $archives->save();

@@ -8,37 +8,43 @@ use App\Models\Conference;
 use App\Models\News\News;
 use App\Models\UserTicket;
 use Auth;
+use Illuminate\Support\Facades\DB;
 
 class IndexController extends Controller
 {
     public function home()
     {
-        $news = News::orderBy('created_at', 'desc')->where('is_active','=',1)->paginate(5);
-        $conferens = Conference::orderBy('created_at', 'desc')->where('is_active','=',1)->paginate(4);
-        $speakers = Speakers::orderBy('created_at', 'desc')->where('is_active','=',1)->get();
+        $lang = \App::getLocale();
+        $news = News::select('id', 'user_image', DB::raw('SUBSTRING(`title_' . $lang . '`, 1, 50) as title'), DB::raw('SUBSTRING(`description_' . $lang . '`, 1, 70) as text'))->orderBy('created_at', 'desc')->where('cat_id','=',1)->take(5)->get();
+        $conferens = Conference::select('id', 'user_image', DB::raw('SUBSTRING(`title_' . $lang . '`, 1, 40) as title'), 'created_at')->orderBy('created_at', 'desc')->where('is_active','=',1)->take(4)->get();
+        $speakers = Speakers::select('id', 'image', 'full_name_'. $lang . ' as name', DB::raw('SUBSTRING(`job_' . $lang . '`, 1, 20) as job') )->orderBy('created_at', 'desc')->where('is_active','=',1)->take(6)->get();
         return view('mobile.index', [
             'news' => $news,
             'conferens' => $conferens,
-            'speakers' => $speakers
+            'speakers' => $speakers,
+            'lang' => $lang,
         ]);
     }
 
     public function newsShow($id)
     {
-        $news = News::orderBy('created_at', 'desc')->where('is_active','=',1)->paginate(5);
-        $newsShow = News::where(['id' => $id])->first();
+        $lang = \App::getLocale();
+        $news = News::select('id', 'user_image', DB::raw('SUBSTRING(`title_' . $lang . '`, 1, 50) as title'), 'created_at')->orderBy('created_at', 'desc')->where('cat_id','=',1)->take(5)->get();
+        $newsShow = News::select('id', 'title_'. $lang . ' as title', 'user_image', DB::raw('SUBSTRING(`description_' . $lang . '`, 1, 700) as text'), 'created_at')->where(['id' => $id])->first();
         return view('mobile.newsShow', ['newsShow' => $newsShow, 'news' => $news]);
     }
 
     public function conferensShow($id)
     {
-        $conferensShow = Conference::where(['id' => $id])->first();
+        $lang = \App::getLocale();
+        $conferensShow = Conference::select('id', 'title_'. $lang . ' as title', 'user_image', 'created_at', DB::raw('SUBSTRING(`description_' . $lang . '`, 1, 700) as text'))->where(['id' => $id])->first();
         return view('mobile.conferensShow', ['conferensShow' => $conferensShow]);
     }
 
     public function speakerShow($id)
     {
-        $speakerShow = Speakers::where(['id' => $id])->first();
+        $lang = \App::getLocale();
+        $speakerShow = Speakers::select('id', 'full_name_'. $lang . ' as name', 'image', 'created_at', DB::raw('SUBSTRING(`description_' . $lang . '`, 1, 700) as text', 'facebook_ur', 'twitter_url', 'youtube_url', 'linkedin_url'))->where(['id' => $id])->first();
         return view('mobile.speakerShow', ['speakerShow' => $speakerShow]);
     }
 

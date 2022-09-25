@@ -131,7 +131,9 @@ class ConferenceController extends Controller
                     $img->setAttribute('src', $image_name);
                 }
             }
-            $conferences->description_uz = str_replace('<?xml encoding="UTF-8">', "",$dom_save_uz->saveHTML());
+
+            $conferences->description_uz = str_replace('<?xml encoding="UTF-8">', "", $dom_save_uz->saveHTML((new \DOMXPath($dom_save_uz))->query('/')->item(0)));
+
         }
 
         $conferences->description_ru = $inputs['description_ru'];
@@ -157,7 +159,9 @@ class ConferenceController extends Controller
                     $img->setAttribute('src', $image_name);
                 }
             }
-            $conferences->description_ru = str_replace('<?xml encoding="UTF-8">', "",$dom_save_ru->saveHTML());
+
+            $conferences->description_ru = str_replace('<?xml encoding="UTF-8">', "", $dom_save_ru->saveHTML((new \DOMXPath($dom_save_ru))->query('/')->item(0)));
+
         }
 
         $conferences->description_en = $inputs['description_en'];
@@ -184,7 +188,9 @@ class ConferenceController extends Controller
                     $img->setAttribute('src', $image_name);
                 }
             }
-            $conferences->description_en = str_replace('<?xml encoding="UTF-8">', "",$dom_save_en->saveHTML());
+
+            $conferences->description_en = str_replace('<?xml encoding="UTF-8">', "", $dom_save_en->saveHTML((new \DOMXPath($dom_save_en))->query('/')->item(0)));
+
         }
 
         $conferences->save();
@@ -287,6 +293,7 @@ class ConferenceController extends Controller
         $conferences->address_en = $inputs['address_en'];
 
         $conferences->description_uz = $inputs['description_uz'];
+        
         if (!empty($conferences->description_uz)) {
             $dom_save_uz = new \DomDocument();
             libxml_use_internal_errors(true);
@@ -309,7 +316,9 @@ class ConferenceController extends Controller
                     $img->setAttribute('src', $image_name);
                 }
             }
-            $conferences->description_uz = str_replace('<?xml encoding="UTF-8">', "",$dom_save_uz->saveHTML());
+
+            $conferences->description_uz = str_replace('<?xml encoding="UTF-8">', "", $dom_save_uz->saveHTML((new \DOMXPath($dom_save_uz))->query('/')->item(0)));
+
         }
 
         $conferences->description_ru = $inputs['description_ru'];
@@ -335,7 +344,9 @@ class ConferenceController extends Controller
                     $img->setAttribute('src', $image_name);
                 }
             }
-            $conferences->description_ru = str_replace('<?xml encoding="UTF-8">', "",$dom_save_ru->saveHTML());
+
+            $conferences->description_ru = str_replace('<?xml encoding="UTF-8">', "", $dom_save_ru->saveHTML((new \DOMXPath($dom_save_ru))->query('/')->item(0)));
+
         }
 
         $conferences->description_en = $inputs['description_en'];
@@ -362,7 +373,9 @@ class ConferenceController extends Controller
                     $img->setAttribute('src', $image_name);
                 }
             }
-            $conferences->description_en = str_replace('<?xml encoding="UTF-8">', "",$dom_save_en->saveHTML());
+
+            $conferences->description_en = str_replace('<?xml encoding="UTF-8">', "", $dom_save_en->saveHTML((new \DOMXPath($dom_save_en))->query('/')->item(0)));
+
         }
 
         $conferences->save();
