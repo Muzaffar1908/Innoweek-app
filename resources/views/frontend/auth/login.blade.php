@@ -16,40 +16,41 @@ sticky
             <img src="{{ asset('/frontend/image/logo/innoweek 1.png') }}" alt="">
             <img src="{{ asset('/frontend/image/logo/MO123 1.png') }}" alt="">
         </div>
-        <h1 class="mt-3"> ELEKTRON CHIPTA </h1>
-        <p class="text-center"> Innoweek-2022 ga kirish uchun chipta </p>
+        <h1 class="mt-3"> {{__('ELECTRONIC TICKET')}} </h1>
+        <p class="text-center"> {{__('Ticket to enter Innoweek-2022')}} </p>
         <div class="d-flex justify-content-around userinf mt-3">
-            <h1 class="d-flex align-items-center"> Muhammadali Eshonqulov </h1>
-            <img src="{{ asset('/frontend/image/image 2.png') }}" alt="Electron ticket">
+            <h1 class="d-flex align-items-center"> {{ Auth::user()->first_name }} {{ Auth::user()->last_name }} </h1>
+            {!! QrCode::size(170)->generate(url('/').'/check/ticket/'.$ticket->ticket_id) !!}
+            {{-- <img src="{{ asset('/frontend/image/image 2.png') }}" alt="Electron ticket"> --}}
         </div>
         <div class="grid-container">
             <p class="d-flex align-items-center space-x-2">
                 <img class="flex-shrink-0" src="{{ asset('/frontend/image/icon/Group 3.png') }}" width="20px" alt="">
-                <span>Amal qilish muddati:</span>
+                <span>{{__('Validity period')}}:</span>
                 <span class="ml-autoi">21.10.2022</span>
             </p>
 
             <p class="d-flex align-items-center space-x-2">
                 <img class="flex-shrink-0" src="{{ asset('/frontend/image/icon/Group 1.png') }}" width="20px" alt="">
-                <span>Tashrif sanasi va vaqti: </span>
+                <span>{{__('Date and time of visit')}}: </span>
                 <span class="ml-autoi">17.10.2022 10:00</span>
 
             </p>
 
             <p class="d-flex align-items-center space-x-2">
                 <img class="flex-shrink-0" src="{{ asset('/frontend/image/icon/Group 2.png') }}" width="20px" alt="">
-                <span>Toshkent sh, Universitet ko‘chasi, 7</span>
+                <span>{{__('University Street, 7, Tashkent city')}}</span>
             </p>
         </div>
-        <p class="footer"> Boshqa bir shaxs ushbu talondan foydalanishi qat'iyan man etiladi. </p>
+        <p class="footer"> {{__('It is strictly forbidden for another person to use this pass.')}} </p>
     </div>
 
     <div class="boxes">
         <form class="reg-box">
             <div class="text-center">
-                <button class="text-center"> Elektron chiptani yuklab olish </button>
+                <button class="text-center"> {{__('Download electronic ticket')}} </button>
             </div>
-            <h3>Timizga kirish yoki foydalanish uchun ushbu ilovani yuklab oling.</h3>
+            <h3>{{__('Download this app to access or use our system.')}}</h3>
             <img src="{{ asset('/frontend/image/qr.png') }}" class="mx-auto d-block img" alt="">
             <div class="d-flex py-3 align-items-center justify-content-between">
                 <a href="https://play.google.com/store/apps?hl=ru&gl=US"><img class="downloads playM" width="200"

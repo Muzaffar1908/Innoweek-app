@@ -76,6 +76,9 @@ class UserController extends Controller
          $users->email = $inputs['email'];
          $users->phone = $inputs['phone'];
          $users->password ="0";
+         $users->country_id = $inputs['country_id'];
+         $users->profession_id = $inputs['profession_id'];
+         $users->organization = $inputs['organization'];
 
 
 
@@ -155,6 +158,9 @@ class UserController extends Controller
          $users->password = $inputs['password'];
          $users->provider_name = $inputs['provider_name'];
          $users->provider_id = $inputs['provider_id'];
+         $users->country_id = $inputs['country_id'];
+         $users->profession_id = $inputs['profession_id'];
+         $users->organization = $inputs['organization'];
 
          if ($request->hasFile('user_image')) {
             $file = $request->file('user_image');
@@ -249,6 +255,9 @@ class UserController extends Controller
          $users->phone = $inputs['phone'];
          $users->provider_name = $inputs['provider_name'];
          $users->provider_id = $inputs['provider_id'];
+         $users->country_id = $inputs['country_id'];
+         $users->profession_id = $inputs['profession_id'];
+         $users->organization = $inputs['organization'];
 
          if ($request->hasFile('user_image')) {
             $file = $request->file('user_image');
