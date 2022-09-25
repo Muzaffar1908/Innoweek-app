@@ -139,7 +139,9 @@ class NewsController extends Controller
                     $img->setAttribute('src', $image_name);
                 }
             }
-            $news->description_ru = str_replace('<?xml encoding="UTF-8">', "", $dom_save_ru->saveHTML());
+            //fixed bug
+            //dd(str_replace('<?xml encoding="UTF-8">', "", $dom_save_ru->saveHTML((new \DOMXPath($dom_save_ru))->query('/')->item(0))));
+            $news->description_ru = str_replace('<?xml encoding="UTF-8">', "", $dom_save_ru->saveHTML((new \DOMXPath($dom_save_ru))->query('/')->item(0)));
         }
 
         $news->description_en = $inputs['description_en'];

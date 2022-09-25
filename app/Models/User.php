@@ -43,6 +43,9 @@ class User extends Authenticatable
         'roll',
         'provider_name',
         'provider_id',
+        'country_id',
+        'profession_id',
+        'organization',
         'is_active',
         'is_blocked',
     ];
