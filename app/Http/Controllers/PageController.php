@@ -122,7 +122,7 @@ class PageController extends Controller
     {
         $lang = \App::getLocale();
 
-        $news = News::select('id', 'title_'. $lang . ' as title', 'user_image', DB::raw('SUBSTRING(`description_' . $lang . '`, 1, 255) as text'), 'tags', 'created_at')->where('cat_id', 1)->orderBy('created_at', 'DESC')->paginate(2);
+        $news = News::select('id', 'title_'. $lang . ' as title', 'user_image', DB::raw('SUBSTRING(`description_' . $lang . '`, 1, 500) as text'), 'tags', 'created_at')->where('cat_id', 1)->orderBy('created_at', 'DESC')->paginate(2);
         $newsresent = News::select('id', 'user_image', 'title_' . $lang . ' as title', 'created_at')->where('cat_id', 1)->orderBy('created_at', 'desc')->take(3)->get();
         return view('frontend.news', ['news' => $news, 'newsresent' => $newsresent]);
     }
