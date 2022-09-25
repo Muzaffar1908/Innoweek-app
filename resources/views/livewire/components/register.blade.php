@@ -70,7 +70,7 @@
             <option value="4">Engineer</option>
             <option value="5">Developer</option>
           </select>
-          <input id="organization" type="text" name="organization" placeholder="{{__('Tashkilot')}}" autocomplete="off">
+          <input id="organization" type="text" name="organization" placeholder="{{__('Organization')}}" autocomplete="off">
           <input class="form-control" type="datetime-local" name="birth_date" autocomplete="off" required
             placeholder="{{__('Date of birth')}} *" />
           <div class="input-radio">

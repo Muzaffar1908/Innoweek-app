@@ -14643,6 +14643,7 @@ input[type = "radio"] {
 
 .reg-box{
   padding: 10px;
+  text-align: center;
 }
 
 
@@ -14656,6 +14657,32 @@ input[type = "radio"] {
   width: 70%;
   background-color: transparent;
   border: none;
+}
+
+.reg-box input {
+  border: 2px solid #c4c3ff;
+  border-radius: 40px;
+  outline: none;
+  color: #fff;
+  transition: all .2s ease-out;
+  font-size: 18px;
+  text-align: center;
+  background: transparent;
+  width: 100%;
+}
+
+.reg-box .reg-btn {
+  font-weight: 400;
+  margin-top: 5px;
+  width: 100%;
+  border: 2px solid rgb(42, 7, 249);
+  border-radius: 40px;
+  outline: none;
+  color: #fff;
+  transition: all .2s ease-out;
+  font-size: 18px;
+  text-align: center;
+  background: rgb(42, 7, 249);
 }
 
 .reg-box button img {
@@ -14683,7 +14710,7 @@ input[type = "radio"] {
   padding-right: 24px;
   height: 40px;
   border-radius: 10px;
-  background-color: black;
+  background-color: rgb(42, 7, 249);
   color: #fff;
 }
 

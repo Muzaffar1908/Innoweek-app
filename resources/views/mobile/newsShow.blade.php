@@ -30,8 +30,8 @@
                 <h2 style="text-align: center; margin: 10px 0;">{!! $newsShow->{'title_'.App::getLocale()} !!}</h2>
             </div>
             <div class="single-card-item p-0 bg-transparent">
-                <a href="{{asset('upload/news/' .$newsShow->user_image.'-d.png')}}">
-                    <img src="{{asset('upload/news/' .$newsShow->user_image.'-d.png')}}" alt="Images">
+                <a href="">
+                    <img src="{{asset('/upload/news/' .$newsShow->user_image.'_thumbnail_450.png')}}" alt="Images">
                 </a>
                 <ul class="d-flex align-items-center justify-content-between">
                     <li class="d-flex align-items-center">
@@ -48,7 +48,6 @@
     <div class=" imagess-area pt-2">
         <div class="container">
             @foreach($news as $new)
-
                 <div style="background-color: #fff;
                 box-shadow: 2px 5px 13px 0 #171d4114;
                 padding: 10px;
@@ -56,7 +55,7 @@
                     <div class="img-news">
                         <a href="{{route('newsShow',['id'=>$new->id])}}">
                             <img width="300px" style=" height: 100px; object-fit: cover;"
-                                 src="{{asset('upload/news/' .$new->user_image.'-d.png')}}" alt="Image">
+                            src="{{asset('/upload/news/' .$new->user_image.'_thumbnail_450.png')}}" alt="Image">
                         </a>
                     </div>
                     <div class="title-news ps-3">
@@ -69,8 +68,6 @@
                     </div>
                 </div>
             @endforeach
-
-
         </div>
     </div>
 

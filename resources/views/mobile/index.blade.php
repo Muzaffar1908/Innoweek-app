@@ -114,7 +114,7 @@
         @foreach($news as $new)
             <div class="single-features card-bg-a1dbd2">
                 <a href="{{route('newsShow',['id'=>$new->id])}}">
-                    <img style="object-fit: cover; width: 100%; height: 230px;"
+                    <img style="width: 450px; height: 250px;"
                          src="{{asset('/upload/news/' .$new->user_image.'_thumbnail_450.png')}}" alt="">
                 </a>
                 <div class="features-content">
