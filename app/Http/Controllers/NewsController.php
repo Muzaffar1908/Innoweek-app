@@ -81,7 +81,7 @@ class NewsController extends Controller
             $thumbnail = $image->thumbnail(new \Imagine\Image\Box(450, 250));
             $thumbnail->save($tmpFilePath . $hardPath . '_thumbnail_450.png');
             $bigImg = $image->thumbnail(new \Imagine\Image\Box(720, 450));
-            $bigImg->save($tmpFilePath . $hardPath . '_big_728.png');
+            $bigImg->save($tmpFilePath . $hardPath . '_big_720.png');
             $news->user_image = $hardPath;
         }
 

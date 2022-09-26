@@ -12,7 +12,7 @@ sticky
         <div class="col-lg-8">
           <div class="event-single-box">
             <div class="figure-box wow fadeInUp animated" data-wow-delay="0.2s" data-wow-duration="1s">
-              <img src="{{asset('/upload/news/' . $news->user_image.'_big_728.png')}}" width="100%" alt="Speaker" width="267" height="267">
+              <img src="{{asset('/upload/news/' . $news->user_image.'_big_720.png')}}" width="100%" alt="Speaker" width="267" height="267">
             </div>
             <div class="content-box">
               <div class="sub-title wow fadeInUp animated" data-wow-delay="0.3s" data-wow-duration="1s">
