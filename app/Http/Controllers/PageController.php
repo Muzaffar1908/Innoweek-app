@@ -22,9 +22,9 @@ class PageController extends Controller
             ->select(DB::raw('DATE(started_at) as date'))
             ->groupBy('date')
             ->get();
-            
+
         $lang = \App::getLocale();
-             
+
         $condate_data = Conference::select('id', 'started_at', 'stoped_at', DB::raw('SUBSTRING(`title_' . $lang . '`, 1, 50) as title'), 'live_url', 'user_image', DB::raw('SUBSTRING(`description_' . $lang . '`, 1, 260) as text'), 'address_'. $lang . ' as address')->orderBy('created_at', 'DESC')->get();
 
         $lang = \App::getLocale();
