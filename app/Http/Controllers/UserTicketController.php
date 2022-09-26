@@ -195,7 +195,7 @@ class UserTicketController extends Controller
           }
   /* shunchaki default qiymat berildi */
 
-  $usertickets->ticket_id = "464564";
+        $usertickets->ticket_id = "464564";
 
          $usertickets->save();
 
