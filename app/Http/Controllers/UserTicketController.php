@@ -84,7 +84,7 @@ class UserTicketController extends Controller
          }
 
          $usertickets->user_id = $inputs['user_id'];
-        $usertickets->archive_id = $inputs['archive_id'];
+         $usertickets->archive_id = $inputs['archive_id'];
         /* shunchaki default qiymat berildi */
 
          $usertickets->ticket_id = "464564";
@@ -183,7 +183,7 @@ class UserTicketController extends Controller
         $usertickets->archive_id = $inputs['archive_id'];
          if ($request->hasFile('ticket_image')) {
             $rule = array(
-                'ticket_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
+             'ticket_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
              );
             $file = $request->file('ticket_image');
             $ex = $file->getClientOriginalExtension();
@@ -217,8 +217,8 @@ class UserTicketController extends Controller
     public function destroy(UserTicket $userticket)
     {
     //    unlink('upload/ticket_image/' .$userticket->ticket_image);
-    $eduhub = UserTicket::findOrFail($userticket->id);
-    $eduhub->delete();
+        $eduhub = UserTicket::findOrFail($userticket->id);
+        $eduhub->delete();
 
        return redirect('admin/userticket')->with('warning', 'USERTICKET_TABLES_DELETED');
     }

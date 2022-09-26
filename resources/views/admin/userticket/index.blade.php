@@ -84,10 +84,10 @@
                                             <td>
                                                 <div class="btn-group">
                                                     {{-- <a href="{{ route('admin.userticket.show', $userticket->id) }}"
-                                                        type="button" class="btn btn-info"><i class="bi bi-eye"></i></a> --}}
-                                                    {{-- <a href="{{ route('admin.userticket.edit', $userticket->id) }}"
+                                                        type="button" class="btn btn-info"><i class="bi bi-eye"></i></a>
+                                                    <a href="{{ route('admin.userticket.edit', $userticket->id) }}"
                                                         type="button" class="btn btn-success"><i
-                                                            class="bi bi-pencil"></i></a>
+                                                            class="bi bi-pencil"></i></a> --}}
                                                     <form action="{{ route('admin.userticket.destroy', $userticket->id) }}"
                                                         method="POST" enctype="multipart/form-data">
                                                         @csrf
@@ -96,7 +96,7 @@
                                                             <button type="button" class="btn btn-danger sweet-confirm"><i
                                                                     class="bi bi-trash"></i></button>
                                                         </div>
-                                                    </form> --}}
+                                                    </form>
                                                 </div>
                                             </td>
                                         </tr>

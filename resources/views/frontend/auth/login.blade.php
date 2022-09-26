@@ -20,8 +20,8 @@ sticky
         <p class="text-center"> {{__('Ticket to enter Innoweek-2022')}} </p>
         <div class="d-flex justify-content-around userinf mt-3">
             <h1 class="d-flex align-items-center"> Muzaffar Ahmadaliyev </h1>
+            <img src="{{ asset('/frontend/image/image 2.png') }}" alt="Electron ticket">
             {{-- {!! QrCode::size(170)->generate(url('/').'/check/ticket/'.$ticket->ticket_id) !!} --}}
-            <img src="{{ asset('frontend/image/image 2.png') }}" alt="Electron ticket">
         </div>
         <div class="grid-container">
             <p class="d-flex align-items-center space-x-2">
@@ -43,8 +43,9 @@ sticky
             </p>
         </div>
         <p class="footer"> {{__('It is strictly forbidden for another person to use this pass.')}} </p>
-    </div>
-
+    </div>    
+    
+    
     <div class="boxes">
         <form class="reg-box">
             <div class="text-center">
@@ -52,6 +53,7 @@ sticky
             </div>
             <h3>{{__('Download this app to access or use our system.')}}</h3>
             <img src="{{ asset('/frontend/image/qr.png') }}" class="mx-auto d-block img" alt="">
+            {{-- {!! QrCode::size(170)->generate(url('/').'/check/ticket/'.$ticket->ticket_id) !!} --}}
             <div class="d-flex py-3 align-items-center justify-content-between">
                 <a href="https://play.google.com/store/apps?hl=ru&gl=US"><img class="downloads playM" width="200"
                         src="{{ asset('/frontend/image/icon/playmarket.png') }}" alt=""></a>
@@ -61,6 +63,7 @@ sticky
 
         </form>
     </div>
+ 
 </div>
 
 @endsection

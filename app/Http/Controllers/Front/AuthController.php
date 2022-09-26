@@ -179,6 +179,16 @@ class AuthController extends Controller
                 \Session::flash('warning', __('SOMETHING_WENT_WRONG'));
                 return redirect()->route('home');
             } else {
+                $user->save();
+                $userticket = new UserTicket();
+                $userticket->user_id = $user->id;
+                $userticket->ticket_id = $user->id + 1000000;
+                $userticket->archive_id = 1;
+                $userticket->save();
+                session([
+                    'verifyCode' => $verify_code,
+                ]);
+
                 session(['verifyCode' => $verify_code]);
                 \Session::flash('warning', __('ALL_SUCCESSFUL_SAVED'));
                 return redirect()->route('d-verify');
@@ -187,6 +197,7 @@ class AuthController extends Controller
 
         $sentSMS = self::SendSMSVerify($inputs['phone']);
         if ($sentSMS) {
+             $inputs['phone'];
             \Session::flash('warning', __('ALL_SUCCESSFUL_SAVED'));
             return redirect()->route('d-verify');
         }
@@ -205,18 +216,20 @@ class AuthController extends Controller
         $codeSession = session()->get('verifyCode');
         //$userID = session()->get('userID');
         if (isset($inputs['code']) && $inputs['code'] == $codeSession) {
-            $user = new User;
-            $user->first_name = session()->get('first_name');
-            $user->last_name = session()->get('last_name');
-            $user->email = session()->get('email');
-            $user->phone = session()->get('phone');
-            $user->gender = session()->get('gender');
-            $user->country_id = session()->get('country_id') ?? null;
-            $user->profession_id = session()->get('profession_id') ?? null;
-            $user->organization = session()->get('organization') ?? "";
-            $user->birth_date = session()->get('birth_date');
-            $user->password = session()->get('password');
-            $user->save();
+
+            UserTicket::loginUsingId($userID, $remember = true);
+            // $user = new User;
+            // $user->first_name = session()->get('first_name');
+            // $user->last_name = session()->get('last_name');
+            // $user->email = session()->get('email');
+            // $user->phone = session()->get('phone');
+            // $user->gender = session()->get('gender');
+            // $user->country_id = session()->get('country_id') ?? null;
+            // $user->profession_id = session()->get('profession_id') ?? null;
+            // $user->organization = session()->get('organization') ?? "";
+            // $user->birth_date = session()->get('birth_date');
+            // $user->password = session()->get('password');
+            // $user->save();
             $userticket = new UserTicket();
             $userticket->user_id = $user->id;
             $userticket->ticket_id = $user->id + 1000000;
@@ -225,8 +238,6 @@ class AuthController extends Controller
             //Remove all data from session
             session()->flush();
 
-
-            //Auth::loginUsingId($userID, $remember = true);
             return redirect()->route('d-login');
         }
         return redirect()->route('home');
