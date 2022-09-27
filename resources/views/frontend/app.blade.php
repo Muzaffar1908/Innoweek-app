@@ -326,7 +326,7 @@
                   </div>
                 </div>
                 <div class="accordion-pone">
-                  <img width="280" src="{{asset('frontend/Image/phone.jpg')}}" alt="">
+                  <img width="280" src="{{asset('/frontend/image/phone.jpg')}}" alt="">
                 </div>
               </div>
             </div>
