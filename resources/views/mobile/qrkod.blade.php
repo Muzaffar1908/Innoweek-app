@@ -32,7 +32,6 @@
     <div class="d-flex justify-content-around userinf mt-3">
         <h1 class="d-flex align-items-center"> {{ Auth::user()->first_name }} {{ Auth::user()->last_name }} </h1>
         {!! QrCode::size(170)->generate(url('/').'/check/ticket/'.$ticket->ticket_id) !!}
-        {{-- <img src="{{ asset('/assets/images/image 2.png') }}" alt=""> --}}
     </div>
     <div class="grid-container">
         <p class="d-flex align-items-center space-x-2">
@@ -54,6 +53,9 @@
         </p>
     </div>
     <p class="footer"> {{ __("Boshqa bir shaxs ushbu talondan foydalanishi qat'iyan man etiladi.")}} </p>
+</div>
+<div>
+    <p class="investor"> {{ Str::upper($ticket->profession_name) }} </p>
 </div>
 @else
 <div class="qrcode pt-5">

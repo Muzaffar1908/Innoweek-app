@@ -55,7 +55,14 @@ class AuthController extends Controller
 
     public function LoginPage()
     {
-        return view('frontend.auth.login');
+        if (session()->has('userticket')) {
+            $ticket = UserTicket::select('user_tickets.id as t_id', 'u.id as u_id', 'u.first_name as first_name', 'u.last_name as last_name', 'user_tickets.ticket_id')
+            ->leftJoin('users as u', 'u.id', '=', 'user_tickets.user_id')
+            ->where([['user_tickets.id', session()->get('userticket')], ['u.is_active', true]])
+            ->first();
+        }
+        else return redirect('/');
+        return view('frontend.auth.login', compact('ticket'));
     }
 
     public function login(Request $request)
@@ -179,6 +186,16 @@ class AuthController extends Controller
                 \Session::flash('warning', __('SOMETHING_WENT_WRONG'));
                 return redirect()->route('home');
             } else {
+                $user->save();
+                $userticket = new User();
+                $userticket->user_id = $user->id;
+                $userticket->ticket_id = $user->id + 1000000;
+                $userticket->archive_id = 1;
+                $userticket->save();
+                session([
+                    'verifyCode' => $verify_code,
+                ]);
+
                 session(['verifyCode' => $verify_code]);
                 \Session::flash('warning', __('ALL_SUCCESSFUL_SAVED'));
                 return redirect()->route('d-verify');
@@ -187,6 +204,7 @@ class AuthController extends Controller
 
         $sentSMS = self::SendSMSVerify($inputs['phone']);
         if ($sentSMS) {
+             $inputs['phone'];
             \Session::flash('warning', __('ALL_SUCCESSFUL_SAVED'));
             return redirect()->route('d-verify');
         }
@@ -224,9 +242,7 @@ class AuthController extends Controller
             $userticket->save();
             //Remove all data from session
             session()->flush();
-
-
-            //Auth::loginUsingId($userID, $remember = true);
+            session(['userticket' => $userticket->id]);
             return redirect()->route('d-login');
         }
         return redirect()->route('home');

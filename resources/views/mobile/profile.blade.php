@@ -15,7 +15,7 @@
 					</a>
 
                 </h2>
-                <form action="{{route('logout')}}" method="POST" >
+                <form action="{{route('m-logout')}}" method="GET" >
                     @csrf
                     <button type="submit"  class="logout-btn"><i class="ri-logout-box-r-line log-icon"></i></button>
                 </form>

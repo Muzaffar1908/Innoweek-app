@@ -19,9 +19,8 @@ sticky
         <h1 class="mt-3"> {{__('ELECTRONIC TICKET')}} </h1>
         <p class="text-center"> {{__('Ticket to enter Innoweek-2022')}} </p>
         <div class="d-flex justify-content-around userinf mt-3">
-            <h1 class="d-flex align-items-center"> Muzaffar Ahmadaliyev </h1>
-            {{-- {!! QrCode::size(170)->generate(url('/').'/check/ticket/'.$ticket->ticket_id) !!} --}}
-            <img src="{{ asset('frontend/image/image 2.png') }}" alt="Electron ticket">
+            <h1 class="d-flex align-items-center"> {{$ticket->first_name }} {{ $ticket->last_name }} </h1>
+            {!! QrCode::size(170)->generate(url('/').'/check/ticket/'.$ticket->ticket_id) !!}
         </div>
         <div class="grid-container">
             <p class="d-flex align-items-center space-x-2">
@@ -43,8 +42,9 @@ sticky
             </p>
         </div>
         <p class="footer"> {{__('It is strictly forbidden for another person to use this pass.')}} </p>
-    </div>
-
+    </div>    
+    
+    
     <div class="boxes">
         <form class="reg-box">
             <div class="text-center">
@@ -58,7 +58,6 @@ sticky
                 <a href="https://www.apple.com/uz/app-store/"><img class="downloads playS" width="200"
                         src="{{ asset('/frontend/image/icon/appstoree.png') }}" alt=""></a>
             </div>
-
         </form>
     </div>
 </div>

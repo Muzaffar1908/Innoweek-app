@@ -12,6 +12,10 @@ use Illuminate\Support\Facades\DB;
 
 class IndexController extends Controller
 {
+    public function SignOut() {
+        Auth::logout();
+        return redirect()->route('m-home');
+    }
     public function home()
     {
         $lang = \App::getLocale();
@@ -44,7 +48,7 @@ class IndexController extends Controller
     public function speakerShow($id)
     {
         $lang = \App::getLocale();
-        $speakerShow = Speakers::select('id', 'full_name_'. $lang . ' as name', 'image', 'created_at', DB::raw('SUBSTRING(`description_' . $lang . '`, 1, 700) as text', 'facebook_ur', 'twitter_url', 'youtube_url', 'linkedin_url'))->where(['id' => $id])->first();
+        $speakerShow = Speakers::select('id', 'full_name_'. $lang . ' as name', 'image', 'created_at', DB::raw('SUBSTRING(`description_' . $lang . '`, 1, 700) as text'), 'facebook_ur', 'twitter_url', 'youtube_url', 'linkedin_url')->where(['id' => $id])->first();
         return view('mobile.speakerShow', ['speakerShow' => $speakerShow]);
     }
 
@@ -79,14 +83,31 @@ class IndexController extends Controller
 
     public function calendar()
     {
-        return view('mobile.calendar');
+        $ConfSchedules = DB::table('conferences')
+            ->select(DB::raw('DATE(started_at) as date'))
+            ->groupBy('date')
+            ->get();
+
+        // $condates = DB::table('conferences')
+        // ->whereDate('started_at', $id)
+        // ->get();    
+
+        $lang = \App::getLocale();
+        // $condate_data = Conference::select('id', 'started_at')->take(5)->get();
+        $conferences = Conference::select('id', 'user_image', DB::raw('SUBSTRING(`title_' . $lang . '`, 1, 15) as title'), 'started_at')->get();
+        return view('mobile.calendar', ['ConfSchedules' => $ConfSchedules, 'conferences' => $conferences]);
     }
 
     public function qrkod()
     {
+        $lang = \App::getLocale();
         $userTicket = null;
         if (isset(Auth::user()->id)) {
-            $userTicket = UserTicket::where('user_id', Auth::user()->id)->first();
+            $userTicket = UserTicket::select('u.first_name as first_name', 'u.last_name as last_name', 'u.id as u_id', 'p.name_'.$lang.' as profession_name', 'user_tickets.ticket_id as ticket_id', 'user_tickets.id as t_id')
+            ->leftJoin('users as u', 'user_tickets.user_id', '=', 'u.id')
+            ->leftJoin('professions as p', 'u.profession_id', '=', 'p.id')
+            ->where('user_id', Auth::user()->id)
+            ->first();
         }
         return view('mobile.qrkod', ['ticket' => $userTicket]);
     }

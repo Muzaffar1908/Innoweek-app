@@ -14639,7 +14639,7 @@ input[type = "radio"] {
   margin-left: 4rem;
   margin-top: 4rem;
   padding: 20px 0 20px 0;
-  width: 400px;
+  width: 450px;
   background: #041A57;
   border-radius: 10px;
 }
@@ -14734,9 +14734,9 @@ input[type = "radio"] {
 .qrcode {
   border: 1px solid linear-gradient(180deg, #FED813 0%, #F24D51 100%);
   border-radius: 10px;
-  margin-top: 80px;
+  margin-top: 85px;
   width: 30%;
-  height: 80vh;
+  height: 85vh;
   background: linear-gradient(180deg, #FED813 0%, #F24D51 100%);
 }
 
@@ -14773,7 +14773,7 @@ input[type = "radio"] {
 }
 
 .userinf h1 {
-  width: 4px;
+  width: 94px;
   font-family: 'Inter';
   font-size: 22px;
   line-height: 24px;
@@ -14871,6 +14871,111 @@ select option { color: black; }
 
 .form-control:focus{
   box-shadow: unset;
+}
+
+@media ( min-width: 0) and ( max-width: 474.9px ) {
+  .regpanel {
+    display: flex;
+    flex-direction:column
+  }
+  .qrcode {
+    width: 100%;
+  }
+  .boxes {
+    width: 100%;
+    margin: 15px auto;
+  } 
+}
+
+@media ( min-width: 475px) and ( max-width: 775.9px ) {
+  .regpanel {
+    display: flex;
+    flex-direction:column
+  }
+  .qrcode {
+    width: 100%;
+  }
+  .qrcode h1 {
+    font-size: 40px;
+  }
+  .userinf h1 {
+    font-size: 30px;
+  }
+  .qrcode p {
+    font-size: 22px;
+  }
+  .boxes {
+    width: 100%;
+    margin: 15px auto;
+  }
+  .qrcode .footer {
+    margin: 35px 30px;
+    font-size: 22px;
+  } 
+  .boxes h3 {
+    font-size: 26px;
+  } 
+}
+
+@media ( min-width: 768px) and ( max-width: 989.9px ) {
+  .regpanel {
+    display: flex;
+    flex-direction:column
+  }
+  .qrcode {
+    width: 60%;
+  }
+  .qrcode h1 {
+    font-size: 40px;
+  }
+  .userinf h1 {
+    font-size: 30px;
+  }
+  .qrcode p {
+    font-size: 22px;
+  }
+  .boxes {
+    width: 60%;
+    margin: 15px auto;
+  }
+  .qrcode .footer {
+    margin: 35px 30px;
+    font-size: 22px;
+  } 
+  .boxes h3 {
+    font-size: 26px;
+  }
+}
+
+@media ( min-width: 990px) and ( max-width: 1200px ) {
+  .regpanel {
+    display: flex;
+  }
+  .qrcode h1 {
+    font-size: 36px;
+  }
+  .userinf h1 {
+    font-size: 26px;
+  }
+  .qrcode p {
+    font-size: 20px;
+  }
+  .qrcode {
+    width: 75%;
+    margin: 0 15px;
+  }
+  .boxes {
+    width: 75%;
+    margin: 0 15px;
+  }
+  .qrcode .footer {
+    margin: 35px 16px;
+    font-size: 22px;
+  } 
+
+  .boxes h3 {
+    font-size: 26px;
+  }
 }
 
 

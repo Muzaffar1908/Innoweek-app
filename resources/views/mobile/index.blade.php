@@ -70,7 +70,7 @@
                     <li>
                         <img src="{{ asset('/assets/images/menu-icon/icon-2.png') }}" alt="Images">
                         <a href="{{route('m-qrkod')}}">
-                            {{__('QRKOD')}}
+                            {{__('TICKET')}}
                         </a>
                     </li>
                     <li>
@@ -184,12 +184,10 @@
     <div class="container">
         <ul class="d-flex justify-content-between align-items-end">
             <li>
-                <a href="{{route('m-youtobe_list')}}">
-                    <div class="icon">
-                        <img src="{{ asset('/assets/images/page.png') }}" alt="Images" style="height: 20px;">
-                    </div>
-                    <span>{{__('LIVE')}}</span>
-                </a>
+                <div class="icon ma5menu__toggle">
+                    <img width="20px" src="{{ asset('/assets/images/icon/hamburger-men.png') }}" alt="Images">
+                    <span>{{__('MENU')}}</span>
+                </div>
             </li>
             <li>
                 <a href="{{ route('m-home') }}" class="active">
@@ -200,10 +198,12 @@
                 </a>
             </li>
             <li>
-                <div class="icon ma5menu__toggle">
-                    <img width="20px" src="{{ asset('/assets/images/icon/hamburger-men.png') }}" alt="Images">
-                    <span>{{__('MENU')}}</span>
-                </div>
+                <a href="{{route('m-youtobe_list')}}">
+                    <div class="icon">
+                        <img src="{{ asset('/assets/images/page.png') }}" alt="Images" style="height: 20px;">
+                    </div>
+                    <span>{{__('LIVE')}}</span>
+                </a>
             </li>
         </ul>
     </div>
