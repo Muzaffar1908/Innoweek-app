@@ -216,20 +216,18 @@ class AuthController extends Controller
         $codeSession = session()->get('verifyCode');
         //$userID = session()->get('userID');
         if (isset($inputs['code']) && $inputs['code'] == $codeSession) {
-
-            UserTicket::loginUsingId($userID, $remember = true);
-            // $user = new User;
-            // $user->first_name = session()->get('first_name');
-            // $user->last_name = session()->get('last_name');
-            // $user->email = session()->get('email');
-            // $user->phone = session()->get('phone');
-            // $user->gender = session()->get('gender');
-            // $user->country_id = session()->get('country_id') ?? null;
-            // $user->profession_id = session()->get('profession_id') ?? null;
-            // $user->organization = session()->get('organization') ?? "";
-            // $user->birth_date = session()->get('birth_date');
-            // $user->password = session()->get('password');
-            // $user->save();
+            $user = new User;
+            $user->first_name = session()->get('first_name');
+            $user->last_name = session()->get('last_name');
+            $user->email = session()->get('email');
+            $user->phone = session()->get('phone');
+            $user->gender = session()->get('gender');
+            $user->country_id = session()->get('country_id') ?? null;
+            $user->profession_id = session()->get('profession_id') ?? null;
+            $user->organization = session()->get('organization') ?? "";
+            $user->birth_date = session()->get('birth_date');
+            $user->password = session()->get('password');
+            $user->save();
             $userticket = new UserTicket();
             $userticket->user_id = $user->id;
             $userticket->ticket_id = $user->id + 1000000;

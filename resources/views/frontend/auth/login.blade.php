@@ -21,7 +21,7 @@ sticky
         <div class="d-flex justify-content-around userinf mt-3">
             <h1 class="d-flex align-items-center"> Muzaffar Ahmadaliyev </h1>
             <img src="{{ asset('/frontend/image/image 2.png') }}" alt="Electron ticket">
-            {{-- {!! QrCode::size(170)->generate(url('/').'/check/ticket/'.$ticket->ticket_id) !!} --}}
+            {!! QrCode::size(170)->generate(url('/').'/check/ticket/'.$ticket->ticket_id) !!}
         </div>
         <div class="grid-container">
             <p class="d-flex align-items-center space-x-2">
@@ -53,7 +53,7 @@ sticky
             </div>
             <h3>{{__('Download this app to access or use our system.')}}</h3>
             <img src="{{ asset('/frontend/image/qr.png') }}" class="mx-auto d-block img" alt="">
-            {{-- {!! QrCode::size(170)->generate(url('/').'/check/ticket/'.$ticket->ticket_id) !!} --}}
+            {!! QrCode::size(170)->generate(url('/').'/check/ticket/'.$ticket->ticket_id) !!}
             <div class="d-flex py-3 align-items-center justify-content-between">
                 <a href="https://play.google.com/store/apps?hl=ru&gl=US"><img class="downloads playM" width="200"
                         src="{{ asset('/frontend/image/icon/playmarket.png') }}" alt=""></a>
