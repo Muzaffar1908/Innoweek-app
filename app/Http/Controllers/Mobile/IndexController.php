@@ -12,6 +12,10 @@ use Illuminate\Support\Facades\DB;
 
 class IndexController extends Controller
 {
+    public function SignOut() {
+        Auth::logout();
+        return redirect()->route('m-home');
+    }
     public function home()
     {
         $lang = \App::getLocale();
