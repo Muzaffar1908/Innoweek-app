@@ -30,13 +30,13 @@
                 @foreach($ConfSchedules as $i => $con_data)
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="flush-headingOne">
-                            <button class="accordion-button collapsed acc-title" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                            <button class="accordion-button collapsed acc-title" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse{{ $i }}" aria-expanded="false" aria-controls="flush-collapse{{ $i }}">
                                 {{Carbon::parse($con_data->date)->format('D ,M dS')}}
                             </button>
                         </h2>
                         @foreach($conferences as $k => $con)
                           @if(Carbon::parse($con_data->date)->format('Y-m-d') == Carbon::parse($con->started_at)->format('Y-m-d'))
-                                <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                                <div id="flush-collapse{{ $i }}" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
                                     <div class="mt-2 p-0">
                                         <ul class="site-menu" style="padding: 0; text-decoration: none !important;">
                                             <a class="d-flex align-items-center justify-content-between bgColor" href="{{route('m-youtobe', $con->id)}}">
