@@ -11,7 +11,7 @@
                 <h2 class="mb-0">
                     <a href="{{route('m-home')}}">
                         <i class="ri-arrow-left-s-line"></i>
-                        {{__('CALENDAR')}}
+                        {{__('Conference')}}
                     </a>
                 </h2>
             </div>
@@ -19,7 +19,45 @@
     </div>
     <!-- End Section-title Area -->
 
-    <div class="bg-color-fff">
+    <?php
+          use Carbon\Carbon;
+    ?>
+
+    <div class="row mt-4">
+        <div class="col-lg-12 order-lg-2">
+            <div class="about-box-layout1 content-box">
+            <div class="accordion accordion-flush container" id="accordionFlushExample">
+                @foreach($ConfSchedules as $i => $con_data)
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="flush-headingOne">
+                            <button class="accordion-button collapsed acc-title" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                                {{Carbon::parse($con_data->date)->format('D ,M dS')}}
+                            </button>
+                        </h2>
+                        @foreach($conferences as $k => $con)
+                          @if(Carbon::parse($con_data->date)->format('Y-m-d') == Carbon::parse($con->started_at)->format('Y-m-d'))
+                                <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                                    <div class="mt-2 p-0">
+                                        <ul class="site-menu" style="padding: 0; text-decoration: none !important;">
+                                            <a class="d-flex align-items-center justify-content-between bgColor" href="{{route('m-youtobe', $con->id)}}">
+                                                <img width="50px" src="{{asset('assets/images/icon/YouTube.webp')}}" alt="Images">
+                                                
+                                                <p class="m-0 px-3">{{$con->title}}</p>
+                                                <span style="color: red;">{{Carbon::parse($con->started_at)->format('h:i')}} -{{Carbon::parse($con->stoped_at)->format('h:i')}}</span>
+                                            </a>
+                                        </ul>
+                                    </div>
+                                </div>
+                            @endif   
+                        @endforeach
+                    </div>
+                @endforeach
+            </div>
+            </div>
+        </div>
+    </div>
+
+    {{-- <div class="bg-color-fff">
         <!-- Start Calendar Area -->
         <div class="event-calendar-area ptb-30">
             <div class="container">
@@ -46,6 +84,10 @@
             </div>
         </div>
         <!-- Start Calendar Area -->
-    </div>
+    </div> --}}
+
+   
+
+    
 
 @endsection

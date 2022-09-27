@@ -43,7 +43,7 @@ body {
   font-family: "Roboto", sans-serif;
   color: #666666;
   background-color: #fff;
-
+  overflow-x: hidden;
   margin-top: 0 !important;
   border-radius: 10px;
 }
@@ -2470,7 +2470,7 @@ FAQ Area CSS
 }
 
 .accordion-item .accordion-header .accordion-button:not(.collapsed) {
-  background-color: #ffffff;
+  /* background-color: #ffffff; */
   color: #171d41;
   -webkit-box-shadow: none;
           box-shadow: none;
@@ -5938,71 +5938,6 @@ Page-navigation Area Style*/
   position: absolute !important;
 }
 
-.grid-container {
-  margin-top: 15px;
-  display: grid;
-  gap: 5px;
-  padding: 5px 35px 0 35px;
-}
-
-.qrcode {
-  width: 100%;
-  height: 90vh;
-  background: linear-gradient(180deg, #FED813 0%, #F24D51 100%);
-}
-
-.qrcode h1 {
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 700;
-  font-size: 32px;
-  line-height: 39px;
-  text-align: center;
-  color: #FFFFFF;
-  text-shadow: 1px 3px 1px rgba(0, 0, 0, 0.2);
-}
-
-.space-x-2 > *:not(:first-child){
-  margin-left: 8px;
-}
-
-.ml-autoi{
-  margin-left: auto !important;
-}
-
-.qrcode p {
-  font-family: 'Inter';
-  font-size: 15px;
-  line-height: 15px;
-  color: #FFFFFF;
-  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
-}
-
-.userinf img {
-  width: 160px;
-  height: 165px;
-}
-
-.userinf h1 {
-  width: 94px;
-  font-family: 'Inter';
-  font-size: 22px;
-  line-height: 24px;
-  color: #FFFFFF;
-  text-shadow: 1px 3px 1px rgba(0, 0, 0, 0.2);
-}
-
-.qrcode .footer {
-  margin: 40px 10px 0 10px;
-  font-family: 'Inter';
-  font-size: 16px;
-  line-height: 20px;
-  text-align: center;
-  color: #FFFFFF;
-  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
-} 
-
-
 /* Responsive */
 
 @media(min-width: 500px) and (max-width: 850px){
@@ -6023,88 +5958,26 @@ Page-navigation Area Style*/
   }
 } 
 
-@media(min-width: 500px) and (max-width: 850px){
-  .qrcode {
-    width: 100%;
-    height: 100vh;
-    background: linear-gradient(180deg, #FED813 0%, #F24D51 100%);
-  }
-
-  .qrimg {
-    margin: 1rem 7rem 0 7rem;
-  }
-
-  .qrimg img {
-    width: 80px;
-    height: 85px;
-  }
-  
-  .qrcode h1 {
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 45px;
-    line-height: 50px;
-    text-align: center;
-    color: #FFFFFF;
-    text-shadow: 1px 3px 1px rgba(0, 0, 0, 0.2);
-  }
-  
-  .qrcode p {
-    margin: 0 35px 30px 35px;
-    font-family: 'Inter';
-    font-size: 30px;
-    line-height: 30px;
-    color: #FFFFFF;
-    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
-  }
-  
-  .userinf img {
-    width: 260px;
-    height: 265px;
-  }
-
-  .userinf h1 {
-    width: 190px;
-    font-family: 'Inter';
-    font-size: 35px;
-    line-height: 40px;
-    color: #FFFFFF;
-    text-shadow: 1px 3px 1px rgba(0, 0, 0, 0.2);
-  }
-  
-  .qrcode .footer {
-    margin: 50px 20px;
-    font-family: 'Inter';
-    font-size: 35px;
-    line-height: 45px;
-    text-align: center;
-    color: #FFFFFF;
-    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
-  }
-}
-
-.shadowing{
+.accordion-button, .accordion-collapse{
   width: 100%;
-  height: 100%;
-  background-color: #fff;
-  box-shadow: 2px 5px 13px 0 #171d4114;
-  z-index: -1;
-  border-radius: 5px;
-  margin: 10px 0 10px 0;
-  padding: 0 10px 0 10px;
+    height: 100%;
+    box-shadow: 2px 5px 13px 0 #171d4114;
+    border-radius: 5px;
 }
 
-.investor {
-  padding: 12px 0;
-  font-size: 28px;
-  text-align: center;
-  background-color: #171d41;
-  color: #fff;
+.accordion-button:not(.collapsed){
+  border-color: unset;
 }
 
-.investor .inve-size {
-  font-size: 30px;
+.bgColor{
+  margin: 20px 0;
+    padding: 0 10px;
+    border-bottom: 1px solid #0000001c;
+}
+
+.about-wrap-layout1 .row{
+  --bs-gutter-x: 0;
+  padding: 0 7px;
 }
 
 /*# sourceMappingURL=style.css.map */
