@@ -19,7 +19,7 @@ class InnoweekController extends Controller
      */
     public function index()
     {
-        $innoweek = Innoweek::paginate(5);
+        $innoweek = Innoweek::orderBy('id','desc')->paginate(5);
         return view('admin.innoweek.index', compact('innoweek'));
     }
 

@@ -18,7 +18,7 @@ class GaleriesController extends Controller
 {
     public function index()
     {
-        $galeries = Galeries::paginate(5);
+        $galeries = Galeries::orderBy('id','desc')->paginate(5);
         $users = User::all();
         $archives = Archive::all();
         return view('admin.galeries.index', ['galeries' => $galeries, 'users' => $users, 'archives' => $archives]);

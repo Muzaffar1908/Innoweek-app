@@ -14,7 +14,7 @@ class PromoController extends Controller
 {
     public function index()
     {
-        $promo = Promo::paginate(20);
+        $promo = Promo::orderBy('id','desc')->paginate(20);
         $users = User::all();
         $archives = Archive::all();
         return view('admin.promo.index', ['promo' => $promo, 'users' => $users, 'archives' => $archives]);
