@@ -15,7 +15,7 @@
                 <h2 class="mb-0">
                     <a href="{{route('m-home')}}">
                         <i class="ri-arrow-left-s-line"></i>
-                       {{__('CONFERENCE')}}
+                       {{__('Events')}}
                     </a>
                 </h2>
 

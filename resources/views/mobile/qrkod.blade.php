@@ -27,8 +27,8 @@
         <img src="{{ asset('/assets/images/logo/innoweek 1.png') }}" alt="">
         <img src="{{ asset('/assets/images/logo/MO123 1.png') }}" alt="">
     </div>
-    <h1 class="mt-5"> {{ __('ELEKTRON CHIPTA')}} </h1>
-    <p class="mt-3 text-center"> {{ __('Innoweek-2022 ga kirish uchun chipta')}} </p>
+    <h1 class="mt-5"> {{ __('ELECTRONIC TICKET')}} </h1>
+    <p class="mt-3 text-center"> {{ __('Ticket to enter Innoweek-2022')}} </p>
     <div class="d-flex justify-content-around userinf mt-3">
         <h1 class="d-flex align-items-center"> {{ Auth::user()->first_name }} {{ Auth::user()->last_name }} </h1>
         {!! QrCode::size(170)->generate(url('/').'/check/ticket/'.$ticket->ticket_id) !!}
@@ -36,23 +36,23 @@
     <div class="grid-container">
         <p class="d-flex align-items-center space-x-2">
             <img class="flex-shrink-0" src="{{ asset('/assets/images/icon/Group 3.png') }}" width="20px" alt="">
-            <span>{{ __('Amal qilish muddati:')}}</span>
+            <span>{{ __('Validity period:')}}</span>
             <span class="ml-autoi">{{ __('21.10.2022')}}</span>
         </p>
 
         <p class="d-flex align-items-center space-x-2">
             <img class="flex-shrink-0" src="{{ asset('/assets/images/icon/Group 1.png') }}" width="20px" alt="">
-            <span>{{ __('Tashrif sanasi va vaqti:')}} </span>
+            <span>{{ __('Date and time of visit:')}} </span>
             <span class="ml-autoi">{{ __('17.10.2022 10:00') }}</span>
 
         </p>
 
         <p class="d-flex align-items-center space-x-2">
             <img class="flex-shrink-0" src="{{ asset('/assets/images/icon/Group 2.png') }}" width="20px" alt="">
-            <span>{{ __('Toshkent sh, Universitet ko‘chasi, 7') }}</span>
+            <span>{{ __('University Street, 7, Tashkent city') }}</span>
         </p>
     </div>
-    <p class="footer"> {{ __("Boshqa bir shaxs ushbu talondan foydalanishi qat'iyan man etiladi.")}} </p>
+    <p class="footer"> {{ __("It is strictly forbidden for another person to use this pass.")}} </p>
 </div>
 <div class="investor">
     <p class="inveP">{{ Str::upper($ticket->profession_name) }} </p>

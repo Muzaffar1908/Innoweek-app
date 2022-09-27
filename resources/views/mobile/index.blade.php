@@ -132,7 +132,7 @@
 <div class="components-area">
     <div class="container">
         <div class="section-title mt-3">
-            <h2 style="margin-bottom: 2rem;">{{__('CONFERENCE')}}</h2>
+            <h2 style="margin-bottom: 2rem;">{{__('EVENTS')}}</h2>
         </div>
         @foreach($conferens as $conf)
         <a href="{{route('conferensShow',['id'=>$conf->id])}}">
