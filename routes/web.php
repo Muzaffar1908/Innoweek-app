@@ -164,8 +164,7 @@ Route::group(['prefix' => 'mobile-v'], function () {
     // API route for logout user
 });
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
-
-
+Route::get('/mobile-v-logout', [IndexController::class, 'SignOut'])->name('m-logout');
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
