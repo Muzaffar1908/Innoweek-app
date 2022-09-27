@@ -4639,7 +4639,7 @@ Csomponents Style
     position: absolute;
     /* background-image: url(../../assets/images/upload.png); */
     /* padding: 57px 10px; */
-    top: 121.99999px;
+    top: 106px;
     background-color: #2125296b;
     border-radius: 50%;
     left: 12px;
@@ -5978,6 +5978,210 @@ Page-navigation Area Style*/
 .about-wrap-layout1 .row{
   --bs-gutter-x: 0;
   padding: 0 7px;
+}
+
+.investor{
+  /* width: 100%; */
+  padding: 20px;
+  background-color: #171d41;
+  text-align: center;
+}
+
+.inveP{
+  font-size: 28px;
+  color: #fff;
+}
+
+.qrcode {
+  border: 1px solid linear-gradient(180deg, #FED813 0%, #F24D51 100%);
+  /* border-radius: 10px; */
+  /* margin-top: 80px; */
+  width: 30%;
+  height: 85vh; 
+  background: linear-gradient(180deg, #FED813 0%, #F24D51 100%);
+}
+
+.boxes {
+  margin-left: 4rem;
+  margin-top: 4rem;
+  padding: 20px 0 20px 0;
+  width: 450px;
+  background: #041A57;
+  border-radius: 10px;
+}
+
+@media ( min-width: 0) and ( max-width: 474.9px ) {
+  .regpanel {
+    display: flex;
+    flex-direction:column
+  }
+  .qrcode {
+    width: 100%;
+  }
+  .qrcode h1{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 39px;
+    text-align: center;
+    color: #FFFFFF;
+    text-shadow: 1px 3px 1px rgb(0 0 0 / 20%);
+
+  }
+  .grid-container {
+    margin-top: 5px;
+    display: grid;
+    padding: 0 35px 0 35px;
+}
+  .qrcode p,
+  .qrcode span {
+    font-family: 'Inter';
+    font-size: 15px;
+    line-height: 15px;
+    color: #FFFFFF;
+    text-shadow: 1px 1px 1px rgb(0 0 0 / 20%);
+}
+.space-x-2 > *:not(:first-child) {
+  margin-left: 8px;
+}
+.ml-autoi {
+  margin-left: auto !important;
+}
+.qrcode .footer {
+  margin: 15px 10px 0 10px;
+  font-family: 'Inter';
+  font-size: 16px;
+  line-height: 20px;
+  text-align: center;
+  color: #FFFFFF;
+  text-shadow: 1px 1px 1px rgb(0 0 0 / 20%);
+}
+.userinf h1 {
+  width: 94px;
+  font-family: 'Inter';
+  font-size: 22px;
+  line-height: 24px;
+  color: #FFFFFF;
+  text-shadow: 1px 3px 1px rgb(0 0 0 / 20%);
+}
+
+  .boxes {
+    width: 100%;
+    margin: 15px auto;
+  } 
+}
+
+@media ( min-width: 475px) and ( max-width: 775.9px ) {
+  .regpanel {
+    display: flex;
+    flex-direction:column
+  }
+  .qrcode {
+    width: 100%;
+  }
+  .qrcode h1 {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 39px;
+    text-align: center;
+    color: #FFFFFF;
+    text-shadow: 1px 3px 1px rgb(0 0 0 / 20%);
+  }
+  .userinf h1 {
+    width: 94px;
+    font-family: 'Inter';
+    font-size: 30px;
+    line-height: 24px;
+    color: #FFFFFF;
+    text-shadow: 1px 3px 1px rgb(0 0 0 / 20%);
+  }
+  .qrcode p,
+  .qrcode span {
+    font-family: 'Inter';
+    font-size: 22px;
+    line-height: 15px;
+    color: #FFFFFF;
+    text-shadow: 1px 1px 1px rgb(0 0 0 / 20%);
+}
+  .boxes {
+    width: 100%;
+    margin: 15px auto;
+  }
+  .qrcode .footer {
+    margin: 35px 30px;
+    font-size: 22px;
+  } 
+  .boxes h3 {
+    font-size: 26px;
+  } 
+}
+
+@media ( min-width: 768px) and ( max-width: 989.9px ) {
+  .regpanel {
+    display: flex;
+    flex-direction:column
+  }
+  .qrcode {
+    width: 100%;
+  }
+  .qrcode h1 {
+    font-size: 40px;
+    color: #FFFFFF;
+    text-shadow: 1px 1px 1px rgb(0 0 0 / 20%);
+  }
+  .userinf h1 {
+    font-size: 30px;
+  }
+  .qrcode p {
+    font-size: 22px;
+    color: #FFFFFF;
+    text-shadow: 1px 1px 1px rgb(0 0 0 / 20%);
+  }
+  .boxes {
+    width: 60%;
+    margin: 15px auto;
+  }
+  .qrcode .footer {
+    margin: 35px 30px;
+    font-size: 22px;
+  } 
+  .boxes h3 {
+    font-size: 26px;
+  }
+}
+
+@media ( min-width: 990px) and ( max-width: 1200px ) {
+  .regpanel {
+    display: flex;
+  }
+  .qrcode h1 {
+    font-size: 36px;
+  }
+  .userinf h1 {
+    font-size: 26px;
+  }
+  .qrcode p {
+    font-size: 20px;
+  }
+  .qrcode {
+    width: 75%;
+    margin: 0 15px;
+  }
+  .boxes {
+    width: 75%;
+    margin: 0 15px;
+  }
+  .qrcode .footer {
+    margin: 35px 16px;
+    font-size: 22px;
+  } 
+
+  .boxes h3 {
+    font-size: 26px;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

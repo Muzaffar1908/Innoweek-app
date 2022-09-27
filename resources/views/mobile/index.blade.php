@@ -64,7 +64,7 @@
                     <li>
                         <img src="{{ asset('/assets/images/menu-icon/icon-2.png') }}" alt="Images">
                         <a href="{{route('m-calendar')}}">
-                            {{__('CALENDAR')}}
+                            {{__('Schedule')}}
                         </a>
                     </li>
                     <li>
@@ -132,12 +132,12 @@
 <div class="components-area">
     <div class="container">
         <div class="section-title mt-3">
-            <h2 style="margin-bottom: 2rem;">{{__('CONFERENCE')}}</h2>
+            <h2 style="margin-bottom: 2rem;">{{__('EVENTS')}}</h2>
         </div>
         @foreach($conferens as $conf)
         <a href="{{route('conferensShow',['id'=>$conf->id])}}">
             <div class="components-support d-flex align-items-center mb-4">
-                <img src="{{asset('upload/conference/' .$conf->user_image.'_thumbnail_267.png')}}" alt="Images">
+                <img src="{{asset('upload/news/' .$conf->user_image.'_phone_300.png')}}" alt="Images">
                 <div class="components-content">
                     <h6>{{$conf->title}}</h6>
                     <div class="icon d-flex align-items-center">

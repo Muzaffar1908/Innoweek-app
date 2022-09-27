@@ -55,6 +55,7 @@
                                   <th>Started At</th>
                                   <th>Stoped At</th>
                                   <th>Title</th>
+                                  <th>User Image</th>
                                   <th>Is Active</th>
                                   <th>Action</th>
                                 </tr>
@@ -67,6 +68,9 @@
                                     <td>{{$conference->started_at}}</td>
                                     <td>{{$conference->stoped_at}}</td>
                                     <td>{!!Str::limit(strip_tags($conference->title_uz),20)!!}</td>
+                                    <td>
+                                        <img src="{{asset('/upload/conference/' . $conference->user_image.'_thumbnail_267.png')}}" alt="img" with="100px" height="60px">
+                                    </td>
                                     <td>
                                         <form action="{{ asset('/admin/conference/isactive/' . $conference->id) }}"
                                             method="POST" enctype="multipart/form-data">
