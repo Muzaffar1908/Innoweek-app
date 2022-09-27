@@ -64,7 +64,7 @@
                     <li>
                         <img src="{{ asset('/assets/images/menu-icon/icon-2.png') }}" alt="Images">
                         <a href="{{route('m-calendar')}}">
-                            {{__('CALENDAR')}}
+                            {{__('Schedule')}}
                         </a>
                     </li>
                     <li>
