@@ -1,7 +1,7 @@
 @extends('layouts.main')
 @section('content')
 
-    <section class="rt-header-menu hero-wrap-layout1" data-bg-image="{{asset('frontend/image/back.png')}}">
+    <section class="rt-header-menu hero-wrap-layout1" data-bg-image="{{asset('/frontend/image/back.png')}}">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-9">
