@@ -96,9 +96,14 @@ class IndexController extends Controller
 
     public function qrkod()
     {
+        $lang = \App::getLocale();
         $userTicket = null;
         if (isset(Auth::user()->id)) {
-            $userTicket = UserTicket::where('user_id', Auth::user()->id)->first();
+            $userTicket = UserTicket::select('u.first_name as first_name', 'u.last_name as last_name', 'u.id as u_id', 'p.name_'.$lang.' as profession_name', 'user_tickets.ticket_id as ticket_id', 'user_tickets.id as t_id')
+            ->leftJoin('users as u', 'user_tickets.user_id', '=', 'u.id')
+            ->leftJoin('professions as p', 'u.profession_id', '=', 'p.id')
+            ->where('user_id', Auth::user()->id)
+            ->first();
         }
         return view('mobile.qrkod', ['ticket' => $userTicket]);
     }

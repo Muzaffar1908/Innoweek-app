@@ -55,7 +55,7 @@
     <p class="footer"> {{ __("Boshqa bir shaxs ushbu talondan foydalanishi qat'iyan man etiladi.")}} </p>
 </div>
 <div>
-    <p class="investor"> {{__('INVESTOR')}} </p>
+    <p class="investor"> {{ Str::upper($ticket->profession_name) }} </p>
 </div>
 @else
 <div class="qrcode pt-5">
