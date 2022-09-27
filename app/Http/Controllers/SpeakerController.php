@@ -23,7 +23,7 @@ class SpeakerController extends Controller
      */
     public function index()
     {
-        $speakers = Speakers::paginate(5);
+        $speakers = Speakers::orderBy('id','desc')->paginate(5);
         $archives = Archive::all();
         return view('admin.speaker.index', compact('speakers', 'archives'));
     }

@@ -17,7 +17,7 @@ class NewsCategoryController extends Controller
      */
     public function index()
     {
-        $news_categories = NewsCategory::paginate(5);
+        $news_categories = NewsCategory::orderBy('id','desc')->paginate(5);
         $users = User::all();
         return view('admin.news_category.index', compact('news_categories', 'users'));
     }

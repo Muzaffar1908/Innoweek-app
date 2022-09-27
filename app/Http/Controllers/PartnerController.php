@@ -21,7 +21,7 @@ class PartnerController extends Controller
      */
     public function index()
     {
-        $partners = Partner::paginate(5);
+        $partners = Partner::orderBy('id','desc')->paginate(5);
         $users = User::all();
         $archives = Archive::all();
         return view('admin.partner.index', compact(['partners', 'users', 'archives']));

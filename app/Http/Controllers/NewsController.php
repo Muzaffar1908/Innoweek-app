@@ -22,7 +22,7 @@ class NewsController extends Controller
      */
     public function index()
     {
-        $news = News::paginate(5);
+        $news = News::orderBy('id','desc')->paginate(5);
         $users = User::all();
         $news_categories = NewsCategory::all();
         return view('admin.news.index', compact('news', 'users', 'news_categories'));
@@ -303,7 +303,7 @@ class NewsController extends Controller
                     $img->setAttribute('src', $image_name);
                 }
             }
-            
+
             $news->description_uz = str_replace('<?xml encoding="UTF-8">', "", $dom_save_uz->saveHTML((new \DOMXPath($dom_save_uz))->query('/')->item(0)));
 
         }

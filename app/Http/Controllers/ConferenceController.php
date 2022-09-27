@@ -21,7 +21,7 @@ class ConferenceController extends Controller
      */
     public function index()
     {
-        $conferences = Conference::paginate(5);
+        $conferences = Conference::orderBy('id','desc')->paginate(5);
         $users = User::all();
         $archives = Archive::all();
         return view('admin.conference.index', compact('conferences', 'users', 'archives'));
@@ -293,7 +293,7 @@ class ConferenceController extends Controller
         $conferences->address_en = $inputs['address_en'];
 
         $conferences->description_uz = $inputs['description_uz'];
-        
+
         if (!empty($conferences->description_uz)) {
             $dom_save_uz = new \DomDocument();
             libxml_use_internal_errors(true);

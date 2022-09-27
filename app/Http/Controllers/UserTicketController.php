@@ -22,7 +22,7 @@ class UserTicketController extends Controller
     public function index()
     {
         $archives=Archive::all();
-        $usertickets = UserTicket::paginate(5);
+        $usertickets = UserTicket::orderBy('id','desc')->paginate(5);
         $users = User::all();
         return view('admin.userticket.index', compact('usertickets', 'users', ));
     }

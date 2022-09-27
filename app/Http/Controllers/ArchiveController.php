@@ -19,7 +19,7 @@ class ArchiveController extends Controller
      */
     public function index()
     {
-        $archives = Archive::paginate(5);
+        $archives = Archive::orderBy('id','desc')->paginate(5);
         $users = User::all();
         return view('admin.archive.index', compact('archives', 'users'));
     }
