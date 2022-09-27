@@ -30,9 +30,8 @@
     <h1 class="mt-5"> {{ __('ELEKTRON CHIPTA')}} </h1>
     <p class="mt-3 text-center"> {{ __('Innoweek-2022 ga kirish uchun chipta')}} </p>
     <div class="d-flex justify-content-around userinf mt-3">
-        <h1 class="d-flex align-items-center"> {{ Auth::user()->firts_name }} {{ Auth::user()->last_name }} </h1>
+        <h1 class="d-flex align-items-center"> {{ Auth::user()->first_name }} {{ Auth::user()->last_name }} </h1>
         {!! QrCode::size(170)->generate(url('/').'/check/ticket/'.$ticket->ticket_id) !!}
-        <img src="{{ asset('/assets/images/image 2.png') }}" alt="">
     </div>
     <div class="grid-container">
         <p class="d-flex align-items-center space-x-2">

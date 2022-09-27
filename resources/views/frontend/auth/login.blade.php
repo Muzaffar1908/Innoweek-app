@@ -19,8 +19,7 @@ sticky
         <h1 class="mt-3"> {{__('ELECTRONIC TICKET')}} </h1>
         <p class="text-center"> {{__('Ticket to enter Innoweek-2022')}} </p>
         <div class="d-flex justify-content-around userinf mt-3">
-            <h1 class="d-flex align-items-center"> Muzaffar Ahmadaliyev </h1>
-            <img src="{{ asset('/frontend/image/image 2.png') }}" alt="Electron ticket">
+            <h1 class="d-flex align-items-center"> {{$ticket->first_name }} {{ $ticket->last_name }} </h1>
             {!! QrCode::size(170)->generate(url('/').'/check/ticket/'.$ticket->ticket_id) !!}
         </div>
         <div class="grid-container">
@@ -53,17 +52,14 @@ sticky
             </div>
             <h3>{{__('Download this app to access or use our system.')}}</h3>
             <img src="{{ asset('/frontend/image/qr.png') }}" class="mx-auto d-block img" alt="">
-            {!! QrCode::size(170)->generate(url('/').'/check/ticket/'.$ticket->ticket_id) !!}
             <div class="d-flex py-3 align-items-center justify-content-between">
                 <a href="https://play.google.com/store/apps?hl=ru&gl=US"><img class="downloads playM" width="200"
                         src="{{ asset('/frontend/image/icon/playmarket.png') }}" alt=""></a>
                 <a href="https://www.apple.com/uz/app-store/"><img class="downloads playS" width="200"
                         src="{{ asset('/frontend/image/icon/appstoree.png') }}" alt=""></a>
             </div>
-
         </form>
     </div>
- 
 </div>
 
 @endsection
