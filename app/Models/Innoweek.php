@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Innoweek extends Model
 {
     use HasFactory;
+    
     protected $fillable = [
         'phone',
         'email',

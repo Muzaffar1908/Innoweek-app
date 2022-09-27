@@ -56,19 +56,16 @@
 
           <select name="country_id" id="country" required>
             <option selected>{{ __('Choose your country')}} *</option>
-            <option value="1">Uzbekistan</option>
-            <option value="1">Uzbekistan</option>
-            <option value="2">Russia</option>
-            <option value="3">Usa</option>
-            <option value="4">Paris</option>
+            @foreach (\App\Models\Country::scopeCountryList() as $data)
+            <option value="{{ $data->id }}">{{ $data->name }}</option>
+            @endforeach
           </select>
 
           <select name="profession_id" id="profesion">
             <option selected>{{__('Choose your profession')}} *</option>
-            <option value="1">Director</option>
-            <option value="2">Programmer</option>
-            <option value="4">Engineer</option>
-            <option value="5">Developer</option>
+            @foreach (\App\Models\Profession::scopeProfessionList() as $data)
+            <option value="{{ $data->id }}">{{ $data->name }}</option>
+            @endforeach
           </select>
           <input id="organization" type="text" name="organization" placeholder="{{__('Organization')}}" autocomplete="off">
           <input class="form-control" type="datetime-local" name="birth_date" autocomplete="off" required
