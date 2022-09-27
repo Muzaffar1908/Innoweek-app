@@ -281,7 +281,7 @@
                       </button>
                     </h2>
                     <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-                      <p class="accordion-body">Lorem, ipsum. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Provident molestias maiores necessitatibus pariatur. Quaerat eum, quibusdam corporis natus tempore repellendus aliquam velit quia, debitis at ipsum rerum rem adipisci! Perspiciatis.</p>
+                      <p class="accordion-body">{{__('Online_regist_desc')}}</p>
                     </div>
                   </div>
                   <div class="accordion-item">
@@ -291,7 +291,7 @@
                       </button>
                     </h2>
                     <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
-                      <p class="accordion-body">Lorem, ipsum. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Provident molestias maiores necessitatibus pariatur. Quaerat eum, quibusdam corporis natus tempore repellendus aliquam velit quia, debitis at ipsum rerum rem adipisci! Perspiciatis.</p>
+                      <p class="accordion-body">{{__('Electronic_tickets_desc')}}</p>
                     </div>
                   </div>
                   <div class="accordion-item">
@@ -301,7 +301,7 @@
                       </button>
                     </h2>
                     <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
-                      <p class="accordion-body">Lorem, ipsum. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Provident molestias maiores necessitatibus pariatur. Quaerat eum, quibusdam corporis natus tempore repellendus aliquam velit quia, debitis at ipsum rerum rem adipisci! Perspiciatis.</p>
+                      <p class="accordion-body">{{__('Online_360_desc')}}</p>
                     </div>
                   </div>
                   <div class="accordion-item">
@@ -311,7 +311,7 @@
                       </button>
                     </h2>
                     <div id="flush-collapseFour" class="accordion-collapse collapse" aria-labelledby="flush-headingFour" data-bs-parent="#accordionFlushExample">
-                        <p class="accordion-body">Lorem, ipsum. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Provident molestias maiores necessitatibus pariatur. Quaerat eum, quibusdam corporis natus tempore repellendus aliquam velit quia, debitis at ipsum rerum rem adipisci! Perspiciatis.</p>
+                        <p class="accordion-body">{{__('Push_notifications_desc')}}</p>
                     </div>
                   </div>
                   <div class="accordion-item">
@@ -321,7 +321,7 @@
                       </button>
                     </h2>
                     <div id="flush-collapseFive" class="accordion-collapse collapse" aria-labelledby="flush-headingFive data-bs-parent="#accordionFlushExample">
-                      <p class="accordion-body">Lorem, ipsum. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Provident molestias maiores necessitatibus pariatur. Quaerat eum, quibusdam corporis natus tempore repellendus aliquam velit quia, debitis at ipsum rerum rem adipisci! Perspiciatis.</p>
+                      <p class="accordion-body">{{__('Android_and_IOS_desc')}}</p>
                     </div>
                   </div>
                 </div>

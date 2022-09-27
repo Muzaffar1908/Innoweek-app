@@ -1,4 +1,9 @@
 {
+    "Online_regist_desc" : "The system of registration of citizens of Uzbekistan and foreign participants and confirmation of identity via SMS has been established.",
+    "Electronic_tickets_desc" : "An online QR code ticket system has been developed for entering Innoweek.uz-2022. To enter the event, it is enough to show the electronic form of the ticket.",
+    "Online_360_desc" : "A system has been created for live monitoring of the week and live watching of the Innovation Fair in 360 degrees.",
+    "Push_notifications_desc" : "Send instant messages to system users and notify them of news and important events.",
+    "Android_and_IOS_desc" : "For the comprehensiveness of the innovation week INNOWEEK.UZ-2022, the program was developed for the ANDROID and iOS platforms",
     "INVESTOR" : "INVESTOR",
     "ABOUT INNOWEEK" : "ABOUT INNOWEEK",
     "ELECTRONIC TICKET" : "ELECTRONIC TICKET",

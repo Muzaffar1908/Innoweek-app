@@ -1,4 +1,9 @@
 {
+    "Online_regist_desc" : "O’zbekiston fuqarolari va chet ellik qatnashuvchilarni ro’yxatdan o’tkazish hamda SMS orqali shaxsni tasdiqlash tizimi yo’lga qo’yilgan.",
+    "Electronic_tickets_desc" : "Innoweek.uz-2022 ga kirish uchun online QR kodli biletlar tizimi ishlab chiqilgan. Tadbirga kirish uchun biletning elektron shaklini ko`rsatish kifoya.",
+    "Online_360_desc" : "Havftalikni joni kuzatib borish hamda Innovatsion yarmarkani 360 gradus jonli efirda ko`rish tizimi yaratilgan.",
+    "Push_notifications_desc" : "Tizim foydalanuvchilariga tezkor xabarlarni yuborish hamda yangiliklar va muhim voqealardan boxabar qilish.",
+    "Android_and_IOS_desc" : "INNOWEEK.UZ-2022 innovatsion haftaligining keng qamrovli bo'lishi uchun dastur ANDROID va iOS platformalari uchun ishlab chiqilgan",
     "INVESTOR" : "INVESTOR",
     "ABOUT INNOWEEK" : "INNOWEEK HAQIDA",
     "ELECTRONIC TICKET" : "ELEKTRON CHIPTA",
