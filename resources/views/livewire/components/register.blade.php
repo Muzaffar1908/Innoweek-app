@@ -13,12 +13,12 @@
 
     <div class="tab-content">
       <h5 class="top-content">{{__('Fill in the fields below to register in the system')}}</h5>
-      <span class="d-flex justify-content-center text-white">I am</span>
+      <span class="d-flex justify-content-center text-white">{{__('I am')}}</span>
       <div class="tab">
         <button class="tablinks" id="defaultOpen" onclick="openCity(event, 'res')">{{ __('Resident')}}</button>
         <button class="tablinks" onclick="openCity(event, 'nores')">{{ __('No Resident')}}</button>
       </div>
-      <span class="d-flex justify-content-center text-white">participant</span>
+      <span class="d-flex justify-content-center text-white">{{__('participant')}}</span>
 
       <div id="res" class="tabcontent">
         <form class="box " action="{{route('d-register')}}" method="POST">

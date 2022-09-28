@@ -79,12 +79,12 @@
                     </div>
                     @endif
                     <h5>{{__("Tizimda ro'yxatdan o'tish uchun quyida ko'rsatilgan maydonlarni to'ldiring")}}}</h5>
-                    <span class="bgFFF">I am</span>
+                    <span class="bgFFF">{{__('I am')}}</span>
                     <div class="tab">
                         <button class="tablinks" id="defaultOpen" onclick="openCity(event, 'res')">{{__('Resident')}}</button>
                         <button class="tablinks" onclick="openCity(event, 'nores')">{{ __('No Resident')}}</button>
                     </div>
-                    <span class="bgFFF">participant</span>
+                    <span class="bgFFF">{{__('participant')}}</span>
                     <div id="res" class="tabcontent">
                         <form class="box" action="{{ route('m-register-form') }}" method="POST">
                             @csrf
