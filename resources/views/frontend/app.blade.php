@@ -329,7 +329,7 @@
         </div>
         <div class="col-lg-3 order-lg-2">
                 <div class="accordion-pone">
-                  <img width="280" src="{{asset('/frontend/image/phone.jpg')}}" alt="">
+                  <img width="280" src="{{asset('/frontend/image/mobile-black.png')}}" alt="">
                 </div>
             </div>
               

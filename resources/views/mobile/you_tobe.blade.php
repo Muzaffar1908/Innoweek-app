@@ -22,19 +22,17 @@
 
     <div class="container my-4">
         <div class="video-container">
-                @foreach($conferences as $item)
-                    <a href="{{'https://www.youtube.com/watch?v='.$item->live_url}}" class="icon-box-link play-btn">
-                        <div class="icon-box">
+                <a href="{{'https://www.youtube.com/watch?v='.$conferences->live_url}}" class="icon-box-link play-btn">
+                    <div class="icon-box">
 
-                        <img src="https://img.youtube.com/vi/{{$item->live_url}}/hqdefault.jpg" alt="img" with="100px" height="60px">
-                        {{-- <img src="{{asset('/upload/conference/' .$item->user_image.'-d.png')}}" alt="img" with="100px" height="60px"> --}}
+                    <img src="https://img.youtube.com/vi/{{$conferences->live_url}}/_thumbnail_267.png" alt="img" with="100px" height="60px">
+                    {{-- <img src="{{asset('/upload/conference/' .$item->user_image.'-d.png')}}" alt="img" with="100px" height="60px"> --}}
 
-                        <div class="player"></div>
-                        </div>
-                    </a>
-                    {{-- <iframe width="100%" height="350" src="https://www.youtube.com/watch?v=/{{$conferences->live_url}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> --}}
-                    <h3 class="mt-3">{{$item->title}}</h3>
-                @endforeach
+                    <div class="player"></div>
+                    </div>
+                </a>
+                {{-- <iframe width="100%" height="350" src="https://www.youtube.com/watch?v=/{{$conferences->live_url}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> --}}
+                <h3 class="mt-3">{{$conferences->title}}</h3>
             </div>
         
     </div>

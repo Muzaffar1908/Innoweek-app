@@ -29,16 +29,18 @@
             <input name="last_name" class="surname" type="text" placeholder="{{__('Lastname')}} *" autocomplete="off"
               required>
           </div>
-          <input id="emailOrNumber" type="text" name="phone_or_email" placeholder="{{__('Email or Phone')}} *"
+          <input id="emailOrNumber" type="text" name="phone_or_email" placeholder="{{__('Phone')}} *"
             autocomplete="off" required>
           <input name="birth_date" class="form-control" type="datetime-local" autocomplete="off" required
             placeholder="{{__('Date of birth')}} *" />
+
             <select name="profession_id" id="profesion">
               <option selected>{{('Choose your profession')}} *</option>
               @foreach (\App\Models\Profession::scopeProfessionList() as $data)
               <option value="{{ $data->id }}">{{ $data->name }}</option>
               @endforeach
-          </select>
+            </select>
+            
           <div class="input-radio">
             <label for="gender">{{__('JINSI')}}:</label>
             <div class="d-flex-radio">
