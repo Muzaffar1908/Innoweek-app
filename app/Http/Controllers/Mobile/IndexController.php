@@ -60,7 +60,9 @@ class IndexController extends Controller
 
     public function youtobe($id)
     {
-        $conferences = Conference::where(['id' => $id])->first();
+        $lang = \App::getLocale();
+        $conferences = Conference::select('id','live_url', 'title_'. $lang . ' as title')->take(1)->get();
+        // dd($conferences);
         return view('mobile.you_tobe', ['conferences' => $conferences]);
     }
 

@@ -79,10 +79,12 @@
                     </div>
                     @endif
                     <h5>{{__("Tizimda ro'yxatdan o'tish uchun quyida ko'rsatilgan maydonlarni to'ldiring")}}}</h5>
+                    <span class="bgFFF">I am</span>
                     <div class="tab">
                         <button class="tablinks" id="defaultOpen" onclick="openCity(event, 'res')">{{__('Resident')}}</button>
                         <button class="tablinks" onclick="openCity(event, 'nores')">{{ __('No Resident')}}</button>
                     </div>
+                    <span class="bgFFF">participant</span>
                     <div id="res" class="tabcontent">
                         <form class="box" action="{{ route('m-register-form') }}" method="POST">
                             @csrf
@@ -92,7 +94,7 @@
                                 <input class="surname" name="last_name" type="text" placeholder="{{__('Lastname')}} *"
                                     autocomplete="on" required>
                             </div>
-                            <input id="emailOrNumber" type="text" name="phone_or_email" placeholder="{{__('Email or Phone')}} *"
+                            <input id="emailOrNumber" type="text" name="phone_or_email" placeholder="{{__('Phone')}} *"
                                 autocomplete="off" required>
                             <input id="datepicker" name="birth_date"  type="text" autocomplete="off" required
                                 placeholder="{{__('Date of birth')}} *" />

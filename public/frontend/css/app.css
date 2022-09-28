@@ -14680,6 +14680,7 @@ input[type = "radio"] {
   text-align: center;
   background: transparent;
   width: 100%;
+  padding: 12px;
 }
 
 .reg-box .reg-btn {
@@ -14694,6 +14695,8 @@ input[type = "radio"] {
   font-size: 18px;
   text-align: center;
   background: rgb(42, 7, 249);
+  padding: 12px;
+  height: 55px;
 }
 
 .reg-box button img {
@@ -14978,5 +14981,44 @@ select option { color: black; }
   }
 }
 
+@media (max-width: 575px) {
+  .accordion-flush{
+    width: 100%;
+  }
+  .accordion-pone{
+    display: none;
+  }
+}
+
+.accordion .accordion-item .accordion-button img{
+  margin-right: 15px;
+}
+
+#partner{
+  padding-bottom: 30px !important;
+}
+.investor{
+  padding: 30px 0;
+  text-align: center;
+  background-color: #171d41;
+  color: #fff;
+}
+.investor .inve-size{
+  font-size: 30px;
+}
+
+#profesion {
+
+  display: block;
+  margin: 14px auto;
+  background: transparent;
+  border: 2px solid #c4c3ff !important;
+  border-radius: 40px;
+  padding: 17px 12px;
+  width: -webkit-fill-available;
+  outline: none;
+  color: #fff;
+
+}
 
 /*# sourceMappingURL=maps/app.css.map */

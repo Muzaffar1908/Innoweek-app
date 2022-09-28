@@ -268,16 +268,16 @@
     <section class="about-wrap-layout1">
         <div class="container">
           <div class="section-heading style-four">
-            <h2 class="title wow fadeInUp animated" data-wow-delay="0.2s" data-wow-duration="1s">{{__('INNOWEEK.UZ MOBILE PROGRAM')}}</h2>
+            <h2 class="title wow fadeInUp animated" data-wow-delay="0.2s" data-wow-duration="1s">{{__('INNOWEEK.UZ MOBILE APPLICATION')}}</h2>
           </div>
           <div class="row">
-            <div class="col-lg-12 order-lg-2">
+            <div class="col-lg-9 order-lg-2">
               <div class="about-box-layout1 content-box">
                 <div class="accordion accordion-flush container" id="accordionFlushExample">
                   <div class="accordion-item">
                     <h2 class="accordion-header" id="flush-headingOne">
                       <button class="accordion-button collapsed acc-title" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-                        {{__('Online registration')}}
+                        <img width="50" src="{{asset('frontend/image/icon/1.registration.png')}}" alt="">{{__('Online registration')}}
                       </button>
                     </h2>
                     <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
@@ -287,7 +287,7 @@
                   <div class="accordion-item">
                     <h2 class="accordion-header" id="flush-headingTwo">
                       <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
-                        {{__('Generation of electronic tickets')}}
+                        <img width="50" src="{{asset('frontend/image/icon/2.pass.png')}}" alt="">{{__('Generation of electronic tickets')}}
                       </button>
                     </h2>
                     <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
@@ -297,7 +297,7 @@
                   <div class="accordion-item">
                     <h2 class="accordion-header" id="flush-headingThree">
                       <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
-                         {{__('Online 360 events')}}
+                        <img width="50" src="{{asset('frontend/image/icon/3.360-degree.png')}}" alt="">{{__('Online 360 events')}}
                       </button>
                     </h2>
                     <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
@@ -307,7 +307,7 @@
                   <div class="accordion-item">
                     <h2 class="accordion-header" id="flush-headingFour">
                       <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseThree">
-                        {{__('Push notifications')}}
+                        <img width="50" src="{{asset('frontend/image/icon/4.notifications.png')}}" alt="">{{__('Push notifications')}}
                       </button>
                     </h2>
                     <div id="flush-collapseFour" class="accordion-collapse collapse" aria-labelledby="flush-headingFour" data-bs-parent="#accordionFlushExample">
@@ -317,7 +317,7 @@
                   <div class="accordion-item">
                     <h2 class="accordion-header" id="flush-headingFive">
                       <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFive" aria-expanded="false" aria-controls="flush-collapseThree">
-                        {{__('For Android and iOS devices')}}
+                        <img width="50" src="{{asset('frontend/image/icon/5.app-store.png')}}" alt="">{{__('For Android and iOS devices')}}
                       </button>
                     </h2>
                     <div id="flush-collapseFive" class="accordion-collapse collapse" aria-labelledby="flush-headingFive data-bs-parent="#accordionFlushExample">
@@ -325,11 +325,14 @@
                     </div>
                   </div>
                 </div>
+            </div>
+        </div>
+        <div class="col-lg-3 order-lg-2">
                 <div class="accordion-pone">
                   <img width="280" src="{{asset('/frontend/image/phone.jpg')}}" alt="">
                 </div>
-              </div>
             </div>
+              
           </div>
         </div>
     </section>
@@ -357,7 +360,7 @@
             <div class="section-heading style-four">
                 <h2 class="title wow fadeInUp animated" data-wow-delay="0.2s" data-wow-duration="1s">{{__('Partners')}}</h2>
             </div>
-            <div class="sliderPartnerOne swiper-container mb-5">
+            <div class="sliderPartnerOne swiper-container">
                     <div class="swiper-wrapper align-items-center">
                     @foreach($partners as $item)
                     <div class="swiper-slide">

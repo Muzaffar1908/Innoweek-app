@@ -39,12 +39,20 @@
                                         data-wow-delay="0.5s">
                                         <a href="{{ url('/') }}#schedule">{{__('SCHEDULE')}}</a>
                                     </li>
-                                    <li class="menu-item menu-item-has-children wow fadeInUp animated {{ (request()->is('/#gallery')) ? 'active' : '' }}"
+                                    <li class="menu-item menu-item-has-children wow fadeInUp animated"
                                         data-wow-delay="0.6s">
+                                        <a href="{{ url('/') }}#gallery">{{__('STATISTICS')}}</a>
+                                    </li>
+                                    <li class="menu-item menu-item-has-children wow fadeInUp animated"
+                                        data-wow-delay="0.7s">
+                                        <a href="{{ url('/') }}#gallery">{{__('LIVE 360')}}</a>
+                                    </li>
+                                    <li class="menu-item menu-item-has-children wow fadeInUp animated {{ (request()->is('/#gallery')) ? 'active' : '' }}"
+                                        data-wow-delay="0.8s">
                                         <a href="{{ url('/') }}#gallery">{{__('GALLERY')}}</a>
                                     </li>
                                     <li class="menu-item menu-item-has-children wow fadeInUp animated"
-                                        data-wow-delay="0.8s">
+                                        data-wow-delay="0.9s">
                                         <a class="inno-cursor">INNOWEEK 2022</a>
                                         <ul class="sub-menu menu-w">
                                             <li class="menu-item"><a href="{{__('Invitation_pdf')}}" target="_blank">{{__('Innoweek 2022 Invitation')}}</a>
@@ -85,7 +93,7 @@
                                     @break
                                     @case('uz')
                                     <li class="menu-item menu-item-has-children wow fadeInUp animated"
-                                        data-wow-delay="0.9s">
+                                        data-wow-delay="10s">
                                         <a href="{{ URL::to('locale/uz') }}"
                                             class="d-flex align-items-center justify-content-center inno-cursor">
                                             <img class="mx-2" width="30" src="{{asset('frontend/image/uz.png')}}"
@@ -106,7 +114,7 @@
                                     @break
                                     @case('ru')
                                     <li class="menu-item menu-item-has-children wow fadeInUp animated"
-                                        data-wow-delay="0.9s">
+                                        data-wow-delay="11s">
                                         <a href="{{ URL::to('locale/ru') }}"
                                             class="d-flex align-items-center justify-content-center inno-cursor">
                                             <img class="mx-2" width="30" src="{{asset('frontend/image/ru.png')}}"
@@ -127,7 +135,7 @@
                                     @break
                                     @case('en')
                                     <li class="menu-item menu-item-has-children wow fadeInUp animated"
-                                        data-wow-delay="0.9s">
+                                        data-wow-delay="11s">
                                         <a href="{{ URL::to('locale/en') }}"
                                             class="d-flex align-items-center justify-content-center inno-cursor">
                                             <img class="mx-2" width="30" src="{{asset('frontend/image/en.png')}}"
@@ -152,7 +160,7 @@
                                 </ul>
                                 <ul class="header-action-items">
                                     <li class="header-action-item d-none d-xl-block wow fadeInUp animated"
-                                        data-wow-delay="1s">
+                                        data-wow-delay="1.2s">
                                         <button type="button"
                                             class="item-btn btn-fill style-one offcanvas-menu-btn style-one menu-status-open">
                                             {{__('REGISTRATION')}}

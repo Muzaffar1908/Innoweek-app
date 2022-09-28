@@ -21,6 +21,9 @@ body, html {
     overflow-x: hidden;
     position: relative;
 }
+.bgFFF{
+    color: #fff;
+}
 
 #inno:before {
     content: "";
@@ -406,7 +409,7 @@ a:hover {
     overflow: hidden;
     display: flex;
     justify-content: space-evenly;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
   }
   
   .tab button {

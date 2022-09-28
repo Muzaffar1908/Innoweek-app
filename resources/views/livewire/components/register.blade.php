@@ -13,10 +13,12 @@
 
     <div class="tab-content">
       <h5 class="top-content">{{__('Fill in the fields below to register in the system')}}</h5>
+      <span class="d-flex justify-content-center text-white">I am</span>
       <div class="tab">
         <button class="tablinks" id="defaultOpen" onclick="openCity(event, 'res')">{{ __('Resident')}}</button>
         <button class="tablinks" onclick="openCity(event, 'nores')">{{ __('No Resident')}}</button>
       </div>
+      <span class="d-flex justify-content-center text-white">participant</span>
 
       <div id="res" class="tabcontent">
         <form class="box " action="{{route('d-register')}}" method="POST">
@@ -31,6 +33,12 @@
             autocomplete="off" required>
           <input name="birth_date" class="form-control" type="datetime-local" autocomplete="off" required
             placeholder="{{__('Date of birth')}} *" />
+            <select name="profession_id" id="profesion">
+              <option selected>{{('Choose your profession')}} *</option>
+              @foreach (\App\Models\Profession::scopeProfessionList() as $data)
+              <option value="{{ $data->id }}">{{ $data->name }}</option>
+              @endforeach
+          </select>
           <div class="input-radio">
             <label for="gender">{{__('JINSI')}}:</label>
             <div class="d-flex-radio">
@@ -67,6 +75,7 @@
             <option value="{{ $data->id }}">{{ $data->name }}</option>
             @endforeach
           </select>
+
           <input id="organization" type="text" name="organization" placeholder="{{__('Organization')}}" autocomplete="off">
           <input class="form-control" type="datetime-local" name="birth_date" autocomplete="off" required
             placeholder="{{__('Date of birth')}} *" />

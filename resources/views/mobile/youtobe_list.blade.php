@@ -24,7 +24,7 @@
 
     <div class="container my-4">
 
-        <ul class="site-menu" style="padding: 0 5px;text-decoration: none !important;">
+        <ul class="site-menu" style="padding: 0;text-decoration: none !important;">
             @foreach($conferences as $con)
                 <a additive-symbols class="shadowing d-flex align-items-center justify-content-between" href="{{route('m-youtobe', $con->id)}}">
                     <img width="50px" src="{{asset('assets/images/icon/YouTube.webp')}}" alt="Images">

@@ -55,7 +55,7 @@
     <p class="footer"> {{ __("It is strictly forbidden for another person to use this pass.")}} </p>
 </div>
 <div class="investor">
-    <p class="inveP">{{ Str::upper($ticket->profession_name) }} </p>
+    <p class="inveP">{{ Str::upper($ticket->profession_name) }}</p>
 </div>
 @else
 <div class="qrcode pt-5">

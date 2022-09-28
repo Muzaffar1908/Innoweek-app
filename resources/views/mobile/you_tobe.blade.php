@@ -21,11 +21,22 @@
     <!-- End Section-title Area -->
 
     <div class="container my-4">
-
         <div class="video-container">
-            <iframe width="100%" height="350" src="https://www.youtube.com/embed/{{$conferences->live_url}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-        <h3 class="mt-3">you tube title</h3>
+                @foreach($conferences as $item)
+                    <a href="{{'https://www.youtube.com/watch?v='.$item->live_url}}" class="icon-box-link play-btn">
+                        <div class="icon-box">
+
+                        <img src="https://img.youtube.com/vi/{{$item->live_url}}/hqdefault.jpg" alt="img" with="100px" height="60px">
+                        {{-- <img src="{{asset('/upload/conference/' .$item->user_image.'-d.png')}}" alt="img" with="100px" height="60px"> --}}
+
+                        <div class="player"></div>
+                        </div>
+                    </a>
+                    {{-- <iframe width="100%" height="350" src="https://www.youtube.com/watch?v=/{{$conferences->live_url}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> --}}
+                    <h3 class="mt-3">{{$item->title}}</h3>
+                @endforeach
+            </div>
+        
     </div>
 
 @endsection

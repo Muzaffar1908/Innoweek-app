@@ -166,9 +166,9 @@ class AuthController extends Controller
             'email' => $inputs['email'] ?? null,
             'phone' => $inputs['phone'] ?? null,
             "gender" => $inputs['gender'] ?? 1,
-            "country_id" => $request->has('country_id') && $inputs['country_id'] ? $inputs['country_id'] : 0,
-            "profession_id" => $request->has('profession_id') && $inputs['profession_id'] ? $inputs['profession_id'] : 0,
-            "organization" => $request->has('organization') && $inputs['organization'] ? $inputs['organization'] : "",
+            "country_id" => $request->has('country_id') && $inputs['country_id'] ? $inputs['country_id'] : null,
+            "profession_id" => $request->has('profession_id') && $inputs['profession_id'] ? $inputs['profession_id'] : null,
+            "organization" => $request->has('organization') && $inputs['organization'] ? $inputs['organization'] : null,
             'birth_date' => Carbon::parse($inputs['birth_date']),
             'password' => Hash::make(Str::random(12)),
         ]);
@@ -231,6 +231,7 @@ class AuthController extends Controller
             $user->gender = session()->get('gender');
             $user->country_id = session()->get('country_id') ?? null;
             $user->profession_id = session()->get('profession_id') ?? null;
+            dd($user);
             $user->organization = session()->get('organization') ?? "";
             $user->birth_date = session()->get('birth_date');
             $user->password = session()->get('password');
