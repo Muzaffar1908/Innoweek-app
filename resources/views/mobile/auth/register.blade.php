@@ -96,6 +96,14 @@
                                 autocomplete="off" required>
                             <input id="datepicker" name="birth_date"  type="text" autocomplete="off" required
                                 placeholder="{{__('Date of birth')}} *" />
+
+                            <select name="profession_id" id="profesion">
+                                <option selected>{{('Choose your profession')}} *</option>
+                                @foreach (\App\Models\Profession::scopeProfessionList() as $data)
+                                <option value="{{ $data->id }}">{{ $data->name }}</option>
+                                @endforeach
+                            </select>    
+
                             <div class="input-radio">
                                 <label for="gender">{{__('JINSI')}}:</label>
                                 <div class="d-flex-radio">
@@ -137,6 +145,7 @@
                                 <option value="{{ $data->id }}">{{ $data->name }}</option>
                                 @endforeach
                             </select>
+
                             <input id="organization" type="text" name="organization" placeholder="organization"
                                 autocomplete="off">
                             <div class="input-radio">
