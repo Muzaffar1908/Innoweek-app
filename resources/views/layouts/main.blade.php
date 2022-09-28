@@ -137,7 +137,7 @@
                 <span class="wow fadeInLeftBig animated" data-wow-delay="1.3s" data-wow-duration="2s"> <a
                         href="http://www.mimaxgroup.com/" target="_blank" class="link-text">"MIMAX SOFTWARE GROUP".</a></span>
             </div>
-        </footer>
+          </footer>
         </div>
         @livewire('components.register')
     </div>

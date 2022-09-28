@@ -17,6 +17,7 @@ use App\Http\Controllers\NewsCategoryController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\PromoController;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\PavilionController;
 use App\Http\Controllers\UserController;
 use App\Models\News\NewsCategory;
 use Illuminate\Support\Facades\Session;
@@ -39,6 +40,10 @@ Route::get('/welcome', function () {
 
 Route::get('/info/privacy', function () {
     return view('private');
+});
+
+Route::get('/live360', function () {
+    return view('pavilion');
 });
 
 Route::get('locale/{locale}', function ($locale) {

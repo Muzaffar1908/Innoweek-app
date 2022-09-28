@@ -14813,8 +14813,7 @@ input[type = "radio"] {
   transition: 0.3s;
   border-radius: 20px;
   color: #fff;
-  width: auto;
-  max-width: 50%;
+  width: 40%;
 }
 
 .tab button:hover {
@@ -15018,7 +15017,23 @@ select option { color: black; }
   width: -webkit-fill-available;
   outline: none;
   color: #fff;
+}
 
+.pavilion{
+  padding-top: 0;
+    padding-bottom: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    background: fixed;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    height: auto;
 }
 
 /*# sourceMappingURL=maps/app.css.map */

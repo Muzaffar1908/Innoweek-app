@@ -45,7 +45,7 @@
                                     </li>
                                     <li class="menu-item menu-item-has-children wow fadeInUp animated"
                                         data-wow-delay="0.7s">
-                                        <a href="{{ url('/') }}#gallery">{{__('LIVE 360')}}</a>
+                                        <a href="/live360">{{__('LIVE 360')}}</a>
                                     </li>
                                     <li class="menu-item menu-item-has-children wow fadeInUp animated {{ (request()->is('/#gallery')) ? 'active' : '' }}"
                                         data-wow-delay="0.8s">
@@ -93,7 +93,7 @@
                                     @break
                                     @case('uz')
                                     <li class="menu-item menu-item-has-children wow fadeInUp animated"
-                                        data-wow-delay="10s">
+                                        data-wow-delay="1s">
                                         <a href="{{ URL::to('locale/uz') }}"
                                             class="d-flex align-items-center justify-content-center inno-cursor">
                                             <img class="mx-2" width="30" src="{{asset('frontend/image/uz.png')}}"
@@ -114,7 +114,7 @@
                                     @break
                                     @case('ru')
                                     <li class="menu-item menu-item-has-children wow fadeInUp animated"
-                                        data-wow-delay="11s">
+                                        data-wow-delay="1.1s">
                                         <a href="{{ URL::to('locale/ru') }}"
                                             class="d-flex align-items-center justify-content-center inno-cursor">
                                             <img class="mx-2" width="30" src="{{asset('frontend/image/ru.png')}}"
@@ -135,7 +135,7 @@
                                     @break
                                     @case('en')
                                     <li class="menu-item menu-item-has-children wow fadeInUp animated"
-                                        data-wow-delay="11s">
+                                        data-wow-delay="1.1s">
                                         <a href="{{ URL::to('locale/en') }}"
                                             class="d-flex align-items-center justify-content-center inno-cursor">
                                             <img class="mx-2" width="30" src="{{asset('frontend/image/en.png')}}"
