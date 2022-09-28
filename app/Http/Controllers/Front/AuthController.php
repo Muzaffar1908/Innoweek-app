@@ -231,7 +231,6 @@ class AuthController extends Controller
             $user->gender = session()->get('gender');
             $user->country_id = session()->get('country_id') ?? null;
             $user->profession_id = session()->get('profession_id') ?? null;
-            dd($user);
             $user->organization = session()->get('organization') ?? "";
             $user->birth_date = session()->get('birth_date');
             $user->password = session()->get('password');
