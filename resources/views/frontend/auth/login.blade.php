@@ -33,21 +33,19 @@ sticky
                 <img class="flex-shrink-0" src="{{ asset('/frontend/image/icon/Group 1.png') }}" width="20px" alt="">
                 <span>{{__('Date and time of visit')}}: </span>
                 <span class="ml-autoi">17.10.2022 10:00</span>
-
             </p>
 
             <p class="d-flex align-items-center space-x-2">
                 <img class="flex-shrink-0" src="{{ asset('/frontend/image/icon/Group 2.png') }}" width="20px" alt="">
                 <span>{{__('University Street, 7, Tashkent city')}}</span>
             </p>
-            
         </div>
         
         <p class="footer"> {{__('It is strictly forbidden for another person to use this pass.')}} </p>
-        <div class="investor">
-            <p class="inve-size">{{ Str::upper($ticket->profession_name) }}</p>
-        </div>
-    </div>    
+        <p class="investor">INVESTOR</p>
+    </div>
+    
+       
     
     
     <div class="boxes">

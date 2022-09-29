@@ -10,7 +10,7 @@ sticky
                 @csrf
                 <h3>{{__('Enter the secret password sent to the specified email or phone number')}}</h3>
                 <input type="text" name="code" placeholder="{{ __('VERIFIY_CODE')}}" required> <br><br>
-                <button class="reg-btn"> {{ __('Next')}} </button>
+                <button type="submit" class="reg-btn"> {{ __('Next')}} </button>
             </form>
         </div>
     </div>
