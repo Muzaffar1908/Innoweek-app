@@ -41,7 +41,7 @@
                                     </li>
                                     <li class="menu-item menu-item-has-children wow fadeInUp animated"
                                         data-wow-delay="0.6s">
-                                        <a href="{{ url('/') }}#gallery">{{__('STATISTICS')}}</a>
+                                        <a href="{{ url('/statistic') }}">{{__('STATISTICS')}}</a>
                                     </li>
                                     <li class="menu-item menu-item-has-children wow fadeInUp animated"
                                         data-wow-delay="0.7s">

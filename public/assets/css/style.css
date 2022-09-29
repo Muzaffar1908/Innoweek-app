@@ -6194,4 +6194,21 @@ Page-navigation Area Style*/
   margin: 12px 0;
 }
 
+.pavilion{
+  padding-top: 0;
+    padding-bottom: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    background: fixed;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    height: auto;
+}
+
 /*# sourceMappingURL=style.css.map */

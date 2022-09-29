@@ -42,6 +42,10 @@ Route::get('/info/privacy', function () {
     return view('private');
 });
 
+Route::get('/statistic', function () {
+    return view('statistic');
+});
+
 Route::get('/live360', function () {
     return view('pavilion');
 });
@@ -133,6 +137,7 @@ Route::group(['prefix' => 'mobile-v'], function () {
         Route::get('/dashboard', 'dashboard')->name('m-dashboard');
         Route::get('/about', 'about')->name('m-about');
         Route::get('/map', 'map')->name('m-map');
+        Route::get('/live360', 'live360')->name('m-live360');
         Route::get('/calendar', 'calendar')->name('m-calendar');
         Route::get('/qrkod', 'qrkod')->name('m-qrkod');
         Route::get('/setting', 'setting')->name('m-setting');

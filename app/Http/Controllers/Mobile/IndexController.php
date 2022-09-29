@@ -83,6 +83,11 @@ class IndexController extends Controller
         return view('mobile.map');
     }
 
+    public function live360()
+    {
+        return view('mobile.live360');
+    }
+
     public function calendar()
     {
         $ConfSchedules = DB::table('conferences')

@@ -75,6 +75,18 @@
                     </li>
                     <li>
                         <img src="{{ asset('/assets/images/menu-icon/icon-2.png') }}" alt="Images">
+                        <a href="">
+                            {{__('STATISTICS')}}
+                        </a>
+                    </li>
+                    <li>
+                        <img src="{{ asset('/assets/images/menu-icon/icon-2.png') }}" alt="Images">
+                        <a href="{{route('m-live360')}}">
+                            {{__('LIVE 360')}}
+                        </a>
+                    </li>
+                    <li>
+                        <img src="{{ asset('/assets/images/menu-icon/icon-2.png') }}" alt="Images">
                         <a href="{{route('m-setting')}}">
                             {{__('SETTINGS')}}
                         </a>

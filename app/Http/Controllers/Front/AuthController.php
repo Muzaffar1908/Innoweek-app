@@ -160,6 +160,24 @@ class AuthController extends Controller
             // return redirect()->back()->withErrors($validator->messages());
         }
 
+        // if (!empty($inputs['id'])) {
+        //     $user = User::findOrFail($inputs['id']);
+        // } else {
+        //     $user = new User;
+        // }
+
+        // $user->first_name = $inputs['first_name'];
+        // $user->last_name = $inputs['last_name'];
+        // $user->email = $inputs['email'] ?? null;
+        // $user->phone = $inputs['phone'] ?? null;
+        // $user->birth_date = Carbon::parse($inputs['birth_date']);
+        // $user->gender = $inputs['gender'] ?? 1;
+        // $user->country_id = $request->has('country_id') && $inputs['country_id'] ? $inputs['country_id'] : null;
+        // $user->profession_id = $request->has('profession_id') && $inputs['profession_id'] ? $inputs['profession_id'] : null;
+        // $user->organization = $request->has('organization') && $inputs['organization'] ? $inputs['organization'] : null;
+        // $user->birth_date = Carbon::parse($inputs['birth_date']);
+        // $user->password = Hash::make(Str::random(12));
+
         session([
             'first_name' => $inputs['first_name'],
             'last_name' => $inputs['last_name'],
@@ -187,7 +205,7 @@ class AuthController extends Controller
                 return redirect()->route('home');
             } else {
                 $user->save();
-                $userticket = new User();
+                $userticket = new UserTicket();
                 $userticket->user_id = $user->id;
                 $userticket->ticket_id = $user->id + 1000000;
                 $userticket->archive_id = 1;
