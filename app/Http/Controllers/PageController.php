@@ -27,7 +27,7 @@ class PageController extends Controller
 
         $lang = \App::getLocale();
 
-        $condate_data = Conference::select('id', 'started_at', 'stoped_at', DB::raw('SUBSTRING(`title_' . $lang . '`, 1, 50) as title'), 'live_url', 'user_image', DB::raw('SUBSTRING(`description_' . $lang . '`, 1, 260) as text'), 'address_'. $lang . ' as address')->orderBy('created_at', 'DESC')->get();
+        $condate_data = Conference::select('id', 'started_at', 'stoped_at', DB::raw('SUBSTRING(`title_' . $lang . '`, 1, 50) as title'), 'live_url', 'user_image', DB::raw('SUBSTRING(`description_' . $lang . '`, 1, 260) as text'), 'address_'. $lang . ' as address')->orderBy('created_at', 'ASC')->get();
 
         $lang = \App::getLocale();
         $news = News::select('id', DB::raw('SUBSTRING(`title_' . $lang . '`, 1, 50) as title'), 'user_image')->where('cat_id', 1)->orderBy('created_at', 'DESC')->take(3)->get();
