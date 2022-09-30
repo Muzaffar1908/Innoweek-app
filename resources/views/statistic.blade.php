@@ -9,7 +9,7 @@
 </head>
 <body>
 
-   <!-- Site main start -->
+    <!-- Site main start -->
    <main class="site-main">
       <div class="statistics">
          <!-- Hero section start -->
