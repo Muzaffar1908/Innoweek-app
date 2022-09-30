@@ -15249,4 +15249,35 @@ select option {
     height: auto;
 }
 
-/*# sourceMappingURL=maps/app.css.map */
+.top-left {
+  width: 100px;
+  position: absolute;
+  left: 42%;
+  top: 34%;
+  transition: all 0.2s ease;
+}
+.top-right{
+  width: 100px;
+  position: absolute;
+  right: 32%;
+  transition: all 0.2s ease;
+  top: 34%;
+}
+.bottom-left{
+  width: 100px;
+  position: absolute;
+  bottom: 33%;
+  left: 42%;
+  transition: all 0.2s ease;
+}
+.bottom-right{
+  width: 100px;
+  position: absolute;
+  bottom: 33%;
+  right: 32%;
+  transition: all 0.2s ease;
+}
+
+.top-left:hover, .top-right:hover, .bottom-left:hover, .bottom-right:hover{
+  width: 120px;
+}
