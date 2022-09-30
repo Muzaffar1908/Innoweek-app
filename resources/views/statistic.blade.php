@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="{{ asset('/stat/css/main.css') }}">
-        <title>INNOWEEK - STATISTICS</title>
+        <title>{{__('INNOWEEK - STATISTICS')}}</title>
     </head>
 
     <body>
@@ -23,7 +23,7 @@
                                         <span class="number">4 382</span>
                                     </div>
                                     <div class="text-wrapper">
-                                        <p class="text">Посещений сайта innoweek</p>
+                                        <p class="text">{{__('visits to innoweek website')}}</p>
                                     </div>
                                 </li>
                                 <li class="progress__item">
@@ -31,7 +31,7 @@
                                         <span class="number">2 972</span>
                                     </div>
                                     <div class="text-wrapper">
-                                        <p class="text">Просмотров виртуального тура</p>
+                                        <p class="text">{{__('Virtual Tour Views')}}</p>
                                     </div>
                                 </li>
                                 <li class="progress__item">
@@ -39,14 +39,14 @@
                                         <span class="number">72</span>
                                     </div>
                                     <div class="text-wrapper">
-                                        <p class="text">Учавствующих компаний</p>
+                                        <p class="text">{{__('Participating companies')}}</p>
                                     </div>
                                 </li>
                             </ul>
 
                             <div class="progressing">
                                 <div class="text-wrapper">
-                                    <p class="text progressing__heading">Топ-5 по кол-ву участников выставки по странам
+                                    <p class="text progressing__heading">{{__('Top 5')}}
                                     </p>
                                 </div>
                                 <div class="progressing-box">
@@ -64,30 +64,30 @@
 
                                             <div class="diagram-desc">
                                                 <span class="number">23</span>
-                                                <p class="progressing__text">Стран участников</p>
+                                                <p class="progressing__text">{{__('Participating companies')}}</p>
                                             </div>
 
                                             <div class="legend">
                                                 <ul class="caption-list">
                                                     <li class="caption-item">
                                                         <span class="number progressing__item-span">87</span>
-                                                        <p class="text">Узбекистан</p>
+                                                        <p class="text">{{__('Uzbekistan')}}</p>
                                                     </li>
                                                     <li class="caption-item">
                                                         <span class="number progressing__item-span">10</span>
-                                                        <p class="text">Турция</p>
+                                                        <p class="text">{{__('Turkey')}}</p>
                                                     </li>
                                                     <li class="caption-item">
                                                         <span class="number progressing__item-span">6</span>
-                                                        <p class="text">Россия</p>
+                                                        <p class="text">{{__('Russia')}}</p>
                                                     </li>
                                                     <li class="caption-item">
                                                         <span class="number progressing__item-span">5</span>
-                                                        <p class="text">Татарстан</p>
+                                                        <p class="text">{{__('Tatarstan')}}</p>
                                                     </li>
                                                     <li class="caption-item">
                                                         <span class="number progressing__item-span">4</span>
-                                                        <p class="text">Азербайджан</p>
+                                                        <p class="text">{{__('Azerbaijan')}}</p>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -106,7 +106,7 @@
                         <div class="progress-visitors__inner">
                             <div class="progressing">
                                 <div class="text-wrapper">
-                                    <p class="text progressing__heading">Топ-5 по кол-ву посетителей выставки по странам
+                                    <p class="text progressing__heading">{{__('Top 5 by')}}
                                     </p>
                                 </div>
                                 <div class="progressing-box">
@@ -123,30 +123,30 @@
 
                                         <div class="diagram-desc__end">
                                             <span class="number">1 587</span>
-                                            <p class="progressing__text">Посетителей виртуального тура</p>
+                                            <p class="progressing__text">{{__('Virtual tour visitors')}}</p>
                                         </div>
 
                                         <div class="legend">
                                             <ul class="caption-list">
                                                 <li class="caption-item">
                                                     <span class="number progressing__item-span">1524</span>
-                                                    <p class="text">Узб</p>
+                                                    <p class="text">{{__('Uzbek')}}</p>
                                                 </li>
                                                 <li class="caption-item">
                                                     <span class="number progressing__item-span">7</span>
-                                                    <p class="text">Рф</p>
+                                                    <p class="text">{{__('RF')}}</p>
                                                 </li>
                                                 <li class="caption-item">
                                                     <span class="number progressing__item-span">3</span>
-                                                    <p class="text">Каз</p>
+                                                    <p class="text">{{__('Kaz')}}</p>
                                                 </li>
                                                 <li class="caption-item">
                                                     <span class="number progressing__item-span">2</span>
-                                                    <p class="text">Азе</p>
+                                                    <p class="text">{{__('Aze')}}</p>
                                                 </li>
                                                 <li class="caption-item">
                                                     <span class="number progressing__item-span">2</span>
-                                                    <p class="text">Рб</p>
+                                                    <p class="text">{{__('Rb')}}</p>
                                                 </li>
                                             </ul>
                                         </div>
@@ -160,7 +160,7 @@
                                         <span class="number">0</span>
                                     </div>
                                     <div class="text-wrapper">
-                                        <p class="text">Посетителей выставки</p>
+                                        <p class="text">{{__('Exhibition visitors')}}</p>
                                     </div>
                                 </li>
                                 <li class="progress__item">
@@ -168,7 +168,7 @@
                                         <span class="number">29</span>
                                     </div>
                                     <div class="text-wrapper">
-                                        <p class="text">Средний возраст</p>
+                                        <p class="text">{{__('Average age')}}</p>
                                     </div>
                                 </li>
                                 <li class="progress__item">
@@ -176,7 +176,7 @@
                                         <span class="number">30</span>
                                     </div>
                                     <div class="text-wrapper">
-                                        <p class="text">Стран посетителей</p>
+                                        <p class="text">{{__('Visitor countries')}}</p>
                                     </div>
                                 </li>
                             </ul>
@@ -195,20 +195,19 @@
                                         <span class="number">3</span>
                                     </div>
                                     <div class="text-wrapper">
-                                        <p class="text">Кол-во инвестиционных соглашений</p>
+                                        <p class="text">{{__('Number of investment agreements')}}</p>
                                     </div>
                                 </li>
                                 <li class="progress__item">
                                     <div class="text-wrapper">
-                                        <p class="text">Сумма инвестиционных соглашений</p>
+                                        <p class="text">{{__('Amount of investment agreements')}}</p>
                                     </div>
                                 </li>
                             </ul>
 
                             <div class="progressing">
                                 <div class="text-wrapper">
-                                    <p class="text progressing__heading">Количество посетителей выставки в разрыве
-                                        языков</p>
+                                    <p class="text progressing__heading">{{__('The number of visitors to the exhibition in the gap languages')}}</p>
                                 </div>
                                 <div class="last-progressing">
                                     <ul class="last-progressing__list">
@@ -233,48 +232,48 @@
                 <!-- Section last progress finish -->
             </div>
             <div class="live-stream">
-                <h2 class="live-stream-title">Live stream</h2>
+                <h2 class="live-stream-title">{{__('Live stream')}}</h2>
                 <ul class="live-stream-list">
                     <li class="live-stream-item">
                         <div class="live-stream-box">
 
                         </div>
-                        <p class="live-stream-box-text">Forum</p>
+                        <p class="live-stream-box-text">{{__('Forum')}}</p>
                     </li>
 
                     <li class="live-stream-item">
                         <div class="live-stream-box">
 
                         </div>
-                        <p class="live-stream-box-text">Yarmarka</p>
+                        <p class="live-stream-box-text">{{__('Yarmarka')}}</p>
                     </li>
 
                     <li class="live-stream-item">
                         <div class="live-stream-box">
 
                         </div>
-                        <p class="live-stream-box-text">Forum-2</p>
+                        <p class="live-stream-box-text">{{__('Forum')}}-2</p>
                     </li>
 
                     <li class="live-stream-item">
                         <div class="live-stream-box">
 
                         </div>
-                        <p class="live-stream-box-text">Yarmarka-2</p>
+                        <p class="live-stream-box-text">{{__('Yarmarka')}}-2</p>
                     </li>
 
                     <li class="live-stream-item">
                         <div class="live-stream-box">
 
                         </div>
-                        <p class="live-stream-box-text">Forum-3</p>
+                        <p class="live-stream-box-text">{{__('Forum')}}-3</p>
                     </li>
 
                     <li class="live-stream-item">
                         <div class="live-stream-box">
 
                         </div>
-                        <p class="live-stream-box-text">Yarmarka-3</p>
+                        <p class="live-stream-box-text">{{__('Yarmarka')}}-3</p>
                     </li>
                 </ul>
             </div>

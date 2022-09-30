@@ -6,6 +6,7 @@ use App\Models\Archive\Archive;
 use App\Models\Archive\Speakers;
 use App\Models\Conference;
 use App\Models\Innoweek;
+use App\Models\LiveStatistic;
 use App\Models\News\Galeries;
 use App\Models\News\News;
 use App\Models\Partner;
@@ -13,7 +14,7 @@ use App\Models\Promo;
 use App\Models\UserTicket;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
-
+use Symfony\Component\HttpKernel\Event\ViewEvent;
 
 class PageController extends Controller
 {
@@ -126,6 +127,12 @@ class PageController extends Controller
         $news = News::select('id', 'title_'. $lang . ' as title', 'user_image', DB::raw('SUBSTRING(`description_' . $lang . '`, 1, 500) as text'), 'tags', 'created_at')->where('cat_id', 1)->orderBy('created_at', 'DESC')->paginate(2);
         $newsresent = News::select('id', 'user_image', 'title_' . $lang . ' as title', 'created_at')->where('cat_id', 1)->orderBy('created_at', 'desc')->take(3)->get();
         return view('frontend.news', ['news' => $news, 'newsresent' => $newsresent]);
+    }
+
+    public function live_statistic()
+    {
+        $live_statistics = LiveStatistic::all();
+        return view('frontend.statistic', compact('live_statistics'));
     }
 
 }

@@ -10,6 +10,7 @@ use App\Http\Controllers\PartnerController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Mobile\IndexController;
 use App\Http\Controllers\SpeakerController;
+use App\Http\Controllers\LiveStatisticController;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Mobile\AuthController;
@@ -22,6 +23,7 @@ use App\Http\Controllers\UserController;
 use App\Models\News\NewsCategory;
 use Illuminate\Support\Facades\Session;
 use App\Http\Controllers\UserTicketController;
+use App\Models\LiveStatistic;
 
 /*
 |--------------------------------------------------------------------------
@@ -104,6 +106,7 @@ Route::prefix('admin')->name('admin.')->middleware('auth','isAdmin')->group(func
     Route::resource('/userticket', UserTicketController::class);
     Route::resource('/partner', PartnerController::class);
     Route::resource('/promo', PromoController::class);
+    Route::resource('/live_statistic', LiveStatisticController::class);
     Route::POST('/userticket/isactive/{id}',[UserTicketController::class,'is_active']);
     Route::POST('/news/isactive/{id}',[NewsController::class,'is_active']);
     Route::POST('/news_cat/isactive/{id}',[NewsCategoryController::class,'is_active']);

@@ -24,7 +24,7 @@
             aria-expanded="false"
             >
               <i class="bi bi-grid"></i>
-              <span class="nav-text">Foydalanuvchilar</span>
+              <span class="nav-text">User</span>
           </a>
           <ul aria-expanded="false">
             <li><a href="{{route('admin.user.index')}}">User</a></li>
@@ -38,7 +38,7 @@
             aria-expanded="false"
             >
               <i class="bi bi-grid"></i>
-              <span class="nav-text">Yangiliklar</span>
+              <span class="nav-text">News</span>
           </a>
           <ul aria-expanded="false">
             <li><a href="{{route('admin.news_category.index')}}">News Category</a></li>
@@ -52,7 +52,7 @@
             aria-expanded="false"
             >
               <i class="bi bi-grid"></i>
-              <span class="nav-text">Gallareya</span>
+              <span class="nav-text">Galeries</span>
           </a>
           <ul aria-expanded="false">
             <li><a href="{{route('admin.galeries.index')}}">Galeries</a></li>
@@ -78,7 +78,7 @@
             aria-expanded="false"
             >
               <i class="bi bi-grid"></i>
-              <span class="nav-text">Arxiv</span>
+              <span class="nav-text">Archive</span>
           </a>
           <ul aria-expanded="false">
             <li><a href="{{route('admin.archive.index')}}">Archive</a></li>
@@ -91,7 +91,7 @@
             aria-expanded="false"
             >
               <i class="bi bi-grid"></i>
-              <span class="nav-text">So`zlovchilar</span>
+              <span class="nav-text">Speakers</span>
           </a>
           <ul aria-expanded="false">
             <li><a href="{{route('admin.speakers.index')}}">Speakers</a></li>
@@ -104,7 +104,7 @@
             aria-expanded="false"
             >
               <i class="bi bi-grid"></i>
-              <span class="nav-text">Konferensiya</span>
+              <span class="nav-text">Conference</span>
           </a>
           <ul aria-expanded="false">
             <li><a href="{{route('admin.conference.index')}}">Conference</a></li>
@@ -122,7 +122,20 @@
             <ul aria-expanded="false">
               <li><a href="{{route('admin.promo.index')}}">Promo</a></li>
             </ul>
-          </li>
+        </li>
+        <li>
+          <a
+            class="has-arrow"
+            href="javascript:void(0);"
+            aria-expanded="false"
+            >
+              <i class="bi bi-grid"></i>
+              <span class="nav-text">Live Statistic</span>
+          </a>
+          <ul aria-expanded="false">
+            <li><a href="{{route('admin.live_statistic.index')}}">Live Statistic</a></li>
+          </ul>
+        </li>
       </ul>
 
     </div>
