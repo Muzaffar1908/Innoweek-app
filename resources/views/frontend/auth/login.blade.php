@@ -42,7 +42,7 @@ sticky
         </div>
         
         <p class="footer"> {{__('It is strictly forbidden for another person to use this pass.')}} </p>
-        <p class="investor">INVESTOR</p>
+        <p class="investor">{{ Str::upper($ticket->profession_name) }}</p>
     </div>
     
        
