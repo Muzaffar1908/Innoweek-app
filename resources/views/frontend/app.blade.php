@@ -214,7 +214,7 @@
                                                         <div class="date">{{Carbon::parse($dd->started_at)->format('d')}}</div>
                                                         <div>
                                                             <div class="month">{{Carbon::parse($dd->started_at)->format('F')}}</div>
-                                                            <div class="time">{{Carbon::parse($dd->started_at)->format('h:i')}} -{{Carbon::parse($dd->stoped_at)->format('h:i')}} </div>
+                                                            <div class="time">{{Carbon::parse($dd->started_at)->format('H:i')}} -{{Carbon::parse($dd->stoped_at)->format('H:i')}} </div>
                                                         </div>
                                                     </div>
                                                     <div class="content-box-wrap">
