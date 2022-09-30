@@ -47,10 +47,10 @@
                                         data-wow-delay="0.7s">
                                         <a href="/live360">{{__('LIVE 360')}}</a>
                                     </li>
-                                    <li class="menu-item menu-item-has-children wow fadeInUp animated {{ (request()->is('/#gallery')) ? 'active' : '' }}"
+                                    {{-- <li class="menu-item menu-item-has-children wow fadeInUp animated {{ (request()->is('/#gallery')) ? 'active' : '' }}"
                                         data-wow-delay="0.8s">
                                         <a href="{{ url('/') }}#gallery">{{__('GALLERY')}}</a>
-                                    </li>
+                                    </li> --}}
                                     <li class="menu-item menu-item-has-children wow fadeInUp animated"
                                         data-wow-delay="0.9s">
                                         <a class="inno-cursor">INNOWEEK 2022</a>

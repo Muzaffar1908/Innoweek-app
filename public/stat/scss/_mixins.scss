@@ -1,0 +1,30 @@
+@mixin mobile-first($min) {
+   @media only screen and (min-width: $min) {
+      @content;
+   }
+}
+
+@mixin desctop-first($max) {
+   @media only screen and (max-width: $max) {
+      @content;
+   }
+}
+
+@mixin ul-unstiled {
+   margin: 0;
+   padding-left: 0;
+   list-style-type: none;
+}
+
+@mixin mixin-before($position, $top, $left) {
+   position: $position;
+   top: $top;
+   left: $left;
+   content: "";
+}
+
+@mixin bg($bgposition, $bgsize) {
+   background-repeat: no-repeat;
+   background-position: $bgposition;
+   background-size: $bgsize;
+}
