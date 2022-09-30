@@ -92,10 +92,10 @@
                         <input type="text" name="live_url" class="form-control" id="live_url" placeholder="Live url enter" value="{{$conference->live_url}}" />
                     </div>
 
-                    <div class="mb-3">
+                    {{-- <div class="mb-3">
                         <label for="innoweek_video">Innoweek video</label>
                         <input type="url" name="innoweek_video" class="form-control" id="innoweek_video" placeholder="Live url enter" value="{{$conference->innoweek_video}}" />
-                    </div>
+                    </div> --}}
 
                     <div class="mb-3">
                         <label for="user_image">User image</label><br>

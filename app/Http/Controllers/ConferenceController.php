@@ -103,7 +103,7 @@ class ConferenceController extends Controller
         $conferences->title_ru = $inputs['title_ru'];
         $conferences->title_en = $inputs['title_en'];
         $conferences->live_url = $inputs['live_url'];
-        $conferences->innoweek_video = $inputs['innoweek_video'];
+        // $conferences->innoweek_video = $inputs['innoweek_video'];
         $conferences->address_uz = $inputs['address_uz'];
         $conferences->address_ru = $inputs['address_ru'];
         $conferences->address_en = $inputs['address_en'];
@@ -287,7 +287,7 @@ class ConferenceController extends Controller
         $conferences->title_ru = $inputs['title_ru'];
         $conferences->title_en = $inputs['title_en'];
         $conferences->live_url = $inputs['live_url'];
-        $conferences->innoweek_video = $inputs['innoweek_video'];
+        // $conferences->innoweek_video = $inputs['innoweek_video'];
         $conferences->address_uz = $inputs['address_uz'];
         $conferences->address_ru = $inputs['address_ru'];
         $conferences->address_en = $inputs['address_en'];
