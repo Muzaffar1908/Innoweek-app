@@ -43,7 +43,7 @@
                                                 <img width="50px" src="{{asset('assets/images/icon/YouTube.webp')}}" alt="Images">
                                                 
                                                 <p class="m-0 px-3">{{$con->title}}</p>
-                                                <span style="color: red;">{{Carbon::parse($con->started_at)->format('h:i')}} -{{Carbon::parse($con->stoped_at)->format('h:i')}}</span>
+                                                <span style="color: red;">{{Carbon::parse($con->started_at)->format('H:i')}} -{{Carbon::parse($con->stoped_at)->format('H:i')}}</span>
                                             </a>
                                         </ul>
                                     </div>
