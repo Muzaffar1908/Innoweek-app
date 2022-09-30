@@ -231,11 +231,14 @@
                                                 <div class="panel-body">
                                                   <div class="d-flex justify-content-between schedule-flex">
                                                         <span class="d-flex flex-column">
-                                                            {{-- <a href="{{'https://www.youtube.com/watch?v='.$dd->live_url}}" class="icon-box-link play-btn"> --}}
-                                                            <a href="{{'https://www.youtube.com/watch?v='.$dd->live_url}}" class="icon-box-link play-btn">
-                                                            <img src="https://img.youtube.com/vi/{{$dd->live_url}}/hqdefault.jpg" class="d-flex mt-4" width="150" height="120" alt="">
-                                                            </a>
-                                                            <h4 class="text-center text-white">ONLINE</h4>
+                                                           @isset($dd->live_url)
+                                                               {{-- <a href="{{'https://www.youtube.com/watch?v='.$dd->live_url}}" class="icon-box-link play-btn"> --}}
+                                                                <a href="{{'https://www.youtube.com/watch?v='.$dd->live_url}}" class="icon-box-link play-btn">
+                                                                    <img src="https://img.youtube.com/vi/{{$dd->live_url}}/hqdefault.jpg" class="d-flex mt-4" width="150"
+                                                                        height="120" alt="">
+                                                                </a>
+                                                                <h4 class="text-center text-white">ONLINE</h4>
+                                                           @endisset
                                                         </span>
                                                         <span>
                                                             <p class="description mx-5 mt-4 ">{{strip_tags($dd->text)}}</p>
