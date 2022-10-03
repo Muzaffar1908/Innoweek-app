@@ -213,6 +213,7 @@ class AuthController extends Controller
                 $userticket->save();
                 session([
                     'verifyCode' => $verify_code,
+                    'userID' => $user->id,
                 ]);
                 \Session::flash('warning', __('ALL_SUCCESSFUL_SAVED'));
                 return redirect()->route('m-verify');
