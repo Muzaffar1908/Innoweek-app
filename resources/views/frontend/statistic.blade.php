@@ -20,7 +20,7 @@
                             <ul class="progress__list">
                                 <li class="progress__item">
                                     <div class="progress__item-start progress__item-visitors">
-                                        <span class="number">4 382</span>
+                                        <span class="number">{{$live_statistics->titlenumber_1}}</span>
                                     </div>
                                     <div class="text-wrapper">
                                         <p class="text">{{__('visits to innoweek website')}}</p>
@@ -28,7 +28,7 @@
                                 </li>
                                 <li class="progress__item">
                                     <div class="progress__item-start progress__item-views">
-                                        <span class="number">2 972</span>
+                                        <span class="number">{{$live_statistics->titlenumber_2}}</span>
                                     </div>
                                     <div class="text-wrapper">
                                         <p class="text">{{__('Virtual Tour Views')}}</p>
@@ -36,7 +36,7 @@
                                 </li>
                                 <li class="progress__item">
                                     <div class="progress__item-start progress__item-companys">
-                                        <span class="number">72</span>
+                                        <span class="number">{{$live_statistics->titlenumber_3}}</span>
                                     </div>
                                     <div class="text-wrapper">
                                         <p class="text">{{__('Participating companies')}}</p>
@@ -63,30 +63,30 @@
                                             </svg>
 
                                             <div class="diagram-desc">
-                                                <span class="number">23</span>
+                                                <span class="number">{{$live_statistics->countryname_all}}</span>
                                                 <p class="progressing__text">{{__('Participating companies')}}</p>
                                             </div>
 
                                             <div class="legend">
                                                 <ul class="caption-list">
                                                     <li class="caption-item">
-                                                        <span class="number progressing__item-span">87</span>
+                                                        <span class="number progressing__item-span">{{$live_statistics->countryname_1}}</span>
                                                         <p class="text">{{__('Uzbekistan')}}</p>
                                                     </li>
                                                     <li class="caption-item">
-                                                        <span class="number progressing__item-span">10</span>
+                                                        <span class="number progressing__item-span">{{$live_statistics->countryname_2}}</span>
                                                         <p class="text">{{__('Turkey')}}</p>
                                                     </li>
                                                     <li class="caption-item">
-                                                        <span class="number progressing__item-span">6</span>
+                                                        <span class="number progressing__item-span">{{$live_statistics->countryname_3}}</span>
                                                         <p class="text">{{__('Russia')}}</p>
                                                     </li>
                                                     <li class="caption-item">
-                                                        <span class="number progressing__item-span">5</span>
+                                                        <span class="number progressing__item-span">{{$live_statistics->countryname_4}}</span>
                                                         <p class="text">{{__('Tatarstan')}}</p>
                                                     </li>
                                                     <li class="caption-item">
-                                                        <span class="number progressing__item-span">4</span>
+                                                        <span class="number progressing__item-span">{{$live_statistics->countryname_5}}</span>
                                                         <p class="text">{{__('Azerbaijan')}}</p>
                                                     </li>
                                                 </ul>
@@ -122,30 +122,30 @@
                                         </svg>
 
                                         <div class="diagram-desc__end">
-                                            <span class="number">1 587</span>
+                                            <span class="number">{{$live_statistics->countryson_all}}</span>
                                             <p class="progressing__text">{{__('Virtual tour visitors')}}</p>
                                         </div>
 
                                         <div class="legend">
                                             <ul class="caption-list">
                                                 <li class="caption-item">
-                                                    <span class="number progressing__item-span">1524</span>
+                                                    <span class="number progressing__item-span">{{$live_statistics->countryson_1}}</span>
                                                     <p class="text">{{__('Uzbek')}}</p>
                                                 </li>
                                                 <li class="caption-item">
-                                                    <span class="number progressing__item-span">7</span>
+                                                    <span class="number progressing__item-span">{{$live_statistics->countryson_2}}</span>
                                                     <p class="text">{{__('RF')}}</p>
                                                 </li>
                                                 <li class="caption-item">
-                                                    <span class="number progressing__item-span">3</span>
+                                                    <span class="number progressing__item-span">{{$live_statistics->countryson_3}}</span>
                                                     <p class="text">{{__('Kaz')}}</p>
                                                 </li>
                                                 <li class="caption-item">
-                                                    <span class="number progressing__item-span">2</span>
+                                                    <span class="number progressing__item-span">{{$live_statistics->countryson_4}}</span>
                                                     <p class="text">{{__('Aze')}}</p>
                                                 </li>
                                                 <li class="caption-item">
-                                                    <span class="number progressing__item-span">2</span>
+                                                    <span class="number progressing__item-span">{{$live_statistics->countryson_5}}</span>
                                                     <p class="text">{{__('Rb')}}</p>
                                                 </li>
                                             </ul>
@@ -157,7 +157,7 @@
                             <ul class="progress__list">
                                 <li class="progress__item">
                                     <div class="progress__item-start progress__item-visitors">
-                                        <span class="number">0</span>
+                                        <span class="number">{{$live_statistics->titlenumber_4}}</span>
                                     </div>
                                     <div class="text-wrapper">
                                         <p class="text">{{__('Exhibition visitors')}}</p>
@@ -165,7 +165,7 @@
                                 </li>
                                 <li class="progress__item">
                                     <div class="progress__item-start progress__item-visitors-age">
-                                        <span class="number">29</span>
+                                        <span class="number">{{$live_statistics->titlenumber_5}}</span>
                                     </div>
                                     <div class="text-wrapper">
                                         <p class="text">{{__('Average age')}}</p>
@@ -173,7 +173,7 @@
                                 </li>
                                 <li class="progress__item">
                                     <div class="progress__item-start progress__item-visitors-country">
-                                        <span class="number">30</span>
+                                        <span class="number">{{$live_statistics->titlenumber_6}}</span>
                                     </div>
                                     <div class="text-wrapper">
                                         <p class="text">{{__('Visitor countries')}}</p>
@@ -192,7 +192,7 @@
                             <ul class="progress__list">
                                 <li class="progress__item">
                                     <div class="progress__item-start progress__item-amount">
-                                        <span class="number">3</span>
+                                        <span class="number">{{$live_statistics->agreement}}</span>
                                     </div>
                                     <div class="text-wrapper">
                                         <p class="text">{{__('Number of investment agreements')}}</p>
@@ -213,15 +213,15 @@
                                     <ul class="last-progressing__list">
                                         <li class="last-progressing__item">
                                             <span class="last-progressing__diagram"></span>
-                                            <span class="number">1 139</span>
+                                            <span class="number">{{$live_statistics->language_number_1}}</span>
                                         </li>
                                         <li class="last-progressing__item">
                                             <span class="last-progressing__diagram"></span>
-                                            <span class="number">435</span>
+                                            <span class="number">{{$live_statistics->language_number_2}}</span>
                                         </li>
                                         <li class="last-progressing__item">
                                             <span class="last-progressing__diagram"></span>
-                                            <span class="number">33</span>
+                                            <span class="number">{{$live_statistics->language_number_3}}</span>
                                         </li>
                                     </ul>
                                 </div>
@@ -236,7 +236,9 @@
                 <ul class="live-stream-list">
                     <li class="live-stream-item">
                         <div class="live-stream-box">
-
+                            <a href="{{'https://www.youtube.com/watch?v='.$live_statistics->forum_1}}" class="icon-box-link play-btn">
+                                <img src="https://img.youtube.com/vi/{{$live_statistics->forum_1}}/hqdefault.jpg" alt="img" with="100%" height="60px">
+                            </a>
                         </div>
                         <p class="live-stream-box-text">{{__('Forum')}}</p>
                     </li>

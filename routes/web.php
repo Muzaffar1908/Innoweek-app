@@ -71,6 +71,7 @@ Route::group(['prefix' => '/'], function(){
         Route::get('/code', 'register')->name('code');
         Route::get('/events', 'events')->name('eventsx');
         Route::get('/news', 'news')->name('newsx');
+        Route::get('/statistic', 'live_statistic')->name('live_statistics');
     });
 
     Route::controller(FrontAuthController::class)->group(function(){

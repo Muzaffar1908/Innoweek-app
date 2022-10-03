@@ -27,10 +27,10 @@ class PageController extends Controller
 
         $lang = \App::getLocale();
 
-        $condate_data = Conference::select('id', 'started_at', 'stoped_at', DB::raw('SUBSTRING(`title_' . $lang . '`, 1, 500) as title'), 'live_url', 'user_image', DB::raw('SUBSTRING(`description_' . $lang . '`, 1, 260) as text'), 'address_'. $lang . ' as address')->orderBy('created_at', 'ASC')->get();
+        $condate_data = Conference::select('id', 'started_at', 'stoped_at', DB::raw('SUBSTRING(`title_' . $lang . '`, 1, 255) as title'), 'live_url', 'user_image', DB::raw('SUBSTRING(`description_' . $lang . '`, 1, 260) as text'), 'address_'. $lang . ' as address')->where('is_active', '=', 1)->orderBy('created_at', 'ASC')->get();
 
         $lang = \App::getLocale();
-        $news = News::select('id', DB::raw('SUBSTRING(`title_' . $lang . '`, 1, 50) as title'), 'user_image')->where('cat_id', 1)->orderBy('created_at', 'DESC')->take(3)->get();
+        $news = News::select('id', DB::raw('SUBSTRING(`title_' . $lang . '`, 1, 50) as title'), 'user_image', 'created_at')->where('cat_id', 1)->where('is_active', '=', 1)->orderBy('created_at', 'DESC')->take(6)->get();
         $news_event = News::select('id', 'user_image', 'title_' . $lang . ' as title', DB::raw('SUBSTRING(`description_' . $lang . '`, 1, 60) as text'))->where('cat_id', 2)->orderBy('created_at', 'DESC')->take(5)->get();
         $speakers = Speakers::select('id', 'image', 'full_name_' . $lang . ' as name', DB::raw('SUBSTRING(`description_' . $lang . '`, 1, 100) as text'), 'facebook_ur', 'twitter_url', 'linkedin_url', 'youtube_url')->orderBy('created_at', 'DESC')->take(6)->get();
         $galleries = Galeries::select('id', 'image')->orderBy('created_at', 'DESC')->take(12)->get();
@@ -75,7 +75,7 @@ class PageController extends Controller
         // $innoweeks = Innoweek::first();
         $lang = \App::getLocale();
 
-        $news = News::select('id', 'title_'. $lang . ' as title', 'user_image', DB::raw('SUBSTRING(`description_' . $lang . '`, 1, 255) as text'), 'created_at')->findOrFail($id);
+        $news = News::select('id', 'title_'. $lang . ' as title', 'user_image', DB::raw('SUBSTRING(`description_' . $lang . '`, 1, 1550) as text'), 'created_at')->findOrFail($id);
         $newsresent = News::select('id', 'user_image', DB::raw('SUBSTRING(`title_' . $lang . '`, 1, 30) as title'), 'created_at')->orderBy('created_at', 'desc')->where('cat_id', 1)->take(5)->get();
         return view('frontend.newshow', ['news' => $news, 'newsresent' => $newsresent]);
 
@@ -131,8 +131,8 @@ class PageController extends Controller
 
     public function live_statistic()
     {
-        $live_statistics = LiveStatistic::all();
-        return view('frontend.statistic', compact('live_statistics'));
+        $live_statistics = LiveStatistic::first();
+        return view('frontend.statistic', ['live_statistics' => $live_statistics]);
     }
 
 }

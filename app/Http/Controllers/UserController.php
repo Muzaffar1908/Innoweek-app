@@ -76,9 +76,9 @@ class UserController extends Controller
          $users->email = $inputs['email'];
          $users->phone = $inputs['phone'];
          $users->password ="0";
-         $users->country_id = $inputs['country_id'];
-         $users->profession_id = $inputs['profession_id'];
-         $users->organization = $inputs['organization'];
+         $users->country_id = $inputs['country_id'] ?? null;
+         $users->profession_id = $inputs['profession_id'] ?? null;
+         $users->organization = $inputs['organization'] ?? null;
 
 
 

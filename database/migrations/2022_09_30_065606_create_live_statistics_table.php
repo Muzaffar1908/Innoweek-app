@@ -33,6 +33,10 @@ return new class extends Migration
             $table->string('titlenumber_4')->nullable();
             $table->string('titlenumber_5')->nullable();
             $table->string('titlenumber_6')->nullable();
+            $table->string('agreement')->nullable();
+            $table->string('language_number_1')->nullable();
+            $table->string('language_number_2')->nullable();
+            $table->string('language_number_3')->nullable();
             $table->string('forum_1');
             $table->string('forum_2')->nullable();
             $table->string('forum_3')->nullable();

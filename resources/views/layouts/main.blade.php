@@ -142,6 +142,10 @@
         @livewire('components.register')
     </div>
 
+    <button onclick="topFunction()" id="myBtn" title="Go to top">
+        <a href="#page-top"><i class="fas fa-chevron-up"></i></a>
+    </button>
+
     <!-- Dependency Scripts -->
     <script src="{{ asset('/frontend/assets/jquery/jquery.min.js') }}"></script>
     <script src="{{ asset('/frontend/assets/bootstrap/js/bootstrap.min.js') }}"></script>
@@ -151,6 +155,7 @@
     <script src="{{ asset('/frontend/assets/wow/wow.min.js') }}"></script>
     <script src="{{ asset('/frontend/assets/isotope-layout/isotope.pkgd.min.js') }}"></script>
     <script src="{{ asset('/frontend/assets/swiper/js/swiper.min.js') }}"></script>
+    <script src="{{ asset('/frontend/assets/swiper/js/scoll-top.js') }}"></script>
     <script src="{{ asset('/frontend/assets/validator/validator.min.js') }}"></script>
     <!-- flatpickr -->
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>

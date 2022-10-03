@@ -15281,3 +15281,24 @@ select option {
 .top-left:hover, .top-right:hover, .bottom-left:hover, .bottom-right:hover{
   width: 120px;
 }
+
+#myBtn {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 100;
+    font-size: 20px;
+    border: none;
+    outline: none;
+    background-color: #2A07F9;
+    color: white;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+  }
+  
+.fa-chevron-up{
+color: #fff;
+}

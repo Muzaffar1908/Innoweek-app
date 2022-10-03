@@ -80,6 +80,10 @@ class LiveStatisticController extends Controller
         $live_statistics->titlenumber_4 = $inputs['titlenumber_4'];
         $live_statistics->titlenumber_5 = $inputs['titlenumber_5'];
         $live_statistics->titlenumber_6 = $inputs['titlenumber_6'];
+        $live_statistics->agreement = $inputs['agreement'];
+        $live_statistics->language_number_1 = $inputs['language_number_1'];
+        $live_statistics->language_number_2 = $inputs['language_number_2'];
+        $live_statistics->language_number_3 = $inputs['language_number_3'];
         $live_statistics->forum_1 = $inputs['forum_1'];
         $live_statistics->forum_2 = $inputs['forum_2'];
         $live_statistics->forum_3 = $inputs['forum_3'];
@@ -175,6 +179,10 @@ class LiveStatisticController extends Controller
         $live_statistics->titlenumber_4 = $inputs['titlenumber_4'];
         $live_statistics->titlenumber_5 = $inputs['titlenumber_5'];
         $live_statistics->titlenumber_6 = $inputs['titlenumber_6'];
+        $live_statistics->agreement = $inputs['agreement'];
+        $live_statistics->language_number_1 = $inputs['language_number_1'];
+        $live_statistics->language_number_2 = $inputs['language_number_2'];
+        $live_statistics->language_number_3 = $inputs['language_number_3'];
         $live_statistics->forum_1 = $inputs['forum_1'];
         $live_statistics->forum_2 = $inputs['forum_2'];
         $live_statistics->forum_3 = $inputs['forum_3'];

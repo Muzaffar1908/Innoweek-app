@@ -45,122 +45,142 @@
 
                     <div class="mb-3">
                         <label for="titlenumber_1">INNOWEEK SAYTGA TASHRIFLAR</label>
-                        <input type="number" name="titlenumber_1" class="form-control" id="titlenumber_1" placeholder="Title number 1 enter" value="{{old('titlenumber_1')}}" />
+                        <input type="number" name="titlenumber_1" class="form-control" id="titlenumber_1" placeholder="Innoweek saytiga tashriflar soni" value="{{old('titlenumber_1')}}" />
                     </div>
 
                     <div class="mb-3">
                         <label for="titlenumber_2">VIRTUAL KO'RISH</label>
-                        <input type="number" name="titlenumber_2" class="form-control" id="titlenumber_2" placeholder="Title number 2 enter" value="{{old('titlenumber_2')}}" />
+                        <input type="number" name="titlenumber_2" class="form-control" id="titlenumber_2" placeholder="Virtual ko`rishlar soni" value="{{old('titlenumber_2')}}" />
                     </div>
 
                     <div class="mb-3">
                         <label for="titlenumber_3">KOMPANIYALAR ISHTIROKI SONI</label>
-                        <input type="number" name="titlenumber_3" class="form-control" id="titlenumber_3" placeholder="Title number 3 enter" value="{{old('titlenumber_3')}}" />
+                        <input type="number" name="titlenumber_3" class="form-control" id="titlenumber_3" placeholder="Kompaniyalar ishtiroki soni" value="{{old('titlenumber_3')}}" />
                     </div>
 
                     <div class="mb-3">
                         <label for="countryname_1">MAMLAKATLAR BO'YICHA KO`RISHLAR SONI UZB</label>
-                        <input type="number" name="countryname_1" class="form-control" id="countryname_1" placeholder="Country name 1 enter" value="{{old('countryname_1')}}" />
+                        <input type="number" name="countryname_1" class="form-control" id="countryname_1" placeholder="Mamalakatlar bo`yicha ko`rishlar soni UZB" value="{{old('countryname_1')}}" />
                     </div>
 
                     <div class="mb-3">
                         <label for="countryname_2">MAMLAKATLAR BO'YICHA KO`RISHLAR SONI TURK</label>
-                        <input type="number" name="countryname_2" class="form-control" id="countryname_2" placeholder="Country name 2 enter" value="{{old('countryname_2')}}" />
+                        <input type="number" name="countryname_2" class="form-control" id="countryname_2" placeholder="Mamalakatlar bo`yicha ko`rishlar soni TURK" value="{{old('countryname_2')}}" />
                     </div>
 
                     <div class="mb-3">
                         <label for="countryname_3">MAMLAKATLAR BO'YICHA KO`RISHLAR SONI RUS</label>
-                        <input type="number" name="countryname_3" class="form-control" id="countryname_3" placeholder="Country name 3 enter" value="{{old('countryname_3')}}" />
+                        <input type="number" name="countryname_3" class="form-control" id="countryname_3" placeholder="Mamalakatlar bo`yicha ko`rishlar soni RUS" value="{{old('countryname_3')}}" />
                     </div>
 
                     <div class="mb-3">
                         <label for="countryname_4">MAMLAKATLAR BO'YICHA KO`RISHLAR SONI TATAR</label>
-                        <input type="number" name="countryname_4" class="form-control" id="countryname_4" placeholder="Country name 4 enter" value="{{old('countryname_4')}}" />
+                        <input type="number" name="countryname_4" class="form-control" id="countryname_4" placeholder="Mamalakatlar bo`yicha ko`rishlar soni TATAR" value="{{old('countryname_4')}}" />
                     </div>
 
                     <div class="mb-3">
                         <label for="countryname_5">MAMLAKATLAR BO'YICHA KO`RISHLAR SONI AZERBAYJAN</label>
-                        <input type="number" name="countryname_5" class="form-control" id="countryname_5" placeholder="Country name 5 enter" value="{{old('countryname_5')}}" />
+                        <input type="number" name="countryname_5" class="form-control" id="countryname_5" placeholder="Mamalakatlar bo`yicha ko`rishlar soni AZERBAYJAN" value="{{old('countryname_5')}}" />
                     </div>
 
                     <div class="mb-3">
                         <label for="countryname_all">MAMLAKATLAR BO'YICHA KO`RISHLAR SONI</label>
-                        <input type="number" name="countryname_all" class="form-control" id="countryname_all" placeholder="Country name all enter" value="{{old('countryname_all')}}" />
+                        <input type="number" name="countryname_all" class="form-control" id="countryname_all" placeholder="Barcha mamalakatlar bo`yicha ko`rishlar soni " value="{{old('countryname_all')}}" />
                     </div>
 
                     <div class="mb-3">
                         <label for="countryson_1">MAMLAKATLAR BO'YICHA TASHRIFLAR SONI UZB</label>
-                        <input type="number" name="countryson_1" class="form-control" id="countryson_1" placeholder="Country son 1 enter" value="{{old('countryson_1')}}" />
+                        <input type="number" name="countryson_1" class="form-control" id="countryson_1" placeholder="Mamlakatlar bo`yicha tashriflar soni UZB" value="{{old('countryson_1')}}" />
                     </div>
 
                     <div class="mb-3">
                         <label for="countryson_2">MAMLAKATLAR BO'YICHA TASHRIFLAR SONI TURK</label>
-                        <input type="number" name="countryson_2" class="form-control" id="countryson_2" placeholder="Country son 2 enter" value="{{old('countryson_2')}}" />
+                        <input type="number" name="countryson_2" class="form-control" id="countryson_2" placeholder="Mamlakatlar bo`yicha tashriflar soni TURK" value="{{old('countryson_2')}}" />
                     </div>
 
                     <div class="mb-3">
                         <label for="countryson_3">MAMLAKATLAR BO'YICHA TASHRIFLAR SONI RUS</label>
-                        <input type="number" name="countryson_3" class="form-control" id="countryson_3" placeholder="Country son 3 enter" value="{{old('countryson_3')}}" />
+                        <input type="number" name="countryson_3" class="form-control" id="countryson_3" placeholder="Mamlakatlar bo`yicha tashriflar soni RUS" value="{{old('countryson_3')}}" />
                     </div>
 
                     <div class="mb-3">
                         <label for="countryson_4">MAMLAKATLAR BO'YICHA TASHRIFLAR SONI TATAR</label>
-                        <input type="number" name="countryson_4" class="form-control" id="countryson_4" placeholder="Country son 4 enter" value="{{old('countryson_4')}}" />
+                        <input type="number" name="countryson_4" class="form-control" id="countryson_4" placeholder="Mamlakatlar bo`yicha tashriflar soni TATAR" value="{{old('countryson_4')}}" />
                     </div>
 
                     <div class="mb-3">
                         <label for="countryson_5">MAMLAKATLAR BO'YICHA TASHRIFLAR SONI AZERBAYJAN</label>
-                        <input type="number" name="countryson_5" class="form-control" id="countryson_5" placeholder="Country son 5 enter" value="{{old('countryson_5')}}" />
+                        <input type="number" name="countryson_5" class="form-control" id="countryson_5" placeholder="Mamlakatlar bo`yicha tashriflar soni AZERBAYJAN" value="{{old('countryson_5')}}" />
                     </div>
 
                     <div class="mb-3">
                         <label for="countryson_all">MAMLAKATLAR BO'YICHA TASHRIFLAR SONI</label>
-                        <input type="number" name="countryson_all" class="form-control" id="countryson_all" placeholder="Country son all enter" value="{{old('countryson_all')}}" />
+                        <input type="number" name="countryson_all" class="form-control" id="countryson_all" placeholder="Barcha mamlakatlar bo`yicha tashriflar soni" value="{{old('countryson_all')}}" />
                     </div>
 
                     <div class="mb-3">
                         <label for="titlenumber_4">ПОСЕТИТЕЛЕЙ ВЫСТАВКИ</label>
-                        <input type="number" name="titlenumber_4" class="form-control" id="titlenumber_4" placeholder="Title number 4 enter" value="{{old('titlenumber_4')}}" />
+                        <input type="number" name="titlenumber_4" class="form-control" id="titlenumber_4" placeholder="ПОСЕТИТЕЛЕЙ ВЫСТАВКИ" value="{{old('titlenumber_4')}}" />
                     </div>
 
                     <div class="mb-3">
                         <label for="titlenumber_5">O'RTACHA YOSH</label>
-                        <input type="number" name="titlenumber_5" class="form-control" id="titlenumber_5" placeholder="Title number 5 enter" value="{{old('titlenumber_5')}}" />
+                        <input type="number" name="titlenumber_5" class="form-control" id="titlenumber_5" placeholder="O`rtacha yosh" value="{{old('titlenumber_5')}}" />
                     </div>
 
                     <div class="mb-3">
                         <label for="titlenumber_6">CHET DAVLATLARI SONI</label>
-                        <input type="number" name="titlenumber_6" class="form-control" id="titlenumber_6" placeholder="Title number 6 enter" value="{{old('titlenumber_6')}}" />
+                        <input type="number" name="titlenumber_6" class="form-control" id="titlenumber_6" placeholder="Chet davlatlar soni" value="{{old('titlenumber_6')}}" />
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="agreement">INVESTITSION SHARTNOMALARI SONI</label>
+                        <input type="number" name="agreement" class="form-control" id="agreement" placeholder="Investitsion shartnomalar soni" value="{{old('agreement')}}" />
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="language_number_1">KO`RGAZMAGA TASHRIF BUYRUVCHILAR SONI. GAP LANGUAGES</label>
+                        <input type="number" name="language_number_1" class="form-control" id="language_number_1" placeholder="Ko`rgazmaga tashrif buyruvchilar soni. Gap Langauge 1" value="{{old('language_number_1')}}" />
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="language_number_2">KO`RGAZMAGA TASHRIF BUYURUVCHILAR SONI. GAP LANGUAGES</label>
+                        <input type="number" name="language_number_2" class="form-control" id="language_number_2" placeholder="Ko`rgazmaga tashrif buyruvchilar soni. Gap Langauge 2" value="{{old('language_number_2')}}" />
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="language_number_3">KO`RGAZMAGA TASHRIF BUYURUVCHILAR SONI. GAP LANGUAGES</label>
+                        <input type="number" name="language_number_3" class="form-control" id="language_number_3" placeholder="Ko`rgazmaga tashrif buyruvchilar soni. Gap Langauge 3" value="{{old('language_number_3')}}" />
                     </div>
 
                     <div class="mb-3">
                         <label for="forum_1">FORUM 1</label>
-                        <input type="url" name="forum_1" class="form-control" id="forum_1" placeholder="FORUM 1 enter" value="{{old('forum_1')}}" />
+                        <input type="text" name="forum_1" class="form-control" id="forum_1" placeholder="FORUM 1" value="{{old('forum_1')}}" />
                     </div>
 
                     <div class="mb-3">
                         <label for="forum_2">FORUM 2</label>
-                        <input type="url" name="forum_2" class="form-control" id="forum_2" placeholder="FORUM 2 enter" value="{{old('forum_2')}}" />
+                        <input type="text" name="forum_2" class="form-control" id="forum_2" placeholder="FORUM 2" value="{{old('forum_2')}}" />
                     </div>
 
                     <div class="mb-3">
                         <label for="forum_3">FORUM 3</label>
-                        <input type="url" name="forum_3" class="form-control" id="forum_3" placeholder="FORUM 3 enter" value="{{old('forum_3')}}" />
+                        <input type="text" name="forum_3" class="form-control" id="forum_3" placeholder="FORUM 3" value="{{old('forum_3')}}" />
                     </div>
 
                     <div class="mb-3">
                         <label for="yarmarka_1">YARMARKA 1</label>
-                        <input type="url" name="yarmarka_1" class="form-control" id="yarmarka_1" placeholder="YARMARKA 1 enter" value="{{old('yarmarka_1')}}" />
+                        <input type="text" name="yarmarka_1" class="form-control" id="yarmarka_1" placeholder="YARMARKA 1" value="{{old('yarmarka_1')}}" />
                     </div>
 
                     <div class="mb-3">
                         <label for="yarmarka_2">YARMARKA 2</label>
-                        <input type="url" name="yarmarka_2" class="form-control" id="yarmarka_2" placeholder="YARMARKA 2 enter" value="{{old('yarmarka_2')}}" />
+                        <input type="text" name="yarmarka_2" class="form-control" id="yarmarka_2" placeholder="YARMARKA 2" value="{{old('yarmarka_2')}}" />
                     </div>
 
                     <div class="mb-3">
                         <label for="yarmarka_3">YARMARKA 3</label>
-                        <input type="url" name="yarmarka_3" class="form-control" id="yarmarka_3" placeholder="YARMARKA 3 enter" value="{{old('yarmarka_3')}}" />
+                        <input type="text" name="yarmarka_3" class="form-control" id="yarmarka_3" placeholder="YARMARKA 3" value="{{old('yarmarka_3')}}" />
                     </div>
 
                     <button type="submit" class="btn btn-success">Save</button>
