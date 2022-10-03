@@ -238,7 +238,7 @@ class AuthController extends Controller
 
 
         \Session::flash('warning', "Ma'lumotlar xato kiritilgan...");
-        return \Redirect::back();
+        return \Redirect::back()->with('warning', "Ma'lumotlar xato kiritilgan...");
 
         // UserRole::create([
         //     'user_id' => $user->id,
