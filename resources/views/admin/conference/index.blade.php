@@ -67,7 +67,8 @@
                                     <td>{{$conference->archiveTable->year}}</td>
                                     <td>{{$conference->started_at}}</td>
                                     <td>{{$conference->stoped_at}}</td>
-                                    <td>{!!Str::limit(strip_tags($conference->title_uz),20)!!}</td>
+                                    <td>{{$conference->title_uz}}</td>
+                                    {{-- <td>{!!Str::limit(strip_tags($conference->title_uz),20)!!}</td> --}}
                                     <td>
                                         <img src="{{asset('/upload/conference/' . $conference->user_image.'_thumbnail_267.png')}}" alt="img" with="100px" height="60px">
                                     </td>
