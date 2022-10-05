@@ -130,10 +130,24 @@
             aria-expanded="false"
             >
               <i class="bi bi-grid"></i>
-              <span class="nav-text">Live Statistic</span>
+              <span class="nav-text">Live</span>
           </a>
           <ul aria-expanded="false">
             <li><a href="{{route('admin.live_statistic.index')}}">Live Statistic</a></li>
+            <li><a href="{{route('admin.live360.index')}}">Live 360</a></li>
+          </ul>
+        </li>
+        <li>
+          <a
+            class="has-arrow"
+            href="javascript:void(0);"
+            aria-expanded="false"
+            >
+              <i class="bi bi-grid"></i>
+              <span class="nav-text">Push Notification</span>
+          </a>
+          <ul aria-expanded="false">
+            <li><a href="{{route('admin.push_notification.index')}}">Push Notification</a></li>
           </ul>
         </li>
       </ul>

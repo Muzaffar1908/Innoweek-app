@@ -112,6 +112,25 @@
                         <input type="number" name="provider_id"  class="form-control" id="provider_id"  placeholder="Provider ID enter" value="{{$user->provider_id }}" />
                     </div>
 
+                    <select name="country_id" id="country" class="form-control" required>
+                        <option selected>{{ __('Choose your country')}} *</option>
+                        @foreach (\App\Models\Country::scopeCountryList() as $data)
+                        <option value="{{ $data->id }}" @if($data->id == $user->country_id) selected @endif >{{ $data->name }}</option>
+                        @endforeach
+                    </select> <br><br>
+            
+                    <select name="profession_id" id="profesion" class="form-control">
+                        <option selected>{{__('Choose your profession')}} *</option>
+                        @foreach (\App\Models\Profession::scopeProfessionList() as $data)
+                        <option  value="{{ $data->id }}" @if($data->id == $user->profession_id) selected @endif >{{ $data->name }}</option>
+                        @endforeach
+                    </select> <br>
+
+                    <div class="mb-3">
+                        <label for="organization">{{__('Organization')}}</label>
+                        <input id="organization" type="text" name="organization" class="form-control" placeholder="{{__('Organization')}}" autocomplete="off" value="{{$user->organization}}">
+                    </div>
+
                     <button type="submit" class="btn btn-success">Save</button>
 
                 </form>

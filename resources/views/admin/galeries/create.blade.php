@@ -62,8 +62,13 @@
                     </div>
 
                     <div class="mb-3">
-                        <label for="image">Image</label>
+                        <label for="youtobe_id">Image</label>
                         <input type="file" name="image"  class="form-control" id="image" placeholder=" image enter" />
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="youtobe_id">Youtobe text</label>
+                        <input type="text" name="youtobe_id"  class="form-control" id="youtobe_id" placeholder="Youtobe text enter" value="{{old('youtobe_id')}}" />
                     </div>
 
                     <button type="submit" class="btn btn-success">Save</button>

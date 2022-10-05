@@ -57,7 +57,7 @@
                      </div>
             </div>
             <div class="text-center">
-              {{-- {{$news->links()}} --}}
+              {{$news->links()}}
             </div>
         </div>
     </section>

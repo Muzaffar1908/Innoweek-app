@@ -62,6 +62,32 @@
 							<input type="number" name="phone" id="phone_number" required data-error="Please enter your number" class="form-control" placeholder="Telefon raqam*" autocomplete="off" value="{{ Auth::user()->phone }}">
 							<div class="help-block with-errors"></div>
 						</div>
+            
+			      {{-- <div class="form-group">
+              <!-- <label>Email</label> -->
+              <input type="text" name="email" id="email" class="form-control" required data-error="Please enter your email" placeholder="Organization" autocomplete="off">
+              <div class="help-block with-errors"></div>
+            </div> --}}
+           
+            <select name="country_id" id="country" class="form-control" required>
+              <option selected>{{ __('Choose your country')}} *</option>
+              @foreach (\App\Models\Country::scopeCountryList() as $data)
+              <option value="{{ $data->id }}" @if($data->id == Auth::user()->country_id) selected @endif >{{ $data->name }}</option>
+              @endforeach
+          </select> <br>
+  
+          <select name="profession_id" id="profesion" class="form-control">
+              <option selected>{{__('Choose your profession')}} *</option>
+              @foreach (\App\Models\Profession::scopeProfessionList() as $data)
+              <option  value="{{ $data->id }}" @if($data->id == Auth::user()->profession_id) selected @endif >{{ $data->name }}</option>
+              @endforeach
+          </select> <br>
+
+          <div class="mb-3">
+              <label for="organization">{{__('Organization')}}</label>
+              <input id="organization" type="text" name="organization" class="form-control" placeholder="{{__('Organization')}}" autocomplete="off" value="{{Auth::user()->organization}}">
+          </div>
+
 						<h6 style="font-size: 14px;    font-weight: 500;">{{__('JINSI')}}: </h6>
 						<div class="d-flex">
 							<div class="form-check">

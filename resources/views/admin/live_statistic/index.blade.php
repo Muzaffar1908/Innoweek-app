@@ -7,7 +7,7 @@
             <div class="card">
                 <div class="card-header">
                     <h1 class="card-title">Live Statistic</h1>
-                    <a href="{{route('admin.live_statistic.create')}}" class="btn btn-success"><i class="bi bi-plus"></i>Add</a>
+                    {{-- <a href="{{route('admin.live_statistic.create')}}" class="btn btn-success"><i class="bi bi-plus"></i>Add</a> --}}
                 </div>
 
                 @if (count($errors) > 0)
@@ -92,11 +92,11 @@
                                         <div class="btn-group">
                                             {{-- <a href="{{route('admin.news.show', $new->id)}}" type="button" class="btn btn-info"><i class="bi bi-eye"></i></a> --}}
                                             <a href="{{route('admin.live_statistic.edit', $live_static->id)}}" type="button" class="btn btn-success"><i class="bi bi-pencil"></i></a>
-                                            <form action="{{route('admin.live_statistic.destroy', $live_static->id)}}" method="POST">
+                                            {{-- <form action="{{route('admin.live_statistic.destroy', $live_static->id)}}" method="POST">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit" class="btn btn-danger sweet-confirm"><i class="bi bi-trash"></i></button>
-                                            </form>
+                                            </form> --}}
                                         </div>
                                     </td>
                                   </tr>

@@ -6,14 +6,14 @@
             <div class="row justify-content-center">
                 <div class="col-lg-9">
                     <div class="hero-box-layout1 has-animation">
-                        <h1 class="title mt-5 wow fadeInUp animated" data-wow-delay="1s">
+                        <h1 class="title mt-5 wow fadeInUp animated" data-wow-delay="0.8s">
                             {{__('INTERNATIONAL WEEK OF')}} <span>{{__('INNOVATIVE')}}</span> {{__('IDEAS 2022')}}
                         </h1>
-                        <p class="description wow fadeInUp animated" data-wow-delay="1.3s">
+                        <p class="description wow fadeInUp animated" data-wow-delay="1s">
                            “{{__('Green innovations for sustainable development')}}” <br>{{__('October 17-21')}}
                         <ul>
                             <li class="d-flex justify-content-center align-items-center wow fadeInUp animated"
-                                data-wow-delay="1.4s">
+                                data-wow-delay="1.2s">
                                 <a href="#promo" class="play-btn-primary wh-down">
                                     <i class="fa fa-arrow-down"></i>
                                 </a>
@@ -158,7 +158,7 @@
                     </div>
                     <div class="content-box">
                     <h3 class="title"><a href="{{route('speakershowx', ['id'=>$spek->id])}}">{{$spek->fullname}}</a></h3>
-                    <div class="sub-title">{{strip_tags($spek->text)}}</div>
+                    <div class="sub-title">{{strip_tags($spek->job)}}</div>
                     <div class="speaker-social">
                         <ul>
                         <li><a target="_blank" href="{{$spek->facebook_ur}}"><i class="fab fa-facebook-f"></i></a></li>
@@ -276,6 +276,16 @@
           <div class="row">
             <div class="col-lg-9 order-lg-2">
               <div class="about-box-layout1 content-box">
+                <div class="boxess">
+                    <form class="reg-boxess">
+                        <img  src="{{asset('frontend/image/qr.png')}}" class="mx-auto d-block img"  alt="">
+                        <div class="d-flex py-3 align-items-center justify-content-between">
+                            <a href="https://play.google.com/store/apps?hl=ru&gl=US"><img class="downloads playMM" width="200" src="{{asset('frontend/image/icon/playmarket.png')}}" alt=""></a>
+                            <a href="https://www.apple.com/uz/app-store/"><img class="downloads playSS" width="200" src="{{asset('frontend/image/icon/appstoree.png')}}" alt=""></a>
+                        </div>
+                        
+                    </form>
+                  </div>
                 <div class="accordion accordion-flush container" id="accordionFlushExample">
                   <div class="accordion-item">
                     <h2 class="accordion-header" id="flush-headingOne">
@@ -342,18 +352,51 @@
 
     <div id="gallery" class="gallery-wrap-layout3">
         <div class="section-heading style-four">
-            <h2 class="title wow fadeInUp animated" data-wow-delay="0.2s" data-wow-duration="1s">{{__('Gallery')}}</h2>
+          <h2 class="title wow fadeInUp animated" data-wow-delay="0.2s" data-wow-duration="1s">{{__('Gallery')}}</h2>
         </div>
-        <div class="container-fluid ps-0 pe-0">
-            <div class="row">
-            @foreach ($galleries as $item)
-                <div class="col-xl-3 col-md-4 col-sm-6 col-12">
-                <div class="gallery-box-layout3 has-animation">
-                    <a href="{{asset('/upload/gallery/' . $item->image.'_big_1920.png')}}" class="rt-mfp-gallery-item"><img class="galery-img" src="{{asset('/upload/gallery/' . $item->image.'_thumbnail_450.png')}}" alt="Gallery"></a>
+        <!-- Nav tabs -->
+        <ul class="nav nav-pills mb-3 d-flex justify-content-center" id="pills-tab" role="tablist">
+          <li class="nav-item" role="presentation">
+            <button class="nav-link active btn-lg px-4 py-2 galery-btn" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">{{__('Fotos')}}</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link btn-lg px-4 py-2 galery-btn" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">{{__('Videos')}}</button>
+          </li>
+        </ul>
+        <div class="tab-content" id="pills-tabContent">
+          <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+            <div class="tab-pane" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+              <div class="container-fluid ps-0 pe-0">
+                <div class="row mt-5">
+                    @foreach ($galleries as $item)
+                       @isset ($item->image)
+                        <div class="col-xl-3 col-md-4 col-sm-6 col-12">
+                                <div class="gallery-box-layout3 has-animation">
+                                    <a href="{{asset('/upload/gallery/' . $item->image.'_big_1920.png')}}" class="rt-mfp-gallery-item"><img class="galery-img" src="{{asset('/upload/gallery/' . $item->image.'_thumbnail_450.png')}}" alt="Gallery"></a>
+                                </div>
+                        </div>
+                       @endisset
+                    @endforeach
                 </div>
-                </div>
-            @endforeach
+              </div>
             </div>
+          </div>
+          <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+            <div class="row mt-5">
+                @foreach($galleries as $item)
+                   @isset($item->youtobe_id)
+                        <div class="col-xl-3 col-md-4 col-sm-6 col-12">
+                            <div class="gallery-box-layout3 has-animation">
+                                <a href="{{'https://www.youtube.com/watch?v='. $item->youtobe_id}}" class="icon-box-link play-btn">
+                                    <img src="https://img.youtube.com/vi/{{$item->youtobe_id}}/hqdefault.jpg" alt="img">
+                                    <div class="player"></div>
+                                </a>
+                            </div>
+                        </div>
+                    @endisset
+                @endforeach
+            </div>
+          </div>
         </div>
     </div>
 

@@ -19,7 +19,12 @@
   </div>
       <!-- End Section-title Area -->
 
-      <div class="pavilion" data-bg-image="{{asset('frontend/image/pavilion2.jpg')}}" style="background-image: url({{asset('frontend/image/pavilion2.jpg')}});" ></div>
+      <div class="pavilion" data-bg-image="{{asset('frontend/image/pavilion2.jpg')}}" style="background-image: url({{asset('frontend/image/pavilion2.jpg')}});" >
+        <a href="https://www.youtube.com/" class="pav1"><img src="{{asset('frontend/image/3123.png')}}" alt="" width="25px"></a>
+        <a href="https://www.youtube.com/" class="pav2"><img src="{{asset('frontend/image/3123.png')}}" alt="" width="25px"></a>
+        <a href="https://www.youtube.com/" class="pav3"><img src="{{asset('frontend/image/3123.png')}}" alt="" width="25px"></a>
+        <a href="https://www.youtube.com/" class="pav4"><img src="{{asset('frontend/image/3123.png')}}" alt="" width="25px"></a>
+      </div>
       
 
   

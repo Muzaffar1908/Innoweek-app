@@ -35,7 +35,7 @@ sticky
             </div>
 
             <div class="text-center mt-5">
-                {{-- {{$speaker->links()}} --}}
+                {{$speaker->links()}}
             </div>
         </div>
     </section>

@@ -131,7 +131,7 @@
                             </div>
                             <input id="emailOrNumber" type="email" name="phone_or_email" placeholder="{{__('Email')}} *"
                                 autocomplete="off" required>
-                            <input id="datepicker" name="birth_date" type="text" autocomplete="off" required
+                            <input id="datepicker" name="birth_date"  type="text" autocomplete="off" required
                                 placeholder="{{__('Date of birth')}} *" />
 
                             <select name="country_id" id="country" required>

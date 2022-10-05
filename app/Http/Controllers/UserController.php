@@ -116,6 +116,7 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
+        // dd($request);
         $data = $request->except(array('_token'));
         $rule = array(
           'first_name' => 'required',
@@ -215,6 +216,7 @@ class UserController extends Controller
      */
     public function update(Request $request, User $users)
     {
+        dd($request);
         $data = $request->except(array('_token'));
         $rule = array(
           'first_name' => 'required',

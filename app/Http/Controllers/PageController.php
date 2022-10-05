@@ -6,6 +6,7 @@ use App\Models\Archive\Archive;
 use App\Models\Archive\Speakers;
 use App\Models\Conference;
 use App\Models\Innoweek;
+use App\Models\Live360;
 use App\Models\LiveStatistic;
 use App\Models\News\Galeries;
 use App\Models\News\News;
@@ -32,8 +33,8 @@ class PageController extends Controller
         $lang = \App::getLocale();
         $news = News::select('id', DB::raw('SUBSTRING(`title_' . $lang . '`, 1, 50) as title'), 'user_image', 'created_at')->where('cat_id', 1)->where('is_active', '=', 1)->orderBy('created_at', 'DESC')->take(6)->get();
         $news_event = News::select('id', 'user_image', 'title_' . $lang . ' as title', DB::raw('SUBSTRING(`description_' . $lang . '`, 1, 60) as text'))->where('cat_id', 2)->orderBy('created_at', 'DESC')->take(5)->get();
-        $speakers = Speakers::select('id', 'image', 'full_name_' . $lang . ' as name', DB::raw('SUBSTRING(`description_' . $lang . '`, 1, 100) as text'), 'facebook_ur', 'twitter_url', 'linkedin_url', 'youtube_url')->orderBy('created_at', 'DESC')->take(6)->get();
-        $galleries = Galeries::select('id', 'image')->orderBy('created_at', 'DESC')->take(12)->get();
+        $speakers = Speakers::select('id', 'image', 'full_name_' . $lang . ' as name', DB::raw('SUBSTRING(`job_' . $lang . '`, 1, 255) as job'), 'facebook_ur', 'twitter_url', 'linkedin_url', 'youtube_url')->take(6)->get();
+        $galleries = Galeries::select('id', 'image', 'youtobe_id')->where('is_active', '=', 1)->orderBy('created_at', 'DESC')->take(12)->get();
         $partners = Partner::select('id', 'image', 'image_url')->orderBy('created_at', 'DESC')->take(10)->get();
         // $innoweeks = Innoweek::first();
         $events = Conference::select('id', 'user_image', 'title_' . $lang . ' as title', 'description_' . $lang . ' as desc', 'address_' . $lang . ' as address')->orderBy('created_at', 'DESC')->take(5);
@@ -103,7 +104,7 @@ class PageController extends Controller
     {
         $lang = \App::getLocale();
 
-        $speaker = Speakers::select('id', 'full_name_'. $lang . ' as name', 'job_'. $lang . ' as job', 'image', 'facebook_ur', 'twitter_url', 'linkedin_url', 'youtube_url', DB::raw('SUBSTRING(`description_' . $lang . '`, 1, 255) as text'))->orderBy('created_at', 'DESC')->take(10)->get();
+        $speaker = Speakers::select('id', 'full_name_'. $lang . ' as name', 'job_'. $lang . ' as job', 'image', 'facebook_ur', 'twitter_url', 'linkedin_url', 'youtube_url', DB::raw('SUBSTRING(`description_' . $lang . '`, 1, 255) as text'))->paginate(6);
         $speakersrecent = Speakers::orderBy('created_at', 'desc')->paginate(5);
         return view('frontend.speakers', ['speakersrecent' => $speakersrecent, 'speaker' => $speaker]);
     }
@@ -133,6 +134,12 @@ class PageController extends Controller
     {
         $live_statistics = LiveStatistic::first();
         return view('frontend.statistic', ['live_statistics' => $live_statistics]);
+    }
+
+    public function live360()
+    {
+      $live360s = Live360::first();
+      return view('frontend.pavilion', ['live360s' => $live360s]);
     }
 
 }

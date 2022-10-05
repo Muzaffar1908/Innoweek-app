@@ -53,6 +53,7 @@
                                         <th>Username</th>
                                         <th>Archive Year</th>
                                         <th>Image</th>
+                                        <th>Youtobe text</th>
                                         <th>Is Active</th>
                                         <th>Action</th>
                                     </tr>
@@ -65,7 +66,7 @@
                                             <td>
                                                 <img src="{{asset('/upload/gallery/' . $galerie->image.'_big_1920.png')}}" alt="img" with="100px" height="60px">
                                             </td>
-                                            
+                                            <td>{{$galerie->youtobe_id}}</td>
                                             <td>
                                                 <form action="{{ asset('/admin/galeries/is_active/' . $galerie->id) }}"
                                                     method="POST" enctype="multipart/form-data">

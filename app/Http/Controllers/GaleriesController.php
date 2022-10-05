@@ -48,9 +48,21 @@ class GaleriesController extends Controller
     public function store(Request $request)
     {
         $data = $request->except(array('_token'));
-        $rule = array(
-            'image' => 'required',
-        );
+        if( empty($data['image']) && empty($data['youtobe_id']))
+        {
+            $rule = array(
+              'image' => 'required',
+              'youtobe_id' => 'required',
+            );
+        }
+        else
+        {
+            $rule = array(
+                'image',
+                'youtobe_id',
+              ); 
+        }
+        
 
         $validator = Validator::make($data, $rule);
         if ($validator->fails()) {
@@ -80,6 +92,7 @@ class GaleriesController extends Controller
 
         $galeries->user_id = $inputs['user_id'];
         $galeries->archive_id = $inputs['archive_id'];
+        $galeries->youtobe_id = $inputs['youtobe_id'];
         $galeries->save();
 
         if (!empty($inputs['id'])) {
@@ -108,7 +121,8 @@ class GaleriesController extends Controller
     {
         $data = $request->except(array('_token'));
         $rule = array(
-            'image' => 'required',
+            'image',
+            'youtobe_id',
         );
 
         $validator = Validator::make($data, $rule);
@@ -139,6 +153,7 @@ class GaleriesController extends Controller
 
         $galeries->user_id = $inputs['user_id'];
         $galeries->archive_id = $inputs['archive_id'];
+        $galeries->youtobe_id = $inputs['youtobe_id'];
         $galeries->save();
 
         if (!empty($inputs['id'])) {

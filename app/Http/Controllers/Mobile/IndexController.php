@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Archive\Speakers;
 use App\Models\Conference;
 use App\Models\News\News;
+use App\Models\PushNotification;
 use App\Models\UserTicket;
 use Auth;
 use Illuminate\Support\Facades\DB;
@@ -22,11 +23,13 @@ class IndexController extends Controller
         $news = News::select('id', 'user_image', DB::raw('SUBSTRING(`title_' . $lang . '`, 1, 50) as title'), DB::raw('SUBSTRING(`description_' . $lang . '`, 1, 70) as text'))->orderBy('created_at', 'desc')->where('cat_id','=',1)->take(5)->get();
         $conferens = News::select('id', 'user_image', DB::raw('SUBSTRING(`title_' . $lang . '`, 1, 40) as title'), 'created_at')->where('cat_id', 1)->take(5)->get();
         $speakers = Speakers::select('id', 'image', 'full_name_'. $lang . ' as name', DB::raw('SUBSTRING(`job_' . $lang . '`, 1, 20) as job') )->orderBy('created_at', 'desc')->where('is_active','=',1)->take(6)->get();
+        $push_notifications = PushNotification::select('id', 'image', DB::raw('SUBSTRING(`text_' . $lang . '`, 1, 50) as texts'), 'created_at')->where('is_active', '=', 1)->orderBy('created_at', 'desc')->take(6)->get();
         return view('mobile.index', [
             'news' => $news,
             'conferens' => $conferens,
             'speakers' => $speakers,
             'lang' => $lang,
+            'push_notifications' => $push_notifications,
         ]);
     }
 

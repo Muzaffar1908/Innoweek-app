@@ -8,9 +8,11 @@ use App\Http\Controllers\GaleriesController;
 use App\Http\Controllers\InnoweekController;
 use App\Http\Controllers\PartnerController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Live360Controller;
 use App\Http\Controllers\Mobile\IndexController;
 use App\Http\Controllers\SpeakerController;
 use App\Http\Controllers\LiveStatisticController;
+use App\Http\Controllers\PushNotificationController;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Mobile\AuthController;
@@ -24,6 +26,7 @@ use App\Models\News\NewsCategory;
 use Illuminate\Support\Facades\Session;
 use App\Http\Controllers\UserTicketController;
 use App\Models\LiveStatistic;
+use App\Models\PushNotification;
 
 /*
 |--------------------------------------------------------------------------
@@ -45,11 +48,15 @@ Route::get('/info/privacy', function () {
 });
 
 Route::get('/statistic', function () {
-    return view('statistic');
+    return view('frontend.statistic');
 });
 
 Route::get('/live360', function () {
-    return view('pavilion');
+    return view('frontend.pavilion');
+});
+
+Route::get('/ticket', function () {
+    return view('frontend.ticket');
 });
 
 Route::get('locale/{locale}', function ($locale) {
@@ -72,6 +79,7 @@ Route::group(['prefix' => '/'], function(){
         Route::get('/events', 'events')->name('eventsx');
         Route::get('/news', 'news')->name('newsx');
         Route::get('/statistic', 'live_statistic')->name('live_statistics');
+        Route::get('/live360', 'live360')->name('live360s');
     });
 
     Route::controller(FrontAuthController::class)->group(function(){
@@ -108,6 +116,8 @@ Route::prefix('admin')->name('admin.')->middleware('auth','isAdmin')->group(func
     Route::resource('/partner', PartnerController::class);
     Route::resource('/promo', PromoController::class);
     Route::resource('/live_statistic', LiveStatisticController::class);
+    Route::resource('/push_notification', PushNotificationController::class);
+    Route::resource('/live360', Live360Controller::class);
     Route::POST('/userticket/isactive/{id}',[UserTicketController::class,'is_active']);
     Route::POST('/news/isactive/{id}',[NewsController::class,'is_active']);
     Route::POST('/news_cat/isactive/{id}',[NewsCategoryController::class,'is_active']);
@@ -120,6 +130,8 @@ Route::prefix('admin')->name('admin.')->middleware('auth','isAdmin')->group(func
     Route::POST('/galeries/is_active/{id}', [GaleriesController::class, 'is_active']);
     Route::POST('/partner/is_active/{id}', [PartnerController::class, 'is_active']);
     Route::POST('/promo/is_active/{id}', [PromoController::class, 'is_active']);
+    Route::POST('/push_notification/is_active/{id}', [PushNotificationController::class, 'is_active']);
+    Route::POST('/live360/isactive/{id}', [Live360Controller::class, 'is_active']);
 
 
 

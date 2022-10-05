@@ -10,7 +10,7 @@
                                     data-wow-delay="0.20s"><img src="{{asset('frontend/image/min.webp')}}" alt="Logo"
                                         width="50"></a>
                                 <a href="{{route('index')}}" class="logo logo-light wow fadeInUp animated"
-                                    data-wow-delay="0.40s"><img src="{{asset('frontend/image/logo.webp')}}" alt="Logo"
+                                    data-wow-delay="0.30s"><img src="{{asset('frontend/image/logo.webp')}}" alt="Logo"
                                         width="120"></a>
                                 <a href="{{route('index')}}" class="logo logo-dark"><img
                                         src="{{asset('frontend/image/min.webp')}}" alt="Logo" width="50"></a>
@@ -43,7 +43,7 @@
                                         data-wow-delay="0.6s">
                                         <a href="{{ url('/statistic') }}">{{__('STATISTICS')}}</a>
                                     </li>
-                                    <li class="menu-item menu-item-has-children wow fadeInUp animated"
+                                    <li class="menu-item menu-item-has-children wow fadeInUp animated {{ (request()->is('live360')) ? 'active' : '' }}"
                                         data-wow-delay="0.7s">
                                         <a href="/live360">{{__('LIVE 360')}}</a>
                                     </li>
@@ -52,7 +52,7 @@
                                         <a href="{{ url('/') }}#gallery">{{__('GALLERY')}}</a>
                                     </li> --}}
                                     <li class="menu-item menu-item-has-children wow fadeInUp animated"
-                                        data-wow-delay="0.9s">
+                                        data-wow-delay="0.8s">
                                         <a class="inno-cursor">INNOWEEK 2022</a>
                                         <ul class="sub-menu menu-w">
                                             <li class="menu-item"><a href="{{__('Invitation_pdf')}}" target="_blank">{{__('Innoweek 2022 Invitation')}}</a>
@@ -93,7 +93,7 @@
                                     @break
                                     @case('uz')
                                     <li class="menu-item menu-item-has-children wow fadeInUp animated"
-                                        data-wow-delay="1s">
+                                        data-wow-delay="0.9s">
                                         <a href="{{ URL::to('locale/uz') }}"
                                             class="d-flex align-items-center justify-content-center inno-cursor">
                                             <img class="mx-2" width="30" src="{{asset('frontend/image/uz.png')}}"
@@ -114,7 +114,7 @@
                                     @break
                                     @case('ru')
                                     <li class="menu-item menu-item-has-children wow fadeInUp animated"
-                                        data-wow-delay="1.1s">
+                                        data-wow-delay="0.9s">
                                         <a href="{{ URL::to('locale/ru') }}"
                                             class="d-flex align-items-center justify-content-center inno-cursor">
                                             <img class="mx-2" width="30" src="{{asset('frontend/image/ru.png')}}"
@@ -135,7 +135,7 @@
                                     @break
                                     @case('en')
                                     <li class="menu-item menu-item-has-children wow fadeInUp animated"
-                                        data-wow-delay="1.1s">
+                                        data-wow-delay="0.9s">
                                         <a href="{{ URL::to('locale/en') }}"
                                             class="d-flex align-items-center justify-content-center inno-cursor">
                                             <img class="mx-2" width="30" src="{{asset('frontend/image/en.png')}}"
@@ -160,7 +160,7 @@
                                 </ul>
                                 <ul class="header-action-items">
                                     <li class="header-action-item d-none d-xl-block wow fadeInUp animated"
-                                        data-wow-delay="1.2s">
+                                        data-wow-delay="1s">
                                         <button type="button"
                                             class="item-btn btn-fill style-one offcanvas-menu-btn style-one menu-status-open">
                                             {{__('REGISTRATION')}}
@@ -207,11 +207,14 @@
                     <li class="list">
                         <a class="animation" href="#schedule">{{__('SCHEDULE')}}</a>
                     </li>
-                    <li class="list">
+                    {{-- <li class="list">
                         <a class="animation" href="#gallery">{{__('GALLERY')}}</a>
+                    </li> --}}
+                    <li class="list">
+                        <a class="animation" href="#contact">{{__('STATISTICS')}}</a>
                     </li>
                     <li class="list">
-                        <a class="animation" href="#contact">{{__('CONTACTS')}}</a>
+                        <a class="animation" href="#contact">{{__('LIVE 360')}}</a>
                     </li>
                     <li class="list">
                         <a class="animation scliked" href="{{asset('frontend/pdf/inno.pdf')}}"
@@ -220,6 +223,10 @@
                     <li class="list">
                         <a class="animation scliked" href="{{asset('frontend/pdf/Innoen.pdf')}}"
                             target="_blank">{{__('Innoweek 2022 Presentation')}}</a>
+                    </li>
+                    <li class="list">
+                        <a class="animation scliked" href="{{__('Program_pdf')}}" target="_blank">{{__('Innoweek 2022 Program')}}
+                        </a>
                     </li>
                 </ul>
             </nav>
