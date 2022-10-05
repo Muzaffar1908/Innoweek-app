@@ -278,7 +278,8 @@
               <div class="about-box-layout1 content-box">
                 <div class="boxess">
                     <form class="reg-boxess">
-                        <img  src="{{asset('frontend/image/qr.png')}}" class="mx-auto d-block img"  alt="">
+                        {!! QrCode::size(170)->generate("https://play.google.com/store/apps/details?id=com.mimaxgroup.innomobileapp") !!}
+                        {{-- <img  src="{{asset('frontend/image/qr.png')}}" class="mx-auto d-block img"  alt=""> --}}
                         <div class="d-flex py-3 align-items-center justify-content-between">
                             <a href="https://play.google.com/store/apps/details?id=com.mimaxgroup.innomobileapp"><img class="downloads playMM" width="200" src="{{asset('frontend/image/icon/playmarket.png')}}" alt=""></a>
                             <a href="https://play.google.com/store/apps/details?id=com.mimaxgroup.innomobileapp"><img class="downloads playSS" width="200" src="{{asset('frontend/image/icon/appstoree.png')}}" alt=""></a>
