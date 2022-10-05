@@ -53,22 +53,22 @@
                                   <th>Username</th>
                                   <th>Archive year</th>
                                   <th>Started At</th>
-                                  <th>Stoped At</th>
                                   <th>Title</th>
                                   <th>User Image</th>
                                   <th>Is Active</th>
                                   <th>Action</th>
                                 </tr>
                               </thead>
+                              <?php
+                                use Carbon\Carbon;
+                               ?>
                               @foreach ($conferences as $conference)
                                   <tr>
                                     <td>{{($conferences->currentpage() - 1) * $conferences->perpage() + ($loop->index+1)}}</td>
                                     <td>{{$conference->conferenceTable->first_name}}</td>
                                     <td>{{$conference->archiveTable->year}}</td>
-                                    <td>{{$conference->started_at}}</td>
-                                    <td>{{$conference->stoped_at}}</td>
+                                    <td>{{Carbon::parse($conference->started_at)->format('d/m/Y')}}</td>
                                     <td>{{$conference->title_uz}}</td>
-                                    {{-- <td>{!!Str::limit(strip_tags($conference->title_uz),20)!!}</td> --}}
                                     <td>
                                         <img src="{{asset('/upload/conference/' . $conference->user_image.'_thumbnail_267.png')}}" alt="img" with="100px" height="60px">
                                     </td>
@@ -86,7 +86,7 @@
                                                         Active
                                                     @endif
                                                     @if ($conference->is_active == 0)
-                                                        Not Active
+                                                        NotActive
                                                     @endif
                                                 </button>
                                             </div>

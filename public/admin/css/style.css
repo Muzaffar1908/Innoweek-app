@@ -40764,7 +40764,6 @@ code {
 .table tbody tr td {
   vertical-align: middle;
   border-color: #dbdbdb;
-  white-space: nowrap;
 }
 [data-theme-version="dark"] .table tbody tr td {
   /*   border-color: $d-border; */

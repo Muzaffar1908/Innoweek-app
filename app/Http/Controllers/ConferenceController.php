@@ -21,7 +21,7 @@ class ConferenceController extends Controller
      */
     public function index()
     {
-        $conferences = Conference::orderBy('id','desc')->paginate(5);
+        $conferences = Conference::orderBy('id','desc')->paginate(15);
         $users = User::all();
         $archives = Archive::all();
         return view('admin.conference.index', compact('conferences', 'users', 'archives'));
