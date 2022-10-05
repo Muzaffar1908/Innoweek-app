@@ -110,7 +110,10 @@ sticky
           <button class="text-center"> {{__('Download electronic ticket')}} </button>
         </div>
           <h3>{{__('Download this app to access or use our system.')}}</h3>
-          <img  src="{{ asset('/frontend/image/qr.png') }}" class="mx-auto d-block img"  alt="">
+          {{-- <img  src="{{ asset('/frontend/image/qr.png') }}" class="mx-auto d-block img"  alt=""> --}}
+          <div class="qrsvg mx-auto d-block">
+          {!! QrCode::size(170)->generate("https://play.google.com/store/apps/details?id=com.mimaxgroup.innomobileapp") !!}
+          </div>
           <div class="d-flex py-3 align-items-center justify-content-between">
               <a href="https://play.google.com/store/apps/details?id=com.mimaxgroup.innomobileapp"><img class="downloads playM" width="200" src="{{ asset('/frontend/image/icon/playmarket.png') }}" alt=""></a>
               <a href="https://play.google.com/store/apps/details?id=com.mimaxgroup.innomobileapp"><img class="downloads playS" width="200" src="{{ asset('/frontend/image/icon/appstoree.png') }}" alt=""></a>

@@ -172,6 +172,9 @@
                 </div>
             @endforeach
             </div>
+            <div class="text-center">
+                <a class="btn btn-primary px-4 py-2 mt-5"  href="{{ url('/speakers') }}">{{ __('View More')}}</a>
+            </div>
         </div>
     </section>
 

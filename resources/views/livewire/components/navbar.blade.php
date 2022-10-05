@@ -33,7 +33,7 @@
                                     </li>
                                     <li class="menu-item menu-item-has-children wow fadeInUp animated {{ (request()->is('speakers')) ? 'active' : '' }}"
                                         data-wow-delay="0.4s">
-                                        <a href="/speakers">{{__('SPEAKERS')}}</a>
+                                        <a href="{{ url('/speakers') }}">{{__('SPEAKERS')}}</a>
                                     </li>
                                     <li class="menu-item menu-item-has-children wow fadeInUp animated {{ (request()->is('/#schedule')) ? 'active' : '' }}"
                                         data-wow-delay="0.5s">
