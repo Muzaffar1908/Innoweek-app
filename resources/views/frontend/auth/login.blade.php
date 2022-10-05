@@ -101,7 +101,7 @@ sticky
           </p>
         </div>
         <p class="footer"> {{__('It is strictly forbidden for another person to use this pass.')}} </p>
-        <p class="investor">{{ Str::upper($ticket->profession_name) }}</p>
+        <p class="inveestor">{{ Str::upper($ticket->profession_name) }}</p>
     </div>
 
     <div class="boxes">
@@ -112,8 +112,8 @@ sticky
           <h3>{{__('Download this app to access or use our system.')}}</h3>
           <img  src="{{ asset('/frontend/image/qr.png') }}" class="mx-auto d-block img"  alt="">
           <div class="d-flex py-3 align-items-center justify-content-between">
-              <a href="https://play.google.com/store/apps?hl=ru&gl=US"><img class="downloads playM" width="200" src="{{ asset('/frontend/image/icon/playmarket.png') }}" alt=""></a>
-              <a href="https://www.apple.com/uz/app-store/"><img class="downloads playS" width="200" src="{{ asset('/frontend/image/icon/appstoree.png') }}" alt=""></a>
+              <a href="https://play.google.com/store/apps/details?id=com.mimaxgroup.innomobileapp"><img class="downloads playM" width="200" src="{{ asset('/frontend/image/icon/playmarket.png') }}" alt=""></a>
+              <a href="https://play.google.com/store/apps/details?id=com.mimaxgroup.innomobileapp"><img class="downloads playS" width="200" src="{{ asset('/frontend/image/icon/appstoree.png') }}" alt=""></a>
           </div>
           
       </form>

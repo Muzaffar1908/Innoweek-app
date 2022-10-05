@@ -14894,6 +14894,41 @@ select option {
   .reg-box{
     padding: 10px;
   }
+
+  .reg-box input {
+    margin: 14px auto;
+    border: 2px solid #c4c3ff !important;
+    padding: 12px 12px 12px 17px;
+  
+    border-radius: 40px;
+    outline: none;
+    color: #fff;
+    transition: all .2s ease-out;
+    font-size: 18px;
+    text-align: center;
+    background: transparent;
+    width: 100% ;
+  }
+  
+  .reg-box .reg-btn {
+    color: #fff;
+    border-radius: 40px;
+    padding: 12px 10px;
+    font-weight: 400;
+    margin-top: 5px;
+    width: 100%;
+    border: 2px solid rgb(42, 7, 249);
+    outline: none;
+    transition: all .2s ease-out;
+    font-size: 18px;
+    text-align: center;
+    background: rgb(42, 7, 249);
+  }
+  
+  .reg-box .reg-btn:hover{
+    background-color: #4484ce;
+    border: 2px solid #4484ce;
+  }
   
   
   .reg-box .img {
@@ -15005,6 +15040,18 @@ select option {
   .investorr {
     margin: 0 auto;
     width: 30%;
+    font-size: 30px;
+    color: #fff;
+    padding: 12px;
+    text-align: center;
+    background-color: #171d41;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+  }
+
+  .qrcode .inveestor {
+    margin: 32px  auto;
+    width: 100%;
     font-size: 30px;
     color: #fff;
     padding: 12px;
@@ -15366,7 +15413,7 @@ color: #fff;
   .boxes button {
     font-family: "Inter";
     text-align: center;
-    width: 242px;
+    width: 100%;
     height: 44px;
     border-radius: 10px;
     background-color: black;
@@ -15499,7 +15546,7 @@ color: #fff;
       width: 100%;
       margin: 15px auto;
     } 
-    .investor {
+    .qrcode .inveestor {
         margin: 96px auto;
         width: 100%;
         padding: 12px;
@@ -15534,8 +15581,8 @@ color: #fff;
     .boxes h3 {
       font-size: 26px;
     } 
-    .investorr {
-        margin: 96px auto;
+    .qrcode .inveestor {
+        margin: 213px auto;
         width: 100%;
         padding: 12px;
       }
@@ -15569,7 +15616,13 @@ color: #fff;
     .boxes h3 {
       font-size: 26px;
     }
+    .qrcode .inveestor {
+        margin: 213px auto;
+        width: 100%;
+        padding: 12px;
+      }
   }
+  
   
   @media ( min-width: 990px) and ( max-width: 1200px ) {
     .regpanel {
@@ -15601,3 +15654,7 @@ color: #fff;
       font-size: 26px;
     }
   }
+
+  .form-control {
+    margin-top: 2rem;
+}
