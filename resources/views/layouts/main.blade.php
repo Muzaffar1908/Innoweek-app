@@ -8,6 +8,13 @@
     <meta name="description" content="" />
     <meta name="author" content="" />
     <title>{{__('International Week of Innovative Ideas')}}</title>
+    <meta property="og:title" content="{{__('International Week of Innovative Ideas')}}" />
+    <meta property="og:description" content="{{ strip_tags(substr($innoweeks->{'description_'.App::getLocale()},0,255).'...') }}">
+    <meta property="og:type" content="article" />
+    <meta property="og:keyword" content="innoweek, idea, wee, inno, ministry, innovative, week of innovation, innoweek 2018, 2018, 2019,2021,2022, innoweek 2022, starup, uzbekistan" />
+    <meta property="og:url" content="https://innoweek.uz" />
+    <meta property="og:image" content="{{ asset('/frontend/image/logo/innoweek 1.png') }}" />
+
     <!-- Favicons -->
     <link href="{{ asset('/frontend/image/favicon.ico') }}" rel="icon">
     <link href="{{ asset('/frontend/image/apple-touch-icon.ico') }}" rel="apple-touch-icon">
