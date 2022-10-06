@@ -21,6 +21,16 @@ class CheckController extends Controller
         return view('frontend.auth.check', compact('data'));
     }
 
+    public function ticketDownload(Request $req)
+    {
+        $data = [];
+
+        if (session()->has('userID')) {
+            $data = User::findOrFail(session->get('userID'));
+        }
+      return view('frontend.ticket', compact('data'));
+    }
+
     public function checkTicket(Request $request)
     {
         $data = \Request::except(array('_token'));
