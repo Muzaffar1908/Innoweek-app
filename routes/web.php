@@ -3,6 +3,7 @@
 use App\Http\Controllers\ArchiveController;
 use App\Http\Controllers\ConferenceController;
 use App\Http\Controllers\Front\AuthController as FrontAuthController;
+use App\Http\Controllers\Front\CheckController;
 use App\Http\Controllers\GaleriesController;
 
 use App\Http\Controllers\InnoweekController;
@@ -191,8 +192,12 @@ Route::group(['prefix' => 'mobile-v'], function () {
     // API route for logout user
 });
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
 Route::get('/mobile-v-logout', [IndexController::class, 'SignOut'])->name('m-logout');
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
+
+Route::get('/ticket/checker', [CheckController::class, 'index'])->name('d-checker');
+Route::post('/ticket/checker', [CheckController::class, 'checkTicket'])->name('d-checker-form');
 
 // Mobile view stop !!!
