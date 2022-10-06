@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Str;
 use Intervention\Image\Facades\Image;
+use Carbon\Carbon;
 
 class ConferenceController extends Controller
 {
@@ -19,9 +20,20 @@ class ConferenceController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $req)
     {
-        $conferences = Conference::orderBy('id','desc')->paginate(15);
+        $search = [
+            ['id', '!=', null]
+        ];
+        switch ($req) {
+            case $req->started_at != null:
+                $search[] = [DB::raw("DATE(started_at)"), '=', Carbon::parse($req->started_at)];
+                break;
+            case $req->title != null:
+                $search[] = ['title_en', '=', $req->title];
+                break;
+        }
+        $conferences = Conference::where($search)->orderBy('id', 'desc')->paginate(15);
         $users = User::all();
         $archives = Archive::all();
         return view('admin.conference.index', compact('conferences', 'users', 'archives'));
@@ -29,13 +41,13 @@ class ConferenceController extends Controller
 
     public function is_active($id)
     {
-        $update=Conference::find($id);
-        $archive=Archive::find($update->archive_id);
-        if($archive->is_active==1){
-            if($update->is_active==1){
-                $update->is_active=0;
-            }else{
-                $update->is_active=1;
+        $update = Conference::find($id);
+        $archive = Archive::find($update->archive_id);
+        if ($archive->is_active == 1) {
+            if ($update->is_active == 1) {
+                $update->is_active = 0;
+            } else {
+                $update->is_active = 1;
             }
             $update->save();
         }
@@ -67,7 +79,7 @@ class ConferenceController extends Controller
     {
         $data = $request->except(array('_token'));
         $rule = array(
-          'title_uz' => 'required',
+            'title_uz' => 'required',
         );
 
         $validator = Validator::make($data, $rule);
@@ -112,7 +124,7 @@ class ConferenceController extends Controller
         if (!empty($conferences->description_uz)) {
             $dom_save_uz = new \DomDocument();
             libxml_use_internal_errors(true);
-            $dom_save_uz->loadHtml('<?xml encoding="UTF-8">'.$conferences->description_uz, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
+            $dom_save_uz->loadHtml('<?xml encoding="UTF-8">' . $conferences->description_uz, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
             $dom_image_save_uz = $dom_save_uz->getElementsByTagName('img');
             foreach ($dom_image_save_uz as $k => $img) {
                 $data = $img->getAttribute('src');
@@ -133,14 +145,13 @@ class ConferenceController extends Controller
             }
 
             $conferences->description_uz = str_replace('<?xml encoding="UTF-8">', "", $dom_save_uz->saveHTML((new \DOMXPath($dom_save_uz))->query('/')->item(0)));
-
         }
 
         $conferences->description_ru = $inputs['description_ru'];
         if (!empty($conferences->description_ru)) {
             $dom_save_ru = new \DomDocument();
             libxml_use_internal_errors(true);
-            $dom_save_ru->loadHtml('<?xml encoding="UTF-8">'.$conferences->description_ru, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
+            $dom_save_ru->loadHtml('<?xml encoding="UTF-8">' . $conferences->description_ru, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
             $dom_image_save_ru = $dom_save_ru->getElementsByTagName('img');
             foreach ($dom_image_save_ru as $k => $img) {
                 $data = $img->getAttribute('src');
@@ -161,14 +172,13 @@ class ConferenceController extends Controller
             }
 
             $conferences->description_ru = str_replace('<?xml encoding="UTF-8">', "", $dom_save_ru->saveHTML((new \DOMXPath($dom_save_ru))->query('/')->item(0)));
-
         }
 
         $conferences->description_en = $inputs['description_en'];
         if (!empty($conferences->description_en)) {
             $dom_save_en = new \DomDocument();
             libxml_use_internal_errors(true);
-            $dom_save_en->loadHtml('<?xml encoding="UTF-8">'.$conferences->description_en, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
+            $dom_save_en->loadHtml('<?xml encoding="UTF-8">' . $conferences->description_en, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
             //$dom_save_en->loadHTML($conferences->description_en);
             $dom_image_save_en = $dom_save_en->getElementsByTagName('img');
             foreach ($dom_image_save_en as $k => $img) {
@@ -190,7 +200,6 @@ class ConferenceController extends Controller
             }
 
             $conferences->description_en = str_replace('<?xml encoding="UTF-8">', "", $dom_save_en->saveHTML((new \DOMXPath($dom_save_en))->query('/')->item(0)));
-
         }
 
         $conferences->save();
@@ -251,7 +260,7 @@ class ConferenceController extends Controller
     {
         $data = $request->except(array('_token'));
         $rule = array(
-          'title_uz' => 'required',
+            'title_uz' => 'required',
         );
 
         $validator = Validator::make($data, $rule);
@@ -297,7 +306,7 @@ class ConferenceController extends Controller
         if (!empty($conferences->description_uz)) {
             $dom_save_uz = new \DomDocument();
             libxml_use_internal_errors(true);
-            $dom_save_uz->loadHtml('<?xml encoding="UTF-8">'.$conferences->description_uz, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
+            $dom_save_uz->loadHtml('<?xml encoding="UTF-8">' . $conferences->description_uz, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
             $dom_image_save_uz = $dom_save_uz->getElementsByTagName('img');
             foreach ($dom_image_save_uz as $k => $img) {
                 $data = $img->getAttribute('src');
@@ -318,14 +327,13 @@ class ConferenceController extends Controller
             }
 
             $conferences->description_uz = str_replace('<?xml encoding="UTF-8">', "", $dom_save_uz->saveHTML((new \DOMXPath($dom_save_uz))->query('/')->item(0)));
-
         }
 
         $conferences->description_ru = $inputs['description_ru'];
         if (!empty($conferences->description_ru)) {
             $dom_save_ru = new \DomDocument();
             libxml_use_internal_errors(true);
-            $dom_save_ru->loadHtml('<?xml encoding="UTF-8">'.$conferences->description_ru, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
+            $dom_save_ru->loadHtml('<?xml encoding="UTF-8">' . $conferences->description_ru, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
             $dom_image_save_ru = $dom_save_ru->getElementsByTagName('img');
             foreach ($dom_image_save_ru as $k => $img) {
                 $data = $img->getAttribute('src');
@@ -346,14 +354,13 @@ class ConferenceController extends Controller
             }
 
             $conferences->description_ru = str_replace('<?xml encoding="UTF-8">', "", $dom_save_ru->saveHTML((new \DOMXPath($dom_save_ru))->query('/')->item(0)));
-
         }
 
         $conferences->description_en = $inputs['description_en'];
         if (!empty($conferences->description_en)) {
             $dom_save_en = new \DomDocument();
             libxml_use_internal_errors(true);
-            $dom_save_en->loadHtml('<?xml encoding="UTF-8">'.$conferences->description_en, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
+            $dom_save_en->loadHtml('<?xml encoding="UTF-8">' . $conferences->description_en, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
             //$dom_save_en->loadHTML($conferences->description_en);
             $dom_image_save_en = $dom_save_en->getElementsByTagName('img');
             foreach ($dom_image_save_en as $k => $img) {
@@ -375,7 +382,6 @@ class ConferenceController extends Controller
             }
 
             $conferences->description_en = str_replace('<?xml encoding="UTF-8">', "", $dom_save_en->saveHTML((new \DOMXPath($dom_save_en))->query('/')->item(0)));
-
         }
 
         $conferences->save();

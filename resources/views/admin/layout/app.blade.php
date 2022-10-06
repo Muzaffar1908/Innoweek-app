@@ -40,18 +40,14 @@
     {{-- Pick date --}}
     <link rel="stylesheet" href="{{ asset('admin/vendor/pickadate/themes/default.css') }}">
     <link rel="stylesheet" href="{{ asset('admin/vendor/pickadate/themes/default.date.css') }}">
-    
+    @yield('style')
     <!-- FAVICONS ICON -->
     <link
         href="{{ asset('admin/vendor/jquery-nice-select/css/nice-select.css') }}"
         rel="stylesheet"
     />
     <link href="{{ asset('admin/css/style.css') }}" rel="stylesheet" />
-    
-    
     <link href="{{asset('admin/vendor/sweetalert2/dist/sweetalert2.min.css')}}" rel="stylesheet">
-    
-    
     <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
     
   </head>
@@ -121,6 +117,8 @@
     
     <script src="{{asset('admin/vendor/global/global.min.js')}}"></script>
     <script src="{{asset('admin/vendor/jquery-nice-select/js/jquery.nice-select.min.js')}}"></script>
+    @yield('script')
+    
     <script src="{{asset('admin/js/custom.js')}}"></script>
     <script src="{{asset('admin/js/dlabnav-init.js')}}"></script>
     <script src="{{asset('admin/js/demo.js')}}"></script>
