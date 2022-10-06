@@ -88,6 +88,7 @@ Route::group(['prefix' => '/'], function(){
         Route::post('/ticket/verify', 'VerifyMessage')->name('d-verified');
         Route::get('/ticket/login', 'LoginPage')->name('d-login');
     });
+
 });
 
 // Frontend  stop !!!

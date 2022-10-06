@@ -68,6 +68,10 @@ class AuthController extends Controller
         return view('frontend.auth.login', compact('ticket'));
     }
 
+    public function CheckPage(Request $request)
+       return view('frontend.auth.check');
+    }
+
     public function login(Request $request)
     {
         $data = \Request::except(array('_token'));
@@ -120,11 +124,6 @@ class AuthController extends Controller
         }
         \Session::flash('warning', "Ma'lumotlar xato kiritilgan...");
         return \Redirect::back();
-    }
-
-    public function RegisterPage()
-    {
-        return view('mobile.auth.register');
     }
 
     public function register(Request $request)

@@ -50,7 +50,7 @@
           </div>
           <button type="submit" class="btnB btn-input">{{__('Sign up')}}</button>
           <p class="text-center mt-3 text-white"> Are you registered?
-            <a href="#" class="mx-2">Please check your ticket </a>  
+            <a href="" class="mx-2">Please check your ticket </a>  
           </p>
         </form>
       </div>
