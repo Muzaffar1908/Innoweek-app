@@ -7,7 +7,7 @@
             <div class="card">
                 <div class="card-header">
                     <h1 class="card-title">Live 360</h1>
-                    <a href="{{route('admin.live360.create')}}" class="btn btn-success"><i class="bi bi-plus"></i>Add</a>
+                    {{-- <a href="{{route('admin.live360.create')}}" class="btn btn-success"><i class="bi bi-plus"></i>Add</a> --}}
                 </div>
 
                 @if (count($errors) > 0)

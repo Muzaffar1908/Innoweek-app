@@ -1,5 +1,9 @@
 @extends('admin.layout.app')
+@section('style')
 
+    <!-- Material color picker -->
+    <link href="{{ asset('/admin/vendor/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css') }}" rel="stylesheet">
+@endsection
 @section('content')
 
     <div class="content-body">
@@ -127,4 +131,12 @@
         </div>
     </div>
 
+@endsection
+
+@section('script')
+<!-- momment js is must -->
+<script src="{{ asset('/admin/vendor/moment/moment.min.js') }}"></script>
+    <!-- Material color picker -->
+    <script src="{{ asset('/admin/vendor/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js') }}"></script>
+    <script src="{{ asset('/admin/js/plugins-init/material-date-picker-init.js') }}"></script>
 @endsection

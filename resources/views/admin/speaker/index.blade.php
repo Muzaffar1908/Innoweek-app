@@ -1,5 +1,9 @@
 @extends('admin.layout.app')
+@section('style')
 
+    <!-- Material color picker -->
+    <link href="{{ asset('/admin/vendor/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css') }}" rel="stylesheet">
+@endsection
 @section('content')
 
     <div class="content-body">
@@ -43,7 +47,7 @@
                                     <input type="text" class="form-control" placeholder="Boshlanish vaqtini kiriting..." id="mdate" name="created_at" />
                                 </div>
                                 <div class="col-md-6">
-                                    <input type="text" class="form-control" placeholder="Sarlavhani kiriting..." name="job" />
+                                    <input type="text" class="form-control" placeholder="Sarlavhani kiriting..." name="full_name" />
                                 </div>
                                 <div class="col-md-3">
                                     <button type="submit" class="btn btn-primary">
@@ -62,8 +66,8 @@
                               <thead class="thead-primary">
                                 <tr>
                                   <th>№</th>
-                                  <th>Job</th>
                                   <th>Fullname</th>
+                                  <th>Job</th>
                                   <th>Created At</th>
                                   <th>Archive Year</th>
                                   <th>Image</th>
@@ -71,13 +75,16 @@
                                   <th>Action</th>
                                 </tr>
                               </thead>
+                              <?php
+                                    use Carbon\Carbon;
+                               ?>
                               @foreach ($speakers as $speaker)
 
                                   <tr>
                                     <td>{{($speakers->currentpage() - 1) * $speakers->perpage() + ($loop->index+1)}}</td>
-                                    <td>{{$speaker->job_uz}}</td>
                                     <td>{{$speaker->full_name_uz}}</td>
-                                    <td>{{$speaker->created_at}}</td>
+                                    <td>{{$speaker->job_uz}}</td>
+                                    <td>{{Carbon::parse($speaker->created_at)->format('d/m/Y')}}</td>
                                     <td>{{$speaker->archiveTable->year}}</td>
                                       <td>
                                           <img src="{{asset('upload/speaker/' .$speaker->image.'_thumbnail_267.png')}}" alt="img" with="100px" height="60px">
@@ -126,4 +133,12 @@
         </div>
     </div>
 
+@endsection
+
+@section('script')
+<!-- momment js is must -->
+<script src="{{ asset('/admin/vendor/moment/moment.min.js') }}"></script>
+    <!-- Material color picker -->
+    <script src="{{ asset('/admin/vendor/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js') }}"></script>
+    <script src="{{ asset('/admin/js/plugins-init/material-date-picker-init.js') }}"></script>
 @endsection

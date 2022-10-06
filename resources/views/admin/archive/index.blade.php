@@ -1,5 +1,9 @@
 @extends('admin.layout.app')
+@section('style')
 
+    <!-- Material color picker -->
+    <link href="{{ asset('/admin/vendor/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css') }}" rel="stylesheet">
+@endsection
 @section('content')
 
     <div class="content-body">
@@ -37,9 +41,21 @@
 
                 <div class="card-body">
                     <div class="card">
-                        <div class="card-header">
-                          <h4 class="card-title">Archive Datatable</h4>
-                        </div>
+                        <form action="" method="GET">
+                            <div class="row form-material m-2">
+                                <div class="col-md-3">
+                                    <input type="text" class="form-control" placeholder="Boshlanish vaqtini kiriting..." id="mdate" name="created_at" />
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control" placeholder="Yilini kiriting kiriting..." name="year" />
+                                </div>
+                                <div class="col-md-3">
+                                    <button type="submit" class="btn btn-primary">
+                                        Ma'lumotlarni izlash
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
                         <div class="card-body">
                           <div class="table-responsive">
                             <table class="table"
@@ -47,22 +63,25 @@
                               class="display"
                               style="min-width: 845px"
                             >
-                              <thead>
+                              <thead class="thead-primary">
                                 <tr>
                                   <th>№</th>
-                                  <th>Username</th>
                                   <th>Year</th>
-                                  <th>Description</th>
-                                  <th>Is active</th>
+                                  <th>Created At</th>
+                                  <th>Username</th>
+                                  <th>Status</th>
                                   <th>Action</th>
                                 </tr>
                               </thead>
+                              <?php
+                                    use Carbon\Carbon;
+                               ?>
                               @foreach ($archives as $archive)
                                   <tr>
                                     <td>{{($archives->currentpage() - 1) * $archives->perpage() + ($loop->index+1)}}</td>
-                                    <td>{{$archive->archiveTable->first_name}}</td>
                                     <td>{{$archive->year}}</td>
-                                    <td>{{Str::limit(strip_tags($archive->description_uz),20)}}</td>
+                                    <td>{{Carbon::parse($archive->created_at)->format('d/m/Y')}}</td>
+                                    <td>{{$archive->archiveTable->first_name}}</td>
                                     <td>
                                         <form action="{{ asset('/admin/archive/isactive/' . $archive->id) }}"
                                             method="POST" enctype="multipart/form-data">
@@ -107,6 +126,14 @@
         </div>
     </div>
 
+@endsection
+
+@section('script')
+<!-- momment js is must -->
+<script src="{{ asset('/admin/vendor/moment/moment.min.js') }}"></script>
+    <!-- Material color picker -->
+    <script src="{{ asset('/admin/vendor/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js') }}"></script>
+    <script src="{{ asset('/admin/js/plugins-init/material-date-picker-init.js') }}"></script>
 @endsection
 
 

@@ -34,12 +34,12 @@ class SpeakerController extends Controller
             case $req->created_at != null:
                 $search[] = [DB::raw("DATE(created_at)"), '=', Carbon::parse($req->created_at)];
                 break;
-            case $req->title != null:
-                $search[] = ['job_en', '=', $req->job];
+            case $req->full_name != null:
+                $search[] = ['full_name_en', '=', $req->full_name];
                 break;
         }
 
-        $speakers = Speakers::where($search)->orderBy('id','desc')->paginate(10);
+        $speakers = Speakers::select('id', 'full_name_uz', 'job_uz', 'created_at', 'archive_id', 'image', 'is_active')->where($search)->orderBy('id','desc')->paginate(10);
         $archives = Archive::select('id', 'year')->get();
         return view('admin.speaker.index', compact('speakers', 'archives'));
     }

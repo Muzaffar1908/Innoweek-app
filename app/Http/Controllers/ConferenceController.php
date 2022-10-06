@@ -31,11 +31,11 @@ class ConferenceController extends Controller
                 $search[] = [DB::raw("DATE(started_at)"), '=', Carbon::parse($req->started_at)];
                 break;
             case $req->title != null:
-                $search[] = ['title_en', '=', $req->title];
+                $search[] = ['title_uz', '=', $req->title];
                 break;
         }
-        $conferences = Conference::where($search)->orderBy('id', 'desc')->paginate(15);
-        $users = User::all();
+        $conferences = Conference::select('id', 'title_uz', 'started_at', 'archive_id', 'user_id', 'user_image', 'is_active')->where($search)->orderBy('id', 'desc')->paginate(15);
+        $users = User::select('id', 'first_name')->get();
         $archives = Archive::select('id', 'year');
         return view('admin.conference.index', compact('conferences', 'users', 'archives'));
     }

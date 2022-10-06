@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use App\Models\Archive\Archive;
 use App\Models\Archive\Speakers;
 use App\Models\Conference;
+use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
+
 use App\Models\User;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Session;
@@ -17,10 +20,23 @@ class ArchiveController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $req)
     {
-        $archives = Archive::orderBy('id','desc')->paginate(5);
-        $users = User::all();
+        $lang = \App::getLocale();
+        $search = [
+            ['id', '!=', null]
+        ];
+        switch ($req) {
+            case $req->created_at != null:
+                $search[] = [DB::raw("DATE(created_at)"), '=', Carbon::parse($req->created_at)];
+                break;
+            case $req->year != null:
+                $search[] = ['year', '=', $req->year];
+                break;
+        }
+
+        $archives = Archive::select('id', 'year', 'created_at', 'user_id', 'is_active')->where($search)->orderBy('id','desc')->paginate(5);
+        $users = User::select('id', 'first_name')->get();
         return view('admin.archive.index', compact('archives', 'users'));
     }
 

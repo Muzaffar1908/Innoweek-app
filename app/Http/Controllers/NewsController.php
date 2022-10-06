@@ -24,6 +24,7 @@ class NewsController extends Controller
      */
     public function index(Request $req)
     {
+        $lang = \App::getLocale();
         $search = [
             ['id', '!=', null]
         ];
@@ -32,13 +33,13 @@ class NewsController extends Controller
                 $search[] = [DB::raw("DATE(created_at)"), '=', Carbon::parse($req->created_at)];
                 break;
             case $req->title != null:
-                $search[] = ['title_en', '=', $req->title];
+                $search[] = ['title_uz', '=', $req->title];
                 break;
         }
 
-        $news = News::where($search)->orderBy('id','desc')->paginate(10);
-        $users = User::all();
-        $news_categories = NewsCategory::all();
+        $news = News::select('id', 'title_uz', 'created_at', 'user_id', 'user_image', 'is_active')->where($search)->orderBy('id','desc')->paginate(10);
+        $users = User::select('id', 'first_name')->get();
+        $news_categories = NewsCategory::select('id', 'title_'. $lang . ' as title')->get();
         return view('admin.news.index', compact('news', 'users', 'news_categories'));
     }
 
