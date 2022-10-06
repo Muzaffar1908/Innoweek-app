@@ -193,28 +193,28 @@
             <nav class="menu-main-primary-container">
                 <ul class="menu">
                     <li class="list active-link">
-                        <a class="animation" href="index.html">{{__('HOME')}}</a>
+                        <a class="animation" href="{{ url('/') }}">{{__('HOME')}}</a>
                     </li>
                     <li class="list">
-                        <a class="animation" href="event.html">{{__('EVENTS')}}</a>
+                        <a class="animation" href="/events">{{__('EVENTS')}}</a>
                     </li>
                     <li class="list">
-                        <a class="animation" href="news.html">{{__('NEWS')}}</a>
+                        <a class="animation" href="/news">{{__('NEWS')}}</a>
                     </li>
                     <li class="list">
-                        <a class="animation" href="speaker.html">{{__('SPEAKERS')}}</a>
+                        <a class="animation" href="{{ url('/speakers') }}">{{__('SPEAKERS')}}</a>
                     </li>
                     <li class="list">
-                        <a class="animation" href="#schedule">{{__('SCHEDULE')}}</a>
+                        <a class="animation" href="{{ url('/') }}#schedule">{{__('SCHEDULE')}}</a>
                     </li>
                     {{-- <li class="list">
                         <a class="animation" href="#gallery">{{__('GALLERY')}}</a>
                     </li> --}}
                     <li class="list">
-                        <a class="animation" href="#contact">{{__('STATISTICS')}}</a>
+                        <a class="animation" href="{{ url('/statistic') }}">{{__('STATISTICS')}}</a>
                     </li>
                     <li class="list">
-                        <a class="animation" href="#contact">{{__('LIVE 360')}}</a>
+                        <a class="animation" href="/live360">{{__('LIVE 360')}}</a>
                     </li>
                     <li class="list">
                         <a class="animation scliked" href="{{asset('frontend/pdf/inno.pdf')}}"

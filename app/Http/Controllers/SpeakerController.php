@@ -12,6 +12,9 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Str;
 use Intervention\Image\Facades\Image;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
+
 
 
 class SpeakerController extends Controller
@@ -21,10 +24,23 @@ class SpeakerController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $req)
     {
-        $speakers = Speakers::orderBy('id','desc')->paginate(5);
-        $archives = Archive::all();
+        $lang = \App::getLocale();
+        $search = [
+            ['id', '!=', null]
+        ];
+        switch ($req) {
+            case $req->created_at != null:
+                $search[] = [DB::raw("DATE(created_at)"), '=', Carbon::parse($req->created_at)];
+                break;
+            case $req->title != null:
+                $search[] = ['job_en', '=', $req->job];
+                break;
+        }
+
+        $speakers = Speakers::where($search)->orderBy('id','desc')->paginate(10);
+        $archives = Archive::select('id', 'year')->get();
         return view('admin.speaker.index', compact('speakers', 'archives'));
     }
 

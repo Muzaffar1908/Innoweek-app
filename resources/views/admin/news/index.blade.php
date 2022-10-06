@@ -37,33 +37,48 @@
 
                 <div class="card-body">
                     <div class="card">
-                        <div class="card-header">
-                          <h4 class="card-title">News Datatable</h4>
-                        </div>
+                        <form action="" method="GET">
+                            <div class="row form-material m-2">
+                                <div class="col-md-3">
+                                    <input type="text" class="form-control" placeholder="Boshlanish vaqtini kiriting..." id="mdate" name="created_at" />
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control" placeholder="Sarlavhani kiriting..." name="title" />
+                                </div>
+                                <div class="col-md-3">
+                                    <button type="submit" class="btn btn-primary">
+                                        Ma'lumotlarni izlash
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
                         <div class="card-body">
                           <div class="table-responsive">
                             <table class="table"
                               id="example3"
                               class="display"
-                              style="min-width: 845px"
+                              style="min-width: 845px" 
                             >
-                              <thead>
+                              <thead class="thead-primary">
                                 <tr>
                                   <th>№</th>
-                                  <th>Username</th>
-                                  <th>Categoryname</th>
                                   <th>Title</th>
+                                  <th>Created At</th>
+                                  <th>Author</th>
                                   <th>User image</th>
-                                  <th>Is Active</th>
+                                  <th>Status</th>
                                   <th>Action</th>
                                 </tr>
                               </thead>
+                              <?php
+                                    use Carbon\Carbon;
+                               ?>
                               @foreach ($news as $new)
                                   <tr>
                                     <td>{{($news->currentpage() - 1) * $news->perpage() + ($loop->index+1)}}</td>
+                                    <td>{{$new->title_uz}}</td>
+                                    <td>{{Carbon::parse($new->created_at)->format('d/m/Y')}}</td>
                                     <td>{{$new->usersTable->first_name}}</td>
-                                     <td>{{$new->newsTable->title_uz}}</td>
-                                    <td>{!!Str::limit(strip_tags($new->title_uz),30)!!}</td>
                                       <td>
                                           <img src="{{asset('/upload/news/' . $new->user_image.'_thumbnail_450.png')}}" alt="img" with="100px" height="60px">
                                       </td>

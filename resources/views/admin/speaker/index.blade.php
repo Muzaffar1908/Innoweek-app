@@ -37,9 +37,21 @@
 
                 <div class="card-body">
                     <div class="card">
-                        <div class="card-header">
-                          <h4 class="card-title">Speaker Datatable</h4>
-                        </div>
+                        <form action="" method="GET">
+                            <div class="row form-material m-2">
+                                <div class="col-md-3">
+                                    <input type="text" class="form-control" placeholder="Boshlanish vaqtini kiriting..." id="mdate" name="created_at" />
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control" placeholder="Sarlavhani kiriting..." name="job" />
+                                </div>
+                                <div class="col-md-3">
+                                    <button type="submit" class="btn btn-primary">
+                                        Ma'lumotlarni izlash
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
                         <div class="card-body">
                           <div class="table-responsive">
                             <table class="table"
@@ -47,15 +59,15 @@
                               class="display"
                               style="min-width: 845px"
                             >
-                              <thead>
+                              <thead class="thead-primary">
                                 <tr>
                                   <th>№</th>
-                                  <th>Archive year</th>
-                                  <th>User</th>
-                                  <th>Fullname</th>
                                   <th>Job</th>
+                                  <th>Fullname</th>
+                                  <th>Created At</th>
+                                  <th>Archive Year</th>
                                   <th>Image</th>
-                                  <th>Is Active</th>
+                                  <th>Status</th>
                                   <th>Action</th>
                                 </tr>
                               </thead>
@@ -63,10 +75,10 @@
 
                                   <tr>
                                     <td>{{($speakers->currentpage() - 1) * $speakers->perpage() + ($loop->index+1)}}</td>
-                                    <td>{{$speaker->archiveTable->year}}</td>
-                                    <td>{{$speaker->usersTable->first_name}}</td>
+                                    <td>{{$speaker->job_uz}}</td>
                                     <td>{{$speaker->full_name_uz}}</td>
-                                    <td>{{Str::limit(strip_tags($speaker->job_uz), 30)}}</td>
+                                    <td>{{$speaker->created_at}}</td>
+                                    <td>{{$speaker->archiveTable->year}}</td>
                                       <td>
                                           <img src="{{asset('upload/speaker/' .$speaker->image.'_thumbnail_267.png')}}" alt="img" with="100px" height="60px">
                                       </td>

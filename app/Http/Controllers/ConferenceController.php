@@ -22,6 +22,7 @@ class ConferenceController extends Controller
      */
     public function index(Request $req)
     {
+        $lang = \App::getLocale();
         $search = [
             ['id', '!=', null]
         ];
@@ -35,7 +36,7 @@ class ConferenceController extends Controller
         }
         $conferences = Conference::where($search)->orderBy('id', 'desc')->paginate(15);
         $users = User::all();
-        $archives = Archive::all();
+        $archives = Archive::select('id', 'year');
         return view('admin.conference.index', compact('conferences', 'users', 'archives'));
     }
 

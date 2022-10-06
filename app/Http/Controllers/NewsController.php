@@ -7,6 +7,8 @@ use App\Models\News\News;
 use App\Models\News\NewsCategory;
 use App\Models\User;
 use Faker\Core\File;
+use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Str;
@@ -20,9 +22,21 @@ class NewsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $req)
     {
-        $news = News::orderBy('id','desc')->paginate(5);
+        $search = [
+            ['id', '!=', null]
+        ];
+        switch ($req) {
+            case $req->created_at != null:
+                $search[] = [DB::raw("DATE(created_at)"), '=', Carbon::parse($req->created_at)];
+                break;
+            case $req->title != null:
+                $search[] = ['title_en', '=', $req->title];
+                break;
+        }
+
+        $news = News::where($search)->orderBy('id','desc')->paginate(10);
         $users = User::all();
         $news_categories = NewsCategory::all();
         return view('admin.news.index', compact('news', 'users', 'news_categories'));

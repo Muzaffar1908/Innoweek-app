@@ -41,19 +41,19 @@
                     <div class="card">
                         <div class="card-body">
                             <form action="" method="GET">
-                            <div class="row form-material pb-3">
-                                <div class="col-md-3">
-                                    <input type="text" class="form-control" placeholder="Boshlanish vaqtini kiriting..." id="mdate" name="started_at" />
+                                <div class="row form-material pb-3">
+                                    <div class="col-md-3">
+                                        <input type="text" class="form-control" placeholder="Boshlanish vaqtini kiriting..." id="mdate" name="started_at" />
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="text" class="form-control" placeholder="Sarlavhani kiriting..." name="title" />
+                                    </div>
+                                    <div class="col-md-3">
+                                        <button type="submit" class="btn btn-primary">
+                                            Ma'lumotlarni izlash
+                                        </button>
+                                    </div>
                                 </div>
-                                <div class="col-md-6">
-                                    <input type="text" class="form-control" placeholder="Sarlavhani kiriting..." name="title" />
-                                </div>
-                                <div class="col-md-3">
-                                    <button type="submit" class="btn btn-primary">
-                                        Ma'lumotlarni izlash
-                                    </button>
-                                </div>
-                            </div>
                             </form>
                             <div class="table-responsive">
                                 <table class="table" id="example3" class="display" style="min-width: 845px">
@@ -71,7 +71,7 @@
                                     </thead>
                                     <?php
                                     use Carbon\Carbon;
-                                                       ?>
+                                    ?>
                                     @foreach ($conferences as $conference)
                                     <tr>
                                         <td>{{($conferences->currentpage() - 1) * $conferences->perpage() + ($loop->index+1)}}</td>
