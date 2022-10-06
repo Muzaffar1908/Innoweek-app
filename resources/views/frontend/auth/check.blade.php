@@ -8,7 +8,7 @@ sticky
         <div class="boxes m-0">
             <form class="reg-box" action="{{route('d-checker-form')}}" method="POST">
                 @csrf
-                <h3>{{__('Enter the secret password sent to the specified email or phone number')}}</h3>
+                <h3>{{__('Enter the specified e-mail or phone number')}}</h3>
                 <input type="text" name="phone_or_email" placeholder="{{__('Email or Phone')}}" autocomplete="on" required autofocus>
                 <button type="submit" class="reg-btn"> {{ __('Next')}} </button>
             </form>

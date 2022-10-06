@@ -1,4 +1,6 @@
 {
+    "Are you registered?" : "Are you registered?",
+    "Please check your ticket" : "Please check your ticket",
     "Fotos" : "Fotos",
     "Videos" : "Videos",
     "INNOWEEK - STATISTICS" : "INNOWEEK - STATISTICS",
@@ -128,6 +130,7 @@
     "Email or Phone" : "Email or Phone",
     "Date of birth" : "Date of birth",
     "Enter the secret password sent to the specified email or phone number" : "Enter the secret password sent to the specified email or phone number",
+    "Enter the specified e-mail or phone number" : "Enter the specified e-mail or phone number",
     "Next" : "Next",
     "password" : "Password",
     "Download QR code" : "Download the 'Innoweek 2022' application through this QR code",

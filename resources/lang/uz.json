@@ -1,4 +1,6 @@
 {
+    "Are you registered?" : "Roʻyxatdan oʻtganmisiz?",
+    "Please check your ticket" : "Сhiptangizni tekshiring",
     "Fotos" : "Fotosuratlar",
     "Videos" : "Videolar",
     "INNOWEEK - STATISTICS" : "INNOWEEK - СТАТИСТИКА",
@@ -129,6 +131,7 @@
     "Email" : "Elektron pochta",
     "day/month/year" : "kun/oy/yil",
     "Enter the secret password sent to the specified email or phone number" : "Ko'rsatilgan elektron po'chta yoki telefon raqamiga yuborilgan maxfiy parolni kiriting",
+    "Enter the specified e-mail or phone number" : "Ko'rsatilgan elektron po'chta yoki telefon raqam kiritilsin",
     "Next" : "Keyingisi",
     "password" : "Parol",
     "Download QR code" : "Ushbu QR code orqali 'Innoweek 2022' ilovasini yuklab oling",
