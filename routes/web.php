@@ -56,10 +56,6 @@ Route::get('/live360', function () {
     return view('frontend.pavilion');
 });
 
-Route::get('/ticket', function () {
-    return view('frontend.ticket');
-});
-
 Route::get('locale/{locale}', function ($locale) {
     Session::put('locale', $locale);
     return redirect()->back();
@@ -192,12 +188,11 @@ Route::group(['prefix' => 'mobile-v'], function () {
     // API route for logout user
 });
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
-
 Route::get('/mobile-v-logout', [IndexController::class, 'SignOut'])->name('m-logout');
-
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 Route::get('/ticket/checker', [CheckController::class, 'index'])->name('d-checker');
 Route::post('/ticket/checker', [CheckController::class, 'checkTicket'])->name('d-checker-form');
+Route::get('/ticket/download', [CheckController::class, 'ticketDownload'])->name('d-checker-download');
 
 // Mobile view stop !!!
