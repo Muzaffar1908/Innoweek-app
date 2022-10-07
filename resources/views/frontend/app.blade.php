@@ -26,7 +26,7 @@
         </div>
     </section>
 
-    <section id="qrcode" class="about-wrap-layout1">
+    <section id="about" class="about-wrap-layout1">
         <div class="container">
             <div class="row">
             <div class="col-lg-12 order-lg-2">
@@ -271,7 +271,7 @@
         </div>
     </section>
 
-    <section class="about-wrap-layout1">
+    <section id="qrcode" class="about-wrap-layout1">
         <div class="container">
           <div class="section-heading style-four">
             <h2 class="title wow fadeInUp animated" data-wow-delay="0.2s" data-wow-duration="1s">{{__('INNOWEEK.UZ MOBILE APPLICATION')}}</h2>
