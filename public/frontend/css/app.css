@@ -8039,6 +8039,11 @@ button.offcanvas-menu-btn.menu-status-close .menu-btn-icon:hover span {
     font-size: 21px;
 }
 
+.mean-bar .qrrimg img {
+    max-width: 35px;
+    margin-left: 5rem;
+}
+
 body .sidebarBtn {
     display: block;
     padding: 12px 0;
