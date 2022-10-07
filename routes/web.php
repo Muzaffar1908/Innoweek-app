@@ -22,13 +22,9 @@ use App\Http\Controllers\NewsController;
 use App\Http\Controllers\PromoController;
 use App\Http\Controllers\Promo2Controller;
 use App\Http\Controllers\PageController;
-use App\Http\Controllers\PavilionController;
 use App\Http\Controllers\UserController;
-use App\Models\News\NewsCategory;
 use Illuminate\Support\Facades\Session;
 use App\Http\Controllers\UserTicketController;
-use App\Models\LiveStatistic;
-use App\Models\PushNotification;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,10 +36,6 @@ use App\Models\PushNotification;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/welcome', function () {
-    return view('welcome');
-});
 
 Route::get('/info/privacy', function () {
     return view('private');
@@ -64,42 +56,38 @@ Route::get('locale/{locale}', function ($locale) {
 
 
 // Frontend  start !!!
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+Route::get('/mobile-v-logout', [IndexController::class, 'SignOut'])->name('m-logout');
+Route::get('/home', [HomeController::class, 'index'])->name('home');
 
-Route::group(['prefix' => '/'], function(){
-    Route::controller(PageController::class)->group(function(){
-        Route::get('/', 'index')->name('index');
-        // Route::get('/index', 'Index')->name('indexx');
-        Route::get('/newsshow/{id}', 'newsshow')->name('newsshowx');
-        Route::get('/eventshow/{id}', 'eventShow')->name('eventshowx');
-        Route::get('/speakershow/{id}', 'speakerShow')->name('speakershowx');
-        Route::get('/speakers', 'speakers')->name('speakersx');
-        Route::get('/code', 'register')->name('code');
-        Route::get('/events', 'events')->name('eventsx');
-        Route::get('/news', 'news')->name('newsx');
-        Route::get('/statistic', 'live_statistic')->name('live_statistics');
-        Route::get('/live360', 'live360')->name('live360s');
-    });
+Route::get('/ticket/checker', [CheckController::class, 'index'])->name('d-checker');
+Route::post('/ticket/checker', [CheckController::class, 'checkTicket'])->name('d-checker-form');
+Route::get('/ticket/download', [CheckController::class, 'ticketDownload'])->name('d-checker-download');
 
-    Route::controller(FrontAuthController::class)->group(function(){
-        Route::post('/ticket/register', 'register')->name('d-register');
-        Route::get('/ticket/verify', 'VerifyPage')->name('d-verify');
-        Route::post('/ticket/verify', 'VerifyMessage')->name('d-verified');
-        Route::get('/ticket/login', 'LoginPage')->name('d-login');
-    });
-
+Route::controller(PageController::class)->group(function () {
+    Route::get('/', 'index')->name('index');
+    // Route::get('/index', 'Index')->name('indexx');
+    Route::get('/newsshow/{id}', 'newsshow')->name('newsshowx');
+    Route::get('/eventshow/{id}', 'eventShow')->name('eventshowx');
+    Route::get('/speakershow/{id}', 'speakerShow')->name('speakershowx');
+    Route::get('/speakers', 'speakers')->name('speakersx');
+    Route::get('/code', 'register')->name('code');
+    Route::get('/events', 'events')->name('eventsx');
+    Route::get('/news', 'news')->name('newsx');
+    Route::get('/statistic', 'live_statistic')->name('live_statistics');
+    Route::get('/live360', 'live360')->name('live360s');
 });
 
-// Frontend  stop !!!
-
-
-
+Route::controller(FrontAuthController::class)->group(function () {
+    Route::post('/ticket/register', 'register')->name('d-register');
+    Route::get('/ticket/verify', 'VerifyPage')->name('d-verify');
+    Route::post('/ticket/verify', 'VerifyMessage')->name('d-verified');
+    Route::get('/ticket/login', 'LoginPage')->name('d-login');
+});
 
 // Backend  start !!!
-
-
-
-Route::prefix('admin')->name('admin.')->middleware('auth','isAdmin')->group(function(){
-    Route::get('/dashboard/', function(){
+Route::prefix('admin')->name('admin.')->middleware('auth', 'isAdmin')->group(function () {
+    Route::get('/dashboard/', function () {
         return view('admin.layout.index');
     })->name('index');
 
@@ -118,37 +106,27 @@ Route::prefix('admin')->name('admin.')->middleware('auth','isAdmin')->group(func
     Route::resource('/live_statistic', LiveStatisticController::class);
     Route::resource('/push_notification', PushNotificationController::class);
     Route::resource('/live360', Live360Controller::class);
-    Route::POST('/userticket/isactive/{id}',[UserTicketController::class,'is_active']);
-    Route::POST('/news/isactive/{id}',[NewsController::class,'is_active']);
-    Route::POST('/news_cat/isactive/{id}',[NewsCategoryController::class,'is_active']);
-    Route::POST('/archive/isactive/{id}',[ArchiveController::class,'is_active']);
-    Route::POST('/conference/isactive/{id}',[ConferenceController::class,'is_active']);
-    Route::POST('/user/isactive/{id}',[UserController::class,'is_active']);
-    Route::POST('/speaker/isactive/{id}',[SpeakerController::class,'is_active']);
-    Route::POST('/speaker/isactive/{id}',[SpeakerController::class,'is_active']);
-    Route::POST('/innoweek/isactive/{id}',[InnoweekController::class,'is_active']);
+    Route::POST('/userticket/isactive/{id}', [UserTicketController::class, 'is_active']);
+    Route::POST('/news/isactive/{id}', [NewsController::class, 'is_active']);
+    Route::POST('/news_cat/isactive/{id}', [NewsCategoryController::class, 'is_active']);
+    Route::POST('/archive/isactive/{id}', [ArchiveController::class, 'is_active']);
+    Route::POST('/conference/isactive/{id}', [ConferenceController::class, 'is_active']);
+    Route::POST('/user/isactive/{id}', [UserController::class, 'is_active']);
+    Route::POST('/speaker/isactive/{id}', [SpeakerController::class, 'is_active']);
+    Route::POST('/speaker/isactive/{id}', [SpeakerController::class, 'is_active']);
+    Route::POST('/innoweek/isactive/{id}', [InnoweekController::class, 'is_active']);
     Route::POST('/galeries/is_active/{id}', [GaleriesController::class, 'is_active']);
     Route::POST('/partner/is_active/{id}', [PartnerController::class, 'is_active']);
     Route::POST('/promo/is_active/{id}', [PromoController::class, 'is_active']);
     Route::POST('/promo2/is_active/{id}', [Promo2Controller::class, 'is_active']);
     Route::POST('/push_notification/is_active/{id}', [PushNotificationController::class, 'is_active']);
     Route::POST('/live360/isactive/{id}', [Live360Controller::class, 'is_active']);
-
-
-
 });
 
-
 // Backend  stop !!!
-
-
 Auth::routes();
-
-
 // Mobile view start !!!
-
 Route::group(['prefix' => 'mobile-v'], function () {
-
     Route::controller(IndexController::class)->group(function () {
         Route::get('/', 'home')->name('m-home');
         Route::get('/dashboard', 'dashboard')->name('m-dashboard');
@@ -168,7 +146,7 @@ Route::group(['prefix' => 'mobile-v'], function () {
         Route::get('/isregqr/{id}', 'isregqr')->name('isregqr');
     });
 
-     Route::controller(AuthController::class)->group(function () {
+    Route::controller(AuthController::class)->group(function () {
         Route::get('/login', 'LoginPage')->name('m-login');
         Route::post('/login', 'login')->name('m-login-form');
         Route::get('/register', 'RegisterPage')->name('m-register');
@@ -176,8 +154,6 @@ Route::group(['prefix' => 'mobile-v'], function () {
         Route::get('/verify', 'VerifyPage')->name('m-verify');
         Route::post('/verify', 'VerifMessage')->name('m-verify-form');
     });
-
-    // Route::get('/s', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
     //USER
     Route::controller(UserController::class)->group(function () {
@@ -187,15 +163,4 @@ Route::group(['prefix' => 'mobile-v'], function () {
         Route::get('user/my/info', 'GetUserInfo');
         Route::delete('user/delete/{DataID}', 'RemoveDataByID');
     });
-
-    // API route for logout user
 });
-Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
-Route::get('/mobile-v-logout', [IndexController::class, 'SignOut'])->name('m-logout');
-Route::get('/home', [HomeController::class, 'index'])->name('home');
-
-Route::get('/ticket/checker', [CheckController::class, 'index'])->name('d-checker');
-Route::post('/ticket/checker', [CheckController::class, 'checkTicket'])->name('d-checker-form');
-Route::get('/ticket/download', [CheckController::class, 'ticketDownload'])->name('d-checker-download');
-
-// Mobile view stop !!!
