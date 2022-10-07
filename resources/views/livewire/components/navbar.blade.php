@@ -191,92 +191,91 @@
                 @php $locale = session()->get('locale'); @endphp
                 <ul class="menu">
                     @switch($locale)
-                    @case('')
-                    <li class="menu-item menu-item-has-children wow fadeInUp animated"
-                        data-wow-delay="0.9s">
-                        <a href="{{ URL::to('locale/en') }}"
-                            class="d-flex align-items-center justify-content-center inno-cursor">
-                            <img class="mx-2" width="30" src="{{asset('frontend/image/en.png')}}"
-                                alt="English">
-                            <i class="fa fa-angle-down"></i>
-                        </a>
-                        <ul class="sub-menu menu-color">
-                            <li class="menu-item text-center"><a href="{{ URL::to('locale/ru') }}"><img
-                                        class="mx-2" width="30" src="{{asset('frontend/image/ru.png')}}"
-                                        alt="Russian"></a>
-                            </li>
-                            <li class="menu-item text-center"><a href="{{ URL::to('locale/uz') }}"><img
-                                        class="mx-2" width="30" src="{{asset('frontend/image/uz.png')}}"
-                                        alt="Uzbek"></a>
-                            </li>
-                        </ul>
-                    </li>
-                    @break
-                    @case('uz')
-                    <li class="menu-item menu-item-has-children wow fadeInUp animated"
-                        data-wow-delay="0.9s">
-                        <a href="{{ URL::to('locale/uz') }}"
-                            class="d-flex align-items-center justify-content-center inno-cursor">
-                            <img class="mx-2" width="30" src="{{asset('frontend/image/uz.png')}}"
-                                alt="Uzbek">
-                            <i class="fa fa-angle-down"></i>
-                        </a>
-                        <ul class="sub-menu menu-color">
-                            <li class="menu-item text-center"><a href="{{ URL::to('locale/ru') }}"><img
-                                        class="mx-2" width="30" src="{{asset('frontend/image/ru.png')}}"
-                                        alt="Russian"></a>
-                            </li>
-                            <li class="menu-item text-center"><a href="{{ URL::to('locale/en') }}"><img
-                                        class="mx-2" width="30" src="{{asset('frontend/image/en.png')}}"
-                                        alt="English"></a>
-                            </li>
-                        </ul>
-                    </li>
-                    @break
-                    @case('ru')
-                    <li class="menu-item menu-item-has-children wow fadeInUp animated"
-                        data-wow-delay="0.9s">
-                        <a href="{{ URL::to('locale/ru') }}"
-                            class="d-flex align-items-center justify-content-center inno-cursor">
-                            <img class="mx-2" width="30" src="{{asset('frontend/image/ru.png')}}"
-                                alt="Russian">
-                            <i class="fa fa-angle-down"></i>
-                        </a>
-                        <ul class="sub-menu menu-color">
-                            <li class="menu-item text-center"><a href="{{ URL::to('locale/en') }}"><img
-                                        class="mx-2" width="30" src="{{asset('frontend/image/en.png')}}"
-                                        alt="English"></a>
-                            </li>
-                            <li class="menu-item text-center"><a href="{{ URL::to('locale/uz') }}"><img
-                                        class="mx-2" width="30" src="{{asset('frontend/image/uz.png')}}"
-                                        alt="Uzbek"></a>
-                            </li>
-                        </ul>
-                    </li>
-                    @break
-                    @case('en')
-                    <li class="menu-item menu-item-has-children wow fadeInUp animated"
-                        data-wow-delay="0.9s">
-                        <a href="{{ URL::to('locale/en') }}"
-                            class="d-flex align-items-center justify-content-center inno-cursor">
-                            <img class="mx-2" width="30" src="{{asset('frontend/image/en.png')}}"
-                                alt="English">
-                            <i class="fa fa-angle-down"></i>
-                        </a>
-                        <ul class="sub-menu menu-color">
-                            <li class="menu-item text-center"><a href="{{ URL::to('locale/uz') }}"><img
-                                        class="mx-2" width="30" src="{{asset('frontend/image/uz.png')}}"
-                                        alt="Uzbek"></a>
-                            </li>
-                            <li class="menu-item text-center"><a href="{{ URL::to('locale/ru') }}"><img
-                                        class="mx-2" width="30" src="{{asset('frontend/image/ru.png')}}"
-                                        alt="Russian"></a>
-                            </li>
-                        </ul>
-                    </li>
-                    @break
-                    @default
-
+                        @case('')
+                        <li class="menu-item menu-item-has-children wow fadeInUp animated"
+                            data-wow-delay="0.9s">
+                            <a href="{{ URL::to('locale/en') }}"
+                                class="d-flex align-items-center justify-content-center inno-cursor">
+                                <img class="mx-2" width="30" src="{{asset('frontend/image/en.png')}}"
+                                    alt="English">
+                                <i class="fa fa-angle-down"></i>
+                            </a>
+                            <ul class="sub-menu menu-color">
+                                <li class="menu-item text-center"><a href="{{ URL::to('locale/ru') }}"><img
+                                            class="mx-2" width="30" src="{{asset('frontend/image/ru.png')}}"
+                                            alt="Russian"></a>
+                                </li>
+                                <li class="menu-item text-center"><a href="{{ URL::to('locale/uz') }}"><img
+                                            class="mx-2" width="30" src="{{asset('frontend/image/uz.png')}}"
+                                            alt="Uzbek"></a>
+                                </li>
+                            </ul>
+                        </li>
+                        @break
+                        @case('uz')
+                        <li class="menu-item menu-item-has-children wow fadeInUp animated"
+                            data-wow-delay="0.9s">
+                            <a href="#"
+                                class="d-flex align-items-center justify-content-center inno-cursor">
+                                <img class="mx-2" width="30" src="{{asset('frontend/image/uz.png')}}"
+                                    alt="Uzbek">
+                                <i class="fa fa-angle-down"></i>
+                            </a>
+                            <ul class="sub-menu menu-color">
+                                <li class="menu-item text-center"><a href="{{ URL::to('locale/ru') }}"><img
+                                            class="mx-2" width="30" src="{{asset('frontend/image/ru.png')}}"
+                                            alt="Russian"></a>
+                                </li>
+                                <li class="menu-item text-center"><a href="{{ URL::to('locale/en') }}"><img
+                                            class="mx-2" width="30" src="{{asset('frontend/image/en.png')}}"
+                                            alt="English"></a>
+                                </li>
+                            </ul>
+                        </li>
+                        @break
+                        @case('ru')
+                        <li class="menu-item menu-item-has-children wow fadeInUp animated"
+                            data-wow-delay="0.9s">
+                            <a href="#"
+                                class="d-flex align-items-center justify-content-center inno-cursor">
+                                <img class="mx-2" width="30" src="{{asset('frontend/image/ru.png')}}"
+                                    alt="Russian">
+                                <i class="fa fa-angle-down"></i>
+                            </a>
+                            <ul class="sub-menu menu-color">
+                                <li class="menu-item text-center"><a href="{{ URL::to('locale/en') }}"><img
+                                            class="mx-2" width="30" src="{{asset('frontend/image/en.png')}}"
+                                            alt="English"></a>
+                                </li>
+                                <li class="menu-item text-center"><a href="{{ URL::to('locale/uz') }}"><img
+                                            class="mx-2" width="30" src="{{asset('frontend/image/uz.png')}}"
+                                            alt="Uzbek"></a>
+                                </li>
+                            </ul>
+                        </li>
+                        @break
+                        @case('en')
+                        <li class="menu-item menu-item-has-children wow fadeInUp animated"
+                            data-wow-delay="0.9s">
+                            <a href="#"
+                                class="d-flex align-items-center justify-content-center inno-cursor">
+                                <img class="mx-2" width="30" src="{{asset('frontend/image/en.png')}}"
+                                    alt="English">
+                                <i class="fa fa-angle-down"></i>
+                            </a>
+                            <ul class="sub-menu menu-color">
+                                <li class="menu-item text-center"><a href="{{ URL::to('locale/uz') }}"><img
+                                            class="mx-2" width="30" src="{{asset('frontend/image/uz.png')}}"
+                                            alt="Uzbek"></a>
+                                </li>
+                                <li class="menu-item text-center"><a href="{{ URL::to('locale/ru') }}"><img
+                                            class="mx-2" width="30" src="{{asset('frontend/image/ru.png')}}"
+                                            alt="Russian"></a>
+                                </li>
+                            </ul>
+                        </li>
+                        @break
+                        @default
                     @endswitch
                 </ul>
                 <ul class="header-action-items">

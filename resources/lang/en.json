@@ -1,4 +1,5 @@
 {
+    "View More" : "View More",
     "Are you registered?" : "Are you registered?",
     "Please check your ticket" : "Please check your ticket",
     "Fotos" : "Photos",
@@ -31,7 +32,7 @@
     "Yarmarka" : "Yarmarka",
     "I am" : "I am",
     "participant" : "participant",
-    "Online_regist_desc" : "The system of registration of citizens of Uzbekistan and foreign participants and confirmation of identity via SMS has been established.",
+    "Online_regist_desc" : "To register, download the mobile application or log in from a browser on your computer.",
     "Electronic_tickets_desc" : "An online QR code ticket system has been developed for entering Innoweek.uz-2022. To enter the event, it is enough to show the electronic form of the ticket.",
     "Online_360_desc" : "A system has been created for live monitoring of the week and live watching of the Innovation Fair in 360 degrees.",
     "Push_notifications_desc" : "Send instant messages to system users and notify them of news and important events.",

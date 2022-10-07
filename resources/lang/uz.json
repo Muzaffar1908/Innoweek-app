@@ -1,4 +1,5 @@
 {
+    "View More" : "Koʻproq koʻrish",
     "Are you registered?" : "Roʻyxatdan oʻtganmisiz?",
     "Please check your ticket" : "Сhiptangizni tekshiring",
     "Fotos" : "Fotosuratlar",
@@ -31,7 +32,7 @@
     "Yarmarka" : "Yarmarka",
     "I am" : "Men",
     "participant" : "ishtirokchi",
-    "Online_regist_desc" : "O’zbekiston fuqarolari va chet ellik qatnashuvchilarni ro’yxatdan o’tkazish hamda SMS orqali shaxsni tasdiqlash tizimi yo’lga qo’yilgan.",
+    "Online_regist_desc" : "Registratsiyadan o’tish uchun mobil dasturni yuklab oling yoki Kompyuterdagi brauzerdan kiring.",
     "Electronic_tickets_desc" : "Innoweek.uz-2022 ga kirish uchun online QR kodli biletlar tizimi ishlab chiqilgan. Tadbirga kirish uchun biletning elektron shaklini ko`rsatish kifoya.",
     "Online_360_desc" : "Havftalikni joni kuzatib borish hamda Innovatsion yarmarkani 360 gradus jonli efirda ko`rish tizimi yaratilgan.",
     "Push_notifications_desc" : "Tizim foydalanuvchilariga tezkor xabarlarni yuborish hamda yangiliklar va muhim voqealardan boxabar qilish.",
