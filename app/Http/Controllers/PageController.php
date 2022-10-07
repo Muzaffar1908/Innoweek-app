@@ -36,7 +36,7 @@ class PageController extends Controller
         $news_event = News::select('id', 'user_image', 'title_' . $lang . ' as title', DB::raw('SUBSTRING(`description_' . $lang . '`, 1, 60) as text'))->where('cat_id', 2)->orderBy('created_at', 'DESC')->take(5)->get();
         $speakers = Speakers::select('id', 'image', 'full_name_' . $lang . ' as name', DB::raw('SUBSTRING(`job_' . $lang . '`, 1, 255) as job'), 'facebook_ur', 'twitter_url', 'linkedin_url', 'youtube_url')->take(6)->get();
         $galleries = Galeries::select('id', 'image', 'youtobe_id')->where('is_active', '=', 1)->orderBy('created_at', 'DESC')->take(12)->get();
-        $partners = Partner::select('id', 'image', 'image_url')->orderBy('created_at', 'DESC')->take(10)->get();
+        $partners = Partner::select('id', 'image', 'image_url')->orderBy('created_at', 'DESC')->get();
         // $innoweeks = Innoweek::first();
         $events = Conference::select('id', 'user_image', 'title_' . $lang . ' as title', 'description_' . $lang . ' as desc', 'address_' . $lang . ' as address')->orderBy('created_at', 'DESC')->take(5);
         $promo = Promo::select('id', 'archive_id', 'url_'. $lang . ' as url')->where('is_active', '=', 1)->orderBy('created_at', 'desc')->take(4)->get();
