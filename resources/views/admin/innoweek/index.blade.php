@@ -7,7 +7,7 @@
             <div class="card">
                 <div class="card-header">
                     <h1 class="card-title">Innoweek</h1>
-                    <a href="{{ route('admin.innoweek.create') }}" class="btn btn-success"><i class="bi bi-plus"></i>Add</a>
+                    {{-- <a href="{{ route('admin.innoweek.create') }}" class="btn btn-success"><i class="bi bi-plus"></i>Add</a> --}}
                 </div>
 
                 @if (count($errors) > 0)
@@ -43,13 +43,13 @@
                         <div class="card-body">
                             <div class="table-responsive">
                                 <table class="table" id="example3" class="display" style="min-width: 845px">
-                                    <thead>
+                                    <thead class="thead-primary">
                                         <tr>
                                             <th>№</th>
-                                            <th>Adress</th>
+                                            <th>Address</th>
                                             <th>Phone</th>
                                             <th>Email</th>
-                                            <th>Is Active</th>
+                                            <th>Status</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>

@@ -121,6 +121,7 @@
             </a>
             <ul aria-expanded="false">
               <li><a href="{{route('admin.promo.index')}}">Promo</a></li>
+              <li><a href="{{route('admin.promo2.index')}}">Promo2022</a></li>
             </ul>
         </li>
         <li>

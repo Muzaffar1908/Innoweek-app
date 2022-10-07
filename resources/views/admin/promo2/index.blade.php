@@ -7,7 +7,7 @@
             <div class="card">
                 <div class="card-header">
                     <h1 class="card-title">Promo</h1>
-                    <a href="{{route('admin.promo.create')}}" class="btn btn-success"><i class="bi bi-plus"></i>Add</a>
+                    <a href="{{route('admin.promo2.create')}}" class="btn btn-success"><i class="bi bi-plus"></i>Add</a>
                 </div>
 
                 @if (count($errors) > 0)
@@ -38,7 +38,7 @@
                 <div class="card-body">
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="card-title">Promo</h4>
+                            <h4 class="card-title">Promo2022</h4>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
@@ -60,14 +60,11 @@
                                     @foreach ($promo as $pro)
                                         <tr>
                                             <td>{{($promo->currentpage() - 1) * $promo->perpage() + ($loop->index+1)}}</td>
-                                            <td>{{$pro->url_uz}}</td>
-                                            <td>{{$pro->archiveTable->year}}</td>
-                                            <td>{{$pro->UserTable->first_name}}</td>
-
-
-
+                                            <td>{{$pro->promo_url_uz}}</td>
+                                            <td>{{$pro->archiveTable2->year}}</td>
+                                            <td>{{$pro->userTable2->first_name}}</td>
                                             <td>
-                                                <form action="{{ asset('/admin/promo/is_active/' . $pro->id) }}"
+                                                <form action="{{ asset('/admin/promo2/is_active/' . $pro->id) }}"
                                                     method="POST" enctype="multipart/form-data">
                                                     @csrf
                                                     <div class="sweetalert">
@@ -89,8 +86,8 @@
 
                                             <td>
                                                 <div class="btn-group">
-                                                    <a href="{{route('admin.promo.edit', $pro->id)}}" type="button" class="btn btn-success"><i class="bi bi-pencil"></i></a>
-                                                    <form action="{{route('admin.promo.destroy', $pro->id)}}" method="POST">
+                                                    <a href="{{route('admin.promo2.edit', $pro->id)}}" type="button" class="btn btn-success"><i class="bi bi-pencil"></i></a>
+                                                    <form action="{{route('admin.promo2.destroy', $pro->id)}}" method="POST">
                                                         @csrf
                                                         @method('DELETE')
                                                         <button type="submit" class="btn btn-danger sweet-confirm"><i class="bi bi-trash"></i></button>

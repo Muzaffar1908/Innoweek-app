@@ -66,7 +66,7 @@
                               <thead class="thead-primary">
                                 <tr>
                                   <th>№</th>
-                                  <th>Fullname</th>
+                                  <th>Full name</th>
                                   <th>Job</th>
                                   <th>Created At</th>
                                   <th>Archive Year</th>

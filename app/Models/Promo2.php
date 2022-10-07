@@ -1,30 +1,30 @@
 <?php
 
 namespace App\Models;
+
 use App\Models\Archive\Archive;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Promo extends Model
+class Promo2 extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-      'url_uz',
-      'url_ru',
-      'url_en',
-      'is_active',
+        'promo_url_uz',
+        'promo_url_ru',
+        'promo_url_en',
+        'is_active',
     ];
 
-    public function userTable()
+    public function userTable2()
     {
         return $this->belongsTo(User::class, 'user_id');
     }
 
-    public function archiveTable()
+    public function archiveTable2()
     {
         return $this->belongsTo(Archive::class, 'archive_id');
     }
-
 }

@@ -47,12 +47,12 @@
                                        class="display"
                                        style="min-width: 845px"
                                 >
-                                    <thead>
+                                    <thead class="thead-primary">
                                     <tr>
                                         <th>№</th>
                                         <th>Image</th>
                                         <th>Text</th>
-                                        <th>Is Active</th>
+                                        <th>Status</th>
                                         <th>Action</th>
                                     </tr>
                                     </thead>

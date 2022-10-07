@@ -7,7 +7,7 @@
         <div class="card">
             <div class="card-header">
                 <h4 class="card-title">Form grid</h4>
-                <a href="{{route('admin.galeries.index')}}" class="btn btn-primary"><i class="bi bi-arrow-left-short"></i>Back</a>
+                <a href="{{route('admin.promo.index')}}" class="btn btn-primary"><i class="bi bi-arrow-left-short"></i>Back</a>
             </div>
 
                 @if (count($errors) > 0)
@@ -62,10 +62,19 @@
                         </select>
                     </div>
 
+                    <div class="mb-3">
+                        <label for="url_uz">YouTube ID uz</label>
+                        <input type="text" name="url_uz"  class="form-control" id="url_uz" placeholder="Youtobe ID uz enter" value="{{$promo->url_uz}}" />
+                    </div>
 
                     <div class="mb-3">
-                        <label for="image">YouTube</label>
-                        <input type="text" name="url" value="{{$promo->url}}"  class="form-control" id="image" placeholder="Url enter" />
+                        <label for="url_ru">YouTube ID ru</label>
+                        <input type="text" name="url_ru"  class="form-control" id="url_ru" placeholder="Youtobe ID ru enter" value="{{$promo->url_ru}}" />
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="url_en">YouTube ID en</label>
+                        <input type="text" name="url_en"  class="form-control" id="url_en" placeholder="Youtobe ID en enter" value="{{$promo->url_en}}" />
                     </div>
 
                     <button type="submit" class="btn btn-success">Save</button>

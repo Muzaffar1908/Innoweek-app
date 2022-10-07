@@ -43,17 +43,17 @@
                         <div class="card-body">
                             <div class="table-responsive">
                                 <table class="table" id="example3" class="display" style="min-width: 845px">
-                                    <thead>
+                                    <thead class="thead-primary">
                                         <tr>
                                             <th>№</th>
-                                            <th>Firstname</th>
-                                            <th>Lastname</th>
+                                            <th>First name</th>
+                                            <th>Last name</th>
                                             <th>Gender</th>
                                             <th>Birth Date</th>
                                             <th>User image</th>
                                             <th>Email</th>
                                             <th>Phone</th>
-                                            <th>Is Active</th>
+                                            <th>Status</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>

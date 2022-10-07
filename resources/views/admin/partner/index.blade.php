@@ -47,26 +47,26 @@
                                        class="display"
                                        style="min-width: 845px"
                                 >
-                                    <thead>
+                                    <thead class="thead-primary">
                                     <tr>
                                         <th>№</th>
-                                        <th>Username</th>
+                                        <th>Image Url</th>
                                         <th>Archive Year</th>
                                         <th>Image</th>
-                                        <th>Image Url</th>
-                                        <th>Is Active</th>
+                                        <th>User name</th>
+                                        <th>Status</th>
                                         <th>Action</th>
                                     </tr>
                                     </thead>
                                     @foreach ($partners as $partner)
                                         <tr>
                                             <td>{{($partners->currentpage() - 1) * $partners->perpage() + ($loop->index+1)}}</td>
-                                            <td>{{$partner->partnerTable->first_name}}</td>
+                                            <td>{{$partner->image_url}}</td>
                                             <td>{{$partner->partnerarchiveTable->year}}</td>
                                             <td>
                                                 <img src="{{asset('upload/partners/' .$partner->image.'_thumbnail_130.png')}}" alt="img" with="100px" height="60px">
                                             </td>
-                                            <td>{!!Str::limit(strip_tags($partner->image_url),20)!!}</td>
+                                            <td>{{$partner->partnerTable->first_name}}</td>
                                             <td>
                                                 <form action="{{ asset('/admin/partner/is_active/' . $partner->id) }}"
                                                     method="POST" enctype="multipart/form-data">

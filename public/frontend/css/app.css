@@ -8035,6 +8035,10 @@ button.offcanvas-menu-btn.menu-status-close .menu-btn-icon:hover span {
     justify-content: space-between;
 }
 
+.regbtn {
+    font-size: 21px;
+}
+
 body .sidebarBtn {
     display: block;
     padding: 12px 0;
@@ -14760,6 +14764,16 @@ input[type="radio"] {
 
 .playSS {
     margin-left: 10px;
+}
+
+@media ( min-width: 0) and ( max-width: 474.9px ) {
+    .qrimg {
+        display: none;
+    }
+
+    .mobile {
+        margin-top: -2rem;
+    }
 }
 
 /* tab */

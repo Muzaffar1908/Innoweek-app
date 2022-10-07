@@ -44,13 +44,13 @@
                         <div class="card-body">
                             <div class="table-responsive">
                                 <table class="table" id="example3" class="display" style="min-width: 845px">
-                                    <thead>
+                                    <thead class="thead-primary">
                                         <tr>
                                             <th>№</th>
-                                            <th>Username</th>
+                                            <th>User name</th>
                                             <th>Parent ID</th>
                                             <th>Title</th>
-                                            <th>Is Active</th>
+                                            <th>Status</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>

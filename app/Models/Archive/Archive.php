@@ -4,6 +4,7 @@ namespace App\Models\Archive;
 
 use App\Models\News\Galeries;
 use App\Models\Partner;
+use App\Models\Promo;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -36,5 +37,14 @@ class Archive extends Model
         return $this->hasMany(Partner::class, 'archive_id', 'id');
     }
 
+    public function promo()
+    {
+        return $this->hasMany(Promo::class, 'archive_id', 'id');
+    }
+
+    public function promo2()
+    {
+        return $this->hasMany(Promo::class, 'archive_id', 'id');
+    }
 
 }

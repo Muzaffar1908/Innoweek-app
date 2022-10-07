@@ -12,6 +12,7 @@ use App\Models\News\Galeries;
 use App\Models\News\News;
 use App\Models\Partner;
 use App\Models\Promo;
+use App\Models\Promo2;
 use App\Models\UserTicket;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
@@ -38,8 +39,9 @@ class PageController extends Controller
         $partners = Partner::select('id', 'image', 'image_url')->orderBy('created_at', 'DESC')->take(10)->get();
         // $innoweeks = Innoweek::first();
         $events = Conference::select('id', 'user_image', 'title_' . $lang . ' as title', 'description_' . $lang . ' as desc', 'address_' . $lang . ' as address')->orderBy('created_at', 'DESC')->take(5);
-        $promo = Promo::select('id', 'archive_id', 'url')->take(4)->get();
-        return view('frontend.app', ['ConfSchedules' => $ConfSchedules, 'condate_data' => $condate_data, 'promo' => $promo, 'news' => $news, 'news_event' => $news_event, 'speakers' => $speakers, 'galleries' => $galleries, 'partners' => $partners, 'events' => $events, 'lang' => $lang]);
+        $promo = Promo::select('id', 'archive_id', 'url_'. $lang . ' as url')->where('is_active', '=', 1)->orderBy('created_at', 'desc')->take(4)->get();
+        $promo2 = Promo2::select('id', 'archive_id', 'promo_url_'. $lang . ' as promo_url')->where('is_active', '=', 1)->orderBy('created_at', 'desc')->first();
+        return view('frontend.app', ['ConfSchedules' => $ConfSchedules, 'condate_data' => $condate_data, 'promo' => $promo, 'promo2' => $promo2, 'news' => $news, 'news_event' => $news_event, 'speakers' => $speakers, 'galleries' => $galleries, 'partners' => $partners, 'events' => $events, 'lang' => $lang]);
     }
 
 

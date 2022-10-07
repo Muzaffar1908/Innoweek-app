@@ -16,6 +16,7 @@
                                         src="{{asset('frontend/image/min.webp')}}" alt="Logo" width="50"></a>
                                 <a href="{{route('index')}}" class="logo logo-dark"><img
                                         src="{{asset('frontend/image/logo.webp')}}" alt="Logo" width="120"></a>
+                
                             </div>
                             <nav id="dropdown" class="template-main-menu menu-text-light">
                                 <ul class="menu">
@@ -177,9 +178,13 @@
 </header>
 <div class="rt-header-menu mean-container" id="meanmenu">
     <div class="mean-bar">
-        <a href="index.html">
+        <a href="{{route('index')}}">
             <img src="{{asset('frontend/image/min.webp')}}" alt="Logo" width="30">
             <img src="{{asset('frontend/image/logo.webp')}}" alt="Logo" width="80">
+            <a href="#qrcode">
+                    <button class="ml-5 px-2 btn btn-primary regbtn"><i class="fa-solid fa-user"></i></button>
+            </a>
+        
         </a>
         <span class="sidebarBtn">
             <span class="bar"></span>

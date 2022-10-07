@@ -43,13 +43,13 @@
                         <div class="card-body">
                             <div class="table-responsive">
                                 <table class="table" id="example3" class="display" style="min-width: 845px">
-                                    <thead>
+                                    <thead class="thead-primary">
                                         <tr>
                                             <th>№</th>
                                             <th>User name</th>
                                             <th>Archive year</th>
                                             <th>Ticket ID</th>
-                                            <th>Is Active</th>
+                                            <th>Status</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>

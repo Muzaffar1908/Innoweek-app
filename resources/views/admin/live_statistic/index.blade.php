@@ -47,7 +47,7 @@
                               class="display"
                               style="min-width: 845px"
                             >
-                              <thead>
+                              <thead class="thead-primary">
                                 <tr>
                                   <th>№</th>
                                   <th>Title number 1</th>
@@ -55,7 +55,7 @@
                                   <th>Country Son 1</th>
                                   <th>Forum 1</th>
                                   <th>Yarmarka 1</th>
-                                  <th>Is Active</th>
+                                  <th>Satatus</th>
                                   <th>Action</th>
                                 </tr>
                               </thead>

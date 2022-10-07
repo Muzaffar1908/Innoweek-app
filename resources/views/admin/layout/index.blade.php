@@ -26,7 +26,7 @@
                         </span>
                                     <div class="ms-2">
                                         {{--                        <h4 class="mb-0">1.500</h4>--}}
-                                        <span>Foydalanuvchilar</span>
+                                        <span>Users</span>
                                     </div>
                                 </div>
                                 <img src="images/vector/check.png" alt=""/>
@@ -58,7 +58,7 @@
                     </span>
                                     <div class="ms-2">
 {{--                                        <h4 class="mb-0">1.112</h4>--}}
-                                        <span>Yangiliklar</span>
+                                        <span>News</span>
                                     </div>
                                 </div>
                                 <img
@@ -89,7 +89,7 @@
                     </span>
                                     <div class="ms-2">
 {{--                                        <h4 class="mb-0">903</h4>--}}
-                                        <span>Arxiv</span>
+                                        <span>Archive</span>
                                     </div>
                                 </div>
                                 <img src="images/vector/bulb.png" class="bulb" alt=""/>
@@ -116,7 +116,7 @@
                     </span>
                                     <div class="ms-2">
 {{--                                        <h4 class="mb-0">487</h4>--}}
-                                        <span>So'zlovchilar</span>
+                                        <span>Speakers</span>
                                     </div>
                                 </div>
                                 <img src="images/vector/bulb.png" class="bulb" alt=""/>
@@ -144,7 +144,7 @@
                     </span>
                                     <div class="ms-2">
 {{--                                        <h4 class="mb-0">487</h4>--}}
-                                        <span>Konferensiya</span>
+                                        <span>Conference</span>
                                     </div>
                                 </div>
                                 <img src="images/vector/bulb.png" class="bulb" alt=""/>

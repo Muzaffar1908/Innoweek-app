@@ -85,6 +85,16 @@ class User extends Authenticatable
         return $this->hasMany(Partner::class, 'user_id', 'id');
     }
 
+    public function promo()
+    {
+        return $this->hasMany(Partner::class, 'user_id', 'id');
+    }
+
+    public function promo2()
+    {
+        return $this->hasMany(Partner::class, 'user_id', 'id');
+    }
+
 
     /**
      * The attributes that should be hidden for serialization.

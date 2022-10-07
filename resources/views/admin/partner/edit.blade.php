@@ -70,7 +70,7 @@
 
                     <div class="mb-3">
                         <label for="image_url">Image Url</label>
-                        <input type="url" name="image_url"  class="form-control" id="image_url" placeholder=" Image url enter" value="{{$partners->image_url}}" />
+                        <input type="text" name="image_url"  class="form-control" id="image_url" placeholder=" Image url enter" value="{{$partners->image_url}}" />
                     </div>
 
 

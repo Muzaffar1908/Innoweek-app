@@ -47,14 +47,14 @@
                               class="display"
                               style="min-width: 845px"
                             >
-                              <thead>
+                              <thead class="thead-primary">
                                 <tr>
                                   <th>№</th>
                                   <th>Youtobe ID 1</th>
                                   <th>Youtobe ID 2</th>
                                   <th>Youtobe ID 3</th>
                                   <th>Youtobe ID 4</th>
-                                  <th>Is Active</th>
+                                  <th>Status</th>
                                   <th>Action</th>
                                 </tr>
                               </thead>

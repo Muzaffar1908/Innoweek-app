@@ -20,6 +20,7 @@ use App\Http\Controllers\Mobile\AuthController;
 use App\Http\Controllers\NewsCategoryController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\PromoController;
+use App\Http\Controllers\Promo2Controller;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\PavilionController;
 use App\Http\Controllers\UserController;
@@ -113,6 +114,7 @@ Route::prefix('admin')->name('admin.')->middleware('auth','isAdmin')->group(func
     Route::resource('/userticket', UserTicketController::class);
     Route::resource('/partner', PartnerController::class);
     Route::resource('/promo', PromoController::class);
+    Route::resource('/promo2', Promo2Controller::class);
     Route::resource('/live_statistic', LiveStatisticController::class);
     Route::resource('/push_notification', PushNotificationController::class);
     Route::resource('/live360', Live360Controller::class);
@@ -128,6 +130,7 @@ Route::prefix('admin')->name('admin.')->middleware('auth','isAdmin')->group(func
     Route::POST('/galeries/is_active/{id}', [GaleriesController::class, 'is_active']);
     Route::POST('/partner/is_active/{id}', [PartnerController::class, 'is_active']);
     Route::POST('/promo/is_active/{id}', [PromoController::class, 'is_active']);
+    Route::POST('/promo2/is_active/{id}', [Promo2Controller::class, 'is_active']);
     Route::POST('/push_notification/is_active/{id}', [PushNotificationController::class, 'is_active']);
     Route::POST('/live360/isactive/{id}', [Live360Controller::class, 'is_active']);
 

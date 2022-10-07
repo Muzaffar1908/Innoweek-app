@@ -6,8 +6,8 @@
      <div class="container-fluid">
         <div class="card">
             <div class="card-header">
-                <h4 class="card-title">Partners</h4>
-                <a href="{{route('admin.partner.index')}}" class="btn btn-primary"><i class="bi bi-arrow-left-short"></i>Back</a>
+                <h4 class="card-title">Form grid</h4>
+                <a href="{{route('admin.promo2.index')}}" class="btn btn-primary"><i class="bi bi-arrow-left-short"></i>Back</a>
             </div>
 
                 @if (count($errors) > 0)
@@ -35,19 +35,20 @@
 
             <div class="card-body">
                 <div class="basic-form">
-                <form action="{{route('admin.partner.store')}}" method="POST" enctype="multipart/form-data">
+                <form action="{{route('admin.promo2.update',['promo2'=>$promo->id]) }}" method="POST" enctype="multipart/form-data">
                     @csrf
+                    @method('PUT')
 
                     <div class="mb-3">
                         {{-- <label for="id">Title uz</label> --}}
-                        <input type="hidden" name="id" class="form-control"  value="{{old('id')}}" />
+                        <input type="hidden" name="id" class="form-control"  value="{{$promo->id}}" />
                     </div>
 
                     <div class="mb-3">
-                        <label for="archive_id">Username</label>
-                        <select name="user_id" class="form-control" id="archive_id">
+                        <label for="archive_id">User</label>
+                        <select name="user_id" class="form-control" id="user_id">
                             @foreach ($users as $user)
-                                <option value="{{$user->id}}">{{$user->first_name}}</option>
+                                <option value="{{$user->id}}" @if($user->id==$promo->user_id) selected @endif>{{$user->first_name}}</option>
                             @endforeach
                         </select>
                     </div>
@@ -56,29 +57,31 @@
                         <label for="archive_id">Archvie year</label>
                         <select name="archive_id" class="form-control" id="archive_id">
                             @foreach ($archives as $archive)
-                                <option value="{{$archive->id}}">{{$archive->year}}</option>
+                                <option value="{{$archive->id}} " @if($archive->id==$promo->archive_id) selected @endif>{{$archive->year}}</option>
                             @endforeach
                         </select>
                     </div>
 
                     <div class="mb-3">
-                        <label for="image">Image</label>
-                        <input type="file" name="image"  class="form-control" id="image" placeholder=" image enter" />
+                        <label for="promo_url_uz">YouTube ID uz</label>
+                        <input type="text" name="promo_url_uz"  class="form-control" id="promo_url_uz" placeholder="Youtobe ID uz enter" value="{{$promo->promo_url_uz}}" />
                     </div>
 
                     <div class="mb-3">
-                        <label for="image_url">Image Url</label>
-                        <input type="text" name="image_url"  class="form-control" id="image_url" placeholder=" Image url enter" />
+                        <label for="promo_url_ru">YouTube ID ru</label>
+                        <input type="text" name="promo_url_ru"  class="form-control" id="promo_url_ru" placeholder="Youtobe ID ru enter" value="{{$promo->promo_url_ru}}" />
                     </div>
 
+                    <div class="mb-3">
+                        <label for="promo_url_en">YouTube ID en</label>
+                        <input type="text" name="promo_url_en"  class="form-control" id="promo_url_en" placeholder="Youtobe ID en enter" value="{{$promo->promo_url_en}}" />
+                    </div>
 
                     <button type="submit" class="btn btn-success">Save</button>
 
                 </form>
                 </div>
             </div>
-
-
         </div>
      </div>
   </div>

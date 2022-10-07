@@ -68,7 +68,7 @@
                                   <th>№</th>
                                   <th>Year</th>
                                   <th>Created At</th>
-                                  <th>Username</th>
+                                  <th>User name</th>
                                   <th>Status</th>
                                   <th>Action</th>
                                 </tr>

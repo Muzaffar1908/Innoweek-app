@@ -47,26 +47,26 @@
                                        class="display"
                                        style="min-width: 845px"
                                 >
-                                    <thead>
+                                    <thead class="thead-primary">
                                     <tr>
                                         <th>№</th>
-                                        <th>Username</th>
+                                        <th>Youtobe ID</th>
                                         <th>Archive Year</th>
                                         <th>Image</th>
-                                        <th>Youtobe text</th>
-                                        <th>Is Active</th>
+                                        <th>User name</th>
+                                        <th>Status</th>
                                         <th>Action</th>
                                     </tr>
                                     </thead>
                                     @foreach ($galeries as $galerie)
                                         <tr>
                                             <td>{{($galeries->currentpage() - 1) * $galeries->perpage() + ($loop->index+1)}}</td>
-                                            <td>{{$galerie->galleryTable->first_name}}</td>
+                                            <td>{{$galerie->youtobe_id}}</td>
                                             <td>{{$galerie->galleyarchiveTable->year}}</td>
                                             <td>
                                                 <img src="{{asset('/upload/gallery/' . $galerie->image.'_big_1920.png')}}" alt="img" with="100px" height="60px">
                                             </td>
-                                            <td>{{$galerie->youtobe_id}}</td>
+                                            <td>{{$galerie->galleryTable->first_name}}</td>
                                             <td>
                                                 <form action="{{ asset('/admin/galeries/is_active/' . $galerie->id) }}"
                                                     method="POST" enctype="multipart/form-data">
