@@ -264,31 +264,17 @@ a {
 * Browsers: last 4 version
 */
 .site-main {
-<<<<<<< HEAD
-=======
-  display: -webkit-box;
-  display: -ms-flexbox;
->>>>>>> fxs
   display: flex;
 }
 
 .statistics {
-<<<<<<< HEAD
   max-width: 940px !important;
-=======
-  max-width: 980px !important;
->>>>>>> fxs
   width: 100%;
 }
 
 .progress {
-<<<<<<< HEAD
   margin-bottom: 16px;
   padding-top: 27px;
-=======
-  margin-bottom: 20px;
-  padding-top: 30px;
->>>>>>> fxs
 }
 
 .progress__inner {
@@ -298,11 +284,7 @@ a {
 
 .progress__list {
   width: 100%;
-<<<<<<< HEAD
   max-width: 290px;
-=======
-  max-width: 310px;
->>>>>>> fxs
   list-style-type: none;
 }
 
@@ -399,11 +381,7 @@ a {
 }
 
 .progressing {
-<<<<<<< HEAD
   max-width: 515px;
-=======
-  max-width: 600px;
->>>>>>> fxs
   width: 100%;
   overflow: hidden;
   border-radius: 8px;
@@ -548,22 +526,14 @@ a {
 .diagram-desc {
   position: absolute;
   top: calc(50% - 22px);
-<<<<<<< HEAD
   left: calc(50% - 180px);
-=======
-  left: calc(50% - 182px);
->>>>>>> fxs
   text-align: center;
 }
 
 .diagram-desc__end {
   position: absolute;
   top: calc(50% - 35px);
-<<<<<<< HEAD
   left: calc(54% - 200px);
-=======
-  left: calc(50% - 190px);
->>>>>>> fxs
   width: 199px;
   text-align: center;
 }
@@ -638,7 +608,6 @@ a {
 }
 
 .live-stream {
-<<<<<<< HEAD
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -646,21 +615,6 @@ a {
   max-width: 620px;
   width: 100%;
   margin-right: 20px;
-=======
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  margin-top: 30px;
-  max-width: 520px;
-  width: 100%;
->>>>>>> fxs
 }
 
 h2.live-stream-title {
@@ -675,63 +629,28 @@ h2.live-stream-title {
 }
 
 .live-stream-list {
-<<<<<<< HEAD
   width: 100%;
   list-style-type: none;
   margin: 0;
   display: flex;
   flex-wrap: wrap;
-=======
-  list-style-type: none;
-  margin: 0;
-  padding-top: 20px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  padding: 0 10px;
->>>>>>> fxs
   background-color: #01244a;
   border-radius: 0 0 8px 8px;
 }
 
 .live-stream-item {
-<<<<<<< HEAD
   max-width: 300px;
   width: 100%;
   margin: 5px;
-=======
-  margin: 10px;
->>>>>>> fxs
 }
 
 .live-stream-box {
   position: relative;
   background-color: #000;
-<<<<<<< HEAD
   max-width: 300px;
   width: 100%;
   height: 190px;
-=======
-  width: 230px;
-  height: 160px;
->>>>>>> fxs
   margin-bottom: 7px;
-}
-
-.live-stream-box::before {
-  content: "";
-  position: absolute;
-  top: calc(50% - 28px);
-  left: calc(50% - 37px);
-  display: inline-block;
-  width: 74px;
-  height: 56px;
-  background-image: url("./../../images/youtube-icon-64px.png");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
 }
 
 .live-stream-box-text {
@@ -739,7 +658,6 @@ h2.live-stream-title {
   text-align: center;
   font-size: 15px;
 }
-<<<<<<< HEAD
 
 @media only screen and (max-width: 1350px) {
   .number {
@@ -904,6 +822,3 @@ h2.live-stream-title {
     padding: 20px 15px 5px;
   }
 }/*# sourceMappingURL=main.css.map */
-=======
-/*# sourceMappingURL=main.css.map */
->>>>>>> fxs
