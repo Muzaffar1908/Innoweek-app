@@ -237,9 +237,7 @@
             <li style="width: 500px;" class="live-stream-item">
                <div class="live-stream-box">
                   <a href="{{'https://www.youtube.com/watch?v='.$live_statistics->forum_1}}" class="play-btn play-btn-primary">
-
-                     <img src="https://img.youtube.com/vi/{{$live_statistics->forum_1}}/hqdefault.jpg" alt="img" with="100%" height="60px">
-
+                     <img src="https://img.youtube.com/vi/{{$live_statistics->forum_1}}/hqdefault.jpg" alt="img">
                      <i class="fas fa-play"></i>
                   </a>
                </div>
@@ -248,14 +246,20 @@
 
             <li class="live-stream-item">
                <div class="live-stream-box">
-
+                  <a href="{{'https://www.youtube.com/watch?v='.$live_statistics->forum_1}}" class="play-btn play-btn-primary">
+                     <img src="https://img.youtube.com/vi/{{$live_statistics->forum_1}}/hqdefault.jpg" alt="img">
+                     <i class="fas fa-play"></i>
+                  </a>
                </div>
                <p class="live-stream-box-text">{{__('Forum')}}-2</p>
             </li>
 
             <li class="live-stream-item">
                <div class="live-stream-box">
-
+                  <a href="{{'https://www.youtube.com/watch?v='.$live_statistics->forum_1}}" class="play-btn play-btn-primary">
+                     <img src="https://img.youtube.com/vi/{{$live_statistics->forum_1}}/hqdefault.jpg" alt="img">
+                     <i class="fas fa-play"></i>
+                  </a>
                </div>
                <p class="live-stream-box-text">{{__('Forum')}}-3</p>
             </li>

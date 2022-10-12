@@ -3,13 +3,13 @@
   font-family: "Vazirmatn";
   font-display: swap;
   font-weight: 400;
-  src: local(""), url("../fonts/vazirmatn-v6-latin-regular.woff2") format("woff2"), url("../fonts/vazirmatn-v6-latin-regular.woff") format("woff");
+  src: local(""), url("./../fonts/vazirmatn-v6-latin-regular.woff2") format("woff2"), url("../fonts/vazirmatn-v6-latin-regular.woff") format("woff");
 }
 @font-face {
   font-family: "Vazirmatn";
   font-display: swap;
   font-weight: 500;
-  src: local(""), url("../fonts/vazirmatn-v6-latin-500.woff2") format("woff2"), url("../fonts/vazirmatn-v6-latin-500.woff") format("woff");
+  src: local(""), url("./../fonts/vazirmatn-v6-latin-500.woff2") format("woff2"), url("../fonts/vazirmatn-v6-latin-500.woff") format("woff");
 }
 @font-face {
   font-family: "Vazirmatn";
@@ -50,6 +50,7 @@ pre {
 a {
   background-color: transparent;
 }
+
 
 abbr[title] {
   border-bottom: none; /* 1 */
@@ -530,6 +531,11 @@ a {
   text-align: center;
 }
 
+.diagram-desc p {
+   inline-size: 135px;
+   overflow-wrap: break-word;
+}
+
 .diagram-desc__end {
   position: absolute;
   top: calc(50% - 35px);
@@ -665,6 +671,12 @@ h2.live-stream-title {
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+}
+
+.live-stream-box img {
+  max-width: 300px;
+  width: 100%;
+  height: 190px;
 }
 
 .live-stream-box-text {
