@@ -154,33 +154,33 @@
                     </div>
 
                     <div class="mb-3">
-                        <label for="forum_1">FORUM 1</label>
-                        <input type="text" name="forum_1" class="form-control" id="forum_1" placeholder="FORUM 1" value="{{$live_statistic->forum_1}}" />
+                        <label for="forum_1">Conference 1</label>
+                        <input type="text" name="forum_1" class="form-control" id="forum_1" placeholder="Conference 1 Youtobe ID" value="{{$live_statistic->forum_1}}" />
                     </div>
 
                     <div class="mb-3">
-                        <label for="forum_2">FORUM 2</label>
-                        <input type="text" name="forum_2" class="form-control" id="forum_2" placeholder="FORUM 2" value="{{$live_statistic->forum_2}}" />
+                        <label for="forum_2">Conference 2</label>
+                        <input type="text" name="forum_2" class="form-control" id="forum_2" placeholder="Conference 2 Youtobe ID" value="{{$live_statistic->forum_2}}" />
                     </div>
 
                     <div class="mb-3">
-                        <label for="forum_3">FORUM 3</label>
-                        <input type="text" name="forum_3" class="form-control" id="forum_3" placeholder="FORUM 3" value="{{$live_statistic->forum_3}}" />
+                        <label for="forum_3">Conference 3</label>
+                        <input type="text" name="forum_3" class="form-control" id="forum_3" placeholder="Conference 3 Youtobe ID" value="{{$live_statistic->forum_3}}" />
                     </div>
 
                     <div class="mb-3">
-                        <label for="yarmarka_1">YARMARKA 1</label>
-                        <input type="text" name="yarmarka_1" class="form-control" id="yarmarka_1" placeholder="YARMARKA 1" value="{{$live_statistic->yarmarka_1}}" />
+                        <label for="yarmarka_1">Conference 4</label>
+                        <input type="text" name="yarmarka_1" class="form-control" id="yarmarka_1" placeholder="Conference 4 Youtobe ID" value="{{$live_statistic->yarmarka_1}}" />
                     </div>
 
                     <div class="mb-3">
-                        <label for="yarmarka_2">YARMARKA 2</label>
-                        <input type="text" name="yarmarka_2" class="form-control" id="yarmarka_2" placeholder="YARMARKA 2" value="{{$live_statistic->yarmarka_2}}" />
+                        <label for="yarmarka_2">Conference 5</label>
+                        <input type="text" name="yarmarka_2" class="form-control" id="yarmarka_2" placeholder="Conference 5 Youtobe ID" value="{{$live_statistic->yarmarka_2}}" />
                     </div>
 
                     <div class="mb-3">
-                        <label for="yarmarka_3">YARMARKA 3</label>
-                        <input type="text" name="yarmarka_3" class="form-control" id="yarmarka_3" placeholder="YARMARKA 3" value="{{$live_statistic->yarmarka_3}}" />
+                        <label for="yarmarka_3">Conference 6</label>
+                        <input type="text" name="yarmarka_3" class="form-control" id="yarmarka_3" placeholder="Conference 6 Youtobe ID" value="{{$live_statistic->yarmarka_3}}" />
                     </div>
 
                     <button type="submit" class="btn btn-success">Save</button>

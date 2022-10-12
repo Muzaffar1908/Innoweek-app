@@ -44,8 +44,6 @@ class LiveStatisticController extends Controller
             'titlenumber_1' => 'required',
             'countryname_1' => 'required',
             'countryson_1' => 'required',
-            'forum_1' => 'required',
-            'yarmarka_1' => 'required',
         );
 
         $validator = Validator::make($data, $rule);
@@ -143,8 +141,6 @@ class LiveStatisticController extends Controller
             'titlenumber_1' => 'required',
             'countryname_1' => 'required',
             'countryson_1' => 'required',
-            'forum_1' => 'required',
-            'yarmarka_1' => 'required',
         );
 
         $validator = Validator::make($data, $rule);

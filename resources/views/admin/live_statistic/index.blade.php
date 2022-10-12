@@ -50,11 +50,9 @@
                               <thead class="thead-primary">
                                 <tr>
                                   <th>№</th>
-                                  <th>Title number 1</th>
-                                  <th>Country name 1</th>
-                                  <th>Country Son 1</th>
-                                  <th>Forum 1</th>
-                                  <th>Yarmarka 1</th>
+                                  <th>INNOWEEK SAYTGA TASHRIFLAR SONI</th>
+                                  <th>VIRTUAL KO'RISHLAR SONI</th>
+                                  <th>Conference 1 Youtobe ID</th>
                                   <th>Satatus</th>
                                   <th>Action</th>
                                 </tr>
@@ -63,10 +61,8 @@
                                   <tr>
                                     <td>{{($live_statistics->currentpage() - 1) * $live_statistics->perpage() + ($loop->index+1)}}</td>
                                     <td>{{$live_static->titlenumber_1}}</td>
-                                    <td>{{$live_static->countryname_1}}</td>
-                                    <td>{{$live_static->countryson_1}}</td>
+                                    <td>{{$live_static->titlenumber_2}}</td>
                                     <td>{{$live_static->forum_1}}</td>
-                                    <td>{{$live_static->yarmarka_1}}</td>
                                     <td>
                                         <form action="{{ asset('/admin/live_statistic/isactive/' . $live_static->id) }}"
                                             method="POST" enctype="multipart/form-data">
