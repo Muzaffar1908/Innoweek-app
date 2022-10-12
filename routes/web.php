@@ -87,8 +87,8 @@ Route::controller(FrontAuthController::class)->group(function () {
 });
 
 //middleware('auth', 'isUser') shuni  Qo'shasiz bo'ldi//
-Route::group(['middleware' => ['isUser']], function(){
-   Route::get('/user-view', [EmployeeController::class, 'index'])->name('user.view');
+Route::prefix('employee')->name('emp.')->middleware('auth', 'isUser')->group(function () {
+   Route::get('/users', [EmployeeController::class, 'index'])->name('user.view');
 });
 
 
