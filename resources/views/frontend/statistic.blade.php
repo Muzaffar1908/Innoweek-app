@@ -4,7 +4,7 @@
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <link rel="stylesheet" href="{{asset('/stat/css/main.css')}}">
+   <link rel="stylesheet" href="{{asset('/stat/scss/main.css')}}">
    <title>{{__('INNOWEEK - STATISTICS')}}</title>
 </head>
 <body>
@@ -236,8 +236,8 @@
          <ul class="live-stream-list">
             <li style="width: 500px;" class="live-stream-item">
                <div class="live-stream-box">
-                  <a href="{{'https://www.youtube.com/watch?v='.$live_statistics->forum_1}}" class="play-btn play-btn-primary">
-                     <img src="https://img.youtube.com/vi/{{$live_statistics->forum_1}}/hqdefault.jpg" alt="img">
+                  <a href="{{'https://www.youtube.com/watch?v='.$live_statistics->forum_1}}" class="play-btn play-btn-primary stc-img">
+                     <img src="https://img.youtube.com/vi/{{$live_statistics->forum_1}}/hqdefault.jpg" alt="img" style="max-width: 300px;  width: 100%; height: 190px;">
                      <i class="fas fa-play"></i>
                   </a>
                </div>
@@ -247,7 +247,7 @@
             <li class="live-stream-item">
                <div class="live-stream-box">
                   <a href="{{'https://www.youtube.com/watch?v='.$live_statistics->forum_1}}" class="play-btn play-btn-primary">
-                     <img src="https://img.youtube.com/vi/{{$live_statistics->forum_1}}/hqdefault.jpg" alt="img">
+                     <img src="https://img.youtube.com/vi/{{$live_statistics->forum_1}}/hqdefault.jpg" alt="img" style="max-width: 300px; width: 100%; height: 190px;">
                      <i class="fas fa-play"></i>
                   </a>
                </div>
@@ -257,7 +257,7 @@
             <li class="live-stream-item">
                <div class="live-stream-box">
                   <a href="{{'https://www.youtube.com/watch?v='.$live_statistics->forum_1}}" class="play-btn play-btn-primary">
-                     <img src="https://img.youtube.com/vi/{{$live_statistics->forum_1}}/hqdefault.jpg" alt="img">
+                     <img src="https://img.youtube.com/vi/{{$live_statistics->forum_1}}/hqdefault.jpg" alt="img" style="max-width: 300px; width: 100%; height: 190px;">
                      <i class="fas fa-play"></i>
                   </a>
                </div>
@@ -266,21 +266,33 @@
 
             <li class="live-stream-item">
                <div class="live-stream-box">
-
+                  <a href="{{'https://www.youtube.com/watch?v='.$live_statistics->forum_1}}" class="play-btn play-btn-primary">
+                     <img src="https://img.youtube.com/vi/{{$live_statistics->forum_1}}/hqdefault.jpg" alt="img"
+                        style="max-width: 300px; width: 100%; height: 190px;">
+                     <i class="fas fa-play"></i>
+                  </a>
                </div>
                <p class="live-stream-box-text">{{__('Forum')}}-4</p>
             </li>
 
             <li class="live-stream-item">
                <div class="live-stream-box">
-
+                  <a href="{{'https://www.youtube.com/watch?v='.$live_statistics->forum_1}}" class="play-btn play-btn-primary">
+                     <img src="https://img.youtube.com/vi/{{$live_statistics->forum_1}}/hqdefault.jpg" alt="img"
+                        style="max-width: 300px; width: 100%; height: 190px;">
+                     <i class="fas fa-play"></i>
+                  </a>
                </div>
                <p class="live-stream-box-text">{{__('Forum')}}-5</p>
             </li>
 
             <li class="live-stream-item">
                <div class="live-stream-box">
-
+                  <a href="{{'https://www.youtube.com/watch?v='.$live_statistics->forum_1}}" class="play-btn play-btn-primary">
+                     <img src="https://img.youtube.com/vi/{{$live_statistics->forum_1}}/hqdefault.jpg" alt="img"
+                        style="max-width: 300px; width: 100%; height: 190px;">
+                     <i class="fas fa-play"></i>
+                  </a>
                </div>
                <p class="live-stream-box-text">{{__('Forum')}}-6</p>
             </li>
