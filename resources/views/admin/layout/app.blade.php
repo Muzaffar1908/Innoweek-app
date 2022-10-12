@@ -10,7 +10,7 @@
     <!-- PAGE TITLE HERE -->
     <title>INNOWEEK ELEKTRON PLATFORMA</title>
     
-    {{-- <link href="{{asset('admin/vendor/datatables/css/jquery.dataTables.min.css')}}" rel="stylesheet"> --}}
+    <link href="{{asset('/admin/vendor/datatables/css/jquery.dataTables.min.css')}}" rel="stylesheet">
     <link href="{{asset('admin/vendor/jquery-smartwizard/dist/css/smart_wizard.min.css')}}" rel="stylesheet">
     
     {{-- Daterange picker --}}
@@ -31,10 +31,10 @@
     {{-- <link rel="stylesheet" href="{{ asset('admin/vendor/pickadate/themes/default.date.css') }}"> --}}
     @yield('style')
     <!-- FAVICONS ICON -->
-    {{-- <link
+    <link
         href="{{ asset('admin/vendor/jquery-nice-select/css/nice-select.css') }}"
         rel="stylesheet"
-    /> --}}
+    />
     <link href="{{ asset('admin/css/style.css') }}" rel="stylesheet" />
     {{-- <link href="{{asset('admin/vendor/sweetalert2/dist/sweetalert2.min.css')}}" rel="stylesheet"> --}}
     <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
