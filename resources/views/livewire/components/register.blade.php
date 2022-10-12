@@ -35,7 +35,7 @@
             placeholder="{{__('Date of birth')}} *" />
 
             <select name="profession_id" id="profesion">
-              <option selected>{{('Choose your profession')}} *</option>
+              <option>{{('Choose your profession')}} *</option>
               @foreach (\App\Models\Profession::scopeProfessionList() as $data)
               <option value="{{ $data->id }}">{{ $data->name }}</option>
               @endforeach
@@ -48,6 +48,7 @@
               <input type="radio" name="gender" value="2" id="gender"><label>{{__('AYOL')}}</label>
             </div>
           </div>
+
           <button type="submit" class="btnB btn-input">{{__('Sign up')}}</button>
           <p class="text-center mt-3 text-white"> {{__('Are you registered?')}}
             <a href="{{ route('d-checker') }}" class="mx-2">{{__('Please check your ticket')}} </a>  

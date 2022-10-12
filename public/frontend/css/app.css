@@ -11992,6 +11992,7 @@ body.slidemenuon .sidebarBtn .bar:nth-child(4) {
 }
 
 .schedule-box-layout3.schedule-content .accordion-button .date-time-wrap {
+    width: 100%;
     margin-right: 50px;
     display: flex;
     align-items: center;
@@ -12005,39 +12006,54 @@ body.slidemenuon .sidebarBtn .bar:nth-child(4) {
 }
 
 .schedule-box-layout3.schedule-content .accordion-button .date-time-wrap .date {
-    font-size: 55px;
-    font-weight: 400;
+    font-size: 35px;
+    font-weight: 400px;
     font-family: "IBM Plex Sans", sans-serif;
     color: #ffffff;
-    line-height: 1;
+    line-height: 1.1;
     margin-right: 15px;
-}
-
-@media (max-width: 1199px) {
+    margin-top: -10px;
+    width: 120%;
+  }
+  
+  @media (max-width: 1199px) {
     .schedule-box-layout3.schedule-content .accordion-button .date-time-wrap .date {
-        font-size: 40px;
+      font-size: 40px;
     }
-}
-
-.schedule-box-layout3.schedule-content .accordion-button .date-time-wrap .month {
-    font-size: 24px;
+  }
+  
+  .schedule-box-layout3.schedule-content .accordion-button .date-time-wrap .month {
+    font-size: 35px;
     font-weight: 400;
     font-family: "IBM Plex Sans", sans-serif;
     color: #ffffff;
     line-height: 1.3;
-}
-
-@media (max-width: 1199px) {
+  }
+  
+  @media (max-width: 1199px) {
     .schedule-box-layout3.schedule-content .accordion-button .date-time-wrap .month {
-        font-size: 24px;
+      font-size: 24px;
     }
-}
-
-.schedule-box-layout3.schedule-content .accordion-button .date-time-wrap .time {
+  }
+  
+  .schedule-box-layout3.schedule-content .accordion-button .date-time-wrap .time {
+    margin-top: -18px;
+    display: flex;
+    flex-direction: column;
+    font-size: 40px;
     font-weight: 400;
     font-family: "IBM Plex Sans", sans-serif;
     color: #ffffff;
-}
+  }
+  
+  span.line {
+    margin-top: -18px;
+    margin-left: 15px;
+    margin-right: 8px;
+    width: 3px;
+    height: 92px;
+    color: transparent;
+  } 
 
 .schedule-box-layout3.schedule-content .accordion-button .content-box-wrap {
     display: flex;
@@ -14766,7 +14782,6 @@ input[type="radio"] {
 }
 
 .playMM {
-    height: 60px;    
     margin-right: 10px;
 }
 

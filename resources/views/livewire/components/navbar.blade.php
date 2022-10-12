@@ -282,7 +282,7 @@
                     <li class="header-action-item d-none d-xl-block wow fadeInUp animated"
                         data-wow-delay="1s">
                         <button type="button"
-                            class="item-btn btn-fill style-one offcanvas-menu-btn style-one menu-status-open">
+                            class="item-btn btn-fill style-one offcanvas-menu-btn style-one menu-status-open" id="registeerr">
                             {{__('REGISTRATION')}}
                         </button>
                     </li>

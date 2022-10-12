@@ -243,12 +243,21 @@ class UserController extends Controller
              $users = new User;
          }
 
+         if ($request->hasFile('user_image')) {
+            $file = $request->file('user_image');
+            $ex = $file->getClientOriginalExtension();
+            $imageName = md5(rand(100, 999999) . microtime()) . "." . $ex;
+            $file->move(public_path('upload/config'), $imageName);
+            // unlink($userticket->ticket_image);
+            $data['user_image'] = 'upload/config/' . $imageName;
+        }
+
          $users->first_name = $inputs['first_name'];
          $users->last_name = $inputs['last_name'];
          $users->middle_name = $inputs['middle_name'];
          $users->gender = $inputs['gender'];
          $users->birth_date = $inputs['birth_date'];
-         $users->user_image = $inputs['user_image'];
+        //  $users->user_image = $inputs['user_image'];
          $users->address = $inputs['address'];
          $users->balance = $inputs['balance'];
          $users->email = $inputs['email'];
@@ -259,15 +268,7 @@ class UserController extends Controller
          $users->profession_id = $inputs['profession_id'];
          $users->organization = $inputs['organization'];
 
-         if ($request->hasFile('user_image')) {
-            $file = $request->file('user_image');
-            $ex = $file->getClientOriginalExtension();
-            $imageName = md5(rand(100, 999999) . microtime()) . "." . $ex;
-            $file->move(public_path('upload/config'), $imageName);
-            // unlink($userticket->ticket_image);
-            $data['user_image'] = 'upload/config/' . $imageName;
-        }
-         $users->user_image = 'upload/config/'.$imageName;
+        //  $users->user_image = 'upload/config/'.$imageName;
          $users->save();
 
          if (!empty($inputs['id'])) {

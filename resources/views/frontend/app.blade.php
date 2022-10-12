@@ -187,14 +187,14 @@
             <div class="col-lg-10">
             <div class="schedule-slider-main-wrap">
                 <div class="schedule-slider-thumbnail-style-1 swiper-container schedule-box-layout3 schedule-nav">
-                <div class="swiper-wrapper">
-                    @foreach ($ConfSchedules as $con)
-                    <div class="swiper-slide">
-                        {{-- S4: Mon, Mar 28th --}}
-                        {{Carbon::parse($con->date)->format('D ,M dS')}}
+                    <div class="swiper-wrapper">
+                        @foreach ($ConfSchedules as $con)
+                        <div class="swiper-slide">
+                            {{-- S4: Mon, Mar 28th --}}
+                            {{Carbon::parse($con->date)->format('D ,M dS')}}
+                        </div>
+                        @endforeach
                     </div>
-                    @endforeach
-                </div>
                 </div>
                 <span class="slider-btn slider-btn-prev">
                     <i class="fas fa-chevron-left"></i>
@@ -213,13 +213,21 @@
                                         <div class="panel panel-default wow fadeInUp animated" data-wow-delay="0.3s" data-wow-duration="1s">
                                             <div class="panel-heading" id="headingOne{{ $i + $k }}">
                                                 <div class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#collapseOne{{ $i + $k }}" aria-expanded="true" aria-controls="collapseOne" role="button">
-                                                    <div class="date-time-wrap">
+                                                    {{-- <div class="date-time-wrap">
                                                         <div class="date">{{Carbon::parse($dd->started_at)->format('d')}}</div>
                                                         <div>
                                                             <div class="month">{{Carbon::parse($dd->started_at)->format('F')}}</div>
                                                             <div class="time">{{Carbon::parse($dd->started_at)->format('H:i')}} -{{Carbon::parse($dd->stoped_at)->format('H:i')}} </div>
                                                         </div>
-                                                    </div>
+                                                    </div> --}}
+                                                    <div class="date-time-wrap">
+                                                        <div class="time">{{Carbon::parse($dd->started_at)->format('H:i')}}<span class="time"></span>{{Carbon::parse($dd->stoped_at)->format('H:i')}}</div>
+                                                        <span class="line bg-white">aaa</span>
+                                                        <div>
+                                                          <div class="date">{{Carbon::parse($dd->started_at)->format('d')}} - {{Carbon::parse($dd->started_at)->format('F ')}}</div>  
+                                                          <div class="month">{{Carbon::parse($dd->started_at)->format('Y')}}</div>
+                                                        </div>
+                                                      </div>
                                                     <div class="content-box-wrap">
                                                         <div class="figure-box">
                                                             <img src="{{asset('upload/conference/' .$dd->user_image.'_thumbnail_267.png')}}" alt="img" with="100px" height="60px">
@@ -286,10 +294,9 @@
                        </div>
                         {{-- <img  src="{{asset('frontend/image/qr.png')}}" class="mx-auto d-block img"  alt=""> --}}
                         <div class="d-flex py-3 align-items-center justify-content-between mobile">
-                            <a href="https://play.google.com/store/apps/details?id=com.mimaxgroup.innomobileapp"><img class="downloads playMM" width="200" src="{{asset('frontend/image/icon/playmarket.png')}}" alt=""></a>
-                            <a href="https://play.google.com/store/apps/details?id=com.mimaxgroup.innomobileapp"><img class="downloads playSS" width="200" src="{{asset('frontend/image/icon/appstoree.png')}}" alt=""></a>
+                            <a href="https://play.google.com/store/apps/details?id=com.mimaxgroup.innomobileapp"><img class="downloads playMM" width="200" src="{{asset('frontend/image/icon/googleplay.png')}}" alt=""></a>
+                            <a href="#registeerr"><img class="downloads playSS" width="200" src="{{asset('frontend/image/icon/appstore.png')}}" alt=""></a>
                         </div>
-                        
                     </form>
                   </div>
                 <div class="accordion accordion-flush container" id="accordionFlushExample">

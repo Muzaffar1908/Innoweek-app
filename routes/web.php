@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ArchiveController;
 use App\Http\Controllers\ConferenceController;
+use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\Front\AuthController as FrontAuthController;
 use App\Http\Controllers\Front\CheckController;
 use App\Http\Controllers\GaleriesController;
@@ -84,6 +85,12 @@ Route::controller(FrontAuthController::class)->group(function () {
     Route::post('/ticket/verify', 'VerifyMessage')->name('d-verified');
     Route::get('/ticket/login', 'LoginPage')->name('d-login');
 });
+
+//middleware('auth', 'isUser') shuni  Qo'shasiz bo'ldi//
+Route::group(['middleware' => ['isUser']], function(){
+   Route::get('/user-view', [EmployeeController::class, 'index'])->name('user.view');
+});
+
 
 // Backend  start !!!
 Route::prefix('admin')->name('admin.')->middleware('auth', 'isAdmin')->group(function () {

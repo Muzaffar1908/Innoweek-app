@@ -99,53 +99,25 @@
                   use Carbon\Carbon;
                 ?>
                 <div class="others-option">
-                  <div class="option-item for-mobile-devices">
-                    <i class="search-btn fa-regular fa-bell"></i>
-                    <i class="close-btn ri-close-line"></i>
-                    <div class="search-overlay search-popup">
-                    <!-- <div class='search-box'>
-                      <form class="search-form">
-                        <input class="search-input" name="search" placeholder="Search" type="text">
-                        <button class="search-button" type="submit">
-                          <i class="ri-search-line"></i>
-                        </button>
-                      </form>
-                    </div> -->
-                      {{-- <div class="worning-box d-flex">
-                        <div class="d-flex align-items-center justify-content-between">
-                          <a class="d-flex align-items-center justify-content-between bgColor" href="./you-tube.html">
-                            <img width="50px" src="assets/images/icon/YouTube.webp" alt="Images">
-                            <p class="m-0 px-3">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                            <span style="color: red;">22.06.2022</span>
-                          </a>
-                        </div>
-                      </div>
-      
-                      <div class="worning-box d-flex bgColor">
-                        <div class="d-flex align-items-center justify-content-between ">
-                          <p class="d-flex align-items-center justify-content-between">
-                          <span class="d-flex align-items-center justify-content-between">
-                            <p class="mx-0 px-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum beatae amet cupiditate nisi! Dicta deserunt laudantium incidunt facilis assumenda eum.</p>
-                            <span style="color: red;">22.06.2022</span>
-                          </span>
-                        </div>
-                      </div> --}}
-                        @foreach($push_notifications as $push)
-                            <div class="worning-box d-flex">
-                                <div class="d-flex align-items-center justify-content-between">
-                                    <span class="d-flex align-items-center justify-content-between bgColor">
-                                        @isset($push->image)
-                                        <img width="50px" src="{{asset('/upload/push_notification/' . $push->image.'_thumbnail_130.png')}}" alt="Images">
-                                        @endisset
-                                        <p class="m-0 px-3">{{$push->texts}}</p>
-                                        <span style="color: red;">{{Carbon::parse($push->created_at)->format('d, m, Y')}}</span>
-                                    </span>
+                    <div class="option-item for-mobile-devices">
+                        <i class="search-btn fa-regular fa-bell"></i>
+                        <i class="close-btn ri-close-line"></i>
+                        <div class="search-overlay search-popup">
+                            @foreach($push_notifications as $push)
+                                <div class="worning-box d-flex">
+                                    <div class="d-flex align-items-center justify-content-between">
+                                        <span class="d-flex align-items-center justify-content-between bgColor">
+                                            @isset($push->image)
+                                            <img width="50px" src="{{asset('/upload/push_notification/' . $push->image.'_thumbnail_130.png')}}" alt="Images">
+                                            @endisset
+                                            <p class="m-0 px-3">{{$push->texts}}</p>
+                                            <span style="color: red;">{{Carbon::parse($push->created_at)->format('d, m, Y')}}</span>
+                                        </span>
+                                    </div>
                                 </div>
-                            </div>
-                        @endforeach
-                     
+                            @endforeach
+                        </div>
                     </div>
-                  </div>
                 </div>
               </div>
         </div>
