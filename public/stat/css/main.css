@@ -15,7 +15,7 @@
   font-family: "Vazirmatn";
   font-display: swap;
   font-weight: 700;
-  src: local(""), url("../fonts/vazirmatn-v6-latin-700.woff2") format("woff2"), url("../fonts/vazirmatn-v6-latin-700.woff") format("woff");
+  src: local(""), url("./../fonts/vazirmatn-v6-latin-700.woff2") format("woff2"), url("../fonts/vazirmatn-v6-latin-700.woff") format("woff");
 }
 /* Normalize */
 html {
@@ -313,7 +313,7 @@ a {
   display: block;
   width: 50px;
   height: 40px;
-  background-image: url("../../images/people-group.svg");
+  background-image: url("./../images/people-group.svg");
   background-repeat: no-repeat;
 }
 
@@ -322,7 +322,7 @@ a {
   display: block;
   width: 50px;
   height: 40px;
-  background-image: url("../../images/eye.svg");
+  background-image: url("./../images/eye.svg");
   background-repeat: no-repeat;
 }
 
@@ -331,7 +331,7 @@ a {
   display: block;
   width: 50px;
   height: 40px;
-  background-image: url("../../images/building.svg");
+  background-image: url("./../images/building.svg");
   background-repeat: no-repeat;
 }
 
@@ -340,7 +340,7 @@ a {
   display: block;
   width: 50px;
   height: 40px;
-  background-image: url("../../images/user.svg");
+  background-image: url("./../images/user.svg");
   background-repeat: no-repeat;
 }
 
@@ -349,7 +349,7 @@ a {
   display: block;
   width: 50px;
   height: 40px;
-  background-image: url("../../images/earth.svg");
+  background-image: url("./../images/earth.svg");
   background-repeat: no-repeat;
 }
 
@@ -358,7 +358,7 @@ a {
   display: block;
   width: 50px;
   height: 40px;
-  background-image: url("../../images/folder.svg");
+  background-image: url("./../images/folder.svg");
   background-repeat: no-repeat;
 }
 
@@ -661,7 +661,7 @@ h2.live-stream-title {
   display: inline-block;
   width: 74px;
   height: 56px;
-  background-image: url("./../../images/youtube-icon-64px.png");
+  background-image: url("././../images/youtube-icon-64px.png");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
