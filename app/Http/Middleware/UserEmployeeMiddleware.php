@@ -25,8 +25,5 @@ class UserEmployeeMiddleware
                 return redirect('/login')->with('massage',"Siz user emassiz");
             }
         }
-        else {
-            return redirect('/signin')->with('massage',"Siz ro'yhatdan o'tmagansiz");
-        }
     }
 }

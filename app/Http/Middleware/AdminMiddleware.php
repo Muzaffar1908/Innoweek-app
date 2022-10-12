@@ -26,9 +26,5 @@ class AdminMiddleware
                 return redirect('/login')->with('massage',"Siz admin emassiz");
             }
         }
-        else {
-            return redirect('/signin')->with('massage',"Siz ro'yhatdan o'tmagansiz");
-        }
-
     }
 }
