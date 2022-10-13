@@ -64,8 +64,8 @@
 @import url(./../vendor/animate/animate.min.css);
 @import url(./../vendor/aos/css/aos.min.css);
 @import url(./../vendor/perfect-scrollbar/css/perfect-scrollbar.css);
+@import url(./../vendor/metismenu/css/metisMenu.min.css);
 
-/* @import url(./../vendor/metismenu/css/metisMenu.min.css); */
 .DZ-theme-btn {
   background-color: #fff;
   border-radius: 40px;
