@@ -157,7 +157,7 @@
                     <a href="{{route('speakershowx', ['id'=>$spek->id])}}"><img src="{{asset('upload/speaker/' .$spek->image.'_thumbnail_267.png')}}" alt="Speaker" width="267" height="267"></a>
                     </div>
                     <div class="content-box">
-                    <h3 class="title"><a href="{{route('speakershowx', ['id'=>$spek->id])}}">{{$spek->fullname}}</a></h3>
+                    <h3 class="title"><a href="{{route('speakershowx', ['id'=>$spek->id])}}">{{$spek->name}}</a></h3>
                     <div class="sub-title">{{strip_tags($spek->job)}}</div>
                     <div class="speaker-social">
                         <ul>
