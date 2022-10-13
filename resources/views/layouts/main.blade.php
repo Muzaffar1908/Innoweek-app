@@ -25,6 +25,7 @@
     <link rel="stylesheet" href="{{ asset('/frontend/assets/magnific-popup/css/magnific-popup.css') }}">
     <link rel="stylesheet" href="{{ asset('/frontend/assets/swiper/css/swiper.min.css') }}">
     <link rel="stylesheet" href="{{ asset('/frontend/css/app.css') }}">
+    <link rel="stylesheet" href="{{ asset('/toastr/toastr.min.css') }}">
     @yield('style')
     <!-- flatpickr -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
@@ -166,7 +167,34 @@
     <script src="{{ asset('/frontend/assets/validator/validator.min.js') }}"></script>
     <!-- flatpickr -->
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script>
+        $(document).ready(function() {
+            let msg = "{{session('warning')}} {{session()->forget('warning')}}";
+            if (msg.length !== 1) {
+                toastr["warning"](msg, "Warning");
+            }
+            //toastr["warning"]("{{session('warning')}}", "Warning");
+            toastr.options = {
+            "closeButton": true,
+            "debug": false,
+            "newestOnTop": true,
+            "progressBar": false,
+            "positionClass": "toast-top-right",
+            "preventDuplicates": false,
+            "onclick": null,
+            "showDuration": "300",
+            "hideDuration": "1000",
+            "timeOut": "5000",
+            "extendedTimeOut": "1000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+            }
+        });
+    </script>
     <!-- Custom Script -->
+    <script src="{{ asset('/toastr/toastr.min.js') }}" type="text/javascript"></script>
     @yield('scripts')
 </body>
 </html>
