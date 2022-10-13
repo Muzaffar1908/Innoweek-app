@@ -86,4 +86,23 @@ class CheckController extends Controller
         \Session::flash('warning', "Ma'lumotlar xato kiritilgan...");
         return \Redirect::back();
     }
+
+    public function checkScan(Request $request)
+    {
+        $inputs = $request->all();
+        $dataID = $request->route('dataID');
+        $user = User::select('ut.id as ticketId')->where(['ut.ticket_id' => $dataID])
+                ->leftJoin('user_tickets as ut', 'ut.user_id', '=', 'users.id')
+                ->first();
+            if ($user) {
+                session(['userticket' => $user->ticketId]);
+                \Session::flash('warning', __('ALL_SUCCESSFUL_SAVED'));
+                return redirect()->route('d-login');
+
+            \Session::flash('warning', "Ma'lumotlar xato kiritilgan...");
+            return \Redirect::back();
+        }
+        \Session::flash('warning', "Ma'lumotlar xato kiritilgan...");
+        return \Redirect::back();
+    }
 }

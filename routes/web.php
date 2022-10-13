@@ -66,6 +66,7 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::get('/mobile-v-logout', [IndexController::class, 'SignOut'])->name('m-logout');
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
+Route::get('/check/ticket/{dataID}', [CheckController::class, 'checkScan'])->name('d-checker-code');
 Route::get('/ticket/checker', [CheckController::class, 'index'])->name('d-checker');
 Route::post('/ticket/checker', [CheckController::class, 'checkTicket'])->name('d-checker-form');
 Route::get('/ticket/download', [CheckController::class, 'ticketDownload'])->name('d-checker-download');

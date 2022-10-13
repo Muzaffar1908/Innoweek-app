@@ -79,7 +79,7 @@ sticky
         <p class="text-center"> {{__('Ticket to enter Innoweek-2022')}} </p>
         <div class="d-flex justify-content-around userinf mt-3">
           <h1 class="d-flex align-items-center">{{$ticket->first_name }} {{ $ticket->last_name }}</h1>
-          {!! QrCode::size(170)->generate(url('https://innoweek.uz/ticket').'/check/ticket/'.$ticket->ticket_id) !!}
+          {!! QrCode::size(170)->generate(url('/').'/check/ticket/'.$ticket->ticket_id) !!}
           {{-- <img src="./image/image 2.png" alt=""> --}}
         </div>
         <div class="grid-container">
