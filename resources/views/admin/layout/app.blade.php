@@ -74,7 +74,12 @@
       <!--**********************************
             Sidebar start
         ***********************************-->
-       @include('admin.layout.partials.sidebar')
+        @if (Auth::user()->roll == 2)
+         @include('admin.layout.partials.sidebar_emp')
+        @endif
+        @if (Auth::user()->roll == 1)
+          @include('admin.layout.partials.sidebar')
+        @endif
       <!--**********************************
             Sidebar end
         ***********************************-->

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ArchiveController;
 use App\Http\Controllers\ConferenceController;
+use App\Http\Controllers\Employee\Users\UserController as UsersUserController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\Front\AuthController as FrontAuthController;
 use App\Http\Controllers\Front\CheckController;
@@ -88,7 +89,8 @@ Route::controller(FrontAuthController::class)->group(function () {
 
 //middleware('auth', 'isUser') shuni  Qo'shasiz bo'ldi//
 Route::prefix('employee')->name('emp.')->middleware('auth', 'isUser')->group(function () {
-   Route::get('/users', [EmployeeController::class, 'index'])->name('user.view');
+   Route::get('/users', [UsersUserController::class, 'index'])->name('user.view');
+   Route::resource('/user', UsersUserController::class);
 });
 
 
