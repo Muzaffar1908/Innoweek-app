@@ -35,7 +35,7 @@
             placeholder="{{__('Date of birth')}} *" />
 
             <select name="profession_id" id="profesion">
-              <option>{{('Choose your profession')}} *</option>
+              <option>{{__('Choose your profession')}} *</option>
               @foreach (\App\Models\Profession::scopeProfessionList() as $data)
               <option value="{{ $data->id }}">{{ $data->name }}</option>
               @endforeach
