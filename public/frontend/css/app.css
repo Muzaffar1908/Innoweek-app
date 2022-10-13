@@ -15691,8 +15691,61 @@ color: #fff;
     margin-top: 2rem;
 }
 
-    @media ( min-width: 1200px ) {
+    @media ( max-width: 1200px ) {
         .qrcode .inveestor {
             margin: 240px auto ;
         }
  }
+
+@media (max-width:375px) {
+    .qrcode h1 {
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 20px;
+        text-align: center;
+        color: #FFFFFF;
+        text-shadow: 1px 3px 1px rgb(0 0 0 / 20%);
+    }
+    .qrcode p {
+        margin-top: -7px;
+        font-family: 'Inter';
+        font-size: 15px;
+        color: #FFFFFF;
+        text-shadow: 1px 1px 1px rgb(0 0 0 / 20%);
+    }
+    .userinf {
+        padding-top: 0;
+    }
+    .qrcode .footer {
+        margin: 0 10px 0 10px;
+        font-family: 'Inter';
+        font-size: 16px;
+        line-height: 20px;
+        text-align: center;
+        color: #FFFFFF;
+        text-shadow: 1px 1px 1px rgb(0 0 0 / 20%);
+    }
+    .qrcode .inveestor {
+        margin: 17px auto;
+        width: 100%;
+        padding: 12px;
+    }
+}
+
+@media (max-width:420px) {
+    .qrcode .inveestor {
+        margin: 150px auto;
+        width: 100%;
+        padding: 12px;
+    }
+}
+
+@media (max-width:360px) {
+    .qrcode .inveestor {
+        margin: 79px auto;
+        width: 100%;
+        padding: 12px;
+    }
+}
