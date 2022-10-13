@@ -238,7 +238,7 @@
                <div class="live-stream-box">
                   @isset($live_statistics->forum_1)
                      <a href="{{'https://www.youtube.com/watch?v='.$live_statistics->forum_1}}" class="play-btn play-btn-primary stc-img">
-                        <img src="https://img.youtube.com/vi/{{$live_statistics->forum_1}}/hqdefault.jpg" alt="img" style="max-width: 300px;  width: 100%; height: 190px;">
+                        <img src="https://img.youtube.com/vi/{{$live_statistics->forum_1}}/hqdefault.jpg" alt="img">
                         <i class="fas fa-play"></i>
                      </a>
                   @endisset
@@ -250,7 +250,7 @@
                <div class="live-stream-box">
                   @isset($live_statistics->forum_2)
                      <a href="{{'https://www.youtube.com/watch?v='.$live_statistics->forum_2}}" class="play-btn play-btn-primary stc-img">
-                        <img src="https://img.youtube.com/vi/{{$live_statistics->forum_2}}/hqdefault.jpg" alt="img" style="max-width: 300px;  width: 100%; height: 190px;">
+                        <img src="https://img.youtube.com/vi/{{$live_statistics->forum_2}}/hqdefault.jpg" alt="img" >
                         <i class="fas fa-play"></i>
                      </a>
                   @endisset
@@ -262,7 +262,7 @@
                <div class="live-stream-box">
                   @isset($live_statistics->forum_3)
                      <a href="{{'https://www.youtube.com/watch?v='.$live_statistics->forum_3}}" class="play-btn play-btn-primary stc-img">
-                        <img src="https://img.youtube.com/vi/{{$live_statistics->forum_3}}/hqdefault.jpg" alt="img" style="max-width: 300px;  width: 100%; height: 190px;">
+                        <img src="https://img.youtube.com/vi/{{$live_statistics->forum_3}}/hqdefault.jpg" alt="img">
                         <i class="fas fa-play"></i>
                      </a>
                   @endisset
@@ -274,7 +274,7 @@
                <div class="live-stream-box">
                   @isset($live_statistics->yarmarka_1)
                      <a href="{{'https://www.youtube.com/watch?v='.$live_statistics->yarmarka_1}}" class="play-btn play-btn-primary stc-img">
-                        <img src="https://img.youtube.com/vi/{{$live_statistics->yarmarka_1}}/hqdefault.jpg" alt="img" style="max-width: 300px;  width: 100%; height: 190px;">
+                        <img src="https://img.youtube.com/vi/{{$live_statistics->yarmarka_1}}/hqdefault.jpg" alt="img">
                         <i class="fas fa-play"></i>
                      </a>
                   @endisset
@@ -286,7 +286,7 @@
                <div class="live-stream-box">
                   @isset($live_statistics->yarmarka_2)
                      <a href="{{'https://www.youtube.com/watch?v='.$live_statistics->yarmarka_2}}" class="play-btn play-btn-primary stc-img">
-                        <img src="https://img.youtube.com/vi/{{$live_statistics->yarmarka_2}}/hqdefault.jpg" alt="img" style="max-width: 300px;  width: 100%; height: 190px;">
+                        <img src="https://img.youtube.com/vi/{{$live_statistics->yarmarka_2}}/hqdefault.jpg" alt="img">
                         <i class="fas fa-play"></i>
                      </a>
                   @endisset
@@ -298,7 +298,7 @@
                <div class="live-stream-box">
                   @isset($live_statistics->yarmarka_3)
                      <a href="{{'https://www.youtube.com/watch?v='.$live_statistics->yarmarka_3}}" class="play-btn play-btn-primary stc-img">
-                        <img src="https://img.youtube.com/vi/{{$live_statistics->yarmarka_3}}/hqdefault.jpg" alt="img" style="max-width: 300px;  width: 100%; height: 190px;">
+                        <img src="https://img.youtube.com/vi/{{$live_statistics->yarmarka_3}}/hqdefault.jpg" alt="img">
                         <i class="fas fa-play"></i>
                      </a>
                   @endisset

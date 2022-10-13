@@ -73,6 +73,8 @@ sup {
 
 img {
    border-style: none;
+   width: 325px;
+   height: 190px;
 }
 
 button,
@@ -180,4 +182,12 @@ template {
 
 [hidden] {
    display: none;
+}
+
+@media ( min-width: 1200px ) {
+   img {
+      border-style: none;
+      width: 440px;
+      height: auto;
+   }
 }
