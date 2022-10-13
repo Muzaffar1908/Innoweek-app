@@ -141,7 +141,13 @@ class AuthController extends Controller
             $rule['email'] = 'required|string|email|max:255|unique:users';
         } else {
             if (Str::length($inputs['phone_or_email']) < 9) {
-                \Session::flash('warning', "Iltimos tog'ri telefon raqam kiriting");
+                session([
+                    'warning' => "Iltimos tog'ri telefon raqam kiriting",
+                ]);
+                //session()->has('warning')
+                //session()->get('warning')
+                
+                //\Session::flash('warning', "Iltimos tog'ri telefon raqam kiriting");
                 return \Redirect::back();
             }
             $data['phone'] = Str::substr($data['phone_or_email'], -9);
