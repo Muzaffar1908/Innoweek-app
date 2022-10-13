@@ -46,15 +46,16 @@
                                     <thead class="thead-primary">
                                         <tr>
                                             <th>№</th>
-                                            <th>Familya Ism Shaxsi</th>
+                                            <th>Familya Ism Sharifi</th>
                                             <th>E-Mail</th>
                                             <th>Telefon Raqami</th>
                                             <th>Davlat</th>
-                                            <th>Kasbi & Mutaxasisligi</th>
-                                            <th>Tashkiloti</th>
-                                            <th>Jinsi</th>
-                                            <th>Ro'yxatdan O'tgan Sanasi</th>
-                                            <th>Action</th>
+                                            {{-- <th>Kasbi & Mutaxasisligi</th> --}}
+                                            {{-- <th>Tashkiloti</th> --}}
+                                            {{-- <th>Jinsi</th> --}}
+                                            {{-- <th>Ro'yxatdan O'tgan Sanasi</th> --}}
+                                            {{-- <th>Status</th> --}}
+                                            {{-- <th>Action</th> --}}
                                         </tr>
                                     </thead>
                                     @foreach ($users as $user)
@@ -64,20 +65,17 @@
                                             <td>{{ $user->full_name }}</td>
                                             <td>{{ $user->email }}</td>
                                             <td>{{ $user->phone }}</td>
-                                            <td>{{ $user->country_name }}</td>
-                                       
-                                            <td>{{ $user->email ?: 'Kiritilmagan' }}</td>
-                                            <td>{{ $user->phone ?: 'Kiritilmagan' }}</td>
+                                            <td>{{ $user->provider_name  }}</td>
                                             <td>
-                                                <form action="{{ asset('/employee/user/isactive/' . $user->id) }}"
+                                                {{-- <form action="{{ asset('/employee/user/isactive/' . $user->id) }}"
                                                     method="POST" enctype="multipart/form-data">
                                                     @csrf
                                                     <div class="sweetalert">
                                                         <button type="button"
                                                             class="
-                                    @if ($user->is_active == 1) btn-success @endif
-                                @if ($user->is_active == 0) btn-danger @endif
-                                    btn sweet-confirm">
+                                                            @if ($user->is_active == 1) btn-success @endif
+                                                            @if ($user->is_active == 0) btn-danger @endif
+                                                            btn sweet-confirm">
                                                             @if ($user->is_active == 1)
                                                                 Active
                                                             @endif
@@ -86,7 +84,7 @@
                                                             @endif
                                                         </button>
                                                     </div>
-                                                </form>
+                                                </form> --}}
                                             </td>
                                            
                                         </tr>
