@@ -58,13 +58,12 @@ class AuthController extends Controller
         $lang = \App::getLocale();
 
         if (session()->has('userticket')) {
-            $ticket = UserTicket::select('user_tickets.id as t_id', 'u.id as u_id', 'u.first_name as first_name', 'u.last_name as last_name', 'p.name_'. $lang .' as profession_name', 'user_tickets.ticket_id')
-            ->leftJoin('users as u', 'u.id', '=', 'user_tickets.user_id')
-            ->leftJoin('professions as p', 'u.profession_id', '=', 'p.id')
-            ->where([['user_tickets.id', session()->get('userticket')], ['u.is_active', true]])
-            ->first();
-        }
-        else return redirect('/');
+            $ticket = UserTicket::select('user_tickets.id as t_id', 'u.id as u_id', 'u.first_name as first_name', 'u.last_name as last_name', 'p.name_' . $lang . ' as profession_name', 'user_tickets.ticket_id')
+                ->leftJoin('users as u', 'u.id', '=', 'user_tickets.user_id')
+                ->leftJoin('professions as p', 'u.profession_id', '=', 'p.id')
+                ->where([['user_tickets.id', session()->get('userticket')], ['u.is_active', true]])
+                ->first();
+        } else return redirect('/');
         return view('frontend.auth.login', compact('ticket'));
     }
 
@@ -133,6 +132,8 @@ class AuthController extends Controller
             //'password' => 'required|string|min:8',
         ];
         $contains = Str::contains($inputs['phone_or_email'], ['@']);
+        $containsGmail = Str::contains($inputs['phone_or_email'], ['@gmail.com']);
+
         if ($contains) {
             $data['email'] = $data['phone_or_email'];
             $inputs['email'] = $inputs['phone_or_email'];
@@ -147,7 +148,7 @@ class AuthController extends Controller
                 ]);
                 //session()->has('warning')
                 //session()->get('warning')
-                
+
                 //\Session::flash('warning', "Iltimos tog'ri telefon raqam kiriting");
                 return \Redirect::back();
             }
@@ -160,21 +161,20 @@ class AuthController extends Controller
         }
 
         $message = [
-                'name.unique' => 'Name is required'
-            ];
+            'name.unique' => 'Name is required'
+        ];
         $validator = Validator::make($data, $rule, $message);
         if ($validator->fails()) {
             if ($registered) {
                 session([
                     'warning' => "You already have an account. Please check your ticket via the check ticket link at the bottom of the registration form.",
                 ]);
-            }
-            else {
+            } else {
                 session([
                     'warning' => $validator->messages(),
                 ]);
             }
-            
+
             //\Session::flash('warning', $validator->messages());
             return \Redirect::back();
             // return redirect()->back()->withErrors($validator->messages());
@@ -192,6 +192,31 @@ class AuthController extends Controller
             'birth_date' => Carbon::parse($inputs['birth_date']),
             'password' => Hash::make(Str::random(12)),
         ]);
+
+        if ($containsGmail) {
+            $user = new User;
+            $user->first_name = session()->get('first_name');
+            $user->last_name = session()->get('last_name');
+            $user->email = session()->get('email');
+            $user->phone = session()->get('phone');
+            $user->gender = session()->get('gender');
+            $user->country_id = session()->get('country_id') ?? null;
+            $user->profession_id = session()->get('profession_id') ?? null;
+            $user->organization = session()->get('organization') ?? "";
+            $user->birth_date = session()->get('birth_date');
+            $user->password = session()->get('password');
+            $user->save();
+
+            $userticket = new UserTicket();
+            $userticket->user_id = $user->id;
+            $userticket->ticket_id = $user->id + 1000000;
+            $userticket->archive_id = 1;
+            $userticket->save();
+            //Remove all data from session
+            session()->flush();
+            session(['userticket' => $userticket->id]);
+            return redirect()->route('d-login');
+        }
 
         if (!empty($inputs['email'])) {
             $verify_code = rand(1000, 9999);
@@ -218,7 +243,7 @@ class AuthController extends Controller
 
         $sentSMS = self::SendSMSVerify($inputs['phone']);
         if ($sentSMS) {
-             $inputs['phone'];
+            $inputs['phone'];
             \Session::flash('warning', __('ALL_SUCCESSFUL_SAVED'));
             return redirect()->route('d-verify');
         }
