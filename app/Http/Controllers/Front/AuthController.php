@@ -139,6 +139,7 @@ class AuthController extends Controller
             unset($inputs['phone_or_email']);
             unset($data['phone_or_email']);
             $rule['email'] = 'required|string|email|max:255|unique:users';
+            $registered = User::where('email', $inputs['email'])->first();
         } else {
             if (Str::length($inputs['phone_or_email']) < 9) {
                 session([
@@ -155,11 +156,26 @@ class AuthController extends Controller
             unset($inputs['phone_or_email']);
             unset($data['phone_or_email']);
             $rule['phone'] = 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:9|max:13|unique:users';
+            $registered = User::where('phone', $inputs['phone'])->first();
         }
 
-        $validator = Validator::make($data, $rule);
+        $message = [
+                'name.unique' => 'Name is required'
+            ];
+        $validator = Validator::make($data, $rule, $message);
         if ($validator->fails()) {
-            \Session::flash('warning', $validator->messages());
+            if ($registered) {
+                session([
+                    'warning' => "You already have an account. Please check your ticket via the check ticket link at the bottom of the registration form.",
+                ]);
+            }
+            else {
+                session([
+                    'warning' => $validator->messages(),
+                ]);
+            }
+            
+            //\Session::flash('warning', $validator->messages());
             return \Redirect::back();
             // return redirect()->back()->withErrors($validator->messages());
         }
