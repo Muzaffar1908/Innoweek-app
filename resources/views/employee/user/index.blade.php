@@ -50,12 +50,11 @@
                                             <th>E-Mail</th>
                                             <th>Telefon Raqami</th>
                                             <th>Davlat</th>
-                                            {{-- <th>Kasbi & Mutaxasisligi</th> --}}
-                                            {{-- <th>Tashkiloti</th> --}}
-                                            {{-- <th>Jinsi</th> --}}
-                                            {{-- <th>Ro'yxatdan O'tgan Sanasi</th> --}}
-                                            {{-- <th>Status</th> --}}
-                                            {{-- <th>Action</th> --}}
+                                            <th>Kasbi & Mutaxasisligi</th>
+                                            <th>Tashkiloti</th> 
+                                            <th>Jinsi</th>
+                                            <th>Ro'yxatdan O'tgan Sanasi</th>
+                                            <th>Action</th>
                                         </tr>
                                     </thead>
                                     @foreach ($users as $user)
@@ -65,28 +64,11 @@
                                             <td>{{ $user->full_name }}</td>
                                             <td>{{ $user->email }}</td>
                                             <td>{{ $user->phone }}</td>
-                                            <td>{{ $user->provider_name  }}</td>
-                                            <td>
-                                                {{-- <form action="{{ asset('/employee/user/isactive/' . $user->id) }}"
-                                                    method="POST" enctype="multipart/form-data">
-                                                    @csrf
-                                                    <div class="sweetalert">
-                                                        <button type="button"
-                                                            class="
-                                                            @if ($user->is_active == 1) btn-success @endif
-                                                            @if ($user->is_active == 0) btn-danger @endif
-                                                            btn sweet-confirm">
-                                                            @if ($user->is_active == 1)
-                                                                Active
-                                                            @endif
-                                                            @if ($user->is_active == 0)
-                                                                Not Active
-                                                            @endif
-                                                        </button>
-                                                    </div>
-                                                </form> --}}
-                                            </td>
-                                           
+                                            <td>{{ $user->country_name  }}</td>
+                                            <td>{{ $user->profession_name }}</td>
+                                            <td>{{ $user->organization }}</td>
+                                            <td>{{ $user->gender }}</td>
+                                            <td>{{ $user->created_at }}</td>
                                         </tr>
                                     @endforeach
                                 </table>

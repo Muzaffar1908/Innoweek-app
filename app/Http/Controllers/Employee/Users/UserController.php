@@ -36,14 +36,14 @@ class UserController extends Controller
             'c.name_uz as country_name',
             'users.organization as organization',
             'p.name_uz as profession_name',
-            'users.created_at as created at',
+            'users.created_at as created_at',
             'users.gender as gender'
             )
         ->leftJoin('countries as c', 'users.country_id', '=', 'c.id')
         ->leftJoin('professions as p', 'users.profession_id', '=', 'p.id')
         ->where('users.is_blocked', '=', 0)
         ->orderBy('users.id', 'desc')
-        ->paginate(5);
+        ->paginate(100);
         return view('employee.user.index', compact('users'));
     }
 
