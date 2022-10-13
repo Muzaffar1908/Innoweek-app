@@ -68,6 +68,23 @@ class AuthController extends Controller
         return view('frontend.auth.login', compact('ticket'));
     }
 
+    public function TicketPage()
+    {
+        $lang = \App::getLocale();
+
+        if (session()->has('userticket')) {
+            $ticket = UserTicket::select('user_tickets.id as t_id', 'u.id as u_id', 'u.first_name as first_name', 'u.last_name as last_name', 'p.name_'. $lang .' as profession_name', 'user_tickets.ticket_id')
+            ->leftJoin('users as u', 'u.id', '=', 'user_tickets.user_id')
+            ->leftJoin('professions as p', 'u.profession_id', '=', 'p.id')
+            ->where([['user_tickets.id', session()->get('userticket')], ['u.is_active', true]])
+            ->first();
+        }
+        else return redirect('/');
+        return view('frontend.ticket', compact('ticket'));
+    }
+
+    
+
     public function login(Request $request)
     {
         $data = \Request::except(array('_token'));

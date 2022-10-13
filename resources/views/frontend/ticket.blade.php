@@ -24,35 +24,35 @@
               <img src="{{asset('/frontend/image/logo/innoweek 1.png')}}"  alt="">
               <img src="{{asset('/frontend/image/logo/MO123 1.png')}}"  alt="">
             </div>
-            <h1 class="mt-3"> ELEKTRON CHIPTA </h1>
-            <p class="text-center"> Innoweek-2022 ga kirish uchun chipta </p>
+            <h1 class="mt-3"> {{__('ELECTRONIC TICKET')}} </h1>
+            <p class="text-center"> {{__('Ticket to enter Innoweek-2022')}} </p>
             <div class="d-flex justify-content-around userinf mt-3">
-              <h1 class="d-flex align-items-center"> Muhammadali Eshonqulov </h1>
+              <h1 class="d-flex align-items-center"> {{$ticket->first_name }} {{ $ticket->last_name }} </h1>
               <img src="{{asset('/frontend/image/image 2.png')}}" alt="">
             </div>
             <div class="grid-container">
               <p class="d-flex align-items-center space-x-2">
                 <img class="flex-shrink-0" src="{{asset('/frontend/image/icon/Group 3.png')}}" width="20px" alt=""> 
-                <span>Amal qilish muddati:</span>
+                <span>{{__('Validity period')}}:</span>
                 <span class="ml-autoi">21.10.2022</span>
               </p>
         
               <p class="d-flex align-items-center space-x-2">
                 <img class="flex-shrink-0" src="{{asset('/frontend/image/icon/Group 1.png')}}" width="20px" alt=""> 
-                <span>Tashrif sanasi va vaqti: </span>
+                <span>{{__('Date and time of visit')}}: </span>
                 <span class="ml-autoi">17.10.2022 10:00</span>
         
               </p>
         
               <p class="d-flex align-items-center space-x-2">
                 <img class="flex-shrink-0" src="{{asset('/frontend/image/icon/Group 2.png')}}" width="20px" alt=""> 
-                <span>Toshkent sh, Universitet ko‘chasi, 7</span>
+                <span>{{__('University Street, 7, Tashkent city')}}</span>
               </p>
             </div>
-            <p class="footer"> Boshqa bir shaxs ushbu talondan foydalanishi qat'iyan man etiladi. </p>
+            <p class="footer"> {{__('It is strictly forbidden for another person to use this pass.')}} </p>
             
         </div>  
-        <p class="investorr">INVESTOR</p>
+        <p class="investorr">{{ Str::upper($ticket->profession_name) }}</p>
         
 </body>
 </html>

@@ -47,6 +47,10 @@ Route::get('/statistic', function () {
     return view('frontend.statistic');
 });
 
+Route::get('/ticket', function () {
+    return view('frontend.ticket');
+});
+
 Route::get('/live360', function () {
     return view('frontend.pavilion');
 });
@@ -85,6 +89,7 @@ Route::controller(FrontAuthController::class)->group(function () {
     Route::get('/ticket/verify', 'VerifyPage')->name('d-verify');
     Route::post('/ticket/verify', 'VerifyMessage')->name('d-verified');
     Route::get('/ticket/login', 'LoginPage')->name('d-login');
+    Route::get('/ticket', 'TicketPage')->name('d-ticket');
 });
 
 //middleware('auth', 'isUser') shuni  Qo'shasiz bo'ldi//

@@ -686,67 +686,67 @@ h2.live-stream-title {
 
 }
 
-@media ( min-width: 1500px ) {
-    .live-stream {
-        max-width: 945px;
-    }
+  @media ( min-width: 1700px ) {
+      .live-stream {
+          max-width: 945px;
+      }
 
-    .live-stream-item {
-      max-width: 440px;
-      width: 100%;
-      margin: 3px 15px;
-    }
+      .live-stream-item {
+        max-width: 440px;
+        width: 100%;
+        margin: 3px 15px;
+      }
 
-    .progressing {
-      max-width: 580px;
-      width: 100%;
-      overflow: hidden;
-      border-radius: 8px;
-    }
+      .progressing {
+        max-width: 580px;
+        width: 100%;
+        overflow: hidden;
+        border-radius: 8px;
+      }
 
-    .progress__list {
-      width: 100%;
-      max-width: 300px;
-      list-style-type: none;
-    }
+      .progress__list {
+        width: 100%;
+        max-width: 300px;
+        list-style-type: none;
+      }
 
-    .progress__item:not(:last-child) {
-      margin-bottom: 24px;
-    }
+      .progress__item:not(:last-child) {
+        margin-bottom: 24px;
+      }
 
-    .last-progressing__item:nth-child(1) .last-progressing__diagram {
-      display: block;
-      width: 50px;
-      height: 73px;
-      margin-bottom: 16px;
-      background-color: #00dfdf;
-      margin-top: 10px;
-    }
+      .last-progressing__item:nth-child(1) .last-progressing__diagram {
+        display: block;
+        width: 50px;
+        height: 73px;
+        margin-bottom: 16px;
+        background-color: #00dfdf;
+        margin-top: 10px;
+      }
 
-    .progress-visitors__inner{
-      margin-top: 40px;
-      margin-bottom: 25px;
-    }
+      .progress-visitors__inner{
+        margin-top: 40px;
+        margin-bottom: 25px;
+      }
 
-    .live-stream-box {
-      position: relative;
-      background-color: #000;
-      max-width: 440px;
-      width: 100%;
-      height: 190px;
-      margin-bottom: 7px;
-    }
+      .live-stream-box {
+        position: relative;
+        background-color: #000;
+        max-width: 440px;
+        width: 100%;
+        height: 190px;
+        margin-bottom: 7px;
+      }
 
-    .live-stream-box-text {
-      text-transform: uppercase;
-      text-align: center;
-      font-size: 15px;
-      margin-top: 34px;
-    }
+      .live-stream-box-text {
+        text-transform: uppercase;
+        text-align: center;
+        font-size: 15px;
+        margin-top: 34px;
+      }
 
-    img {
-      border-style: none;
-      max-width: 440px;
-      height: 215px;
-   }
- }
+      img {
+        border-style: none;
+        max-width: 440px;
+        height: 215px;
+    }
+  }
