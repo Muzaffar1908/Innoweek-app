@@ -77,9 +77,9 @@
                                         <td>{{($conferences->currentpage() - 1) * $conferences->perpage() + ($loop->index+1)}}</td>
                                         <td>{{$conference->title_uz}}</td>
                                         <td>
-                                            {{Carbon::parse($conference->started_at)->format('d/m/Y H:m')}}
+                                            {{Carbon::parse($conference->started_at)->format('d/m/Y H:i')}}
                                             <br>
-                                            {{Carbon::parse($conference->stoped_at)->format('d/m/Y H:m')}}
+                                            {{Carbon::parse($conference->stoped_at)->format('d/m/Y H:i')}}
                                         </td>
                                         <td>{{$conference->archiveTable->year}}</td>
                                         <td>{{$conference->conferenceTable->first_name}}</td>

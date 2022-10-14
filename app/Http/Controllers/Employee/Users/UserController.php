@@ -29,8 +29,9 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $req)
     {
+    
         //$users = User::where('is_blocked','=',0)->orderBy('id','desc')->paginate(5);
         $users = User::select(
             'users.id as user_id',
@@ -73,6 +74,9 @@ class UserController extends Controller
         $rule = array(
             'first_name' => 'required',
             'last_name' => 'required',
+            'email' => 'required',
+            'phone' => 'required',
+            'country_id' => 'required',
          );
 
          $validator = Validator::make($data, $rule);
@@ -93,9 +97,9 @@ class UserController extends Controller
          $users->last_name = $inputs['last_name'];
          $users->middle_name = $inputs['middle_name'] ?? null;
          $users->gender = $inputs['gender'] ?? null;
-         $users->email = $inputs['email'] ?? null;
-         $users->phone = $inputs['phone'] ?? null;
-         $users->country_id = $inputs['country_id'] ?? null;
+         $users->email = $inputs['email'];
+         $users->phone = $inputs['phone'];
+         $users->country_id = $inputs['country_id'];
          $users->profession_id = $inputs['profession_id'] ?? null;
          $users->organization = $inputs['organization'] ?? null;
          $users->password = Hash::make(Str::random(12));
@@ -147,10 +151,9 @@ class UserController extends Controller
         $rule = array(
             'first_name' => 'required',
             'last_name' => 'required',
+            'email' => 'required',
+            'phone' => 'required',
             'country_id' => 'required',
-            'profession_id' => 'required',
-            'organization' => 'required',
-            'gender' => 'required',
          );
 
          $validator = Validator::make($data, $rule);
@@ -171,9 +174,9 @@ class UserController extends Controller
          $users->last_name = $inputs['last_name'];
          $users->middle_name = $inputs['middle_name'] ?? null;
          $users->gender = $inputs['gender'] ?? null;
-         $users->email = $inputs['email'] ?? null;
-         $users->phone = $inputs['phone'] ?? null;
-         $users->country_id = $inputs['country_id'] ?? null;
+         $users->email = $inputs['email'];
+         $users->phone = $inputs['phone'];
+         $users->country_id = $inputs['country_id'];
          $users->profession_id = $inputs['profession_id'] ?? null;
          $users->organization = $inputs['organization'] ?? null;
          $users->save();

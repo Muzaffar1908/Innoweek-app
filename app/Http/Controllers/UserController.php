@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
+
 
 class UserController extends Controller
 {
@@ -144,6 +147,15 @@ class UserController extends Controller
              $users = new User;
          }
 
+         if ($request->hasFile('user_image')) {
+            $file = $request->file('user_image');
+            $ex = $file->getClientOriginalExtension();
+            $imageName = md5(rand(100, 999999) . microtime()) . "." . $ex;
+            $file->move(public_path('upload/config'), $imageName);
+            // unlink($userticket->ticket_image);
+            $data['user_image'] = 'upload/config/' . $imageName;
+        }
+
          $users->first_name = $inputs['first_name'];
          $users->last_name = $inputs['last_name'];
          $users->middle_name = $inputs['middle_name'];
@@ -159,15 +171,9 @@ class UserController extends Controller
          $users->country_id = $inputs['country_id'];
          $users->profession_id = $inputs['profession_id'];
          $users->organization = $inputs['organization'];
+         $users->password = Hash::make(Str::random(12));
 
-         if ($request->hasFile('user_image')) {
-            $file = $request->file('user_image');
-            $ex = $file->getClientOriginalExtension();
-            $imageName = md5(rand(100, 999999) . microtime()) . "." . $ex;
-            $file->move(public_path('upload/config'), $imageName);
-            // unlink($userticket->ticket_image);
-            $data['user_image'] = 'upload/config/' . $imageName;
-        }
+        
          $users->user_image ='upload/config/'.$imageName;
          $users->save();
 

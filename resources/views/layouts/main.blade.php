@@ -62,11 +62,11 @@
                                                     class="fab fa-instagram"></i></a>
                                         </li>
                                         <li class="wow fadeInLeft animated" data-wow-delay="0.5s" data-wow-duration="1s">
-                                            <a target="_blank" href="{{$innoweeks->linkedin}}" class="linkedin"><i
+                                            <a target="_blank" href="{{$innoweeks->telegram}}" class="linkedin"><i
                                                     class="fab fa-telegram"></i></a>
                                         </li>
                                         <li class="wow fadeInLeft animated" data-wow-delay="0.4s" data-wow-duration="1s">
-                                            <a target="_blank" href="{{$innoweeks->youtobe}}" class="instagram"><i
+                                            <a target="_blank" href="{{$innoweeks->you_tube}}" class="instagram"><i
                                                     class="fab fa-youtube"></i></a>
                                         </li>
                                     </ul>

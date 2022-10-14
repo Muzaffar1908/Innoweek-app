@@ -34,7 +34,7 @@ class ConferenceController extends Controller
                 $search[] = ['title_uz', '=', $req->title];
                 break;
         }
-        $conferences = Conference::select('id', 'title_uz', 'started_at', 'archive_id', 'user_id', 'user_image', 'is_active')->where($search)->orderBy('id', 'desc')->paginate(15);
+        $conferences = Conference::select('id', 'title_uz', 'started_at', 'stoped_at', 'archive_id', 'user_id', 'user_image', 'is_active')->where($search)->orderBy('id', 'desc')->paginate(15);
         $users = User::select('id', 'first_name')->get();
         $archives = Archive::select('id', 'year');
         return view('admin.conference.index', compact('conferences', 'users', 'archives'));
