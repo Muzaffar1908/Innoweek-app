@@ -3,7 +3,6 @@
 use App\Http\Controllers\ArchiveController;
 use App\Http\Controllers\ConferenceController;
 use App\Http\Controllers\Employee\Users\UserController as UsersUserController;
-use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\Front\AuthController as FrontAuthController;
 use App\Http\Controllers\Front\CheckController;
 use App\Http\Controllers\GaleriesController;

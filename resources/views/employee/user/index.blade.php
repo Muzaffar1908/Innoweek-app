@@ -7,7 +7,7 @@
             <div class="card">
                 <div class="card-header">
                     <h1 class="card-title">User</h1>
-                    <a href="{{ route('admin.user.create') }}" class="btn btn-success"><i class="bi bi-plus"></i>Add</a>
+                    <a href="{{ route('emp.user.create') }}" class="btn btn-success"><i class="bi bi-plus"></i>Add</a>
                 </div>
 
                 @if (count($errors) > 0)

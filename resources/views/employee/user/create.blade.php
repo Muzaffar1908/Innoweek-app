@@ -7,7 +7,7 @@
         <div class="card">
             <div class="card-header">
                 <h4 class="card-title">Form grid</h4>
-                <a href="{{route('admin.user.index')}}" class="btn btn-primary"><i class="bi bi-arrow-left-short"></i>Back</a>
+                <a href="{{route('emp.user.index')}}" class="btn btn-primary"><i class="bi bi-arrow-left-short"></i>Back</a>
             </div>
 
                 @if (count($errors) > 0)
@@ -37,7 +37,7 @@
 
             <div class="card-body">
                 <div class="basic-form">
-                <form action="{{route('admin.user.store')}}" method="POST" enctype="multipart/form-data">
+                <form action="{{route('emp.user.store')}}" method="POST" enctype="multipart/form-data">
                     @csrf
 
                     <div class="mb-3">
@@ -46,46 +46,18 @@
                     </div>
 
                     <div class="mb-3">
-                        <label for="first_name">Firstname</label>
+                        <label for="first_name">First Name</label>
                         <input type="text" name="first_name"  class="form-control" id="first_name" placeholder="Firstname enter" value="{{old('first_name')}}" />
                     </div>
 
                     <div class="mb-3">
-                        <label for="last_name">Lastname</label>
+                        <label for="last_name">Last Name</label>
                         <input type="text" name="last_name"  class="form-control" id="last_name" placeholder="Lastname enter" value="{{old('last_name')}}" />
                     </div>
 
                     <div class="mb-3">
-                        <label for="middle_name">Middlename</label>
+                        <label for="middle_name">Middle Name</label>
                         <input type="text" name="middle_name"  class="form-control" id="middle_name" placeholder="Middlename enter" value="{{old('middle_name')}}" />
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="erkak">Erkak</label>
-                        <input type="radio" name="gender"   id="erkak"  value="1" />
-
-                        <label for="ayol">Ayol</label>
-                        <input type="radio" name="gender"   id="ayol"  value="1" />
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="birth_date">Birth Date</label>
-                        <input type="date" name="birth_date"  class="form-control" id="birth_date" placeholder="Birth Date enter" value="{{old('birth_date')}}" />
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="user_image">User image</label>
-                        <input type="file" name="user_image"  class="form-control" id="user_image" placeholder="User image enter" value="{{old('user_image')}}" />
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="address">Address</label>
-                        <input type="text" name="address"  class="form-control" id="address" placeholder="Address enter" value="{{old('address')}}" />
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="balance">Balance</label>
-                        <input type="number" name="balance"  class="form-control" id="balance" placeholder="Balance enter" value="{{old('balance')}}" />
                     </div>
 
                     <div class="mb-3">
@@ -98,28 +70,13 @@
                         <input type="text" name="phone"  class="form-control" id="phone"  placeholder="Phone enter" value="{{old('phone')}}" />
                     </div>
 
-                    <div class="mb-3">
-                        <label for="password">Password</label>
-                        <input type="password" name="password"  class="form-control" id="password"  placeholder="Password enter" value="{{old('password')}}" />
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="provider_name">Provider name</label>
-                        <input type="text" name="provider_name"  class="form-control" id="provider_name"  placeholder="Provider name enter" value="{{old('provider_name')}}" />
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="provider_id">Provider ID</label>
-                        <input type="number" name="provider_id"  class="form-control" id="provider_id"  placeholder="Provider ID enter" value="{{old('provider_id')}}" />
-                    </div>
-
                     <select name="country_id" id="country" class="form-control" required>
                         <option selected>{{ __('Choose your country')}} *</option>
                         @foreach (\App\Models\Country::scopeCountryList() as $data)
                         <option value="{{ $data->id }}">{{ $data->name }}</option>
                         @endforeach
-                    </select> <br><br>
-            
+                    </select> <br>
+
                     <select name="profession_id" id="profesion" class="form-control">
                         <option selected>{{__('Choose your profession')}} *</option>
                         @foreach (\App\Models\Profession::scopeProfessionList() as $data)
@@ -129,7 +86,15 @@
 
                     <div class="mb-3">
                         <label for="organization">{{__('Organization')}}</label>
-                        <input id="organization" type="text" name="organization" class="form-control" placeholder="{{__('Organization')}}" autocomplete="off" value="{{old('organization')}}" />
+                        <input id="organization" type="text" name="organization" class="form-control" placeholder="{{__('Organization')}}" autocomplete="off" value="{{old('organization')}}">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="erkak">Erkak</label>
+                        <input type="radio" name="gender"   id="erkak"  value="1" />
+
+                        <label for="ayol">Ayol</label>
+                        <input type="radio" name="gender"   id="ayol"  value="1" />
                     </div>
 
                     <button type="submit" class="btn btn-success">Save</button>
@@ -137,8 +102,6 @@
                 </form>
                 </div>
             </div>
-
-
         </div>
      </div>
   </div>

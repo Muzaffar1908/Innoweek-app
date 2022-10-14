@@ -160,12 +160,12 @@
                     <h3 class="title"><a href="{{route('speakershowx', ['id'=>$spek->id])}}">{{$spek->name}}</a></h3>
                     <div class="sub-title">{{strip_tags($spek->job)}}</div>
                     <div class="speaker-social">
-                        <ul>
-                        <li><a target="_blank" href="{{$spek->facebook_ur}}"><i class="fab fa-facebook-f"></i></a></li>
-                        <li><a target="_blank" href="{{$spek->twitter_url}}"><i class="fab fa-twitter"></i></a></li>
-                        <li><a target="_blank" href="{{$spek->linkedin_url}}"><i class="fab fa-linkedin"></i></a></li>
-                        <li><a target="_blank" href="{{$spek->youtube_url}}"><i class="fab fa-youtube"></i></a></li>
-                        </ul>
+                        {{-- <ul>
+                            <li><a target="_blank" href="{{$spek->facebook_ur}}"><i class="fab fa-facebook-f"></i></a></li>
+                            <li><a target="_blank" href="{{$spek->twitter_url}}"><i class="fab fa-twitter"></i></a></li>
+                            <li><a target="_blank" href="{{$spek->linkedin_url}}"><i class="fab fa-linkedin"></i></a></li>
+                            <li><a target="_blank" href="{{$spek->youtube_url}}"><i class="fab fa-youtube"></i></a></li>
+                        </ul> --}}
                     </div>
                     </div>
                 </div>
@@ -293,9 +293,9 @@
                         {!! QrCode::size(170)->generate("https://play.google.com/store/apps/details?id=com.mimaxgroup.innomobileapp") !!}
                        </div>
                         {{-- <img  src="{{asset('frontend/image/qr.png')}}" class="mx-auto d-block img"  alt=""> --}}
-                        <div class="d-flex py-3 align-items-center justify-content-between mobile">
+                        <div class="my-3 align-items-center mobile">
                             <a href="https://play.google.com/store/apps/details?id=com.mimaxgroup.innomobileapp"><img class="downloads playMM" width="200" src="{{asset('frontend/image/icon/googleplay.png')}}" alt=""></a>
-                            <a href="#registeerr"><img class="downloads playSS" width="200" src="{{asset('frontend/image/icon/appstore.png')}}" alt=""></a>
+                            {{-- <a href="#registeerr"><img class="downloads playSS" width="200" src="{{asset('frontend/image/icon/appstore.png')}}" alt=""></a> --}}
                         </div>
                     </form>
                   </div>

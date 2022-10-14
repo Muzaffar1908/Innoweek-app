@@ -124,7 +124,6 @@ class UserController extends Controller
           'birth_date' => 'required',
           'email' => 'required',
           'phone' => 'required',
-          'password' => 'required',
          );
 
         if (!file_exists('upload/config')) {
@@ -155,7 +154,6 @@ class UserController extends Controller
          $users->balance = $inputs['balance'];
          $users->email = $inputs['email'];
          $users->phone = $inputs['phone'];
-         $users->password = $inputs['password'];
          $users->provider_name = $inputs['provider_name'];
          $users->provider_id = $inputs['provider_id'];
          $users->country_id = $inputs['country_id'];

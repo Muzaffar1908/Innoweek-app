@@ -93,6 +93,11 @@
             </div>
           </div>
           <button type="submit" class="btnB btn-input">{{__('Sign up')}}</button>
+
+          <p class="text-center mt-3 text-white"> {{__('Are you registered?')}}
+            <a href="{{ route('d-checker') }}" class="mx-2">{{__('Please check your ticket')}} </a>  
+          </p>
+
         </form>
       </div>
     </div>

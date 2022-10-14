@@ -46,17 +46,17 @@
                     </div>
 
                     <div class="mb-3">
-                        <label for="first_name">Firstname</label>
+                        <label for="first_name">First Name</label>
                         <input type="text" name="first_name"  class="form-control" id="first_name" placeholder="Firstname enter" value="{{old('first_name')}}" />
                     </div>
 
                     <div class="mb-3">
-                        <label for="last_name">Lastname</label>
+                        <label for="last_name">Last Name</label>
                         <input type="text" name="last_name"  class="form-control" id="last_name" placeholder="Lastname enter" value="{{old('last_name')}}" />
                     </div>
 
                     <div class="mb-3">
-                        <label for="middle_name">Middlename</label>
+                        <label for="middle_name">Middle Name</label>
                         <input type="text" name="middle_name"  class="form-control" id="middle_name" placeholder="Middlename enter" value="{{old('middle_name')}}" />
                     </div>
 
@@ -96,11 +96,6 @@
                     <div class="mb-3">
                         <label for="phone">Phone</label>
                         <input type="text" name="phone"  class="form-control" id="phone"  placeholder="Phone enter" value="{{old('phone')}}" />
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="password">Password</label>
-                        <input type="password" name="password"  class="form-control" id="password"  placeholder="Password enter" value="{{old('password')}}" />
                     </div>
 
                     <div class="mb-3">

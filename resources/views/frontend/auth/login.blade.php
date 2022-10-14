@@ -58,11 +58,11 @@ sticky
         {!! QrCode::size(170)->generate("https://play.google.com/store/apps/details?id=com.mimaxgroup.innomobileapp")
         !!}
       </div>
-      <div class="d-flex py-3 align-items-center justify-content-between">
+      <div class="my-3" style="margin-left: 27%">
         <a href="https://play.google.com/store/apps/details?id=com.mimaxgroup.innomobileapp"><img
             class="downloads playM" width="200" src="{{ asset('/frontend/image/icon/googleplay.png') }}" alt=""></a>
-        <a href="https://play.google.com/store/apps/details?id=com.mimaxgroup.innomobileapp"><img
-            class="downloads playS" width="200" src="{{ asset('/frontend/image/icon/appstore.png') }}" alt=""></a>
+        {{-- <a href="https://play.google.com/store/apps/details?id=com.mimaxgroup.innomobileapp"><img
+            class="downloads playS" width="200" src="{{ asset('/frontend/image/icon/appstore.png') }}" alt=""></a> --}}
       </div>
 
     </form>
