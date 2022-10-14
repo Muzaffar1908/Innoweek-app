@@ -50,7 +50,7 @@ sticky
   <div class="boxes">
     <form class="reg-box">
       <div class="text-center">
-        <button class="text-center"> {{__('Download electronic ticket')}} </button>
+       <a href="#"><button class="text-center"> {{__('Download electronic ticket')}} </button></a>
       </div>
       <h3>{{__('Download this app to access or use our system.')}}</h3>
       {{-- <img src="{{ asset('/frontend/image/qr.png') }}" class="mx-auto d-block img" alt=""> --}}
