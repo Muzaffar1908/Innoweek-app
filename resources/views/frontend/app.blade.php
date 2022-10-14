@@ -191,7 +191,7 @@
                         @foreach ($ConfSchedules as $con)
                         <div class="swiper-slide">
                             {{-- S4: Mon, Mar 28th --}}
-                            {{Carbon::parse($con->date)->format('D ,M dS')}}
+                            {{Carbon::parse($con->date)->locale('uz')->format('D ,M dS')}}
                         </div>
                         @endforeach
                     </div>
