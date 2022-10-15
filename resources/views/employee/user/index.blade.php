@@ -1,13 +1,13 @@
 @extends('admin.layout.app')
-
 @section('content')
-
     <div class="content-body">
         <div class="container-fluid">
             <div class="card">
                 <div class="card-header">
-                    <h1 class="card-title">User</h1>
-                    <a href="{{ route('emp.user.create') }}" class="btn btn-success"><i class="bi bi-plus"></i>Add</a>
+                    <h1 class="card-title">Mehmonlarni ro'yxatga olish</h1>
+                    @if (Auth::user()->roll == 2)
+                    <a href="{{ route('emp.user.create') }}" class="btn btn-success"><i class="bi bi-plus"></i>Ro'yxatga olish</a>
+                    @endif
                 </div>
 
                 @if (count($errors) > 0)
@@ -38,7 +38,7 @@
                 <div class="card-body">
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="card-title">User Datatable</h4>
+                            <h4 class="card-title">Foydalanuvchilar ro'yxati</h4>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
@@ -72,35 +72,12 @@
                                             <td>{{ $user->created_at }}</td>
                                             <td>{{ $user->ticket_id }}</td>
                                             <td>
-                                                @role(2)
+                                                @if (Auth::user()->roll == 2)
                                                     <li class="nav-item">
-                                                        <a class="nav-link" href="{{ route('emp.user') }}">
-                                                            <i class="bi bi-grid"></i>
-                                                            <span>
-                                                                @if (\App::isLocale('ru'))
-                                                                    Приборная панель
-                                                                @endif
-                                                                @if (\App::isLocale('en'))
-                                                                    Dashboard
-                                                                @endif
-                                                            </span>
-
-                                                            <div class="btn-group">
-                                                                {{-- <a href="{{ route('admin.user.show', $user->id) }}" type="button" class="btn btn-info"><i
-                                                                        class="bi bi-eye"></i></a> --}}
-                                                                <a href="{{ route('emp.user.edit', $user->user_id) }}" type="button" class="btn btn-success"><i
-                                                                        class="bi bi-pencil"></i></a>
-                                                                {{-- <form action="{{ route('emp.user.destroy', $user->user_id) }}" method="POST" enctype="multipart/form-data">
-                                                                    @csrf
-                                                                    @method('DELETE')
-                                                                    <div class="sweetalert">
-                                                                        <button type="button" class="btn btn-danger sweet-confirm"><i class="bi bi-trash"></i></button>
-                                                                    </div>
-                                                                </form> --}}
-                                                            </div>
-                                                        </a>
-                                                    </li><!-- End Dashboard Nav -->
-                                                @endrole
+                                                        <a href="{{ route('emp.user.edit', $user->user_id) }}" type="button" class="btn btn-success"><i
+                                                                class="bi bi-pencil"></i></a>
+                                                    </li>
+                                                @endif
                                             </td>
                                         </tr>
                                     @endforeach

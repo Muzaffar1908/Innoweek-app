@@ -57,8 +57,16 @@
             </div>
             <div class="title">
                 <h1>{{ __('WELCOME TO INTERNATIONAL WEEK OF INNOVATIVE IDEAS 2022')}}</h1>
-                <h3>{{ __('Your varification code')}}: <h1>{{ $mailData['code'] }}</h1>
-                </h3>
+                @isset($mailData['ticket'])
+                    <p>Congratulations. You have registered. Your ticker number: <strong>{{ $mailData['ticket'] }}</strong></p>
+                    <p>Ticket QR-Code</p>
+                    {!! QrCode::size(170)->generate(url('/').'/check/ticket/'.$mailData['ticket']) !!}
+                    <p>Your ticket url: {{ url('/').'/check/ticket/'.$mailData['ticket'] }}</p>
+                @endisset
+                @isset($mailData['ticket'])
+                    <h3>{{ __('Your varification code')}}: <h1>{{ $mailData['code'] }}</h3>
+                @endisset
+               
                 <p>&copy;
                     <span id="currentYear">2022</span> INNOWEEK.UZ All Rights Reserved.
                 </p>

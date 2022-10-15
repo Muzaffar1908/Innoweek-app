@@ -30,7 +30,7 @@ class RegisterMail extends Mailable
      */
     public function build()
     {
-        return $this->subject('INNOWEEK.UZ - User Verification Code')
+        return $this->subject('INNOWEEK.UZ - WEEK OF INNOVATIVE IDEAS')
                     ->view('email.register')->with("mailData",$this->mailData);
     }
 }
