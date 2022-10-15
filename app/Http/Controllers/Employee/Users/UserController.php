@@ -18,6 +18,15 @@ use Illuminate\Support\Facades\Http;
 
 class UserController extends Controller
 {
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     private const SMS_USER = "zulfiqorrashidov@gmail.com";
     private const SMS_PASS = "exsRuNL4aRCzJb3YIV3EIFXlV4WgdjpeKHQn0x97";
     public function SendSMSVerify($phone, $code)
@@ -61,15 +70,7 @@ class UserController extends Controller
         //setcookie("TPEAP_SESSIONID", $cookie->getValue(), time() + 3600);
         return $authOperator->object()->data->token;
     }
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
+
 
     /**
      * Display a listing of the resource.
@@ -82,7 +83,7 @@ class UserController extends Controller
         //$users = User::where('is_blocked','=',0)->orderBy('id','desc')->paginate(5);
         $users = User::select(
             'users.id as user_id',
-            DB::raw('CONCAT(users.first_name, " ", users.last_name, " ", users.middle_name) as full_name'),
+            DB::raw('CONCAT(users.first_name, " ", users.last_name) as full_name'),
             'users.email as email',
             'users.phone as phone',
             'c.name_uz as country_name',
@@ -94,6 +95,9 @@ class UserController extends Controller
             ->leftJoin('countries as c', 'users.country_id', '=', 'c.id')
             ->leftJoin('professions as p', 'users.profession_id', '=', 'p.id')
             ->where('users.is_blocked', '=', 0)
+            ->where('users.roll', '!=', 1)
+            ->where('users.roll', '!=', 2)
+            ->where('users.roll', '!=', 3)
             ->orderBy('users.id', 'desc')
             ->paginate(100);
         return view('employee.user.index', compact('users'));

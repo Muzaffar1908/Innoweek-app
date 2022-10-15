@@ -57,11 +57,11 @@
             </div>
             <div class="title">
                 <h1>{{ __('WELCOME TO INTERNATIONAL WEEK OF INNOVATIVE IDEAS 2022')}}</h1>
-                @isset($mailData['ticket'])
-                    <p>Congratulations. You have registered. Your ticker number: <strong>{{ $mailData['ticket'] }}</strong></p>
+                @isset($mailData['ticket_id'])
+                    <p>Congratulations. You have registered. Your ticker number: <strong>{{ $mailData['ticket_id'] }}</strong></p>
                     <p>Ticket QR-Code</p>
-                    {!! QrCode::size(170)->generate(url('/').'/check/ticket/'.$mailData['ticket']) !!}
-                    <p>Your ticket url: {{ url('/').'/check/ticket/'.$mailData['ticket'] }}</p>
+                    {!! QrCode::size(170)->generate(url('/').'/check/ticket/'.$mailData['ticket_id']) !!}
+                    <p>Your ticket url: {{ url('/').'/check/ticket/'.$mailData['ticket_id'] }}</p>
                 @endisset
                 @isset($mailData['ticket'])
                     <h3>{{ __('Your varification code')}}: <h1>{{ $mailData['code'] }}</h3>
