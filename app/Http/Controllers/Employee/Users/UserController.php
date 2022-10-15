@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Employee\Users;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Models\UserTicket;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Session;
@@ -198,9 +199,9 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        $user=User::find($id);
-        $user->is_blocked=1;
-        $user->save();
-        return redirect('employee/user')->with('warning', 'USER TABLES DELETED');
+        // $user=User::find($id);
+        // $user->is_blocked=1;
+        // $user->save();
+        // return redirect('employee/user')->with('warning', 'USER TABLES DELETED');
     }
 }

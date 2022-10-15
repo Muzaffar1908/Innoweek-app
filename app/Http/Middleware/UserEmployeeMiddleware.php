@@ -21,6 +21,10 @@ class UserEmployeeMiddleware
             if(Auth::user()->roll == 2){
                 return $next($request);
             }
+            else if(Auth::user()->roll == 3)
+            {
+                return $next($request);
+            }
             else {
                 return redirect('/login')->with('massage',"Siz user emassiz");
             }

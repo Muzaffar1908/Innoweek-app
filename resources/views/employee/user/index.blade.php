@@ -54,6 +54,7 @@
                                             <th>Tashkiloti</th> 
                                             <th>Jinsi</th>
                                             <th>Ro'yxatdan O'tgan Sanasi</th>
+                                            <th>User Ticket ID</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -69,20 +70,37 @@
                                             <td>{{ $user->organization }}</td>
                                             <td>{{ $user->gender }}</td>
                                             <td>{{ $user->created_at }}</td>
+                                            <td>{{ $user->ticket_id }}</td>
                                             <td>
-                                                <div class="btn-group">
-                                                    {{-- <a href="{{ route('admin.user.show', $user->id) }}" type="button" class="btn btn-info"><i
-                                                            class="bi bi-eye"></i></a> --}}
-                                                    <a href="{{ route('emp.user.edit', $user->user_id) }}" type="button" class="btn btn-success"><i
-                                                            class="bi bi-pencil"></i></a>
-                                                    <form action="{{ route('emp.user.destroy', $user->user_id) }}" method="POST" enctype="multipart/form-data">
-                                                        @csrf
-                                                        @method('DELETE')
-                                                        <div class="sweetalert">
-                                                            <button type="button" class="btn btn-danger sweet-confirm"><i class="bi bi-trash"></i></button>
-                                                        </div>
-                                                    </form>
-                                                </div>
+                                                @role(2)
+                                                    <li class="nav-item">
+                                                        <a class="nav-link" href="{{ route('emp.user') }}">
+                                                            <i class="bi bi-grid"></i>
+                                                            <span>
+                                                                @if (\App::isLocale('ru'))
+                                                                    Приборная панель
+                                                                @endif
+                                                                @if (\App::isLocale('en'))
+                                                                    Dashboard
+                                                                @endif
+                                                            </span>
+
+                                                            <div class="btn-group">
+                                                                {{-- <a href="{{ route('admin.user.show', $user->id) }}" type="button" class="btn btn-info"><i
+                                                                        class="bi bi-eye"></i></a> --}}
+                                                                <a href="{{ route('emp.user.edit', $user->user_id) }}" type="button" class="btn btn-success"><i
+                                                                        class="bi bi-pencil"></i></a>
+                                                                {{-- <form action="{{ route('emp.user.destroy', $user->user_id) }}" method="POST" enctype="multipart/form-data">
+                                                                    @csrf
+                                                                    @method('DELETE')
+                                                                    <div class="sweetalert">
+                                                                        <button type="button" class="btn btn-danger sweet-confirm"><i class="bi bi-trash"></i></button>
+                                                                    </div>
+                                                                </form> --}}
+                                                            </div>
+                                                        </a>
+                                                    </li><!-- End Dashboard Nav -->
+                                                @endrole
                                             </td>
                                         </tr>
                                     @endforeach
