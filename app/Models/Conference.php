@@ -30,6 +30,14 @@ class Conference extends Model
         'is_active',
     ];
 
+    /**
+     * The attributes that should be mutated to dates.
+     *
+     * @var array
+     */
+    //protected $dates = ['date','stopped_at', 'started_at'];
+
+
     public function conferenceTable()
     {
         return $this->belongsTo(User::class, 'user_id');

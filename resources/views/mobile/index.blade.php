@@ -73,12 +73,12 @@
                             {{__('TICKET')}}
                         </a>
                     </li>
-                    <li>
+                    {{-- <li>
                         <img src="{{ asset('/assets/images/menu-icon/icon-2.png') }}" alt="Images">
                         <a href="">
                             {{__('STATISTICS')}}
                         </a>
-                    </li>
+                    </li> --}}
                     <li>
                         <img src="{{ asset('/assets/images/menu-icon/icon-2.png') }}" alt="Images">
                         <a href="{{route('m-live360')}}">
