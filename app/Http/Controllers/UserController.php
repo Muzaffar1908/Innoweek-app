@@ -261,7 +261,7 @@ class UserController extends Controller
          $users->middle_name = $inputs['middle_name'];
          $users->gender = $inputs['gender'];
          $users->birth_date = $inputs['birth_date'];
-        //  $users->user_image = $inputs['user_image'];
+         $users->user_image = $inputs['user_image'];
          $users->address = $inputs['address'];
          $users->balance = $inputs['balance'];
          $users->email = $inputs['email'];
@@ -272,7 +272,7 @@ class UserController extends Controller
          $users->profession_id = $inputs['profession_id'];
          $users->organization = $inputs['organization'];
 
-        //  $users->user_image = 'upload/config/'.$imageName;
+         $users->user_image = 'upload/config/'.$imageName;
          $users->save();
 
          if (!empty($inputs['id'])) {

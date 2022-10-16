@@ -42,11 +42,11 @@
                                     </li>
                                     <li class="menu-item menu-item-has-children wow fadeInUp animated"
                                         data-wow-delay="0.6s">
-                                        <a href="{{ url('/statistic') }}">{{__('STATISTICS')}}</a>
+                                        <a href="{{ url('/statistic') }}" target="_blank">{{__('STATISTICS')}}</a>
                                     </li>
                                     <li class="menu-item menu-item-has-children wow fadeInUp animated {{ (request()->is('live360')) ? 'active' : '' }}"
                                         data-wow-delay="0.7s">
-                                        <a href="/live360">{{__('LIVE 360')}}</a>
+                                        <a href="/live360" target="_blank">{{__('LIVE 360')}}</a>
                                     </li>
                                     {{-- <li class="menu-item menu-item-has-children wow fadeInUp animated {{ (request()->is('/#gallery')) ? 'active' : '' }}"
                                         data-wow-delay="0.8s">
@@ -320,10 +320,10 @@
                         <a class="animation" href="#gallery">{{__('GALLERY')}}</a>
                     </li> --}}
                     <li class="list">
-                        <a class="animation" href="{{ url('/statistic') }}">{{__('STATISTICS')}}</a>
+                        <a class="animation" href="{{ url('/statistic') }}" target="_blank">{{__('STATISTICS')}}</a>
                     </li>
                     <li class="list">
-                        <a class="animation" href="/live360">{{__('LIVE 360')}}</a>
+                        <a class="animation" href="/live360" target="_blank">{{__('LIVE 360')}}</a>
                     </li>
                     <li class="list">
                         <a class="animation scliked" href="{{asset('frontend/pdf/inno.pdf')}}"

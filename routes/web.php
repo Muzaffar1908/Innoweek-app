@@ -46,6 +46,10 @@ Route::get('/statistic', function () {
     return view('frontend.statistic');
 });
 
+Route::get('/online/registration', function () {
+    return view('frontend.register');
+});
+
 Route::get('/ticket', function () {
     return view('frontend.ticket');
 });
