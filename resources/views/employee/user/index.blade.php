@@ -55,7 +55,6 @@
                                             <th>Tashkiloti</th> 
                                             <th>Jinsi</th>
                                             <th>Ro'yxatdan O'tgan Sanasi</th>
-                                            <th>User Ticket ID</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -71,7 +70,6 @@
                                             <td>{{ $user->organization }}</td>
                                             <td>{{ $user->gender }}</td>
                                             <td>{{ $user->created_at }}</td>
-                                            <td>{{ $user->ticket_id }}</td>
                                             <td>
                                                 @if (Auth::user()->roll == 2)
                                                     <li class="nav-item">

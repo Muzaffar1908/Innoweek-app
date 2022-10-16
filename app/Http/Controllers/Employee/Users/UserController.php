@@ -271,22 +271,54 @@ class UserController extends Controller
     public function update(Request $request, User $users)
     {
         $data = $request->except(array('_token'));
-        $rule = array(
+        $inputs = $request->all();
+        $rule = [
             'first_name' => 'required',
             'last_name' => 'required',
-            'email' => 'required',
-            'phone' => 'required',
+            //'email' => 'required',
+            //'phone' => 'required',
             'country_id' => 'required',
-        );
+        ];
+        $contains = Str::contains($inputs['phone_or_email'], ['@']);
 
+        if ($contains) {
+            $data['email'] = $data['phone_or_email'];
+            $inputs['email'] = $inputs['phone_or_email'];
+            unset($inputs['phone_or_email']);
+            unset($data['phone_or_email']);
+            $rule['email'] = 'required|string|email|max:255|unique:users';
+            $registered = User::where('email', $inputs['email'])->first();
+        } else {
+            if (Str::length($inputs['phone_or_email']) < 9) {
+                session([
+                    'warning' => "Iltimos tog'ri telefon raqam kiriting",
+                ]);
+                //session()->has('warning')
+                //session()->get('warning')
+                //\Session::flash('warning', "Iltimos tog'ri telefon raqam kiriting");
+                return \Redirect::back();
+            }
+            $data['phone'] = Str::substr($data['phone_or_email'], -9);
+            $inputs['phone'] = Str::substr($inputs['phone_or_email'], -9);
+            unset($inputs['phone_or_email']);
+            unset($data['phone_or_email']);
+            $rule['phone'] = 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:9|max:13|unique:users';
+            $registered = User::where('phone', $inputs['phone'])->first();
+        }
         $validator = Validator::make($data, $rule);
-
         if ($validator->fails()) {
-            Session::flash('warning', $validator->messages());
-            return redirect()->back();
+            if ($registered) {
+                session([
+                    'warning' => "You already have an account. Please check your ticket via the check ticket link at the bottom of the registration form.",
+                ]);
+            } else {
+                session([
+                    'warning' => $validator->messages(),
+                ]);
+                return redirect()->back();
+            }
         }
 
-        $inputs = $request->all();
         if (!empty($inputs['id'])) {
             $users = User::findOrFail($inputs['id']);
         } else {
@@ -297,18 +329,59 @@ class UserController extends Controller
         $users->last_name = $inputs['last_name'];
         $users->middle_name = $inputs['middle_name'] ?? null;
         $users->gender = $inputs['gender'] ?? null;
-        $users->email = $inputs['email'];
-        $users->phone = $inputs['phone'];
-        $users->country_id = $inputs['country_id'];
+        $users->email = $inputs['email'] ?? null;
+        $users->phone = $inputs['phone'] ?? null;
+        $users->country_id = $inputs['country_id'] ?? 251;
         $users->profession_id = $inputs['profession_id'] ?? null;
         $users->organization = $inputs['organization'] ?? null;
+        $users->password = Hash::make(Str::random(12));
         $users->save();
 
         if (!empty($inputs['id'])) {
-            Session::flash('warning', __('ALL_CHANGES_SUCCESSFUL_SAVED'));
+            session([
+                'warning' => "Ma'lumotlar saqlandi, Sizning bilet raqamingiz: ",
+            ]);
             return redirect('employee/user');
         } else {
-            Session::flash('warning', __('ALL_SUCCESSFUL_SAVED'));
+            $userticket = new UserTicket();
+            $userticket->user_id = $users->id;
+            $userticket->ticket_id = $users->id + 1000000;
+            $userticket->archive_id = 1;
+            $userticket->save();
+
+            if (!empty($inputs['email'])) {
+                $mailData = [
+                    //'title' => 'Mail from ItSolutionStuff.com',
+                    'ticket_id' => $userticket->ticket_id,
+                    //'code' => $userticket->ticket_id,
+                ];
+
+                Mail::to($inputs['email'])->send(new RegisterMail($mailData));
+                if (Mail::flushMacros()) {
+                    session([
+                        'warning' => "Elektron pochta manziliga xabar yuborishda xatolik yuz berdi.",
+                    ]);
+                } else {
+                    session([
+                        'verifyCode' => $userticket->ticket_id,
+                    ]);
+                    session([
+                        'warning' => "Ma'lumotlar saqlandi, Sizning bilet raqamingiz: " . $userticket->ticket_id . ". Iltimos ushbu raqamni kirish vaqtida ruxsat olish uchun foydalaning!",
+                    ]);
+                    return redirect('employee/user');
+                }
+            }
+            $sentSMS = self::SendSMSVerify($inputs['phone'], $userticket->ticket_id);
+            if ($sentSMS) {
+                $inputs['phone'];
+                session([
+                    'warning' => "Ma'lumotlar saqlandi, Sizning bilet raqamingiz: " . $userticket->ticket_id . ". Iltimos ushbu raqamni kirish vaqtida ruxsat olish uchun foydalaning!",
+                ]);
+                return redirect('employee/user');
+            }
+            session([
+                'warning' => "Ma'lumotlar saqlandi, Sizning bilet raqamingiz: " . $userticket->ticket_id . ". Iltimos ushbu raqamni kirish vaqtida ruxsat olish uchun foydalaning!",
+            ]);
             return redirect('employee/user');
         }
     }
