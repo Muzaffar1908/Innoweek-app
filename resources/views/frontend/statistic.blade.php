@@ -78,11 +78,11 @@
                                     </li>
                                     <li class="caption-item">
                                        <span class="number progressing__item-span">{{$live_statistics->countryname_3}}</span>
-                                       <p class="text">{{__('Russia')}}</p>
+                                       <p class="text">{{__('Eron')}}</p>
                                     </li>
                                     <li class="caption-item">
                                        <span class="number progressing__item-span">{{$live_statistics->countryname_4}}</span>
-                                       <p class="text">{{__('Tatarstan')}}</p>
+                                       <p class="text">{{__('Germany')}}</p>
                                     </li>
                                     <li class="caption-item">
                                        <span class="number progressing__item-span">{{$live_statistics->countryname_5}}</span>
@@ -129,23 +129,23 @@
                               <ul class="caption-list">
                                  <li class="caption-item">
                                     <span class="number progressing__item-span">{{$live_statistics->countryson_1}}</span>
-                                    <p class="text">{{__('Uzbek')}}</p>
+                                    <p class="text">{{__('Uz')}}</p>
                                  </li>
                                  <li class="caption-item">
                                     <span class="number progressing__item-span">{{$live_statistics->countryson_2}}</span>
-                                    <p class="text">{{__('RF')}}</p>
+                                    <p class="text">{{__('Tr')}}</p>
                                  </li>
                                  <li class="caption-item">
                                     <span class="number progressing__item-span">{{$live_statistics->countryson_3}}</span>
-                                    <p class="text">{{__('Kaz')}}</p>
+                                    <p class="text">{{__('Er')}}</p>
                                  </li>
                                  <li class="caption-item">
                                     <span class="number progressing__item-span">{{$live_statistics->countryson_4}}</span>
-                                    <p class="text">{{__('Aze')}}</p>
+                                    <p class="text">{{__('Gr')}}</p>
                                  </li>
                                  <li class="caption-item">
                                     <span class="number progressing__item-span">{{$live_statistics->countryson_5}}</span>
-                                    <p class="text">{{__('Rb')}}</p>
+                                    <p class="text">{{__('Az')}}</p>
                                  </li>
                               </ul>
                            </div>
