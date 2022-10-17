@@ -5,6 +5,8 @@ namespace App\Models;
 use App\Models\Archive\Archive;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Carbon;
 
 class Conference extends Model
 {
@@ -51,5 +53,16 @@ class Conference extends Model
     public function archive()
     {
         return $this->hasMany(Conference::class, 'archive_id', 'id');
+    }
+
+    public static function scopeGetSchedule ($date)
+    {
+        $lang = \App::getLocale();
+        return self::query()->
+        select('id', 'started_at', 'stoped_at', DB::raw('SUBSTRING(`title_' . $lang . '`, 1, 255) as title'), 'live_url', 'user_image', DB::raw('SUBSTRING(`description_' . $lang . '`, 1, 260) as text'), 'address_' . $lang . ' as address')
+        ->where('is_active', '=', 1)
+        ->whereDate(DB::raw('started_at'), Carbon::parse($date))
+        ->orderBy('created_at', 'ASC')
+        ->get();
     }
 }

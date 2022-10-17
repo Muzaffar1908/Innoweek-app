@@ -210,7 +210,8 @@ class AuthController extends Controller
             'password' => Hash::make(Str::random(12)),
         ]);
 
-        if ($containsGmail) {
+        //changed for some time
+        if ($contains) {
             $user = new User;
             $user->first_name = session()->get('first_name');
             $user->last_name = session()->get('last_name');

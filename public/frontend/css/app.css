@@ -14888,9 +14888,10 @@ select option {
 }
 
 .scroll-div {
-    height: 440px;
     overflow: hidden;
     overflow-y: scroll;
+    height: auto;
+    max-height: 440px;
 }
 
 .accordion-button:focus {
