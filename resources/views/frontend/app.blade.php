@@ -207,68 +207,68 @@
                 <div class="swiper-wrapper">
                     @foreach ($ConfSchedules as $i => $cons)
                         <div class="swiper-slide scroll-div">
-                            @foreach($condate_data as $k => $dd)
-                                @if(Carbon::parse($cons->date)->format('Y-m-d') == Carbon::parse($dd->started_at)->format('Y-m-d'))
-                                    <div class="panel-group" id="accordionExample{{$i + $k }}">
-                                        <div class="panel panel-default wow fadeInUp animated" data-wow-delay="0.3s" data-wow-duration="1s">
-                                            <div class="panel-heading" id="headingOne{{ $i + $k }}">
-                                                <div class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#collapseOne{{ $i + $k }}" aria-expanded="true" aria-controls="collapseOne" role="button">
-                                                    {{-- <div class="date-time-wrap">
-                                                        <div class="date">{{Carbon::parse($dd->started_at)->format('d')}}</div>
-                                                        <div>
-                                                            <div class="month">{{Carbon::parse($dd->started_at)->format('F')}}</div>
-                                                            <div class="time">{{Carbon::parse($dd->started_at)->format('H:i')}} -{{Carbon::parse($dd->stoped_at)->format('H:i')}} </div>
-                                                        </div>
-                                                    </div> --}}
-                                                    <div class="date-time-wrap">
-                                                        <div class="time">{{Carbon::parse($dd->started_at)->format('H:i')}}<span class="time"></span>{{Carbon::parse($dd->stoped_at)->format('H:i')}}</div>
-                                                        <span class="line bg-white">aaa</span>
-                                                        <div>
-                                                          <div class="date">{{Carbon::parse($dd->started_at)->format('d')}} - {{Carbon::parse($dd->started_at)->format('F ')}}</div>  
-                                                          <div class="month">{{Carbon::parse($dd->started_at)->format('Y')}}</div>
-                                                        </div>
-                                                      </div>
-                                                    <div class="content-box-wrap">
-                                                        <div class="figure-box">
-                                                            <img src="{{asset('upload/conference/' .$dd->user_image.'_thumbnail_267.png')}}" alt="img" with="100px" height="60px">
-                                                        </div>
-                                                        <div class="inner-box">
-                                                        <h3 class="title">{{strip_tags($dd->title)}}</h3>
-                                                        </div>
+                            @foreach(\App\Models\Conference::scopeGetSchedule($cons->date) as $k => $dd)
+                                <div class="panel-group" id="accordionExample{{$i + $k }}">
+                                    <div class="panel panel-default wow fadeInUp animated" data-wow-delay="0.3s" data-wow-duration="1s">
+                                        <div class="panel-heading" id="headingOne{{ $i + $k }}">
+                                            <div class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#collapseOne{{ $i + $k }}"
+                                                aria-expanded="true" aria-controls="collapseOne" role="button">
+
+                                                <div class="date-time-wrap">
+                                                    <div class="time">{{Carbon::parse($dd->started_at)->format('H:i')}}<span
+                                                            class="time"></span>{{Carbon::parse($dd->stoped_at)->format('H:i')}}</div>
+                                                    <span class="line bg-white">aaa</span>
+                                                    <div>
+                                                        <div class="date">{{Carbon::parse($dd->started_at)->format('d')}} -
+                                                            {{Carbon::parse($dd->started_at)->format('F ')}}</div>
+                                                        <div class="month">{{Carbon::parse($dd->started_at)->format('Y')}}</div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div id="collapseOne{{ $i + $k }}" class="accordion-collapse collapse" aria-labelledby="headingOne{{ $i + $k }}" data-bs-parent="#accordionExample{{ $i + $k }}">
-                                                <div class="panel-body">
-                                                  <div class="d-flex justify-content-between schedule-flex">
-                                                        <span class="d-flex flex-column">
-                                                           @isset($dd->live_url)
-                                                               {{-- <a href="{{'https://www.youtube.com/watch?v='.$dd->live_url}}" class="icon-box-link play-btn"> --}}
-                                                                <a href="{{'https://www.youtube.com/watch?v='.$dd->live_url}}" class="icon-box-link play-btn">
-                                                                    <img src="https://img.youtube.com/vi/{{$dd->live_url}}/hqdefault.jpg" class="d-flex mt-4" width="150"
-                                                                        height="120" alt="">
-                                                                </a>
-                                                                <h4 class="text-center text-white">ONLINE</h4>
-                                                           @endisset
-                                                        </span>
-                                                        <span>
-                                                            <p class="description mx-5 mt-4 ">{{strip_tags($dd->text)}}</p>
-                                                        </span>
-                                                  </div>
-                                                  <div class="address-wrap">
-                                                    <div class="icon-box">
-                                                      <svg width="14" height="19" viewBox="0 0 14 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                        <path d="M6.04688 17.8984C6.36328 18.3906 7.10156 18.3906 7.41797 17.8984C12.5508 10.5156 13.5 9.74219 13.5 7C13.5 3.27344 10.4766 0.25 6.75 0.25C2.98828 0.25 0 3.27344 0 7C0 9.74219 0.914062 10.5156 6.04688 17.8984ZM6.75 9.8125C5.16797 9.8125 3.9375 8.58203 3.9375 7C3.9375 5.45312 5.16797 4.1875 6.75 4.1875C8.29688 4.1875 9.5625 5.45312 9.5625 7C9.5625 8.58203 8.29688 9.8125 6.75 9.8125Z" />
-                                                      </svg>
+                                                <div class="content-box-wrap">
+                                                    <div class="figure-box">
+                                                        <img src="{{asset('upload/conference/' .$dd->user_image.'_thumbnail_267.png')}}" alt="img"
+                                                            with="100px" height="60px">
                                                     </div>
-                                                    <div class="address-text">{{strip_tags($dd->address)}}</div>
-                                                  </div>
+                                                    <div class="inner-box">
+                                                        <h3 class="title">{{strip_tags($dd->title)}}</h3>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-
+                                        <div id="collapseOne{{ $i + $k }}" class="accordion-collapse collapse" aria-labelledby="headingOne{{ $i + $k }}"
+                                            data-bs-parent="#accordionExample{{ $i + $k }}">
+                                            <div class="panel-body">
+                                                <div class="d-flex justify-content-between schedule-flex">
+                                                    <span class="d-flex flex-column">
+                                                        @isset($dd->live_url)
+                                                        {{-- <a href="{{'https://www.youtube.com/watch?v='.$dd->live_url}}"
+                                                            class="icon-box-link play-btn"> --}}
+                                                            <a href="{{'https://www.youtube.com/watch?v='.$dd->live_url}}"
+                                                                class="icon-box-link play-btn">
+                                                                <img src="https://img.youtube.com/vi/{{$dd->live_url}}/hqdefault.jpg"
+                                                                    class="d-flex mt-4" width="150" height="120" alt="">
+                                                            </a>
+                                                            <h4 class="text-center text-white">ONLINE</h4>
+                                                            @endisset
+                                                    </span>
+                                                    <span>
+                                                        <p class="description mx-5 mt-4 ">{{strip_tags($dd->text)}}</p>
+                                                    </span>
+                                                </div>
+                                                <div class="address-wrap">
+                                                    <div class="icon-box">
+                                                        <svg width="14" height="19" viewBox="0 0 14 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                            <path
+                                                                d="M6.04688 17.8984C6.36328 18.3906 7.10156 18.3906 7.41797 17.8984C12.5508 10.5156 13.5 9.74219 13.5 7C13.5 3.27344 10.4766 0.25 6.75 0.25C2.98828 0.25 0 3.27344 0 7C0 9.74219 0.914062 10.5156 6.04688 17.8984ZM6.75 9.8125C5.16797 9.8125 3.9375 8.58203 3.9375 7C3.9375 5.45312 5.16797 4.1875 6.75 4.1875C8.29688 4.1875 9.5625 5.45312 9.5625 7C9.5625 8.58203 8.29688 9.8125 6.75 9.8125Z" />
+                                                        </svg>
+                                                    </div>
+                                                    <div class="address-text">{{strip_tags($dd->address)}}</div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                @endif
+                                
+                                </div>
                             @endforeach
                         </div>
                     @endforeach
