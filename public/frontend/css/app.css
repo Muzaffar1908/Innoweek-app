@@ -51,6 +51,7 @@ html {
     height: 100%;
 }
 
+
 body {
     font-size: 16px;
     font-family: "Roboto", sans-serif;
@@ -112,6 +113,22 @@ h1 {
 @media (max-width: 991px) {
     h1 {
         font-size: 36px;
+    }
+    .pavilionnn {
+        padding-top: 0;
+        padding-bottom: 0;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        background: fixed;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        position: relative;
+        z-index: 1;
+        display: flex;
+        justify-content: center;
+        height: auto;
     }
 }
 
@@ -14356,6 +14373,8 @@ body.slidemenuon .sidebarBtn .bar:nth-child(4) {
     font-size: 14px;
 }
 
+
+
 /*========================================================================
 29. Video Sections
 =========================================================================*/
@@ -15265,6 +15284,24 @@ select option {
     .content-box{
         display: block;
     }
+    
+    
+    .pavilionnn {
+        padding-top: 0;
+        padding-bottom: 0;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        background: fixed;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        position: relative;
+        z-index: 1;
+        display: flex;
+        justify-content: center;
+        height: auto;
+    }
 }
 
 .accordion .accordion-item .accordion-button img {
@@ -15305,32 +15342,61 @@ select option {
     height: auto;
 }
 
-.top-left {
+#top-left {
+    width: 100px;
+    position: absolute;
+    left: 42%;
+    top: 34%;
+    transition: all 0.2s ease;
+  }
+#top-right{
+    width: 100px;
+    position: absolute;
+    right: 32%;
+    transition: all 0.2s ease;
+    top: 34%;
+  }
+#bottom-left{
+    width: 100px;
+    position: absolute;
+    bottom: 33%;
+    left: 42%;
+    transition: all 0.2s ease;
+  }
+#bottom-right{
+    width: 100px;
+    position: absolute;
+    bottom: 33%;
+    right: 32%;
+    transition: all 0.2s ease;
+  }
+
+.pavilionnn #top-left {
   width: 100px;
   position: absolute;
-  left: 42%;
-  top: 34%;
+  left: 22%;
+  top: 40%;
   transition: all 0.2s ease;
 }
-.top-right{
+.pavilionnn #top-right{
   width: 100px;
   position: absolute;
-  right: 32%;
+  right: 22%;
   transition: all 0.2s ease;
-  top: 34%;
+  top: 40%;
 }
-.bottom-left{
+.pavilionnn #bottom-left{
   width: 100px;
   position: absolute;
   bottom: 33%;
-  left: 42%;
+  left: 22%;
   transition: all 0.2s ease;
 }
-.bottom-right{
+.pavilionnn #bottom-right{
   width: 100px;
   position: absolute;
   bottom: 33%;
-  right: 32%;
+  right: 22%;
   transition: all 0.2s ease;
 }
 
@@ -15583,6 +15649,26 @@ color: #fff;
         width: 100%;
         padding: 12px;
       }
+      
+    .pavilion {
+        display: none;
+    }
+    .pavilion2 {
+        padding-top: 0;
+        padding-bottom: 0;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        background: fixed;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        position: relative;
+        z-index: 1;
+        display: flex;
+        justify-content: center;
+        height: auto;
+    }
   }
   
   @media ( min-width: 475px) and ( max-width: 775.9px ) {
@@ -15618,6 +15704,10 @@ color: #fff;
         width: 100%;
         padding: 12px;
       }
+    .pavilion {
+        display: none;
+    }
+    
   }
 
   @media ( min-width: 768px) and ( max-width: 989.9px ) {
@@ -15653,6 +15743,10 @@ color: #fff;
         width: 100%;
         padding: 12px;
       }
+      
+    .pavilion {
+        display: none;
+    }
   }
   
   
@@ -15685,15 +15779,23 @@ color: #fff;
     .boxes h3 {
       font-size: 26px;
     }
+    
+    .pavilion2 {
+        display: none;
+    }
   }
 
   .form-control {
     margin-top: 2rem;
 }
 
+
     @media ( max-width: 1500px ) {
         .qrcode .inveestor {
             margin: 217px auto ;
+        }
+        .pavilion2 {
+            display: none;
         }
  }
 

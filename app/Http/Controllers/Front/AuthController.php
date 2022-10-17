@@ -149,7 +149,7 @@ class AuthController extends Controller
             //'password' => 'required|string|min:8',
         ];
         $contains = Str::contains($inputs['phone_or_email'], ['@']);
-        $containsGmail = Str::contains($inputs['phone_or_email'], ['@gmail.com']);
+        $containsGmail = Str::contains($inputs['phone_or_email'], ['@gmail.com', '@yahoo.com']);
 
         if ($contains) {
             $data['email'] = $data['phone_or_email'];
