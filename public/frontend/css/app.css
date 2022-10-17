@@ -15346,14 +15346,14 @@ select option {
 #top-left {
     width: 100px;
     position: absolute;
-    left: 42%;
+    left: 37%;
     top: 34%;
     transition: all 0.2s ease;
   }
 #top-right{
     width: 100px;
     position: absolute;
-    right: 32%;
+    right: 37%;
     transition: all 0.2s ease;
     top: 34%;
   }
@@ -15361,14 +15361,14 @@ select option {
     width: 100px;
     position: absolute;
     bottom: 33%;
-    left: 42%;
+    left: 37%;
     transition: all 0.2s ease;
   }
 #bottom-right{
     width: 100px;
     position: absolute;
     bottom: 33%;
-    right: 32%;
+    right: 37%;
     transition: all 0.2s ease;
   }
 
@@ -15654,22 +15654,35 @@ color: #fff;
     .pavilion {
         display: none;
     }
-    .pavilion2 {
-        padding-top: 0;
-        padding-bottom: 0;
-        min-height: 100vh;
-        display: flex;
-        align-items: center;
-        background: fixed;
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: cover;
-        position: relative;
-        z-index: 1;
-        display: flex;
-        justify-content: center;
-        height: auto;
-    }
+
+    .pavilionnn #top-left {
+        width: 100px;
+        position: absolute;
+        left: 38%;
+        top: 31%;
+        transition: all 0.2s ease;
+      }
+      .pavilionnn #top-right{
+        width: 100px;
+        position: absolute;
+        right: 36%;
+        transition: all 0.2s ease;
+        top: 15%;
+      }
+      .pavilionnn #bottom-left{
+        width: 100px;
+        position: absolute;
+        bottom: 49%;
+        left: 19%;
+        transition: all 0.2s ease;
+      }
+      .pavilionnn #bottom-right{
+        width: 100px;
+        position: absolute;
+        bottom: 49%;
+        right: 14%;
+        transition: all 0.2s ease;
+      }
   }
   
   @media ( min-width: 475px) and ( max-width: 775.9px ) {
@@ -15708,6 +15721,34 @@ color: #fff;
     .pavilion {
         display: none;
     }
+    .pavilionnn #top-left {
+        width: 100px;
+        position: absolute;
+        left: 38%;
+        top: 31%;
+        transition: all 0.2s ease;
+      }
+      .pavilionnn #top-right{
+        width: 100px;
+        position: absolute;
+        right: 36%;
+        transition: all 0.2s ease;
+        top: 15%;
+      }
+      .pavilionnn #bottom-left{
+        width: 100px;
+        position: absolute;
+        bottom: 49%;
+        left: 19%;
+        transition: all 0.2s ease;
+      }
+      .pavilionnn #bottom-right{
+        width: 100px;
+        position: absolute;
+        bottom: 49%;
+        right: 14%;
+        transition: all 0.2s ease;
+      }
     
   }
 
@@ -15748,6 +15789,34 @@ color: #fff;
     .pavilion {
         display: none;
     }
+    .pavilionnn #top-left {
+        width: 100px;
+        position: absolute;
+        left: 45%;
+        top: 30%;
+        transition: all 0.2s ease;
+      }
+      .pavilionnn #top-right{
+        width: 100px;
+        position: absolute;
+        right: 42%;
+        transition: all 0.2s ease;
+        top: 11%;
+      }
+      .pavilionnn #bottom-left{
+        width: 100px;
+        position: absolute;
+        bottom: 44%;
+        left: 28%;
+        transition: all 0.2s ease;
+      }
+      .pavilionnn #bottom-right{
+        width: 100px;
+        position: absolute;
+        bottom: 44%;
+        right: 25%;
+        transition: all 0.2s ease;
+      }
   }
   
   
