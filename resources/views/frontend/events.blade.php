@@ -14,14 +14,14 @@
                     @foreach($events as $event)
                     <div class="event-single-box">
                         <div class="figure-box wow fadeInUp animated" data-wow-delay="0.2s" data-wow-duration="1s">
-                            <a href="{{route('newsshowx',['id'=>$event->id])}}"><img
+                            <a href="{{route('eventshowx',['id'=>$event->id])}}"><img
                                     src="{{asset('/upload/news/' . $event->user_image.'_big_720.png')}}" alt="Event"></a>
                         </div>
                         <div class="content-box">
                             <div class="sub-title wow fadeInUp animated" data-wow-delay="0.3s" data-wow-duration="1s">
                                 {{$event->created_at}}
                             </div>
-                            <a href="{{route('newsshowx',['id'=>$event->id])}}">
+                            <a href="{{route('eventshowx',['id'=>$event->id])}}">
                                 <h2 class="title wow fadeInUp animated" data-wow-delay="0.4s" data-wow-duration="1s">{{$event->title}}</h2>
                                     <p>{{strip_tags($event->text)}}</p>
                             </a>
