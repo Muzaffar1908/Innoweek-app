@@ -63,7 +63,7 @@
 
                               <div class="diagram-desc">
                                  <span class="number">{{$live_statistics->countryname_all}}</span>
-                                 <p class="progressing__text">{{__('Participating companies')}}</p>
+                                 <p class="progressing__text">{{__('Participating companies2')}}</p>
                               </div>
 
                               <div class="legend">
