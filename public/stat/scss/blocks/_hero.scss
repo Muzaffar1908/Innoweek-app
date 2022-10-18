@@ -452,19 +452,19 @@ h2.live-stream-title {
   margin-bottom: 7px;
 }
 
-.live-stream-box::before {
-  content: "";
-  position: absolute;
-  top: calc(50% - 28px);
-  left: calc(50% - 37px);
-  display: inline-block;
-  width: 74px;
-  height: 56px;
-  background-image: url("./../images/youtube-icon-64px.png");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-}
+// .live-stream-box::before {
+//   content: "";
+//   position: absolute;
+//   top: calc(50% - 28px);
+//   left: calc(50% - 37px);
+//   display: inline-block;
+//   width: 74px;
+//   height: 56px;
+//   background-image: url("./../images/youtube-icon-64px.png");
+//   background-repeat: no-repeat;
+//   background-position: center;
+//   background-size: cover;
+// }
 
 .live-stream-box-text {
   text-transform: uppercase;
