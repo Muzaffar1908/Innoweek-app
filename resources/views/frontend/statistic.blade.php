@@ -198,11 +198,11 @@
                            <p class="text">{{__('Number of investment agreements')}}</p>
                         </div>
                      </li>
-                     <li class="progress__item">
+                     {{-- <li class="progress__item">
                         <div class="text-wrapper">
                            <p class="text">{{__('Amount of investment agreements')}}</p>
                         </div>
-                     </li>
+                     </li> --}}
                   </ul>
 
                   {{-- <div class="progressing">
