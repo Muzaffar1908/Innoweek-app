@@ -205,7 +205,7 @@
                      </li>
                   </ul>
 
-                  <div class="progressing">
+                  {{-- <div class="progressing">
                      <div class="text-wrapper">
                         <p class="text progressing__heading">{{__('The number of visitors to the exhibition in the gap languages')}}</p>
                      </div>
@@ -225,7 +225,7 @@
                            </li>
                         </ul>
                      </div>
-                  </div>
+                  </div> --}}
                </div>
             </div>
          </section>
