@@ -291,7 +291,7 @@
                      </iframe>
                   @endisset
                </div>
-               <p class="live-stream-box-text">{{__('Forum')}}-6</p>
+               <p class="live-stream-box-text">{{__('Forum6')}}</p>
             </li>
          </ul>
       </div>
