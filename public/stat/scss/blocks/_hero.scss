@@ -472,6 +472,11 @@ h2.live-stream-title {
   font-size: 15px;
 }
 
+.iframee {
+  width: 300px;
+  height: 190px;
+}
+
 @media only screen and (max-width: 1350px){
 
   .number {
@@ -748,5 +753,9 @@ h2.live-stream-title {
         border-style: none;
         max-width: 440px;
         height: 215px;
+    }
+    .iframee {
+      width: 450px;
+      height: 190px;
     }
   }

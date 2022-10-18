@@ -237,10 +237,8 @@
             <li style="width: 500px;" class="live-stream-item">
                <div class="live-stream-box">
                   @isset($live_statistics->forum_1)
-                     <a href="{{'https://www.youtube.com/watch?v='.$live_statistics->forum_1}}" class="play-btn play-btn-primary stc-img">
-                        <img src="https://img.youtube.com/vi/{{$live_statistics->forum_1}}/hqdefault.jpg" alt="img">
-                        <i class="fas fa-play"></i>
-                     </a>
+                        <iframe  class="iframee"  src="https://www.youtube.com/embed/LlG6ik-nZTc?autoplay=1&mute=1">
+                        </iframe>
                   @endisset
                </div>
                <p class="live-stream-box-text">{{__('Forum1')}}</p>
@@ -249,10 +247,8 @@
             <li class="live-stream-item">
                <div class="live-stream-box">
                   @isset($live_statistics->forum_2)
-                     <a href="{{'https://www.youtube.com/watch?v='.$live_statistics->forum_2}}" class="play-btn play-btn-primary stc-img">
-                        <img src="https://img.youtube.com/vi/{{$live_statistics->forum_2}}/hqdefault.jpg" alt="img" >
-                        <i class="fas fa-play"></i>
-                     </a>
+                    <iframe class="iframee" src="https://www.youtube.com/embed/LlG6ik-nZTc?autoplay=1&mute=1">
+                     </iframe>
                   @endisset
                </div>
                <p class="live-stream-box-text">{{__('Forum2')}}</p>
@@ -261,10 +257,8 @@
             <li class="live-stream-item">
                <div class="live-stream-box">
                   @isset($live_statistics->forum_3)
-                     <a href="{{'https://www.youtube.com/watch?v='.$live_statistics->forum_3}}" class="play-btn play-btn-primary stc-img">
-                        <img src="https://img.youtube.com/vi/{{$live_statistics->forum_3}}/hqdefault.jpg" alt="img">
-                        <i class="fas fa-play"></i>
-                     </a>
+                    <iframe class="iframee" src="https://www.youtube.com/embed/LlG6ik-nZTc?autoplay=1&mute=1">
+                     </iframe>
                   @endisset
                </div>
                <p class="live-stream-box-text">{{__('Forum3')}}</p>
@@ -273,10 +267,8 @@
             <li class="live-stream-item">
                <div class="live-stream-box">
                   @isset($live_statistics->yarmarka_1)
-                     <a href="{{'https://www.youtube.com/watch?v='.$live_statistics->yarmarka_1}}" class="play-btn play-btn-primary stc-img">
-                        <img src="https://img.youtube.com/vi/{{$live_statistics->yarmarka_1}}/hqdefault.jpg" alt="img">
-                        <i class="fas fa-play"></i>
-                     </a>
+                    <iframe class="iframee" src="https://www.youtube.com/embed/LlG6ik-nZTc?autoplay=1&mute=1">
+                     </iframe>
                   @endisset
                </div>
                <p class="live-stream-box-text">{{__('Forum4')}}</p>
@@ -285,10 +277,8 @@
             <li class="live-stream-item">
                <div class="live-stream-box">
                   @isset($live_statistics->yarmarka_2)
-                     <a href="{{'https://www.youtube.com/watch?v='.$live_statistics->yarmarka_2}}" class="play-btn play-btn-primary stc-img">
-                        <img src="https://img.youtube.com/vi/{{$live_statistics->yarmarka_2}}/hqdefault.jpg" alt="img">
-                        <i class="fas fa-play"></i>
-                     </a>
+                    <iframe class="iframee" src="https://www.youtube.com/embed/LlG6ik-nZTc?autoplay=1&mute=1">
+                     </iframe>
                   @endisset
                </div>
                <p class="live-stream-box-text">{{__('Forum5')}}</p>
@@ -297,10 +287,7 @@
             <li class="live-stream-item">
                <div class="live-stream-box">
                   @isset($live_statistics->yarmarka_3)
-                     <a href="{{'https://www.youtube.com/watch?v='.$live_statistics->yarmarka_3}}" class="play-btn play-btn-primary stc-img">
-                        <img src="https://img.youtube.com/vi/{{$live_statistics->yarmarka_3}}/hqdefault.jpg" alt="img">
-                        <i class="fas fa-play"></i>
-                     </a>
+                     
                   @endisset
                </div>
                <p class="live-stream-box-text">{{__('Forum')}}-6</p>
