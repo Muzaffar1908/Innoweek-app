@@ -326,11 +326,11 @@
                         <a class="animation" href="/live360" target="_blank">{{__('LIVE 360')}}</a>
                     </li>
                     <li class="list">
-                        <a class="animation scliked" href="{{asset('frontend/pdf/inno.pdf')}}"
+                        <a class="animation scliked" href="{{__('Invitation_pdf')}}"
                             target="_blank">{{__('Innoweek 2022 Invitation')}}</a>
                     </li>
                     <li class="list">
-                        <a class="animation scliked" href="{{asset('frontend/pdf/Innoen.pdf')}}"
+                        <a class="animation scliked" href="{{__('Presentation_pdf')}}"
                             target="_blank">{{__('Innoweek 2022 Presentation')}}</a>
                     </li>
                     <li class="list">
