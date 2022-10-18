@@ -237,7 +237,7 @@
             <li style="width: 500px;" class="live-stream-item">
                <div class="live-stream-box">
                   @isset($live_statistics->forum_1)
-                        <iframe  class="iframee"  src="https://www.youtube.com/embed/LlG6ik-nZTc?autoplay=1&mute=1">
+                        <iframe  class="iframee"  src="https://www.youtube.com/embed/{{$live_statistics->forum_1}}?autoplay=1&mute=1">
                         </iframe>
                   @endisset
                </div>
@@ -247,7 +247,7 @@
             <li class="live-stream-item">
                <div class="live-stream-box">
                   @isset($live_statistics->forum_2)
-                    <iframe class="iframee" src="https://www.youtube.com/embed/LlG6ik-nZTc?autoplay=1&mute=1">
+                    <iframe class="iframee" src="https://www.youtube.com/embed/{{$live_statistics->forum_2}}?autoplay=1&mute=1">
                      </iframe>
                   @endisset
                </div>
@@ -257,7 +257,7 @@
             <li class="live-stream-item">
                <div class="live-stream-box">
                   @isset($live_statistics->forum_3)
-                    <iframe class="iframee" src="https://www.youtube.com/embed/LlG6ik-nZTc?autoplay=1&mute=1">
+                    <iframe class="iframee" src="https://www.youtube.com/embed/{{$live_statistics->forum_3}}?autoplay=1&mute=1">
                      </iframe>
                   @endisset
                </div>
@@ -267,7 +267,7 @@
             <li class="live-stream-item">
                <div class="live-stream-box">
                   @isset($live_statistics->yarmarka_1)
-                    <iframe class="iframee" src="https://www.youtube.com/embed/LlG6ik-nZTc?autoplay=1&mute=1">
+                    <iframe class="iframee" src="https://www.youtube.com/embed/{{$live_statistics->yarmarka_1}}?autoplay=1&mute=1">
                      </iframe>
                   @endisset
                </div>
@@ -277,7 +277,7 @@
             <li class="live-stream-item">
                <div class="live-stream-box">
                   @isset($live_statistics->yarmarka_2)
-                    <iframe class="iframee" src="https://www.youtube.com/embed/'.$live_statistics->yarmarka_2.'?autoplay=1&mute=1">
+                    <iframe class="iframee" src="https://www.youtube.com/embed/{{$live_statistics->yarmarka_2}}?autoplay=1&mute=1">
                      </iframe>
                   @endisset
                </div>
@@ -287,7 +287,8 @@
             <li class="live-stream-item">
                <div class="live-stream-box">
                   @isset($live_statistics->yarmarka_3)
-                     
+                     <iframe class="iframee" src="https://www.youtube.com/embed/{{$live_statistics->yarmarka_3}}?autoplay=1&mute=1">
+                     </iframe>
                   @endisset
                </div>
                <p class="live-stream-box-text">{{__('Forum')}}-6</p>
