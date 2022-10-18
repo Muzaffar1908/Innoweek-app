@@ -291,7 +291,7 @@
                      </a>
                   @endisset
                </div>
-               <p class="live-stream-box-text">{{__('Forum')}}-5</p>
+               <p class="live-stream-box-text">{{__('Forum5')}}</p>
             </li>
 
             <li class="live-stream-item">
