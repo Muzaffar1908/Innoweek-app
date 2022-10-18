@@ -69,13 +69,13 @@
                     </div>
 
                     <div class="mb-3">
-                        <label for="countryname_3">MAMLAKATLAR BO'YICHA KO`RISHLAR SONI RUS</label>
-                        <input type="number" name="countryname_3" class="form-control" id="countryname_3" placeholder="Mamalakatlar bo`yicha ko`rishlar soni RUS" value="{{old('countryname_3')}}" />
+                        <label for="countryname_3">MAMLAKATLAR BO'YICHA KO`RISHLAR SONI ERON</label>
+                        <input type="number" name="countryname_3" class="form-control" id="countryname_3" placeholder="Mamalakatlar bo`yicha ko`rishlar soni ERON" value="{{old('countryname_3')}}" />
                     </div>
 
                     <div class="mb-3">
-                        <label for="countryname_4">MAMLAKATLAR BO'YICHA KO`RISHLAR SONI TATAR</label>
-                        <input type="number" name="countryname_4" class="form-control" id="countryname_4" placeholder="Mamalakatlar bo`yicha ko`rishlar soni TATAR" value="{{old('countryname_4')}}" />
+                        <label for="countryname_4">MAMLAKATLAR BO'YICHA KO`RISHLAR SONI GERAMNIYA</label>
+                        <input type="number" name="countryname_4" class="form-control" id="countryname_4" placeholder="Mamalakatlar bo`yicha ko`rishlar soni GERAMNIYA" value="{{old('countryname_4')}}" />
                     </div>
 
                     <div class="mb-3">
@@ -99,13 +99,13 @@
                     </div>
 
                     <div class="mb-3">
-                        <label for="countryson_3">MAMLAKATLAR BO'YICHA TASHRIFLAR SONI RUS</label>
-                        <input type="number" name="countryson_3" class="form-control" id="countryson_3" placeholder="Mamlakatlar bo`yicha tashriflar soni RUS" value="{{old('countryson_3')}}" />
+                        <label for="countryson_3">MAMLAKATLAR BO'YICHA TASHRIFLAR SONI ERON</label>
+                        <input type="number" name="countryson_3" class="form-control" id="countryson_3" placeholder="Mamlakatlar bo`yicha tashriflar soni ERON" value="{{old('countryson_3')}}" />
                     </div>
 
                     <div class="mb-3">
-                        <label for="countryson_4">MAMLAKATLAR BO'YICHA TASHRIFLAR SONI TATAR</label>
-                        <input type="number" name="countryson_4" class="form-control" id="countryson_4" placeholder="Mamlakatlar bo`yicha tashriflar soni TATAR" value="{{old('countryson_4')}}" />
+                        <label for="countryson_4">MAMLAKATLAR BO'YICHA TASHRIFLAR SONI GERAMNIYA</label>
+                        <input type="number" name="countryson_4" class="form-control" id="countryson_4" placeholder="Mamlakatlar bo`yicha tashriflar soni GERMANIYA" value="{{old('countryson_4')}}" />
                     </div>
 
                     <div class="mb-3">

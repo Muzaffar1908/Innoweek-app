@@ -243,7 +243,7 @@
                      </a>
                   @endisset
                </div>
-               <p class="live-stream-box-text">{{__('Forum')}}</p>
+               <p class="live-stream-box-text">{{__('Forum1')}}</p>
             </li>
 
             <li class="live-stream-item">
@@ -255,7 +255,7 @@
                      </a>
                   @endisset
                </div>
-               <p class="live-stream-box-text">{{__('Forum')}}-2</p>
+               <p class="live-stream-box-text">{{__('Forum2')}}</p>
             </li>
 
             <li class="live-stream-item">
@@ -267,7 +267,7 @@
                      </a>
                   @endisset
                </div>
-               <p class="live-stream-box-text">{{__('Forum')}}-3</p>
+               <p class="live-stream-box-text">{{__('Forum3')}}</p>
             </li>
 
             <li class="live-stream-item">
