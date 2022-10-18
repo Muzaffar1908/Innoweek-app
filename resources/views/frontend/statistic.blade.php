@@ -277,7 +277,7 @@
             <li class="live-stream-item">
                <div class="live-stream-box">
                   @isset($live_statistics->yarmarka_2)
-                    <iframe class="iframee" src="https://www.youtube.com/embed/LlG6ik-nZTc?autoplay=1&mute=1">
+                    <iframe class="iframee" src="https://www.youtube.com/embed/'.$live_statistics->yarmarka_2.'?autoplay=1&mute=1">
                      </iframe>
                   @endisset
                </div>
