@@ -133,7 +133,7 @@ class PageController extends Controller
 
     public function live_statistic()
     {
-        $live_statistics = LiveStatistic::first();
+        $live_statistics = LiveStatistic::where('is_active', '=', 1)->first();
         return view('frontend.statistic', ['live_statistics' => $live_statistics]);
     }
 
