@@ -97,10 +97,10 @@ Route::controller(FrontAuthController::class)->group(function () {
 });
 
 //middleware('auth', 'isUser') shuni  Qo'shasiz bo'ldi//
-// Route::prefix('employee')->name('emp.')->middleware('auth', 'isUser')->group(function () {
-//    Route::get('/users', [UsersUserController::class, 'index'])->name('user.view');
-//    Route::resource('/user', UsersUserController::class);
-// });
+Route::prefix('employee')->name('emp.')->middleware('auth', 'isUser')->group(function () {
+   Route::get('/users', [UsersUserController::class, 'index'])->name('user.view');
+   Route::resource('/user', UsersUserController::class);
+});
 
 
 // Backend  start !!!
