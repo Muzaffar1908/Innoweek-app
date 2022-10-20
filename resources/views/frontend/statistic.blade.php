@@ -170,14 +170,14 @@
                            <p class="text">{{__('Average age')}}</p>
                         </div>
                      </li>
-                     <li class="progress__item">
+                     {{-- <li class="progress__item">
                         <div class="progress__item-start progress__item-visitors-country">
                            <span class="number">{{$live_statistics->titlenumber_6}}</span>
                         </div>
                         <div class="text-wrapper">
                            <p class="text">{{__('Visitor countries')}}</p>
                         </div>
-                     </li>
+                     </li> --}}
                   </ul>
                </div>
             </div>
