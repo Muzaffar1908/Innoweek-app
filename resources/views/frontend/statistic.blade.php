@@ -170,14 +170,14 @@
                            <p class="text">{{__('Average age')}}</p>
                         </div>
                      </li>
-                     {{-- <li class="progress__item">
-                        <div class="progress__item-start progress__item-visitors-country">
-                           <span class="number">{{$live_statistics->titlenumber_6}}</span>
+                     <li class="progress__item">
+                        <div class="progress__item-start progress__item-amount">
+                           <span class="number">{{$live_statistics->agreement}}</span>
                         </div>
                         <div class="text-wrapper">
-                           <p class="text">{{__('Visitor countries')}}</p>
+                           <p class="text">{{__('Number of investment agreements')}}</p>
                         </div>
-                     </li> --}}
+                     </li>
                   </ul>
                </div>
             </div>
@@ -190,14 +190,14 @@
             <div class="container">
                <div class="progress__inner">
                   <ul class="progress__list">
-                     <li class="progress__item">
+                     {{-- <li class="progress__item">
                         <div class="progress__item-start progress__item-amount">
                            <span class="number">{{$live_statistics->agreement}}</span>
                         </div>
                         <div class="text-wrapper">
                            <p class="text">{{__('Number of investment agreements')}}</p>
                         </div>
-                     </li>
+                     </li> --}}
                      {{-- <li class="progress__item">
                         <div class="text-wrapper">
                            <p class="text">{{__('Amount of investment agreements')}}</p>
