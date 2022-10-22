@@ -97,17 +97,17 @@ Route::controller(FrontAuthController::class)->group(function () {
 });
 
 //middleware('auth', 'isUser') shuni  Qo'shasiz bo'ldi//
-Route::prefix('employee')->name('emp.')->middleware('auth', 'isUser')->group(function () {
-   Route::get('/users', [UsersUserController::class, 'index'])->name('user.view');
-   Route::resource('/user', UsersUserController::class);
-});
+// Route::prefix('employee')->name('emp.')->middleware('auth', 'isUser')->group(function () {
+//    Route::get('/users', [UsersUserController::class, 'index'])->name('user.view');
+//    Route::resource('/user', UsersUserController::class);
+// });
 
 
 // Backend  start !!!
 Route::prefix('admin')->name('admin.')->middleware('auth', 'isAdmin')->group(function () {
-    Route::get('/dashboard/', function () {
-        return view('admin.layout.index');
-    })->name('index');
+    // Route::get('/dashboard/', function () {
+    //     return view('admin.layout.index');
+    // })->name('index');
 
     Route::resource('/user', UserController::class);
     Route::resource('/news_category', NewsCategoryController::class);
@@ -142,7 +142,9 @@ Route::prefix('admin')->name('admin.')->middleware('auth', 'isAdmin')->group(fun
 });
 
 // Backend  stop !!!
-Auth::routes();
+
+// Auth::routes();
+
 // Mobile view start !!!
 Route::group(['prefix' => 'mobile-v'], function () {
     Route::controller(IndexController::class)->group(function () {
