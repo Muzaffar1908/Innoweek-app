@@ -91,7 +91,7 @@
                 </div>
                 <div class="row">
                     @foreach ($promo as $item)
-                    <div class="col-xl-3 col-md-6 wow fadeInLeft animated" data-wow-delay="0.1s" data-wow-duration="1s">
+                    <div class="col-xl-4 col-md-6 wow fadeInLeft animated" data-wow-delay="0.1s" data-wow-duration="1s">
                         <div class="process-box-layout1 color-one">
                         <a href="{{'https://www.youtube.com/watch?v='.$item->url}}" class="icon-box-link play-btn">
                             <div class="icon-box">
