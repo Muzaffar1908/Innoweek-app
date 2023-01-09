@@ -76,7 +76,7 @@
             </div>
         </div>
     </section>
-    
+
 
     <section id="promo" class="process-wrap-layout1" data-bg-image="{{asset('frontend/image/image.jpg')}}">
         <div class="section-heading style-four">
