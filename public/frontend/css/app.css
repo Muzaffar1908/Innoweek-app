@@ -15346,8 +15346,8 @@ select option {
 #top-left {
     width: 100px;
     position: absolute;
-    left: 37%;
-    top: 34%;
+    left: 22%;
+    top: 46%;
     transition: all 0.2s ease;
   }
 #top-right{
@@ -15360,7 +15360,7 @@ select option {
 #bottom-left{
     width: 100px;
     position: absolute;
-    bottom: 33%;
+    bottom: 50%;
     left: 37%;
     transition: all 0.2s ease;
   }

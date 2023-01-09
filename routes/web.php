@@ -142,7 +142,9 @@ Route::prefix('admin')->name('admin.')->middleware('auth', 'isAdmin')->group(fun
 });
 
 // Backend  stop !!!
+
 Auth::routes();
+
 // Mobile view start !!!
 Route::group(['prefix' => 'mobile-v'], function () {
     Route::controller(IndexController::class)->group(function () {

@@ -63,7 +63,7 @@
 
                               <div class="diagram-desc">
                                  <span class="number">{{$live_statistics->countryname_all}}</span>
-                                 <p class="progressing__text">{{__('Participating companies')}}</p>
+                                 <p class="progressing__text">{{__('Participating companies2')}}</p>
                               </div>
 
                               <div class="legend">
@@ -171,11 +171,11 @@
                         </div>
                      </li>
                      <li class="progress__item">
-                        <div class="progress__item-start progress__item-visitors-country">
-                           <span class="number">{{$live_statistics->titlenumber_6}}</span>
+                        <div class="progress__item-start progress__item-amount">
+                           <span class="number">{{$live_statistics->agreement}}</span>
                         </div>
                         <div class="text-wrapper">
-                           <p class="text">{{__('Visitor countries')}}</p>
+                           <p class="text">{{__('Number of investment agreements')}}</p>
                         </div>
                      </li>
                   </ul>
@@ -190,19 +190,19 @@
             <div class="container">
                <div class="progress__inner">
                   <ul class="progress__list">
-                     <li class="progress__item">
+                     {{-- <li class="progress__item">
                         <div class="progress__item-start progress__item-amount">
                            <span class="number">{{$live_statistics->agreement}}</span>
                         </div>
                         <div class="text-wrapper">
                            <p class="text">{{__('Number of investment agreements')}}</p>
                         </div>
-                     </li>
-                     <li class="progress__item">
+                     </li> --}}
+                     {{-- <li class="progress__item">
                         <div class="text-wrapper">
                            <p class="text">{{__('Amount of investment agreements')}}</p>
                         </div>
-                     </li>
+                     </li> --}}
                   </ul>
 
                   {{-- <div class="progressing">
@@ -242,6 +242,7 @@
                   @endisset
                </div>
                <p class="live-stream-box-text">{{__('Forum1')}}</p>
+               {{-- <p class="live-stream-box-text">{{__('time1')}}</p> --}}
             </li>
 
             <li class="live-stream-item">
@@ -252,6 +253,7 @@
                   @endisset
                </div>
                <p class="live-stream-box-text">{{__('Forum2')}}</p>
+               {{-- <p class="live-stream-box-text">{{__('time2')}}</p> --}}
             </li>
 
             <li class="live-stream-item">
@@ -262,6 +264,7 @@
                   @endisset
                </div>
                <p class="live-stream-box-text">{{__('Forum3')}}</p>
+               {{-- <p class="live-stream-box-text">{{__('time3')}}</p> --}}
             </li>
 
             <li class="live-stream-item">
@@ -272,6 +275,7 @@
                   @endisset
                </div>
                <p class="live-stream-box-text">{{__('Forum4')}}</p>
+               {{-- <p class="live-stream-box-text">{{__('time4')}}</p> --}}
             </li>
 
             <li class="live-stream-item">
@@ -282,6 +286,7 @@
                   @endisset
                </div>
                <p class="live-stream-box-text">{{__('Forum5')}}</p>
+               {{-- <p class="live-stream-box-text">{{__('time5')}}</p> --}}
             </li>
 
             <li class="live-stream-item">
@@ -292,6 +297,7 @@
                   @endisset
                </div>
                <p class="live-stream-box-text">{{__('Forum6')}}</p>
+               {{-- <p class="live-stream-box-text">{{__('time6')}}</p> --}}
             </li>
          </ul>
       </div>
