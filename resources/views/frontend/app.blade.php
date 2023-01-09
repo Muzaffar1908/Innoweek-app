@@ -203,6 +203,7 @@
                     <i class="fas fa-chevron-right"></i>
                 </span>
             </div>
+            
             <div class="shcedule-slider-style-1 swiper-container schedule-box-layout3 schedule-content">
                 <div class="swiper-wrapper">
                     @foreach ($ConfSchedules as $i => $cons)
