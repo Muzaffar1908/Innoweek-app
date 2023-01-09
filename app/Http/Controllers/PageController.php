@@ -41,6 +41,7 @@ class PageController extends Controller
         $promo = Promo::select('id', 'archive_id', 'url_'. $lang . ' as url')->where('is_active', '=', 1)->take(10)->get();
         $promo2 = Promo2::select('id', 'archive_id', 'promo_url_'. $lang . ' as promo_url')->where('is_active', '=', 1)->orderBy('created_at', 'desc')->first();
         return view('frontend.app', ['ConfSchedules' => $ConfSchedules, 'condate_data' => $condate_data, 'promo' => $promo, 'promo2' => $promo2, 'news' => $news, 'news_event' => $news_event, 'speakers' => $speakers, 'galleries' => $galleries, 'partners' => $partners, 'events' => $events, 'lang' => $lang]);
+        
     }
 
 
