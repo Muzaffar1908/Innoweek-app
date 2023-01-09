@@ -10,7 +10,7 @@
                             {{__('INTERNATIONAL WEEK OF')}} <span>{{__('INNOVATIVE')}}</span> {{__('IDEAS 2022')}}
                         </h1>
                         <p class="description wow fadeInUp animated" data-wow-delay="1s">
-                           “{{__('Green innovations for sustainable development')}}” <br>{{__('October 17-21')}}
+                           “{{__('Green innovations for sustainable development')}}” <br>
                         <ul>
                             <li class="d-flex justify-content-center align-items-center wow fadeInUp animated"
                                 data-wow-delay="1.2s">
