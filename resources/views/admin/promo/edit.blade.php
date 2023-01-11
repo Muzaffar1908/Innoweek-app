@@ -77,6 +77,21 @@
                         <input type="text" name="url_en"  class="form-control" id="url_en" placeholder="Youtobe ID en enter" value="{{$promo->url_en}}" />
                     </div>
 
+                    <div class="mb-3">
+                        <label for="promo_date_uz">Promo Date uz</label>
+                        <input type="text" name="promo_date_uz"  class="form-control" id="promo_date_uz" placeholder="Promo Date uz" value="{{$promo->promo_date_uz}}" />
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="promo_date_ru">Promo Date ru</label>
+                        <input type="text" name="promo_date_ru"  class="form-control" id="promo_date_ru" placeholder="Promo Date ru" value="{{$promo->promo_date_ru}}" />
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="promo_date_en">Promo Date en</label>
+                        <input type="text" name="promo_date_en"  class="form-control" id="promo_date_en" placeholder="Promo Date en" value="{{$promo->promo_date_en}}" />
+                    </div>
+
                     <button type="submit" class="btn btn-success">Save</button>
 
                 </form>

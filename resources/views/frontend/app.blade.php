@@ -105,6 +105,7 @@
                         </a>
                         <h3 class="title">
                             <p> <a href="{{$item->url}}" class="icon-box-link play-btn">INNOWEEK {{$item->archiveTable->year}} </a></p>
+                            <p> <a href="" class="icon-box-link play-btn">{{$item->date}}</a></p>
                         </h3>
                         </div>
                     </div>

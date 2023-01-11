@@ -52,6 +52,7 @@
                                         <th>№</th>
                                         <th>YouTube ID</th>
                                         <th>Archive Year</th>
+                                        <th>Promo Date</th>
                                         <th>User name</th>
                                         <th>Status</th>
                                         <th>Action</th>
@@ -62,10 +63,8 @@
                                             <td>{{($promo->currentpage() - 1) * $promo->perpage() + ($loop->index+1)}}</td>
                                             <td>{{$pro->url_uz}}</td>
                                             <td>{{$pro->archiveTable->year}}</td>
+                                            <td>{{$pro->promo_date_uz}}</td>
                                             <td>{{$pro->UserTable->first_name}}</td>
-
-
-
                                             <td>
                                                 <form action="{{ asset('/admin/promo/is_active/' . $pro->id) }}"
                                                     method="POST" enctype="multipart/form-data">

@@ -47,4 +47,9 @@ class Archive extends Model
         return $this->hasMany(Promo::class, 'archive_id', 'id');
     }
 
+    public static function scopeArchiveList()
+    {
+        return  self::query()->select('id', 'year')->get();
+    }
+
 }

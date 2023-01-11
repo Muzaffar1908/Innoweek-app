@@ -14,6 +14,9 @@ class Promo extends Model
       'url_uz',
       'url_ru',
       'url_en',
+      'promo_date_uz',
+      'promo_date_ru',
+      'promo_date_en',
       'is_active',
     ];
 

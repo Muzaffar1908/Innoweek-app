@@ -20,6 +20,9 @@ return new class extends Migration
             $table->string('url_uz');
             $table->string('url_ru')->nullable();
             $table->string('url_en')->nullable();
+            $table->string('promo_date_uz')->nullable();
+            $table->string('promo_date_ru')->nullable();
+            $table->string('promo_date_en')->nullable();
             $table->boolean('is_active')->nullable()->default(true);
             $table->timestamps();
         });

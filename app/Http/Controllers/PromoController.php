@@ -14,7 +14,7 @@ class PromoController extends Controller
 {
     public function index()
     {
-        $promo = Promo::orderBy('id','desc')->paginate(20);
+        $promo = Promo::select('id', 'user_id', 'archive_id', 'url_uz', 'promo_date_uz', 'is_active', 'created_at')->orderBy('created_at','desc')->paginate(20);
         $users = User::all();
         $archives = Archive::all();
         return view('admin.promo.index', ['promo' => $promo, 'users' => $users, 'archives' => $archives]);
@@ -67,6 +67,9 @@ class PromoController extends Controller
         $promo->url_uz = $inputs['url_uz'];
         $promo->url_ru = $inputs['url_ru'];
         $promo->url_en = $inputs['url_en'];
+        $promo->promo_date_uz = $inputs['promo_date_uz'];
+        $promo->promo_date_ru = $inputs['promo_date_ru'];
+        $promo->promo_date_en = $inputs['promo_date_en'];
         $promo->save();
 
         if (!empty($inputs['id'])) {
@@ -118,6 +121,9 @@ class PromoController extends Controller
         $promo->url_uz = $inputs['url_uz'];
         $promo->url_ru = $inputs['url_ru'];
         $promo->url_en = $inputs['url_en'];
+        $promo->promo_date_uz = $inputs['promo_date_uz'];
+        $promo->promo_date_ru = $inputs['promo_date_ru'];
+        $promo->promo_date_en = $inputs['promo_date_en'];
         $promo->save();
 
         if (!empty($inputs['id'])) {
